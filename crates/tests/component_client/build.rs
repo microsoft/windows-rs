@@ -6,6 +6,9 @@ use windows_bindgen::*;
 fn main() {
     std::fs::create_dir_all(".windows/winmd").unwrap();
 
+    // I would have expected Cargo to wait until the component crate (which is a dependency) is built
+    // before starting to run this dependent crate but Cargo seems to be a little too eager to get started.
+    // I'm not sure why...
     while copy("../component/.windows/winmd/component.winmd", ".windows/winmd/component.winmd").is_err() {
         std::thread::yield_now();
     }
