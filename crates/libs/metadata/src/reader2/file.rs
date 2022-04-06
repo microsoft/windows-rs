@@ -1,4 +1,5 @@
 use super::*;
+use std::cmp::*;
 use windows_sys::{Win32::System::Diagnostics::Debug::*, Win32::System::SystemServices::*};
 
 #[derive(Default)]
@@ -358,6 +359,66 @@ impl File {
         }
         let offset = offset + blob_size_bytes;
         &self.bytes[offset..offset + blob_size]
+    }
+
+    pub fn equal_range(&self, table: usize, column: usize, value: usize) -> (usize, usize) {
+        let mut first = 0;
+        let mut last = self.tables[table].len;
+        let mut count = last;
+        loop {
+            if count == 0 {
+                last = first;
+                break;
+            }
+            let count2 = count / 2;
+            let middle = first + count2;
+            let middle_value = self.usize(middle, table, column);
+            match middle_value.cmp(&value) {
+                Ordering::Less => {
+                    first = middle + 1;
+                    count -= count2 + 1;
+                }
+                Ordering::Greater => count = count2,
+                Ordering::Equal => {
+                    let first2 = self.lower_bound_of(table, first, middle, column, value);
+                    first += count;
+                    last = self.upper_bound_of(table, middle + 1, first, column, value);
+                    first = first2;
+                    break;
+                }
+            }
+        }
+        (first, last)
+    }
+
+    fn lower_bound_of(&self, table: usize, mut first: usize, last: usize, column: usize, value: usize) -> usize {
+        let mut count = last - first;
+        while count > 0 {
+            let count2 = count / 2;
+            let middle = first + count2;
+            if self.usize(middle, table, column) < value {
+                first = middle + 1;
+                count -= count2 + 1;
+            } else {
+                count = count2;
+            }
+        }
+        first
+    }
+
+    pub fn upper_bound_of(&self, table: usize, mut first: usize, last: usize, column: usize, value: usize) -> usize {
+        let mut count = last - first;
+        while count > 0 {
+            let count2 = count / 2;
+            let middle = first + count2;
+            if value < self.usize(middle, table, column) {
+                count = count2
+            } else {
+                first = middle + 1;
+                count -= count2 + 1;
+            }
+        }
+        first
     }
 }
 

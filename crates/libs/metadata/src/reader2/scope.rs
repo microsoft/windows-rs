@@ -69,6 +69,11 @@ impl<'a> Scope<'a> {
         Blob::new(self, file, self.files[file].blob(key.row as _, key.table as _, column))
     }
 
+    pub fn equal_range(&self, file: usize, table: usize, column: usize, value: usize) -> impl Iterator<Item = Row> {
+        let (first, last) = self.files[file].equal_range(table, column, value);
+        (first..last).map(move |row| Row::new(self, ScopeKey::new(row, table, file)))
+    }
+
     pub fn list(&self, key: &ScopeKey, table: usize, column: usize) -> impl Iterator<Item = Row> {
         let file = key.file as usize;
         let first = self.usize(key, column) - 1;

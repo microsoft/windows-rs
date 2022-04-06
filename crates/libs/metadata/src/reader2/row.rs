@@ -23,6 +23,10 @@ impl<'a> Row<'a> {
         self.scope.blob(&self.key, column)
     }
 
+    pub fn equal_range(&self, table: usize, column: usize, value: usize) -> impl Iterator<Item = Row> {
+        self.scope.equal_range(self.key.file as _, table, column, value)
+    }
+
     pub fn list(&'a self, table: usize, column: usize) -> impl Iterator<Item = Row<'a>> {
         self.scope.list(&self.key, table, column)
     }

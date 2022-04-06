@@ -22,6 +22,9 @@ impl<'a> TypeDef<'a> {
     pub fn methods(&self) -> impl Iterator<Item = MethodDef> {
         self.0.list(TABLE_METHODDEF, 5).map(MethodDef)
     }
+    // pub fn attributes(&self) -> impl Iterator<Item = MethodDef> {
+    //     self.row.file.attributes(HasAttribute::TypeDef(self.clone()))
+    // }
 
     pub fn type_name(&self) -> TypeName {
         TypeName::new(self.namespace(), self.name())
