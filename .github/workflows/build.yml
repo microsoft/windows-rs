@@ -123,8 +123,6 @@ jobs:
         cargo clippy -p test_arch &&
         cargo clippy -p test_arch_feature &&
         cargo clippy -p test_bstr &&
-        cargo clippy -p test_component &&
-        cargo clippy -p test_component_client &&
         cargo clippy -p test_const_fields &&
         cargo clippy -p test_core &&
         cargo clippy -p test_debug &&
@@ -140,6 +138,8 @@ jobs:
         cargo clippy -p test_matrix3x2 &&
         cargo clippy -p test_mshtml &&
         cargo clippy -p test_nightly_class_factory &&
+        cargo clippy -p test_nightly_component &&
+        cargo clippy -p test_nightly_component_client &&
         cargo clippy -p test_nightly_data_object &&
         cargo clippy -p test_nightly_drop_target &&
         cargo clippy -p test_nightly_identity &&

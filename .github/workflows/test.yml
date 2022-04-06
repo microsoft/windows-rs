@@ -77,8 +77,6 @@ jobs:
         cargo test --target ${{ matrix.target }} -p test_arch &&
         cargo test --target ${{ matrix.target }} -p test_arch_feature &&
         cargo test --target ${{ matrix.target }} -p test_bstr &&
-        cargo test --target ${{ matrix.target }} -p test_component &&
-        cargo test --target ${{ matrix.target }} -p test_component_client &&
         cargo test --target ${{ matrix.target }} -p test_const_fields &&
         cargo test --target ${{ matrix.target }} -p test_core &&
         cargo test --target ${{ matrix.target }} -p test_debug &&
@@ -139,6 +137,8 @@ jobs:
         cargo test --target ${{ matrix.target }} -p sample_xaml_app &&
         cargo test --target ${{ matrix.target }} -p sample_xml &&
         cargo test --target ${{ matrix.target }} -p test_nightly_class_factory &&
+        cargo test --target ${{ matrix.target }} -p test_nightly_component &&
+        cargo test --target ${{ matrix.target }} -p test_nightly_component_client &&
         cargo test --target ${{ matrix.target }} -p test_nightly_data_object &&
         cargo test --target ${{ matrix.target }} -p test_nightly_drop_target &&
         cargo test --target ${{ matrix.target }} -p test_nightly_identity &&
