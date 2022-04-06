@@ -37,7 +37,7 @@ unsafe impl Abi for PCWSTR {
     unsafe fn drop_param(param: &mut Param<'_, Self>) {
         if let Param::Boxed(value) = param {
             if !value.is_null() {
-                bindings::BSTR::from_raw(value.0);
+                heap_free(value.0 as _);
             }
         }
     }
@@ -45,7 +45,7 @@ unsafe impl Abi for PCWSTR {
 #[cfg(feature = "alloc")]
 impl<'a> IntoParam<'a, PCWSTR> for &str {
     fn into_param(self) -> Param<'a, PCWSTR> {
-        unsafe { Param::Boxed(PCWSTR(bindings::SysAllocStringLen(&self.encode_utf16().collect::<alloc::vec::Vec<u16>>()).into_raw())) }
+        Param::Boxed(PCWSTR(heap_string(&self.encode_utf16().collect::<alloc::vec::Vec<u16>>())))
     }
 }
 #[cfg(feature = "alloc")]
@@ -58,7 +58,7 @@ impl<'a> IntoParam<'a, PCWSTR> for alloc::string::String {
 impl<'a> IntoParam<'a, PCWSTR> for &::std::ffi::OsStr {
     fn into_param(self) -> Param<'a, PCWSTR> {
         use ::std::os::windows::ffi::OsStrExt;
-        unsafe { Param::Boxed(PCWSTR(bindings::SysAllocStringLen(&self.encode_wide().collect::<alloc::vec::Vec<u16>>()).into_raw())) }
+        Param::Boxed(PCWSTR(heap_string(&self.encode_wide().collect::<alloc::vec::Vec<u16>>())))
     }
 }
 #[cfg(feature = "alloc")]
