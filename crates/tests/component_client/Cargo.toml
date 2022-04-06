@@ -1,0 +1,18 @@
+[package]
+name = "test_component_client"
+version = "0.0.0"
+authors = ["Microsoft"]
+edition = "2021"
+
+[dependencies.windows]
+path = "../../libs/windows"
+features = [
+    "alloc",
+    "Win32_Foundation",
+]
+
+[build-dependencies.windows-bindgen]
+path = "../../libs/bindgen"
+
+[dependencies.test_component]
+path = "../component"

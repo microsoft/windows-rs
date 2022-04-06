@@ -1,5 +1,6 @@
 .vscode
 .vs
+.windows
 target
 packages
 obj
@@ -8,3 +9,4 @@ bin
 *.user
 *.filters
 *.bin
+
