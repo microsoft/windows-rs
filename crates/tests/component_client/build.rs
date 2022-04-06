@@ -4,7 +4,10 @@ use std::process::*;
 use windows_bindgen::*;
 
 fn main() {
-    println!("cargo:rerun-if-changed=../component/.windows/winmd/component.winmd");
+    while !std::path::Path::new("../component/.windows/winmd/component.winmd").exists() {
+        std::thread::yield_now();
+    }
+    
     std::fs::create_dir_all(".windows/winmd").unwrap();
     copy("../component/.windows/winmd/component.winmd", ".windows/winmd/component.winmd").unwrap();
 
