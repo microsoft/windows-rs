@@ -80,8 +80,9 @@ jobs:
       if: matrix.version == 'stable'
 
     - name: Test nightly
+      shell: cmd
       run: |
-        set PATH=%PATH%;"C:\Program Files (x86)\Windows Kits\10\bin\10.0.22000.0\x64" &&"#,
+        set PATH=%PATH%;C:\Program Files (x86)\Windows Kits\10\bin\10.0.22000.0\x64 &&"#,
     );
 
     for name in crates() {
