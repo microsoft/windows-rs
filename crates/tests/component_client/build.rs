@@ -4,12 +4,15 @@ use std::process::*;
 use windows_bindgen::*;
 
 fn main() {
+    std::fs::create_dir_all(".windows/winmd").unwrap();
+
     while !std::path::Path::new("../component/.windows/winmd/component.winmd").exists() {
         std::thread::yield_now();
     }
-    
-    std::fs::create_dir_all(".windows/winmd").unwrap();
-    copy("../component/.windows/winmd/component.winmd", ".windows/winmd/component.winmd").unwrap();
+
+    while copy("../component/.windows/winmd/component.winmd", ".windows/winmd/component.winmd").is_err() {
+        std::thread::yield_now();
+    }
 
     let gen = Gen { namespace: "test_component", component: true, ..Default::default() };
     let mut bindings = File::create("src/bindings.rs").unwrap();
