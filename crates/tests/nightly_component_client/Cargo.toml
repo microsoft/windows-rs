@@ -1,5 +1,5 @@
 [package]
-name = "test_component_client"
+name = "test_nightly_component_client"
 version = "0.0.0"
 authors = ["Microsoft"]
 edition = "2021"
@@ -14,5 +14,5 @@ features = [
 [build-dependencies.windows-bindgen]
 path = "../../libs/bindgen"
 
-[dependencies.test_component]
-path = "../component"
+[dependencies.test_nightly_component]
+path = "../nightly_component"

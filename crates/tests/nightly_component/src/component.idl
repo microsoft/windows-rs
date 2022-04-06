@@ -1,4 +1,4 @@
-namespace test_component
+namespace test_nightly_component
 {
     runtimeclass Class
     {

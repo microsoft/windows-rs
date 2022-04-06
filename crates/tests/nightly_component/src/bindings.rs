@@ -38,7 +38,7 @@ impl ::core::fmt::Debug for Class {
     }
 }
 unsafe impl ::windows::core::RuntimeType for Class {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(test_component.Class;{a3307453-713a-5c8d-80e4-d73a7bd5e500})");
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(test_nightly_component.Class;{9c2c130e-93de-591a-a879-912616487c8b})");
     type DefaultType = ::core::option::Option<Self>;
     fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
         from.as_ref().cloned().ok_or(::windows::core::Error::OK)
@@ -49,7 +49,7 @@ unsafe impl ::windows::core::Interface for Class {
     const IID: ::windows::core::GUID = <IClass as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for Class {
-    const NAME: &'static str = "test_component.Class";
+    const NAME: &'static str = "test_nightly_component.Class";
 }
 impl ::core::convert::From<Class> for ::windows::core::IUnknown {
     fn from(value: Class) -> Self {
@@ -98,7 +98,7 @@ unsafe impl ::core::marker::Sync for Class {}
 pub struct IClass(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IClass {
     type Vtable = IClass_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa3307453_713a_5c8d_80e4_d73a7bd5e500);
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9c2c130e_93de_591a_a879_912616487c8b);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -112,7 +112,7 @@ pub trait IClass_Impl: Sized {
     fn SetProperty(&self, value: i32) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IClass {
-    const NAME: &'static str = "test_component.IClass";
+    const NAME: &'static str = "test_nightly_component.IClass";
 }
 impl IClass_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IClass_Impl, const OFFSET: isize>() -> IClass_Vtbl {

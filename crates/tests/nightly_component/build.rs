@@ -13,7 +13,7 @@ fn main() {
         panic!();
     }
 
-    let gen = Gen { namespace: "test_component", component: true, ..Default::default() };
+    let gen = Gen { namespace: "test_nightly_component", component: true, ..Default::default() };
     let mut bindings = File::create("src/bindings.rs").unwrap();
     bindings.write_all(gen_namespace(&gen).as_bytes()).unwrap();
     bindings.write_all(gen_namespace_impl(&gen).as_bytes()).unwrap();
