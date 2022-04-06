@@ -14,8 +14,8 @@ pub enum HasCustomAttribute<'a> {
 }
 
 impl<'a> HasCustomAttribute<'a> {
-    pub fn encode(&self) -> u32 {
-        match self {
+    pub fn encode(&self) -> usize {
+        (match self {
             Self::MethodDef(value) => ((value.0.key.row + 1) << 5),
             Self::Field(value) => ((value.0.key.row + 1) << 5) | 1,
             Self::TypeRef(value) => ((value.0.key.row + 1) << 5) | 2,
@@ -25,7 +25,7 @@ impl<'a> HasCustomAttribute<'a> {
             Self::MemberRef(value) => ((value.0.key.row + 1) << 5) | 6,
             Self::TypeSpec(value) => ((value.0.key.row + 1) << 5) | 13,
             Self::GenericParam(value) => ((value.0.key.row + 1) << 5) | 19,
-        }
+        }) as _
     }
 }
 

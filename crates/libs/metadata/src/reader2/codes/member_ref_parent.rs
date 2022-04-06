@@ -9,13 +9,13 @@ pub enum MemberRefParent<'a> {
 }
 
 impl<'a> MemberRefParent<'a> {
-    pub fn encode(&self) -> u32 {
-        match self {
+    pub fn encode(&self) -> usize {
+        (match self {
             Self::TypeDef(value) => ((value.0.key.row + 1) << 3),
             Self::TypeRef(value) => ((value.0.key.row + 1) << 3) | 1,
             Self::MethodDef(value) => ((value.0.key.row + 1) << 3) | 3,
             Self::TypeSpec(value) => ((value.0.key.row + 1) << 3) | 4,
-        }
+        }) as _
     }
 
     pub fn name(&self) -> &str {

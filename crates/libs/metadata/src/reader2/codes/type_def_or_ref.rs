@@ -9,13 +9,13 @@ pub enum TypeDefOrRef<'a> {
 }
 
 impl<'a> TypeDefOrRef<'a> {
-    pub fn encode(&self) -> u32 {
-        match self {
+    pub fn encode(&self) -> usize {
+        (match self {
             Self::None => 0,
             Self::TypeDef(value) => ((value.0.key.row + 1) << 2),
             Self::TypeRef(value) => ((value.0.key.row + 1) << 2) | 1,
             Self::TypeSpec(value) => ((value.0.key.row + 1) << 2) | 2,
-        }
+        }) as _
     }
 
     pub fn resolve(&self) -> impl Iterator<Item = TypeDef> {

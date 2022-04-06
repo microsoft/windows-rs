@@ -31,6 +31,10 @@ impl<'a> Row<'a> {
         self.scope.list(&self.key, table, column)
     }
 
+    pub fn attributes(&self, source: HasCustomAttribute) -> impl Iterator<Item = CustomAttribute> {
+        self.scope.equal_range(self.key.file as _, TABLE_CUSTOMATTRIBUTE, 0, source.encode()).map(CustomAttribute)
+    }
+
     pub fn decode<T: Decode<'a>>(&self, column: usize) -> T {
         self.scope.decode(&self.key, column)
     }

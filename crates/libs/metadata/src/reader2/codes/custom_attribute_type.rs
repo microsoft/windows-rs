@@ -7,11 +7,11 @@ pub enum CustomAttributeType<'a> {
 }
 
 impl<'a> CustomAttributeType<'a> {
-    pub fn encode(&self) -> u32 {
-        match self {
+    pub fn encode(&self) -> usize {
+        (match self {
             Self::MethodDef(value) => ((value.0.key.row + 1) << 3) | 2,
             Self::MemberRef(value) => ((value.0.key.row + 1) << 3) | 3,
-        }
+        }) as _
     }
 }
 
