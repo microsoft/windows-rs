@@ -26,10 +26,11 @@ fn main() {
     println!("TypeReader: {}", now.elapsed().as_millis());
 
     writer::test();
-    let mut files = Vec::new();
-    files.push(reader2::File::new("crates/libs/metadata/default/Windows.winmd").unwrap());
-    files.push(reader2::File::new("crates/libs/metadata/default/Windows.Win32.winmd").unwrap());
+    let files = vec![
+    reader2::File::new("crates/libs/metadata/default/Windows.winmd").unwrap(),
+    reader2::File::new("crates/libs/metadata/default/Windows.Win32.winmd").unwrap(),
    // files.push(reader2::File::new("/git/test.winmd").unwrap());
+    ];
 
     let now = Instant::now();
     let scope = reader2::Scope::new(&files);
@@ -39,7 +40,7 @@ fn main() {
     let _tree = scope.tree();
     println!("Tree: {}", now.elapsed().as_millis());
 
-    for ty in scope.resolve(&reader2::TypeName::new("Windows.UI.Composition", "Compositor")) {
+    for _ty in scope.get(&reader2::TypeName::new("Windows.UI.Composition", "Compositor")) {
        // println!("{}", ty.extends().type_name());
     }
 }

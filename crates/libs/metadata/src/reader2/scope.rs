@@ -50,7 +50,7 @@ impl<'a> Scope<'a> {
         self.nested[&type_def.0.key].values().map(|key| TypeDef(Row::new(self, *key), Vec::new()))
     }
 
-    pub fn resolve(&self, name: &TypeName) -> impl Iterator<Item = TypeDef> {
+    pub fn get(&self, name: &TypeName) -> impl Iterator<Item = TypeDef> {
         let types: &[ScopeKey] = if let Some(types) = self.types.get(name.namespace).and_then(|types| types.get(name.name)) { types } else { &[] };
 
         types.iter().map(|key| TypeDef(Row::new(self, *key), Vec::new()))

@@ -28,21 +28,3 @@ impl<'a> HasAttribute<'a> {
         }) as _
     }
 }
-
-impl<'a> Decode<'a> for HasAttribute<'a> {
-    fn decode(scope: &'a Scope, file: usize, code: usize) -> Self {
-        let (kind, row) = (code & ((1 << 5) - 1), (code >> 5) - 1);
-        match kind {
-            0 => Self::MethodDef(MethodDef(Row::new(scope, ScopeKey::new(row, TABLE_METHODDEF, file)))),
-            1 => Self::Field(Field(Row::new(scope, ScopeKey::new(row, TABLE_FIELD, file)))),
-            2 => Self::TypeRef(TypeRef(Row::new(scope, ScopeKey::new(row, TABLE_TYPEREF, file)))),
-            3 => Self::TypeDef(TypeDef(Row::new(scope, ScopeKey::new(row, TABLE_TYPEDEF, file)), Vec::new())),
-            4 => Self::Param(Param(Row::new(scope, ScopeKey::new(row, TABLE_PARAM, file)))),
-            5 => Self::InterfaceImpl(InterfaceImpl(Row::new(scope, ScopeKey::new(row, TABLE_INTERFACEIMPL, file)))),
-            6 => Self::MemberRef(MemberRef(Row::new(scope, ScopeKey::new(row, TABLE_MEMBERREF, file)))),
-            13 => Self::TypeSpec(TypeSpec(Row::new(scope, ScopeKey::new(row, TABLE_TYPESPEC, file)))),
-            19 => Self::GenericParam(GenericParam(Row::new(scope, ScopeKey::new(row, TABLE_GENERICPARAM, file)))),
-            _ => unimplemented!(),
-        }
-    }
-}

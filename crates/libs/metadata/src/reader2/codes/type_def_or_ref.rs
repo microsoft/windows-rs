@@ -8,17 +8,6 @@ pub enum TypeDefOrRef<'a> {
     TypeSpec(TypeSpec<'a>),
 }
 
-impl<'a> TypeDefOrRef<'a> {
-    pub fn encode(&self) -> usize {
-        (match self {
-            Self::None => 0,
-            Self::TypeDef(value) => ((value.0.key.row + 1) << 2),
-            Self::TypeRef(value) => ((value.0.key.row + 1) << 2) | 1,
-            Self::TypeSpec(value) => ((value.0.key.row + 1) << 2) | 2,
-        }) as _
-    }
-}
-
 impl<'a> Decode<'a> for TypeDefOrRef<'a> {
     fn decode(scope: &'a Scope, file: usize, code: usize) -> Self {
         if code == 0 {

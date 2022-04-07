@@ -1,6 +1,6 @@
+mod attribute;
 mod class_layout;
 mod constant;
-mod attribute;
 mod field;
 mod generic_param;
 mod impl_map;
@@ -14,9 +14,9 @@ mod type_ref;
 mod type_spec;
 
 use super::*;
+pub use attribute::*;
 pub use class_layout::*;
 pub use constant::*;
-pub use attribute::*;
 pub use field::*;
 pub use generic_param::*;
 pub use impl_map::*;
