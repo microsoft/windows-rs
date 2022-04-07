@@ -80,6 +80,7 @@ jobs:
           }
           "*"
           {
+            (Join-Path $(Get-Location) "target\test\debug\deps").ToString() >> $env:GITHUB_PATH
             "INCLUDE=C:\Program Files (x86)\Windows Kits\10\include\10.0.22000.0\winrt;C:\Program Files (x86)\Windows Kits\10\include\10.0.22000.0\cppwinrt" `
               >> $env:GITHUB_ENV
           }
@@ -102,8 +103,6 @@ jobs:
 
     - name: Test nightly
       shell: cmd
-      env:
-        CARGO_TARGET_DIR: target/${{ matrix.target }}
       run: >"#,
     );
 
