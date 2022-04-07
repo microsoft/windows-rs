@@ -78,6 +78,11 @@ jobs:
             ((Resolve-Path "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Tools\MSVC\*\bin\Hostx64\x64")
               | Sort-Object -Descending | Select -First 1).ToString() >> $env:GITHUB_PATH
           }
+          "*"
+          {
+            "INCLUDE=C:\Program Files (x86)\Windows Kits\10\include\10.0.22000.0\winrt;C:\Program Files (x86)\Windows Kits\10\include\10.0.22000.0\cppwinrt" `
+              >> $env:GITHUB_ENV
+          }
         }
     - name: Test stable
       run: >"#
@@ -98,7 +103,7 @@ jobs:
     - name: Test nightly
       shell: cmd
       env:
-        CARGO_TARGET_DIR: target/${{ matrix.target }}/debug
+        CARGO_TARGET_DIR: target/${{ matrix.target }}
       run: >"#,
     );
 
