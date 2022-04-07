@@ -7,7 +7,6 @@ impl<'a> MemberRef<'a> {
     pub fn parent(&self) -> MemberRefParent {
         self.0.decode(0)
     }
-
     pub fn name(&self) -> &str {
         self.0.str(1)
     }

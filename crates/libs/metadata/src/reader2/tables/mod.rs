@@ -8,6 +8,10 @@ mod param;
 mod type_def;
 mod type_ref;
 mod type_spec;
+mod constant;
+mod class_layout;
+mod impl_map;
+mod module_ref;
 
 use super::*;
 pub use custom_attribute::*;
@@ -20,3 +24,7 @@ pub use param::*;
 pub use type_def::*;
 pub use type_ref::*;
 pub use type_spec::*;
+pub use constant::*;
+pub use class_layout::*;
+pub use impl_map::*;
+pub use module_ref::*;

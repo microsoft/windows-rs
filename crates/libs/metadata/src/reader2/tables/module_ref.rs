@@ -1,10 +1,10 @@
 use super::*;
 
 #[derive(Clone, PartialEq, PartialOrd, Eq, Ord)]
-pub struct GenericParam<'a>(pub Row<'a>);
+pub struct ModuleRef<'a>(pub Row<'a>);
 
-impl<'a> GenericParam<'a> {
+impl<'a> ModuleRef<'a> {
     pub fn name(&self) -> &str {
-        self.0.str(3)
+        self.0.str(0)
     }
 }
