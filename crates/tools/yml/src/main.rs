@@ -80,7 +80,7 @@ jobs:
           }
           "*"
           {
-            (Join-Path $env:GITHUB_WORKSPACE "target\${{ matrix.target }}\debug\deps").ToString() >> $env:GITHUB_PATH
+            (Join-Path $env:GITHUB_WORKSPACE "target\debug\deps").ToString() >> $env:GITHUB_PATH
             "INCLUDE=C:\Program Files (x86)\Windows Kits\10\include\10.0.22000.0\winrt;C:\Program Files (x86)\Windows Kits\10\include\10.0.22000.0\cppwinrt" `
               >> $env:GITHUB_ENV
           }
