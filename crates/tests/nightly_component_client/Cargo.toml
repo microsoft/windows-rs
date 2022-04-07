@@ -14,5 +14,5 @@ features = [
 [build-dependencies.windows-bindgen]
 path = "../../libs/bindgen"
 
-[dependencies.test_nightly_component]
+[build-dependencies.test_nightly_component]
 path = "../nightly_component"
