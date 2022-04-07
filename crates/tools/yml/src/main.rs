@@ -97,6 +97,8 @@ jobs:
 
     - name: Test nightly
       shell: cmd
+      env:
+        CARGO_TARGET_DIR: target/${{ matrix.target }}/debug
       run: >"#,
     );
 

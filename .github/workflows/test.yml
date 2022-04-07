@@ -129,6 +129,8 @@ jobs:
 
     - name: Test nightly
       shell: cmd
+      env:
+        CARGO_TARGET_DIR: target/${{ matrix.target }}/debug
       run: >
         cargo test --target ${{ matrix.target }} -p windows-implement &&
         cargo test --target ${{ matrix.target }} -p sample_com_uri &&
