@@ -63,10 +63,6 @@ jobs:
         }
         $MingwPath | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
       if: contains(matrix.target, 'windows-gnu')
-      - name: Configure environment for Windows SDK access
-      shell: pwsh
-      run: |
-        "C:\Program Files (x86)\Windows Kits\10\bin\10.0.22000.0\x64" >> $env:GITHUB_PATH
     - name: Test stable
       run: >"#
         .to_string();
