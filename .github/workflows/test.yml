@@ -30,7 +30,7 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
     - name: Update toolchain
-      run: rustup update --no-self-update ${{ matrix.version }} && rustup default ${{ matrix.version }}
+      run: rustup update --no-self-update ${{ matrix.version }} && rustup default ${{ matrix.version }}-${{ matrix.target }}
     - name: Add toolchain target
       run: rustup target add ${{ matrix.target }}
     - name: Install clippy
