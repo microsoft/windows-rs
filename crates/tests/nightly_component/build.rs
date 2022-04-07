@@ -7,7 +7,11 @@ fn main() -> std::io::Result<()> {
     println!("cargo:rerun-if-changed=src/component.idl");
     let metadata_dir = format!("{}\\System32\\WinMetadata", env!("windir"));
     std::fs::create_dir_all(".windows/winmd")?;
-    Command::new("midlrt.exe").arg("/winrt").arg("/nomidl").arg("/h").arg("nul").arg("/metadata_dir").arg(&metadata_dir).arg("/reference").arg(format!("{}\\Windows.Foundation.winmd", metadata_dir)).arg("/winmd").arg(".windows/winmd/component.winmd").arg("src/component.idl").status()?;
+
+    // Getting midlrt.exe to run on the CI build is very difficulty. Since this is a temporary solution
+    // until windows-rs has its own winmd generator, we can just build this locally and keep the winmd
+    // files checked in for now.
+    let _ = Command::new("midlrt.exe").arg("/winrt").arg("/nomidl").arg("/h").arg("nul").arg("/metadata_dir").arg(&metadata_dir).arg("/reference").arg(format!("{}\\Windows.Foundation.winmd", metadata_dir)).arg("/winmd").arg(".windows/winmd/component.winmd").arg("src/component.idl").status();
 
     let gen = Gen { namespace: "test_nightly_component", component: true, ..Default::default() };
     let mut bindings = File::create("src/bindings.rs")?;
