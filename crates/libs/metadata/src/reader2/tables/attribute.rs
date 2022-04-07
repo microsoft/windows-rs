@@ -1,10 +1,10 @@
 use super::*;
 
 #[derive(Clone, PartialEq, PartialOrd, Eq, Ord)]
-pub struct CustomAttribute<'a>(pub Row<'a>);
+pub struct Attribute<'a>(pub Row<'a>);
 
-impl<'a> CustomAttribute<'a> {
-    pub fn definition(&self) -> CustomAttributeType {
+impl<'a> Attribute<'a> {
+    pub fn ty(&self) -> AttributeType {
         self.0.decode(1)
     }
     pub fn value(&self) -> Blob {

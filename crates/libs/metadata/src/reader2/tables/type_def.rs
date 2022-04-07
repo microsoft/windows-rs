@@ -13,9 +13,6 @@ impl<'a> TypeDef<'a> {
     pub fn namespace(&self) -> &str {
         self.0.str(2)
     }
-    pub fn type_name(&self) -> TypeName {
-        TypeName::new(self.namespace(), self.name())
-    }
     pub fn extends(&self) -> TypeDefOrRef {
         self.0.decode(3)
     }
@@ -25,8 +22,8 @@ impl<'a> TypeDef<'a> {
     pub fn methods(&self) -> impl Iterator<Item = MethodDef> {
         self.0.list(TABLE_METHODDEF, 5).map(MethodDef)
     }
-    pub fn attributes(&self) -> impl Iterator<Item = CustomAttribute> {
-        self.0.attributes(HasCustomAttribute::TypeDef(self.clone()))
+    pub fn attributes(&self) -> impl Iterator<Item = Attribute> {
+        self.0.attributes(HasAttribute::TypeDef(self.clone()))
     }
     pub fn generic_params(&self) -> impl Iterator<Item = GenericParam> {
         self.0.equal_range(TABLE_GENERICPARAM, 2, TypeOrMethodDef::TypeDef(self.clone()).encode()).map(GenericParam)

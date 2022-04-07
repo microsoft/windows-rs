@@ -25,8 +25,8 @@ impl<'a> Row<'a> {
     pub fn list(&'a self, table: usize, column: usize) -> impl Iterator<Item = Row<'a>> {
         self.scope.list(&self.key, table, column)
     }
-    pub fn attributes(&self, source: HasCustomAttribute) -> impl Iterator<Item = CustomAttribute> {
-        self.equal_range(TABLE_CUSTOMATTRIBUTE, 0, source.encode()).map(CustomAttribute)
+    pub fn attributes(&self, source: HasAttribute) -> impl Iterator<Item = Attribute> {
+        self.equal_range(TABLE_CUSTOMATTRIBUTE, 0, source.encode()).map(Attribute)
     }
     pub fn decode<T: Decode<'a>>(&self, column: usize) -> T {
         self.scope.decode(&self.key, column)

@@ -17,22 +17,6 @@ impl<'a> TypeDefOrRef<'a> {
             Self::TypeSpec(value) => ((value.0.key.row + 1) << 2) | 2,
         }) as _
     }
-
-    pub fn resolve(&self) -> impl Iterator<Item = TypeDef> {
-        match self {
-            Self::TypeDef(value) => value.0.scope.resolve(&value.type_name()),
-            Self::TypeRef(value) => value.0.scope.resolve(&value.type_name()),
-            _ => unimplemented!(),
-        }
-    }
-
-    fn type_name(&self) -> TypeName {
-        match self {
-            Self::TypeDef(value) => value.type_name(),
-            Self::TypeRef(value) => value.type_name(),
-            _ => unimplemented!(),
-        }
-    }
 }
 
 impl<'a> Decode<'a> for TypeDefOrRef<'a> {

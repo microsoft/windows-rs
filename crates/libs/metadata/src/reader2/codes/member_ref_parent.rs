@@ -17,14 +17,6 @@ impl<'a> MemberRefParent<'a> {
             Self::TypeSpec(value) => ((value.0.key.row + 1) << 3) | 4,
         }) as _
     }
-
-    pub fn name(&self) -> &str {
-        match self {
-            Self::TypeDef(value) => value.name(),
-            Self::TypeRef(value) => value.name(),
-            _ => unimplemented!(),
-        }
-    }
 }
 
 impl<'a> Decode<'a> for MemberRefParent<'a> {

@@ -1,12 +1,12 @@
 use super::*;
 
 #[derive(Clone)]
-pub enum CustomAttributeType<'a> {
+pub enum AttributeType<'a> {
     MethodDef(MethodDef<'a>),
     MemberRef(MemberRef<'a>),
 }
 
-impl<'a> CustomAttributeType<'a> {
+impl<'a> AttributeType<'a> {
     pub fn encode(&self) -> usize {
         (match self {
             Self::MethodDef(value) => ((value.0.key.row + 1) << 3) | 2,
@@ -15,7 +15,7 @@ impl<'a> CustomAttributeType<'a> {
     }
 }
 
-impl<'a> Decode<'a> for CustomAttributeType<'a> {
+impl<'a> Decode<'a> for AttributeType<'a> {
     fn decode(scope: &'a Scope, file: usize, code: usize) -> Self {
         let (kind, row) = (code & ((1 << 3) - 1), (code >> 3) - 1);
         match kind {

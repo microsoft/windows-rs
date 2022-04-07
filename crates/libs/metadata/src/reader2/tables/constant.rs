@@ -4,7 +4,7 @@ use super::*;
 pub struct Constant<'a>(pub Row<'a>);
 
 impl<'a> Constant<'a> {
-    pub fn definition(&self) -> Type {
+    pub fn ty(&self) -> Type {
         todo!()
     }
     pub fn value(&self) -> Blob {

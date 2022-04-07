@@ -1,7 +1,7 @@
 use super::*;
 
 #[derive(Clone)]
-pub enum HasCustomAttribute<'a> {
+pub enum HasAttribute<'a> {
     MethodDef(MethodDef<'a>),
     Field(Field<'a>),
     TypeRef(TypeRef<'a>),
@@ -13,7 +13,7 @@ pub enum HasCustomAttribute<'a> {
     GenericParam(GenericParam<'a>),
 }
 
-impl<'a> HasCustomAttribute<'a> {
+impl<'a> HasAttribute<'a> {
     pub fn encode(&self) -> usize {
         (match self {
             Self::MethodDef(value) => ((value.0.key.row + 1) << 5),
@@ -29,7 +29,7 @@ impl<'a> HasCustomAttribute<'a> {
     }
 }
 
-impl<'a> Decode<'a> for HasCustomAttribute<'a> {
+impl<'a> Decode<'a> for HasAttribute<'a> {
     fn decode(scope: &'a Scope, file: usize, code: usize) -> Self {
         let (kind, row) = (code & ((1 << 5) - 1), (code >> 5) - 1);
         match kind {

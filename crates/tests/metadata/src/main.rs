@@ -39,9 +39,7 @@ fn main() {
     let _tree = scope.tree();
     println!("Tree: {}", now.elapsed().as_millis());
 
-    for ty in scope.resolve(&reader2::TypeName::new("Windows.Foundation", "Rect")) {
-        for m in ty.fields() {
-            println!("{}", m.name());
-        }
+    for ty in scope.resolve(&reader2::TypeName::new("Windows.UI.Composition", "Compositor")) {
+       // println!("{}", ty.extends().type_name());
     }
 }
