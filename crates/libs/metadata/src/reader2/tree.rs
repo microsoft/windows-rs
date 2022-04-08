@@ -4,6 +4,7 @@ use super::*;
 pub struct Tree<'a> {
     namespace: &'a str,
     nested: BTreeMap<&'a str, Tree<'a>>,
+    types: BTreeMap<&'a str, Type<'a>>,
 }
 
 impl<'a> Tree<'a> {
