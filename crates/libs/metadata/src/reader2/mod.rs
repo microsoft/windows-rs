@@ -9,6 +9,7 @@ mod tables;
 mod tree;
 mod r#type;
 mod type_name;
+mod value;
 
 use super::*;
 pub use blob::*;
@@ -22,3 +23,4 @@ use scope_key::*;
 use tables::*;
 pub use tree::*;
 pub use type_name::*;
+pub use value::*;
