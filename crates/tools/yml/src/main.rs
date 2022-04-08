@@ -228,42 +228,19 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
     - name: Update toolchain
-      run: rustup update --no-self-update nightly && rustup default nightly
+      run: rustup update --no-self-update nightly && rustup default nightly-x86_64-pc-windows-msvc
     - name: Install clippy
       run: rustup component add clippy      
     - name: Configure environment
       shell: pwsh
       run: |
-        switch -Wildcard ("${{ matrix.target }}")
-        {
-          "i686-pc-windows-gnu"
-          {
-            "C:\msys64\mingw32\bin" >> $env:GITHUB_PATH
-          }
-          "x86_64-pc-windows-gnu"
-          {
-            "C:\msys64\mingw64\bin" >> $env:GITHUB_PATH
-          }
-          "i686*"
-          {
-            "C:\Program Files (x86)\Windows Kits\10\bin\10.0.22000.0\x86" >> $env:GITHUB_PATH
-            ((Resolve-Path "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Tools\MSVC\*\bin\Hostx86\x86")
-              | Sort-Object -Descending | Select -First 1).ToString() >> $env:GITHUB_PATH
-          }
-          "x86_64*"
-          {
-            "C:\Program Files (x86)\Windows Kits\10\bin\10.0.22000.0\x64" >> $env:GITHUB_PATH
-            ((Resolve-Path "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Tools\MSVC\*\bin\Hostx64\x64")
-              | Sort-Object -Descending | Select -First 1).ToString() >> $env:GITHUB_PATH
-          }
-          "*"
-          {
-            (Join-Path $env:GITHUB_WORKSPACE "target\debug\deps").ToString() >> $env:GITHUB_PATH
-            (Join-Path $env:GITHUB_WORKSPACE "target\test\debug\deps").ToString() >> $env:GITHUB_PATH
-            "INCLUDE=C:\Program Files (x86)\Windows Kits\10\include\10.0.22000.0\winrt;C:\Program Files (x86)\Windows Kits\10\include\10.0.22000.0\cppwinrt" `
-              >> $env:GITHUB_ENV
-          }
-        }
+        "C:\Program Files (x86)\Windows Kits\10\bin\10.0.22000.0\x64" >> $env:GITHUB_PATH
+        ((Resolve-Path "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Tools\MSVC\*\bin\Hostx64\x64")
+          | Sort-Object -Descending | Select -First 1).ToString() >> $env:GITHUB_PATH
+        (Join-Path $env:GITHUB_WORKSPACE "target\debug\deps").ToString() >> $env:GITHUB_PATH
+        (Join-Path $env:GITHUB_WORKSPACE "target\test\debug\deps").ToString() >> $env:GITHUB_PATH
+        "INCLUDE=C:\Program Files (x86)\Windows Kits\10\include\10.0.22000.0\winrt;C:\Program Files (x86)\Windows Kits\10\include\10.0.22000.0\cppwinrt" `
+          >> $env:GITHUB_ENV
     - name: Run cargo clippy
       run: |"#
         .to_string();
