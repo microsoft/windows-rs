@@ -42,8 +42,7 @@ pub use error::*;
 #[doc(hidden)]
 pub use factory_cache::*;
 pub use guid::*;
-#[doc(hidden)]
-pub use heap::*;
+pub(crate) use heap::*;
 pub use hresult::*;
 pub use hstring::*;
 pub use inspectable::*;
