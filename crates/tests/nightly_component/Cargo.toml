@@ -1,0 +1,17 @@
+[package]
+name = "test_nightly_component"
+version = "0.0.0"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies.windows]
+path = "../../libs/windows"
+features = [
+    "implement",
+    "Win32_Foundation",
+]
+
+[build-dependencies.windows-bindgen]
+path = "../../libs/bindgen"

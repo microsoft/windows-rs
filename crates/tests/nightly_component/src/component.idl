@@ -1,0 +1,8 @@
+namespace test_nightly_component
+{
+    runtimeclass Class
+    {
+        Class();
+        Int32 Property;
+    }
+}
