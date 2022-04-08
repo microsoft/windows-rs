@@ -19,11 +19,20 @@ pub unsafe fn heap_free(ptr: RawPtr) {
     }
 }
 
-pub fn heap_string<T: Copy + Default + Sized>(value: &[T]) -> *const T {
-    let buffer = heap_alloc((value.len() + 1) * std::mem::size_of::<T>()).expect("Could not allocate string") as *mut T;
-    let slice = unsafe { std::slice::from_raw_parts_mut(buffer, value.len() + 1) };
-    let (string, terminator) = slice.split_at_mut(value.len());
-    string.copy_from_slice(value);
-    terminator[0] = T::default();
-    buffer
+/// Copy a slice of `T` into a freshly allocated buffer with an additional default `T` at the end.
+///
+/// Returns a pointer to the beginning of the buffer
+///
+/// # Panics
+///
+/// This function panics if the heap allocation fails or if the pointer returned from
+/// the heap allocation is not properly aligned to `T`.
+pub fn heap_string<T: Copy + Default + Sized>(slice: &[T]) -> *const T {
+    unsafe {
+        let buffer = heap_alloc((slice.len() + 1) * std::mem::size_of::<T>()).expect("could not allocate string") as *mut T;
+        assert!(buffer.align_offset(std::mem::align_of::<T>()) == 0, "heap allocated buffer is not properly aligned");
+        buffer.copy_from_nonoverlapping(slice.as_ptr(), slice.len());
+        buffer.add(slice.len()).write(T::default());
+        buffer
+    }
 }
