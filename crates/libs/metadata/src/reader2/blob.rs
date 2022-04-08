@@ -52,7 +52,7 @@ impl<'a> BlobReader<'a> {
                 break;
             } else {
                 self.offset(offset);
-                mods.push(TypeDefOrRef::decode(self.blob.scope, self.blob.file, self.read_usize()))
+                mods.push(self.read_type_def_or_ref())
             }
         }
         mods
@@ -123,6 +123,39 @@ impl<'a> BlobReader<'a> {
         self.offset(8);
         value
     }
+    pub fn read_type(&mut self, enclosing: Option<&TypeDef>, generics: &[Type]) -> Type {
+        let is_winrt_const_ref = self.read_modifiers().iter().any(|def| def.type_name() == TypeName::IsConst);
+        let is_winrt_array_ref = self.read_expected(0x10);
+
+        if self.read_expected(0x01) {
+            return Type::Void;
+        }
+
+        let is_winrt_array = self.read_expected(0x1D);
+        let mut pointers = 0;
+
+        while self.read_expected(0x0f) {
+            pointers += 1;
+        }
+
+        let mut kind = self.read_type_spec(enclosing, generics);
+
+        if pointers > 0 {
+            kind = Type::MutPtr((Box::new(kind), pointers));
+        }
+
+        if is_winrt_array {
+            if is_winrt_array_ref {
+                Type::WinrtArrayRef(Box::new(kind))
+            } else {
+                Type::WinrtArray(Box::new(kind))
+            }
+        } else if is_winrt_const_ref {
+            Type::WinrtConstRef(Box::new(kind))
+        } else {
+            kind
+        }
+    }
 
     fn new(blob: &'a Blob) -> Self {
         Self {
@@ -141,6 +174,41 @@ impl<'a> BlobReader<'a> {
             ((((slice[0] & 0x3F) as usize) << 8) | slice[1] as usize, 2)
         } else {
             ((((slice[0] & 0x1F) as usize) << 24) | (slice[1] as usize) << 16 | (slice[2] as usize) << 8 | slice[3] as usize, 4)
+        }
+    }
+    fn read_type_def_or_ref(&mut self) -> TypeDefOrRef {
+        TypeDefOrRef::decode(self.blob.scope, self.blob.file, self.read_usize())
+    }
+    fn read_type_spec(&mut self, enclosing: Option<&TypeDef>, generics: &[Type]) -> Type {
+        let code = self.read_usize();
+
+        if let Some(code) = Type::from_code(code) {
+            return code;
+        }
+
+        match code {
+            0x11 | 0x12 => self.read_type_def_or_ref().resolve(enclosing, generics),
+            0x13 => generics.get(self.read_usize() as usize).unwrap_or(&Type::Void).clone(),
+            0x14 => {
+                let kind = self.read_type(self, enclosing, generics);
+                let _rank = self.read_usize();
+                let _bounds_count = self.read_usize();
+                let bounds = self.read_usize();
+                Type::Win32Array((Box::new(kind), bounds))
+            }
+            0x15 => {
+                self.read_usize();
+
+                let mut def = self.read_type_def_or_ref().resolve(enclosing);
+                let args = self.read_usize();
+
+                for _ in 0..args {
+                    def.generics.push(self.read_type_spec(enclosing, generics));
+                }
+
+                Type::TypeDef(def)
+            }
+            _ => unimplemented!(),
         }
     }
 }

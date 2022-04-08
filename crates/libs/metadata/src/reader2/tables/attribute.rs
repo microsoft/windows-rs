@@ -10,6 +10,7 @@ impl<'a> Attribute<'a> {
     pub fn value(&self) -> Blob {
         self.0.blob(2)
     }
+
     pub fn get(attributes: impl Iterator<Item = Self>, name: &str) -> Option<Self> {
         for attribute in attributes {
             let AttributeType::MemberRef(member) = attribute.ty();
@@ -20,4 +21,7 @@ impl<'a> Attribute<'a> {
         }
         None
     }
+    // pub fn args(&self) -> Vec<(&str, Value)> {
+
+    // }
 }
