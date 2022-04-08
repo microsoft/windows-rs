@@ -15,7 +15,7 @@ Start by adding the following to your Cargo.toml file:
 
 ```toml
 [dependencies.windows]
-version = "0.34.0"
+version = "0.35.0"
 features = [
     "alloc",
     "Data_Xml_Dom",
@@ -43,7 +43,7 @@ fn main() -> Result<()> {
     assert!(root.InnerText()? == "hello world");
 
     unsafe {
-        let event = CreateEventW(std::ptr::null(), true, false, None);
+        let event = CreateEventW(std::ptr::null(), true, false, None)?;
         SetEvent(event).ok()?;
         WaitForSingleObject(event, 0);
         CloseHandle(event).ok()?;
@@ -63,7 +63,7 @@ Start by adding the following to your Cargo.toml file:
 
 ```toml
 [dependencies.windows-sys]
-version = "0.34.0"
+version = "0.35.0"
 features = [
     "Win32_Foundation",
     "Win32_Security",
@@ -81,7 +81,7 @@ use windows_sys::{
 
 fn main() {
     unsafe {
-        let event = CreateEventW(std::ptr::null(), 1, 0, std::ptr::null())?;
+        let event = CreateEventW(std::ptr::null(), 1, 0, std::ptr::null());
         SetEvent(event);
         WaitForSingleObject(event, 0);
         CloseHandle(event);

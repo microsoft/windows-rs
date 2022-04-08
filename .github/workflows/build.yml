@@ -79,9 +79,19 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
     - name: Update toolchain
-      run: rustup update --no-self-update nightly && rustup default nightly
+      run: rustup update --no-self-update nightly && rustup default nightly-x86_64-pc-windows-msvc
     - name: Install clippy
       run: rustup component add clippy      
+    - name: Configure environment
+      shell: pwsh
+      run: |
+        "C:\Program Files (x86)\Windows Kits\10\bin\10.0.22000.0\x64" >> $env:GITHUB_PATH
+        ((Resolve-Path "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Tools\MSVC\*\bin\Hostx64\x64")
+          | Sort-Object -Descending | Select -First 1).ToString() >> $env:GITHUB_PATH
+        (Join-Path $env:GITHUB_WORKSPACE "target\debug\deps").ToString() >> $env:GITHUB_PATH
+        (Join-Path $env:GITHUB_WORKSPACE "target\test\debug\deps").ToString() >> $env:GITHUB_PATH
+        "INCLUDE=C:\Program Files (x86)\Windows Kits\10\include\10.0.22000.0\winrt;C:\Program Files (x86)\Windows Kits\10\include\10.0.22000.0\cppwinrt" `
+          >> $env:GITHUB_ENV
     - name: Run cargo clippy
       run: |
         cargo clippy -p windows-bindgen &&
@@ -138,6 +148,8 @@ jobs:
         cargo clippy -p test_matrix3x2 &&
         cargo clippy -p test_mshtml &&
         cargo clippy -p test_nightly_class_factory &&
+        cargo clippy -p test_nightly_component &&
+        cargo clippy -p test_nightly_component_client &&
         cargo clippy -p test_nightly_data_object &&
         cargo clippy -p test_nightly_drop_target &&
         cargo clippy -p test_nightly_identity &&
@@ -151,8 +163,8 @@ jobs:
         cargo clippy -p test_nightly_winrt &&
         cargo clippy -p test_not_dll &&
         cargo clippy -p test_ntstatus &&
-        cargo clippy -p test_pwstr &&
         cargo clippy -p test_return_struct &&
+        cargo clippy -p test_string_param &&
         cargo clippy -p test_structs &&
         cargo clippy -p test_sys &&
         cargo clippy -p test_unions &&

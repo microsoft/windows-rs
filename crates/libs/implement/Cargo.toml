@@ -1,6 +1,6 @@
 [package]
 name = "windows-implement"
-version = "0.34.0"
+version = "0.35.0"
 authors = ["Microsoft"]
 edition = "2021"
 license = "MIT OR Apache-2.0"
@@ -16,4 +16,4 @@ proc-macro = true
 
 [dependencies]
 syn = { version = "1.0", default-features = false, features = ["parsing", "proc-macro", "printing", "full", "derive"] }
-tokens = { package = "windows-tokens", path = "../tokens", version = "0.34.0" }
+tokens = { package = "windows-tokens", path = "../tokens", version = "0.35.0" }

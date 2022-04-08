@@ -1221,6 +1221,12 @@ impl BSTR {
         }
         unsafe { ::core::slice::from_raw_parts(self.0, self.len()) }
     }
+    pub unsafe fn from_raw(raw: *const u16) -> Self {
+        Self(raw)
+    }
+    pub fn into_raw(self) -> *const u16 {
+        unsafe { std::mem::transmute(self) }
+    }
 }
 impl ::core::clone::Clone for BSTR {
     fn clone(&self) -> Self {
@@ -1403,6 +1409,19 @@ unsafe impl ::windows::core::Abi for HINSTANCE {
     type Abi = Self;
 }
 pub const S_OK: ::windows::core::HRESULT = ::windows::core::HRESULT(0i32);
+#[inline]
+pub unsafe fn SysAllocStringByteLen<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(psz: Param0, len: u32) -> BSTR {
+    #[cfg(windows)]
+    {
+        #[link(name = "windows")]
+        extern "system" {
+            fn SysAllocStringByteLen(psz: ::windows::core::PCSTR, len: u32) -> BSTR;
+        }
+        ::core::mem::transmute(SysAllocStringByteLen(psz.into_param().abi(), ::core::mem::transmute(len)))
+    }
+    #[cfg(not(windows))]
+    unimplemented!("Unsupported target OS");
+}
 #[inline]
 pub unsafe fn SysAllocStringLen(strin: &[u16]) -> BSTR {
     #[cfg(windows)]
