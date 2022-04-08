@@ -1,7 +1,13 @@
 use super::*;
 use bindings::*;
 
-// TODO: why not Option<RawPtr>
+/// Allocate memory of size `bytes` using `HeapAlloc`.
+///
+/// The memory allocated by this function is uninitialized.
+///
+/// This function will fail in OOM situations, if the heap is otherwise corrupt,
+/// or if getting a handle to the process heap fails.
+// TODO: why not return a `Option<RawPtr>`
 pub fn heap_alloc(bytes: usize) -> Result<RawPtr> {
     let ptr = unsafe { HeapAlloc(GetProcessHeap()?, HEAP_NONE, bytes) };
 
@@ -12,7 +18,14 @@ pub fn heap_alloc(bytes: usize) -> Result<RawPtr> {
     }
 }
 
+/// Free memory allocated by `HeapAlloc` or `HeapReAlloc`.
+///
+/// The pointer is allowed to be null. If there is an error getting the process heap,
+/// the memory will be leaked.
+///
 /// # Safety
+///
+/// `ptr` must be a valid pointer to memory allocated by `HeapAlloc` or `HeapReAlloc`
 pub unsafe fn heap_free(ptr: RawPtr) {
     if let Ok(heap) = GetProcessHeap() {
         HeapFree(heap, HEAP_NONE, ptr);
