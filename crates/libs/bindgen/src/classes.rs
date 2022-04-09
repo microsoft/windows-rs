@@ -131,7 +131,7 @@ fn gen_class(def: &TypeDef, gen: &Gen) -> TokenStream {
 
 fn gen_factory_cache_method(gen: &Gen, class_name: &String) -> TokenStream {
     if let Some(library) = gen.class_map.get(class_name) {
-        format_token!(r#"from_library("{library}")"#)
+        format_token!(r#"from_library(b"{library}\0")"#)
     } else {
         format_token!("new()")
     }
