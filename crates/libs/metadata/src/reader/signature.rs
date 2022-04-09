@@ -61,7 +61,7 @@ impl Signature {
     }
 
     pub fn size(&self) -> usize {
-        self.params.iter().fold(0, |sum, param| sum + param.ty.size())
+        self.params.iter().fold(0, |sum, param| sum + std::cmp::max(4, param.ty.size()))
     }
 
     pub(crate) fn combine_cfg(&self, cfg: &mut Cfg) {
@@ -99,5 +99,29 @@ impl MethodParam {
 
     pub fn is_convertible(&self) -> bool {
         self.def.flags().input() && !self.ty.is_winrt_array() && !self.ty.is_pointer() && self.ty.is_convertible() && self.def.array_info().is_none()
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn size() {
+        assert_eq!(function_size("Windows.Win32.System.Console", "ReadConsoleOutputA"), 20);
+        assert_eq!(function_size("Windows.Win32.System.Console", "ReadConsoleOutputAttribute"), 20);
+        assert_eq!(function_size("Windows.Win32.UI.Accessibility", "ItemContainerPattern_FindItemByProperty"), 32);
+        assert_eq!(function_size("Windows.Win32.System.Ole", "VarI2FromCy"), 12);
+        assert_eq!(function_size("Windows.Win32.UI.Accessibility", "UiaRaiseAutomationPropertyChangedEvent"), 40);
+        assert_eq!(function_size("Windows.Win32.Graphics.Gdi", "AlphaBlend"), 44);
+        assert_eq!(function_size("Windows.Win32.UI.Accessibility", "TextRange_FindAttribute"), 32);
+    }
+
+    fn function_size(namespace: &'static str, name: &'static str) -> usize {
+        if let Some(Type::MethodDef(def)) = TypeReader::get().get_type(TypeName::new(namespace, name)) {
+            def.signature(&[]).size()
+        } else {
+            0
+        }
     }
 }

@@ -54,10 +54,12 @@ impl From<TypeDef> for Type {
 impl Type {
     pub fn size(&self) -> usize {
         match self {
-            Self::I64 | Self::U64 | Self::F64 => 2,
-            Self::GUID => 4,
+            Self::I8 | Self::U8 => 1,
+            Self::I16 | Self::U16 => 2,
+            Self::I64 | Self::U64 | Self::F64 => 8,
+            Self::GUID => 16,
             Self::TypeDef(def) => def.size(),
-            _ => 1,
+            _ => 4,
         }
     }
 
