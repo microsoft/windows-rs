@@ -143,9 +143,13 @@ impl TypeDef {
 
     pub fn size(&self) -> usize {
         if self.kind() == TypeKind::Struct {
-            self.fields().fold(0, |sum, field| sum + field.get_type(Some(self)).size())
+            if self.is_union() {
+                self.fields().map(|field| field.get_type(Some(self)).size()).max().unwrap_or(1)
+            } else {
+                self.fields().fold(0, |sum, field| sum + field.get_type(Some(self)).size())
+            }
         } else {
-            1
+            4
         }
     }
 
