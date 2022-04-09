@@ -6,13 +6,18 @@ use core::sync::atomic::{AtomicPtr, Ordering};
 #[doc(hidden)]
 pub struct FactoryCache<C, I> {
     shared: AtomicPtr<core::ffi::c_void>,
+    library: &'static [u8],
     _c: PhantomData<C>,
     _i: PhantomData<I>,
 }
 
 impl<C, I> FactoryCache<C, I> {
     pub const fn new() -> Self {
-        Self { shared: AtomicPtr::new(::core::ptr::null_mut()), _c: PhantomData, _i: PhantomData }
+        Self { shared: AtomicPtr::new(::core::ptr::null_mut()), library: &[], _c: PhantomData, _i: PhantomData }
+    }
+
+    pub const fn from_library(library: &'static [u8]) -> Self {
+        Self { library, ..Self::new() }
     }
 }
 
@@ -28,7 +33,7 @@ impl<C: RuntimeName, I: Interface> FactoryCache<C, I> {
             }
 
             // Otherwise, we load the factory the usual way.
-            let factory = factory::<C, I>()?;
+            let factory = if self.library.is_empty() { factory::<C, I>()? } else { factory_from_library::<C, I>(self.library)? };
 
             // If the factory is agile, we can safely cache it.
             if factory.cast::<IAgileObject>().is_ok() {
@@ -44,7 +49,7 @@ impl<C: RuntimeName, I: Interface> FactoryCache<C, I> {
     }
 }
 
-/// Attempts to load the factory interface for the given WinRT class.
+/// Attempts to load the factory interface for the given WinRT class
 pub fn factory<C: RuntimeName, I: Interface>() -> Result<I> {
     let mut factory: Option<I> = None;
     let name = HSTRING::from(C::NAME);
@@ -89,8 +94,10 @@ pub fn factory<C: RuntimeName, I: Interface>() -> Result<I> {
         let mut path = C::NAME;
 
         // Remove the suffix until a match is found. For example, if the class name is
-        // "A.B.TypeName" then this will first attempt to load "A.B.dll" and if that
-        // fails it will attempt "A.dll" before giving up.
+        // "A.B.TypeName" then the attempted load order will be:
+        //   1. A.B.TypeName.dll
+        //   2. A.B.dll
+        //   3. A.dll
         while let Some(pos) = path.rfind('.') {
             path = &path[..pos];
 
@@ -98,24 +105,27 @@ pub fn factory<C: RuntimeName, I: Interface>() -> Result<I> {
             library[..path.len()].copy_from_slice(path.as_bytes());
             library[path.len()..].copy_from_slice(b".dll\0");
 
-            let function = delay_load(library, b"DllGetActivationFactory\0");
-
-            if !function.is_null() {
-                let function: DllGetActivationFactory = core::mem::transmute(function);
-                let mut abi = core::ptr::null_mut();
-                let _ = function(core::mem::transmute_copy(&name), &mut abi);
-
-                if abi.is_null() {
-                    continue;
-                }
-
-                let factory: IActivationFactory = core::mem::transmute(abi);
+            if let Ok(factory) = get_activation_factory(library, &name) {
                 return factory.cast();
             }
         }
 
         Err(original)
     }
+}
+
+/// Attempts to load the factory interface for the given WinRT class located
+/// in the specified library.
+pub fn factory_from_library<C: RuntimeName, I: Interface>(library: &[u8]) -> Result<I> {
+    let name = HSTRING::from(C::NAME);
+    unsafe { get_activation_factory(library, &name)?.cast() }
+}
+
+unsafe fn get_activation_factory(library: &[u8], name: &HSTRING) -> Result<IActivationFactory> {
+    let function = delay_load(library, b"DllGetActivationFactory\0");
+    let function: DllGetActivationFactory = core::mem::transmute(function);
+    let mut abi = core::ptr::null_mut();
+    function(core::mem::transmute_copy(name), &mut abi).from_abi(abi)
 }
 
 type CoIncrementMTAUsage = extern "system" fn(cookie: *mut RawPtr) -> HRESULT;
