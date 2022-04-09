@@ -105,8 +105,7 @@ pub fn factory<C: RuntimeName, I: Interface>() -> Result<I> {
             library[..path.len()].copy_from_slice(path.as_bytes());
             library[path.len()..].copy_from_slice(b".dll\0");
 
-            if let Ok(factory) = get_activation_factory(library, &name)
-            {
+            if let Ok(factory) = get_activation_factory(library, &name) {
                 return factory.cast();
             }
         }
@@ -119,9 +118,7 @@ pub fn factory<C: RuntimeName, I: Interface>() -> Result<I> {
 /// in the specified library.
 pub fn factory_from_library<C: RuntimeName, I: Interface>(library: &[u8]) -> Result<I> {
     let name = HSTRING::from(C::NAME);
-    unsafe {
-        get_activation_factory(library, &name)?.cast()
-    }
+    unsafe { get_activation_factory(library, &name)?.cast() }
 }
 
 unsafe fn get_activation_factory(library: &[u8], name: &HSTRING) -> Result<IActivationFactory> {
