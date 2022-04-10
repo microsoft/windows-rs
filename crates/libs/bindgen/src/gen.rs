@@ -12,6 +12,7 @@ pub struct Gen<'a> {
     pub min_xaml: bool,
     pub windows_extern: bool,
     pub component: bool,
+    pub class_map: std::collections::HashMap<String, String>,
 }
 
 impl Gen<'_> {

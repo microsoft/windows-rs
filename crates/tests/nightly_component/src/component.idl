@@ -6,3 +6,21 @@ namespace test_nightly_component
         Int32 Property;
     }
 }
+
+namespace Microsoft
+{
+    namespace Windows
+    {
+        namespace System
+        {
+            namespace Power
+            {
+                runtimeclass PowerManager
+                {
+                    PowerManager();
+                    Int32 Property;
+                }
+            }
+        }
+    }
+}

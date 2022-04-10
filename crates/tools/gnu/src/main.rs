@@ -57,7 +57,7 @@ fn load_function(def: &Type, libraries: &mut BTreeMap<String, BTreeMap<&'static 
     if let Type::MethodDef(def) = def {
         let library = def.impl_map().expect("Function").scope().name().to_lowercase();
 
-        let params = def.signature(&[]).size() * core::mem::size_of::<usize>();
+        let params = def.signature(&[]).size();
 
         libraries.entry(library).or_default().insert(def.name(), params);
     }
