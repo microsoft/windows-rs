@@ -9,10 +9,19 @@ impl<'a> Attribute<'a> {
         let MemberRefParent::TypeRef(type_ref) = member.parent();
         type_ref
     }
-    pub fn value(&self) -> Blob {
-        self.0.blob(2)
-    }
-    // pub fn args(&self) -> Vec<(&str, Value)> {
+    pub fn args(&self) -> Vec<(&str, Value)> {
+        let AttributeType::MemberRef(member) = self.0.decode(1);
+        let mut sig = member.signature();
+        let mut values = self.0.blob(2);
+        let _prolog = values.read_u16();
+        let _this_and_gen_param_count = sig.read_usize();
+        let fixed_arg_count = sig.read_usize();
+        let _ret_type = sig.read_usize();
+        let mut args: Vec<(&str, Value)> = Vec::with_capacity(fixed_arg_count as usize);
 
-    // }
+        for _ in 0..fixed_arg_count {
+        }
+
+        args
+     }
 }
