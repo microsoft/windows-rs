@@ -13,6 +13,9 @@ impl<'a> TypeDef<'a> {
     pub fn namespace(&self) -> &str {
         self.0.str(2)
     }
+    pub fn type_name(&self) -> TypeName {
+        TypeName::new(self.namespace(), self.name())
+    }
     pub fn extends(&self) -> TypeDefOrRef {
         self.0.decode(3)
     }
