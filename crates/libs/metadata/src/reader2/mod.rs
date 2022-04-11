@@ -20,7 +20,7 @@ pub use r#type::*;
 use row::*;
 pub use scope::*;
 use scope_key::*;
-use tables::*;
+pub use tables::*;
 pub use tree::*;
 pub use type_name::*;
 pub use value::*;

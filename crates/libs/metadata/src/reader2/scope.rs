@@ -10,7 +10,6 @@ impl<'a> Scope<'a> {
     pub fn new(files: &'a [File]) -> Self {
         let mut types = HashMap::<&'a str, BTreeMap<&'a str, Vec<ScopeKey>>>::new();
         let mut nested = HashMap::<ScopeKey, BTreeMap<&'a str, ScopeKey>>::new();
-
         for (file_index, file) in files.iter().enumerate() {
             for row in 0..file.tables[TABLE_TYPEDEF].len {
                 let key = ScopeKey::new(row, TABLE_TYPEDEF, file_index);
@@ -26,19 +25,16 @@ impl<'a> Scope<'a> {
                 nested.entry(outer).or_default().insert(name, inner);
             }
         }
-
         Self { files, types, nested }
     }
 
     pub fn tree(&self) -> Tree {
         let mut tree = Tree::from_namespace("");
-
         for ns in self.types.keys() {
             if !ns.is_empty() {
                 tree.insert_namespace(ns, 0);
             }
         }
-
         tree
     }
 
@@ -52,7 +48,6 @@ impl<'a> Scope<'a> {
 
     pub fn get(&self, name: &TypeName) -> impl Iterator<Item = TypeDef> {
         let types: &[ScopeKey] = if let Some(types) = self.types.get(name.namespace).and_then(|types| types.get(name.name)) { types } else { &[] };
-
         types.iter().map(|key| TypeDef(Row::new(self, *key), Vec::new()))
     }
 
