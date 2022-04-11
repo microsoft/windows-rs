@@ -190,7 +190,7 @@ impl<'a> BlobReader<'a> {
             0x11 | 0x12 => self.read_type_def_or_ref().resolve(enclosing, generics),
             0x13 => generics.get(self.read_usize() as usize).unwrap_or(&Type::Void).clone(),
             0x14 => {
-                let kind = self.read_type(self, enclosing, generics);
+                let kind = self.read_type(enclosing, generics);
                 let _rank = self.read_usize();
                 let _bounds_count = self.read_usize();
                 let bounds = self.read_usize();
@@ -199,11 +199,11 @@ impl<'a> BlobReader<'a> {
             0x15 => {
                 self.read_usize();
 
-                let mut def = self.read_type_def_or_ref().resolve(enclosing);
+                let mut def = self.read_type_def_or_ref().resolve(None, &[]);
                 let args = self.read_usize();
 
                 for _ in 0..args {
-                    def.generics.push(self.read_type_spec(enclosing, generics));
+                    def.1.push(self.read_type_spec(None, generics));
                 }
 
                 Type::TypeDef(def)

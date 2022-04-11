@@ -33,7 +33,7 @@ pub enum Type<'a> {
     TypeDef(TypeDef<'a>),
     MutPtr((Box<Self>, usize)),
     ConstPtr((Box<Self>, usize)),
-    Win32Array((Box<Self>, u32)),
+    Win32Array((Box<Self>, usize)),
     WinrtArray(Box<Self>),
     WinrtArrayRef(Box<Self>),
     WinrtConstRef(Box<Self>),
