@@ -41,8 +41,8 @@ impl AdaptiveNotificationText {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static mut SHARED: ::windows::core::FactoryCache<AdaptiveNotificationText, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static mut SHARED: ::windows::core::FactoryCache<AdaptiveNotificationText, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
     #[doc = "*Required features: `\"UI_Notifications\"`*"]
@@ -2171,8 +2171,8 @@ impl Notification {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static mut SHARED: ::windows::core::FactoryCache<Notification, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static mut SHARED: ::windows::core::FactoryCache<Notification, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
     #[doc = "*Required features: `\"UI_Notifications\"`, `\"Foundation\"`*"]
@@ -2404,8 +2404,8 @@ impl NotificationData {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static mut SHARED: ::windows::core::FactoryCache<NotificationData, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static mut SHARED: ::windows::core::FactoryCache<NotificationData, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
     #[doc = "*Required features: `\"UI_Notifications\"`, `\"Foundation_Collections\"`*"]

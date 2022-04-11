@@ -1651,8 +1651,8 @@ impl Printing3D3MFPackage {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static mut SHARED: ::windows::core::FactoryCache<Printing3D3MFPackage, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static mut SHARED: ::windows::core::FactoryCache<Printing3D3MFPackage, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
@@ -1840,8 +1840,8 @@ impl Printing3DBaseMaterial {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static mut SHARED: ::windows::core::FactoryCache<Printing3DBaseMaterial, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static mut SHARED: ::windows::core::FactoryCache<Printing3DBaseMaterial, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
@@ -2152,8 +2152,8 @@ impl Printing3DColorMaterial {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static mut SHARED: ::windows::core::FactoryCache<Printing3DColorMaterial, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static mut SHARED: ::windows::core::FactoryCache<Printing3DColorMaterial, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
@@ -2370,8 +2370,8 @@ impl Printing3DComponent {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static mut SHARED: ::windows::core::FactoryCache<Printing3DComponent, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static mut SHARED: ::windows::core::FactoryCache<Printing3DComponent, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
@@ -2528,8 +2528,8 @@ impl Printing3DComponentWithMatrix {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static mut SHARED: ::windows::core::FactoryCache<Printing3DComponentWithMatrix, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static mut SHARED: ::windows::core::FactoryCache<Printing3DComponentWithMatrix, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
@@ -2640,8 +2640,8 @@ impl Printing3DCompositeMaterial {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static mut SHARED: ::windows::core::FactoryCache<Printing3DCompositeMaterial, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static mut SHARED: ::windows::core::FactoryCache<Printing3DCompositeMaterial, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`, `\"Foundation_Collections\"`*"]
@@ -2861,8 +2861,8 @@ impl Printing3DFaceReductionOptions {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static mut SHARED: ::windows::core::FactoryCache<Printing3DFaceReductionOptions, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static mut SHARED: ::windows::core::FactoryCache<Printing3DFaceReductionOptions, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
@@ -2984,8 +2984,8 @@ impl Printing3DMaterial {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static mut SHARED: ::windows::core::FactoryCache<Printing3DMaterial, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static mut SHARED: ::windows::core::FactoryCache<Printing3DMaterial, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`, `\"Foundation_Collections\"`*"]
@@ -3113,8 +3113,8 @@ impl Printing3DMesh {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static mut SHARED: ::windows::core::FactoryCache<Printing3DMesh, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static mut SHARED: ::windows::core::FactoryCache<Printing3DMesh, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
@@ -3495,8 +3495,8 @@ impl Printing3DModel {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static mut SHARED: ::windows::core::FactoryCache<Printing3DModel, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static mut SHARED: ::windows::core::FactoryCache<Printing3DModel, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
@@ -3747,8 +3747,8 @@ impl Printing3DModelTexture {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static mut SHARED: ::windows::core::FactoryCache<Printing3DModelTexture, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static mut SHARED: ::windows::core::FactoryCache<Printing3DModelTexture, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
@@ -3908,8 +3908,8 @@ impl Printing3DMultiplePropertyMaterial {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static mut SHARED: ::windows::core::FactoryCache<Printing3DMultiplePropertyMaterial, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static mut SHARED: ::windows::core::FactoryCache<Printing3DMultiplePropertyMaterial, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`, `\"Foundation_Collections\"`*"]
@@ -4186,8 +4186,8 @@ impl Printing3DTexture2CoordMaterial {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static mut SHARED: ::windows::core::FactoryCache<Printing3DTexture2CoordMaterial, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static mut SHARED: ::windows::core::FactoryCache<Printing3DTexture2CoordMaterial, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
@@ -4464,8 +4464,8 @@ impl Printing3DTextureResource {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static mut SHARED: ::windows::core::FactoryCache<Printing3DTextureResource, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static mut SHARED: ::windows::core::FactoryCache<Printing3DTextureResource, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`, `\"Storage_Streams\"`*"]

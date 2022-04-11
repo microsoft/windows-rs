@@ -68,8 +68,8 @@ impl BitmapImage {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static mut SHARED: ::windows::core::FactoryCache<BitmapImage, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static mut SHARED: ::windows::core::FactoryCache<BitmapImage, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
     #[doc = "*Required features: `\"UI_Xaml_Media_Imaging\"`*"]
@@ -1308,8 +1308,8 @@ impl RenderTargetBitmap {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static mut SHARED: ::windows::core::FactoryCache<RenderTargetBitmap, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static mut SHARED: ::windows::core::FactoryCache<RenderTargetBitmap, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
     #[doc = "*Required features: `\"UI_Xaml_Media_Imaging\"`*"]
@@ -1494,8 +1494,8 @@ impl SoftwareBitmapSource {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static mut SHARED: ::windows::core::FactoryCache<SoftwareBitmapSource, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static mut SHARED: ::windows::core::FactoryCache<SoftwareBitmapSource, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
     #[doc = "*Required features: `\"UI_Xaml_Media_Imaging\"`, `\"Foundation\"`*"]

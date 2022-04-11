@@ -6,8 +6,8 @@ impl Ellipse {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static mut SHARED: ::windows::core::FactoryCache<Ellipse, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static mut SHARED: ::windows::core::FactoryCache<Ellipse, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
 }
@@ -568,8 +568,8 @@ impl Line {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static mut SHARED: ::windows::core::FactoryCache<Line, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static mut SHARED: ::windows::core::FactoryCache<Line, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
     #[doc = "*Required features: `\"UI_Xaml_Shapes\"`*"]
@@ -1125,8 +1125,8 @@ impl Polygon {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static mut SHARED: ::windows::core::FactoryCache<Polygon, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static mut SHARED: ::windows::core::FactoryCache<Polygon, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
     #[doc = "*Required features: `\"UI_Xaml_Shapes\"`, `\"UI_Xaml_Media\"`*"]
@@ -1390,8 +1390,8 @@ impl Polyline {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static mut SHARED: ::windows::core::FactoryCache<Polyline, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static mut SHARED: ::windows::core::FactoryCache<Polyline, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
     #[doc = "*Required features: `\"UI_Xaml_Shapes\"`, `\"UI_Xaml_Media\"`*"]
@@ -1655,8 +1655,8 @@ impl Rectangle {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static mut SHARED: ::windows::core::FactoryCache<Rectangle, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static mut SHARED: ::windows::core::FactoryCache<Rectangle, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
     #[doc = "*Required features: `\"UI_Xaml_Shapes\"`*"]

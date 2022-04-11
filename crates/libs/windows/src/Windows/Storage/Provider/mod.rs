@@ -1925,8 +1925,8 @@ impl StorageProviderGetContentInfoForPathResult {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static mut SHARED: ::windows::core::FactoryCache<StorageProviderGetContentInfoForPathResult, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static mut SHARED: ::windows::core::FactoryCache<StorageProviderGetContentInfoForPathResult, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
     #[doc = "*Required features: `\"Storage_Provider\"`*"]
@@ -2048,8 +2048,8 @@ impl StorageProviderGetPathForContentUriResult {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static mut SHARED: ::windows::core::FactoryCache<StorageProviderGetPathForContentUriResult, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static mut SHARED: ::windows::core::FactoryCache<StorageProviderGetPathForContentUriResult, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
     #[doc = "*Required features: `\"Storage_Provider\"`*"]
@@ -2413,8 +2413,8 @@ impl StorageProviderItemProperty {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static mut SHARED: ::windows::core::FactoryCache<StorageProviderItemProperty, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static mut SHARED: ::windows::core::FactoryCache<StorageProviderItemProperty, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
     #[doc = "*Required features: `\"Storage_Provider\"`*"]
@@ -2536,8 +2536,8 @@ impl StorageProviderItemPropertyDefinition {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static mut SHARED: ::windows::core::FactoryCache<StorageProviderItemPropertyDefinition, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static mut SHARED: ::windows::core::FactoryCache<StorageProviderItemPropertyDefinition, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
     #[doc = "*Required features: `\"Storage_Provider\"`*"]
@@ -2874,8 +2874,8 @@ impl StorageProviderSyncRootInfo {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static mut SHARED: ::windows::core::FactoryCache<StorageProviderSyncRootInfo, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
+    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static mut SHARED: ::windows::core::FactoryCache<StorageProviderSyncRootInfo, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
     #[doc = "*Required features: `\"Storage_Provider\"`*"]
