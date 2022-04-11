@@ -11,6 +11,7 @@ path = "../../libs/windows"
 features = [
     "implement",
     "Win32_Foundation",
+    "Win32_System_WinRT",
 ]
 
 [build-dependencies.windows-bindgen]

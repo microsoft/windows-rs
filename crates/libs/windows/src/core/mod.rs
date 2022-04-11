@@ -1,5 +1,4 @@
 mod abi;
-mod activation_factory;
 mod agile_reference;
 mod array;
 pub(crate) mod bindings;
@@ -7,6 +6,7 @@ mod compose;
 mod delay_load;
 mod error;
 mod factory_cache;
+mod generic_factory;
 mod guid;
 mod heap;
 mod hresult;
@@ -31,8 +31,6 @@ mod weak_ref_count;
 
 #[doc(hidden)]
 pub use abi::*;
-#[doc(hidden)]
-pub use activation_factory::*;
 pub use agile_reference::*;
 pub use array::*;
 #[doc(hidden)]
@@ -41,6 +39,8 @@ pub(crate) use delay_load::*;
 pub use error::*;
 #[doc(hidden)]
 pub use factory_cache::*;
+#[doc(hidden)]
+pub use generic_factory::*;
 pub use guid::*;
 pub(crate) use heap::*;
 pub use hresult::*;

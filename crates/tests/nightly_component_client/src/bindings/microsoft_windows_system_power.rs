@@ -19,8 +19,8 @@ impl PowerManager {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static mut SHARED: ::windows::core::FactoryCache<PowerManager, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::from_library(b"test_nightly_component.dll\0");
+    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static mut SHARED: ::windows::core::FactoryCache<PowerManager, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::from_library(b"test_nightly_component.dll\0");
         unsafe { SHARED.call(callback) }
     }
     pub fn Property(&self) -> ::windows::core::Result<i32> {
@@ -107,39 +107,3 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a P
 }
 unsafe impl ::core::marker::Send for PowerManager {}
 unsafe impl ::core::marker::Sync for PowerManager {}
-pub trait IPowerManager_Impl: Sized {
-    fn Property(&self) -> ::windows::core::Result<i32>;
-    fn SetProperty(&self, value: i32) -> ::windows::core::Result<()>;
-}
-impl ::windows::core::RuntimeName for IPowerManager {
-    const NAME: &'static str = "Microsoft.Windows.System.Power.IPowerManager";
-}
-impl IPowerManager_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPowerManager_Impl, const OFFSET: isize>() -> IPowerManager_Vtbl {
-        unsafe extern "system" fn Property<Identity: ::windows::core::IUnknownImpl, Impl: IPowerManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).Property() {
-                ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
-                    ::core::mem::forget(ok__);
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
-        }
-        unsafe extern "system" fn SetProperty<Identity: ::windows::core::IUnknownImpl, Impl: IPowerManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            (*this).SetProperty(value).into()
-        }
-        Self {
-            base__: ::windows::core::IInspectableVtbl::new::<Identity, IPowerManager, OFFSET>(),
-            Property: Property::<Identity, Impl, OFFSET>,
-            SetProperty: SetProperty::<Identity, Impl, OFFSET>,
-        }
-    }
-    pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IPowerManager as ::windows::core::Interface>::IID
-    }
-}
