@@ -120,4 +120,73 @@ impl<'a> Blob<'a> {
     fn offset(&mut self, offset: usize) {
         self.slice = &self.slice[offset..];
     }
+
+    // pub fn type_from_blob(&mut self, enclosing: Option<&TypeDef>, generics: &'a [Type]) -> Option<Type> {
+    //     let is_winrt_const_ref = self.read_modifiers().iter().any(|def| def.type_name() == TypeName::IsConst);
+
+    //     let is_winrt_array_ref = self.read_expected(0x10);
+
+    //     if self.read_expected(0x01) {
+    //         return None;
+    //     }
+
+    //     let is_winrt_array = self.read_expected(0x1D);
+
+    //     let mut pointers = 0;
+
+    //     while self.read_expected(0x0f) {
+    //         pointers += 1;
+    //     }
+
+    //     let mut kind = self.type_from_blob_impl(enclosing, generics);
+
+    //     if pointers > 0 {
+    //         kind = Type::MutPtr((Box::new(kind), pointers));
+    //     }
+
+    //     Some(if is_winrt_array {
+    //         if is_winrt_array_ref {
+    //             Type::WinrtArrayRef(Box::new(kind))
+    //         } else {
+    //             Type::WinrtArray(Box::new(kind))
+    //         }
+    //     } else if is_winrt_const_ref {
+    //         Type::WinrtConstRef(Box::new(kind))
+    //     } else {
+    //         kind
+    //     })
+    // }
+
+    // pub fn type_from_blob_impl(&mut self, enclosing: Option<&TypeDef>, generics: &'a [Type]) -> Type {
+    //     let code = self.read_usize();
+
+    //     if let Some(code) = Type::from_code(code) {
+    //         return code;
+    //     }
+
+    //     match code {
+    //         0x11 | 0x12 => TypeDefOrRef::decode(self.scope, self.file, self.read_usize()).type_from_code(enclosing, generics),
+    //         0x13 => generics.get(self.read_usize() as usize).unwrap_or(&Type::Void).clone(),
+    //         0x14 => {
+    //             let kind = self.type_from_blob(enclosing, generics).unwrap();
+    //             let _rank = self.read_usize();
+    //             let _bounds_count = self.read_usize();
+    //             let bounds = self.read_usize();
+    //             Type::Win32Array((Box::new(kind), bounds))
+    //         }
+    //         0x15 => {
+    //             self.read_usize();
+
+    //             let mut def = self.scope.get(&TypeDefOrRef::decode(self.scope, self.file, self.read_usize()).type_name()).next().expect("Type not found");
+    //             let args = self.read_usize();
+
+    //             for _ in 0..args {
+    //                 def.1.push(self.type_from_blob_impl(enclosing, generics));
+    //             }
+
+    //             Type::TypeDef(def)
+    //         }
+    //         _ => unimplemented!(),
+    //     }
+    // }
 }

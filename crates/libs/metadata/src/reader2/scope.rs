@@ -51,6 +51,10 @@ impl<'a> Scope<'a> {
         types.iter().map(|key| TypeDef(Row::new(self, *key), Vec::new()))
     }
 
+    pub fn get_nested(&self, outer: &TypeDef, name: &str) -> TypeDef {
+        TypeDef(Row::new(self, self.nested[&outer.0.key][name]), Vec::new())
+    }
+
     pub fn usize(&self, key: &ScopeKey, column: usize) -> usize {
         self.files[key.file as usize].usize(key.row as _, key.table as _, column)
     }
