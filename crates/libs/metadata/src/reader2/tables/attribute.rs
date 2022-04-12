@@ -4,10 +4,10 @@ use super::*;
 pub struct Attribute(pub ScopeKey);
 
 impl Attribute {
-    pub fn ty(&self, scope: &Scope) -> TypeRef {
+    pub fn name<'a>(&self, scope: &'a Scope) -> &'a str {
         let AttributeType::MemberRef(member) = scope.decode(self.0, 1);
         let MemberRefParent::TypeRef(type_ref) = member.parent(scope);
-        type_ref
+        type_ref.name(scope)
     }
     pub fn args(&self, scope: &Scope) -> Vec<(&str, Value)> {
         let AttributeType::MemberRef(member) = scope.decode(self.0, 1);

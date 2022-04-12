@@ -1,6 +1,5 @@
 use super::*;
 
-#[derive(Clone)]
 pub enum HasAttribute {
     MethodDef(MethodDef),
     Field(Field),

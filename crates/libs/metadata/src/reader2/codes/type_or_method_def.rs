@@ -1,6 +1,5 @@
 use super::*;
 
-#[derive(Clone)]
 pub enum TypeOrMethodDef {
     TypeDef(TypeDef),
 }

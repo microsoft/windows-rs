@@ -33,7 +33,7 @@ fn main() {
     ];
 
     let now = Instant::now();
-    let scope = reader2::Scope::new(&files);
+    let scope = &reader2::Scope::new(&files);
     println!("Scope: {}", now.elapsed().as_millis());
 
     let now = Instant::now();
@@ -41,7 +41,7 @@ fn main() {
     println!("Tree: {}", now.elapsed().as_millis());
 
     for ty in scope.get(&reader2::TypeName::new("Windows.UI.Composition", "Compositor")) {
-       if ty.attributes().any(|a|a.ty().name() == "ActivatableAttribute") {
+       if ty.attributes(scope).any(|a|a.name(scope) == "ActivatableAttribute") {
            println!("found!");
        }
     }
