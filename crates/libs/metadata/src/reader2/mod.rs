@@ -9,6 +9,7 @@ mod tree;
 mod r#type;
 mod type_name;
 mod value;
+mod type_def_kind;
 
 use super::*;
 pub use blob::*;
@@ -22,3 +23,4 @@ pub use tables::*;
 pub use tree::*;
 pub use type_name::*;
 pub use value::*;
+pub use type_def_kind::*;

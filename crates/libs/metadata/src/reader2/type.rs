@@ -70,4 +70,14 @@ impl Type {
             _ => self,
         }
     }
+    pub fn stdcall(&self, scope:&Scope) -> usize {
+        match self {
+            Self::I8 | Self::U8 => 1,
+            Self::I16 | Self::U16 => 2,
+            Self::I64 | Self::U64 | Self::F64 => 8,
+            Self::GUID => 16,
+            Self::TypeDef((def, _)) => def.stdcall(scope),
+            _ => 4,
+        }
+    }
 }

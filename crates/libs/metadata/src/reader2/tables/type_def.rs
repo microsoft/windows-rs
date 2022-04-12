@@ -45,4 +45,27 @@ impl TypeDef {
 
         unimplemented!();
     }
+    pub fn stdcall(&self, scope:&Scope) -> usize {
+        if self.kind(scope) == TypeDefKind::Struct {
+            if self.flags(scope).union() {
+                self.fields(scope).map(|field| field.ty(scope, Some(*self)).stdcall(scope)).max().unwrap_or(1)
+            } else {
+                self.fields(scope).fold(0, |sum, field| sum + field.ty(scope, Some(*self)).stdcall(scope))
+            }
+        } else {
+            4
+        }
+    }
+    pub fn kind(&self, scope: &Scope) -> TypeDefKind {
+        if self.flags(scope).interface() {
+            TypeDefKind::Interface
+        } else {
+            match self.extends(scope).type_name(scope) {
+                TypeName::Enum => TypeDefKind::Enum,
+                TypeName::Delegate => TypeDefKind::Delegate,
+                TypeName::Struct => TypeDefKind::Struct,
+                _ => TypeDefKind::Class,
+            }
+        }
+    }
 }
