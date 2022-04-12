@@ -39,13 +39,13 @@ impl<'a> Scope<'a> {
     pub fn namespace_types(&self, namespace: &str) -> impl Iterator<Item = TypeDef> + '_ {
         self.types[namespace].values().flatten().map(|ty| *ty)
     }
-    pub fn nested_types(&self, type_def: &TypeDef) -> impl Iterator<Item = TypeDef> + '_ {
-        self.nested[type_def].values().map(|ty| *ty)
+    pub fn nested_types(&self, type_def: TypeDef) -> impl Iterator<Item = TypeDef> + '_ {
+        self.nested[&type_def].values().map(|ty| *ty)
     }
-    pub fn get(&self, type_name: &TypeName) -> impl Iterator<Item = TypeDef> + '_ {
+    pub fn get(&self, type_name: TypeName) -> impl Iterator<Item = TypeDef> + '_ {
         self.types[type_name.namespace][type_name.name].iter().map(|ty| *ty)
     }
-    pub fn get_nested(&self, outer: &TypeDef, name: &str) -> TypeDef {
+    pub fn get_nested(&self, outer: TypeDef, name: &str) -> TypeDef {
         self.nested[&outer][name]
     }
     pub fn usize(&self, key: ScopeKey, column: usize) -> usize {
@@ -75,7 +75,7 @@ impl<'a> Scope<'a> {
         T::decode(key.file as _, self.usize(key, column))
     }
 
-    pub fn type_from_code(&self, code: TypeDefOrRef, enclosing: Option<&TypeDef>, generics: &'a [Type]) -> Type {
+    pub fn type_from_code(&self, code: TypeDefOrRef, enclosing: Option<TypeDef>, generics: &'a [Type]) -> Type {
         if let TypeDefOrRef::TypeSpec(def) = code {
             let mut blob = def.signature(self);
             return self.type_from_blob_impl(&mut blob, None, generics);
@@ -99,15 +99,13 @@ impl<'a> Scope<'a> {
         if let Some(outer) = enclosing {
             Type::TypeDef((self.get_nested(outer, full_name.name), Vec::new()))
         } else {
-            Type::TypeDef((self.get(&full_name).next().expect("Type not found"), Vec::new()))
+            Type::TypeDef((self.get(full_name).next().expect("Type not found"), Vec::new()))
         }
     }
 
-    pub fn type_from_blob(&self, blob: &mut Blob, enclosing: Option<&TypeDef>, generics: &'a [Type]) -> Option<Type> {
+    pub fn type_from_blob(&self, blob: &mut Blob, enclosing: Option<TypeDef>, generics: &'a [Type]) -> Option<Type> {
         let is_winrt_const_ref = blob.read_modifiers().iter().any(|def| def.type_name(self) == TypeName::IsConst);
-
         let is_winrt_array_ref = blob.read_expected(0x10);
-
         if blob.read_expected(0x01) {
             return None;
         }
@@ -139,7 +137,7 @@ impl<'a> Scope<'a> {
         })
     }
 
-    fn type_from_blob_impl(&self, blob: &mut Blob, enclosing: Option<&TypeDef>, generics: &'a [Type]) -> Type {
+    fn type_from_blob_impl(&self, blob: &mut Blob, enclosing: Option<TypeDef>, generics: &'a [Type]) -> Type {
         let code = blob.read_usize();
 
         if let Some(code) = Type::from_code(code) {
@@ -159,7 +157,7 @@ impl<'a> Scope<'a> {
             0x15 => {
                 blob.read_usize();
 
-                let mut def = self.get(&TypeDefOrRef::decode( blob.file, blob.read_usize()).type_name(self)).next().expect("Type not found");
+                let def = self.get(TypeDefOrRef::decode( blob.file, blob.read_usize()).type_name(self)).next().expect("Type not found");
                 let mut args = Vec::with_capacity(blob.read_usize());
 
                 for _ in 0..args.capacity() {

@@ -59,9 +59,9 @@ impl<'a> TypeName<'a> {
         Self { namespace, name: trim_tick(name) }
     }
 
-    pub fn parse(full_name: &str) -> (&str, &str) {
+    pub fn parse(full_name: &'a str) -> Self {
         let index = full_name.rfind('.').expect("Expected full name separated with `.`");
-        (&full_name[0..index], &full_name[index + 1..])
+        Self{ namespace: &full_name[0..index], name: &full_name[index + 1..]}
     }
 }
 

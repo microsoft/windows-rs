@@ -1,4 +1,6 @@
-pub enum Value<'a> {
+use super::*;
+
+pub enum Value {
     Bool(bool),
     U8(u8),
     I8(i8),
@@ -11,6 +13,5 @@ pub enum Value<'a> {
     F32(f32),
     F64(f64),
     String(String),
-    Str(&'a str),
-    TypeName(&'a str),
+    TypeDef(TypeDef),
 }

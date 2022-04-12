@@ -26,12 +26,23 @@ impl TypeDef {
         scope.list(self.0, TABLE_METHODDEF, 5).map(MethodDef)
     }
     pub fn attributes(&self, scope: &Scope) -> impl Iterator<Item = Attribute> {
-        scope.attributes(self.0, HasAttribute::TypeDef(self.clone()))
+        scope.attributes(self.0, HasAttribute::TypeDef(*self))
     }
     pub fn generic_params(&self, scope: &Scope) -> impl Iterator<Item = GenericParam> {
         scope.equal_range(self.0, TABLE_GENERICPARAM, 2, TypeOrMethodDef::TypeDef(self.clone()).encode()).map(GenericParam)
     }
     pub fn interface_impls(&self, scope: &Scope) -> impl Iterator<Item = InterfaceImpl> {
         scope.equal_range(self.0, TABLE_INTERFACEIMPL, 0, (self.0.row + 1) as _).map(InterfaceImpl)
+    }
+    pub fn underlying_type(&self, scope: &Scope) -> Type {
+        if let Some(field) = self.fields(scope).next() {
+            if let Some(constant) = field.constant(scope) {
+                return constant.ty(scope);
+            } else {
+                return field.ty(scope, Some(*self));
+            }
+        }
+
+        unimplemented!();
     }
 }

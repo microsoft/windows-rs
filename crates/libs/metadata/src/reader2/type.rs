@@ -26,6 +26,7 @@ pub enum Type {
     PWSTR,
     PCSTR,
     PCWSTR,
+    TypeName,
     GenericParam(Param),
     MethodDef(MethodDef),
     Field(Field),
@@ -59,6 +60,14 @@ impl Type {
             0x0e => Some(Self::String),
             0x1c => Some(Self::IInspectable),
             _ => None,
+        }
+    }
+    pub fn to_const(self) -> Self {
+        match self {
+            Self::MutPtr((kind, pointers)) => Self::ConstPtr((kind, pointers)),
+            Self::PSTR => Self::PCSTR,
+            Self::PWSTR => Self::PCWSTR,
+            _ => self,
         }
     }
 }

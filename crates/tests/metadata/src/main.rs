@@ -40,7 +40,7 @@ fn main() {
     let _tree = scope.tree();
     println!("Tree: {}", now.elapsed().as_millis());
 
-    for ty in scope.get(&reader2::TypeName::new("Windows.UI.Composition", "Compositor")) {
+    for ty in scope.get(reader2::TypeName::new("Windows.UI.Composition", "Compositor")) {
        if ty.attributes(scope).any(|a|a.name(scope) == "ActivatableAttribute") {
            println!("found!");
        }
