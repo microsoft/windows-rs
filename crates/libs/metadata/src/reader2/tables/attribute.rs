@@ -69,4 +69,25 @@ impl Attribute {
         
         args
     }
+    pub fn composable_type(&self, scope:&Scope) -> Option<TypeDef> {
+        let mut public = false;
+        let mut def = None;
+
+        // One of the arguments is a CompositionType enum and the Public variant
+        // has a value of 2 as a signed 32-bit integer.
+
+        for (_, arg) in self.args(scope) {
+            match arg {
+                Value::I32(2) => public = true,
+                Value::TypeDef(value) => def = Some(value),
+                _ => {}
+            }
+        }
+
+        if public {
+            def
+        } else {
+            None
+        }
+    }
 }

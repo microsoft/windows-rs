@@ -16,9 +16,6 @@ impl Field {
     pub fn attributes(&self, scope: &Scope) -> impl Iterator<Item = Attribute> {
         scope.attributes(self.0, HasAttribute::Field(*self))
     }
-    pub fn is_const(&self, scope: &Scope) -> bool {
-        self.attributes(scope).any(|attribute| attribute.name(scope) == "ConstAttribute")
-    }
     pub fn ty(&self, scope: &Scope, enclosing: Option<TypeDef>) -> Type {
         let mut blob = scope.blob(self.0, 2);
         blob.read_usize();
@@ -31,5 +28,7 @@ impl Field {
             def
         }
     }
-
+    pub fn is_const(&self, scope: &Scope) -> bool {
+        self.attributes(scope).any(|attribute| attribute.name(scope) == "ConstAttribute")
+    }
 }
