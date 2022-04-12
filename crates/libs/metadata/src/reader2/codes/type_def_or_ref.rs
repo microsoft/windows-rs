@@ -1,40 +1,33 @@
 use super::*;
 
 #[derive(Clone)]
-pub enum TypeDefOrRef<'a> {
+pub enum TypeDefOrRef {
     None,
-    TypeDef(TypeDef<'a>),
-    TypeRef(TypeRef<'a>),
-    TypeSpec(TypeSpec<'a>),
+    TypeDef(TypeDef),
+    TypeRef(TypeRef),
+    TypeSpec(TypeSpec),
 }
 
-impl<'a> Decode<'a> for TypeDefOrRef<'a> {
-    fn decode(scope: &'a Scope, file: usize, code: usize) -> Self {
+impl Decode for TypeDefOrRef {
+    fn decode(file: usize, code: usize) -> Self {
         if code == 0 {
             return Self::None;
         }
         let (kind, row) = (code & ((1 << 2) - 1), (code >> 2) - 1);
         match kind {
-            0 => Self::TypeDef(TypeDef(Row::new(scope, ScopeKey::new(row, TABLE_TYPEDEF, file)), Vec::new())),
-            1 => Self::TypeRef(TypeRef(Row::new(scope, ScopeKey::new(row, TABLE_TYPEREF, file)))),
-            2 => Self::TypeSpec(TypeSpec(Row::new(scope, ScopeKey::new(row, TABLE_TYPESPEC, file)))),
+            0 => Self::TypeDef(TypeDef(ScopeKey::new(row, TABLE_TYPEDEF, file))),
+            1 => Self::TypeRef(TypeRef(ScopeKey::new(row, TABLE_TYPEREF, file))),
+            2 => Self::TypeSpec(TypeSpec(ScopeKey::new(row, TABLE_TYPESPEC, file))),
             _ => unimplemented!(),
         }
     }
 }
 
-impl<'a> TypeDefOrRef<'a> {
-    pub fn type_name(&self) -> TypeName {
+impl TypeDefOrRef {
+    pub fn type_name<'a>(&self, scope: &'a Scope) -> TypeName<'a> {
         match self {
-            Self::TypeDef(value) => value.type_name(),
-            Self::TypeRef(value) => value.type_name(),
-            _ => unimplemented!(),
-        }
-    }
-    pub fn scope(&self) -> &Scope {
-        match self {
-            Self::TypeDef(value) => &value.0.scope,
-            Self::TypeRef(value) => &value.0.scope,
+            Self::TypeDef(value) => value.type_name(scope),
+            Self::TypeRef(value) => value.type_name(scope),
             _ => unimplemented!(),
         }
     }

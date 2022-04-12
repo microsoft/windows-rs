@@ -1,13 +1,13 @@
 use super::*;
 
-#[derive(Clone, PartialEq, PartialOrd, Eq, Ord)]
-pub struct Constant<'a>(pub Row<'a>);
+#[derive(Copy, Clone, PartialEq, PartialOrd, Eq, Ord)]
+pub struct Constant(pub ScopeKey);
 
-impl<'a> Constant<'a> {
-    pub fn ty(&self) -> Type {
+impl Constant {
+    pub fn ty(&self, _scope: &Scope) -> Type {
         todo!()
     }
-    pub fn value(&self) -> Blob {
-        self.0.blob(2)
+    pub fn value<'a>(&self, scope: &'a Scope) -> Blob<'a> {
+        scope.blob(self.0, 2)
     }
 }

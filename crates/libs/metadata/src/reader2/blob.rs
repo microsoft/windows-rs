@@ -49,7 +49,7 @@ impl<'a> Blob<'a> {
                 break;
             } else {
                 self.offset(offset);
-                mods.push(TypeDefOrRef::decode(self.scope, self.file, self.read_usize()))
+                mods.push(TypeDefOrRef::decode(self.file, self.read_usize()))
             }
         }
         mods

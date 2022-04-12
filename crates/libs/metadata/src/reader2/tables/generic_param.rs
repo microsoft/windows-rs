@@ -1,10 +1,10 @@
 use super::*;
 
-#[derive(Clone, PartialEq, PartialOrd, Eq, Ord)]
-pub struct GenericParam<'a>(pub Row<'a>);
+#[derive(Copy, Clone, PartialEq, PartialOrd, Eq, Ord)]
+pub struct GenericParam(pub ScopeKey);
 
-impl<'a> GenericParam<'a> {
-    pub fn name(&self) -> &str {
-        self.0.str(3)
+impl GenericParam {
+    pub fn name<'a>(&self, scope: &'a Scope) -> &'a str {
+        scope.str(self.0, 3)
     }
 }

@@ -1,14 +1,14 @@
 use super::*;
 
 #[derive(Clone)]
-pub enum TypeOrMethodDef<'a> {
-    TypeDef(TypeDef<'a>),
+pub enum TypeOrMethodDef {
+    TypeDef(TypeDef),
 }
 
-impl<'a> TypeOrMethodDef<'a> {
+impl TypeOrMethodDef {
     pub fn encode(&self) -> usize {
         (match self {
-            Self::TypeDef(value) => ((value.0.key.row + 1) << 1),
+            Self::TypeDef(value) => ((value.0.row + 1) << 1),
         }) as _
     }
 }

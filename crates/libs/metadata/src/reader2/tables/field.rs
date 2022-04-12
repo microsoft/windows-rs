@@ -1,16 +1,16 @@
 use super::*;
 
-#[derive(Clone, PartialEq, PartialOrd, Eq, Ord)]
-pub struct Field<'a>(pub Row<'a>);
+#[derive(Copy, Clone, PartialEq, PartialOrd, Eq, Ord)]
+pub struct Field(pub ScopeKey);
 
-impl<'a> Field<'a> {
-    pub fn flags(&self) -> FieldAttributes {
-        FieldAttributes(self.0.usize(0))
+impl Field {
+    pub fn flags(&self, scope: &Scope) -> FieldAttributes {
+        FieldAttributes(scope.usize(self.0, 0))
     }
-    pub fn name(&self) -> &str {
-        self.0.str(1)
+    pub fn name<'a>(&self, scope: &'a Scope) -> &'a str {
+        scope.str(self.0, 1)
     }
-    pub fn signature(&self) -> Blob {
-        self.0.blob(2)
+    pub fn signature<'a>(&self, scope: &'a Scope) -> Blob<'a> {
+        scope.blob(self.0, 2)
     }
 }

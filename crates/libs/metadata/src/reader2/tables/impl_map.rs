@@ -1,13 +1,13 @@
 use super::*;
 
-#[derive(Clone, PartialEq, PartialOrd, Eq, Ord)]
-pub struct ImplMap<'a>(pub Row<'a>);
+#[derive(Copy, Clone, PartialEq, PartialOrd, Eq, Ord)]
+pub struct ImplMap(pub ScopeKey);
 
-impl<'a> ImplMap<'a> {
-    pub fn flags(&self) -> PInvokeAttributes {
-        PInvokeAttributes(self.0.usize(0))
+impl ImplMap {
+    pub fn flags(&self, scope: &Scope) -> PInvokeAttributes {
+        PInvokeAttributes(scope.usize(self.0, 0))
     }
-    pub fn scope(&self) -> ModuleRef {
-        ModuleRef(Row::new(self.0.scope, ScopeKey::new(self.0.usize(3) - 1, TABLE_MODULEREF, self.0.key.file as _)))
+    pub fn scope(&self, scope: &Scope) -> ModuleRef {
+        ModuleRef(ScopeKey::new(scope.usize(self.0, 3) - 1, TABLE_MODULEREF, self.0.file as _))
     }
 }

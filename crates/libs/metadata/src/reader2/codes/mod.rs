@@ -11,6 +11,6 @@ pub use member_ref_parent::*;
 pub use type_def_or_ref::*;
 pub use type_or_method_def::*;
 
-pub trait Decode<'a> {
-    fn decode(scope: &'a Scope, file: usize, code: usize) -> Self;
+pub trait Decode {
+    fn decode(file: usize, code: usize) -> Self;
 }

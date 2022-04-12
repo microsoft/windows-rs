@@ -1,10 +1,10 @@
 use super::*;
 
-#[derive(Clone, PartialEq, PartialOrd, Eq, Ord)]
-pub struct ModuleRef<'a>(pub Row<'a>);
+#[derive(Copy, Clone, PartialEq, PartialOrd, Eq, Ord)]
+pub struct ModuleRef(pub ScopeKey);
 
-impl<'a> ModuleRef<'a> {
-    pub fn name(&self) -> &str {
-        self.0.str(0)
+impl ModuleRef {
+    pub fn name<'a>(&self, scope: &'a Scope) -> &'a str {
+        scope.str(self.0, 0)
     }
 }

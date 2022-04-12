@@ -1,7 +1,7 @@
 use super::*;
 
 #[derive(Clone, PartialEq, PartialOrd, Eq, Ord)]
-pub enum Type<'a> {
+pub enum Type {
     Void,
     Bool,
     Char,
@@ -26,11 +26,10 @@ pub enum Type<'a> {
     PWSTR,
     PCSTR,
     PCWSTR,
-   // TypeName, // Used for parsing attribute blobs
-    GenericParam(&'a str),
-    MethodDef(MethodDef<'a>),
-    Field(Field<'a>),
-    TypeDef(TypeDef<'a>),
+    GenericParam(Param),
+    MethodDef(MethodDef),
+    Field(Field),
+    TypeDef((TypeDef, Vec<Self>)),
     MutPtr((Box<Self>, usize)),
     ConstPtr((Box<Self>, usize)),
     Win32Array((Box<Self>, usize)),
@@ -39,7 +38,7 @@ pub enum Type<'a> {
     WinrtConstRef(Box<Self>),
 }
 
-impl<'a> Type<'a> {
+impl Type {
     pub fn from_code(code: usize) -> Option<Self> {
         match code {
             0x01 => Some(Self::Void),

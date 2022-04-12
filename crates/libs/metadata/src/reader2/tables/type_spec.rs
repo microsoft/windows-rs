@@ -1,10 +1,10 @@
 use super::*;
 
-#[derive(Clone, PartialEq, PartialOrd, Eq, Ord)]
-pub struct TypeSpec<'a>(pub Row<'a>);
+#[derive(Copy, Clone, PartialEq, PartialOrd, Eq, Ord)]
+pub struct TypeSpec(pub ScopeKey);
 
-impl<'a> TypeSpec<'a> {
-    pub fn signature(&self) -> Blob {
-        self.0.blob(0)
+impl TypeSpec {
+    pub fn signature<'a>(&self, scope: &'a Scope) -> Blob<'a> {
+        scope.blob(self.0, 0)
     }
 }

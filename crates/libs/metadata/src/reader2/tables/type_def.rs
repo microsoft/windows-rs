@@ -1,37 +1,37 @@
 use super::*;
 
-#[derive(Clone, PartialEq, PartialOrd, Eq, Ord)]
-pub struct TypeDef<'a>(pub Row<'a>, pub Vec<Type<'a>>);
+#[derive(Copy, Clone, PartialEq, PartialOrd, Eq, Ord, Hash)]
+pub struct TypeDef(pub ScopeKey);
 
-impl<'a> TypeDef<'a> {
-    pub fn flags(&self) -> TypeAttributes {
-        TypeAttributes(self.0.usize(0))
+impl TypeDef {
+    pub fn flags(&self, scope: &Scope) -> TypeAttributes {
+        TypeAttributes(scope.usize(self.0, 0))
     }
-    pub fn name(&self) -> &str {
-        self.0.str(1)
+    pub fn name<'a>(&self, scope: &'a Scope) -> &'a str {
+        scope.str(self.0, 1)
     }
-    pub fn namespace(&self) -> &str {
-        self.0.str(2)
+    pub fn namespace<'a>(&self, scope: &'a Scope) -> &'a str {
+        scope.str(self.0, 2)
     }
-    pub fn type_name(&self) -> TypeName {
-        TypeName::new(self.namespace(), self.name())
+    pub fn type_name<'a>(&self, scope: &'a Scope) -> TypeName<'a> {
+        TypeName::new(self.namespace(scope), self.name(scope))
     }
-    pub fn extends(&self) -> TypeDefOrRef {
-        self.0.decode(3)
+    pub fn extends(&self, scope: &Scope) -> TypeDefOrRef {
+        scope.decode(self.0, 3)
     }
-    pub fn fields(&self) -> impl Iterator<Item = Field> {
-        self.0.list(TABLE_FIELD, 4).map(Field)
+    pub fn fields(&self, scope: &Scope) -> impl Iterator<Item = Field> {
+        scope.list(self.0, TABLE_FIELD, 4).map(Field)
     }
-    pub fn methods(&self) -> impl Iterator<Item = MethodDef> {
-        self.0.list(TABLE_METHODDEF, 5).map(MethodDef)
+    pub fn methods(&self, scope: &Scope) -> impl Iterator<Item = MethodDef> {
+        scope.list(self.0, TABLE_METHODDEF, 5).map(MethodDef)
     }
-    pub fn attributes(&self) -> impl Iterator<Item = Attribute> {
-        self.0.attributes(HasAttribute::TypeDef(self.clone()))
+    pub fn attributes(&self, scope: &Scope) -> impl Iterator<Item = Attribute> {
+        scope.attributes(self.0, HasAttribute::TypeDef(self.clone()))
     }
-    pub fn generic_params(&self) -> impl Iterator<Item = GenericParam> {
-        self.0.equal_range(TABLE_GENERICPARAM, 2, TypeOrMethodDef::TypeDef(self.clone()).encode()).map(GenericParam)
+    pub fn generic_params(&self, scope: &Scope) -> impl Iterator<Item = GenericParam> {
+        scope.equal_range(self.0, TABLE_GENERICPARAM, 2, TypeOrMethodDef::TypeDef(self.clone()).encode()).map(GenericParam)
     }
-    pub fn interface_impls(&self) -> impl Iterator<Item = InterfaceImpl> {
-        self.0.equal_range(TABLE_INTERFACEIMPL, 0, (self.0.key.row + 1) as _).map(InterfaceImpl)
+    pub fn interface_impls(&self, scope: &Scope) -> impl Iterator<Item = InterfaceImpl> {
+        scope.equal_range(self.0, TABLE_INTERFACEIMPL, 0, (self.0.row + 1) as _).map(InterfaceImpl)
     }
 }

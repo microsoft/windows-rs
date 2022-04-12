@@ -1,13 +1,13 @@
 use super::*;
 
-#[derive(Clone, PartialEq, PartialOrd, Eq, Ord)]
-pub struct MemberRef<'a>(pub Row<'a>);
+#[derive(Copy, Clone, PartialEq, PartialOrd, Eq, Ord)]
+pub struct MemberRef(pub ScopeKey);
 
-impl<'a> MemberRef<'a> {
-    pub fn parent(&self) -> MemberRefParent<'a> {
-        self.0.decode(0)
+impl MemberRef {
+    pub fn parent(&self, scope: &Scope) -> MemberRefParent {
+        scope.decode(self.0, 0)
     }
-    pub fn signature(&self) -> Blob {
-        self.0.blob(2)
+    pub fn signature<'a>(&self, scope: &'a Scope) -> Blob<'a> {
+        scope.blob(self.0, 2)
     }
 }
