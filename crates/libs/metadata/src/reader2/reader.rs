@@ -202,6 +202,9 @@ impl<'a> Reader<'a> {
             def
         }
     }
+    pub fn field_is_blittable(&self, row:Field, enclosing: Option<TypeDef>) -> bool {
+        self.type_is_blittable(&self.field_type(row, enclosing))
+    }
 
     pub fn generic_param_name(&self, row: GenericParam) -> &str {
         self.row_str(row.0, 3)
@@ -319,6 +322,20 @@ impl<'a> Reader<'a> {
             4
         }
     }
+    pub fn type_def_is_blittable(&self, row:TypeDef) -> bool {
+        match self.type_def_kind(row) {
+            TypeDefKind::Struct => {
+                if self.type_def_type_name(row) == TypeName::BSTR {
+                    false
+                } else {
+                    self.type_def_fields(row).all(|field| self.field_is_blittable(field, Some(row)))
+                }
+            }
+            TypeDefKind::Enum => true,
+            TypeDefKind::Delegate => !self.type_def_flags(row).winrt(),
+            _ => false,
+        }
+    }
 
     pub fn type_ref_name(&self, row: TypeRef) -> &str {
         self.row_str(row.0, 1)
@@ -340,8 +357,16 @@ impl<'a> Reader<'a> {
             Type::I16 | Type::U16 => 2,
             Type::I64 | Type::U64 | Type::F64 => 8,
             Type::GUID => 16,
-            Type::TypeDef((def, _)) => self.type_def_stdcall(*def),
+            Type::TypeDef((row, _)) => self.type_def_stdcall(*row),
             _ => 4,
+        }
+    }
+    fn type_is_blittable(&self, ty: &Type) -> bool {
+        match ty {
+            Type::TypeDef((row, _)) => self.type_def_is_blittable(*row),
+            Type::String | Type::IInspectable | Type::IUnknown | Type::GenericParam(_) => false,
+            Type::Win32Array((kind, _)) => self.type_is_blittable(kind),
+            _ => true,
         }
     }
 
