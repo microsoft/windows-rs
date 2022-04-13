@@ -156,7 +156,7 @@ impl<'a> Reader<'a> {
 
     pub fn constant_type(&self, row: Constant) -> Type {
         let code = self.row_usize(row.0, 0);
-        Type::from_code(code).expect("Type not found")
+        type_from_code(code).expect("Type not found")
     }
     pub fn constant_value(&self, row: Constant) -> Value {
         let mut blob = self.row_blob(row.0, 2);
@@ -197,7 +197,7 @@ impl<'a> Reader<'a> {
         let def = self.type_from_blob(&mut blob, enclosing, &[]).expect("Type not found");
 
         if self.field_is_const(row) {
-            def.to_const()
+            type_to_const(def)
         } else {
             def
         }
@@ -334,7 +334,7 @@ impl<'a> Reader<'a> {
         self.row_blob(row.0, 0)
     }
 
-    pub fn type_stdcall(&self, ty: &Type) -> usize {
+    fn type_stdcall(&self, ty: &Type) -> usize {
         match ty {
             Type::I8 | Type::U8 => 1,
             Type::I16 | Type::U16 => 2,
@@ -345,7 +345,7 @@ impl<'a> Reader<'a> {
         }
     }
 
-    fn type_from_code(&self, code: TypeDefOrRef, enclosing: Option<TypeDef>, generics: &[Type]) -> Type {
+    fn type_from_ref(&self, code: TypeDefOrRef, enclosing: Option<TypeDef>, generics: &[Type]) -> Type {
         if let TypeDefOrRef::TypeSpec(def) = code {
             let mut blob = self.type_spec_signature(def);
             return self.type_from_blob_impl(&mut blob, None, generics);
@@ -408,12 +408,12 @@ impl<'a> Reader<'a> {
     fn type_from_blob_impl(&self, blob: &mut Blob, enclosing: Option<TypeDef>, generics: &[Type]) -> Type {
         let code = blob.read_usize();
 
-        if let Some(code) = Type::from_code(code) {
+        if let Some(code) = type_from_code(code) {
             return code;
         }
 
         match code {
-            0x11 | 0x12 => self.type_from_code(TypeDefOrRef::decode(blob.file, blob.read_usize()), enclosing, generics),
+            0x11 | 0x12 => self.type_from_ref(TypeDefOrRef::decode(blob.file, blob.read_usize()), enclosing, generics),
             0x13 => generics.get(blob.read_usize() as usize).unwrap_or(&Type::Void).clone(),
             0x14 => {
                 let kind = self.type_from_blob(blob, enclosing, generics).unwrap();
@@ -436,6 +436,37 @@ impl<'a> Reader<'a> {
             }
             _ => unimplemented!(),
         }
+    }
+}
+
+fn type_from_code(code: usize) -> Option<Type> {
+    match code {
+        0x01 => Some(Type::Void),
+        0x02 => Some(Type::Bool),
+        0x03 => Some(Type::Char),
+        0x04 => Some(Type::I8),
+        0x05 => Some(Type::U8),
+        0x06 => Some(Type::I16),
+        0x07 => Some(Type::U16),
+        0x08 => Some(Type::I32),
+        0x09 => Some(Type::U32),
+        0x0a => Some(Type::I64),
+        0x0b => Some(Type::U64),
+        0x0c => Some(Type::F32),
+        0x0d => Some(Type::F64),
+        0x18 => Some(Type::ISize),
+        0x19 => Some(Type::USize),
+        0x0e => Some(Type::String),
+        0x1c => Some(Type::IInspectable),
+        _ => None,
+    }
+}
+fn type_to_const(ty:Type) -> Type {
+    match ty {
+        Type::MutPtr((kind, pointers)) => Type::ConstPtr((kind, pointers)),
+        Type::PSTR => Type::PCSTR,
+        Type::PWSTR => Type::PCWSTR,
+        _ => ty,
     }
 }
 
