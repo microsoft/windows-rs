@@ -238,10 +238,10 @@ impl<'a> Reader<'a> {
     }
 
     pub fn method_def_impl_flags(&self, row: MethodDef) -> MethodImplAttributes {
-        MethodImplAttributes(self.row_usize(row.0, 0))
+        MethodImplAttributes(self.row_usize(row.0, 1))
     }
     pub fn method_def_flags(&self, row: MethodDef) -> MethodAttributes {
-        MethodAttributes(self.row_usize(row.0, 1))
+        MethodAttributes(self.row_usize(row.0, 2))
     }
     pub fn method_def_name(&self, row: MethodDef) -> &str {
         self.row_str(row.0, 3)
@@ -251,6 +251,53 @@ impl<'a> Reader<'a> {
     }
     pub fn method_def_params(&self, row: MethodDef) -> impl Iterator<Item = Param> {
         self.row_list(row.0, TABLE_PARAM, 4).map(Param)
+    }
+    pub fn method_def_attributes(&self, row: MethodDef) -> impl Iterator<Item = Attribute> {
+        self.row_attributes(row.0, HasAttribute::MethodDef(row))
+    }
+    pub fn method_def_is_deprecated(&self, row: MethodDef) -> bool {
+        self.method_def_attributes(row).any(|attribute| self.attribute_name(attribute) == "DeprecatedAttribute")
+    }
+    pub fn method_def_does_not_return(&self, row: MethodDef) -> bool {
+        self.method_def_attributes(row).any(|attribute| self.attribute_name(attribute) == "DoesNotReturnAttribute")
+    }
+    pub fn method_def_special_name(&self, row:MethodDef) -> String {
+        let name = self.method_def_name(row);
+        if self.method_def_flags(row).special() {
+            if name.starts_with("get") {
+                name[4..].to_string()
+            } else if name.starts_with("put") {
+                format!("Set{}", &name[4..])
+            } else if name.starts_with("add") {
+                name[4..].to_string()
+            } else if name.starts_with("remove") {
+                format!("Remove{}", &name[7..])
+            } else {
+                "name".to_string()
+            }
+        } else {
+            for attribute in self.method_def_attributes(row) {
+                if self.attribute_name(attribute) == "OverloadAttribute" {
+                    for (_, arg) in self.attribute_args(attribute) {
+                        if let Value::String(name) = arg {
+                            return name;
+                        }
+                    }
+                }
+            }
+            name.to_string()
+        }
+    }
+    pub fn method_def_static_lib(&self, row:MethodDef) -> Option<String> {
+        for attribute in self.method_def_attributes(row) {
+            if self.attribute_name(attribute) == "StaticLibraryAttribute" { 
+                let args = self.attribute_args(attribute);
+                if let Value::String(value) = &args[0].1 {
+                    return Some(value.clone());
+                }
+            }
+        }
+        None
     }
 
     pub fn module_ref_name(&self, row: ModuleRef) -> &str {
