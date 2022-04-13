@@ -217,11 +217,17 @@ impl<'a> Reader<'a> {
         ModuleRef(Row::new(self.row_usize(row.0, 3) - 1, TABLE_MODULEREF, row.0.file as _))
     }
 
-    pub fn interface_impl_type(&self, row: InterfaceImpl) -> TypeDefOrRef {
-        self.row_decode(row.0, 1)
-    }
     pub fn interface_impl_attributes(&self, row: InterfaceImpl) -> impl Iterator<Item = Attribute> {
         self.row_attributes(row.0, HasAttribute::InterfaceImpl(row))
+    }
+    pub fn interface_impl_is_default(&self, row: InterfaceImpl) -> bool {
+        self.interface_impl_attributes(row).any(|attribute| self.attribute_name(attribute) == "DefaultAttribute")
+    }
+    pub fn interface_impl_is_overridable(&self, row: InterfaceImpl) -> bool {
+        self.interface_impl_attributes(row).any(|attribute| self.attribute_name(attribute) == "OverridableAttribute")
+    }
+    pub fn interface_impl_type(&self, row: InterfaceImpl, generics: &[Type]) -> Type {
+        self.type_from_ref(self.row_decode(row.0, 1), None, generics)
     }
 
     pub fn member_ref_parent(&self, row: MemberRef) -> MemberRefParent {
