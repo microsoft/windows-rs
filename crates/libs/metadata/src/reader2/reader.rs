@@ -127,20 +127,20 @@ impl<'a> Reader<'a> {
     pub fn field_attributes(&self, row: Field) -> impl Iterator<Item = Attribute> {
         self.row_attributes(row.0, HasAttribute::Field(row))
     }
-    //     pub fn field_type(&self, scope: &Reader, enclosing: Option<TypeDef>) -> Type {
-    //         let mut blob = scope.blob(self.0, 2);
-    //         blob.read_usize();
-    //         blob.read_modifiers();
-    //         let def = scope.type_from_blob(&mut blob, enclosing, &[]).expect("Type not found");
-
-    //         if self.is_const(scope) {
-    //             def.to_const()
-    //         } else {
-    //             def
-    //         }
-    //     }
     pub fn field_is_const(&self, row: Field) -> bool {
         self.field_attributes(row).any(|attribute| self.attribute_name(attribute) == "ConstAttribute")
+    }
+    pub fn field_type(&self, row:Field, enclosing: Option<TypeDef>) -> Type {
+        let mut blob = self.row_blob(row.0, 2);
+        blob.read_usize();
+        blob.read_modifiers();
+        let def = self.type_from_blob(&mut blob, enclosing, &[]).expect("Type not found");
+
+        if self.field_is_const(row) {
+            def.to_const()
+        } else {
+            def
+        }
     }
 
     pub fn generic_param_name(&self, row: GenericParam) -> &str {
@@ -228,17 +228,14 @@ impl<'a> Reader<'a> {
     pub fn type_def_interface_impls(&self, row: TypeDef) -> impl Iterator<Item = InterfaceImpl> {
         self.row_equal_range(row.0, TABLE_INTERFACEIMPL, 0, (row.0.row + 1) as _).map(InterfaceImpl)
     }
-    // pub fn type_def_underlying_type(&self, row:TypeDef) -> Type {
-    //     if let Some(field) = self.type_def_fields(row).next() {
-    //         if let Some(constant) = field.constant(scope) {
-    //             return constant.ty(scope);
-    //         } else {
-    //             return field.ty(scope, Some(*self));
-    //         }
-    //     }
-
-    //     unimplemented!();
-    // }
+    pub fn type_def_underlying_type(&self, row:TypeDef) -> Type {
+        let field = self.type_def_fields(row).next().expect("Field not found");
+        if let Some(constant) = self.field_constant(field) {
+            return self.constant_type(constant);
+        } else {
+            return self.field_type(field, Some(row));
+        }
+    }
 
     pub fn type_ref_name(&self, row: TypeRef) -> &str {
         self.row_str(row.0, 1)
@@ -250,98 +247,102 @@ impl<'a> Reader<'a> {
         TypeName::new(self.type_ref_name(row), self.type_ref_namespace(row))
     }
 
-    // pub fn type_from_code(&self, code: TypeDefOrRef, enclosing: Option<TypeDef>, generics: &[Type]) -> Type {
-    //     if let TypeDefOrRef::TypeSpec(def) = code {
-    //         let mut blob = def.signature(self);
-    //         return self.type_from_blob_impl(&mut blob, None, generics);
-    //     }
+    pub fn type_spec_signature(&self, row:TypeSpec) -> Blob {
+        self.row_blob(row.0, 0)
+    }
 
-    //     let mut full_name = self.type_def_or_ref(code);
+    fn type_from_code(&self, code: TypeDefOrRef, enclosing: Option<TypeDef>, generics: &[Type]) -> Type {
+        if let TypeDefOrRef::TypeSpec(def) = code {
+            let mut blob = self.type_spec_signature(def);
+            return self.type_from_blob_impl(&mut blob, None, generics);
+        }
 
-    //     for (known_name, kind) in WELL_KNOWN_TYPES {
-    //         if full_name == known_name {
-    //             return kind;
-    //         }
-    //     }
+        let mut full_name = self.type_def_or_ref(code);
 
-    //     for (from, to) in REMAP_TYPES {
-    //         if full_name == from {
-    //             full_name = to;
-    //             break;
-    //         }
-    //     }
+        for (known_name, kind) in WELL_KNOWN_TYPES {
+            if full_name == known_name {
+                return kind;
+            }
+        }
 
-    //     if let Some(outer) = enclosing {
-    //         Type::TypeDef((self.get_nested(outer, full_name.name), Vec::new()))
-    //     } else {
-    //         Type::TypeDef((self.get(full_name).next().expect("Type not found"), Vec::new()))
-    //     }
-    // }
-    // pub fn type_from_blob(&self, blob: &mut Blob, enclosing: Option<TypeDef>, generics: &[Type]) -> Option<Type> {
-    //     let is_winrt_const_ref = blob.read_modifiers().iter().any(|def| self.type_def_or_ref(def) == TypeName::IsConst);
-    //     let is_winrt_array_ref = blob.read_expected(0x10);
-    //     if blob.read_expected(0x01) {
-    //         return None;
-    //     }
+        for (from, to) in REMAP_TYPES {
+            if full_name == from {
+                full_name = to;
+                break;
+            }
+        }
 
-    //     let is_winrt_array = blob.read_expected(0x1D);
+        if let Some(outer) = enclosing {
+            Type::TypeDef((self.get_nested(outer, full_name.name), Vec::new()))
+        } else {
+            Type::TypeDef((self.get(full_name).next().expect("Type not found"), Vec::new()))
+        }
+    }
+    fn type_from_blob(&self, blob: &mut Blob, enclosing: Option<TypeDef>, generics: &[Type]) -> Option<Type> {
+        let is_winrt_const_ref = blob.read_modifiers().iter().any(|def| self.type_def_or_ref(*def) == TypeName::IsConst);
+        let is_winrt_array_ref = blob.read_expected(0x10);
+        if blob.read_expected(0x01) {
+            return None;
+        }
 
-    //     let mut pointers = 0;
+        let is_winrt_array = blob.read_expected(0x1D);
 
-    //     while blob.read_expected(0x0f) {
-    //         pointers += 1;
-    //     }
+        let mut pointers = 0;
 
-    //     let mut kind = self.type_from_blob_impl(blob, enclosing, generics);
+        while blob.read_expected(0x0f) {
+            pointers += 1;
+        }
 
-    //     if pointers > 0 {
-    //         kind = Type::MutPtr((Box::new(kind), pointers));
-    //     }
+        let mut kind = self.type_from_blob_impl(blob, enclosing, generics);
 
-    //     Some(if is_winrt_array {
-    //         if is_winrt_array_ref {
-    //             Type::WinrtArrayRef(Box::new(kind))
-    //         } else {
-    //             Type::WinrtArray(Box::new(kind))
-    //         }
-    //     } else if is_winrt_const_ref {
-    //         Type::WinrtConstRef(Box::new(kind))
-    //     } else {
-    //         kind
-    //     })
-    // }
-    // fn type_from_blob_impl(&self, blob: &mut Blob, enclosing: Option<TypeDef>, generics: &[Type]) -> Type {
-    //     let code = blob.read_usize();
+        if pointers > 0 {
+            kind = Type::MutPtr((Box::new(kind), pointers));
+        }
 
-    //     if let Some(code) = Type::from_code(code) {
-    //         return code;
-    //     }
+        Some(if is_winrt_array {
+            if is_winrt_array_ref {
+                Type::WinrtArrayRef(Box::new(kind))
+            } else {
+                Type::WinrtArray(Box::new(kind))
+            }
+        } else if is_winrt_const_ref {
+            Type::WinrtConstRef(Box::new(kind))
+        } else {
+            kind
+        })
+    }
+    fn type_from_blob_impl(&self, blob: &mut Blob, enclosing: Option<TypeDef>, generics: &[Type]) -> Type {
+        let code = blob.read_usize();
 
-    //     match code {
-    //         0x11 | 0x12 => self.type_from_code(TypeDefOrRef::decode(blob.file, blob.read_usize()), enclosing, generics),
-    //         0x13 => generics.get(blob.read_usize() as usize).unwrap_or(&Type::Void).clone(),
-    //         0x14 => {
-    //             let kind = self.type_from_blob(blob, enclosing, generics).unwrap();
-    //             let _rank = blob.read_usize();
-    //             let _bounds_count = blob.read_usize();
-    //             let bounds = blob.read_usize();
-    //             Type::Win32Array((Box::new(kind), bounds))
-    //         }
-    //         0x15 => {
-    //             blob.read_usize();
+        if let Some(code) = Type::from_code(code) {
+            return code;
+        }
 
-    //             let def = self.get(self.type_def_or_ref(TypeDefOrRef::decode( blob.file, blob.read_usize())).type_name(self)).next().expect("Type not found");
-    //             let mut args = Vec::with_capacity(blob.read_usize());
+        match code {
+            0x11 | 0x12 => self.type_from_code(TypeDefOrRef::decode(blob.file, blob.read_usize()), enclosing, generics),
+            0x13 => generics.get(blob.read_usize() as usize).unwrap_or(&Type::Void).clone(),
+            0x14 => {
+                let kind = self.type_from_blob(blob, enclosing, generics).unwrap();
+                let _rank = blob.read_usize();
+                let _bounds_count = blob.read_usize();
+                let bounds = blob.read_usize();
+                Type::Win32Array((Box::new(kind), bounds))
+            }
+            0x15 => {
+                blob.read_usize();
 
-    //             for _ in 0..args.capacity() {
-    //                 args.push(self.type_from_blob_impl(blob, enclosing, generics));
-    //             }
+                let def = self.get(self.type_def_or_ref(TypeDefOrRef::decode( blob.file, blob.read_usize()))).next().expect("Type not found");
+                let mut args = Vec::with_capacity(blob.read_usize());
 
-    //             Type::TypeDef((def, args))
-    //         }
-    //         _ => unimplemented!(),
-    //     }
-    // }
+                for _ in 0..args.capacity() {
+                    args.push(self.type_from_blob_impl(blob, enclosing, generics));
+                }
+
+                Type::TypeDef((def, args))
+            }
+            _ => unimplemented!(),
+        }
+    }
 }
 
 const REMAP_TYPES: [(TypeName, TypeName); 1] = [(TypeName::D2D_MATRIX_3X2_F, TypeName::Matrix3x2)];
