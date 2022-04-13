@@ -4,36 +4,8 @@ use super::*;
 pub struct TypeDef(pub Row);
 
 // impl TypeDef {
-//     pub fn flags(&self, scope: &Reader) -> TypeAttributes {
-//         TypeAttributes(scope.usize(self.0, 0))
-//     }
-//     pub fn name<'a>(&self, scope: &'a Reader) -> &'a str {
-//         scope.str(self.0, 1)
-//     }
-//     pub fn namespace<'a>(&self, scope: &'a Reader) -> &'a str {
-//         scope.str(self.0, 2)
-//     }
-//     pub fn type_name<'a>(&self, scope: &'a Reader) -> TypeName<'a> {
-//         TypeName::new(self.namespace(scope), self.name(scope))
-//     }
-//     pub fn extends(&self, scope: &Reader) -> TypeDefOrRef {
-//         scope.decode(self.0, 3)
-//     }
-//     pub fn fields(&self, scope: &Reader) -> impl Iterator<Item = Field> {
-//         scope.list(self.0, TABLE_FIELD, 4).map(Field)
-//     }
-//     pub fn methods(&self, scope: &Reader) -> impl Iterator<Item = MethodDef> {
-//         scope.list(self.0, TABLE_METHODDEF, 5).map(MethodDef)
-//     }
-//     pub fn attributes(&self, scope: &Reader) -> impl Iterator<Item = Attribute> {
-//         scope.attributes(self.0, HasAttribute::TypeDef(*self))
-//     }
-//     pub fn generic_params(&self, scope: &Reader) -> impl Iterator<Item = GenericParam> {
-//         scope.equal_range(self.0, TABLE_GENERICPARAM, 2, TypeOrMethodDef::TypeDef(self.clone()).encode()).map(GenericParam)
-//     }
-//     pub fn interface_impls(&self, scope: &Reader) -> impl Iterator<Item = InterfaceImpl> {
-//         scope.equal_range(self.0, TABLE_INTERFACEIMPL, 0, (self.0.row + 1) as _).map(InterfaceImpl)
-//     }
+
+
 //     pub fn underlying_type(&self, scope: &Reader) -> Type {
 //         if let Some(field) = self.fields(scope).next() {
 //             if let Some(constant) = field.constant(scope) {

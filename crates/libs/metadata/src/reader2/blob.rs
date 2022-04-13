@@ -119,5 +119,4 @@ impl<'a> Blob<'a> {
     fn offset(&mut self, offset: usize) {
         self.slice = &self.slice[offset..];
     }
-
 }

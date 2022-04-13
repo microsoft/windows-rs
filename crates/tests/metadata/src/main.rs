@@ -42,5 +42,6 @@ fn main() {
 
     for td in reader.get(reader2::TypeName::new("Windows.UI.Composition", "Compositor")) {
        println!("{}", reader.type_def_type_name(td))
+       
     }
 }
