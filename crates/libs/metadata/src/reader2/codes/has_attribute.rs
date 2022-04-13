@@ -15,15 +15,15 @@ pub enum HasAttribute {
 impl HasAttribute {
     pub fn encode(&self) -> usize {
         (match self {
-            Self::MethodDef(value) => ((value.0.row + 1) << 5),
-            Self::Field(value) => ((value.0.row + 1) << 5) | 1,
-            Self::TypeRef(value) => ((value.0.row + 1) << 5) | 2,
-            Self::TypeDef(value) => ((value.0.row + 1) << 5) | 3,
-            Self::Param(value) => ((value.0.row + 1) << 5) | 4,
-            Self::InterfaceImpl(value) => ((value.0.row + 1) << 5) | 5,
-            Self::MemberRef(value) => ((value.0.row + 1) << 5) | 6,
-            Self::TypeSpec(value) => ((value.0.row + 1) << 5) | 13,
-            Self::GenericParam(value) => ((value.0.row + 1) << 5) | 19,
+            Self::MethodDef(row) => ((row.0.row + 1) << 5),
+            Self::Field(row) => ((row.0.row + 1) << 5) | 1,
+            Self::TypeRef(row) => ((row.0.row + 1) << 5) | 2,
+            Self::TypeDef(row) => ((row.0.row + 1) << 5) | 3,
+            Self::Param(row) => ((row.0.row + 1) << 5) | 4,
+            Self::InterfaceImpl(row) => ((row.0.row + 1) << 5) | 5,
+            Self::MemberRef(row) => ((row.0.row + 1) << 5) | 6,
+            Self::TypeSpec(row) => ((row.0.row + 1) << 5) | 13,
+            Self::GenericParam(row) => ((row.0.row + 1) << 5) | 19,
         }) as _
     }
 }

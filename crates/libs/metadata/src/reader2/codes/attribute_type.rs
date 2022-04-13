@@ -8,7 +8,7 @@ impl Decode for AttributeType {
     fn decode(file: usize, code: usize) -> Self {
         let (kind, row) = (code & ((1 << 3) - 1), (code >> 3) - 1);
         match kind {
-            3 => Self::MemberRef(MemberRef(ScopeKey::new(row, TABLE_MEMBERREF, file))),
+            3 => Self::MemberRef(MemberRef(Row::new(row, TABLE_MEMBERREF, file))),
             _ => unimplemented!(),
         }
     }
