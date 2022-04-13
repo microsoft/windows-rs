@@ -48,6 +48,11 @@ impl HSTRING {
         alloc::string::String::from_utf16_lossy(self.as_wide())
     }
 
+    /// Get the contents of this `HSTRING` as a OsString.
+    pub fn to_os_string(&self) -> std::ffi::OsString {
+        std::os::windows::ffi::OsStringExt::from_wide(self.as_wide())
+    }
+
     /// Clear the contents of the string and free the memory if `self` holds the
     /// last reference to the string data.
     pub fn clear(&mut self) {
@@ -164,6 +169,24 @@ impl core::convert::From<&alloc::string::String> for HSTRING {
     }
 }
 
+impl core::convert::From<&std::ffi::OsStr> for HSTRING {
+    fn from(value: &std::ffi::OsStr) -> Self {
+        unsafe { Self::from_wide_iter(std::os::windows::ffi::OsStrExt::encode_wide(value), value.len() as u32) }
+    }
+}
+
+impl core::convert::From<std::ffi::OsString> for HSTRING {
+    fn from(value: std::ffi::OsString) -> Self {
+        value.as_os_str().into()
+    }
+}
+
+impl core::convert::From<&std::ffi::OsString> for HSTRING {
+    fn from(value: &std::ffi::OsString) -> Self {
+        value.as_os_str().into()
+    }
+}
+
 impl PartialEq for HSTRING {
     fn eq(&self, other: &Self) -> bool {
         *self.as_wide() == *other.as_wide()
@@ -258,6 +281,18 @@ impl core::convert::TryFrom<HSTRING> for alloc::string::String {
     }
 }
 
+impl<'a> core::convert::From<&'a HSTRING> for std::ffi::OsString {
+    fn from(hstring: &HSTRING) -> Self {
+        std::os::windows::ffi::OsStringExt::from_wide(hstring.as_wide())
+    }
+}
+
+impl core::convert::From<HSTRING> for std::ffi::OsString {
+    fn from(hstring: HSTRING) -> Self {
+        Self::from(&hstring)
+    }
+}
+
 #[cfg(feature = "alloc")]
 impl<'a> IntoParam<'a, HSTRING> for &str {
     fn into_param(self) -> Param<'a, HSTRING> {
@@ -267,6 +302,18 @@ impl<'a> IntoParam<'a, HSTRING> for &str {
 
 #[cfg(feature = "alloc")]
 impl<'a> IntoParam<'a, HSTRING> for alloc::string::String {
+    fn into_param(self) -> Param<'a, HSTRING> {
+        Param::Owned(self.into())
+    }
+}
+
+impl<'a> IntoParam<'a, HSTRING> for &std::ffi::OsStr {
+    fn into_param(self) -> Param<'a, HSTRING> {
+        Param::Owned(self.into())
+    }
+}
+
+impl<'a> IntoParam<'a, HSTRING> for std::ffi::OsString {
     fn into_param(self) -> Param<'a, HSTRING> {
         Param::Owned(self.into())
     }
