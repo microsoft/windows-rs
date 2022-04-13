@@ -174,6 +174,19 @@ impl<'a> Reader<'a> {
         }
     }
 
+    pub fn type_def_flags(&self, row: TypeDef) -> TypeAttributes {
+        TypeAttributes(self.usize(row.0, 0))
+    }
+    pub fn type_def_name(&self, row: TypeDef) -> &str {
+        self.str(row.0, 1)
+    }
+    pub fn type_def_namespace(&self, row: TypeDef) -> &str {
+        self.str(row.0, 2)
+    }
+    pub fn type_def_type_name(&self, row: TypeDef) -> TypeName {
+        TypeName::new(self.type_def_namespace(row), self.type_def_namespace(row))
+    }
+
 
     pub fn type_ref_name(&self, row: TypeRef) -> &str {
         self.str(row.0, 1)

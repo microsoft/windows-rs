@@ -40,9 +40,7 @@ fn main() {
     let _tree = reader.tree();
     println!("Tree: {}", now.elapsed().as_millis());
 
-    for ty in reader.get(reader2::TypeName::new("Windows.UI.Composition", "Compositor")) {
-       //if ty.attributes(scope).any(|a|a.name(scope) == "ActivatableAttribute") {
-           println!("found!");
-       //}
+    for td in reader.get(reader2::TypeName::new("Windows.UI.Composition", "Compositor")) {
+       println!("{}", reader.type_def_type_name(td))
     }
 }
