@@ -62,22 +62,12 @@ impl Type {
             _ => None,
         }
     }
-        pub fn to_const(self) -> Self {
-            match self {
-                Self::MutPtr((kind, pointers)) => Self::ConstPtr((kind, pointers)),
-                Self::PSTR => Self::PCSTR,
-                Self::PWSTR => Self::PCWSTR,
-                _ => self,
-            }
+    pub fn to_const(self) -> Self {
+        match self {
+            Self::MutPtr((kind, pointers)) => Self::ConstPtr((kind, pointers)),
+            Self::PSTR => Self::PCSTR,
+            Self::PWSTR => Self::PCWSTR,
+            _ => self,
         }
-    //     pub fn stdcall(&self, scope:&Reader) -> usize {
-    //         match self {
-    //             Self::I8 | Self::U8 => 1,
-    //             Self::I16 | Self::U16 => 2,
-    //             Self::I64 | Self::U64 | Self::F64 => 8,
-    //             Self::GUID => 16,
-    //             Self::TypeDef((def, _)) => def.stdcall(scope),
-    //             _ => 4,
-    //         }
-    //     }
+    }
 }

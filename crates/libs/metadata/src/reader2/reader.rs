@@ -89,6 +89,66 @@ impl<'a> Reader<'a> {
         let MemberRefParent::TypeRef(row) = self.row_decode(row.0, 0);
         self.type_ref_name(row)
     }
+    pub fn attribute_args(&self, row: Attribute) -> Vec<(String, Value)> {
+        let AttributeType::MemberRef(member) = self.row_decode(row.0, 1);
+        let mut sig = self.member_ref_signature(member);
+        let mut values = self.row_blob(row.0, 2);
+        let _prolog = values.read_u16();
+        let _this_and_gen_param_count = sig.read_usize();
+        let fixed_arg_count = sig.read_usize();
+        let _ret_type = sig.read_usize();
+        let mut args: Vec<(String, Value)> = Vec::with_capacity(fixed_arg_count as usize);
+
+        for _ in 0..fixed_arg_count {
+            let arg = match self.type_from_blob(&mut sig, None, &[]).expect("Type not found") {
+                Type::I8 => Value::I8(values.read_i8()),
+                Type::U8 => Value::U8(values.read_u8()),
+                Type::I16 => Value::I16(values.read_i16()),
+                Type::U16 => Value::U16(values.read_u16()),
+                Type::I32 => Value::I32(values.read_i32()),
+                Type::U32 => Value::U32(values.read_u32()),
+                Type::I64 => Value::I64(values.read_i64()),
+                Type::U64 => Value::U64(values.read_u64()),
+                Type::String => Value::String(values.read_str().to_string()),
+                Type::TypeName => Value::TypeDef(self.get(TypeName::parse(values.read_str())).next().expect("Type not found")),
+                Type::TypeDef((def, _)) => match self.type_def_underlying_type(def) {
+                    Type::I8 => Value::I8(values.read_i8()),
+                    Type::U8 => Value::U8(values.read_u8()),
+                    Type::I16 => Value::I16(values.read_i16()),
+                    Type::U16 => Value::U16(values.read_u16()),
+                    Type::I32 => Value::I32(values.read_i32()),
+                    Type::U32 => Value::U32(values.read_u32()),
+                    Type::I64 => Value::I64(values.read_i64()),
+                    Type::U64 => Value::U64(values.read_u64()),
+                    _ => unimplemented!(),
+                },
+                _ => unimplemented!(),
+            };
+
+            args.push((String::new(), arg));
+        }
+
+        let named_arg_count = values.read_u16();
+        args.reserve(named_arg_count as usize);
+
+        for _ in 0..named_arg_count {
+            let _id = values.read_u8();
+            let arg_type = values.read_u8();
+            let name = values.read_str().to_string();
+            let arg = match arg_type {
+                0x02 => Value::Bool(values.read_u8() != 0),
+                0x06 => Value::I16(values.read_i16()),
+                0x08 => Value::I32(values.read_i32()),
+                0x09 => Value::U32(values.read_u32()),
+                0x0E => Value::String(values.read_str().to_string()),
+                0x50 => Value::TypeDef(self.get(TypeName::parse(values.read_str())).next().expect("Type not found")),
+                _ => unimplemented!(),
+            };
+            args.push((name, arg));
+        }
+
+        args
+    }
 
     pub fn class_layout_packing_size(&self, row: ClassLayout) -> usize {
         self.row_usize(row.0, 0)
@@ -130,7 +190,7 @@ impl<'a> Reader<'a> {
     pub fn field_is_const(&self, row: Field) -> bool {
         self.field_attributes(row).any(|attribute| self.attribute_name(attribute) == "ConstAttribute")
     }
-    pub fn field_type(&self, row:Field, enclosing: Option<TypeDef>) -> Type {
+    pub fn field_type(&self, row: Field, enclosing: Option<TypeDef>) -> Type {
         let mut blob = self.row_blob(row.0, 2);
         blob.read_usize();
         blob.read_modifiers();
@@ -210,8 +270,8 @@ impl<'a> Reader<'a> {
     pub fn type_def_type_name(&self, row: TypeDef) -> TypeName {
         TypeName::new(self.type_def_namespace(row), self.type_def_namespace(row))
     }
-    pub fn type_def_extends(&self, row: TypeDef) -> TypeDefOrRef {
-        self.row_decode(row.0, 3)
+    pub fn type_def_extends(&self, row: TypeDef) -> TypeName {
+        self.type_def_or_ref(self.row_decode(row.0, 3))
     }
     pub fn type_def_fields(&self, row: TypeDef) -> impl Iterator<Item = Field> {
         self.row_list(row.0, TABLE_FIELD, 4).map(Field)
@@ -228,12 +288,35 @@ impl<'a> Reader<'a> {
     pub fn type_def_interface_impls(&self, row: TypeDef) -> impl Iterator<Item = InterfaceImpl> {
         self.row_equal_range(row.0, TABLE_INTERFACEIMPL, 0, (row.0.row + 1) as _).map(InterfaceImpl)
     }
-    pub fn type_def_underlying_type(&self, row:TypeDef) -> Type {
+    pub fn type_def_underlying_type(&self, row: TypeDef) -> Type {
         let field = self.type_def_fields(row).next().expect("Field not found");
         if let Some(constant) = self.field_constant(field) {
             return self.constant_type(constant);
         } else {
             return self.field_type(field, Some(row));
+        }
+    }
+    pub fn type_def_kind(&self, row: TypeDef) -> TypeDefKind {
+        if self.type_def_flags(row).interface() {
+            TypeDefKind::Interface
+        } else {
+            match self.type_def_extends(row) {
+                TypeName::Enum => TypeDefKind::Enum,
+                TypeName::Delegate => TypeDefKind::Delegate,
+                TypeName::Struct => TypeDefKind::Struct,
+                _ => TypeDefKind::Class,
+            }
+        }
+    }
+    pub fn type_def_stdcall(&self, row: TypeDef) -> usize {
+        if self.type_def_kind(row) == TypeDefKind::Struct {
+            if self.type_def_flags(row).union() {
+                self.type_def_fields(row).map(|field| self.type_stdcall(&self.field_type(field, Some(row)))).max().unwrap_or(1)
+            } else {
+                self.type_def_fields(row).fold(0, |sum, field| sum + self.type_stdcall(&self.field_type(field, Some(row))))
+            }
+        } else {
+            4
         }
     }
 
@@ -247,8 +330,19 @@ impl<'a> Reader<'a> {
         TypeName::new(self.type_ref_name(row), self.type_ref_namespace(row))
     }
 
-    pub fn type_spec_signature(&self, row:TypeSpec) -> Blob {
+    pub fn type_spec_signature(&self, row: TypeSpec) -> Blob {
         self.row_blob(row.0, 0)
+    }
+
+    pub fn type_stdcall(&self, ty: &Type) -> usize {
+        match ty {
+            Type::I8 | Type::U8 => 1,
+            Type::I16 | Type::U16 => 2,
+            Type::I64 | Type::U64 | Type::F64 => 8,
+            Type::GUID => 16,
+            Type::TypeDef((def, _)) => self.type_def_stdcall(*def),
+            _ => 4,
+        }
     }
 
     fn type_from_code(&self, code: TypeDefOrRef, enclosing: Option<TypeDef>, generics: &[Type]) -> Type {
@@ -331,7 +425,7 @@ impl<'a> Reader<'a> {
             0x15 => {
                 blob.read_usize();
 
-                let def = self.get(self.type_def_or_ref(TypeDefOrRef::decode( blob.file, blob.read_usize()))).next().expect("Type not found");
+                let def = self.get(self.type_def_or_ref(TypeDefOrRef::decode(blob.file, blob.read_usize()))).next().expect("Type not found");
                 let mut args = Vec::with_capacity(blob.read_usize());
 
                 for _ in 0..args.capacity() {
