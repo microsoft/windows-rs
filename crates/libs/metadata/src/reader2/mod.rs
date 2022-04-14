@@ -8,6 +8,7 @@ mod tree;
 mod type_def_kind;
 mod type_name;
 mod value;
+mod guid;
 
 use super::*;
 pub use blob::*;
@@ -20,6 +21,7 @@ pub use tree::*;
 pub use type_def_kind::*;
 pub use type_name::*;
 pub use value::*;
+pub use guid::*;
 
 macro_rules! tables {
     ($($name:ident,)*) => ($(

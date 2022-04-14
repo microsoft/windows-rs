@@ -565,6 +565,57 @@ impl<'a> Reader<'a> {
         }
         false
     }
+    pub fn type_def_guid(&self, row:TypeDef) -> Option<GUID> {
+        for attribute in self.type_def_attributes(row) {
+            if self.attribute_name(attribute) == "GuidAttribute" {
+                return Some(GUID::from_args(&self.attribute_args(attribute)));
+            }
+        }
+        None
+    }
+    // pub fn type_signature(&self, ty:&Type) -> String {
+    //     match self.type_def_kind(row) {
+    //         TypeDefKind::Interface => self.interface_signature(),
+    //         TypeDefKind::Class => format!("rc({};{})", self.type_name(), self.default_interface().unwrap_or_else(|| panic!("`{}` does not have a default interface.", self.type_name())).interface_signature()),
+    //         TypeDefKind::Enum => format!("enum({};{})", self.type_name(), self.underlying_type().type_signature()),
+    //         TypeDefKind::Struct => {
+    //             let mut result = format!("struct({}", self.type_name());
+
+    //             for field in self.fields() {
+    //                 result.push(';');
+    //                 result.push_str(&field.get_type(Some(self)).type_signature());
+    //             }
+
+    //             result.push(')');
+    //             result
+    //         }
+    //         TypeDefKind::Delegate => {
+    //             if self.generics.is_empty() {
+    //                 format!("delegate({})", self.interface_signature())
+    //             } else {
+    //                 self.interface_signature()
+    //             }
+    //         }
+    //     }
+    // }
+    // fn type_interface_signature(&self, ty:Type) -> String {
+    //     let guid = self.type_def_guid(row);
+
+    //     if self.generics.is_empty() {
+    //         format!("{{{:#?}}}", guid)
+    //     } else {
+    //         let mut result = format!("pinterface({{{:#?}}}", guid);
+
+    //         for generic in &self.generics {
+    //             result.push(';');
+    //             result.push_str(&generic.type_signature());
+    //         }
+
+    //         result.push(')');
+    //         result
+    //     }
+    // }
+
 
 
 
@@ -594,7 +645,7 @@ impl<'a> Reader<'a> {
     // Other type query functions
     //
 
-    pub fn type_def_or_ref(&self, code: TypeDefOrRef) -> TypeName {
+    fn type_def_or_ref(&self, code: TypeDefOrRef) -> TypeName {
         match code {
             TypeDefOrRef::TypeDef(row) => TypeName::new(self.type_def_namespace(row), self.type_def_name(row)),
             TypeDefOrRef::TypeRef(row) => TypeName::new(self.type_ref_namespace(row), self.type_ref_name(row)),
