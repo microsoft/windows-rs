@@ -4,36 +4,42 @@
 
 ### How do I choose between the `windows` and `windows-sys` crates?
 
-In general, `windows-sys` is meant to give users access to raw, zero-overhead bindings to the Windows API, while `windows` is meant as a more idiomatic, and when possible safer alternative. Below is a list of reasons you may choose `windows-sys` or `windows`.
+`windows-sys` provides raw, zero-overhead bindings to the Windows API, while `windows` provides a more idiomatic, and when possible, safer alternative. Listed below are a few reasons why you may choose one over the other.
 
 | Reason | `windows` | `windows-sys`|
 | --- | --- | --- |
-| Fast compile times possible are one of your top concerns| | ✅ |
-| You need COM or WinRT support. | ✅ | |
-| You would prefer to use APIs that feel idiomatic to Rust. | ✅ | |
-| Reason | You can't afford the very small cost of overhead | | ✅ |
+| Fast compile times are one of your top concerns | | ✅ |
+| You need COM or WinRT support | ✅ | |
+| You would prefer to use APIs that feel idiomatic to Rust | ✅ | |
 
 ### Where can I find the API I need?
 
-The documentation for the `windows` crate lives [here](https://microsoft.github.io/windows-docs-rs). Since Windows types and functions usually have unique names, you can simply search for the API you need in the search bar, and the docs for that type will be displayed. This will also let you know what namespace your API lives in, so you can use the proper `use` statement.
+You can find documentation for the `windows` crate [here](https://microsoft.github.io/windows-docs-rs) and for `windows-sys` [here](https://docs.rs/windows-sys). You can search for the API you need from the search bar. The documentation will also list which namespace the API lives in, so you can build the correct `use` statement.
 
 ### Why is the API I need missing?
 
-The `windows` and `windows-sys` crates are generated from metadata such as the [win32metadata project](https://github.com/microsoft/win32metadata). It could be that the API you are searching for is missing from the metadata. In that case, the best thing to do is to [file an issue](https://github.com/microsoft/win32metadata/issues/new).
+The `windows` and `windows-sys` crates are generated from metadata such as the [Win32 Metadata project](https://github.com/microsoft/win32metadata). If you cannot find the API you need in the documentation, it's very possible the API is missing from metadata. In that case, the best thing to do is to [file an issue](https://github.com/microsoft/win32metadata/issues/new).
 
 ### Why are some equivalents to C/C++ macros from the Windows SDK missing?
 
-The `windows` and `windows-sys` crates are generated from metadata such as the [win32metadata project](https://github.com/microsoft/win32metadata). These metadata definitions only include type definitions and function signatures and no actual implementation details. As such C/C++ macros are not included. You may find some equivalents of common C/C++ macros in the `windows` crate.
+The `windows` and `windows-sys` crates are generated from metadata such as the [Win32 Metadata project](https://github.com/microsoft/win32metadata). This metadata only includes type definitions and function signatures, not macros, header-only functions, or function bodies. You may find some equivalents of common C/C++ helper macros and functions in the `windows` crate.
 
 TODO: list equivalent of some common macros
 
 ### Is the nightly compiler needed for some features?
 
-Currently, the `interface` and `implementation` proc macros (used to define and implement COM interfaces) require some nightly features. However, those features are in the process of being stablized and so the `interface` and `implementation` macros should soon be available on stable Rust. See [this issue](https://github.com/microsoft/windows-rs/issues/1523) for more information.
+Currently, the `interface` and `implementation` proc macros (used to define and implement COM interfaces) require some nightly features. However, those features are in the process of being stabilized and so the `interface` and `implementation` macros should soon be available on stable Rust. See [this issue](https://github.com/microsoft/windows-rs/issues/1523) for more information.
+
+If you run into the following errors, it is likely because you are trying to use these features from a stable compiler:
+
+```
+error[E0658]: trait bounds other than `Sized` on const fn parameters are unstable
+error[E0658]: function pointer casts are not allowed in constant functions
+```
 
 ## COM
 
-### How to query for a specific COM interface?
+### How do I query for a specific COM interface?
 
 While raw COM uses the `QueryInterface` method for querying for an interface, the `windows` crate provides the safe `cast` method as an alternative.
 
@@ -58,7 +64,7 @@ Then inside your project you define the interface in much the same way you defin
 
 ```rust
 /// My interface
-#[windows::core::interface("BD1AE5E0-A6AE-11CE-BD37-504200C10000")]
+#[windows::core::interface("1FFDDAD0-4799-4BCD-9A28-A583DA58F605")]
 unsafe trait IMyInterface: IUnknown {
     unsafe fn MyFunction(&self) -> windows::core::HRESULT;
 }
@@ -67,8 +73,6 @@ unsafe trait IMyInterface: IUnknown {
 ### How do I implement an existing COM interface?
 
 If you need to implement a COM interface for a type, you'll need to add the `implement` feature which (like any Cargo feature) can be enabled in your project's Cargo.toml file.
-
-### How are optional COM interfaces handled?
 
 ```toml
 windows = { version = "..", features = ["implement"] }
@@ -85,10 +89,13 @@ impl IMyInterface_Impl for MyStruct {
         todo!("Your implementation goes here");
     }
 }
-
 ```
 
-## Translating the Windows API into Rust
+### How are optional COM interfaces handled?
+
+TODO
+
+## Calling Windows APIs
 
 ### What is `IntoParam<...>`?
 
