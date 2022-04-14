@@ -202,7 +202,7 @@ impl<'a> Reader<'a> {
             def
         }
     }
-    pub fn field_is_blittable(&self, row:Field, enclosing: Option<TypeDef>) -> bool {
+    pub fn field_is_blittable(&self, row: Field, enclosing: Option<TypeDef>) -> bool {
         self.type_is_blittable(&self.field_type(row, enclosing))
     }
 
@@ -261,7 +261,7 @@ impl<'a> Reader<'a> {
     pub fn method_def_does_not_return(&self, row: MethodDef) -> bool {
         self.method_def_attributes(row).any(|attribute| self.attribute_name(attribute) == "DoesNotReturnAttribute")
     }
-    pub fn method_def_special_name(&self, row:MethodDef) -> String {
+    pub fn method_def_special_name(&self, row: MethodDef) -> String {
         let name = self.method_def_name(row);
         if self.method_def_flags(row).special() {
             if name.starts_with("get") {
@@ -288,9 +288,9 @@ impl<'a> Reader<'a> {
             name.to_string()
         }
     }
-    pub fn method_def_static_lib(&self, row:MethodDef) -> Option<String> {
+    pub fn method_def_static_lib(&self, row: MethodDef) -> Option<String> {
         for attribute in self.method_def_attributes(row) {
-            if self.attribute_name(attribute) == "StaticLibraryAttribute" { 
+            if self.attribute_name(attribute) == "StaticLibraryAttribute" {
                 let args = self.attribute_args(attribute);
                 if let Value::String(value) = &args[0].1 {
                     return Some(value.clone());
@@ -298,6 +298,9 @@ impl<'a> Reader<'a> {
             }
         }
         None
+    }
+    pub fn method_def_impl_map(&self, row: MethodDef) -> Option<ImplMap> {
+        self.row_equal_range(row.0, TABLE_IMPLMAP, 1, MemberForwarded::MethodDef(row).encode()).map(ImplMap).next()
     }
 
     pub fn module_ref_name(&self, row: ModuleRef) -> &str {
@@ -312,6 +315,41 @@ impl<'a> Reader<'a> {
     }
     pub fn param_name(&self, row: Param) -> &str {
         self.row_str(row.0, 2)
+    }
+    pub fn param_attributes(&self, row: Param) -> impl Iterator<Item = Attribute> {
+        self.row_attributes(row.0, HasAttribute::Param(row))
+    }
+    pub fn param_is_com_out_ptr(&self, row: Param) -> bool {
+        self.param_attributes(row).any(|attribute| self.attribute_name(attribute) == "ComOutPtrAttribute")
+    }
+    pub fn param_array_info(&self, row: Param) -> Option<ArrayInfo> {
+        for attribute in self.param_attributes(row) {
+            if self.attribute_name(attribute) == "NativeArrayInfoAttribute" {
+                for (_, value) in self.attribute_args(attribute) {
+                    match value {
+                        Value::I16(value) => return Some(ArrayInfo::RelativeLen(value as _)),
+                        Value::I32(value) => return Some(ArrayInfo::Fixed(value as _)),
+                        _ => {}
+                    }
+                }
+            }
+        }
+        None
+    }
+    pub fn param_is_retval(&self, row: Param) -> bool {
+        self.param_attributes(row).any(|attribute| self.attribute_name(attribute) == "RetValAttribute")
+    }
+    pub fn param_free_with(&self, row: Param) -> Option<String> {
+        for attribute in self.param_attributes(row) {
+            if self.attribute_name(attribute) == "FreeWithAttribute" {
+                for (_, arg) in self.attribute_args(attribute) {
+                    if let Value::String(name) = arg {
+                        return Some(name);
+                    }
+                }
+            }
+        }
+        None
     }
 
     pub fn type_def_flags(&self, row: TypeDef) -> TypeAttributes {
@@ -375,7 +413,7 @@ impl<'a> Reader<'a> {
             4
         }
     }
-    pub fn type_def_is_blittable(&self, row:TypeDef) -> bool {
+    pub fn type_def_is_blittable(&self, row: TypeDef) -> bool {
         match self.type_def_kind(row) {
             TypeDefKind::Struct => {
                 if self.type_def_type_name(row) == TypeName::BSTR {
@@ -539,7 +577,7 @@ fn type_from_code(code: usize) -> Option<Type> {
         _ => None,
     }
 }
-fn type_to_const(ty:Type) -> Type {
+fn type_to_const(ty: Type) -> Type {
     match ty {
         Type::MutPtr((kind, pointers)) => Type::ConstPtr((kind, pointers)),
         Type::PSTR => Type::PCSTR,

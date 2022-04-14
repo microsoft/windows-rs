@@ -5,7 +5,6 @@ mod flags;
 mod reader;
 mod row;
 mod tree;
-mod r#type;
 mod type_def_kind;
 mod type_name;
 mod value;
@@ -15,7 +14,6 @@ pub use blob::*;
 pub use codes::*;
 pub use file::*;
 pub use flags::*;
-pub use r#type::*;
 pub use reader::*;
 pub use row::*;
 pub use tree::*;
@@ -45,4 +43,50 @@ tables! {
     TypeDef,
     TypeRef,
     TypeSpec,
+}
+
+#[derive(Copy, Clone)]
+pub enum ArrayInfo {
+    Fixed(usize),
+    RelativeLen(usize),
+    RelativePtr(usize),
+}
+
+#[derive(Clone, PartialEq, PartialOrd, Eq, Ord)]
+pub enum Type {
+    Void,
+    Bool,
+    Char,
+    I8,
+    U8,
+    I16,
+    U16,
+    I32,
+    U32,
+    I64,
+    U64,
+    F32,
+    F64,
+    ISize,
+    USize,
+    String,
+    GUID,
+    IUnknown,
+    IInspectable,
+    HRESULT,
+    PSTR,
+    PWSTR,
+    PCSTR,
+    PCWSTR,
+    TypeName,
+    GenericParam(Param),
+    MethodDef(MethodDef),
+    Field(Field),
+    TypeDef((TypeDef, Vec<Self>)),
+    MutPtr((Box<Self>, usize)),
+    ConstPtr((Box<Self>, usize)),
+    Win32Array((Box<Self>, usize)),
+    WinrtArray(Box<Self>),
+    WinrtArrayRef(Box<Self>),
+    WinrtConstRef(Box<Self>),
 }
