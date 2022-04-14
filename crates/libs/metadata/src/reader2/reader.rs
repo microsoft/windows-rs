@@ -207,11 +207,11 @@ impl<'a> Reader<'a> {
     pub fn field_is_const(&self, row: Field) -> bool {
         self.field_attributes(row).any(|attribute| self.attribute_name(attribute) == "ConstAttribute")
     }
-    pub fn field_type(&self, row: Field, enclosing: Option<TypeDef>) -> Type {
+    pub fn field_type(&self, row: Field, enclosing: TypeDef) -> Type {
         let mut blob = self.row_blob(row.0, 2);
         blob.read_usize();
         blob.read_modifiers();
-        let def = self.type_from_blob(&mut blob, enclosing, &[]).expect("Type not found");
+        let def = self.type_from_blob(&mut blob, Some(enclosing), &[]).expect("Type not found");
 
         if self.field_is_const(row) {
             type_to_const(def)
@@ -219,7 +219,7 @@ impl<'a> Reader<'a> {
             def
         }
     }
-    pub fn field_is_blittable(&self, row: Field, enclosing: Option<TypeDef>) -> bool {
+    pub fn field_is_blittable(&self, row: Field, enclosing: TypeDef) -> bool {
         self.type_is_blittable(&self.field_type(row, enclosing))
     }
 
@@ -255,8 +255,21 @@ impl<'a> Reader<'a> {
     pub fn interface_impl_is_overridable(&self, row: InterfaceImpl) -> bool {
         self.interface_impl_attributes(row).any(|attribute| self.attribute_name(attribute) == "OverridableAttribute")
     }
-    pub fn interface_impl_type(&self, row: InterfaceImpl, generics: &[Type]) -> Type {
-        self.type_from_ref(self.row_decode(row.0, 1), None, generics)
+    pub fn interface_impl_type(&self, row: InterfaceImpl, generics: &[Type]) -> Interface {
+        let mut default = false;
+        let mut overridable = false;
+        for attribute in self.interface_impl_attributes(row) {
+            match self.attribute_name(attribute) {
+                "DefaultAttribute" => default = true,
+                "OverridableAttribute" => overridable = true,
+                _ => {}
+            }
+        }
+        Interface{
+            ty: self.type_from_ref(self.row_decode(row.0, 1), None, generics),
+            default,
+            overridable,
+        }
     }
 
     //
@@ -436,7 +449,7 @@ impl<'a> Reader<'a> {
         if let Some(constant) = self.field_constant(field) {
             return self.constant_type(constant);
         } else {
-            return self.field_type(field, Some(row));
+            return self.field_type(field, row);
         }
     }
     pub fn type_def_kind(&self, row: TypeDef) -> TypeDefKind {
@@ -454,9 +467,9 @@ impl<'a> Reader<'a> {
     pub fn type_def_stdcall(&self, row: TypeDef) -> usize {
         if self.type_def_kind(row) == TypeDefKind::Struct {
             if self.type_def_flags(row).union() {
-                self.type_def_fields(row).map(|field| self.type_stdcall(&self.field_type(field, Some(row)))).max().unwrap_or(1)
+                self.type_def_fields(row).map(|field| self.type_stdcall(&self.field_type(field, row))).max().unwrap_or(1)
             } else {
-                self.type_def_fields(row).fold(0, |sum, field| sum + self.type_stdcall(&self.field_type(field, Some(row))))
+                self.type_def_fields(row).fold(0, |sum, field| sum + self.type_stdcall(&self.field_type(field, row)))
             }
         } else {
             4
@@ -468,7 +481,7 @@ impl<'a> Reader<'a> {
                 if self.type_def_type_name(row) == TypeName::BSTR {
                     false
                 } else {
-                    self.type_def_fields(row).all(|field| self.field_is_blittable(field, Some(row)))
+                    self.type_def_fields(row).all(|field| self.field_is_blittable(field, row))
                 }
             }
             TypeDefKind::Enum => true,
@@ -494,14 +507,49 @@ impl<'a> Reader<'a> {
     pub fn type_def_invoke_method(&self, row:TypeDef) -> MethodDef {
         self.type_def_methods(row).find(|method| self.method_def_name(*method) == "Invoke").expect("`Invoke` method not found")
     }
-    pub fn type_def_default_interface(&self, row:TypeDef, generics: &[Type]) -> Option<Type> {
-        for interface in self.type_def_interface_impls(row) {
-            if self.interface_impl_is_default(interface) {
-                return Some(self.interface_impl_type(interface, generics));
+    pub fn type_def_interfaces(&'a self, row:TypeDef, generics: &'a [Type]) -> impl Iterator<Item = Interface> + '_ {
+        self.type_def_interface_impls(row).map(|row|self.interface_impl_type(row, generics))
+    }
+    pub fn type_def_is_deprecated(&self, row: TypeDef) -> bool {
+        self.type_def_attributes(row).any(|attribute| self.attribute_name(attribute) == "DeprecatedAttribute")
+    }
+    pub fn type_def_is_typedef(&self, row: TypeDef) -> bool {
+        self.type_def_attributes(row).any(|attribute| self.attribute_name(attribute) == "NativeTypedefAttribute")
+    }
+    pub fn type_def_is_udt(&self, row:TypeDef) -> bool {
+        // TODO: should this just check whether the struct has > 1 fields rather than type_def_is_typedef?
+        self.type_def_kind(row) == TypeDefKind::Struct && !self.type_def_is_typedef(row)
+    }
+    pub fn type_def_is_convertible(&self, row:TypeDef) -> bool {
+        match self.type_def_kind(row) {
+            TypeDefKind::Interface | TypeDefKind::Class | TypeDefKind::Struct => true,
+            TypeDefKind::Delegate => self.type_def_flags(row).winrt(),
+            _ => false,
+        }
+    }
+    pub fn type_def_is_primitive(&self, row:TypeDef) -> bool {
+        match self.type_def_kind(row) {
+            TypeDefKind::Enum => true,
+            TypeDefKind::Struct => self.type_def_is_typedef(row) && self.type_def_type_name(row) != TypeName::BSTR,
+            _ => false,
+        }
+    }
+    pub fn type_def_has_union(&self, row:TypeDef) -> bool {
+        if self.type_def_kind(row) != TypeDefKind::Struct {
+            return false;
+        }
+        for row in self.get(self.type_def_type_name(row)) {
+            if self.type_def_flags(row).union() { 
+                return true;
+            }
+            if self.type_def_fields(row).any(|field|self.type_has_union(&self.field_type(field, row))) {
+                return true;
             }
         }
-        None
+        false
     }
+
+
 
     //
     // TypeRef table queries
@@ -552,6 +600,13 @@ impl<'a> Reader<'a> {
             Type::String | Type::IInspectable | Type::IUnknown | Type::GenericParam(_) => false,
             Type::Win32Array((kind, _)) => self.type_is_blittable(kind),
             _ => true,
+        }
+    }
+    pub fn type_has_union(&self, ty:&Type) -> bool {
+        match ty {
+            Type::TypeDef((row, _)) => self.type_def_has_union(*row),
+            Type::Win32Array((ty, _)) => self.type_has_union(ty),
+            _ => false,
         }
     }
     fn type_from_ref(&self, code: TypeDefOrRef, enclosing: Option<TypeDef>, generics: &[Type]) -> Type {

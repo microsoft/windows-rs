@@ -90,3 +90,10 @@ pub enum Type {
     WinrtArrayRef(Box<Self>),
     WinrtConstRef(Box<Self>),
 }
+
+#[derive(Clone, PartialEq, PartialOrd, Eq, Ord)]
+pub struct Interface {
+    pub ty: Type,
+    pub default: bool,
+    pub overridable: bool,
+}
