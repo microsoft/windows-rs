@@ -36,6 +36,11 @@ impl<'a> Reader<'a> {
         }
         tree
     }
+
+    //
+    // Hash functions for fast type lookup
+    //
+
     pub fn namespace_types(&self, namespace: &str) -> impl Iterator<Item = TypeDef> + '_ {
         self.types[namespace].values().flatten().map(|ty| *ty)
     }
@@ -48,6 +53,10 @@ impl<'a> Reader<'a> {
     pub fn get_nested(&self, outer: TypeDef, name: &str) -> TypeDef {
         self.nested[&outer][name]
     }
+
+    //
+    // Row functions providing low-level file access
+    //
 
     fn row_usize(&self, key: Row, column: usize) -> usize {
         self.files[key.file as usize].usize(key.row as _, key.table as _, column)
@@ -76,13 +85,9 @@ impl<'a> Reader<'a> {
         T::decode(key.file as _, self.row_usize(key, column))
     }
 
-    pub fn type_def_or_ref(&self, code: TypeDefOrRef) -> TypeName {
-        match code {
-            TypeDefOrRef::TypeDef(row) => TypeName::new(self.type_def_namespace(row), self.type_def_name(row)),
-            TypeDefOrRef::TypeRef(row) => TypeName::new(self.type_ref_namespace(row), self.type_ref_name(row)),
-            _ => unimplemented!(),
-        }
-    }
+    //
+    // Attribute table queries
+    //
 
     pub fn attribute_name(&self, row: Attribute) -> &str {
         let AttributeType::MemberRef(row) = self.row_decode(row.0, 1);
@@ -150,9 +155,17 @@ impl<'a> Reader<'a> {
         args
     }
 
+    //
+    // ClassLayout table queries
+    //
+
     pub fn class_layout_packing_size(&self, row: ClassLayout) -> usize {
         self.row_usize(row.0, 0)
     }
+
+    //
+    // Constant table queries
+    //
 
     pub fn constant_type(&self, row: Constant) -> Type {
         let code = self.row_usize(row.0, 0);
@@ -174,6 +187,10 @@ impl<'a> Reader<'a> {
             _ => unimplemented!(),
         }
     }
+
+    //
+    // Field table queries
+    //
 
     pub fn field_flags(&self, row: Field) -> FieldAttributes {
         FieldAttributes(self.row_usize(row.0, 0))
@@ -206,9 +223,17 @@ impl<'a> Reader<'a> {
         self.type_is_blittable(&self.field_type(row, enclosing))
     }
 
+    //
+    // GenericParam table queries
+    //
+
     pub fn generic_param_name(&self, row: GenericParam) -> &str {
         self.row_str(row.0, 3)
     }
+
+    //
+    // ImplMap table queries
+    //
 
     pub fn impl_map_flags(&self, row: ImplMap) -> PInvokeAttributes {
         PInvokeAttributes(self.row_usize(row.0, 0))
@@ -216,6 +241,10 @@ impl<'a> Reader<'a> {
     pub fn impl_map_scope(&self, row: ImplMap) -> ModuleRef {
         ModuleRef(Row::new(self.row_usize(row.0, 3) - 1, TABLE_MODULEREF, row.0.file as _))
     }
+
+    //
+    // InterfaceImpl table queries
+    //
 
     pub fn interface_impl_attributes(&self, row: InterfaceImpl) -> impl Iterator<Item = Attribute> {
         self.row_attributes(row.0, HasAttribute::InterfaceImpl(row))
@@ -230,12 +259,20 @@ impl<'a> Reader<'a> {
         self.type_from_ref(self.row_decode(row.0, 1), None, generics)
     }
 
+    //
+    // MemberRef table queries
+    //
+
     pub fn member_ref_parent(&self, row: MemberRef) -> MemberRefParent {
         self.row_decode(row.0, 0)
     }
     pub fn member_ref_signature(&self, row: MemberRef) -> Blob {
         self.row_blob(row.0, 2)
     }
+
+    //
+    // MethodDef table queries
+    //
 
     pub fn method_def_impl_flags(&self, row: MethodDef) -> MethodImplAttributes {
         MethodImplAttributes(self.row_usize(row.0, 1))
@@ -303,9 +340,17 @@ impl<'a> Reader<'a> {
         self.row_equal_range(row.0, TABLE_IMPLMAP, 1, MemberForwarded::MethodDef(row).encode()).map(ImplMap).next()
     }
 
+    //
+    // ModuleRef table queries
+    //
+
     pub fn module_ref_name(&self, row: ModuleRef) -> &str {
         self.row_str(row.0, 0)
     }
+
+    //
+    // Param table queries
+    //
 
     pub fn param_flags(&self, row: Param) -> ParamAttributes {
         ParamAttributes(self.row_usize(row.0, 0))
@@ -351,6 +396,10 @@ impl<'a> Reader<'a> {
         }
         None
     }
+
+    //
+    // TypeDef table queries
+    //
 
     pub fn type_def_flags(&self, row: TypeDef) -> TypeAttributes {
         TypeAttributes(self.row_usize(row.0, 0))
@@ -427,6 +476,13 @@ impl<'a> Reader<'a> {
             _ => false,
         }
     }
+    pub fn type_def_is_callback(&self, row: TypeDef) -> bool {
+        !self.type_def_flags(row).winrt() && self.type_def_kind(row) == TypeDefKind::Delegate
+    }
+
+    //
+    // TypeRef table queries
+    //
 
     pub fn type_ref_name(&self, row: TypeRef) -> &str {
         self.row_str(row.0, 1)
@@ -438,10 +494,25 @@ impl<'a> Reader<'a> {
         TypeName::new(self.type_ref_name(row), self.type_ref_namespace(row))
     }
 
+    //
+    // TypeSpec table queries
+    //
+
     pub fn type_spec_signature(&self, row: TypeSpec) -> Blob {
         self.row_blob(row.0, 0)
     }
 
+    //
+    // Other type query functions
+    //
+
+    pub fn type_def_or_ref(&self, code: TypeDefOrRef) -> TypeName {
+        match code {
+            TypeDefOrRef::TypeDef(row) => TypeName::new(self.type_def_namespace(row), self.type_def_name(row)),
+            TypeDefOrRef::TypeRef(row) => TypeName::new(self.type_ref_namespace(row), self.type_ref_name(row)),
+            _ => unimplemented!(),
+        }
+    }
     fn type_stdcall(&self, ty: &Type) -> usize {
         match ty {
             Type::I8 | Type::U8 => 1,
@@ -460,7 +531,6 @@ impl<'a> Reader<'a> {
             _ => true,
         }
     }
-
     fn type_from_ref(&self, code: TypeDefOrRef, enclosing: Option<TypeDef>, generics: &[Type]) -> Type {
         if let TypeDefOrRef::TypeSpec(def) = code {
             let mut blob = self.type_spec_signature(def);
