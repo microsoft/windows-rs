@@ -2,26 +2,24 @@ mod blob;
 mod codes;
 mod file;
 mod flags;
+mod guid;
 mod reader;
 mod row;
 mod tree;
-mod type_def_kind;
 mod type_name;
 mod value;
-mod guid;
 
 use super::*;
 pub use blob::*;
 pub use codes::*;
 pub use file::*;
 pub use flags::*;
+pub use guid::*;
 pub use reader::*;
 pub use row::*;
 pub use tree::*;
-pub use type_def_kind::*;
 pub use type_name::*;
 pub use value::*;
-pub use guid::*;
 
 macro_rules! tables {
     ($($name:ident,)*) => ($(
@@ -98,4 +96,22 @@ pub struct Interface {
     pub ty: Type,
     pub default: bool,
     pub overridable: bool,
+}
+
+#[derive(PartialEq)]
+pub enum AsyncKind {
+    None,
+    Action,
+    ActionWithProgress,
+    Operation,
+    OperationWithProgress,
+}
+
+#[derive(PartialEq)]
+pub enum TypeDefKind {
+    Interface,
+    Class,
+    Enum,
+    Struct,
+    Delegate,
 }

@@ -265,11 +265,7 @@ impl<'a> Reader<'a> {
                 _ => {}
             }
         }
-        Interface{
-            ty: self.type_from_ref(self.row_decode(row.0, 1), None, generics),
-            default,
-            overridable,
-        }
+        Interface { ty: self.type_from_ref(self.row_decode(row.0, 1), None, generics), default, overridable }
     }
 
     //
@@ -444,7 +440,7 @@ impl<'a> Reader<'a> {
     pub fn type_def_interface_impls(&self, row: TypeDef) -> impl Iterator<Item = InterfaceImpl> {
         self.row_equal_range(row.0, TABLE_INTERFACEIMPL, 0, (row.0.row + 1) as _).map(InterfaceImpl)
     }
-    pub fn type_def_class_layout(&self, row:TypeDef) -> Option<ClassLayout> {
+    pub fn type_def_class_layout(&self, row: TypeDef) -> Option<ClassLayout> {
         self.row_equal_range(row.0, TABLE_CLASSLAYOUT, 2, (row.0.row + 1) as _).map(ClassLayout).next()
     }
     pub fn type_def_underlying_type(&self, row: TypeDef) -> Type {
@@ -495,7 +491,7 @@ impl<'a> Reader<'a> {
     pub fn type_def_is_callback(&self, row: TypeDef) -> bool {
         !self.type_def_flags(row).winrt() && self.type_def_kind(row) == TypeDefKind::Delegate
     }
-    pub fn type_def_has_default_constructor(&self, row:TypeDef) -> bool {
+    pub fn type_def_has_default_constructor(&self, row: TypeDef) -> bool {
         for attribute in self.type_def_attributes(row) {
             if self.attribute_name(attribute) == "ActivatableAttribute" {
                 if self.attribute_args(attribute).iter().any(|arg| matches!(arg.1, Value::TypeDef(_))) {
@@ -507,11 +503,11 @@ impl<'a> Reader<'a> {
         }
         false
     }
-    pub fn type_def_invoke_method(&self, row:TypeDef) -> MethodDef {
+    pub fn type_def_invoke_method(&self, row: TypeDef) -> MethodDef {
         self.type_def_methods(row).find(|method| self.method_def_name(*method) == "Invoke").expect("`Invoke` method not found")
     }
-    pub fn type_def_interfaces(&'a self, row:TypeDef, generics: &'a [Type]) -> impl Iterator<Item = Interface> + '_ {
-        self.type_def_interface_impls(row).map(|row|self.interface_impl_type(row, generics))
+    pub fn type_def_interfaces(&'a self, row: TypeDef, generics: &'a [Type]) -> impl Iterator<Item = Interface> + '_ {
+        self.type_def_interface_impls(row).map(|row| self.interface_impl_type(row, generics))
     }
     pub fn type_def_is_deprecated(&self, row: TypeDef) -> bool {
         self.type_def_attributes(row).any(|attribute| self.attribute_name(attribute) == "DeprecatedAttribute")
@@ -519,39 +515,48 @@ impl<'a> Reader<'a> {
     pub fn type_def_is_typedef(&self, row: TypeDef) -> bool {
         self.type_def_attributes(row).any(|attribute| self.attribute_name(attribute) == "NativeTypedefAttribute")
     }
-    pub fn type_def_is_udt(&self, row:TypeDef) -> bool {
+    pub fn type_def_is_exclusive(&self, row: TypeDef) -> bool {
+        self.type_def_attributes(row).any(|attribute| self.attribute_name(attribute) == "ExclusiveToAttribute")
+    }
+    pub fn type_def_is_scoped(&self, row: TypeDef) -> bool {
+        self.type_def_flags(row).winrt() || self.type_def_attributes(row).any(|attribute| self.attribute_name(attribute) == "ScopedEnumAttribute")
+    }
+    pub fn type_def_is_contract(&self, row: TypeDef) -> bool {
+        self.type_def_attributes(row).any(|attribute| self.attribute_name(attribute) == "ApiContractAttribute")
+    }
+    pub fn type_def_is_udt(&self, row: TypeDef) -> bool {
         // TODO: should this just check whether the struct has > 1 fields rather than type_def_is_typedef?
         self.type_def_kind(row) == TypeDefKind::Struct && !self.type_def_is_typedef(row)
     }
-    pub fn type_def_is_convertible(&self, row:TypeDef) -> bool {
+    pub fn type_def_is_convertible(&self, row: TypeDef) -> bool {
         match self.type_def_kind(row) {
             TypeDefKind::Interface | TypeDefKind::Class | TypeDefKind::Struct => true,
             TypeDefKind::Delegate => self.type_def_flags(row).winrt(),
             _ => false,
         }
     }
-    pub fn type_def_is_primitive(&self, row:TypeDef) -> bool {
+    pub fn type_def_is_primitive(&self, row: TypeDef) -> bool {
         match self.type_def_kind(row) {
             TypeDefKind::Enum => true,
             TypeDefKind::Struct => self.type_def_is_typedef(row) && self.type_def_type_name(row) != TypeName::BSTR,
             _ => false,
         }
     }
-    pub fn type_def_has_union(&self, row:TypeDef) -> bool {
+    pub fn type_def_has_union(&self, row: TypeDef) -> bool {
         if self.type_def_kind(row) != TypeDefKind::Struct {
             return false;
         }
         for row in self.get(self.type_def_type_name(row)) {
-            if self.type_def_flags(row).union() { 
+            if self.type_def_flags(row).union() {
                 return true;
             }
-            if self.type_def_fields(row).any(|field|self.type_has_union(&self.field_type(field, row))) {
+            if self.type_def_fields(row).any(|field| self.type_has_union(&self.field_type(field, row))) {
                 return true;
             }
         }
         false
     }
-    pub fn type_def_has_packing(&self, row:TypeDef) -> bool {
+    pub fn type_def_has_packing(&self, row: TypeDef) -> bool {
         if self.type_def_kind(row) != TypeDefKind::Struct {
             return false;
         }
@@ -559,13 +564,13 @@ impl<'a> Reader<'a> {
             if self.type_def_class_layout(row).is_some() {
                 return true;
             }
-            if self.type_def_fields(row).any(|field|self.type_has_packing(&self.field_type(field, row))) {
+            if self.type_def_fields(row).any(|field| self.type_has_packing(&self.field_type(field, row))) {
                 return true;
             }
         }
         false
     }
-    pub fn type_def_guid(&self, row:TypeDef) -> Option<GUID> {
+    pub fn type_def_guid(&self, row: TypeDef) -> Option<GUID> {
         for attribute in self.type_def_attributes(row) {
             if self.attribute_name(attribute) == "GuidAttribute" {
                 return Some(GUID::from_args(&self.attribute_args(attribute)));
@@ -573,51 +578,94 @@ impl<'a> Reader<'a> {
         }
         None
     }
-    // pub fn type_signature(&self, ty:&Type) -> String {
-    //     match self.type_def_kind(row) {
-    //         TypeDefKind::Interface => self.interface_signature(),
-    //         TypeDefKind::Class => format!("rc({};{})", self.type_name(), self.default_interface().unwrap_or_else(|| panic!("`{}` does not have a default interface.", self.type_name())).interface_signature()),
-    //         TypeDefKind::Enum => format!("enum({};{})", self.type_name(), self.underlying_type().type_signature()),
-    //         TypeDefKind::Struct => {
-    //             let mut result = format!("struct({}", self.type_name());
-
-    //             for field in self.fields() {
-    //                 result.push(';');
-    //                 result.push_str(&field.get_type(Some(self)).type_signature());
-    //             }
-
-    //             result.push(')');
-    //             result
-    //         }
-    //         TypeDefKind::Delegate => {
-    //             if self.generics.is_empty() {
-    //                 format!("delegate({})", self.interface_signature())
-    //             } else {
-    //                 self.interface_signature()
-    //             }
-    //         }
-    //     }
-    // }
-    // fn type_interface_signature(&self, ty:Type) -> String {
-    //     let guid = self.type_def_guid(row);
-
-    //     if self.generics.is_empty() {
-    //         format!("{{{:#?}}}", guid)
-    //     } else {
-    //         let mut result = format!("pinterface({{{:#?}}}", guid);
-
-    //         for generic in &self.generics {
-    //             result.push(';');
-    //             result.push_str(&generic.type_signature());
-    //         }
-
-    //         result.push(')');
-    //         result
-    //     }
-    // }
-
-
-
+    pub fn type_def_bases(&self, mut row: TypeDef) -> Vec<TypeDef> {
+        let mut bases = Vec::new();
+        loop {
+            let extends = self.type_def_extends(row);
+            if extends == TypeName::Object {
+                break;
+            } else {
+                row = self.get(extends).next().expect("Type not found");
+                bases.push(row);
+            }
+        }
+        bases
+    }
+    pub fn type_def_is_flags(&self, row: TypeDef) -> bool {
+        // Win32 enums use the Flags attribute. WinRT enums don't have the Flags attribute but are paritioned merely based
+        // on whether they are signed.
+        self.type_def_attributes(row).any(|attribute| self.attribute_name(attribute) == "FlagsAttribute") || (self.type_def_flags(row).winrt() && self.type_def_underlying_type(row) == Type::U32)
+    }
+    pub fn type_def_is_agile(&self, row: TypeDef) -> bool {
+        // TODO: add new Agile attribute from Win32 metadata
+        for attribute in self.type_def_attributes(row) {
+            if self.attribute_name(attribute) == "MarshalingBehaviorAttribute" {
+                if let Some((_, Value::I32(2))) = self.attribute_args(attribute).get(0) {
+                    return true;
+                }
+            }
+        }
+        false
+    }
+    pub fn type_def_invalid_values(&self, row: TypeDef) -> Vec<i64> {
+        let mut values = Vec::new();
+        for attribute in self.type_def_attributes(row) {
+            if self.attribute_name(attribute) == "InvalidHandleValueAttribute" {
+                if let Some((_, Value::I64(value))) = self.attribute_args(attribute).get(0) {
+                    values.push(*value);
+                }
+            }
+        }
+        values
+    }
+    pub fn type_def_usable_for(&self, row: TypeDef) -> Option<TypeDef> {
+        for attribute in self.type_def_attributes(row) {
+            if self.attribute_name(attribute) == "AlsoUsableForAttribute" {
+                if let Some((_, Value::String(name))) = self.attribute_args(attribute).get(0) {
+                    return self.get(TypeName::new(self.type_def_namespace(row), name.as_str())).next();
+                }
+            }
+        }
+        None
+    }
+    pub fn type_def_is_nullable(&self, row: TypeDef) -> bool {
+        match self.type_def_kind(row) {
+            TypeDefKind::Interface | TypeDefKind::Class => true,
+            // TODO: win32 callbacks should be nullable...
+            TypeDefKind::Delegate => self.type_def_flags(row).winrt(),
+            _ => false,
+        }
+    }
+    pub fn type_def_can_implement(&self, row: TypeDef) -> bool {
+        for attribute in self.type_def_attributes(row) {
+            if self.attribute_name(attribute) == "ExclusiveToAttribute" {
+                for (_, arg) in self.attribute_args(attribute) {
+                    if let Value::TypeDef(def) = arg {
+                        for child in self.type_def_interfaces(def, &[]) {
+                            if child.overridable {
+                                if let Type::TypeDef((def, _)) = child.ty {
+                                    if self.type_def_type_name(def) == self.type_def_type_name(row) {
+                                        return true;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                return false;
+            }
+        }
+        true
+    }
+    pub fn type_def_async_kind(&self, row: TypeDef) -> AsyncKind {
+        match self.type_def_type_name(row) {
+            TypeName::IAsyncAction => AsyncKind::Action,
+            TypeName::IAsyncActionWithProgress => AsyncKind::ActionWithProgress,
+            TypeName::IAsyncOperation => AsyncKind::Operation,
+            TypeName::IAsyncOperationWithProgress => AsyncKind::OperationWithProgress,
+            _ => AsyncKind::None,
+        }
+    }
 
     //
     // TypeRef table queries
@@ -670,14 +718,14 @@ impl<'a> Reader<'a> {
             _ => true,
         }
     }
-    pub fn type_has_union(&self, ty:&Type) -> bool {
+    pub fn type_has_union(&self, ty: &Type) -> bool {
         match ty {
             Type::TypeDef((row, _)) => self.type_def_has_union(*row),
             Type::Win32Array((ty, _)) => self.type_has_union(ty),
             _ => false,
         }
     }
-    pub fn type_has_packing(&self, ty:&Type) -> bool {
+    pub fn type_has_packing(&self, ty: &Type) -> bool {
         match ty {
             Type::TypeDef((row, _)) => self.type_def_has_packing(*row),
             Type::Win32Array((ty, _)) => self.type_has_packing(ty),
@@ -776,6 +824,48 @@ impl<'a> Reader<'a> {
             _ => unimplemented!(),
         }
     }
+    // pub fn type_signature(&self, ty:&Type) -> String {
+    //     match self.type_def_kind(row) {
+    //         TypeDefKind::Interface => self.interface_signature(),
+    //         TypeDefKind::Class => format!("rc({};{})", self.type_name(), self.default_interface().unwrap_or_else(|| panic!("`{}` does not have a default interface.", self.type_name())).interface_signature()),
+    //         TypeDefKind::Enum => format!("enum({};{})", self.type_name(), self.underlying_type().type_signature()),
+    //         TypeDefKind::Struct => {
+    //             let mut result = format!("struct({}", self.type_name());
+
+    //             for field in self.fields() {
+    //                 result.push(';');
+    //                 result.push_str(&field.get_type(Some(self)).type_signature());
+    //             }
+
+    //             result.push(')');
+    //             result
+    //         }
+    //         TypeDefKind::Delegate => {
+    //             if self.generics.is_empty() {
+    //                 format!("delegate({})", self.interface_signature())
+    //             } else {
+    //                 self.interface_signature()
+    //             }
+    //         }
+    //     }
+    // }
+    // fn type_interface_signature(&self, ty:&Type) -> String {
+    //     let guid = self.type_def_guid(row);
+
+    //     if self.generics.is_empty() {
+    //         format!("{{{:#?}}}", guid)
+    //     } else {
+    //         let mut result = format!("pinterface({{{:#?}}}", guid);
+
+    //         for generic in &self.generics {
+    //             result.push(';');
+    //             result.push_str(&generic.type_signature());
+    //         }
+
+    //         result.push(')');
+    //         result
+    //     }
+    // }
 }
 
 fn type_from_code(code: usize) -> Option<Type> {

@@ -7,19 +7,19 @@ pub struct GUID(pub u32, pub u16, pub u16, pub u8, pub u8, pub u8, pub u8, pub u
 
 impl GUID {
     pub fn from_args(args: &[(String, Value)]) -> Self {
-         fn unwrap_u32(value: &Value) -> u32 {
+        fn unwrap_u32(value: &Value) -> u32 {
             match value {
                 Value::U32(value) => *value,
                 _ => unimplemented!(),
             }
         }
-         fn unwrap_u16(value: &Value) -> u16 {
+        fn unwrap_u16(value: &Value) -> u16 {
             match value {
                 Value::U16(value) => *value,
                 _ => unimplemented!(),
             }
         }
-         fn unwrap_u8(value: &Value) -> u8 {
+        fn unwrap_u8(value: &Value) -> u8 {
             match value {
                 Value::U8(value) => *value,
                 _ => unimplemented!(),
