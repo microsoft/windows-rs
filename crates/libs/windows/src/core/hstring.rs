@@ -379,12 +379,14 @@ impl<'a> IntoParam<'a, HSTRING> for alloc::string::String {
     }
 }
 
+#[cfg(feature = "alloc")]
 impl<'a> IntoParam<'a, HSTRING> for &std::ffi::OsStr {
     fn into_param(self) -> Param<'a, HSTRING> {
         Param::Owned(self.into())
     }
 }
 
+#[cfg(feature = "alloc")]
 impl<'a> IntoParam<'a, HSTRING> for std::ffi::OsString {
     fn into_param(self) -> Param<'a, HSTRING> {
         Param::Owned(self.into())
