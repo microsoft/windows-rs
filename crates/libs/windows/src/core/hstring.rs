@@ -265,6 +265,78 @@ impl PartialEq<&HSTRING> for alloc::string::String {
     }
 }
 
+impl PartialEq<std::ffi::OsString> for HSTRING {
+    fn eq(&self, other: &std::ffi::OsString) -> bool {
+        *self == **other
+    }
+}
+
+impl PartialEq<std::ffi::OsString> for &HSTRING {
+    fn eq(&self, other: &std::ffi::OsString) -> bool {
+        **self == **other
+    }
+}
+
+impl PartialEq<&std::ffi::OsString> for HSTRING {
+    fn eq(&self, other: &&std::ffi::OsString) -> bool {
+        *self == ***other
+    }
+}
+
+impl PartialEq<std::ffi::OsStr> for HSTRING {
+    fn eq(&self, other: &std::ffi::OsStr) -> bool {
+        self.as_wide().iter().copied().eq(std::os::windows::ffi::OsStrExt::encode_wide(other))
+    }
+}
+
+impl PartialEq<std::ffi::OsStr> for &HSTRING {
+    fn eq(&self, other: &std::ffi::OsStr) -> bool {
+        **self == *other
+    }
+}
+
+impl PartialEq<&std::ffi::OsStr> for HSTRING {
+    fn eq(&self, other: &&std::ffi::OsStr) -> bool {
+        *self == **other
+    }
+}
+
+impl PartialEq<HSTRING> for std::ffi::OsStr {
+    fn eq(&self, other: &HSTRING) -> bool {
+        *other == *self
+    }
+}
+
+impl PartialEq<HSTRING> for &std::ffi::OsStr {
+    fn eq(&self, other: &HSTRING) -> bool {
+        *other == **self
+    }
+}
+
+impl PartialEq<&HSTRING> for std::ffi::OsStr {
+    fn eq(&self, other: &&HSTRING) -> bool {
+        **other == *self
+    }
+}
+
+impl PartialEq<HSTRING> for std::ffi::OsString {
+    fn eq(&self, other: &HSTRING) -> bool {
+        *other == **self
+    }
+}
+
+impl PartialEq<HSTRING> for &std::ffi::OsString {
+    fn eq(&self, other: &HSTRING) -> bool {
+        *other == ***self
+    }
+}
+
+impl PartialEq<&HSTRING> for std::ffi::OsString {
+    fn eq(&self, other: &&HSTRING) -> bool {
+        **other == **self
+    }
+}
+
 impl<'a> core::convert::TryFrom<&'a HSTRING> for alloc::string::String {
     type Error = alloc::string::FromUtf16Error;
 
@@ -283,7 +355,7 @@ impl core::convert::TryFrom<HSTRING> for alloc::string::String {
 
 impl<'a> core::convert::From<&'a HSTRING> for std::ffi::OsString {
     fn from(hstring: &HSTRING) -> Self {
-        std::os::windows::ffi::OsStringExt::from_wide(hstring.as_wide())
+        hstring.to_os_string()
     }
 }
 
