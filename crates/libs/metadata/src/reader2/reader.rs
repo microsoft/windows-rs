@@ -666,6 +666,49 @@ impl<'a> Reader<'a> {
             _ => AsyncKind::None,
         }
     }
+    pub fn type_def_signature(&self, row: TypeDef, generics: &[Type]) -> String {
+        match self.type_def_kind(row) {
+            TypeDefKind::Interface => self.type_def_interface_signature(row, generics),
+            TypeDefKind::Class => {
+                if let Type::TypeDef((row, generics)) = self.type_def_interfaces(row, generics).find(|row| row.default).expect("Default interface not found").ty {
+                    format!("rc({};{})", self.type_def_type_name(row), self.type_def_interface_signature(row, &generics))
+                } else {
+                    unimplemented!();
+                }
+            }
+            TypeDefKind::Enum => format!("enum({};{})", self.type_def_type_name(row), self.type_signature(&self.type_def_underlying_type(row))),
+            TypeDefKind::Struct => {
+                let mut result = format!("struct({}", self.type_def_type_name(row));
+                for field in self.type_def_fields(row) {
+                    result.push(';');
+                    result.push_str(&self.type_signature(&self.field_type(field, row)));
+                }
+                result.push(')');
+                result
+            }
+            TypeDefKind::Delegate => {
+                if generics.is_empty() {
+                    format!("delegate({})", self.type_def_interface_signature(row, generics))
+                } else {
+                    self.type_def_interface_signature(row, generics)
+                }
+            }
+        }
+    }
+    fn type_def_interface_signature(&self, row: TypeDef, generics: &[Type]) -> String {
+        let guid = self.type_def_guid(row);
+        if generics.is_empty() {
+            format!("{{{:#?}}}", guid)
+        } else {
+            let mut result = format!("pinterface({{{:#?}}}", guid);
+            for generic in generics {
+                result.push(';');
+                result.push_str(&self.type_signature(generic));
+            }
+            result.push(')');
+            result
+        }
+    }
 
     //
     // TypeRef table queries
@@ -824,48 +867,28 @@ impl<'a> Reader<'a> {
             _ => unimplemented!(),
         }
     }
-    // pub fn type_signature(&self, ty:&Type) -> String {
-    //     match self.type_def_kind(row) {
-    //         TypeDefKind::Interface => self.interface_signature(),
-    //         TypeDefKind::Class => format!("rc({};{})", self.type_name(), self.default_interface().unwrap_or_else(|| panic!("`{}` does not have a default interface.", self.type_name())).interface_signature()),
-    //         TypeDefKind::Enum => format!("enum({};{})", self.type_name(), self.underlying_type().type_signature()),
-    //         TypeDefKind::Struct => {
-    //             let mut result = format!("struct({}", self.type_name());
-
-    //             for field in self.fields() {
-    //                 result.push(';');
-    //                 result.push_str(&field.get_type(Some(self)).type_signature());
-    //             }
-
-    //             result.push(')');
-    //             result
-    //         }
-    //         TypeDefKind::Delegate => {
-    //             if self.generics.is_empty() {
-    //                 format!("delegate({})", self.interface_signature())
-    //             } else {
-    //                 self.interface_signature()
-    //             }
-    //         }
-    //     }
-    // }
-    // fn type_interface_signature(&self, ty:&Type) -> String {
-    //     let guid = self.type_def_guid(row);
-
-    //     if self.generics.is_empty() {
-    //         format!("{{{:#?}}}", guid)
-    //     } else {
-    //         let mut result = format!("pinterface({{{:#?}}}", guid);
-
-    //         for generic in &self.generics {
-    //             result.push(';');
-    //             result.push_str(&generic.type_signature());
-    //         }
-
-    //         result.push(')');
-    //         result
-    //     }
-    // }
+    pub fn type_signature(&self, ty: &Type) -> String {
+        match ty {
+            Type::Bool => "b1".to_string(),
+            Type::Char => "c2".to_string(),
+            Type::I8 => "i1".to_string(),
+            Type::U8 => "u1".to_string(),
+            Type::I16 => "i2".to_string(),
+            Type::U16 => "u2".to_string(),
+            Type::I32 => "i4".to_string(),
+            Type::U32 => "u4".to_string(),
+            Type::I64 => "i8".to_string(),
+            Type::U64 => "u8".to_string(),
+            Type::F32 => "f4".to_string(),
+            Type::F64 => "f8".to_string(),
+            Type::String => "string".to_string(),
+            Type::IInspectable => "cinterface(IInspectable)".to_string(),
+            Type::GUID => "g16".to_string(),
+            Type::HRESULT => "struct(Windows.Foundation.HResult;i4)".to_string(),
+            Type::TypeDef((row, generics)) => self.type_def_signature(*row, generics),
+            _ => unimplemented!(),
+        }
+    }
 }
 
 fn type_from_code(code: usize) -> Option<Type> {
