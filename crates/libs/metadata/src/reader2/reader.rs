@@ -444,6 +444,9 @@ impl<'a> Reader<'a> {
     pub fn type_def_interface_impls(&self, row: TypeDef) -> impl Iterator<Item = InterfaceImpl> {
         self.row_equal_range(row.0, TABLE_INTERFACEIMPL, 0, (row.0.row + 1) as _).map(InterfaceImpl)
     }
+    pub fn type_def_class_layout(&self, row:TypeDef) -> Option<ClassLayout> {
+        self.row_equal_range(row.0, TABLE_CLASSLAYOUT, 2, (row.0.row + 1) as _).map(ClassLayout).next()
+    }
     pub fn type_def_underlying_type(&self, row: TypeDef) -> Type {
         let field = self.type_def_fields(row).next().expect("Field not found");
         if let Some(constant) = self.field_constant(field) {
@@ -548,6 +551,20 @@ impl<'a> Reader<'a> {
         }
         false
     }
+    pub fn type_def_has_packing(&self, row:TypeDef) -> bool {
+        if self.type_def_kind(row) != TypeDefKind::Struct {
+            return false;
+        }
+        for row in self.get(self.type_def_type_name(row)) {
+            if self.type_def_class_layout(row).is_some() {
+                return true;
+            }
+            if self.type_def_fields(row).any(|field|self.type_has_packing(&self.field_type(field, row))) {
+                return true;
+            }
+        }
+        false
+    }
 
 
 
@@ -606,6 +623,13 @@ impl<'a> Reader<'a> {
         match ty {
             Type::TypeDef((row, _)) => self.type_def_has_union(*row),
             Type::Win32Array((ty, _)) => self.type_has_union(ty),
+            _ => false,
+        }
+    }
+    pub fn type_has_packing(&self, ty:&Type) -> bool {
+        match ty {
+            Type::TypeDef((row, _)) => self.type_def_has_packing(*row),
+            Type::Win32Array((ty, _)) => self.type_has_packing(ty),
             _ => false,
         }
     }
