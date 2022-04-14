@@ -42,13 +42,13 @@ impl<'a> Reader<'a> {
     //
 
     pub fn namespace_types(&self, namespace: &str) -> impl Iterator<Item = TypeDef> + '_ {
-        self.types[namespace].values().flatten().map(|ty| *ty)
+        self.types[namespace].values().flatten().copied()
     }
     pub fn nested_types(&self, type_def: TypeDef) -> impl Iterator<Item = TypeDef> + '_ {
-        self.nested[&type_def].values().map(|ty| *ty)
+        self.nested[&type_def].values().copied()
     }
     pub fn get(&self, type_name: TypeName) -> impl Iterator<Item = TypeDef> + '_ {
-        self.types[type_name.namespace][type_name.name].iter().map(|ty| *ty)
+        self.types[type_name.namespace][type_name.name].iter().copied()
     }
     pub fn get_nested(&self, outer: TypeDef, name: &str) -> TypeDef {
         self.nested[&outer][name]
@@ -446,9 +446,9 @@ impl<'a> Reader<'a> {
     pub fn type_def_underlying_type(&self, row: TypeDef) -> Type {
         let field = self.type_def_fields(row).next().expect("Field not found");
         if let Some(constant) = self.field_constant(field) {
-            return self.constant_type(constant);
+            self.constant_type(constant)
         } else {
-            return self.field_type(field, row);
+            self.field_type(field, row)
         }
     }
     pub fn type_def_kind(&self, row: TypeDef) -> TypeDefKind {
