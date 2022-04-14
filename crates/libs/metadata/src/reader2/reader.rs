@@ -479,6 +479,29 @@ impl<'a> Reader<'a> {
     pub fn type_def_is_callback(&self, row: TypeDef) -> bool {
         !self.type_def_flags(row).winrt() && self.type_def_kind(row) == TypeDefKind::Delegate
     }
+    pub fn type_def_has_default_constructor(&self, row:TypeDef) -> bool {
+        for attribute in self.type_def_attributes(row) {
+            if self.attribute_name(attribute) == "ActivatableAttribute" {
+                if self.attribute_args(attribute).iter().any(|arg| matches!(arg.1, Value::TypeDef(_))) {
+                    continue;
+                } else {
+                    return true;
+                }
+            }
+        }
+        false
+    }
+    pub fn type_def_invoke_method(&self, row:TypeDef) -> MethodDef {
+        self.type_def_methods(row).find(|method| self.method_def_name(*method) == "Invoke").expect("`Invoke` method not found")
+    }
+    pub fn type_def_default_interface(&self, row:TypeDef, generics: &[Type]) -> Option<Type> {
+        for interface in self.type_def_interface_impls(row) {
+            if self.interface_impl_is_default(interface) {
+                return Some(self.interface_impl_type(interface, generics));
+            }
+        }
+        None
+    }
 
     //
     // TypeRef table queries
