@@ -7,7 +7,6 @@ mod reader;
 mod row;
 mod tree;
 mod type_name;
-mod cfg;
 
 use super::*;
 pub use blob::*;
@@ -19,7 +18,6 @@ pub use reader::*;
 pub use row::*;
 pub use tree::*;
 pub use type_name::*;
-pub use cfg::*;
 
 macro_rules! tables {
     ($($name:ident,)*) => ($(
@@ -152,4 +150,10 @@ pub struct SignatureParam {
     def: Param,
     ty: Type,
     array_info: Option<ArrayInfo>,
+}
+
+#[derive(Default, Clone)]
+pub struct Cfg<'a> {
+    types: BTreeMap<&'a str, BTreeSet<Row>>,
+    arches: BTreeSet<&'static str>,
 }

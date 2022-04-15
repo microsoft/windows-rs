@@ -207,11 +207,11 @@ impl<'a> Reader<'a> {
     pub fn field_is_const(&self, row: Field) -> bool {
         self.field_attributes(row).any(|attribute| self.attribute_name(attribute) == "ConstAttribute")
     }
-    pub fn field_type(&self, row: Field, enclosing: TypeDef) -> Type {
+    pub fn field_type(&self, row: Field, enclosing: Option<TypeDef>) -> Type {
         let mut blob = self.row_blob(row.0, 2);
         blob.read_usize();
         blob.read_modifiers();
-        let def = self.type_from_blob(&mut blob, Some(enclosing), &[]).expect("Type not found");
+        let def = self.type_from_blob(&mut blob, enclosing, &[]).expect("Type not found");
 
         if self.field_is_const(row) {
             type_to_const(def)
@@ -220,12 +220,16 @@ impl<'a> Reader<'a> {
         }
     }
     pub fn field_is_blittable(&self, row: Field, enclosing: TypeDef) -> bool {
-        self.type_is_blittable(&self.field_type(row, enclosing))
+        self.type_is_blittable(&self.field_type(row, Some(enclosing)))
     }
     fn field_cfg(&self, row:Field) -> Cfg {
-        let cfg = Cfg::default();
-
+        let mut cfg = Cfg::default();
+        self.field_cfg_combine(row, None, &mut cfg);
+        self.cfg_add_attributes(&mut cfg, self.field_attributes(row));
         cfg
+    }
+    fn field_cfg_combine(&self, row:Field, enclosing: Option<TypeDef>, cfg: &mut Cfg) {
+        self.type_cfg_combine(&self.field_type(row, enclosing), cfg)
     }
 
     //
@@ -401,9 +405,13 @@ impl<'a> Reader<'a> {
         Signature{ def:row, params, return_type }
     }
     fn method_def_cfg(&self, row:MethodDef) -> Cfg {
-        let cfg = Cfg::default();
-
+        let mut cfg = Cfg::default();
+        self.method_def_cfg_combine(row, &mut cfg);
         cfg
+    }
+    // TODO: maybe inline this at the callsite to avoid recalculating the method signature
+    fn method_def_cfg_combine(&self, row:MethodDef, cfg: &mut Cfg) {
+        self.signature_cfg_combine(&self.method_def_signature(row, &[]), cfg);
     }
 
     //
@@ -505,7 +513,7 @@ impl<'a> Reader<'a> {
         if let Some(constant) = self.field_constant(field) {
             self.constant_type(constant)
         } else {
-            self.field_type(field, row)
+            self.field_type(field, Some(row))
         }
     }
     pub fn type_def_kind(&self, row: TypeDef) -> TypeKind {
@@ -523,9 +531,9 @@ impl<'a> Reader<'a> {
     pub fn type_def_stdcall(&self, row: TypeDef) -> usize {
         if self.type_def_kind(row) == TypeKind::Struct {
             if self.type_def_flags(row).union() {
-                self.type_def_fields(row).map(|field| self.type_stdcall(&self.field_type(field, row))).max().unwrap_or(1)
+                self.type_def_fields(row).map(|field| self.type_stdcall(&self.field_type(field, Some(row)))).max().unwrap_or(1)
             } else {
-                self.type_def_fields(row).fold(0, |sum, field| sum + self.type_stdcall(&self.field_type(field, row)))
+                self.type_def_fields(row).fold(0, |sum, field| sum + self.type_stdcall(&self.field_type(field, Some(row))))
             }
         } else {
             4
@@ -607,7 +615,7 @@ impl<'a> Reader<'a> {
             if self.type_def_flags(row).union() {
                 return true;
             }
-            if self.type_def_fields(row).any(|field| self.type_has_union(&self.field_type(field, row))) {
+            if self.type_def_fields(row).any(|field| self.type_has_union(&self.field_type(field, Some(row)))) {
                 return true;
             }
         }
@@ -621,7 +629,7 @@ impl<'a> Reader<'a> {
             if self.type_def_class_layout(row).is_some() {
                 return true;
             }
-            if self.type_def_fields(row).any(|field| self.type_has_packing(&self.field_type(field, row))) {
+            if self.type_def_fields(row).any(|field| self.type_has_packing(&self.field_type(field, Some(row)))) {
                 return true;
             }
         }
@@ -739,7 +747,7 @@ impl<'a> Reader<'a> {
                 let mut result = format!("struct({}", self.type_def_type_name(row));
                 for field in self.type_def_fields(row) {
                     result.push(';');
-                    result.push_str(&self.type_signature(&self.field_type(field, row)));
+                    result.push_str(&self.type_signature(&self.field_type(field, Some(row))));
                 }
                 result.push(')');
                 result
@@ -768,12 +776,19 @@ impl<'a> Reader<'a> {
             result
         }
     }
-    fn type_def_cfg(&self, row:TypeDef) -> Cfg {
-        let cfg = Cfg::default();
-
+    fn type_def_cfg(&self, row:TypeDef, generics:&[Type]) -> Cfg {
+        let mut cfg = Cfg::default();
+        self.type_def_cfg_combine(row, generics, &mut cfg);
+        self.cfg_add_attributes(&mut cfg, self.type_def_attributes(row));
         cfg
     }
-
+    fn type_def_cfg_impl(&self, row:TypeDef, generics:&[Type]) -> Cfg {
+        let mut cfg = Cfg::default();
+        cfg
+    }
+    fn type_def_cfg_combine(&self, row:TypeDef, generics:&[Type], cfg: &mut Cfg) {
+        
+    }
 
     //
     // TypeRef table queries
@@ -801,10 +816,50 @@ impl<'a> Reader<'a> {
     // Other type queries
     //
 
+    fn cfg_add_attributes(&self, cfg: &mut Cfg, attributes: impl Iterator<Item = Attribute>) {
+        for attribute in attributes {
+            match self.attribute_name(attribute) {
+                "SupportedArchitectureAttribute" => {
+                    if let Some((_, Value::I32(value))) = self.attribute_args(attribute).get(0) {
+                        if value & 1 == 1 {
+                            cfg.arches.insert("x86");
+                        }
+                        if value & 2 == 2 {
+                            cfg.arches.insert("x86_64");
+                        }
+                        if value & 4 == 4 {
+                            cfg.arches.insert("aarch64");
+                        }
+                    }
+                }
+                "DeprecatedAttribute" => {
+                    cfg.types.entry("deprecated").or_default();
+                }
+                _ => {}
+            }
+        }
+    }
+    fn signature_cfg_combine(&self, signature: &Signature, cfg: &mut Cfg) {
+        signature.return_type.iter().for_each(|ty| self.type_cfg_combine(ty, cfg));
+        signature.params.iter().for_each(|param| self.type_cfg_combine(&param.ty, cfg));
+    }
     fn type_cfg(&self, ty:&Type) -> Cfg {
-        let cfg = Cfg::default();
-
+        let mut cfg = Cfg::default();
+        self.type_cfg_combine(ty, &mut cfg);
         cfg
+    }
+    fn type_cfg_combine(&self, ty:&Type, cfg: &mut Cfg) {
+        match ty {
+            Type::MethodDef(row) => self.method_def_cfg_combine(*row, cfg),
+            Type::Field(row) => self.field_cfg_combine(*row, None,cfg),
+            Type::TypeDef((row, generics)) => self.type_def_cfg_combine(*row, generics, cfg),
+            Type::Win32Array((ty, _)) => self.type_cfg_combine(ty, cfg),
+            Type::ConstPtr((ty, _)) => self.type_cfg_combine(ty, cfg),
+            Type::MutPtr((ty, _)) => self.type_cfg_combine(ty, cfg),
+            Type::WinrtArray(ty) => self.type_cfg_combine(ty, cfg),
+            Type::WinrtArrayRef(ty) => self.type_cfg_combine(ty, cfg),
+            _ => {}
+        }
     }
     fn type_interfaces(&self, ty: &Type) -> Vec<Interface> {
         fn walk(reader: &Reader, result: &mut Vec<Interface>, parent: &Type, is_base: bool) {
