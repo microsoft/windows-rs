@@ -787,7 +787,71 @@ impl<'a> Reader<'a> {
         cfg
     }
     fn type_def_cfg_combine(&self, row:TypeDef, generics:&[Type], cfg: &mut Cfg) {
-        
+        // for generic in &self.generics {
+        //     self.type_cfg_combine(generic, cfg);
+        // }
+
+        // if cfg.types.entry(self.type_def_namespace(row).or_default().insert(row) {
+        //     match self.type_def_kind(row) {
+        //         TypeKind::Class => {
+        //             if let Some(Type::TypeDef(row, _)) = self.type_def_interfaces(row, generics).find(|row| row.kind == InterfaceKind::Default).filter(|interface|interface.ty) {
+        //                 cfg.types.entry(self.type_def_namespace(row).or_default());
+        //             }
+        //         }
+        //         TypeKind::Interface => {
+        //             if !self.type_def_flags(row).winrt() {
+        //                 for def in self.vtable_types() {
+        //                     if let Type::TypeDef(def) = def {
+        //                         cfg.add_feature(def.namespace());
+        //                     }
+        //                 }
+        //             }
+        //         }
+        //         TypeKind::Struct => {
+        //             self.fields().for_each(|field| field.combine_cfg(Some(self), cfg));
+
+        //             if let Some(entry) = TypeReader::get().get_type_entry(self.type_name()) {
+        //                 for def in entry {
+        //                     if let Type::TypeDef(def) = def {
+        //                         def.combine_cfg(cfg);
+        //                     }
+        //                 }
+        //             }
+        //         }
+        //         TypeKind::Delegate => self.invoke_method().combine_cfg(cfg),
+        //         _ => {}
+        //     }
+        // }
+    }
+    pub fn type_def_vtables(&self, row: TypeDef) -> Vec<Type> {
+        let mut result = Vec::new();
+        if self.type_def_flags(row).winrt() {
+            result.push(Type::IUnknown);
+            if self.type_def_kind(row) != TypeKind::Delegate {
+                result.push(Type::IInspectable);
+            }
+        } else {
+            let mut next = row;
+            while let Some(base) = self.type_def_interfaces(next, &[]).next() {
+                match base.ty {
+                    Type::TypeDef((row, _)) => {
+                        next = row;
+                        result.insert(0, base.ty);
+                    }
+                    Type::IInspectable => {
+                        result.insert(0, Type::IUnknown);
+                        result.insert(1, Type::IInspectable);
+                        break;
+                    }
+                    Type::IUnknown => {
+                        result.insert(0, Type::IUnknown);
+                        break;
+                    }
+                    _ => unimplemented!(),
+                }
+            }
+        }
+        result
     }
 
     //
