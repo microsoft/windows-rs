@@ -3,7 +3,7 @@ use super::*;
 pub fn gen() -> TokenStream {
     quote! {
         impl Matrix3x2 {
-            pub fn identity() -> Self {
+            pub const fn identity() -> Self {
                 Self {
                     M11: 1.0,
                     M12: 0.0,
@@ -13,7 +13,7 @@ pub fn gen() -> TokenStream {
                     M32: 0.0,
                 }
             }
-            pub fn translation(x: f32, y: f32) -> Self {
+            pub const fn translation(x: f32, y: f32) -> Self {
                 Self {
                     M11: 1.0,
                     M12: 0.0,
