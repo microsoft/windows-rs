@@ -733,7 +733,7 @@ impl<'a> Reader<'a> {
     }
 
     //
-    // Other type query functions
+    // Other type queries
     //
 
     fn type_def_or_ref(&self, code: TypeDefOrRef) -> TypeName {
@@ -887,6 +887,42 @@ impl<'a> Reader<'a> {
             Type::HRESULT => "struct(Windows.Foundation.HResult;i4)".to_string(),
             Type::TypeDef((row, generics)) => self.type_def_signature(*row, generics),
             _ => unimplemented!(),
+        }
+    }
+    pub fn type_is_nullable(&self, ty:&Type) -> bool {
+        match ty {
+            Type::TypeDef((row, _)) => self.type_def_is_nullable(*row),
+            Type::IInspectable | Type::IUnknown | Type::MethodDef(_) => true,
+            _ => false,
+        }
+    }
+    pub fn type_is_convertible(&self, ty:&Type) -> bool {
+        match ty {
+            Type::TypeDef((row, _)) => self.type_def_is_convertible(*row),
+            Type::String | Type::IInspectable | Type::GUID | Type::IUnknown | Type::GenericParam(_) | Type::PCSTR | Type::PCWSTR => true,
+            Type::WinrtConstRef(ty) => self.type_is_convertible(ty),
+            _ => false,
+        }
+    }
+    pub fn type_is_callback(&self, ty:&Type) -> bool {
+        match ty {
+            // TODO: do we need to know there's a callback behind the pointer?
+            Type::ConstPtr((ty, _)) | Type::MutPtr((ty, _)) => self.type_is_callback(ty),
+            Type::TypeDef((row, _)) => self.type_def_is_callback(*row),
+            _ => false,
+        }
+    }
+    pub fn type_is_callback_array(&self, ty:&Type) -> bool {
+        match ty {
+            Type::Win32Array((ty, _)) => self.type_is_callback(ty),
+            _ => false,
+        }
+    }
+    pub fn type_is_primitive(&self, ty:&Type) -> bool {
+        match ty {
+            Type::TypeDef((row, _)) => self.type_def_is_primitive(*row),
+            Type::Bool | Type::Char | Type::I8 | Type::U8 | Type::I16 | Type::U16 | Type::I32 | Type::U32 | Type::I64 | Type::U64 | Type::F32 | Type::F64 | Type::ISize | Type::USize | Type::HRESULT | Type::ConstPtr(_) | Type::MutPtr(_) => true,
+            _ => false,
         }
     }
 }
