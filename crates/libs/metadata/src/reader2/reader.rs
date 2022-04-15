@@ -938,8 +938,50 @@ impl<'a> Reader<'a> {
             _ => false,
         }
     }
+    pub fn type_underlying_type(&self, ty:&Type) -> Type {
+        match ty {
+            Type::TypeDef((row,_)) => self.type_def_underlying_type(*row),
+            Type::HRESULT => Type::I32,
+            _ => ty.clone(),
+        }
+    }
+    pub fn type_has_replacement(&self, ty:&Type) -> bool {
+        match ty {
+            Type::HRESULT | Type::PCSTR | Type::PCWSTR => true,
+            Type::TypeDef((row,_)) => self.type_def_is_handle(*row),
+            _ => false,
+        }
+    }
 }
 
+pub fn type_is_generic(ty: &Type) -> bool {
+    matches!(ty, Type::GenericParam(_))
+}
+pub fn type_is_pointer(ty: &Type) -> bool {
+    matches!(ty, Type::ConstPtr(_) | Type::MutPtr(_))
+}
+pub fn type_is_unsigned(ty: &Type) -> bool {
+    matches!(ty, Type::U8 | Type::U16 | Type::U32 | Type::U64 | Type::USize)
+}
+pub fn type_is_void(ty: &Type) -> bool {
+    match ty {
+        // TODO: do we care about void behind pointers?
+        Type::ConstPtr((kind, _)) | Type::MutPtr((kind, _)) => type_is_void(kind),
+        Type::Void => true,
+        _ => false,
+    }
+}
+pub fn is_winrt_array(ty: &Type) -> bool {
+    matches!(ty, Type::WinrtArray(_))
+}
+
+pub fn is_winrt_array_ref(ty: &Type) -> bool {
+    matches!(ty, Type::WinrtArrayRef(_))
+}
+
+pub fn is_winrt_const_ref(ty: &Type) -> bool {
+    matches!(ty, Type::WinrtConstRef(_))
+}
 fn type_from_code(code: usize) -> Option<Type> {
     match code {
         0x01 => Some(Type::Void),
@@ -968,6 +1010,22 @@ fn type_to_const(ty: Type) -> Type {
         Type::PSTR => Type::PCSTR,
         Type::PWSTR => Type::PCWSTR,
         _ => ty,
+    }
+}
+pub fn type_deref(ty:&Type) -> Type {
+    match ty {
+        Type::ConstPtr((kind, 1)) | Type::MutPtr((kind, 1)) => {
+            if **kind == Type::Void {
+                Type::U8
+            } else {
+                *kind.clone()
+            }
+        }
+        Type::ConstPtr((kind, pointers)) => Type::ConstPtr((kind.clone(), pointers - 1)),
+        Type::MutPtr((kind, pointers)) => Type::MutPtr((kind.clone(), pointers - 1)),
+        Type::PSTR | Type::PCSTR => Type::U8,
+        Type::PWSTR | Type::PCWSTR => Type::U16,
+        _ => unimplemented!(),
     }
 }
 
