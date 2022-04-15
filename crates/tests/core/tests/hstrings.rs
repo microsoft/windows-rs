@@ -54,6 +54,16 @@ fn from_empty_string() {
 }
 
 #[test]
+fn from_os_string_string() {
+    let wide_data = &[0xD834, 0xDD1E, 0x006d, 0x0075, 0xD800, 0x0069, 0x0063];
+    use std::os::windows::prelude::OsStringExt;
+    let o = std::ffi::OsString::from_wide(wide_data);
+    let h = StringType::from(o);
+    let d = StringType::from_wide(wide_data);
+    assert_eq!(h, d);
+}
+
+#[test]
 fn hstring_to_string() {
     let h = StringType::from("test");
     let s = String::try_from(h).unwrap();
@@ -79,10 +89,49 @@ fn hstring_to_string_lossy() {
 }
 
 #[test]
+fn hstring_to_os_string() {
+    // 𝄞mu<invalid>ic
+    let wide_data = &[0xD834, 0xDD1E, 0x006d, 0x0075, 0xD800, 0x0069, 0x0063];
+    let h = StringType::from_wide(wide_data);
+    let s = h.to_os_string();
+    use std::os::windows::prelude::OsStringExt;
+    assert_eq!(s, std::ffi::OsString::from_wide(wide_data));
+}
+
+#[test]
 fn hstring_equality_combinations() {
     let h = StringType::from("test");
     let s = String::from("test");
     let ss: &str = "test";
+
+    assert_eq!(h, s);
+    assert_eq!(&h, s);
+    assert_eq!(h, &s);
+    assert_eq!(&h, &s);
+
+    assert_eq!(s, h);
+    assert_eq!(s, &h);
+    assert_eq!(&s, h);
+    assert_eq!(&s, &h);
+
+    assert_eq!(h, *ss);
+    assert_eq!(&h, *ss);
+    assert_eq!(h, ss);
+    assert_eq!(&h, ss);
+
+    assert_eq!(*ss, h);
+    assert_eq!(*ss, &h);
+    assert_eq!(ss, h);
+    assert_eq!(ss, &h);
+}
+
+#[test]
+fn hstring_osstring_equality_combinations() {
+    let wide_data = &[0xD834, 0xDD1E, 0x006d, 0x0075, 0xD800, 0x0069, 0x0063];
+    let h = StringType::from_wide(wide_data);
+    use std::os::windows::prelude::OsStringExt;
+    let s = std::ffi::OsString::from_wide(wide_data);
+    let ss = s.as_os_str();
 
     assert_eq!(h, s);
     assert_eq!(&h, s);

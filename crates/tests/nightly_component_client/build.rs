@@ -14,7 +14,6 @@ fn main() -> std::io::Result<()> {
     let gen = Gen { namespace: "test_nightly_component", component: true, ..Default::default() };
     let mut bindings = File::create("src/bindings/test_nightly_component.rs")?;
     bindings.write_all(gen_namespace(&gen).as_bytes())?;
-    bindings.write_all(gen_namespace_impl(&gen).as_bytes())?;
     drop(bindings);
 
     Command::new("rustfmt").arg("src/bindings/test_nightly_component.rs").status()?;
@@ -24,7 +23,6 @@ fn main() -> std::io::Result<()> {
     let gen = Gen { namespace: "Microsoft.Windows.System.Power", component: true, class_map, ..Default::default() };
     let mut bindings = File::create("src/bindings/microsoft_windows_system_power.rs")?;
     bindings.write_all(gen_namespace(&gen).as_bytes())?;
-    bindings.write_all(gen_namespace_impl(&gen).as_bytes())?;
     drop(bindings);
 
     Command::new("rustfmt").arg("src/bindings/microsoft_windows_system_power.rs").status()?;

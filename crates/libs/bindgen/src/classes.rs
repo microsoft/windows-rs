@@ -78,10 +78,10 @@ fn gen_class(def: &TypeDef, gen: &Gen) -> TokenStream {
                 pub fn new() -> ::windows::core::Result<Self> {
                     Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
                 }
-                fn IActivationFactory<R, F: FnOnce(&::windows::core::IActivationFactory) -> ::windows::core::Result<R>>(
+                fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(
                     callback: F,
                 ) -> ::windows::core::Result<R> {
-                    static mut SHARED: ::windows::core::FactoryCache<#name, ::windows::core::IActivationFactory> =
+                    static mut SHARED: ::windows::core::FactoryCache<#name, ::windows::core::IGenericFactory> =
                         ::windows::core::FactoryCache::#factory_cache_method;
                     unsafe { SHARED.call(callback) }
                 }

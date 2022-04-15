@@ -116,12 +116,12 @@ pub fn factory<C: RuntimeName, I: Interface>() -> Result<I> {
 
 /// Attempts to load the factory interface for the given WinRT class located
 /// in the specified library.
-pub fn factory_from_library<C: RuntimeName, I: Interface>(library: &[u8]) -> Result<I> {
+fn factory_from_library<C: RuntimeName, I: Interface>(library: &[u8]) -> Result<I> {
     let name = HSTRING::from(C::NAME);
     unsafe { get_activation_factory(library, &name)?.cast() }
 }
 
-unsafe fn get_activation_factory(library: &[u8], name: &HSTRING) -> Result<IActivationFactory> {
+unsafe fn get_activation_factory(library: &[u8], name: &HSTRING) -> Result<IGenericFactory> {
     let function = delay_load(library, b"DllGetActivationFactory\0");
     let function: DllGetActivationFactory = core::mem::transmute(function);
     let mut abi = core::ptr::null_mut();

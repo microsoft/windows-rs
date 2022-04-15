@@ -5,8 +5,7 @@ mod bindings {
 
 use std::mem::*;
 use std::sync::*;
-use windows::core::*;
-use windows::Win32::Foundation::*;
+use windows::{core::*, Win32::Foundation::*, Win32::System::WinRT::*};
 
 #[implement(bindings::test_nightly_component::Class)]
 struct Class(RwLock<i32>);
@@ -68,6 +67,7 @@ unsafe extern "stdcall" fn DllGetActivationFactory(name: ManuallyDrop<HSTRING>, 
         *result = transmute(factory);
         S_OK
     } else {
-        E_NOTIMPL
+        *result = std::ptr::null_mut();
+        CLASS_E_CLASSNOTAVAILABLE
     }
 }
