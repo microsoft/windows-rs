@@ -222,6 +222,11 @@ impl<'a> Reader<'a> {
     pub fn field_is_blittable(&self, row: Field, enclosing: TypeDef) -> bool {
         self.type_is_blittable(&self.field_type(row, enclosing))
     }
+    fn field_cfg(&self, row:Field) -> Cfg {
+        let cfg = Cfg::default();
+
+        cfg
+    }
 
     //
     // GenericParam table queries
@@ -291,9 +296,6 @@ impl<'a> Reader<'a> {
     pub fn method_def_name(&self, row: MethodDef) -> &str {
         self.row_str(row.0, 3)
     }
-    pub fn method_def_signature(&self, row: MethodDef) -> Blob {
-        self.row_blob(row.0, 4)
-    }
     pub fn method_def_params(&self, row: MethodDef) -> impl Iterator<Item = Param> {
         self.row_list(row.0, TABLE_PARAM, 4).map(Param)
     }
@@ -346,6 +348,62 @@ impl<'a> Reader<'a> {
     }
     pub fn method_def_impl_map(&self, row: MethodDef) -> Option<ImplMap> {
         self.row_equal_range(row.0, TABLE_IMPLMAP, 1, MemberForwarded::MethodDef(row).encode()).map(ImplMap).next()
+    }
+    pub fn method_def_signature(&self, row: MethodDef, generics: &[Type]) -> Signature {
+        let mut blob = self.row_blob(row.0, 4);
+        blob.read_usize();
+        blob.read_usize();
+
+        let return_type = self.type_from_blob(&mut blob, None, generics);
+        let mut params: Vec<SignatureParam> = self.method_def_params(row).filter_map(|param| {
+            if self.param_sequence(param) == 0 {
+                None
+            } else {
+                let ty = self.type_from_blob(&mut blob, None, generics).expect("Parameter type not found");
+                let ty = if self.param_flags(param).output() { type_to_const(ty) } else { ty };
+                let array_info = self.param_array_info(param);
+                Some(SignatureParam{ def: param, ty, array_info })
+            }
+        }).collect();
+
+        for position in 0..params.len() {
+            // Point len params back to the corresponding ptr params.
+            if let Some(ArrayInfo::RelativeLen(relative)) = params[position].array_info {
+                // The len params must be input only.
+                // TODO: workaround for https://github.com/microsoft/win32metadata/issues/813
+                if !self.param_flags(params[relative].def).output() && position != relative {
+                    params[relative].array_info = Some(ArrayInfo::RelativePtr(position));
+                } else {
+                    params[position].array_info = None;
+                }
+            }
+        }
+
+        let mut sets = BTreeMap::<usize, Vec<usize>>::new();
+
+        // Finds sets of ptr params pointing at the same len param.
+        for (position, param) in params.iter().enumerate() {
+            if let Some(ArrayInfo::RelativeLen(relative)) = param.array_info {
+                sets.entry(relative).or_default().push(position);
+            }
+        }
+
+        // Remove all sets.
+        for (len, ptrs) in sets {
+            if ptrs.len() > 1 {
+                params[len].array_info = None;
+                for ptr in ptrs {
+                    params[ptr].array_info = None;
+                }
+            }
+        }
+
+        Signature{ def:row, params, return_type }
+    }
+    fn method_def_cfg(&self, row:MethodDef) -> Cfg {
+        let cfg = Cfg::default();
+
+        cfg
     }
 
     //
@@ -710,6 +768,12 @@ impl<'a> Reader<'a> {
             result
         }
     }
+    fn type_def_cfg(&self, row:TypeDef) -> Cfg {
+        let cfg = Cfg::default();
+
+        cfg
+    }
+
 
     //
     // TypeRef table queries
@@ -737,6 +801,11 @@ impl<'a> Reader<'a> {
     // Other type queries
     //
 
+    fn type_cfg(&self, ty:&Type) -> Cfg {
+        let cfg = Cfg::default();
+
+        cfg
+    }
     fn type_interfaces(&self, ty: &Type) -> Vec<Interface> {
         fn walk(reader: &Reader, result: &mut Vec<Interface>, parent: &Type, is_base: bool) {
             if let Type::TypeDef((row, generics)) = parent {

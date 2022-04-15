@@ -7,6 +7,7 @@ mod reader;
 mod row;
 mod tree;
 mod type_name;
+mod cfg;
 
 use super::*;
 pub use blob::*;
@@ -18,6 +19,7 @@ pub use reader::*;
 pub use row::*;
 pub use tree::*;
 pub use type_name::*;
+pub use cfg::*;
 
 macro_rules! tables {
     ($($name:ident,)*) => ($(
@@ -138,4 +140,16 @@ pub enum Value {
     F64(f64),
     String(String),
     TypeDef(TypeDef),
+}
+
+pub struct Signature {
+    def: MethodDef,
+    params: Vec<SignatureParam>,
+    return_type: Option<Type>,
+}
+
+pub struct SignatureParam {
+    def: Param,
+    ty: Type,
+    array_info: Option<ArrayInfo>,
 }
