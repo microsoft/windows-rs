@@ -92,8 +92,17 @@ pub enum Type {
 #[derive(Clone, PartialEq, PartialOrd, Eq, Ord)]
 pub struct Interface {
     pub ty: Type,
-    pub default: bool,
-    pub overridable: bool,
+    pub kind: InterfaceKind,
+}
+
+#[derive(Copy, Clone, Debug, PartialEq, PartialOrd, Eq, Ord)]
+pub enum InterfaceKind {
+    None,
+    Default,
+    Overridable,
+    Static,
+    Composable,
+    Base,
 }
 
 #[derive(PartialEq)]
@@ -106,7 +115,8 @@ pub enum AsyncKind {
 }
 
 #[derive(PartialEq)]
-pub enum TypeDefKind {
+pub enum TypeKind {
+    None,
     Interface,
     Class,
     Enum,
