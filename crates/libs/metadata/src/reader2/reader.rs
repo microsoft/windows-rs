@@ -512,7 +512,7 @@ impl<'a> Reader<'a> {
     pub fn type_def_is_deprecated(&self, row: TypeDef) -> bool {
         self.type_def_attributes(row).any(|attribute| self.attribute_name(attribute) == "DeprecatedAttribute")
     }
-    pub fn type_def_is_typedef(&self, row: TypeDef) -> bool {
+    pub fn type_def_is_handle(&self, row: TypeDef) -> bool {
         self.type_def_attributes(row).any(|attribute| self.attribute_name(attribute) == "NativeTypedefAttribute")
     }
     pub fn type_def_is_exclusive(&self, row: TypeDef) -> bool {
@@ -525,8 +525,8 @@ impl<'a> Reader<'a> {
         self.type_def_attributes(row).any(|attribute| self.attribute_name(attribute) == "ApiContractAttribute")
     }
     pub fn type_def_is_udt(&self, row: TypeDef) -> bool {
-        // TODO: should this just check whether the struct has > 1 fields rather than type_def_is_typedef?
-        self.type_def_kind(row) == TypeDefKind::Struct && !self.type_def_is_typedef(row)
+        // TODO: should this just check whether the struct has > 1 fields rather than type_def_is_handle?
+        self.type_def_kind(row) == TypeDefKind::Struct && !self.type_def_is_handle(row)
     }
     pub fn type_def_is_convertible(&self, row: TypeDef) -> bool {
         match self.type_def_kind(row) {
@@ -538,7 +538,7 @@ impl<'a> Reader<'a> {
     pub fn type_def_is_primitive(&self, row: TypeDef) -> bool {
         match self.type_def_kind(row) {
             TypeDefKind::Enum => true,
-            TypeDefKind::Struct => self.type_def_is_typedef(row) && self.type_def_type_name(row) != TypeName::BSTR,
+            TypeDefKind::Struct => self.type_def_is_handle(row) && self.type_def_type_name(row) != TypeName::BSTR,
             _ => false,
         }
     }
@@ -889,14 +889,14 @@ impl<'a> Reader<'a> {
             _ => unimplemented!(),
         }
     }
-    pub fn type_is_nullable(&self, ty:&Type) -> bool {
+    pub fn type_is_nullable(&self, ty: &Type) -> bool {
         match ty {
             Type::TypeDef((row, _)) => self.type_def_is_nullable(*row),
             Type::IInspectable | Type::IUnknown | Type::MethodDef(_) => true,
             _ => false,
         }
     }
-    pub fn type_is_convertible(&self, ty:&Type) -> bool {
+    pub fn type_is_convertible(&self, ty: &Type) -> bool {
         match ty {
             Type::TypeDef((row, _)) => self.type_def_is_convertible(*row),
             Type::String | Type::IInspectable | Type::GUID | Type::IUnknown | Type::GenericParam(_) | Type::PCSTR | Type::PCWSTR => true,
@@ -904,7 +904,7 @@ impl<'a> Reader<'a> {
             _ => false,
         }
     }
-    pub fn type_is_callback(&self, ty:&Type) -> bool {
+    pub fn type_is_callback(&self, ty: &Type) -> bool {
         match ty {
             // TODO: do we need to know there's a callback behind the pointer?
             Type::ConstPtr((ty, _)) | Type::MutPtr((ty, _)) => self.type_is_callback(ty),
@@ -912,16 +912,29 @@ impl<'a> Reader<'a> {
             _ => false,
         }
     }
-    pub fn type_is_callback_array(&self, ty:&Type) -> bool {
+    pub fn type_is_callback_array(&self, ty: &Type) -> bool {
         match ty {
             Type::Win32Array((ty, _)) => self.type_is_callback(ty),
             _ => false,
         }
     }
-    pub fn type_is_primitive(&self, ty:&Type) -> bool {
+    pub fn type_is_primitive(&self, ty: &Type) -> bool {
         match ty {
             Type::TypeDef((row, _)) => self.type_def_is_primitive(*row),
             Type::Bool | Type::Char | Type::I8 | Type::U8 | Type::I16 | Type::U16 | Type::I32 | Type::U32 | Type::I64 | Type::U64 | Type::F32 | Type::F64 | Type::ISize | Type::USize | Type::HRESULT | Type::ConstPtr(_) | Type::MutPtr(_) => true,
+            _ => false,
+        }
+    }
+    pub fn type_is_udt(&self, ty: &Type) -> bool {
+        match ty {
+            Type::TypeDef((row, _)) => self.type_def_is_udt(*row),
+            Type::GUID => true,
+            _ => false,
+        }
+    }
+    pub fn type_is_handle(&self, ty: &Type) -> bool {
+        match ty {
+            Type::TypeDef((row, _)) => self.type_def_is_handle(*row),
             _ => false,
         }
     }
