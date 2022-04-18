@@ -2,7 +2,7 @@ use super::*;
 use bindings::*;
 use std::sync::*;
 
-struct Event<T: RuntimeType> {
+pub struct Event<T: RuntimeType> {
     swap: Mutex<()>,
     change: Mutex<()>,
     delegates: Delegates<T>,
@@ -16,29 +16,28 @@ impl<T: RuntimeType> Default for Event<T> {
 
 impl<T: RuntimeType> Event<T> {
     pub fn new() -> Self {
-        Self { delegates: Delegates::new(), ..Default::default() }
+        Self { delegates: Delegates::new(), swap: Mutex::default(), change: Mutex::default(), }
     }
     pub fn add(&mut self, delegate: &T) -> Result<i64> {
-        let mut token = 0;
-        let mut _temp_delegates = Delegates::new();
-        {
-            let _ = self.change.lock().unwrap();
+        let mut _lock_free_drop = Delegates::new();
+        let token = {
+            let change_lock = self.change.lock().unwrap();
             let mut new_delegates = Delegates::with_capacity(self.delegates.len() + 1)?;
             for delegate in self.delegates.as_slice() {
                 new_delegates.push(delegate);
             }
-            new_delegates.push(delegate);// TODO: need to agile wrap this one
-            token = to_token(delegate); // TODO: make sure this is the agile-wrapped delegate that is being tokenized
+            new_delegates.push(delegate); // TODO: need to agile wrap this one
 
-            let _ = self.swap.lock().unwrap();
-            _temp_delegates = self.delegates.swap(new_delegates);
-        }
+            let swap_lock = self.swap.lock().unwrap();
+            _lock_free_drop = self.delegates.swap(new_delegates);
+            to_token(delegate) // TODO: make sure this is the agile-wrapped delegate that is being tokenized
+        };
         Ok(token)
     }
     pub fn remove(&mut self, token: i64) -> Result<()> {
-        let mut _temp_delegates = Delegates::new();
+        let mut _lock_free_drop = Delegates::new();
         {
-            let _ = self.change.lock().unwrap();
+            let change_lock = self.change.lock().unwrap();
             if self.delegates.is_empty() {
                 return Ok(());
             }
@@ -65,36 +64,41 @@ impl<T: RuntimeType> Event<T> {
                 }
             }
             if removed {
-                let _ = self.swap.lock().unwrap();
-                _temp_delegates = self.delegates.swap(new_delegates);
+                let swap_lock = self.swap.lock().unwrap();
+                _lock_free_drop = self.delegates.swap(new_delegates);
             }
         }
         Ok(())
     }
     pub fn clear(&mut self) {
-        let mut _temp_delegates = Delegates::new();
+        let mut _lock_free_drop = Delegates::new();
         {
-            let _ = self.change.lock().unwrap();
+            let change_lock = self.change.lock().unwrap();
             if self.delegates.is_empty() {
                 return;
             }
-            let _ = self.swap.lock().unwrap();
-            _temp_delegates = self.delegates.swap(Delegates::new());
+            let swap_lock = self.swap.lock().unwrap();
+            _lock_free_drop = self.delegates.swap(Delegates::new());
         }
     }
-    pub fn call(&mut self) -> Result<()> {
-        let mut temp_delegates = Delegates::new();
-        {
-            let _ = self.swap.lock().unwrap();
-            temp_targets = self.targets.clone();
+    pub fn call<F: FnMut(&T) -> Result<()>>(&mut self, mut callback: F) -> Result<()> {
+        let lock_free_calls = {
+            let swap_lock = self.swap.lock().unwrap();
+            self.delegates.clone()
+        };
+        for delegate in lock_free_calls.as_slice() {
+            if let Err(error) = callback(delegate) {
+                const RPC_E_SERVER_UNAVAILABLE: HRESULT = HRESULT(-2147023174); // HRESULT_FROM_WIN32(RPC_S_SERVER_UNAVAILABLE)
+                if matches!(error.code(), RPC_E_DISCONNECTED | JSCRIPT_E_CANTEXECUTE | RPC_E_SERVER_UNAVAILABLE) {
+                    self.remove(to_token(delegate))?;
+                }
+            }
         }
-        for delegate in temp_delegates.as_slice() {
-            // call/fail/remove
-        }
+        Ok(())
     }
 }
 
-struct Delegates<T: RuntimeType>{
+struct Delegates<T: RuntimeType> {
     buffer: *mut Buffer,
     len: usize,
     _phantom: std::marker::PhantomData<T>,
@@ -108,10 +112,10 @@ impl<T: RuntimeType> Default for Delegates<T> {
 
 impl<T: RuntimeType> Delegates<T> {
     fn new() -> Self {
-        Self{buffer: std::ptr::null_mut(), len: 0, _phantom: std::marker::PhantomData}
+        Self { buffer: std::ptr::null_mut(), len: 0, _phantom: std::marker::PhantomData }
     }
     fn with_capacity(capacity: usize) -> Result<Self> {
-        Ok(Self{ buffer: Buffer::new(capacity)?, len: 0, _phantom: std::marker::PhantomData})
+        Ok(Self { buffer: Buffer::new(capacity)?, len: 0, _phantom: std::marker::PhantomData })
     }
     fn swap(&mut self, other: Self) -> Self {
         unsafe { std::ptr::swap(self.buffer, other.buffer) };
@@ -125,27 +129,23 @@ impl<T: RuntimeType> Delegates<T> {
     }
     fn push(&mut self, delegate: &T) {
         unsafe {
-        debug_assert!(self.len < (*self.buffer).len);
-        std::ptr::write((*self.buffer).as_mut_ptr().add(self.len) as _, delegate.clone());
-        self.len += 1;
+            debug_assert!(self.len < (*self.buffer).len);
+            std::ptr::write((*self.buffer).as_mut_ptr().add(self.len) as _, delegate.clone());
+            self.len += 1;
         }
     }
     fn as_slice(&self) -> &[T] {
         if self.is_empty() {
             &[]
         } else {
-            unsafe {
-                std::slice::from_raw_parts((*self.buffer).as_ptr() as _, self.len)
-            }
+            unsafe { std::slice::from_raw_parts((*self.buffer).as_ptr() as _, self.len) }
         }
     }
     fn as_mut_slice(&mut self) -> &mut [Option<T>] {
         if self.is_empty() {
             &mut []
         } else {
-            unsafe {
-                std::slice::from_raw_parts_mut((*self.buffer).as_mut_ptr() as _, self.len)
-            }
+            unsafe { std::slice::from_raw_parts_mut((*self.buffer).as_mut_ptr() as _, self.len) }
         }
     }
 }
@@ -155,7 +155,7 @@ impl<T: RuntimeType> Clone for Delegates<T> {
         if !self.is_empty() {
             unsafe { (*self.buffer).count.add_ref() };
         }
-        Self{buffer: self.buffer, len:self.len, _phantom: std::marker::PhantomData}
+        Self { buffer: self.buffer, len: self.len, _phantom: std::marker::PhantomData }
     }
 }
 

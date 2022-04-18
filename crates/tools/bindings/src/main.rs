@@ -18,6 +18,8 @@ fn main() -> std::io::Result<()> {
         "Windows.Win32.Foundation.CO_E_NOTINITIALIZED",
         "Windows.Win32.Foundation.E_NOINTERFACE",
         "Windows.Win32.Foundation.E_OUTOFMEMORY",
+        "Windows.Win32.Foundation.RPC_E_DISCONNECTED",
+        "Windows.Win32.Foundation.JSCRIPT_E_CANTEXECUTE",
         "Windows.Win32.Foundation.FARPROC",
         "Windows.Win32.Foundation.GetLastError",
         "Windows.Win32.Foundation.HANDLE",

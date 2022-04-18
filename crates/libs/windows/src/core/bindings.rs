@@ -1345,6 +1345,8 @@ pub unsafe fn CloseHandle<'a, Param0: ::windows::core::IntoParam<'a, HANDLE>>(ho
 pub const CO_E_NOTINITIALIZED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221008i32);
 pub const E_NOINTERFACE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147467262i32);
 pub const E_OUTOFMEMORY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147024882i32);
+pub const RPC_E_DISCONNECTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147417848i32);
+pub const JSCRIPT_E_CANTEXECUTE: ::windows::core::HRESULT = ::windows::core::HRESULT(-1996357631i32);
 pub type FARPROC = ::core::option::Option<unsafe extern "system" fn() -> isize>;
 #[inline]
 pub unsafe fn GetLastError() -> WIN32_ERROR {
