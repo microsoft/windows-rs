@@ -83,7 +83,14 @@ impl<T: RuntimeType> Event<T> {
         }
     }
     pub fn call(&mut self) -> Result<()> {
-        todo!()
+        let mut temp_delegates = Delegates::new();
+        {
+            let _ = self.swap.lock().unwrap();
+            temp_targets = self.targets.clone();
+        }
+        for delegate in temp_delegates.as_slice() {
+            // call/fail/remove
+        }
     }
 }
 
