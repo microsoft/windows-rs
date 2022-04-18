@@ -1735,6 +1735,19 @@ pub unsafe fn SetErrorInfo<'a, Param1: ::windows::core::IntoParam<'a, IErrorInfo
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
+pub unsafe fn EncodePointer(ptr: *const ::core::ffi::c_void) -> *mut ::core::ffi::c_void {
+    #[cfg(windows)]
+    {
+        #[link(name = "windows")]
+        extern "system" {
+            fn EncodePointer(ptr: *const ::core::ffi::c_void) -> *mut ::core::ffi::c_void;
+        }
+        ::core::mem::transmute(EncodePointer(::core::mem::transmute(ptr)))
+    }
+    #[cfg(not(windows))]
+    unimplemented!("Unsupported target OS");
+}
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct FORMAT_MESSAGE_OPTIONS(pub u32);

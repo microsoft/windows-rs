@@ -36,6 +36,7 @@ fn main() -> std::io::Result<()> {
         "Windows.Win32.System.Com.IAgileObject",
         "Windows.Win32.System.Com.IErrorInfo",
         "Windows.Win32.System.Com.SetErrorInfo",
+        "Windows.Win32.System.Diagnostics.Debug.EncodePointer",
         "Windows.Win32.System.Diagnostics.Debug.FORMAT_MESSAGE_OPTIONS",
         "Windows.Win32.System.Diagnostics.Debug.FormatMessageW",
         "Windows.Win32.System.LibraryLoader.FreeLibrary",
