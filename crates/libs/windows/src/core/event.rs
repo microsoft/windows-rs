@@ -20,13 +20,14 @@ impl<T: RuntimeType> Event<T> {
     }
     pub fn add(&mut self, delegate: &T) -> Result<i64> {
         let mut token = 0;
-        let mut _temp_delegates = Delegates::<T>::new();
+        let mut _temp_delegates = Delegates::new();
         {
             let _ = self.change.lock().unwrap();
-            let mut new_delegates = Delegates::with_len(self.delegates.len() + 1)?;
-            let new_slice = new_delegates.as_mut_slice();
-            new_slice[..self.delegates.len()].clone_from_slice(&self.delegates.as_slice());
-            new_slice[self.delegates.len()] = Some(delegate.clone()); // TODO: need to agile wrap this one
+            let mut new_delegates = Delegates::with_capacity(self.delegates.len() + 1)?;
+            for delegate in self.delegates.as_slice() {
+                new_delegates.push(delegate);
+            }
+            new_delegates.push(delegate);// TODO: need to agile wrap this one
             token = to_token(delegate); // TODO: make sure this is the agile-wrapped delegate that is being tokenized
 
             let _ = self.swap.lock().unwrap();
@@ -35,15 +36,62 @@ impl<T: RuntimeType> Event<T> {
         Ok(token)
     }
     pub fn remove(&mut self, token: i64) -> Result<()> {
-        todo!()
+        let mut _temp_delegates = Delegates::new();
+        {
+            let _ = self.change.lock().unwrap();
+            if self.delegates.is_empty() {
+                return Ok(());
+            }
+            let mut capacity = self.delegates.len() - 1;
+            let mut new_delegates = Delegates::new();
+            let mut removed = false;
+            if capacity == 0 {
+                if to_token(&self.delegates.as_slice()[0]) == token {
+                    removed = true;
+                }
+            } else {
+                new_delegates = Delegates::with_capacity(capacity)?;
+                for delegate in self.delegates.as_slice() {
+                    if !removed && to_token(delegate) == token {
+                        removed = true;
+                        continue;
+                    }
+                    if capacity == 0 {
+                        debug_assert!(!removed);
+                        break;
+                    }
+                    new_delegates.push(delegate);
+                    capacity -= 1;
+                }
+            }
+            if removed {
+                let _ = self.swap.lock().unwrap();
+                _temp_delegates = self.delegates.swap(new_delegates);
+            }
+        }
+        Ok(())
     }
-    pub fn clear(&mut self) {}
+    pub fn clear(&mut self) {
+        let mut _temp_delegates = Delegates::new();
+        {
+            let _ = self.change.lock().unwrap();
+            if self.delegates.is_empty() {
+                return;
+            }
+            let _ = self.swap.lock().unwrap();
+            _temp_delegates = self.delegates.swap(Delegates::new());
+        }
+    }
     pub fn call(&mut self) -> Result<()> {
         todo!()
     }
 }
 
-struct Delegates<T: RuntimeType>(*mut Header, std::marker::PhantomData<T>);
+struct Delegates<T: RuntimeType>{
+    buffer: *mut Buffer,
+    len: usize,
+    _phantom: std::marker::PhantomData<T>,
+}
 
 impl<T: RuntimeType> Default for Delegates<T> {
     fn default() -> Self {
@@ -53,32 +101,34 @@ impl<T: RuntimeType> Default for Delegates<T> {
 
 impl<T: RuntimeType> Delegates<T> {
     fn new() -> Self {
-        Self(std::ptr::null_mut(), std::marker::PhantomData)
+        Self{buffer: std::ptr::null_mut(), len: 0, _phantom: std::marker::PhantomData}
     }
-    fn with_len(len: usize) -> Result<Self> {
-        Ok(Self(Header::new(len)?, std::marker::PhantomData))
+    fn with_capacity(capacity: usize) -> Result<Self> {
+        Ok(Self{ buffer: Buffer::new(capacity)?, len: 0, _phantom: std::marker::PhantomData})
     }
     fn swap(&mut self, other: Self) -> Self {
-        unsafe { std::ptr::swap(self.0, other.0) };
+        unsafe { std::ptr::swap(self.buffer, other.buffer) };
         other
     }
     fn is_empty(&self) -> bool {
-        self.0.is_null()
+        self.len == 0
     }
     fn len(&self) -> usize {
-        if self.is_empty() {
-            0
-        } else {
-            unsafe { (*self.0).len }
+        self.len
+    }
+    fn push(&mut self, delegate: &T) {
+        unsafe {
+        debug_assert!(self.len < (*self.buffer).len);
+        std::ptr::write((*self.buffer).as_mut_ptr().add(self.len) as _, delegate.clone());
+        self.len += 1;
         }
     }
-    fn as_slice(&self) -> &[Option<T>] {
+    fn as_slice(&self) -> &[T] {
         if self.is_empty() {
             &[]
         } else {
             unsafe {
-                let slice = (*self.0).as_slice();
-                std::slice::from_raw_parts(slice.as_ptr() as _, slice.len())
+                std::slice::from_raw_parts((*self.buffer).as_ptr() as _, self.len)
             }
         }
     }
@@ -87,8 +137,7 @@ impl<T: RuntimeType> Delegates<T> {
             &mut []
         } else {
             unsafe {
-                let slice = (*self.0).as_mut_slice();
-                std::slice::from_raw_parts_mut(slice.as_ptr() as _, slice.len())
+                std::slice::from_raw_parts_mut((*self.buffer).as_mut_ptr() as _, self.len)
             }
         }
     }
@@ -97,49 +146,48 @@ impl<T: RuntimeType> Delegates<T> {
 impl<T: RuntimeType> Clone for Delegates<T> {
     fn clone(&self) -> Self {
         if !self.is_empty() {
-            unsafe { (*self.0).count.add_ref() };
+            unsafe { (*self.buffer).count.add_ref() };
         }
-        Self(self.0, std::marker::PhantomData)
+        Self{buffer: self.buffer, len:self.len, _phantom: std::marker::PhantomData}
     }
 }
 
 impl<T: RuntimeType> Drop for Delegates<T> {
     fn drop(&mut self) {
         unsafe {
-            if !self.is_empty() && (*self.0).count.release() == 0 {
+            if !self.is_empty() && (*self.buffer).count.release() == 0 {
                 std::ptr::drop_in_place(self.as_mut_slice());
-                heap_free(self.0 as _)
+                heap_free(self.buffer as _)
             }
         }
     }
 }
 
 #[repr(C)]
-struct Header {
+struct Buffer {
     count: RefCount,
     len: usize,
 }
 
-impl Header {
-    fn new(len: usize) -> Result<*mut Header> {
+impl Buffer {
+    fn new(len: usize) -> Result<*mut Buffer> {
         if len == 0 {
             Ok(std::ptr::null_mut())
         } else {
-            let alloc_size = std::mem::size_of::<Header>() + len * std::mem::size_of::<usize>();
-            let header = heap_alloc(alloc_size)? as *mut Header;
+            let alloc_size = std::mem::size_of::<Buffer>() + len * std::mem::size_of::<usize>();
+            let header = heap_alloc(alloc_size)? as *mut Buffer;
             unsafe {
                 (*header).count = RefCount::new(1);
                 (*header).len = len;
-                std::ptr::write_bytes(header.add(1) as *mut usize, 0, len);
             }
             Ok(header)
         }
     }
-    fn as_slice(&self) -> &[usize] {
-        unsafe { std::slice::from_raw_parts::<usize>((self as *const Self).add(1) as *const usize, self.len) }
+    fn as_ptr(&self) -> *const usize {
+        unsafe { (self as *const Self).add(1) as *const _ }
     }
-    fn as_mut_slice(&mut self) -> &mut [usize] {
-        unsafe { std::slice::from_raw_parts_mut::<usize>((self as *mut Self).add(1) as *mut usize, self.len) }
+    fn as_mut_ptr(&mut self) -> *mut usize {
+        unsafe { (self as *mut Self).add(1) as *mut _ }
     }
 }
 
