@@ -117,8 +117,9 @@ impl<T: RuntimeType> Delegates<T> {
     fn with_capacity(capacity: usize) -> Result<Self> {
         Ok(Self { buffer: Buffer::new(capacity)?, len: 0, _phantom: std::marker::PhantomData })
     }
-    fn swap(&mut self, other: Self) -> Self {
-        unsafe { std::ptr::swap(self.buffer, other.buffer) };
+    fn swap(&mut self, mut other: Self) -> Self {
+        unsafe { std::ptr::swap(&mut self.buffer, &mut other.buffer) };
+        std::mem::swap(&mut self.len, &mut other.len);
         other
     }
     fn is_empty(&self) -> bool {
