@@ -5,6 +5,7 @@ pub(crate) mod bindings;
 mod compose;
 mod delay_load;
 mod error;
+mod event;
 mod factory_cache;
 mod generic_factory;
 mod guid;
@@ -28,7 +29,6 @@ mod unknown;
 mod waiter;
 mod weak;
 mod weak_ref_count;
-mod event;
 
 #[doc(hidden)]
 pub use abi::*;
@@ -38,6 +38,7 @@ pub use array::*;
 pub use compose::*;
 pub(crate) use delay_load::*;
 pub use error::*;
+pub use event::*;
 #[doc(hidden)]
 pub use factory_cache::*;
 #[doc(hidden)]
@@ -72,7 +73,6 @@ pub use waiter::*;
 pub use weak::*;
 #[doc(hidden)]
 pub use weak_ref_count::*;
-pub use event::*;
 
 /// A specialized [`Result`] type that provides Windows error information.
 pub type Result<T> = core::result::Result<T, Error>;

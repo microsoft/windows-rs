@@ -9,7 +9,7 @@ pub struct AgileReference<T>(IAgileReference, PhantomData<T>);
 
 impl<T: Interface> AgileReference<T> {
     /// Creates an agile reference to the object.
-    pub fn new<'a>(object: &'a T) -> Result<Self> {
+    pub fn new(object: &T) -> Result<Self> {
         let unknown: &IUnknown = unsafe { std::mem::transmute(object) };
         unsafe { RoGetAgileReference(AGILEREFERENCE_DEFAULT, &T::IID, unknown).map(|reference| Self(reference, Default::default())) }
     }
