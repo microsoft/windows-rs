@@ -6,18 +6,13 @@ use core::sync::atomic::{AtomicPtr, Ordering};
 #[doc(hidden)]
 pub struct FactoryCache<C, I> {
     shared: AtomicPtr<core::ffi::c_void>,
-    library: &'static [u8],
     _c: PhantomData<C>,
     _i: PhantomData<I>,
 }
 
 impl<C, I> FactoryCache<C, I> {
     pub const fn new() -> Self {
-        Self { shared: AtomicPtr::new(::core::ptr::null_mut()), library: &[], _c: PhantomData, _i: PhantomData }
-    }
-
-    pub const fn from_library(library: &'static [u8]) -> Self {
-        Self { library, ..Self::new() }
+        Self { shared: AtomicPtr::new(::core::ptr::null_mut()), _c: PhantomData, _i: PhantomData }
     }
 }
 
@@ -33,7 +28,7 @@ impl<C: RuntimeName, I: Interface> FactoryCache<C, I> {
             }
 
             // Otherwise, we load the factory the usual way.
-            let factory = if self.library.is_empty() { factory::<C, I>()? } else { factory_from_library::<C, I>(self.library)? };
+            let factory = factory::<C, I>()?;
 
             // If the factory is agile, we can safely cache it.
             if factory.cast::<IAgileObject>().is_ok() {
@@ -108,13 +103,6 @@ pub fn factory<C: RuntimeName, I: Interface>() -> Result<I> {
 
         Err(original)
     }
-}
-
-/// Attempts to load the factory interface for the given WinRT class located
-/// in the specified library.
-fn factory_from_library<C: RuntimeName, I: Interface>(library: &[u8]) -> Result<I> {
-    let name = HSTRING::from(C::NAME);
-    unsafe { get_activation_factory(library, &name)?.cast() }
 }
 
 unsafe fn get_activation_factory(library: &[u8], name: &HSTRING) -> Result<IGenericFactory> {
