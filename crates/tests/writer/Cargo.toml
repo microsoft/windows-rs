@@ -2,7 +2,7 @@
 name = "test_writer"
 version = "0.0.0"
 authors = ["Microsoft"]
-edition = "2021"
+edition = "2018"
 
 [dependencies.windows-metadata]
 path = "../../libs/metadata"
