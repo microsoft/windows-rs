@@ -1,6 +1,6 @@
-use windows::{core::*,Foundation::*};
-use std::sync::*;
 use std::sync::atomic::*;
+use std::sync::*;
+use windows::{core::*, Foundation::*};
 
 #[test]
 fn add_remove() -> Result<()> {
@@ -81,7 +81,7 @@ fn multiple() -> Result<()> {
     assert_eq!(a_check.load(Ordering::Relaxed), 20);
     assert_eq!(b_check.load(Ordering::Relaxed), 20);
     assert_eq!(c_check.load(Ordering::Relaxed), 0);
-    
+
     let c_token = event.add(&EventHandler::<i32>::new(move |_, args| {
         c_check_sender.store(*args, Ordering::Relaxed);
         Ok(())
