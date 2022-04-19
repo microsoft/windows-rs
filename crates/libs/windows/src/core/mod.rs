@@ -5,6 +5,7 @@ pub(crate) mod bindings;
 mod compose;
 mod delay_load;
 mod error;
+mod event;
 mod factory_cache;
 mod generic_factory;
 mod guid;
@@ -37,6 +38,7 @@ pub use array::*;
 pub use compose::*;
 pub(crate) use delay_load::*;
 pub use error::*;
+pub use event::*;
 #[doc(hidden)]
 pub use factory_cache::*;
 #[doc(hidden)]
