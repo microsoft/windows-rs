@@ -1009,18 +1009,18 @@ impl ::core::clone::Clone for DEVINFO {
         *self
     }
 }
-#[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const DEVPKEY_Device_ActivityId: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 3305783056, data2: 43612, data3: 16967, data4: [184, 48, 214, 166, 248, 234, 163, 16] }, pid: 4u32 };
-#[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const DEVPKEY_Device_AdapterLuid: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 3305783056, data2: 43612, data3: 16967, data4: [184, 48, 214, 166, 248, 234, 163, 16] }, pid: 3u32 };
-#[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const DEVPKEY_Device_TerminalLuid: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 3305783056, data2: 43612, data3: 16967, data4: [184, 48, 214, 166, 248, 234, 163, 16] }, pid: 2u32 };
-#[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const DEVPKEY_IndirectDisplay: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 3305783056, data2: 43612, data3: 16967, data4: [184, 48, 214, 166, 248, 234, 163, 16] }, pid: 1u32 };
+#[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Devices_Properties\"`*"]
+#[cfg(feature = "Win32_Devices_Properties")]
+pub const DEVPKEY_Device_ActivityId: super::Properties::DEVPROPKEY = super::Properties::DEVPROPKEY { fmtid: ::windows_sys::core::GUID { data1: 3305783056, data2: 43612, data3: 16967, data4: [184, 48, 214, 166, 248, 234, 163, 16] }, pid: 4u32 };
+#[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Devices_Properties\"`*"]
+#[cfg(feature = "Win32_Devices_Properties")]
+pub const DEVPKEY_Device_AdapterLuid: super::Properties::DEVPROPKEY = super::Properties::DEVPROPKEY { fmtid: ::windows_sys::core::GUID { data1: 3305783056, data2: 43612, data3: 16967, data4: [184, 48, 214, 166, 248, 234, 163, 16] }, pid: 3u32 };
+#[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Devices_Properties\"`*"]
+#[cfg(feature = "Win32_Devices_Properties")]
+pub const DEVPKEY_Device_TerminalLuid: super::Properties::DEVPROPKEY = super::Properties::DEVPROPKEY { fmtid: ::windows_sys::core::GUID { data1: 3305783056, data2: 43612, data3: 16967, data4: [184, 48, 214, 166, 248, 234, 163, 16] }, pid: 2u32 };
+#[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Devices_Properties\"`*"]
+#[cfg(feature = "Win32_Devices_Properties")]
+pub const DEVPKEY_IndirectDisplay: super::Properties::DEVPROPKEY = super::Properties::DEVPROPKEY { fmtid: ::windows_sys::core::GUID { data1: 3305783056, data2: 43612, data3: 16967, data4: [184, 48, 214, 166, 248, 234, 163, 16] }, pid: 1u32 };
 pub type DHPDEV = isize;
 pub type DHSURF = isize;
 #[repr(C)]

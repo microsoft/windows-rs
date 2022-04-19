@@ -489,66 +489,35 @@ unsafe impl ::windows::core::Abi for HSTRING_BUFFER {
     type Abi = Self;
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 pub struct HSTRING_HEADER {
-    pub Reserved: HSTRING_HEADER_0,
+    pub flags: u32,
+    pub length: u32,
+    pub padding1: u32,
+    pub padding2: u32,
+    pub data: isize,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for HSTRING_HEADER {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for HSTRING_HEADER {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for HSTRING_HEADER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HSTRING_HEADER").field("flags", &self.flags).field("length", &self.length).field("padding1", &self.padding1).field("padding2", &self.padding2).field("data", &self.data).finish()
+    }
+}
 unsafe impl ::windows::core::Abi for HSTRING_HEADER {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for HSTRING_HEADER {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HSTRING_HEADER>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for HSTRING_HEADER {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for HSTRING_HEADER {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub union HSTRING_HEADER_0 {
-    pub Reserved1: *mut ::core::ffi::c_void,
-    pub Reserved2: [super::super::Foundation::CHAR; 24],
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for HSTRING_HEADER_0 {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for HSTRING_HEADER_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for HSTRING_HEADER_0 {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for HSTRING_HEADER_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HSTRING_HEADER_0>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for HSTRING_HEADER_0 {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for HSTRING_HEADER_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
@@ -4217,8 +4186,7 @@ pub unsafe fn WindowsCreateString(sourcestring: &[u16]) -> ::windows::core::Resu
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
 pub unsafe fn WindowsCreateStringReference<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(sourcestring: Param0, length: u32, hstringheader: *mut HSTRING_HEADER, string: *mut ::windows::core::HSTRING) -> ::windows::core::Result<()> {
     #[cfg(windows)]

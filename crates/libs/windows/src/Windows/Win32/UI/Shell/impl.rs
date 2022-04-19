@@ -5359,7 +5359,7 @@ impl IEnumAssocHandlers_Vtbl {
     }
 }
 pub trait IEnumExplorerCommand_Impl: Sized {
-    fn Next(&self, celt: u32, puicommand: *mut ::core::option::Option<IExplorerCommand>, pceltfetched: *mut u32) -> ::windows::core::Result<()>;
+    fn Next(&self, celt: u32, puicommand: *mut ::core::option::Option<IExplorerCommand>, pceltfetched: *mut u32) -> ::windows::core::HRESULT;
     fn Skip(&self, celt: u32) -> ::windows::core::Result<()>;
     fn Reset(&self) -> ::windows::core::Result<()>;
     fn Clone(&self) -> ::windows::core::Result<IEnumExplorerCommand>;
@@ -5369,7 +5369,7 @@ impl IEnumExplorerCommand_Vtbl {
         unsafe extern "system" fn Next<Identity: ::windows::core::IUnknownImpl, Impl: IEnumExplorerCommand_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, celt: u32, puicommand: *mut ::windows::core::RawPtr, pceltfetched: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).Next(::core::mem::transmute_copy(&celt), ::core::mem::transmute_copy(&puicommand), ::core::mem::transmute_copy(&pceltfetched)).into()
+            (*this).Next(::core::mem::transmute_copy(&celt), ::core::mem::transmute_copy(&puicommand), ::core::mem::transmute_copy(&pceltfetched))
         }
         unsafe extern "system" fn Skip<Identity: ::windows::core::IUnknownImpl, Impl: IEnumExplorerCommand_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -22200,8 +22200,8 @@ pub trait IWebWizardHost_Impl: Sized + super::super::System::Com::IDispatch_Impl
     fn Cancel(&self) -> ::windows::core::Result<()>;
     fn SetCaption(&self, bstrcaption: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn Caption(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetProperty(&self, bstrpropertyname: &super::super::Foundation::BSTR, pvproperty: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn Property(&self, bstrpropertyname: &super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
+    fn put_Property(&self, bstrpropertyname: &super::super::Foundation::BSTR, pvproperty: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn get_Property(&self, bstrpropertyname: &super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
     fn SetWizardButtons(&self, vfenableback: i16, vfenablenext: i16, vflastpage: i16) -> ::windows::core::Result<()>;
     fn SetHeaderText(&self, bstrheadertitle: &super::super::Foundation::BSTR, bstrheadersubtitle: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
@@ -22239,15 +22239,15 @@ impl IWebWizardHost_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetProperty<Identity: ::windows::core::IUnknownImpl, Impl: IWebWizardHost_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrpropertyname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pvproperty: *const super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn put_Property<Identity: ::windows::core::IUnknownImpl, Impl: IWebWizardHost_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrpropertyname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pvproperty: *const super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetProperty(::core::mem::transmute(&bstrpropertyname), ::core::mem::transmute_copy(&pvproperty)).into()
+            (*this).put_Property(::core::mem::transmute(&bstrpropertyname), ::core::mem::transmute_copy(&pvproperty)).into()
         }
-        unsafe extern "system" fn Property<Identity: ::windows::core::IUnknownImpl, Impl: IWebWizardHost_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrpropertyname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pvproperty: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_Property<Identity: ::windows::core::IUnknownImpl, Impl: IWebWizardHost_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrpropertyname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pvproperty: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).Property(::core::mem::transmute(&bstrpropertyname)) {
+            match (*this).get_Property(::core::mem::transmute(&bstrpropertyname)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pvproperty = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -22272,8 +22272,8 @@ impl IWebWizardHost_Vtbl {
             Cancel: Cancel::<Identity, Impl, OFFSET>,
             SetCaption: SetCaption::<Identity, Impl, OFFSET>,
             Caption: Caption::<Identity, Impl, OFFSET>,
-            SetProperty: SetProperty::<Identity, Impl, OFFSET>,
-            Property: Property::<Identity, Impl, OFFSET>,
+            put_Property: put_Property::<Identity, Impl, OFFSET>,
+            get_Property: get_Property::<Identity, Impl, OFFSET>,
             SetWizardButtons: SetWizardButtons::<Identity, Impl, OFFSET>,
             SetHeaderText: SetHeaderText::<Identity, Impl, OFFSET>,
         }

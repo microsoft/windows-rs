@@ -581,8 +581,6 @@ pub const INHERIT_NO_PROPAGATE: ACE_FLAGS = 4u32;
 pub const INHERIT_ONLY: ACE_FLAGS = 8u32;
 #[doc = "*Required features: `\"Win32_Security\"`*"]
 pub const NO_INHERITANCE: ACE_FLAGS = 0u32;
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const INHERIT_ONLY_ACE_: ACE_FLAGS = 8u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Security\"`*"]
 pub struct ACE_HEADER {

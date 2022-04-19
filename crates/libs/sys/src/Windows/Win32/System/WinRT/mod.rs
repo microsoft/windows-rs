@@ -146,8 +146,7 @@ extern "system" {
     pub fn WindowsConcatString(string1: ::windows_sys::core::HSTRING, string2: ::windows_sys::core::HSTRING, newstring: *mut ::windows_sys::core::HSTRING) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
     pub fn WindowsCreateString(sourcestring: ::windows_sys::core::PCWSTR, length: u32, string: *mut ::windows_sys::core::HSTRING) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
     pub fn WindowsCreateStringReference(sourcestring: ::windows_sys::core::PCWSTR, length: u32, hstringheader: *mut HSTRING_HEADER, string: *mut ::windows_sys::core::HSTRING) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
     pub fn WindowsDeleteString(string: ::windows_sys::core::HSTRING) -> ::windows_sys::core::HRESULT;
@@ -285,30 +284,16 @@ impl ::core::clone::Clone for EventRegistrationToken {
 }
 pub type HSTRING_BUFFER = isize;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 pub struct HSTRING_HEADER {
-    pub Reserved: HSTRING_HEADER_0,
+    pub flags: u32,
+    pub length: u32,
+    pub padding1: u32,
+    pub padding2: u32,
+    pub data: isize,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for HSTRING_HEADER {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for HSTRING_HEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub union HSTRING_HEADER_0 {
-    pub Reserved1: *mut ::core::ffi::c_void,
-    pub Reserved2: [super::super::Foundation::CHAR; 24],
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for HSTRING_HEADER_0 {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for HSTRING_HEADER_0 {
     fn clone(&self) -> Self {
         *self
     }

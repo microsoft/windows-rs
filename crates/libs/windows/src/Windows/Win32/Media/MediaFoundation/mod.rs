@@ -9191,9 +9191,9 @@ impl ::core::default::Default for DEVICE_INFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const DEVPKEY_DeviceInterface_IsVirtualCamera: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x6edc630d_c2e3_43b7_b2d1_20525a1af120), pid: 3u32 };
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Devices_Properties\"`*"]
+#[cfg(feature = "Win32_Devices_Properties")]
+pub const DEVPKEY_DeviceInterface_IsVirtualCamera: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows::core::GUID::from_u128(0x6edc630d_c2e3_43b7_b2d1_20525a1af120), pid: 3u32 };
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -25396,8 +25396,9 @@ pub struct IMFCaptureEngine_Vtbl {
 pub struct IMFCaptureEngineClassFactory(::windows::core::IUnknown);
 impl IMFCaptureEngineClassFactory {
     #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
-    pub unsafe fn CreateInstance(&self, clsid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CreateInstance)(::core::mem::transmute_copy(self), ::core::mem::transmute(clsid), ::core::mem::transmute(riid), ::core::mem::transmute(ppvobject)).ok()
+    pub unsafe fn CreateInstance<T: ::windows::core::Interface>(&self, clsid: *const ::windows::core::GUID) -> ::windows::core::Result<T> {
+        let mut result__ = ::core::option::Option::None;
+        (::windows::core::Interface::vtable(self).CreateInstance)(::core::mem::transmute_copy(self), ::core::mem::transmute(clsid), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
 impl ::core::convert::From<IMFCaptureEngineClassFactory> for ::windows::core::IUnknown {
@@ -32112,8 +32113,8 @@ impl IMFMediaKeySession2 {
         (::windows::core::Interface::vtable(self).base__.Close)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
-    pub unsafe fn KeyStatuses(&self, pkeystatusesarray: *mut *mut MFMediaKeyStatus, pusize: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).KeyStatuses)(::core::mem::transmute_copy(self), ::core::mem::transmute(pkeystatusesarray), ::core::mem::transmute(pusize)).ok()
+    pub unsafe fn get_KeyStatuses(&self, pkeystatusesarray: *mut *mut MFMediaKeyStatus, pusize: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).get_KeyStatuses)(::core::mem::transmute_copy(self), ::core::mem::transmute(pkeystatusesarray), ::core::mem::transmute(pusize)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -32204,7 +32205,7 @@ unsafe impl ::windows::core::Interface for IMFMediaKeySession2 {
 #[doc(hidden)]
 pub struct IMFMediaKeySession2_Vtbl {
     pub base__: IMFMediaKeySession_Vtbl,
-    pub KeyStatuses: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pkeystatusesarray: *mut *mut MFMediaKeyStatus, pusize: *mut u32) -> ::windows::core::HRESULT,
+    pub get_KeyStatuses: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pkeystatusesarray: *mut *mut MFMediaKeyStatus, pusize: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub Load: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrsessionid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pfloaded: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -38359,12 +38360,14 @@ pub struct IMFRateSupport_Vtbl {
 pub struct IMFReadWriteClassFactory(::windows::core::IUnknown);
 impl IMFReadWriteClassFactory {
     #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
-    pub unsafe fn CreateInstanceFromURL<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, IMFAttributes>>(&self, clsid: *const ::windows::core::GUID, pwszurl: Param1, pattributes: Param2, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CreateInstanceFromURL)(::core::mem::transmute_copy(self), ::core::mem::transmute(clsid), pwszurl.into_param().abi(), pattributes.into_param().abi(), ::core::mem::transmute(riid), ::core::mem::transmute(ppvobject)).ok()
+    pub unsafe fn CreateInstanceFromURL<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, IMFAttributes>, T: ::windows::core::Interface>(&self, clsid: *const ::windows::core::GUID, pwszurl: Param1, pattributes: Param2) -> ::windows::core::Result<T> {
+        let mut result__ = ::core::option::Option::None;
+        (::windows::core::Interface::vtable(self).CreateInstanceFromURL)(::core::mem::transmute_copy(self), ::core::mem::transmute(clsid), pwszurl.into_param().abi(), pattributes.into_param().abi(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
-    pub unsafe fn CreateInstanceFromObject<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param2: ::windows::core::IntoParam<'a, IMFAttributes>>(&self, clsid: *const ::windows::core::GUID, punkobject: Param1, pattributes: Param2, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CreateInstanceFromObject)(::core::mem::transmute_copy(self), ::core::mem::transmute(clsid), punkobject.into_param().abi(), pattributes.into_param().abi(), ::core::mem::transmute(riid), ::core::mem::transmute(ppvobject)).ok()
+    pub unsafe fn CreateInstanceFromObject<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param2: ::windows::core::IntoParam<'a, IMFAttributes>, T: ::windows::core::Interface>(&self, clsid: *const ::windows::core::GUID, punkobject: Param1, pattributes: Param2) -> ::windows::core::Result<T> {
+        let mut result__ = ::core::option::Option::None;
+        (::windows::core::Interface::vtable(self).CreateInstanceFromObject)(::core::mem::transmute_copy(self), ::core::mem::transmute(clsid), punkobject.into_param().abi(), pattributes.into_param().abi(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
 impl ::core::convert::From<IMFReadWriteClassFactory> for ::windows::core::IUnknown {
@@ -57327,12 +57330,12 @@ pub unsafe fn MFTEnum<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
-pub unsafe fn MFTEnum2<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param4: ::windows::core::IntoParam<'a, IMFAttributes>>(guidcategory: Param0, flags: u32, pinputtype: *const MFT_REGISTER_TYPE_INFO, poutputtype: *const MFT_REGISTER_TYPE_INFO, pattributes: Param4, pppmftactivate: *mut *mut ::core::option::Option<IMFActivate>, pnummftactivate: *mut u32) -> ::windows::core::Result<()> {
+pub unsafe fn MFTEnum2<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param4: ::windows::core::IntoParam<'a, IMFAttributes>>(guidcategory: Param0, flags: MFT_ENUM_FLAG, pinputtype: *const MFT_REGISTER_TYPE_INFO, poutputtype: *const MFT_REGISTER_TYPE_INFO, pattributes: Param4, pppmftactivate: *mut *mut ::core::option::Option<IMFActivate>, pnummftactivate: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn MFTEnum2(guidcategory: ::windows::core::GUID, flags: u32, pinputtype: *const MFT_REGISTER_TYPE_INFO, poutputtype: *const MFT_REGISTER_TYPE_INFO, pattributes: ::windows::core::RawPtr, pppmftactivate: *mut *mut ::windows::core::RawPtr, pnummftactivate: *mut u32) -> ::windows::core::HRESULT;
+            fn MFTEnum2(guidcategory: ::windows::core::GUID, flags: MFT_ENUM_FLAG, pinputtype: *const MFT_REGISTER_TYPE_INFO, poutputtype: *const MFT_REGISTER_TYPE_INFO, pattributes: ::windows::core::RawPtr, pppmftactivate: *mut *mut ::windows::core::RawPtr, pnummftactivate: *mut u32) -> ::windows::core::HRESULT;
         }
         MFTEnum2(guidcategory.into_param().abi(), ::core::mem::transmute(flags), ::core::mem::transmute(pinputtype), ::core::mem::transmute(poutputtype), pattributes.into_param().abi(), ::core::mem::transmute(pppmftactivate), ::core::mem::transmute(pnummftactivate)).ok()
     }
@@ -57341,12 +57344,12 @@ pub unsafe fn MFTEnum2<'a, Param0: ::windows::core::IntoParam<'a, ::windows::cor
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
-pub unsafe fn MFTEnumEx<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(guidcategory: Param0, flags: u32, pinputtype: *const MFT_REGISTER_TYPE_INFO, poutputtype: *const MFT_REGISTER_TYPE_INFO, pppmftactivate: *mut *mut ::core::option::Option<IMFActivate>, pnummftactivate: *mut u32) -> ::windows::core::Result<()> {
+pub unsafe fn MFTEnumEx<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(guidcategory: Param0, flags: MFT_ENUM_FLAG, pinputtype: *const MFT_REGISTER_TYPE_INFO, poutputtype: *const MFT_REGISTER_TYPE_INFO, pppmftactivate: *mut *mut ::core::option::Option<IMFActivate>, pnummftactivate: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn MFTEnumEx(guidcategory: ::windows::core::GUID, flags: u32, pinputtype: *const MFT_REGISTER_TYPE_INFO, poutputtype: *const MFT_REGISTER_TYPE_INFO, pppmftactivate: *mut *mut ::windows::core::RawPtr, pnummftactivate: *mut u32) -> ::windows::core::HRESULT;
+            fn MFTEnumEx(guidcategory: ::windows::core::GUID, flags: MFT_ENUM_FLAG, pinputtype: *const MFT_REGISTER_TYPE_INFO, poutputtype: *const MFT_REGISTER_TYPE_INFO, pppmftactivate: *mut *mut ::windows::core::RawPtr, pnummftactivate: *mut u32) -> ::windows::core::HRESULT;
         }
         MFTEnumEx(guidcategory.into_param().abi(), ::core::mem::transmute(flags), ::core::mem::transmute(pinputtype), ::core::mem::transmute(poutputtype), ::core::mem::transmute(pppmftactivate), ::core::mem::transmute(pnummftactivate)).ok()
     }
@@ -57702,6 +57705,81 @@ pub const MFT_ENCODER_ERROR: ::windows::core::GUID = ::windows::core::GUID::from
 pub const MFT_ENCODER_SUPPORTS_CONFIG_EVENT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x86a355ae_3a77_4ec4_9f31_01149a4e92de);
 pub const MFT_END_STREAMING_AWARE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x70fbc845_b07e_4089_b064_399dc6110f29);
 pub const MFT_ENUM_ADAPTER_LUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1d39518c_e220_4da8_a07f_ba172552d6b1);
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct MFT_ENUM_FLAG(pub u32);
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const MFT_ENUM_FLAG_SYNCMFT: MFT_ENUM_FLAG = MFT_ENUM_FLAG(1u32);
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const MFT_ENUM_FLAG_ASYNCMFT: MFT_ENUM_FLAG = MFT_ENUM_FLAG(2u32);
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const MFT_ENUM_FLAG_HARDWARE: MFT_ENUM_FLAG = MFT_ENUM_FLAG(4u32);
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const MFT_ENUM_FLAG_FIELDOFUSE: MFT_ENUM_FLAG = MFT_ENUM_FLAG(8u32);
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const MFT_ENUM_FLAG_LOCALMFT: MFT_ENUM_FLAG = MFT_ENUM_FLAG(16u32);
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const MFT_ENUM_FLAG_TRANSCODE_ONLY: MFT_ENUM_FLAG = MFT_ENUM_FLAG(32u32);
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const MFT_ENUM_FLAG_SORTANDFILTER: MFT_ENUM_FLAG = MFT_ENUM_FLAG(64u32);
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const MFT_ENUM_FLAG_SORTANDFILTER_APPROVED_ONLY: MFT_ENUM_FLAG = MFT_ENUM_FLAG(192u32);
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const MFT_ENUM_FLAG_SORTANDFILTER_WEB_ONLY: MFT_ENUM_FLAG = MFT_ENUM_FLAG(320u32);
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const MFT_ENUM_FLAG_SORTANDFILTER_WEB_ONLY_EDGEMODE: MFT_ENUM_FLAG = MFT_ENUM_FLAG(576u32);
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const MFT_ENUM_FLAG_UNTRUSTED_STOREMFT: MFT_ENUM_FLAG = MFT_ENUM_FLAG(1024u32);
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const MFT_ENUM_FLAG_ALL: MFT_ENUM_FLAG = MFT_ENUM_FLAG(63u32);
+impl ::core::marker::Copy for MFT_ENUM_FLAG {}
+impl ::core::clone::Clone for MFT_ENUM_FLAG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for MFT_ENUM_FLAG {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for MFT_ENUM_FLAG {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MFT_ENUM_FLAG {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MFT_ENUM_FLAG").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for MFT_ENUM_FLAG {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for MFT_ENUM_FLAG {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for MFT_ENUM_FLAG {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for MFT_ENUM_FLAG {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for MFT_ENUM_FLAG {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 pub const MFT_ENUM_HARDWARE_URL_Attribute: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2fb866ac_b078_4942_ab6c_003d05cda674);
 pub const MFT_ENUM_HARDWARE_VENDOR_ID_Attribute: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3aecb0cc_035b_4bcc_8185_2b8d551ef3af);
 pub const MFT_ENUM_TRANSCODE_ONLY_ATTRIBUTE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x111ea8cd_b62a_4bdb_89f6_67ffcdc2458b);
@@ -66199,53 +66277,6 @@ unsafe impl ::windows::core::Abi for _MFP_MEDIAITEM_CHARACTERISTICS {
 impl ::core::fmt::Debug for _MFP_MEDIAITEM_CHARACTERISTICS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("_MFP_MEDIAITEM_CHARACTERISTICS").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
-#[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
-pub struct _MFT_ENUM_FLAG(pub i32);
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
-pub const MFT_ENUM_FLAG_SYNCMFT: _MFT_ENUM_FLAG = _MFT_ENUM_FLAG(1i32);
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
-pub const MFT_ENUM_FLAG_ASYNCMFT: _MFT_ENUM_FLAG = _MFT_ENUM_FLAG(2i32);
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
-pub const MFT_ENUM_FLAG_HARDWARE: _MFT_ENUM_FLAG = _MFT_ENUM_FLAG(4i32);
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
-pub const MFT_ENUM_FLAG_FIELDOFUSE: _MFT_ENUM_FLAG = _MFT_ENUM_FLAG(8i32);
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
-pub const MFT_ENUM_FLAG_LOCALMFT: _MFT_ENUM_FLAG = _MFT_ENUM_FLAG(16i32);
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
-pub const MFT_ENUM_FLAG_TRANSCODE_ONLY: _MFT_ENUM_FLAG = _MFT_ENUM_FLAG(32i32);
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
-pub const MFT_ENUM_FLAG_SORTANDFILTER: _MFT_ENUM_FLAG = _MFT_ENUM_FLAG(64i32);
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
-pub const MFT_ENUM_FLAG_SORTANDFILTER_APPROVED_ONLY: _MFT_ENUM_FLAG = _MFT_ENUM_FLAG(192i32);
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
-pub const MFT_ENUM_FLAG_SORTANDFILTER_WEB_ONLY: _MFT_ENUM_FLAG = _MFT_ENUM_FLAG(320i32);
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
-pub const MFT_ENUM_FLAG_SORTANDFILTER_WEB_ONLY_EDGEMODE: _MFT_ENUM_FLAG = _MFT_ENUM_FLAG(576i32);
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
-pub const MFT_ENUM_FLAG_UNTRUSTED_STOREMFT: _MFT_ENUM_FLAG = _MFT_ENUM_FLAG(1024i32);
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
-pub const MFT_ENUM_FLAG_ALL: _MFT_ENUM_FLAG = _MFT_ENUM_FLAG(63i32);
-impl ::core::marker::Copy for _MFT_ENUM_FLAG {}
-impl ::core::clone::Clone for _MFT_ENUM_FLAG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for _MFT_ENUM_FLAG {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for _MFT_ENUM_FLAG {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for _MFT_ENUM_FLAG {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("_MFT_ENUM_FLAG").field(&self.0).finish()
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]

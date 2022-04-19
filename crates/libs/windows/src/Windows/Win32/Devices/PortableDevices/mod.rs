@@ -66,9 +66,9 @@ impl ::core::fmt::Debug for DEVICE_RADIO_STATE {
         f.debug_tuple("DEVICE_RADIO_STATE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const DEVPKEY_MTPBTH_IsConnected: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xea1237fa_589d_4472_84e4_0abe36fd62ef), pid: 2u32 };
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`, `\"Win32_Devices_Properties\"`*"]
+#[cfg(feature = "Win32_Devices_Properties")]
+pub const DEVPKEY_MTPBTH_IsConnected: super::Properties::DEVPROPKEY = super::Properties::DEVPROPKEY { fmtid: ::windows::core::GUID::from_u128(0xea1237fa_589d_4472_84e4_0abe36fd62ef), pid: 2u32 };
 #[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
 pub const DEVSVCTYPE_ABSTRACT: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]

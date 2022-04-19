@@ -5145,7 +5145,7 @@ impl ::core::default::Default for IMAGE_DOS_HEADER {
     }
 }
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const IMAGE_DOS_SIGNATURE: u32 = 23117u32;
+pub const IMAGE_DOS_SIGNATURE: u16 = 23117u16;
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub struct IMAGE_DYNAMIC_RELOCATION32 {
@@ -5772,7 +5772,7 @@ impl ::core::default::Default for IMAGE_LINENUMBER_0 {
     }
 }
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const IMAGE_NT_SIGNATURE: u32 = 17744u32;
+pub const IMAGE_NT_SIGNATURE: u16 = 17744u16;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const IMAGE_NUMBEROF_DIRECTORY_ENTRIES: u32 = 16u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
@@ -5843,9 +5843,9 @@ impl ::core::default::Default for IMAGE_OS2_HEADER {
     }
 }
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const IMAGE_OS2_SIGNATURE: u32 = 17742u32;
+pub const IMAGE_OS2_SIGNATURE: u16 = 17742u16;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const IMAGE_OS2_SIGNATURE_LE: u32 = 17740u32;
+pub const IMAGE_OS2_SIGNATURE_LE: u16 = 17740u16;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -7557,7 +7557,7 @@ impl ::core::default::Default for IMAGE_VXD_HEADER {
     }
 }
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const IMAGE_VXD_SIGNATURE: u32 = 17740u32;
+pub const IMAGE_VXD_SIGNATURE: u16 = 17740u16;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const IMAGE_WEAK_EXTERN_ANTI_DEPENDENCY: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]

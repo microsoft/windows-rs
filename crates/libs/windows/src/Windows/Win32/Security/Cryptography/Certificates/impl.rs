@@ -6,7 +6,7 @@ pub trait IAlternativeName_Impl: Sized + super::super::super::System::Com::IDisp
     fn Type(&self) -> ::windows::core::Result<AlternativeNameType>;
     fn StrValue(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
     fn ObjectId(&self) -> ::windows::core::Result<IObjectId>;
-    fn RawData(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
+    fn get_RawData(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IAlternativeName_Vtbl {
@@ -59,10 +59,10 @@ impl IAlternativeName_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RawData<Identity: ::windows::core::IUnknownImpl, Impl: IAlternativeName_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, encoding: EncodingType, pvalue: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_RawData<Identity: ::windows::core::IUnknownImpl, Impl: IAlternativeName_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, encoding: EncodingType, pvalue: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).RawData(::core::mem::transmute_copy(&encoding)) {
+            match (*this).get_RawData(::core::mem::transmute_copy(&encoding)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pvalue = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -78,7 +78,7 @@ impl IAlternativeName_Vtbl {
             Type: Type::<Identity, Impl, OFFSET>,
             StrValue: StrValue::<Identity, Impl, OFFSET>,
             ObjectId: ObjectId::<Identity, Impl, OFFSET>,
-            RawData: RawData::<Identity, Impl, OFFSET>,
+            get_RawData: get_RawData::<Identity, Impl, OFFSET>,
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -87,7 +87,7 @@ impl IAlternativeName_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IAlternativeNames_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
-    fn ItemByIndex(&self, index: i32) -> ::windows::core::Result<IAlternativeName>;
+    fn get_ItemByIndex(&self, index: i32) -> ::windows::core::Result<IAlternativeName>;
     fn Count(&self) -> ::windows::core::Result<i32>;
     fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
     fn Add(&self, pval: &::core::option::Option<IAlternativeName>) -> ::windows::core::Result<()>;
@@ -97,10 +97,10 @@ pub trait IAlternativeNames_Impl: Sized + super::super::super::System::Com::IDis
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IAlternativeNames_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAlternativeNames_Impl, const OFFSET: isize>() -> IAlternativeNames_Vtbl {
-        unsafe extern "system" fn ItemByIndex<Identity: ::windows::core::IUnknownImpl, Impl: IAlternativeNames_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, pval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_ItemByIndex<Identity: ::windows::core::IUnknownImpl, Impl: IAlternativeNames_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, pval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).ItemByIndex(::core::mem::transmute_copy(&index)) {
+            match (*this).get_ItemByIndex(::core::mem::transmute_copy(&index)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pval = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -147,7 +147,7 @@ impl IAlternativeNames_Vtbl {
         }
         Self {
             base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
-            ItemByIndex: ItemByIndex::<Identity, Impl, OFFSET>,
+            get_ItemByIndex: get_ItemByIndex::<Identity, Impl, OFFSET>,
             Count: Count::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
             Add: Add::<Identity, Impl, OFFSET>,
@@ -2656,7 +2656,7 @@ impl ICertPolicy2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ICertProperties_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
-    fn ItemByIndex(&self, index: i32) -> ::windows::core::Result<ICertProperty>;
+    fn get_ItemByIndex(&self, index: i32) -> ::windows::core::Result<ICertProperty>;
     fn Count(&self) -> ::windows::core::Result<i32>;
     fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
     fn Add(&self, pval: &::core::option::Option<ICertProperty>) -> ::windows::core::Result<()>;
@@ -2667,10 +2667,10 @@ pub trait ICertProperties_Impl: Sized + super::super::super::System::Com::IDispa
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ICertProperties_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICertProperties_Impl, const OFFSET: isize>() -> ICertProperties_Vtbl {
-        unsafe extern "system" fn ItemByIndex<Identity: ::windows::core::IUnknownImpl, Impl: ICertProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, pval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_ItemByIndex<Identity: ::windows::core::IUnknownImpl, Impl: ICertProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, pval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).ItemByIndex(::core::mem::transmute_copy(&index)) {
+            match (*this).get_ItemByIndex(::core::mem::transmute_copy(&index)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pval = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -2722,7 +2722,7 @@ impl ICertProperties_Vtbl {
         }
         Self {
             base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
-            ItemByIndex: ItemByIndex::<Identity, Impl, OFFSET>,
+            get_ItemByIndex: get_ItemByIndex::<Identity, Impl, OFFSET>,
             Count: Count::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
             Add: Add::<Identity, Impl, OFFSET>,
@@ -2741,7 +2741,7 @@ pub trait ICertProperty_Impl: Sized + super::super::super::System::Com::IDispatc
     fn InitializeDecode(&self, encoding: EncodingType, strencodeddata: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn PropertyId(&self) -> ::windows::core::Result<CERTENROLL_PROPERTYID>;
     fn SetPropertyId(&self, value: CERTENROLL_PROPERTYID) -> ::windows::core::Result<()>;
-    fn RawData(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
+    fn get_RawData(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
     fn RemoveFromCertificate(&self, machinecontext: i16, encoding: EncodingType, strcertificate: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn SetValueOnCertificate(&self, machinecontext: i16, encoding: EncodingType, strcertificate: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
@@ -2774,10 +2774,10 @@ impl ICertProperty_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).SetPropertyId(::core::mem::transmute_copy(&value)).into()
         }
-        unsafe extern "system" fn RawData<Identity: ::windows::core::IUnknownImpl, Impl: ICertProperty_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, encoding: EncodingType, pvalue: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_RawData<Identity: ::windows::core::IUnknownImpl, Impl: ICertProperty_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, encoding: EncodingType, pvalue: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).RawData(::core::mem::transmute_copy(&encoding)) {
+            match (*this).get_RawData(::core::mem::transmute_copy(&encoding)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pvalue = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -2801,7 +2801,7 @@ impl ICertProperty_Vtbl {
             InitializeDecode: InitializeDecode::<Identity, Impl, OFFSET>,
             PropertyId: PropertyId::<Identity, Impl, OFFSET>,
             SetPropertyId: SetPropertyId::<Identity, Impl, OFFSET>,
-            RawData: RawData::<Identity, Impl, OFFSET>,
+            get_RawData: get_RawData::<Identity, Impl, OFFSET>,
             RemoveFromCertificate: RemoveFromCertificate::<Identity, Impl, OFFSET>,
             SetValueOnCertificate: SetValueOnCertificate::<Identity, Impl, OFFSET>,
         }
@@ -2847,7 +2847,7 @@ impl ICertPropertyArchived_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ICertPropertyArchivedKeyHash_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + ICertProperty_Impl {
     fn Initialize(&self, encoding: EncodingType, strarchivedkeyhashvalue: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn ArchivedKeyHash(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
+    fn get_ArchivedKeyHash(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ICertPropertyArchivedKeyHash_Vtbl {
@@ -2857,10 +2857,10 @@ impl ICertPropertyArchivedKeyHash_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).Initialize(::core::mem::transmute_copy(&encoding), ::core::mem::transmute(&strarchivedkeyhashvalue)).into()
         }
-        unsafe extern "system" fn ArchivedKeyHash<Identity: ::windows::core::IUnknownImpl, Impl: ICertPropertyArchivedKeyHash_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, encoding: EncodingType, pvalue: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_ArchivedKeyHash<Identity: ::windows::core::IUnknownImpl, Impl: ICertPropertyArchivedKeyHash_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, encoding: EncodingType, pvalue: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).ArchivedKeyHash(::core::mem::transmute_copy(&encoding)) {
+            match (*this).get_ArchivedKeyHash(::core::mem::transmute_copy(&encoding)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pvalue = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -2871,7 +2871,7 @@ impl ICertPropertyArchivedKeyHash_Vtbl {
         Self {
             base__: ICertProperty_Vtbl::new::<Identity, Impl, OFFSET>(),
             Initialize: Initialize::<Identity, Impl, OFFSET>,
-            ArchivedKeyHash: ArchivedKeyHash::<Identity, Impl, OFFSET>,
+            get_ArchivedKeyHash: get_ArchivedKeyHash::<Identity, Impl, OFFSET>,
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -3270,7 +3270,7 @@ impl ICertPropertyKeyProvInfo_Vtbl {
 pub trait ICertPropertyRenewal_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + ICertProperty_Impl {
     fn Initialize(&self, encoding: EncodingType, strrenewalvalue: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn InitializeFromCertificateHash(&self, machinecontext: i16, encoding: EncodingType, strcertificate: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn Renewal(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
+    fn get_Renewal(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ICertPropertyRenewal_Vtbl {
@@ -3285,10 +3285,10 @@ impl ICertPropertyRenewal_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).InitializeFromCertificateHash(::core::mem::transmute_copy(&machinecontext), ::core::mem::transmute_copy(&encoding), ::core::mem::transmute(&strcertificate)).into()
         }
-        unsafe extern "system" fn Renewal<Identity: ::windows::core::IUnknownImpl, Impl: ICertPropertyRenewal_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, encoding: EncodingType, pvalue: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_Renewal<Identity: ::windows::core::IUnknownImpl, Impl: ICertPropertyRenewal_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, encoding: EncodingType, pvalue: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).Renewal(::core::mem::transmute_copy(&encoding)) {
+            match (*this).get_Renewal(::core::mem::transmute_copy(&encoding)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pvalue = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -3300,7 +3300,7 @@ impl ICertPropertyRenewal_Vtbl {
             base__: ICertProperty_Vtbl::new::<Identity, Impl, OFFSET>(),
             Initialize: Initialize::<Identity, Impl, OFFSET>,
             InitializeFromCertificateHash: InitializeFromCertificateHash::<Identity, Impl, OFFSET>,
-            Renewal: Renewal::<Identity, Impl, OFFSET>,
+            get_Renewal: get_Renewal::<Identity, Impl, OFFSET>,
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -3351,7 +3351,7 @@ impl ICertPropertyRequestOriginator_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ICertPropertySHA1Hash_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + ICertProperty_Impl {
     fn Initialize(&self, encoding: EncodingType, strrenewalvalue: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn SHA1Hash(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
+    fn get_SHA1Hash(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ICertPropertySHA1Hash_Vtbl {
@@ -3361,10 +3361,10 @@ impl ICertPropertySHA1Hash_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).Initialize(::core::mem::transmute_copy(&encoding), ::core::mem::transmute(&strrenewalvalue)).into()
         }
-        unsafe extern "system" fn SHA1Hash<Identity: ::windows::core::IUnknownImpl, Impl: ICertPropertySHA1Hash_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, encoding: EncodingType, pvalue: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_SHA1Hash<Identity: ::windows::core::IUnknownImpl, Impl: ICertPropertySHA1Hash_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, encoding: EncodingType, pvalue: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).SHA1Hash(::core::mem::transmute_copy(&encoding)) {
+            match (*this).get_SHA1Hash(::core::mem::transmute_copy(&encoding)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pvalue = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -3375,7 +3375,7 @@ impl ICertPropertySHA1Hash_Vtbl {
         Self {
             base__: ICertProperty_Vtbl::new::<Identity, Impl, OFFSET>(),
             Initialize: Initialize::<Identity, Impl, OFFSET>,
-            SHA1Hash: SHA1Hash::<Identity, Impl, OFFSET>,
+            get_SHA1Hash: get_SHA1Hash::<Identity, Impl, OFFSET>,
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -4168,7 +4168,7 @@ impl ICertificateAttestationChallenge_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ICertificateAttestationChallenge2_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + ICertificateAttestationChallenge_Impl {
     fn SetKeyContainerName(&self, value: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn SetKeyBlob(&self, encoding: EncodingType, value: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn put_KeyBlob(&self, encoding: EncodingType, value: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ICertificateAttestationChallenge2_Vtbl {
@@ -4178,15 +4178,15 @@ impl ICertificateAttestationChallenge2_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).SetKeyContainerName(::core::mem::transmute(&value)).into()
         }
-        unsafe extern "system" fn SetKeyBlob<Identity: ::windows::core::IUnknownImpl, Impl: ICertificateAttestationChallenge2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, encoding: EncodingType, value: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn put_KeyBlob<Identity: ::windows::core::IUnknownImpl, Impl: ICertificateAttestationChallenge2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, encoding: EncodingType, value: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetKeyBlob(::core::mem::transmute_copy(&encoding), ::core::mem::transmute(&value)).into()
+            (*this).put_KeyBlob(::core::mem::transmute_copy(&encoding), ::core::mem::transmute(&value)).into()
         }
         Self {
             base__: ICertificateAttestationChallenge_Vtbl::new::<Identity, Impl, OFFSET>(),
             SetKeyContainerName: SetKeyContainerName::<Identity, Impl, OFFSET>,
-            SetKeyBlob: SetKeyBlob::<Identity, Impl, OFFSET>,
+            put_KeyBlob: put_KeyBlob::<Identity, Impl, OFFSET>,
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -4195,7 +4195,7 @@ impl ICertificateAttestationChallenge2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ICertificatePolicies_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
-    fn ItemByIndex(&self, index: i32) -> ::windows::core::Result<ICertificatePolicy>;
+    fn get_ItemByIndex(&self, index: i32) -> ::windows::core::Result<ICertificatePolicy>;
     fn Count(&self) -> ::windows::core::Result<i32>;
     fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
     fn Add(&self, pval: &::core::option::Option<ICertificatePolicy>) -> ::windows::core::Result<()>;
@@ -4205,10 +4205,10 @@ pub trait ICertificatePolicies_Impl: Sized + super::super::super::System::Com::I
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ICertificatePolicies_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICertificatePolicies_Impl, const OFFSET: isize>() -> ICertificatePolicies_Vtbl {
-        unsafe extern "system" fn ItemByIndex<Identity: ::windows::core::IUnknownImpl, Impl: ICertificatePolicies_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, pval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_ItemByIndex<Identity: ::windows::core::IUnknownImpl, Impl: ICertificatePolicies_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, pval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).ItemByIndex(::core::mem::transmute_copy(&index)) {
+            match (*this).get_ItemByIndex(::core::mem::transmute_copy(&index)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pval = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -4255,7 +4255,7 @@ impl ICertificatePolicies_Vtbl {
         }
         Self {
             base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
-            ItemByIndex: ItemByIndex::<Identity, Impl, OFFSET>,
+            get_ItemByIndex: get_ItemByIndex::<Identity, Impl, OFFSET>,
             Count: Count::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
             Add: Add::<Identity, Impl, OFFSET>,
@@ -4316,22 +4316,22 @@ impl ICertificatePolicy_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ICertificationAuthorities_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
-    fn ItemByIndex(&self, index: i32) -> ::windows::core::Result<ICertificationAuthority>;
+    fn get_ItemByIndex(&self, index: i32) -> ::windows::core::Result<ICertificationAuthority>;
     fn Count(&self) -> ::windows::core::Result<i32>;
     fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
     fn Add(&self, pval: &::core::option::Option<ICertificationAuthority>) -> ::windows::core::Result<()>;
     fn Remove(&self, index: i32) -> ::windows::core::Result<()>;
     fn Clear(&self) -> ::windows::core::Result<()>;
     fn ComputeSiteCosts(&self) -> ::windows::core::Result<()>;
-    fn ItemByName(&self, strname: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<ICertificationAuthority>;
+    fn get_ItemByName(&self, strname: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<ICertificationAuthority>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ICertificationAuthorities_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICertificationAuthorities_Impl, const OFFSET: isize>() -> ICertificationAuthorities_Vtbl {
-        unsafe extern "system" fn ItemByIndex<Identity: ::windows::core::IUnknownImpl, Impl: ICertificationAuthorities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, pval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_ItemByIndex<Identity: ::windows::core::IUnknownImpl, Impl: ICertificationAuthorities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, pval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).ItemByIndex(::core::mem::transmute_copy(&index)) {
+            match (*this).get_ItemByIndex(::core::mem::transmute_copy(&index)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pval = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -4381,10 +4381,10 @@ impl ICertificationAuthorities_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).ComputeSiteCosts().into()
         }
-        unsafe extern "system" fn ItemByName<Identity: ::windows::core::IUnknownImpl, Impl: ICertificationAuthorities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, ppvalue: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_ItemByName<Identity: ::windows::core::IUnknownImpl, Impl: ICertificationAuthorities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, ppvalue: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).ItemByName(::core::mem::transmute(&strname)) {
+            match (*this).get_ItemByName(::core::mem::transmute(&strname)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppvalue = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -4394,14 +4394,14 @@ impl ICertificationAuthorities_Vtbl {
         }
         Self {
             base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
-            ItemByIndex: ItemByIndex::<Identity, Impl, OFFSET>,
+            get_ItemByIndex: get_ItemByIndex::<Identity, Impl, OFFSET>,
             Count: Count::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
             Add: Add::<Identity, Impl, OFFSET>,
             Remove: Remove::<Identity, Impl, OFFSET>,
             Clear: Clear::<Identity, Impl, OFFSET>,
             ComputeSiteCosts: ComputeSiteCosts::<Identity, Impl, OFFSET>,
-            ItemByName: ItemByName::<Identity, Impl, OFFSET>,
+            get_ItemByName: get_ItemByName::<Identity, Impl, OFFSET>,
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -4410,15 +4410,15 @@ impl ICertificationAuthorities_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ICertificationAuthority_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
-    fn Property(&self, property: EnrollmentCAProperty) -> ::windows::core::Result<super::super::super::System::Com::VARIANT>;
+    fn get_Property(&self, property: EnrollmentCAProperty) -> ::windows::core::Result<super::super::super::System::Com::VARIANT>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ICertificationAuthority_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICertificationAuthority_Impl, const OFFSET: isize>() -> ICertificationAuthority_Vtbl {
-        unsafe extern "system" fn Property<Identity: ::windows::core::IUnknownImpl, Impl: ICertificationAuthority_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, property: EnrollmentCAProperty, pvalue: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_Property<Identity: ::windows::core::IUnknownImpl, Impl: ICertificationAuthority_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, property: EnrollmentCAProperty, pvalue: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).Property(::core::mem::transmute_copy(&property)) {
+            match (*this).get_Property(::core::mem::transmute_copy(&property)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pvalue = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -4426,7 +4426,7 @@ impl ICertificationAuthority_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(), Property: Property::<Identity, Impl, OFFSET> }
+        Self { base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(), get_Property: get_Property::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ICertificationAuthority as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
@@ -4488,22 +4488,22 @@ impl ICryptAttribute_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ICryptAttributes_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
-    fn ItemByIndex(&self, index: i32) -> ::windows::core::Result<ICryptAttribute>;
+    fn get_ItemByIndex(&self, index: i32) -> ::windows::core::Result<ICryptAttribute>;
     fn Count(&self) -> ::windows::core::Result<i32>;
     fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
     fn Add(&self, pval: &::core::option::Option<ICryptAttribute>) -> ::windows::core::Result<()>;
     fn Remove(&self, index: i32) -> ::windows::core::Result<()>;
     fn Clear(&self) -> ::windows::core::Result<()>;
-    fn IndexByObjectId(&self, pobjectid: &::core::option::Option<IObjectId>) -> ::windows::core::Result<i32>;
+    fn get_IndexByObjectId(&self, pobjectid: &::core::option::Option<IObjectId>) -> ::windows::core::Result<i32>;
     fn AddRange(&self, pvalue: &::core::option::Option<ICryptAttributes>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ICryptAttributes_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICryptAttributes_Impl, const OFFSET: isize>() -> ICryptAttributes_Vtbl {
-        unsafe extern "system" fn ItemByIndex<Identity: ::windows::core::IUnknownImpl, Impl: ICryptAttributes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, pval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_ItemByIndex<Identity: ::windows::core::IUnknownImpl, Impl: ICryptAttributes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, pval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).ItemByIndex(::core::mem::transmute_copy(&index)) {
+            match (*this).get_ItemByIndex(::core::mem::transmute_copy(&index)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pval = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -4548,10 +4548,10 @@ impl ICryptAttributes_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).Clear().into()
         }
-        unsafe extern "system" fn IndexByObjectId<Identity: ::windows::core::IUnknownImpl, Impl: ICryptAttributes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pobjectid: ::windows::core::RawPtr, pindex: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_IndexByObjectId<Identity: ::windows::core::IUnknownImpl, Impl: ICryptAttributes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pobjectid: ::windows::core::RawPtr, pindex: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).IndexByObjectId(::core::mem::transmute(&pobjectid)) {
+            match (*this).get_IndexByObjectId(::core::mem::transmute(&pobjectid)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pindex = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -4566,13 +4566,13 @@ impl ICryptAttributes_Vtbl {
         }
         Self {
             base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
-            ItemByIndex: ItemByIndex::<Identity, Impl, OFFSET>,
+            get_ItemByIndex: get_ItemByIndex::<Identity, Impl, OFFSET>,
             Count: Count::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
             Add: Add::<Identity, Impl, OFFSET>,
             Remove: Remove::<Identity, Impl, OFFSET>,
             Clear: Clear::<Identity, Impl, OFFSET>,
-            IndexByObjectId: IndexByObjectId::<Identity, Impl, OFFSET>,
+            get_IndexByObjectId: get_IndexByObjectId::<Identity, Impl, OFFSET>,
             AddRange: AddRange::<Identity, Impl, OFFSET>,
         }
     }
@@ -4726,22 +4726,22 @@ impl ICspAlgorithm_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ICspAlgorithms_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
-    fn ItemByIndex(&self, index: i32) -> ::windows::core::Result<ICspAlgorithm>;
+    fn get_ItemByIndex(&self, index: i32) -> ::windows::core::Result<ICspAlgorithm>;
     fn Count(&self) -> ::windows::core::Result<i32>;
     fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
     fn Add(&self, pval: &::core::option::Option<ICspAlgorithm>) -> ::windows::core::Result<()>;
     fn Remove(&self, index: i32) -> ::windows::core::Result<()>;
     fn Clear(&self) -> ::windows::core::Result<()>;
-    fn ItemByName(&self, strname: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<ICspAlgorithm>;
-    fn IndexByObjectId(&self, pobjectid: &::core::option::Option<IObjectId>) -> ::windows::core::Result<i32>;
+    fn get_ItemByName(&self, strname: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<ICspAlgorithm>;
+    fn get_IndexByObjectId(&self, pobjectid: &::core::option::Option<IObjectId>) -> ::windows::core::Result<i32>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ICspAlgorithms_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICspAlgorithms_Impl, const OFFSET: isize>() -> ICspAlgorithms_Vtbl {
-        unsafe extern "system" fn ItemByIndex<Identity: ::windows::core::IUnknownImpl, Impl: ICspAlgorithms_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, pval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_ItemByIndex<Identity: ::windows::core::IUnknownImpl, Impl: ICspAlgorithms_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, pval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).ItemByIndex(::core::mem::transmute_copy(&index)) {
+            match (*this).get_ItemByIndex(::core::mem::transmute_copy(&index)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pval = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -4786,10 +4786,10 @@ impl ICspAlgorithms_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).Clear().into()
         }
-        unsafe extern "system" fn ItemByName<Identity: ::windows::core::IUnknownImpl, Impl: ICspAlgorithms_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, ppvalue: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_ItemByName<Identity: ::windows::core::IUnknownImpl, Impl: ICspAlgorithms_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, ppvalue: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).ItemByName(::core::mem::transmute(&strname)) {
+            match (*this).get_ItemByName(::core::mem::transmute(&strname)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppvalue = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -4797,10 +4797,10 @@ impl ICspAlgorithms_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IndexByObjectId<Identity: ::windows::core::IUnknownImpl, Impl: ICspAlgorithms_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pobjectid: ::windows::core::RawPtr, pindex: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_IndexByObjectId<Identity: ::windows::core::IUnknownImpl, Impl: ICspAlgorithms_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pobjectid: ::windows::core::RawPtr, pindex: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).IndexByObjectId(::core::mem::transmute(&pobjectid)) {
+            match (*this).get_IndexByObjectId(::core::mem::transmute(&pobjectid)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pindex = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -4810,14 +4810,14 @@ impl ICspAlgorithms_Vtbl {
         }
         Self {
             base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
-            ItemByIndex: ItemByIndex::<Identity, Impl, OFFSET>,
+            get_ItemByIndex: get_ItemByIndex::<Identity, Impl, OFFSET>,
             Count: Count::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
             Add: Add::<Identity, Impl, OFFSET>,
             Remove: Remove::<Identity, Impl, OFFSET>,
             Clear: Clear::<Identity, Impl, OFFSET>,
-            ItemByName: ItemByName::<Identity, Impl, OFFSET>,
-            IndexByObjectId: IndexByObjectId::<Identity, Impl, OFFSET>,
+            get_ItemByName: get_ItemByName::<Identity, Impl, OFFSET>,
+            get_IndexByObjectId: get_IndexByObjectId::<Identity, Impl, OFFSET>,
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -5049,14 +5049,14 @@ impl ICspInformation_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ICspInformations_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
-    fn ItemByIndex(&self, index: i32) -> ::windows::core::Result<ICspInformation>;
+    fn get_ItemByIndex(&self, index: i32) -> ::windows::core::Result<ICspInformation>;
     fn Count(&self) -> ::windows::core::Result<i32>;
     fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
     fn Add(&self, pval: &::core::option::Option<ICspInformation>) -> ::windows::core::Result<()>;
     fn Remove(&self, index: i32) -> ::windows::core::Result<()>;
     fn Clear(&self) -> ::windows::core::Result<()>;
     fn AddAvailableCsps(&self) -> ::windows::core::Result<()>;
-    fn ItemByName(&self, strname: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<ICspInformation>;
+    fn get_ItemByName(&self, strname: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<ICspInformation>;
     fn GetCspStatusFromProviderName(&self, strprovidername: &super::super::super::Foundation::BSTR, legacykeyspec: X509KeySpec) -> ::windows::core::Result<ICspStatus>;
     fn GetCspStatusesFromOperations(&self, operations: AlgorithmOperationFlags, pcspinformation: &::core::option::Option<ICspInformation>) -> ::windows::core::Result<ICspStatuses>;
     fn GetEncryptionCspAlgorithms(&self, pcspinformation: &::core::option::Option<ICspInformation>) -> ::windows::core::Result<ICspAlgorithms>;
@@ -5065,10 +5065,10 @@ pub trait ICspInformations_Impl: Sized + super::super::super::System::Com::IDisp
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ICspInformations_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICspInformations_Impl, const OFFSET: isize>() -> ICspInformations_Vtbl {
-        unsafe extern "system" fn ItemByIndex<Identity: ::windows::core::IUnknownImpl, Impl: ICspInformations_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, pval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_ItemByIndex<Identity: ::windows::core::IUnknownImpl, Impl: ICspInformations_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, pval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).ItemByIndex(::core::mem::transmute_copy(&index)) {
+            match (*this).get_ItemByIndex(::core::mem::transmute_copy(&index)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pval = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -5118,10 +5118,10 @@ impl ICspInformations_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).AddAvailableCsps().into()
         }
-        unsafe extern "system" fn ItemByName<Identity: ::windows::core::IUnknownImpl, Impl: ICspInformations_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, ppcspinformation: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_ItemByName<Identity: ::windows::core::IUnknownImpl, Impl: ICspInformations_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, ppcspinformation: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).ItemByName(::core::mem::transmute(&strname)) {
+            match (*this).get_ItemByName(::core::mem::transmute(&strname)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppcspinformation = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -5175,14 +5175,14 @@ impl ICspInformations_Vtbl {
         }
         Self {
             base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
-            ItemByIndex: ItemByIndex::<Identity, Impl, OFFSET>,
+            get_ItemByIndex: get_ItemByIndex::<Identity, Impl, OFFSET>,
             Count: Count::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
             Add: Add::<Identity, Impl, OFFSET>,
             Remove: Remove::<Identity, Impl, OFFSET>,
             Clear: Clear::<Identity, Impl, OFFSET>,
             AddAvailableCsps: AddAvailableCsps::<Identity, Impl, OFFSET>,
-            ItemByName: ItemByName::<Identity, Impl, OFFSET>,
+            get_ItemByName: get_ItemByName::<Identity, Impl, OFFSET>,
             GetCspStatusFromProviderName: GetCspStatusFromProviderName::<Identity, Impl, OFFSET>,
             GetCspStatusesFromOperations: GetCspStatusesFromOperations::<Identity, Impl, OFFSET>,
             GetEncryptionCspAlgorithms: GetEncryptionCspAlgorithms::<Identity, Impl, OFFSET>,
@@ -5288,24 +5288,24 @@ impl ICspStatus_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ICspStatuses_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
-    fn ItemByIndex(&self, index: i32) -> ::windows::core::Result<ICspStatus>;
+    fn get_ItemByIndex(&self, index: i32) -> ::windows::core::Result<ICspStatus>;
     fn Count(&self) -> ::windows::core::Result<i32>;
     fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
     fn Add(&self, pval: &::core::option::Option<ICspStatus>) -> ::windows::core::Result<()>;
     fn Remove(&self, index: i32) -> ::windows::core::Result<()>;
     fn Clear(&self) -> ::windows::core::Result<()>;
-    fn ItemByName(&self, strcspname: &super::super::super::Foundation::BSTR, stralgorithmname: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<ICspStatus>;
-    fn ItemByOrdinal(&self, ordinal: i32) -> ::windows::core::Result<ICspStatus>;
-    fn ItemByOperations(&self, strcspname: &super::super::super::Foundation::BSTR, stralgorithmname: &super::super::super::Foundation::BSTR, operations: AlgorithmOperationFlags) -> ::windows::core::Result<ICspStatus>;
-    fn ItemByProvider(&self, pcspstatus: &::core::option::Option<ICspStatus>) -> ::windows::core::Result<ICspStatus>;
+    fn get_ItemByName(&self, strcspname: &super::super::super::Foundation::BSTR, stralgorithmname: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<ICspStatus>;
+    fn get_ItemByOrdinal(&self, ordinal: i32) -> ::windows::core::Result<ICspStatus>;
+    fn get_ItemByOperations(&self, strcspname: &super::super::super::Foundation::BSTR, stralgorithmname: &super::super::super::Foundation::BSTR, operations: AlgorithmOperationFlags) -> ::windows::core::Result<ICspStatus>;
+    fn get_ItemByProvider(&self, pcspstatus: &::core::option::Option<ICspStatus>) -> ::windows::core::Result<ICspStatus>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ICspStatuses_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICspStatuses_Impl, const OFFSET: isize>() -> ICspStatuses_Vtbl {
-        unsafe extern "system" fn ItemByIndex<Identity: ::windows::core::IUnknownImpl, Impl: ICspStatuses_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, pval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_ItemByIndex<Identity: ::windows::core::IUnknownImpl, Impl: ICspStatuses_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, pval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).ItemByIndex(::core::mem::transmute_copy(&index)) {
+            match (*this).get_ItemByIndex(::core::mem::transmute_copy(&index)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pval = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -5350,10 +5350,10 @@ impl ICspStatuses_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).Clear().into()
         }
-        unsafe extern "system" fn ItemByName<Identity: ::windows::core::IUnknownImpl, Impl: ICspStatuses_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strcspname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, stralgorithmname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, ppvalue: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_ItemByName<Identity: ::windows::core::IUnknownImpl, Impl: ICspStatuses_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strcspname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, stralgorithmname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, ppvalue: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).ItemByName(::core::mem::transmute(&strcspname), ::core::mem::transmute(&stralgorithmname)) {
+            match (*this).get_ItemByName(::core::mem::transmute(&strcspname), ::core::mem::transmute(&stralgorithmname)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppvalue = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -5361,10 +5361,10 @@ impl ICspStatuses_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ItemByOrdinal<Identity: ::windows::core::IUnknownImpl, Impl: ICspStatuses_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ordinal: i32, ppvalue: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_ItemByOrdinal<Identity: ::windows::core::IUnknownImpl, Impl: ICspStatuses_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ordinal: i32, ppvalue: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).ItemByOrdinal(::core::mem::transmute_copy(&ordinal)) {
+            match (*this).get_ItemByOrdinal(::core::mem::transmute_copy(&ordinal)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppvalue = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -5372,10 +5372,10 @@ impl ICspStatuses_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ItemByOperations<Identity: ::windows::core::IUnknownImpl, Impl: ICspStatuses_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strcspname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, stralgorithmname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, operations: AlgorithmOperationFlags, ppvalue: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_ItemByOperations<Identity: ::windows::core::IUnknownImpl, Impl: ICspStatuses_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strcspname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, stralgorithmname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, operations: AlgorithmOperationFlags, ppvalue: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).ItemByOperations(::core::mem::transmute(&strcspname), ::core::mem::transmute(&stralgorithmname), ::core::mem::transmute_copy(&operations)) {
+            match (*this).get_ItemByOperations(::core::mem::transmute(&strcspname), ::core::mem::transmute(&stralgorithmname), ::core::mem::transmute_copy(&operations)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppvalue = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -5383,10 +5383,10 @@ impl ICspStatuses_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ItemByProvider<Identity: ::windows::core::IUnknownImpl, Impl: ICspStatuses_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcspstatus: ::windows::core::RawPtr, ppvalue: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_ItemByProvider<Identity: ::windows::core::IUnknownImpl, Impl: ICspStatuses_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcspstatus: ::windows::core::RawPtr, ppvalue: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).ItemByProvider(::core::mem::transmute(&pcspstatus)) {
+            match (*this).get_ItemByProvider(::core::mem::transmute(&pcspstatus)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppvalue = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -5396,16 +5396,16 @@ impl ICspStatuses_Vtbl {
         }
         Self {
             base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
-            ItemByIndex: ItemByIndex::<Identity, Impl, OFFSET>,
+            get_ItemByIndex: get_ItemByIndex::<Identity, Impl, OFFSET>,
             Count: Count::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
             Add: Add::<Identity, Impl, OFFSET>,
             Remove: Remove::<Identity, Impl, OFFSET>,
             Clear: Clear::<Identity, Impl, OFFSET>,
-            ItemByName: ItemByName::<Identity, Impl, OFFSET>,
-            ItemByOrdinal: ItemByOrdinal::<Identity, Impl, OFFSET>,
-            ItemByOperations: ItemByOperations::<Identity, Impl, OFFSET>,
-            ItemByProvider: ItemByProvider::<Identity, Impl, OFFSET>,
+            get_ItemByName: get_ItemByName::<Identity, Impl, OFFSET>,
+            get_ItemByOrdinal: get_ItemByOrdinal::<Identity, Impl, OFFSET>,
+            get_ItemByOperations: get_ItemByOperations::<Identity, Impl, OFFSET>,
+            get_ItemByProvider: get_ItemByProvider::<Identity, Impl, OFFSET>,
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -7059,9 +7059,9 @@ impl IOCSPCAConfiguration_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IOCSPCAConfigurationCollection_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn Item(&self, index: i32) -> ::windows::core::Result<super::super::super::System::Com::VARIANT>;
+    fn get_Item(&self, index: i32) -> ::windows::core::Result<super::super::super::System::Com::VARIANT>;
     fn Count(&self) -> ::windows::core::Result<i32>;
-    fn ItemByName(&self, bstridentifier: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::super::System::Com::VARIANT>;
+    fn get_ItemByName(&self, bstridentifier: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::super::System::Com::VARIANT>;
     fn CreateCAConfiguration(&self, bstridentifier: &super::super::super::Foundation::BSTR, varcacert: &super::super::super::System::Com::VARIANT) -> ::windows::core::Result<IOCSPCAConfiguration>;
     fn DeleteCAConfiguration(&self, bstridentifier: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
@@ -7079,10 +7079,10 @@ impl IOCSPCAConfigurationCollection_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Item<Identity: ::windows::core::IUnknownImpl, Impl: IOCSPCAConfigurationCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, pval: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_Item<Identity: ::windows::core::IUnknownImpl, Impl: IOCSPCAConfigurationCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, pval: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).Item(::core::mem::transmute_copy(&index)) {
+            match (*this).get_Item(::core::mem::transmute_copy(&index)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pval = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -7101,10 +7101,10 @@ impl IOCSPCAConfigurationCollection_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ItemByName<Identity: ::windows::core::IUnknownImpl, Impl: IOCSPCAConfigurationCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstridentifier: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, pval: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_ItemByName<Identity: ::windows::core::IUnknownImpl, Impl: IOCSPCAConfigurationCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstridentifier: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, pval: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).ItemByName(::core::mem::transmute(&bstridentifier)) {
+            match (*this).get_ItemByName(::core::mem::transmute(&bstridentifier)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pval = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -7131,9 +7131,9 @@ impl IOCSPCAConfigurationCollection_Vtbl {
         Self {
             base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
-            Item: Item::<Identity, Impl, OFFSET>,
+            get_Item: get_Item::<Identity, Impl, OFFSET>,
             Count: Count::<Identity, Impl, OFFSET>,
-            ItemByName: ItemByName::<Identity, Impl, OFFSET>,
+            get_ItemByName: get_ItemByName::<Identity, Impl, OFFSET>,
             CreateCAConfiguration: CreateCAConfiguration::<Identity, Impl, OFFSET>,
             DeleteCAConfiguration: DeleteCAConfiguration::<Identity, Impl, OFFSET>,
         }
@@ -7205,9 +7205,9 @@ impl IOCSPProperty_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IOCSPPropertyCollection_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn Item(&self, index: i32) -> ::windows::core::Result<super::super::super::System::Com::VARIANT>;
+    fn get_Item(&self, index: i32) -> ::windows::core::Result<super::super::super::System::Com::VARIANT>;
     fn Count(&self) -> ::windows::core::Result<i32>;
-    fn ItemByName(&self, bstrpropname: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::super::System::Com::VARIANT>;
+    fn get_ItemByName(&self, bstrpropname: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::super::System::Com::VARIANT>;
     fn CreateProperty(&self, bstrpropname: &super::super::super::Foundation::BSTR, pvarpropvalue: *const super::super::super::System::Com::VARIANT) -> ::windows::core::Result<IOCSPProperty>;
     fn DeleteProperty(&self, bstrpropname: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn InitializeFromProperties(&self, pvarproperties: *const super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
@@ -7227,10 +7227,10 @@ impl IOCSPPropertyCollection_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Item<Identity: ::windows::core::IUnknownImpl, Impl: IOCSPPropertyCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, pval: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_Item<Identity: ::windows::core::IUnknownImpl, Impl: IOCSPPropertyCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, pval: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).Item(::core::mem::transmute_copy(&index)) {
+            match (*this).get_Item(::core::mem::transmute_copy(&index)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pval = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -7249,10 +7249,10 @@ impl IOCSPPropertyCollection_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ItemByName<Identity: ::windows::core::IUnknownImpl, Impl: IOCSPPropertyCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrpropname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, pval: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_ItemByName<Identity: ::windows::core::IUnknownImpl, Impl: IOCSPPropertyCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrpropname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, pval: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).ItemByName(::core::mem::transmute(&bstrpropname)) {
+            match (*this).get_ItemByName(::core::mem::transmute(&bstrpropname)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pval = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -7295,9 +7295,9 @@ impl IOCSPPropertyCollection_Vtbl {
         Self {
             base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
-            Item: Item::<Identity, Impl, OFFSET>,
+            get_Item: get_Item::<Identity, Impl, OFFSET>,
             Count: Count::<Identity, Impl, OFFSET>,
-            ItemByName: ItemByName::<Identity, Impl, OFFSET>,
+            get_ItemByName: get_ItemByName::<Identity, Impl, OFFSET>,
             CreateProperty: CreateProperty::<Identity, Impl, OFFSET>,
             DeleteProperty: DeleteProperty::<Identity, Impl, OFFSET>,
             InitializeFromProperties: InitializeFromProperties::<Identity, Impl, OFFSET>,
@@ -7404,7 +7404,7 @@ impl IObjectId_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IObjectIds_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
-    fn ItemByIndex(&self, index: i32) -> ::windows::core::Result<IObjectId>;
+    fn get_ItemByIndex(&self, index: i32) -> ::windows::core::Result<IObjectId>;
     fn Count(&self) -> ::windows::core::Result<i32>;
     fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
     fn Add(&self, pval: &::core::option::Option<IObjectId>) -> ::windows::core::Result<()>;
@@ -7415,10 +7415,10 @@ pub trait IObjectIds_Impl: Sized + super::super::super::System::Com::IDispatch_I
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IObjectIds_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IObjectIds_Impl, const OFFSET: isize>() -> IObjectIds_Vtbl {
-        unsafe extern "system" fn ItemByIndex<Identity: ::windows::core::IUnknownImpl, Impl: IObjectIds_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, pval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_ItemByIndex<Identity: ::windows::core::IUnknownImpl, Impl: IObjectIds_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, pval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).ItemByIndex(::core::mem::transmute_copy(&index)) {
+            match (*this).get_ItemByIndex(::core::mem::transmute_copy(&index)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pval = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -7470,7 +7470,7 @@ impl IObjectIds_Vtbl {
         }
         Self {
             base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
-            ItemByIndex: ItemByIndex::<Identity, Impl, OFFSET>,
+            get_ItemByIndex: get_ItemByIndex::<Identity, Impl, OFFSET>,
             Count: Count::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
             Add: Add::<Identity, Impl, OFFSET>,
@@ -7489,7 +7489,7 @@ pub trait IPolicyQualifier_Impl: Sized + super::super::super::System::Com::IDisp
     fn ObjectId(&self) -> ::windows::core::Result<IObjectId>;
     fn Qualifier(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
     fn Type(&self) -> ::windows::core::Result<PolicyQualifierType>;
-    fn RawData(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
+    fn get_RawData(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IPolicyQualifier_Vtbl {
@@ -7532,10 +7532,10 @@ impl IPolicyQualifier_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RawData<Identity: ::windows::core::IUnknownImpl, Impl: IPolicyQualifier_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, encoding: EncodingType, pvalue: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_RawData<Identity: ::windows::core::IUnknownImpl, Impl: IPolicyQualifier_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, encoding: EncodingType, pvalue: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).RawData(::core::mem::transmute_copy(&encoding)) {
+            match (*this).get_RawData(::core::mem::transmute_copy(&encoding)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pvalue = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -7549,7 +7549,7 @@ impl IPolicyQualifier_Vtbl {
             ObjectId: ObjectId::<Identity, Impl, OFFSET>,
             Qualifier: Qualifier::<Identity, Impl, OFFSET>,
             Type: Type::<Identity, Impl, OFFSET>,
-            RawData: RawData::<Identity, Impl, OFFSET>,
+            get_RawData: get_RawData::<Identity, Impl, OFFSET>,
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -7558,7 +7558,7 @@ impl IPolicyQualifier_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IPolicyQualifiers_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
-    fn ItemByIndex(&self, index: i32) -> ::windows::core::Result<IPolicyQualifier>;
+    fn get_ItemByIndex(&self, index: i32) -> ::windows::core::Result<IPolicyQualifier>;
     fn Count(&self) -> ::windows::core::Result<i32>;
     fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
     fn Add(&self, pval: &::core::option::Option<IPolicyQualifier>) -> ::windows::core::Result<()>;
@@ -7568,10 +7568,10 @@ pub trait IPolicyQualifiers_Impl: Sized + super::super::super::System::Com::IDis
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IPolicyQualifiers_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPolicyQualifiers_Impl, const OFFSET: isize>() -> IPolicyQualifiers_Vtbl {
-        unsafe extern "system" fn ItemByIndex<Identity: ::windows::core::IUnknownImpl, Impl: IPolicyQualifiers_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, pval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_ItemByIndex<Identity: ::windows::core::IUnknownImpl, Impl: IPolicyQualifiers_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, pval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).ItemByIndex(::core::mem::transmute_copy(&index)) {
+            match (*this).get_ItemByIndex(::core::mem::transmute_copy(&index)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pval = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -7618,7 +7618,7 @@ impl IPolicyQualifiers_Vtbl {
         }
         Self {
             base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
-            ItemByIndex: ItemByIndex::<Identity, Impl, OFFSET>,
+            get_ItemByIndex: get_ItemByIndex::<Identity, Impl, OFFSET>,
             Count: Count::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
             Add: Add::<Identity, Impl, OFFSET>,
@@ -7633,7 +7633,7 @@ impl IPolicyQualifiers_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ISignerCertificate_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn Initialize(&self, machinecontext: i16, verifytype: X509PrivateKeyVerify, encoding: EncodingType, strcertificate: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn Certificate(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
+    fn get_Certificate(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
     fn PrivateKey(&self) -> ::windows::core::Result<IX509PrivateKey>;
     fn Silent(&self) -> ::windows::core::Result<i16>;
     fn SetSilent(&self, value: i16) -> ::windows::core::Result<()>;
@@ -7652,10 +7652,10 @@ impl ISignerCertificate_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).Initialize(::core::mem::transmute_copy(&machinecontext), ::core::mem::transmute_copy(&verifytype), ::core::mem::transmute_copy(&encoding), ::core::mem::transmute(&strcertificate)).into()
         }
-        unsafe extern "system" fn Certificate<Identity: ::windows::core::IUnknownImpl, Impl: ISignerCertificate_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, encoding: EncodingType, pvalue: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_Certificate<Identity: ::windows::core::IUnknownImpl, Impl: ISignerCertificate_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, encoding: EncodingType, pvalue: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).Certificate(::core::mem::transmute_copy(&encoding)) {
+            match (*this).get_Certificate(::core::mem::transmute_copy(&encoding)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pvalue = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -7741,7 +7741,7 @@ impl ISignerCertificate_Vtbl {
         Self {
             base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Initialize: Initialize::<Identity, Impl, OFFSET>,
-            Certificate: Certificate::<Identity, Impl, OFFSET>,
+            get_Certificate: get_Certificate::<Identity, Impl, OFFSET>,
             PrivateKey: PrivateKey::<Identity, Impl, OFFSET>,
             Silent: Silent::<Identity, Impl, OFFSET>,
             SetSilent: SetSilent::<Identity, Impl, OFFSET>,
@@ -7759,7 +7759,7 @@ impl ISignerCertificate_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ISignerCertificates_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
-    fn ItemByIndex(&self, index: i32) -> ::windows::core::Result<ISignerCertificate>;
+    fn get_ItemByIndex(&self, index: i32) -> ::windows::core::Result<ISignerCertificate>;
     fn Count(&self) -> ::windows::core::Result<i32>;
     fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
     fn Add(&self, pval: &::core::option::Option<ISignerCertificate>) -> ::windows::core::Result<()>;
@@ -7770,10 +7770,10 @@ pub trait ISignerCertificates_Impl: Sized + super::super::super::System::Com::ID
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ISignerCertificates_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISignerCertificates_Impl, const OFFSET: isize>() -> ISignerCertificates_Vtbl {
-        unsafe extern "system" fn ItemByIndex<Identity: ::windows::core::IUnknownImpl, Impl: ISignerCertificates_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, pval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_ItemByIndex<Identity: ::windows::core::IUnknownImpl, Impl: ISignerCertificates_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, pval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).ItemByIndex(::core::mem::transmute_copy(&index)) {
+            match (*this).get_ItemByIndex(::core::mem::transmute_copy(&index)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pval = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -7831,7 +7831,7 @@ impl ISignerCertificates_Vtbl {
         }
         Self {
             base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
-            ItemByIndex: ItemByIndex::<Identity, Impl, OFFSET>,
+            get_ItemByIndex: get_ItemByIndex::<Identity, Impl, OFFSET>,
             Count: Count::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
             Add: Add::<Identity, Impl, OFFSET>,
@@ -7846,7 +7846,7 @@ impl ISignerCertificates_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ISmimeCapabilities_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
-    fn ItemByIndex(&self, index: i32) -> ::windows::core::Result<ISmimeCapability>;
+    fn get_ItemByIndex(&self, index: i32) -> ::windows::core::Result<ISmimeCapability>;
     fn Count(&self) -> ::windows::core::Result<i32>;
     fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
     fn Add(&self, pval: &::core::option::Option<ISmimeCapability>) -> ::windows::core::Result<()>;
@@ -7858,10 +7858,10 @@ pub trait ISmimeCapabilities_Impl: Sized + super::super::super::System::Com::IDi
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ISmimeCapabilities_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmimeCapabilities_Impl, const OFFSET: isize>() -> ISmimeCapabilities_Vtbl {
-        unsafe extern "system" fn ItemByIndex<Identity: ::windows::core::IUnknownImpl, Impl: ISmimeCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, pval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_ItemByIndex<Identity: ::windows::core::IUnknownImpl, Impl: ISmimeCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, pval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).ItemByIndex(::core::mem::transmute_copy(&index)) {
+            match (*this).get_ItemByIndex(::core::mem::transmute_copy(&index)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pval = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -7918,7 +7918,7 @@ impl ISmimeCapabilities_Vtbl {
         }
         Self {
             base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
-            ItemByIndex: ItemByIndex::<Identity, Impl, OFFSET>,
+            get_ItemByIndex: get_ItemByIndex::<Identity, Impl, OFFSET>,
             Count: Count::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
             Add: Add::<Identity, Impl, OFFSET>,
@@ -7984,7 +7984,7 @@ pub trait IX500DistinguishedName_Impl: Sized + super::super::super::System::Com:
     fn Decode(&self, strencodedname: &super::super::super::Foundation::BSTR, encoding: EncodingType, nameflags: X500NameFlags) -> ::windows::core::Result<()>;
     fn Encode(&self, strname: &super::super::super::Foundation::BSTR, nameflags: X500NameFlags) -> ::windows::core::Result<()>;
     fn Name(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
-    fn EncodedName(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
+    fn get_EncodedName(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IX500DistinguishedName_Vtbl {
@@ -8010,10 +8010,10 @@ impl IX500DistinguishedName_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn EncodedName<Identity: ::windows::core::IUnknownImpl, Impl: IX500DistinguishedName_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, encoding: EncodingType, pvalue: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_EncodedName<Identity: ::windows::core::IUnknownImpl, Impl: IX500DistinguishedName_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, encoding: EncodingType, pvalue: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).EncodedName(::core::mem::transmute_copy(&encoding)) {
+            match (*this).get_EncodedName(::core::mem::transmute_copy(&encoding)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pvalue = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -8026,7 +8026,7 @@ impl IX500DistinguishedName_Vtbl {
             Decode: Decode::<Identity, Impl, OFFSET>,
             Encode: Encode::<Identity, Impl, OFFSET>,
             Name: Name::<Identity, Impl, OFFSET>,
-            EncodedName: EncodedName::<Identity, Impl, OFFSET>,
+            get_EncodedName: get_EncodedName::<Identity, Impl, OFFSET>,
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -8037,7 +8037,7 @@ impl IX500DistinguishedName_Vtbl {
 pub trait IX509Attribute_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn Initialize(&self, pobjectid: &::core::option::Option<IObjectId>, encoding: EncodingType, strencodeddata: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn ObjectId(&self) -> ::windows::core::Result<IObjectId>;
-    fn RawData(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
+    fn get_RawData(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IX509Attribute_Vtbl {
@@ -8058,10 +8058,10 @@ impl IX509Attribute_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RawData<Identity: ::windows::core::IUnknownImpl, Impl: IX509Attribute_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, encoding: EncodingType, pvalue: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_RawData<Identity: ::windows::core::IUnknownImpl, Impl: IX509Attribute_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, encoding: EncodingType, pvalue: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).RawData(::core::mem::transmute_copy(&encoding)) {
+            match (*this).get_RawData(::core::mem::transmute_copy(&encoding)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pvalue = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -8073,7 +8073,7 @@ impl IX509Attribute_Vtbl {
             base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Initialize: Initialize::<Identity, Impl, OFFSET>,
             ObjectId: ObjectId::<Identity, Impl, OFFSET>,
-            RawData: RawData::<Identity, Impl, OFFSET>,
+            get_RawData: get_RawData::<Identity, Impl, OFFSET>,
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -8084,7 +8084,7 @@ impl IX509Attribute_Vtbl {
 pub trait IX509AttributeArchiveKey_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + IX509Attribute_Impl {
     fn InitializeEncode(&self, pkey: &::core::option::Option<IX509PrivateKey>, encoding: EncodingType, strcaxcert: &super::super::super::Foundation::BSTR, palgorithm: &::core::option::Option<IObjectId>, encryptionstrength: i32) -> ::windows::core::Result<()>;
     fn InitializeDecode(&self, encoding: EncodingType, strencodeddata: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn EncryptedKeyBlob(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
+    fn get_EncryptedKeyBlob(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
     fn EncryptionAlgorithm(&self) -> ::windows::core::Result<IObjectId>;
     fn EncryptionStrength(&self) -> ::windows::core::Result<i32>;
 }
@@ -8101,10 +8101,10 @@ impl IX509AttributeArchiveKey_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).InitializeDecode(::core::mem::transmute_copy(&encoding), ::core::mem::transmute(&strencodeddata)).into()
         }
-        unsafe extern "system" fn EncryptedKeyBlob<Identity: ::windows::core::IUnknownImpl, Impl: IX509AttributeArchiveKey_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, encoding: EncodingType, pvalue: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_EncryptedKeyBlob<Identity: ::windows::core::IUnknownImpl, Impl: IX509AttributeArchiveKey_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, encoding: EncodingType, pvalue: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).EncryptedKeyBlob(::core::mem::transmute_copy(&encoding)) {
+            match (*this).get_EncryptedKeyBlob(::core::mem::transmute_copy(&encoding)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pvalue = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -8138,7 +8138,7 @@ impl IX509AttributeArchiveKey_Vtbl {
             base__: IX509Attribute_Vtbl::new::<Identity, Impl, OFFSET>(),
             InitializeEncode: InitializeEncode::<Identity, Impl, OFFSET>,
             InitializeDecode: InitializeDecode::<Identity, Impl, OFFSET>,
-            EncryptedKeyBlob: EncryptedKeyBlob::<Identity, Impl, OFFSET>,
+            get_EncryptedKeyBlob: get_EncryptedKeyBlob::<Identity, Impl, OFFSET>,
             EncryptionAlgorithm: EncryptionAlgorithm::<Identity, Impl, OFFSET>,
             EncryptionStrength: EncryptionStrength::<Identity, Impl, OFFSET>,
         }
@@ -8151,7 +8151,7 @@ impl IX509AttributeArchiveKey_Vtbl {
 pub trait IX509AttributeArchiveKeyHash_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + IX509Attribute_Impl {
     fn InitializeEncodeFromEncryptedKeyBlob(&self, encoding: EncodingType, strencryptedkeyblob: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn InitializeDecode(&self, encoding: EncodingType, strencodeddata: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn EncryptedKeyHashBlob(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
+    fn get_EncryptedKeyHashBlob(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IX509AttributeArchiveKeyHash_Vtbl {
@@ -8166,10 +8166,10 @@ impl IX509AttributeArchiveKeyHash_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).InitializeDecode(::core::mem::transmute_copy(&encoding), ::core::mem::transmute(&strencodeddata)).into()
         }
-        unsafe extern "system" fn EncryptedKeyHashBlob<Identity: ::windows::core::IUnknownImpl, Impl: IX509AttributeArchiveKeyHash_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, encoding: EncodingType, pvalue: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_EncryptedKeyHashBlob<Identity: ::windows::core::IUnknownImpl, Impl: IX509AttributeArchiveKeyHash_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, encoding: EncodingType, pvalue: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).EncryptedKeyHashBlob(::core::mem::transmute_copy(&encoding)) {
+            match (*this).get_EncryptedKeyHashBlob(::core::mem::transmute_copy(&encoding)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pvalue = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -8181,7 +8181,7 @@ impl IX509AttributeArchiveKeyHash_Vtbl {
             base__: IX509Attribute_Vtbl::new::<Identity, Impl, OFFSET>(),
             InitializeEncodeFromEncryptedKeyBlob: InitializeEncodeFromEncryptedKeyBlob::<Identity, Impl, OFFSET>,
             InitializeDecode: InitializeDecode::<Identity, Impl, OFFSET>,
-            EncryptedKeyHashBlob: EncryptedKeyHashBlob::<Identity, Impl, OFFSET>,
+            get_EncryptedKeyHashBlob: get_EncryptedKeyHashBlob::<Identity, Impl, OFFSET>,
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -8274,7 +8274,7 @@ pub trait IX509AttributeCspProvider_Impl: Sized + super::super::super::System::C
     fn InitializeDecode(&self, encoding: EncodingType, strencodeddata: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn KeySpec(&self) -> ::windows::core::Result<X509KeySpec>;
     fn ProviderName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
-    fn Signature(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
+    fn get_Signature(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IX509AttributeCspProvider_Vtbl {
@@ -8311,10 +8311,10 @@ impl IX509AttributeCspProvider_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Signature<Identity: ::windows::core::IUnknownImpl, Impl: IX509AttributeCspProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, encoding: EncodingType, pvalue: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_Signature<Identity: ::windows::core::IUnknownImpl, Impl: IX509AttributeCspProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, encoding: EncodingType, pvalue: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).Signature(::core::mem::transmute_copy(&encoding)) {
+            match (*this).get_Signature(::core::mem::transmute_copy(&encoding)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pvalue = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -8328,7 +8328,7 @@ impl IX509AttributeCspProvider_Vtbl {
             InitializeDecode: InitializeDecode::<Identity, Impl, OFFSET>,
             KeySpec: KeySpec::<Identity, Impl, OFFSET>,
             ProviderName: ProviderName::<Identity, Impl, OFFSET>,
-            Signature: Signature::<Identity, Impl, OFFSET>,
+            get_Signature: get_Signature::<Identity, Impl, OFFSET>,
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -8421,7 +8421,7 @@ impl IX509AttributeOSVersion_Vtbl {
 pub trait IX509AttributeRenewalCertificate_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + IX509Attribute_Impl {
     fn InitializeEncode(&self, encoding: EncodingType, strcert: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn InitializeDecode(&self, encoding: EncodingType, strencodeddata: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn RenewalCertificate(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
+    fn get_RenewalCertificate(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IX509AttributeRenewalCertificate_Vtbl {
@@ -8436,10 +8436,10 @@ impl IX509AttributeRenewalCertificate_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).InitializeDecode(::core::mem::transmute_copy(&encoding), ::core::mem::transmute(&strencodeddata)).into()
         }
-        unsafe extern "system" fn RenewalCertificate<Identity: ::windows::core::IUnknownImpl, Impl: IX509AttributeRenewalCertificate_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, encoding: EncodingType, pvalue: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_RenewalCertificate<Identity: ::windows::core::IUnknownImpl, Impl: IX509AttributeRenewalCertificate_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, encoding: EncodingType, pvalue: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).RenewalCertificate(::core::mem::transmute_copy(&encoding)) {
+            match (*this).get_RenewalCertificate(::core::mem::transmute_copy(&encoding)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pvalue = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -8451,7 +8451,7 @@ impl IX509AttributeRenewalCertificate_Vtbl {
             base__: IX509Attribute_Vtbl::new::<Identity, Impl, OFFSET>(),
             InitializeEncode: InitializeEncode::<Identity, Impl, OFFSET>,
             InitializeDecode: InitializeDecode::<Identity, Impl, OFFSET>,
-            RenewalCertificate: RenewalCertificate::<Identity, Impl, OFFSET>,
+            get_RenewalCertificate: get_RenewalCertificate::<Identity, Impl, OFFSET>,
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -8460,7 +8460,7 @@ impl IX509AttributeRenewalCertificate_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IX509Attributes_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
-    fn ItemByIndex(&self, index: i32) -> ::windows::core::Result<IX509Attribute>;
+    fn get_ItemByIndex(&self, index: i32) -> ::windows::core::Result<IX509Attribute>;
     fn Count(&self) -> ::windows::core::Result<i32>;
     fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
     fn Add(&self, pval: &::core::option::Option<IX509Attribute>) -> ::windows::core::Result<()>;
@@ -8470,10 +8470,10 @@ pub trait IX509Attributes_Impl: Sized + super::super::super::System::Com::IDispa
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IX509Attributes_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IX509Attributes_Impl, const OFFSET: isize>() -> IX509Attributes_Vtbl {
-        unsafe extern "system" fn ItemByIndex<Identity: ::windows::core::IUnknownImpl, Impl: IX509Attributes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, pval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_ItemByIndex<Identity: ::windows::core::IUnknownImpl, Impl: IX509Attributes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, pval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).ItemByIndex(::core::mem::transmute_copy(&index)) {
+            match (*this).get_ItemByIndex(::core::mem::transmute_copy(&index)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pval = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -8520,7 +8520,7 @@ impl IX509Attributes_Vtbl {
         }
         Self {
             base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
-            ItemByIndex: ItemByIndex::<Identity, Impl, OFFSET>,
+            get_ItemByIndex: get_ItemByIndex::<Identity, Impl, OFFSET>,
             Count: Count::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
             Add: Add::<Identity, Impl, OFFSET>,
@@ -8548,8 +8548,8 @@ pub trait IX509CertificateRequest_Impl: Sized + super::super::super::System::Com
     fn SetUIContextMessage(&self, value: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn SuppressDefaults(&self) -> ::windows::core::Result<i16>;
     fn SetSuppressDefaults(&self, value: i16) -> ::windows::core::Result<()>;
-    fn RenewalCertificate(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
-    fn SetRenewalCertificate(&self, encoding: EncodingType, value: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn get_RenewalCertificate(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
+    fn put_RenewalCertificate(&self, encoding: EncodingType, value: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn ClientId(&self) -> ::windows::core::Result<RequestClientInfoClientId>;
     fn SetClientId(&self, value: RequestClientInfoClientId) -> ::windows::core::Result<()>;
     fn CspInformations(&self) -> ::windows::core::Result<ICspInformations>;
@@ -8558,7 +8558,7 @@ pub trait IX509CertificateRequest_Impl: Sized + super::super::super::System::Com
     fn SetHashAlgorithm(&self, pvalue: &::core::option::Option<IObjectId>) -> ::windows::core::Result<()>;
     fn AlternateSignatureAlgorithm(&self) -> ::windows::core::Result<i16>;
     fn SetAlternateSignatureAlgorithm(&self, value: i16) -> ::windows::core::Result<()>;
-    fn RawData(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
+    fn get_RawData(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IX509CertificateRequest_Vtbl {
@@ -8675,10 +8675,10 @@ impl IX509CertificateRequest_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).SetSuppressDefaults(::core::mem::transmute_copy(&value)).into()
         }
-        unsafe extern "system" fn RenewalCertificate<Identity: ::windows::core::IUnknownImpl, Impl: IX509CertificateRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, encoding: EncodingType, pvalue: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_RenewalCertificate<Identity: ::windows::core::IUnknownImpl, Impl: IX509CertificateRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, encoding: EncodingType, pvalue: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).RenewalCertificate(::core::mem::transmute_copy(&encoding)) {
+            match (*this).get_RenewalCertificate(::core::mem::transmute_copy(&encoding)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pvalue = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -8686,10 +8686,10 @@ impl IX509CertificateRequest_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetRenewalCertificate<Identity: ::windows::core::IUnknownImpl, Impl: IX509CertificateRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, encoding: EncodingType, value: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn put_RenewalCertificate<Identity: ::windows::core::IUnknownImpl, Impl: IX509CertificateRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, encoding: EncodingType, value: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetRenewalCertificate(::core::mem::transmute_copy(&encoding), ::core::mem::transmute(&value)).into()
+            (*this).put_RenewalCertificate(::core::mem::transmute_copy(&encoding), ::core::mem::transmute(&value)).into()
         }
         unsafe extern "system" fn ClientId<Identity: ::windows::core::IUnknownImpl, Impl: IX509CertificateRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalue: *mut RequestClientInfoClientId) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -8755,10 +8755,10 @@ impl IX509CertificateRequest_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).SetAlternateSignatureAlgorithm(::core::mem::transmute_copy(&value)).into()
         }
-        unsafe extern "system" fn RawData<Identity: ::windows::core::IUnknownImpl, Impl: IX509CertificateRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, encoding: EncodingType, pvalue: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_RawData<Identity: ::windows::core::IUnknownImpl, Impl: IX509CertificateRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, encoding: EncodingType, pvalue: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).RawData(::core::mem::transmute_copy(&encoding)) {
+            match (*this).get_RawData(::core::mem::transmute_copy(&encoding)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pvalue = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -8782,8 +8782,8 @@ impl IX509CertificateRequest_Vtbl {
             SetUIContextMessage: SetUIContextMessage::<Identity, Impl, OFFSET>,
             SuppressDefaults: SuppressDefaults::<Identity, Impl, OFFSET>,
             SetSuppressDefaults: SetSuppressDefaults::<Identity, Impl, OFFSET>,
-            RenewalCertificate: RenewalCertificate::<Identity, Impl, OFFSET>,
-            SetRenewalCertificate: SetRenewalCertificate::<Identity, Impl, OFFSET>,
+            get_RenewalCertificate: get_RenewalCertificate::<Identity, Impl, OFFSET>,
+            put_RenewalCertificate: put_RenewalCertificate::<Identity, Impl, OFFSET>,
             ClientId: ClientId::<Identity, Impl, OFFSET>,
             SetClientId: SetClientId::<Identity, Impl, OFFSET>,
             CspInformations: CspInformations::<Identity, Impl, OFFSET>,
@@ -8792,7 +8792,7 @@ impl IX509CertificateRequest_Vtbl {
             SetHashAlgorithm: SetHashAlgorithm::<Identity, Impl, OFFSET>,
             AlternateSignatureAlgorithm: AlternateSignatureAlgorithm::<Identity, Impl, OFFSET>,
             SetAlternateSignatureAlgorithm: SetAlternateSignatureAlgorithm::<Identity, Impl, OFFSET>,
-            RawData: RawData::<Identity, Impl, OFFSET>,
+            get_RawData: get_RawData::<Identity, Impl, OFFSET>,
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -8808,8 +8808,8 @@ pub trait IX509CertificateRequestCertificate_Impl: Sized + super::super::super::
     fn SetNotBefore(&self, value: f64) -> ::windows::core::Result<()>;
     fn NotAfter(&self) -> ::windows::core::Result<f64>;
     fn SetNotAfter(&self, value: f64) -> ::windows::core::Result<()>;
-    fn SerialNumber(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
-    fn SetSerialNumber(&self, encoding: EncodingType, value: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn get_SerialNumber(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
+    fn put_SerialNumber(&self, encoding: EncodingType, value: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn SignerCertificate(&self) -> ::windows::core::Result<ISignerCertificate>;
     fn SetSignerCertificate(&self, pvalue: &::core::option::Option<ISignerCertificate>) -> ::windows::core::Result<()>;
 }
@@ -8869,10 +8869,10 @@ impl IX509CertificateRequestCertificate_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).SetNotAfter(::core::mem::transmute_copy(&value)).into()
         }
-        unsafe extern "system" fn SerialNumber<Identity: ::windows::core::IUnknownImpl, Impl: IX509CertificateRequestCertificate_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, encoding: EncodingType, pvalue: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_SerialNumber<Identity: ::windows::core::IUnknownImpl, Impl: IX509CertificateRequestCertificate_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, encoding: EncodingType, pvalue: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).SerialNumber(::core::mem::transmute_copy(&encoding)) {
+            match (*this).get_SerialNumber(::core::mem::transmute_copy(&encoding)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pvalue = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -8880,10 +8880,10 @@ impl IX509CertificateRequestCertificate_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSerialNumber<Identity: ::windows::core::IUnknownImpl, Impl: IX509CertificateRequestCertificate_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, encoding: EncodingType, value: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn put_SerialNumber<Identity: ::windows::core::IUnknownImpl, Impl: IX509CertificateRequestCertificate_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, encoding: EncodingType, value: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetSerialNumber(::core::mem::transmute_copy(&encoding), ::core::mem::transmute(&value)).into()
+            (*this).put_SerialNumber(::core::mem::transmute_copy(&encoding), ::core::mem::transmute(&value)).into()
         }
         unsafe extern "system" fn SignerCertificate<Identity: ::windows::core::IUnknownImpl, Impl: IX509CertificateRequestCertificate_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -8910,8 +8910,8 @@ impl IX509CertificateRequestCertificate_Vtbl {
             SetNotBefore: SetNotBefore::<Identity, Impl, OFFSET>,
             NotAfter: NotAfter::<Identity, Impl, OFFSET>,
             SetNotAfter: SetNotAfter::<Identity, Impl, OFFSET>,
-            SerialNumber: SerialNumber::<Identity, Impl, OFFSET>,
-            SetSerialNumber: SetSerialNumber::<Identity, Impl, OFFSET>,
+            get_SerialNumber: get_SerialNumber::<Identity, Impl, OFFSET>,
+            put_SerialNumber: put_SerialNumber::<Identity, Impl, OFFSET>,
             SignerCertificate: SignerCertificate::<Identity, Impl, OFFSET>,
             SetSignerCertificate: SetSignerCertificate::<Identity, Impl, OFFSET>,
         }
@@ -8986,18 +8986,18 @@ pub trait IX509CertificateRequestCmc_Impl: Sized + super::super::super::System::
     fn SuppressOids(&self) -> ::windows::core::Result<IObjectIds>;
     fn TransactionId(&self) -> ::windows::core::Result<i32>;
     fn SetTransactionId(&self, value: i32) -> ::windows::core::Result<()>;
-    fn SenderNonce(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
-    fn SetSenderNonce(&self, encoding: EncodingType, value: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn get_SenderNonce(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
+    fn put_SenderNonce(&self, encoding: EncodingType, value: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn SignatureInformation(&self) -> ::windows::core::Result<IX509SignatureInformation>;
     fn ArchivePrivateKey(&self) -> ::windows::core::Result<i16>;
     fn SetArchivePrivateKey(&self, value: i16) -> ::windows::core::Result<()>;
-    fn KeyArchivalCertificate(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
-    fn SetKeyArchivalCertificate(&self, encoding: EncodingType, value: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn get_KeyArchivalCertificate(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
+    fn put_KeyArchivalCertificate(&self, encoding: EncodingType, value: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn EncryptionAlgorithm(&self) -> ::windows::core::Result<IObjectId>;
     fn SetEncryptionAlgorithm(&self, pvalue: &::core::option::Option<IObjectId>) -> ::windows::core::Result<()>;
     fn EncryptionStrength(&self) -> ::windows::core::Result<i32>;
     fn SetEncryptionStrength(&self, value: i32) -> ::windows::core::Result<()>;
-    fn EncryptedKeyHash(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
+    fn get_EncryptedKeyHash(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
     fn SignerCertificates(&self) -> ::windows::core::Result<ISignerCertificates>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -9101,10 +9101,10 @@ impl IX509CertificateRequestCmc_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).SetTransactionId(::core::mem::transmute_copy(&value)).into()
         }
-        unsafe extern "system" fn SenderNonce<Identity: ::windows::core::IUnknownImpl, Impl: IX509CertificateRequestCmc_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, encoding: EncodingType, pvalue: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_SenderNonce<Identity: ::windows::core::IUnknownImpl, Impl: IX509CertificateRequestCmc_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, encoding: EncodingType, pvalue: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).SenderNonce(::core::mem::transmute_copy(&encoding)) {
+            match (*this).get_SenderNonce(::core::mem::transmute_copy(&encoding)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pvalue = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -9112,10 +9112,10 @@ impl IX509CertificateRequestCmc_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSenderNonce<Identity: ::windows::core::IUnknownImpl, Impl: IX509CertificateRequestCmc_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, encoding: EncodingType, value: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn put_SenderNonce<Identity: ::windows::core::IUnknownImpl, Impl: IX509CertificateRequestCmc_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, encoding: EncodingType, value: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetSenderNonce(::core::mem::transmute_copy(&encoding), ::core::mem::transmute(&value)).into()
+            (*this).put_SenderNonce(::core::mem::transmute_copy(&encoding), ::core::mem::transmute(&value)).into()
         }
         unsafe extern "system" fn SignatureInformation<Identity: ::windows::core::IUnknownImpl, Impl: IX509CertificateRequestCmc_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -9144,10 +9144,10 @@ impl IX509CertificateRequestCmc_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).SetArchivePrivateKey(::core::mem::transmute_copy(&value)).into()
         }
-        unsafe extern "system" fn KeyArchivalCertificate<Identity: ::windows::core::IUnknownImpl, Impl: IX509CertificateRequestCmc_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, encoding: EncodingType, pvalue: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_KeyArchivalCertificate<Identity: ::windows::core::IUnknownImpl, Impl: IX509CertificateRequestCmc_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, encoding: EncodingType, pvalue: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).KeyArchivalCertificate(::core::mem::transmute_copy(&encoding)) {
+            match (*this).get_KeyArchivalCertificate(::core::mem::transmute_copy(&encoding)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pvalue = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -9155,10 +9155,10 @@ impl IX509CertificateRequestCmc_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetKeyArchivalCertificate<Identity: ::windows::core::IUnknownImpl, Impl: IX509CertificateRequestCmc_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, encoding: EncodingType, value: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn put_KeyArchivalCertificate<Identity: ::windows::core::IUnknownImpl, Impl: IX509CertificateRequestCmc_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, encoding: EncodingType, value: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetKeyArchivalCertificate(::core::mem::transmute_copy(&encoding), ::core::mem::transmute(&value)).into()
+            (*this).put_KeyArchivalCertificate(::core::mem::transmute_copy(&encoding), ::core::mem::transmute(&value)).into()
         }
         unsafe extern "system" fn EncryptionAlgorithm<Identity: ::windows::core::IUnknownImpl, Impl: IX509CertificateRequestCmc_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -9192,10 +9192,10 @@ impl IX509CertificateRequestCmc_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).SetEncryptionStrength(::core::mem::transmute_copy(&value)).into()
         }
-        unsafe extern "system" fn EncryptedKeyHash<Identity: ::windows::core::IUnknownImpl, Impl: IX509CertificateRequestCmc_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, encoding: EncodingType, pvalue: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_EncryptedKeyHash<Identity: ::windows::core::IUnknownImpl, Impl: IX509CertificateRequestCmc_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, encoding: EncodingType, pvalue: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).EncryptedKeyHash(::core::mem::transmute_copy(&encoding)) {
+            match (*this).get_EncryptedKeyHash(::core::mem::transmute_copy(&encoding)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pvalue = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -9226,18 +9226,18 @@ impl IX509CertificateRequestCmc_Vtbl {
             SuppressOids: SuppressOids::<Identity, Impl, OFFSET>,
             TransactionId: TransactionId::<Identity, Impl, OFFSET>,
             SetTransactionId: SetTransactionId::<Identity, Impl, OFFSET>,
-            SenderNonce: SenderNonce::<Identity, Impl, OFFSET>,
-            SetSenderNonce: SetSenderNonce::<Identity, Impl, OFFSET>,
+            get_SenderNonce: get_SenderNonce::<Identity, Impl, OFFSET>,
+            put_SenderNonce: put_SenderNonce::<Identity, Impl, OFFSET>,
             SignatureInformation: SignatureInformation::<Identity, Impl, OFFSET>,
             ArchivePrivateKey: ArchivePrivateKey::<Identity, Impl, OFFSET>,
             SetArchivePrivateKey: SetArchivePrivateKey::<Identity, Impl, OFFSET>,
-            KeyArchivalCertificate: KeyArchivalCertificate::<Identity, Impl, OFFSET>,
-            SetKeyArchivalCertificate: SetKeyArchivalCertificate::<Identity, Impl, OFFSET>,
+            get_KeyArchivalCertificate: get_KeyArchivalCertificate::<Identity, Impl, OFFSET>,
+            put_KeyArchivalCertificate: put_KeyArchivalCertificate::<Identity, Impl, OFFSET>,
             EncryptionAlgorithm: EncryptionAlgorithm::<Identity, Impl, OFFSET>,
             SetEncryptionAlgorithm: SetEncryptionAlgorithm::<Identity, Impl, OFFSET>,
             EncryptionStrength: EncryptionStrength::<Identity, Impl, OFFSET>,
             SetEncryptionStrength: SetEncryptionStrength::<Identity, Impl, OFFSET>,
-            EncryptedKeyHash: EncryptedKeyHash::<Identity, Impl, OFFSET>,
+            get_EncryptedKeyHash: get_EncryptedKeyHash::<Identity, Impl, OFFSET>,
             SignerCertificates: SignerCertificates::<Identity, Impl, OFFSET>,
         }
     }
@@ -9327,7 +9327,7 @@ pub trait IX509CertificateRequestPkcs10_Impl: Sized + super::super::super::Syste
     fn PrivateKey(&self) -> ::windows::core::Result<IX509PrivateKey>;
     fn NullSigned(&self) -> ::windows::core::Result<i16>;
     fn ReuseKey(&self) -> ::windows::core::Result<i16>;
-    fn OldCertificate(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
+    fn get_OldCertificate(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
     fn Subject(&self) -> ::windows::core::Result<IX500DistinguishedName>;
     fn SetSubject(&self, pvalue: &::core::option::Option<IX500DistinguishedName>) -> ::windows::core::Result<()>;
     fn CspStatuses(&self) -> ::windows::core::Result<ICspStatuses>;
@@ -9340,8 +9340,8 @@ pub trait IX509CertificateRequestPkcs10_Impl: Sized + super::super::super::Syste
     fn X509Extensions(&self) -> ::windows::core::Result<IX509Extensions>;
     fn CriticalExtensions(&self) -> ::windows::core::Result<IObjectIds>;
     fn SuppressOids(&self) -> ::windows::core::Result<IObjectIds>;
-    fn RawDataToBeSigned(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
-    fn Signature(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
+    fn get_RawDataToBeSigned(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
+    fn get_Signature(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
     fn GetCspStatuses(&self, keyspec: X509KeySpec) -> ::windows::core::Result<ICspStatuses>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -9443,10 +9443,10 @@ impl IX509CertificateRequestPkcs10_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn OldCertificate<Identity: ::windows::core::IUnknownImpl, Impl: IX509CertificateRequestPkcs10_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, encoding: EncodingType, pvalue: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_OldCertificate<Identity: ::windows::core::IUnknownImpl, Impl: IX509CertificateRequestPkcs10_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, encoding: EncodingType, pvalue: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).OldCertificate(::core::mem::transmute_copy(&encoding)) {
+            match (*this).get_OldCertificate(::core::mem::transmute_copy(&encoding)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pvalue = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -9568,10 +9568,10 @@ impl IX509CertificateRequestPkcs10_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RawDataToBeSigned<Identity: ::windows::core::IUnknownImpl, Impl: IX509CertificateRequestPkcs10_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, encoding: EncodingType, pvalue: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_RawDataToBeSigned<Identity: ::windows::core::IUnknownImpl, Impl: IX509CertificateRequestPkcs10_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, encoding: EncodingType, pvalue: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).RawDataToBeSigned(::core::mem::transmute_copy(&encoding)) {
+            match (*this).get_RawDataToBeSigned(::core::mem::transmute_copy(&encoding)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pvalue = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -9579,10 +9579,10 @@ impl IX509CertificateRequestPkcs10_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Signature<Identity: ::windows::core::IUnknownImpl, Impl: IX509CertificateRequestPkcs10_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, encoding: EncodingType, pvalue: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_Signature<Identity: ::windows::core::IUnknownImpl, Impl: IX509CertificateRequestPkcs10_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, encoding: EncodingType, pvalue: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).Signature(::core::mem::transmute_copy(&encoding)) {
+            match (*this).get_Signature(::core::mem::transmute_copy(&encoding)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pvalue = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -9615,7 +9615,7 @@ impl IX509CertificateRequestPkcs10_Vtbl {
             PrivateKey: PrivateKey::<Identity, Impl, OFFSET>,
             NullSigned: NullSigned::<Identity, Impl, OFFSET>,
             ReuseKey: ReuseKey::<Identity, Impl, OFFSET>,
-            OldCertificate: OldCertificate::<Identity, Impl, OFFSET>,
+            get_OldCertificate: get_OldCertificate::<Identity, Impl, OFFSET>,
             Subject: Subject::<Identity, Impl, OFFSET>,
             SetSubject: SetSubject::<Identity, Impl, OFFSET>,
             CspStatuses: CspStatuses::<Identity, Impl, OFFSET>,
@@ -9628,8 +9628,8 @@ impl IX509CertificateRequestPkcs10_Vtbl {
             X509Extensions: X509Extensions::<Identity, Impl, OFFSET>,
             CriticalExtensions: CriticalExtensions::<Identity, Impl, OFFSET>,
             SuppressOids: SuppressOids::<Identity, Impl, OFFSET>,
-            RawDataToBeSigned: RawDataToBeSigned::<Identity, Impl, OFFSET>,
-            Signature: Signature::<Identity, Impl, OFFSET>,
+            get_RawDataToBeSigned: get_RawDataToBeSigned::<Identity, Impl, OFFSET>,
+            get_Signature: get_Signature::<Identity, Impl, OFFSET>,
             GetCspStatuses: GetCspStatuses::<Identity, Impl, OFFSET>,
         }
     }
@@ -9702,8 +9702,8 @@ impl IX509CertificateRequestPkcs10V2_Vtbl {
 pub trait IX509CertificateRequestPkcs10V3_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + IX509CertificateRequest_Impl + IX509CertificateRequestPkcs10_Impl + IX509CertificateRequestPkcs10V2_Impl {
     fn AttestPrivateKey(&self) -> ::windows::core::Result<i16>;
     fn SetAttestPrivateKey(&self, value: i16) -> ::windows::core::Result<()>;
-    fn AttestationEncryptionCertificate(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
-    fn SetAttestationEncryptionCertificate(&self, encoding: EncodingType, value: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn get_AttestationEncryptionCertificate(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
+    fn put_AttestationEncryptionCertificate(&self, encoding: EncodingType, value: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn EncryptionAlgorithm(&self) -> ::windows::core::Result<IObjectId>;
     fn SetEncryptionAlgorithm(&self, pvalue: &::core::option::Option<IObjectId>) -> ::windows::core::Result<()>;
     fn EncryptionStrength(&self) -> ::windows::core::Result<i32>;
@@ -9731,10 +9731,10 @@ impl IX509CertificateRequestPkcs10V3_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).SetAttestPrivateKey(::core::mem::transmute_copy(&value)).into()
         }
-        unsafe extern "system" fn AttestationEncryptionCertificate<Identity: ::windows::core::IUnknownImpl, Impl: IX509CertificateRequestPkcs10V3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, encoding: EncodingType, pvalue: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_AttestationEncryptionCertificate<Identity: ::windows::core::IUnknownImpl, Impl: IX509CertificateRequestPkcs10V3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, encoding: EncodingType, pvalue: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).AttestationEncryptionCertificate(::core::mem::transmute_copy(&encoding)) {
+            match (*this).get_AttestationEncryptionCertificate(::core::mem::transmute_copy(&encoding)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pvalue = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -9742,10 +9742,10 @@ impl IX509CertificateRequestPkcs10V3_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetAttestationEncryptionCertificate<Identity: ::windows::core::IUnknownImpl, Impl: IX509CertificateRequestPkcs10V3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, encoding: EncodingType, value: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn put_AttestationEncryptionCertificate<Identity: ::windows::core::IUnknownImpl, Impl: IX509CertificateRequestPkcs10V3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, encoding: EncodingType, value: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetAttestationEncryptionCertificate(::core::mem::transmute_copy(&encoding), ::core::mem::transmute(&value)).into()
+            (*this).put_AttestationEncryptionCertificate(::core::mem::transmute_copy(&encoding), ::core::mem::transmute(&value)).into()
         }
         unsafe extern "system" fn EncryptionAlgorithm<Identity: ::windows::core::IUnknownImpl, Impl: IX509CertificateRequestPkcs10V3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -9810,8 +9810,8 @@ impl IX509CertificateRequestPkcs10V3_Vtbl {
             base__: IX509CertificateRequestPkcs10V2_Vtbl::new::<Identity, Impl, OFFSET>(),
             AttestPrivateKey: AttestPrivateKey::<Identity, Impl, OFFSET>,
             SetAttestPrivateKey: SetAttestPrivateKey::<Identity, Impl, OFFSET>,
-            AttestationEncryptionCertificate: AttestationEncryptionCertificate::<Identity, Impl, OFFSET>,
-            SetAttestationEncryptionCertificate: SetAttestationEncryptionCertificate::<Identity, Impl, OFFSET>,
+            get_AttestationEncryptionCertificate: get_AttestationEncryptionCertificate::<Identity, Impl, OFFSET>,
+            put_AttestationEncryptionCertificate: put_AttestationEncryptionCertificate::<Identity, Impl, OFFSET>,
             EncryptionAlgorithm: EncryptionAlgorithm::<Identity, Impl, OFFSET>,
             SetEncryptionAlgorithm: SetEncryptionAlgorithm::<Identity, Impl, OFFSET>,
             EncryptionStrength: EncryptionStrength::<Identity, Impl, OFFSET>,
@@ -10034,8 +10034,8 @@ pub trait IX509CertificateRevocationList_Impl: Sized + super::super::super::Syst
     fn CriticalExtensions(&self) -> ::windows::core::Result<IObjectIds>;
     fn SignerCertificate(&self) -> ::windows::core::Result<ISignerCertificate>;
     fn SetSignerCertificate(&self, pvalue: &::core::option::Option<ISignerCertificate>) -> ::windows::core::Result<()>;
-    fn CRLNumber(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
-    fn SetCRLNumber(&self, encoding: EncodingType, value: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn get_CRLNumber(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
+    fn put_CRLNumber(&self, encoding: EncodingType, value: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn CAVersion(&self) -> ::windows::core::Result<i32>;
     fn SetCAVersion(&self, pvalue: i32) -> ::windows::core::Result<()>;
     fn BaseCRL(&self) -> ::windows::core::Result<i16>;
@@ -10045,9 +10045,9 @@ pub trait IX509CertificateRevocationList_Impl: Sized + super::super::super::Syst
     fn AlternateSignatureAlgorithm(&self) -> ::windows::core::Result<i16>;
     fn SetAlternateSignatureAlgorithm(&self, value: i16) -> ::windows::core::Result<()>;
     fn SignatureInformation(&self) -> ::windows::core::Result<IX509SignatureInformation>;
-    fn RawData(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
-    fn RawDataToBeSigned(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
-    fn Signature(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
+    fn get_RawData(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
+    fn get_RawDataToBeSigned(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
+    fn get_Signature(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IX509CertificateRevocationList_Vtbl {
@@ -10179,10 +10179,10 @@ impl IX509CertificateRevocationList_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).SetSignerCertificate(::core::mem::transmute(&pvalue)).into()
         }
-        unsafe extern "system" fn CRLNumber<Identity: ::windows::core::IUnknownImpl, Impl: IX509CertificateRevocationList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, encoding: EncodingType, pvalue: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_CRLNumber<Identity: ::windows::core::IUnknownImpl, Impl: IX509CertificateRevocationList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, encoding: EncodingType, pvalue: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).CRLNumber(::core::mem::transmute_copy(&encoding)) {
+            match (*this).get_CRLNumber(::core::mem::transmute_copy(&encoding)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pvalue = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -10190,10 +10190,10 @@ impl IX509CertificateRevocationList_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetCRLNumber<Identity: ::windows::core::IUnknownImpl, Impl: IX509CertificateRevocationList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, encoding: EncodingType, value: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn put_CRLNumber<Identity: ::windows::core::IUnknownImpl, Impl: IX509CertificateRevocationList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, encoding: EncodingType, value: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetCRLNumber(::core::mem::transmute_copy(&encoding), ::core::mem::transmute(&value)).into()
+            (*this).put_CRLNumber(::core::mem::transmute_copy(&encoding), ::core::mem::transmute(&value)).into()
         }
         unsafe extern "system" fn CAVersion<Identity: ::windows::core::IUnknownImpl, Impl: IX509CertificateRevocationList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalue: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -10276,10 +10276,10 @@ impl IX509CertificateRevocationList_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RawData<Identity: ::windows::core::IUnknownImpl, Impl: IX509CertificateRevocationList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, encoding: EncodingType, pvalue: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_RawData<Identity: ::windows::core::IUnknownImpl, Impl: IX509CertificateRevocationList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, encoding: EncodingType, pvalue: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).RawData(::core::mem::transmute_copy(&encoding)) {
+            match (*this).get_RawData(::core::mem::transmute_copy(&encoding)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pvalue = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -10287,10 +10287,10 @@ impl IX509CertificateRevocationList_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RawDataToBeSigned<Identity: ::windows::core::IUnknownImpl, Impl: IX509CertificateRevocationList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, encoding: EncodingType, pvalue: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_RawDataToBeSigned<Identity: ::windows::core::IUnknownImpl, Impl: IX509CertificateRevocationList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, encoding: EncodingType, pvalue: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).RawDataToBeSigned(::core::mem::transmute_copy(&encoding)) {
+            match (*this).get_RawDataToBeSigned(::core::mem::transmute_copy(&encoding)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pvalue = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -10298,10 +10298,10 @@ impl IX509CertificateRevocationList_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Signature<Identity: ::windows::core::IUnknownImpl, Impl: IX509CertificateRevocationList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, encoding: EncodingType, pvalue: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_Signature<Identity: ::windows::core::IUnknownImpl, Impl: IX509CertificateRevocationList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, encoding: EncodingType, pvalue: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).Signature(::core::mem::transmute_copy(&encoding)) {
+            match (*this).get_Signature(::core::mem::transmute_copy(&encoding)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pvalue = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -10328,8 +10328,8 @@ impl IX509CertificateRevocationList_Vtbl {
             CriticalExtensions: CriticalExtensions::<Identity, Impl, OFFSET>,
             SignerCertificate: SignerCertificate::<Identity, Impl, OFFSET>,
             SetSignerCertificate: SetSignerCertificate::<Identity, Impl, OFFSET>,
-            CRLNumber: CRLNumber::<Identity, Impl, OFFSET>,
-            SetCRLNumber: SetCRLNumber::<Identity, Impl, OFFSET>,
+            get_CRLNumber: get_CRLNumber::<Identity, Impl, OFFSET>,
+            put_CRLNumber: put_CRLNumber::<Identity, Impl, OFFSET>,
             CAVersion: CAVersion::<Identity, Impl, OFFSET>,
             SetCAVersion: SetCAVersion::<Identity, Impl, OFFSET>,
             BaseCRL: BaseCRL::<Identity, Impl, OFFSET>,
@@ -10339,9 +10339,9 @@ impl IX509CertificateRevocationList_Vtbl {
             AlternateSignatureAlgorithm: AlternateSignatureAlgorithm::<Identity, Impl, OFFSET>,
             SetAlternateSignatureAlgorithm: SetAlternateSignatureAlgorithm::<Identity, Impl, OFFSET>,
             SignatureInformation: SignatureInformation::<Identity, Impl, OFFSET>,
-            RawData: RawData::<Identity, Impl, OFFSET>,
-            RawDataToBeSigned: RawDataToBeSigned::<Identity, Impl, OFFSET>,
-            Signature: Signature::<Identity, Impl, OFFSET>,
+            get_RawData: get_RawData::<Identity, Impl, OFFSET>,
+            get_RawDataToBeSigned: get_RawDataToBeSigned::<Identity, Impl, OFFSET>,
+            get_Signature: get_Signature::<Identity, Impl, OFFSET>,
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -10350,22 +10350,22 @@ impl IX509CertificateRevocationList_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IX509CertificateRevocationListEntries_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
-    fn ItemByIndex(&self, index: i32) -> ::windows::core::Result<IX509CertificateRevocationListEntry>;
+    fn get_ItemByIndex(&self, index: i32) -> ::windows::core::Result<IX509CertificateRevocationListEntry>;
     fn Count(&self) -> ::windows::core::Result<i32>;
     fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
     fn Add(&self, pval: &::core::option::Option<IX509CertificateRevocationListEntry>) -> ::windows::core::Result<()>;
     fn Remove(&self, index: i32) -> ::windows::core::Result<()>;
     fn Clear(&self) -> ::windows::core::Result<()>;
-    fn IndexBySerialNumber(&self, encoding: EncodingType, serialnumber: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<i32>;
+    fn get_IndexBySerialNumber(&self, encoding: EncodingType, serialnumber: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<i32>;
     fn AddRange(&self, pvalue: &::core::option::Option<IX509CertificateRevocationListEntries>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IX509CertificateRevocationListEntries_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IX509CertificateRevocationListEntries_Impl, const OFFSET: isize>() -> IX509CertificateRevocationListEntries_Vtbl {
-        unsafe extern "system" fn ItemByIndex<Identity: ::windows::core::IUnknownImpl, Impl: IX509CertificateRevocationListEntries_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, pval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_ItemByIndex<Identity: ::windows::core::IUnknownImpl, Impl: IX509CertificateRevocationListEntries_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, pval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).ItemByIndex(::core::mem::transmute_copy(&index)) {
+            match (*this).get_ItemByIndex(::core::mem::transmute_copy(&index)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pval = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -10410,10 +10410,10 @@ impl IX509CertificateRevocationListEntries_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).Clear().into()
         }
-        unsafe extern "system" fn IndexBySerialNumber<Identity: ::windows::core::IUnknownImpl, Impl: IX509CertificateRevocationListEntries_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, encoding: EncodingType, serialnumber: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, pindex: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_IndexBySerialNumber<Identity: ::windows::core::IUnknownImpl, Impl: IX509CertificateRevocationListEntries_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, encoding: EncodingType, serialnumber: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, pindex: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).IndexBySerialNumber(::core::mem::transmute_copy(&encoding), ::core::mem::transmute(&serialnumber)) {
+            match (*this).get_IndexBySerialNumber(::core::mem::transmute_copy(&encoding), ::core::mem::transmute(&serialnumber)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pindex = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -10428,13 +10428,13 @@ impl IX509CertificateRevocationListEntries_Vtbl {
         }
         Self {
             base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
-            ItemByIndex: ItemByIndex::<Identity, Impl, OFFSET>,
+            get_ItemByIndex: get_ItemByIndex::<Identity, Impl, OFFSET>,
             Count: Count::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
             Add: Add::<Identity, Impl, OFFSET>,
             Remove: Remove::<Identity, Impl, OFFSET>,
             Clear: Clear::<Identity, Impl, OFFSET>,
-            IndexBySerialNumber: IndexBySerialNumber::<Identity, Impl, OFFSET>,
+            get_IndexBySerialNumber: get_IndexBySerialNumber::<Identity, Impl, OFFSET>,
             AddRange: AddRange::<Identity, Impl, OFFSET>,
         }
     }
@@ -10445,7 +10445,7 @@ impl IX509CertificateRevocationListEntries_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IX509CertificateRevocationListEntry_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn Initialize(&self, encoding: EncodingType, serialnumber: &super::super::super::Foundation::BSTR, revocationdate: f64) -> ::windows::core::Result<()>;
-    fn SerialNumber(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
+    fn get_SerialNumber(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
     fn RevocationDate(&self) -> ::windows::core::Result<f64>;
     fn RevocationReason(&self) -> ::windows::core::Result<CRLRevocationReason>;
     fn SetRevocationReason(&self, value: CRLRevocationReason) -> ::windows::core::Result<()>;
@@ -10460,10 +10460,10 @@ impl IX509CertificateRevocationListEntry_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).Initialize(::core::mem::transmute_copy(&encoding), ::core::mem::transmute(&serialnumber), ::core::mem::transmute_copy(&revocationdate)).into()
         }
-        unsafe extern "system" fn SerialNumber<Identity: ::windows::core::IUnknownImpl, Impl: IX509CertificateRevocationListEntry_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, encoding: EncodingType, pvalue: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_SerialNumber<Identity: ::windows::core::IUnknownImpl, Impl: IX509CertificateRevocationListEntry_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, encoding: EncodingType, pvalue: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).SerialNumber(::core::mem::transmute_copy(&encoding)) {
+            match (*this).get_SerialNumber(::core::mem::transmute_copy(&encoding)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pvalue = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -10523,7 +10523,7 @@ impl IX509CertificateRevocationListEntry_Vtbl {
         Self {
             base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Initialize: Initialize::<Identity, Impl, OFFSET>,
-            SerialNumber: SerialNumber::<Identity, Impl, OFFSET>,
+            get_SerialNumber: get_SerialNumber::<Identity, Impl, OFFSET>,
             RevocationDate: RevocationDate::<Identity, Impl, OFFSET>,
             RevocationReason: RevocationReason::<Identity, Impl, OFFSET>,
             SetRevocationReason: SetRevocationReason::<Identity, Impl, OFFSET>,
@@ -10537,15 +10537,15 @@ impl IX509CertificateRevocationListEntry_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IX509CertificateTemplate_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
-    fn Property(&self, property: EnrollmentTemplateProperty) -> ::windows::core::Result<super::super::super::System::Com::VARIANT>;
+    fn get_Property(&self, property: EnrollmentTemplateProperty) -> ::windows::core::Result<super::super::super::System::Com::VARIANT>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IX509CertificateTemplate_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IX509CertificateTemplate_Impl, const OFFSET: isize>() -> IX509CertificateTemplate_Vtbl {
-        unsafe extern "system" fn Property<Identity: ::windows::core::IUnknownImpl, Impl: IX509CertificateTemplate_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, property: EnrollmentTemplateProperty, pvalue: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_Property<Identity: ::windows::core::IUnknownImpl, Impl: IX509CertificateTemplate_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, property: EnrollmentTemplateProperty, pvalue: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).Property(::core::mem::transmute_copy(&property)) {
+            match (*this).get_Property(::core::mem::transmute_copy(&property)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pvalue = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -10553,7 +10553,7 @@ impl IX509CertificateTemplate_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(), Property: Property::<Identity, Impl, OFFSET> }
+        Self { base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(), get_Property: get_Property::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IX509CertificateTemplate as ::windows::core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
@@ -10563,8 +10563,8 @@ impl IX509CertificateTemplate_Vtbl {
 pub trait IX509CertificateTemplateWritable_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn Initialize(&self, pvalue: &::core::option::Option<IX509CertificateTemplate>) -> ::windows::core::Result<()>;
     fn Commit(&self, commitflags: CommitTemplateFlags, strservercontext: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn Property(&self, property: EnrollmentTemplateProperty) -> ::windows::core::Result<super::super::super::System::Com::VARIANT>;
-    fn SetProperty(&self, property: EnrollmentTemplateProperty, value: &super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn get_Property(&self, property: EnrollmentTemplateProperty) -> ::windows::core::Result<super::super::super::System::Com::VARIANT>;
+    fn put_Property(&self, property: EnrollmentTemplateProperty, value: &super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn Template(&self) -> ::windows::core::Result<IX509CertificateTemplate>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -10580,10 +10580,10 @@ impl IX509CertificateTemplateWritable_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).Commit(::core::mem::transmute_copy(&commitflags), ::core::mem::transmute(&strservercontext)).into()
         }
-        unsafe extern "system" fn Property<Identity: ::windows::core::IUnknownImpl, Impl: IX509CertificateTemplateWritable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, property: EnrollmentTemplateProperty, pvalue: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_Property<Identity: ::windows::core::IUnknownImpl, Impl: IX509CertificateTemplateWritable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, property: EnrollmentTemplateProperty, pvalue: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).Property(::core::mem::transmute_copy(&property)) {
+            match (*this).get_Property(::core::mem::transmute_copy(&property)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pvalue = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -10591,10 +10591,10 @@ impl IX509CertificateTemplateWritable_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetProperty<Identity: ::windows::core::IUnknownImpl, Impl: IX509CertificateTemplateWritable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, property: EnrollmentTemplateProperty, value: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn put_Property<Identity: ::windows::core::IUnknownImpl, Impl: IX509CertificateTemplateWritable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, property: EnrollmentTemplateProperty, value: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetProperty(::core::mem::transmute_copy(&property), ::core::mem::transmute(&value)).into()
+            (*this).put_Property(::core::mem::transmute_copy(&property), ::core::mem::transmute(&value)).into()
         }
         unsafe extern "system" fn Template<Identity: ::windows::core::IUnknownImpl, Impl: IX509CertificateTemplateWritable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -10611,8 +10611,8 @@ impl IX509CertificateTemplateWritable_Vtbl {
             base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Initialize: Initialize::<Identity, Impl, OFFSET>,
             Commit: Commit::<Identity, Impl, OFFSET>,
-            Property: Property::<Identity, Impl, OFFSET>,
-            SetProperty: SetProperty::<Identity, Impl, OFFSET>,
+            get_Property: get_Property::<Identity, Impl, OFFSET>,
+            put_Property: put_Property::<Identity, Impl, OFFSET>,
             Template: Template::<Identity, Impl, OFFSET>,
         }
     }
@@ -10622,22 +10622,22 @@ impl IX509CertificateTemplateWritable_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IX509CertificateTemplates_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
-    fn ItemByIndex(&self, index: i32) -> ::windows::core::Result<IX509CertificateTemplate>;
+    fn get_ItemByIndex(&self, index: i32) -> ::windows::core::Result<IX509CertificateTemplate>;
     fn Count(&self) -> ::windows::core::Result<i32>;
     fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
     fn Add(&self, pval: &::core::option::Option<IX509CertificateTemplate>) -> ::windows::core::Result<()>;
     fn Remove(&self, index: i32) -> ::windows::core::Result<()>;
     fn Clear(&self) -> ::windows::core::Result<()>;
-    fn ItemByName(&self, bstrname: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<IX509CertificateTemplate>;
-    fn ItemByOid(&self, poid: &::core::option::Option<IObjectId>) -> ::windows::core::Result<IX509CertificateTemplate>;
+    fn get_ItemByName(&self, bstrname: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<IX509CertificateTemplate>;
+    fn get_ItemByOid(&self, poid: &::core::option::Option<IObjectId>) -> ::windows::core::Result<IX509CertificateTemplate>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IX509CertificateTemplates_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IX509CertificateTemplates_Impl, const OFFSET: isize>() -> IX509CertificateTemplates_Vtbl {
-        unsafe extern "system" fn ItemByIndex<Identity: ::windows::core::IUnknownImpl, Impl: IX509CertificateTemplates_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, pval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_ItemByIndex<Identity: ::windows::core::IUnknownImpl, Impl: IX509CertificateTemplates_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, pval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).ItemByIndex(::core::mem::transmute_copy(&index)) {
+            match (*this).get_ItemByIndex(::core::mem::transmute_copy(&index)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pval = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -10682,10 +10682,10 @@ impl IX509CertificateTemplates_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).Clear().into()
         }
-        unsafe extern "system" fn ItemByName<Identity: ::windows::core::IUnknownImpl, Impl: IX509CertificateTemplates_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, ppvalue: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_ItemByName<Identity: ::windows::core::IUnknownImpl, Impl: IX509CertificateTemplates_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, ppvalue: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).ItemByName(::core::mem::transmute(&bstrname)) {
+            match (*this).get_ItemByName(::core::mem::transmute(&bstrname)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppvalue = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -10693,10 +10693,10 @@ impl IX509CertificateTemplates_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ItemByOid<Identity: ::windows::core::IUnknownImpl, Impl: IX509CertificateTemplates_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, poid: ::windows::core::RawPtr, ppvalue: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_ItemByOid<Identity: ::windows::core::IUnknownImpl, Impl: IX509CertificateTemplates_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, poid: ::windows::core::RawPtr, ppvalue: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).ItemByOid(::core::mem::transmute(&poid)) {
+            match (*this).get_ItemByOid(::core::mem::transmute(&poid)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppvalue = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -10706,14 +10706,14 @@ impl IX509CertificateTemplates_Vtbl {
         }
         Self {
             base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
-            ItemByIndex: ItemByIndex::<Identity, Impl, OFFSET>,
+            get_ItemByIndex: get_ItemByIndex::<Identity, Impl, OFFSET>,
             Count: Count::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
             Add: Add::<Identity, Impl, OFFSET>,
             Remove: Remove::<Identity, Impl, OFFSET>,
             Clear: Clear::<Identity, Impl, OFFSET>,
-            ItemByName: ItemByName::<Identity, Impl, OFFSET>,
-            ItemByOid: ItemByOid::<Identity, Impl, OFFSET>,
+            get_ItemByName: get_ItemByName::<Identity, Impl, OFFSET>,
+            get_ItemByOid: get_ItemByOid::<Identity, Impl, OFFSET>,
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -10864,8 +10864,8 @@ pub trait IX509Enrollment_Impl: Sized + super::super::super::System::Com::IDispa
     fn NameValuePairs(&self) -> ::windows::core::Result<IX509NameValuePairs>;
     fn EnrollmentContext(&self) -> ::windows::core::Result<X509CertificateEnrollmentContext>;
     fn Status(&self) -> ::windows::core::Result<IX509EnrollmentStatus>;
-    fn Certificate(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
-    fn Response(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
+    fn get_Certificate(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
+    fn get_Response(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
     fn CertificateFriendlyName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
     fn SetCertificateFriendlyName(&self, strvalue: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn CertificateDescription(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
@@ -10999,10 +10999,10 @@ impl IX509Enrollment_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Certificate<Identity: ::windows::core::IUnknownImpl, Impl: IX509Enrollment_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, encoding: EncodingType, pvalue: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_Certificate<Identity: ::windows::core::IUnknownImpl, Impl: IX509Enrollment_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, encoding: EncodingType, pvalue: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).Certificate(::core::mem::transmute_copy(&encoding)) {
+            match (*this).get_Certificate(::core::mem::transmute_copy(&encoding)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pvalue = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -11010,10 +11010,10 @@ impl IX509Enrollment_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Response<Identity: ::windows::core::IUnknownImpl, Impl: IX509Enrollment_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, encoding: EncodingType, pvalue: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_Response<Identity: ::windows::core::IUnknownImpl, Impl: IX509Enrollment_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, encoding: EncodingType, pvalue: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).Response(::core::mem::transmute_copy(&encoding)) {
+            match (*this).get_Response(::core::mem::transmute_copy(&encoding)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pvalue = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -11092,8 +11092,8 @@ impl IX509Enrollment_Vtbl {
             NameValuePairs: NameValuePairs::<Identity, Impl, OFFSET>,
             EnrollmentContext: EnrollmentContext::<Identity, Impl, OFFSET>,
             Status: Status::<Identity, Impl, OFFSET>,
-            Certificate: Certificate::<Identity, Impl, OFFSET>,
-            Response: Response::<Identity, Impl, OFFSET>,
+            get_Certificate: get_Certificate::<Identity, Impl, OFFSET>,
+            get_Response: get_Response::<Identity, Impl, OFFSET>,
             CertificateFriendlyName: CertificateFriendlyName::<Identity, Impl, OFFSET>,
             SetCertificateFriendlyName: SetCertificateFriendlyName::<Identity, Impl, OFFSET>,
             CertificateDescription: CertificateDescription::<Identity, Impl, OFFSET>,
@@ -11673,7 +11673,7 @@ impl IX509EnrollmentWebClassFactory_Vtbl {
 pub trait IX509Extension_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn Initialize(&self, pobjectid: &::core::option::Option<IObjectId>, encoding: EncodingType, strencodeddata: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn ObjectId(&self) -> ::windows::core::Result<IObjectId>;
-    fn RawData(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
+    fn get_RawData(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
     fn Critical(&self) -> ::windows::core::Result<i16>;
     fn SetCritical(&self, value: i16) -> ::windows::core::Result<()>;
 }
@@ -11696,10 +11696,10 @@ impl IX509Extension_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RawData<Identity: ::windows::core::IUnknownImpl, Impl: IX509Extension_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, encoding: EncodingType, pvalue: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_RawData<Identity: ::windows::core::IUnknownImpl, Impl: IX509Extension_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, encoding: EncodingType, pvalue: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).RawData(::core::mem::transmute_copy(&encoding)) {
+            match (*this).get_RawData(::core::mem::transmute_copy(&encoding)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pvalue = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -11727,7 +11727,7 @@ impl IX509Extension_Vtbl {
             base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Initialize: Initialize::<Identity, Impl, OFFSET>,
             ObjectId: ObjectId::<Identity, Impl, OFFSET>,
-            RawData: RawData::<Identity, Impl, OFFSET>,
+            get_RawData: get_RawData::<Identity, Impl, OFFSET>,
             Critical: Critical::<Identity, Impl, OFFSET>,
             SetCritical: SetCritical::<Identity, Impl, OFFSET>,
         }
@@ -11781,7 +11781,7 @@ impl IX509ExtensionAlternativeNames_Vtbl {
 pub trait IX509ExtensionAuthorityKeyIdentifier_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + IX509Extension_Impl {
     fn InitializeEncode(&self, encoding: EncodingType, strkeyidentifier: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn InitializeDecode(&self, encoding: EncodingType, strencodeddata: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn AuthorityKeyIdentifier(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
+    fn get_AuthorityKeyIdentifier(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IX509ExtensionAuthorityKeyIdentifier_Vtbl {
@@ -11796,10 +11796,10 @@ impl IX509ExtensionAuthorityKeyIdentifier_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).InitializeDecode(::core::mem::transmute_copy(&encoding), ::core::mem::transmute(&strencodeddata)).into()
         }
-        unsafe extern "system" fn AuthorityKeyIdentifier<Identity: ::windows::core::IUnknownImpl, Impl: IX509ExtensionAuthorityKeyIdentifier_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, encoding: EncodingType, pvalue: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_AuthorityKeyIdentifier<Identity: ::windows::core::IUnknownImpl, Impl: IX509ExtensionAuthorityKeyIdentifier_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, encoding: EncodingType, pvalue: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).AuthorityKeyIdentifier(::core::mem::transmute_copy(&encoding)) {
+            match (*this).get_AuthorityKeyIdentifier(::core::mem::transmute_copy(&encoding)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pvalue = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -11811,7 +11811,7 @@ impl IX509ExtensionAuthorityKeyIdentifier_Vtbl {
             base__: IX509Extension_Vtbl::new::<Identity, Impl, OFFSET>(),
             InitializeEncode: InitializeEncode::<Identity, Impl, OFFSET>,
             InitializeDecode: InitializeDecode::<Identity, Impl, OFFSET>,
-            AuthorityKeyIdentifier: AuthorityKeyIdentifier::<Identity, Impl, OFFSET>,
+            get_AuthorityKeyIdentifier: get_AuthorityKeyIdentifier::<Identity, Impl, OFFSET>,
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -12081,7 +12081,7 @@ impl IX509ExtensionSmimeCapabilities_Vtbl {
 pub trait IX509ExtensionSubjectKeyIdentifier_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + IX509Extension_Impl {
     fn InitializeEncode(&self, encoding: EncodingType, strkeyidentifier: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn InitializeDecode(&self, encoding: EncodingType, strencodeddata: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn SubjectKeyIdentifier(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
+    fn get_SubjectKeyIdentifier(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IX509ExtensionSubjectKeyIdentifier_Vtbl {
@@ -12096,10 +12096,10 @@ impl IX509ExtensionSubjectKeyIdentifier_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).InitializeDecode(::core::mem::transmute_copy(&encoding), ::core::mem::transmute(&strencodeddata)).into()
         }
-        unsafe extern "system" fn SubjectKeyIdentifier<Identity: ::windows::core::IUnknownImpl, Impl: IX509ExtensionSubjectKeyIdentifier_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, encoding: EncodingType, pvalue: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_SubjectKeyIdentifier<Identity: ::windows::core::IUnknownImpl, Impl: IX509ExtensionSubjectKeyIdentifier_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, encoding: EncodingType, pvalue: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).SubjectKeyIdentifier(::core::mem::transmute_copy(&encoding)) {
+            match (*this).get_SubjectKeyIdentifier(::core::mem::transmute_copy(&encoding)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pvalue = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -12111,7 +12111,7 @@ impl IX509ExtensionSubjectKeyIdentifier_Vtbl {
             base__: IX509Extension_Vtbl::new::<Identity, Impl, OFFSET>(),
             InitializeEncode: InitializeEncode::<Identity, Impl, OFFSET>,
             InitializeDecode: InitializeDecode::<Identity, Impl, OFFSET>,
-            SubjectKeyIdentifier: SubjectKeyIdentifier::<Identity, Impl, OFFSET>,
+            get_SubjectKeyIdentifier: get_SubjectKeyIdentifier::<Identity, Impl, OFFSET>,
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -12228,22 +12228,22 @@ impl IX509ExtensionTemplateName_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IX509Extensions_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
-    fn ItemByIndex(&self, index: i32) -> ::windows::core::Result<IX509Extension>;
+    fn get_ItemByIndex(&self, index: i32) -> ::windows::core::Result<IX509Extension>;
     fn Count(&self) -> ::windows::core::Result<i32>;
     fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
     fn Add(&self, pval: &::core::option::Option<IX509Extension>) -> ::windows::core::Result<()>;
     fn Remove(&self, index: i32) -> ::windows::core::Result<()>;
     fn Clear(&self) -> ::windows::core::Result<()>;
-    fn IndexByObjectId(&self, pobjectid: &::core::option::Option<IObjectId>) -> ::windows::core::Result<i32>;
+    fn get_IndexByObjectId(&self, pobjectid: &::core::option::Option<IObjectId>) -> ::windows::core::Result<i32>;
     fn AddRange(&self, pvalue: &::core::option::Option<IX509Extensions>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IX509Extensions_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IX509Extensions_Impl, const OFFSET: isize>() -> IX509Extensions_Vtbl {
-        unsafe extern "system" fn ItemByIndex<Identity: ::windows::core::IUnknownImpl, Impl: IX509Extensions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, pval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_ItemByIndex<Identity: ::windows::core::IUnknownImpl, Impl: IX509Extensions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, pval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).ItemByIndex(::core::mem::transmute_copy(&index)) {
+            match (*this).get_ItemByIndex(::core::mem::transmute_copy(&index)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pval = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -12288,10 +12288,10 @@ impl IX509Extensions_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).Clear().into()
         }
-        unsafe extern "system" fn IndexByObjectId<Identity: ::windows::core::IUnknownImpl, Impl: IX509Extensions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pobjectid: ::windows::core::RawPtr, pindex: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_IndexByObjectId<Identity: ::windows::core::IUnknownImpl, Impl: IX509Extensions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pobjectid: ::windows::core::RawPtr, pindex: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).IndexByObjectId(::core::mem::transmute(&pobjectid)) {
+            match (*this).get_IndexByObjectId(::core::mem::transmute(&pobjectid)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pindex = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -12306,13 +12306,13 @@ impl IX509Extensions_Vtbl {
         }
         Self {
             base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
-            ItemByIndex: ItemByIndex::<Identity, Impl, OFFSET>,
+            get_ItemByIndex: get_ItemByIndex::<Identity, Impl, OFFSET>,
             Count: Count::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
             Add: Add::<Identity, Impl, OFFSET>,
             Remove: Remove::<Identity, Impl, OFFSET>,
             Clear: Clear::<Identity, Impl, OFFSET>,
-            IndexByObjectId: IndexByObjectId::<Identity, Impl, OFFSET>,
+            get_IndexByObjectId: get_IndexByObjectId::<Identity, Impl, OFFSET>,
             AddRange: AddRange::<Identity, Impl, OFFSET>,
         }
     }
@@ -12393,7 +12393,7 @@ impl IX509NameValuePair_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IX509NameValuePairs_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
-    fn ItemByIndex(&self, index: i32) -> ::windows::core::Result<IX509NameValuePair>;
+    fn get_ItemByIndex(&self, index: i32) -> ::windows::core::Result<IX509NameValuePair>;
     fn Count(&self) -> ::windows::core::Result<i32>;
     fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
     fn Add(&self, pval: &::core::option::Option<IX509NameValuePair>) -> ::windows::core::Result<()>;
@@ -12403,10 +12403,10 @@ pub trait IX509NameValuePairs_Impl: Sized + super::super::super::System::Com::ID
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IX509NameValuePairs_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IX509NameValuePairs_Impl, const OFFSET: isize>() -> IX509NameValuePairs_Vtbl {
-        unsafe extern "system" fn ItemByIndex<Identity: ::windows::core::IUnknownImpl, Impl: IX509NameValuePairs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, pval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_ItemByIndex<Identity: ::windows::core::IUnknownImpl, Impl: IX509NameValuePairs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, pval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).ItemByIndex(::core::mem::transmute_copy(&index)) {
+            match (*this).get_ItemByIndex(::core::mem::transmute_copy(&index)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pval = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -12453,7 +12453,7 @@ impl IX509NameValuePairs_Vtbl {
         }
         Self {
             base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
-            ItemByIndex: ItemByIndex::<Identity, Impl, OFFSET>,
+            get_ItemByIndex: get_ItemByIndex::<Identity, Impl, OFFSET>,
             Count: Count::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
             Add: Add::<Identity, Impl, OFFSET>,
@@ -12467,7 +12467,7 @@ impl IX509NameValuePairs_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IX509PolicyServerListManager_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
-    fn ItemByIndex(&self, index: i32) -> ::windows::core::Result<IX509PolicyServerUrl>;
+    fn get_ItemByIndex(&self, index: i32) -> ::windows::core::Result<IX509PolicyServerUrl>;
     fn Count(&self) -> ::windows::core::Result<i32>;
     fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
     fn Add(&self, pval: &::core::option::Option<IX509PolicyServerUrl>) -> ::windows::core::Result<()>;
@@ -12478,10 +12478,10 @@ pub trait IX509PolicyServerListManager_Impl: Sized + super::super::super::System
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IX509PolicyServerListManager_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IX509PolicyServerListManager_Impl, const OFFSET: isize>() -> IX509PolicyServerListManager_Vtbl {
-        unsafe extern "system" fn ItemByIndex<Identity: ::windows::core::IUnknownImpl, Impl: IX509PolicyServerListManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, pval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_ItemByIndex<Identity: ::windows::core::IUnknownImpl, Impl: IX509PolicyServerListManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, pval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).ItemByIndex(::core::mem::transmute_copy(&index)) {
+            match (*this).get_ItemByIndex(::core::mem::transmute_copy(&index)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pval = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -12533,7 +12533,7 @@ impl IX509PolicyServerListManager_Vtbl {
         }
         Self {
             base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
-            ItemByIndex: ItemByIndex::<Identity, Impl, OFFSET>,
+            get_ItemByIndex: get_ItemByIndex::<Identity, Impl, OFFSET>,
             Count: Count::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
             Add: Add::<Identity, Impl, OFFSET>,
@@ -12743,8 +12743,8 @@ pub trait IX509PrivateKey_Impl: Sized + super::super::super::System::Com::IDispa
     fn SetMachineContext(&self, value: i16) -> ::windows::core::Result<()>;
     fn SecurityDescriptor(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
     fn SetSecurityDescriptor(&self, value: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn Certificate(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
-    fn SetCertificate(&self, encoding: EncodingType, value: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn get_Certificate(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
+    fn put_Certificate(&self, encoding: EncodingType, value: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn UniqueContainerName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
     fn Opened(&self) -> ::windows::core::Result<i16>;
     fn DefaultContainer(&self) -> ::windows::core::Result<i16>;
@@ -13073,10 +13073,10 @@ impl IX509PrivateKey_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).SetSecurityDescriptor(::core::mem::transmute(&value)).into()
         }
-        unsafe extern "system" fn Certificate<Identity: ::windows::core::IUnknownImpl, Impl: IX509PrivateKey_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, encoding: EncodingType, pvalue: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_Certificate<Identity: ::windows::core::IUnknownImpl, Impl: IX509PrivateKey_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, encoding: EncodingType, pvalue: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).Certificate(::core::mem::transmute_copy(&encoding)) {
+            match (*this).get_Certificate(::core::mem::transmute_copy(&encoding)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pvalue = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -13084,10 +13084,10 @@ impl IX509PrivateKey_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetCertificate<Identity: ::windows::core::IUnknownImpl, Impl: IX509PrivateKey_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, encoding: EncodingType, value: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn put_Certificate<Identity: ::windows::core::IUnknownImpl, Impl: IX509PrivateKey_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, encoding: EncodingType, value: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetCertificate(::core::mem::transmute_copy(&encoding), ::core::mem::transmute(&value)).into()
+            (*this).put_Certificate(::core::mem::transmute_copy(&encoding), ::core::mem::transmute(&value)).into()
         }
         unsafe extern "system" fn UniqueContainerName<Identity: ::windows::core::IUnknownImpl, Impl: IX509PrivateKey_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalue: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -13265,8 +13265,8 @@ impl IX509PrivateKey_Vtbl {
             SetMachineContext: SetMachineContext::<Identity, Impl, OFFSET>,
             SecurityDescriptor: SecurityDescriptor::<Identity, Impl, OFFSET>,
             SetSecurityDescriptor: SetSecurityDescriptor::<Identity, Impl, OFFSET>,
-            Certificate: Certificate::<Identity, Impl, OFFSET>,
-            SetCertificate: SetCertificate::<Identity, Impl, OFFSET>,
+            get_Certificate: get_Certificate::<Identity, Impl, OFFSET>,
+            put_Certificate: put_Certificate::<Identity, Impl, OFFSET>,
             UniqueContainerName: UniqueContainerName::<Identity, Impl, OFFSET>,
             Opened: Opened::<Identity, Impl, OFFSET>,
             DefaultContainer: DefaultContainer::<Identity, Impl, OFFSET>,
@@ -13297,8 +13297,8 @@ pub trait IX509PrivateKey2_Impl: Sized + super::super::super::System::Com::IDisp
     fn SetAlternateStorageLocation(&self, value: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn AlgorithmName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
     fn SetAlgorithmName(&self, value: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn AlgorithmParameters(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
-    fn SetAlgorithmParameters(&self, encoding: EncodingType, value: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn get_AlgorithmParameters(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
+    fn put_AlgorithmParameters(&self, encoding: EncodingType, value: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn ParametersExportType(&self) -> ::windows::core::Result<X509KeyParametersExportType>;
     fn SetParametersExportType(&self, value: X509KeyParametersExportType) -> ::windows::core::Result<()>;
 }
@@ -13353,10 +13353,10 @@ impl IX509PrivateKey2_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).SetAlgorithmName(::core::mem::transmute(&value)).into()
         }
-        unsafe extern "system" fn AlgorithmParameters<Identity: ::windows::core::IUnknownImpl, Impl: IX509PrivateKey2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, encoding: EncodingType, pvalue: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_AlgorithmParameters<Identity: ::windows::core::IUnknownImpl, Impl: IX509PrivateKey2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, encoding: EncodingType, pvalue: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).AlgorithmParameters(::core::mem::transmute_copy(&encoding)) {
+            match (*this).get_AlgorithmParameters(::core::mem::transmute_copy(&encoding)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pvalue = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -13364,10 +13364,10 @@ impl IX509PrivateKey2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetAlgorithmParameters<Identity: ::windows::core::IUnknownImpl, Impl: IX509PrivateKey2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, encoding: EncodingType, value: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn put_AlgorithmParameters<Identity: ::windows::core::IUnknownImpl, Impl: IX509PrivateKey2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, encoding: EncodingType, value: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetAlgorithmParameters(::core::mem::transmute_copy(&encoding), ::core::mem::transmute(&value)).into()
+            (*this).put_AlgorithmParameters(::core::mem::transmute_copy(&encoding), ::core::mem::transmute(&value)).into()
         }
         unsafe extern "system" fn ParametersExportType<Identity: ::windows::core::IUnknownImpl, Impl: IX509PrivateKey2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalue: *mut X509KeyParametersExportType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -13393,8 +13393,8 @@ impl IX509PrivateKey2_Vtbl {
             SetAlternateStorageLocation: SetAlternateStorageLocation::<Identity, Impl, OFFSET>,
             AlgorithmName: AlgorithmName::<Identity, Impl, OFFSET>,
             SetAlgorithmName: SetAlgorithmName::<Identity, Impl, OFFSET>,
-            AlgorithmParameters: AlgorithmParameters::<Identity, Impl, OFFSET>,
-            SetAlgorithmParameters: SetAlgorithmParameters::<Identity, Impl, OFFSET>,
+            get_AlgorithmParameters: get_AlgorithmParameters::<Identity, Impl, OFFSET>,
+            put_AlgorithmParameters: put_AlgorithmParameters::<Identity, Impl, OFFSET>,
             ParametersExportType: ParametersExportType::<Identity, Impl, OFFSET>,
             SetParametersExportType: SetParametersExportType::<Identity, Impl, OFFSET>,
         }
@@ -13409,8 +13409,8 @@ pub trait IX509PublicKey_Impl: Sized + super::super::super::System::Com::IDispat
     fn InitializeFromEncodedPublicKeyInfo(&self, strencodedpublickeyinfo: &super::super::super::Foundation::BSTR, encoding: EncodingType) -> ::windows::core::Result<()>;
     fn Algorithm(&self) -> ::windows::core::Result<IObjectId>;
     fn Length(&self) -> ::windows::core::Result<i32>;
-    fn EncodedKey(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
-    fn EncodedParameters(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
+    fn get_EncodedKey(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
+    fn get_EncodedParameters(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
     fn ComputeKeyIdentifier(&self, algorithm: KeyIdentifierHashAlgorithm, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -13448,10 +13448,10 @@ impl IX509PublicKey_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn EncodedKey<Identity: ::windows::core::IUnknownImpl, Impl: IX509PublicKey_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, encoding: EncodingType, pvalue: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_EncodedKey<Identity: ::windows::core::IUnknownImpl, Impl: IX509PublicKey_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, encoding: EncodingType, pvalue: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).EncodedKey(::core::mem::transmute_copy(&encoding)) {
+            match (*this).get_EncodedKey(::core::mem::transmute_copy(&encoding)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pvalue = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -13459,10 +13459,10 @@ impl IX509PublicKey_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn EncodedParameters<Identity: ::windows::core::IUnknownImpl, Impl: IX509PublicKey_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, encoding: EncodingType, pvalue: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_EncodedParameters<Identity: ::windows::core::IUnknownImpl, Impl: IX509PublicKey_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, encoding: EncodingType, pvalue: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).EncodedParameters(::core::mem::transmute_copy(&encoding)) {
+            match (*this).get_EncodedParameters(::core::mem::transmute_copy(&encoding)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pvalue = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -13487,8 +13487,8 @@ impl IX509PublicKey_Vtbl {
             InitializeFromEncodedPublicKeyInfo: InitializeFromEncodedPublicKeyInfo::<Identity, Impl, OFFSET>,
             Algorithm: Algorithm::<Identity, Impl, OFFSET>,
             Length: Length::<Identity, Impl, OFFSET>,
-            EncodedKey: EncodedKey::<Identity, Impl, OFFSET>,
-            EncodedParameters: EncodedParameters::<Identity, Impl, OFFSET>,
+            get_EncodedKey: get_EncodedKey::<Identity, Impl, OFFSET>,
+            get_EncodedParameters: get_EncodedParameters::<Identity, Impl, OFFSET>,
             ComputeKeyIdentifier: ComputeKeyIdentifier::<Identity, Impl, OFFSET>,
         }
     }
@@ -13510,13 +13510,13 @@ pub trait IX509SCEPEnrollment_Impl: Sized + super::super::super::System::Com::ID
     fn SetSignerCertificate(&self, pvalue: &::core::option::Option<ISignerCertificate>) -> ::windows::core::Result<()>;
     fn OldCertificate(&self) -> ::windows::core::Result<ISignerCertificate>;
     fn SetOldCertificate(&self, pvalue: &::core::option::Option<ISignerCertificate>) -> ::windows::core::Result<()>;
-    fn TransactionId(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
-    fn SetTransactionId(&self, encoding: EncodingType, value: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn get_TransactionId(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
+    fn put_TransactionId(&self, encoding: EncodingType, value: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn Request(&self) -> ::windows::core::Result<IX509CertificateRequestPkcs10>;
     fn CertificateFriendlyName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
     fn SetCertificateFriendlyName(&self, value: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn Status(&self) -> ::windows::core::Result<IX509EnrollmentStatus>;
-    fn Certificate(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
+    fn get_Certificate(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
     fn Silent(&self) -> ::windows::core::Result<i16>;
     fn SetSilent(&self, value: i16) -> ::windows::core::Result<()>;
     fn DeleteRequest(&self) -> ::windows::core::Result<()>;
@@ -13626,10 +13626,10 @@ impl IX509SCEPEnrollment_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).SetOldCertificate(::core::mem::transmute(&pvalue)).into()
         }
-        unsafe extern "system" fn TransactionId<Identity: ::windows::core::IUnknownImpl, Impl: IX509SCEPEnrollment_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, encoding: EncodingType, pvalue: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_TransactionId<Identity: ::windows::core::IUnknownImpl, Impl: IX509SCEPEnrollment_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, encoding: EncodingType, pvalue: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).TransactionId(::core::mem::transmute_copy(&encoding)) {
+            match (*this).get_TransactionId(::core::mem::transmute_copy(&encoding)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pvalue = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -13637,10 +13637,10 @@ impl IX509SCEPEnrollment_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetTransactionId<Identity: ::windows::core::IUnknownImpl, Impl: IX509SCEPEnrollment_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, encoding: EncodingType, value: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn put_TransactionId<Identity: ::windows::core::IUnknownImpl, Impl: IX509SCEPEnrollment_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, encoding: EncodingType, value: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetTransactionId(::core::mem::transmute_copy(&encoding), ::core::mem::transmute(&value)).into()
+            (*this).put_TransactionId(::core::mem::transmute_copy(&encoding), ::core::mem::transmute(&value)).into()
         }
         unsafe extern "system" fn Request<Identity: ::windows::core::IUnknownImpl, Impl: IX509SCEPEnrollment_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvalue: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -13680,10 +13680,10 @@ impl IX509SCEPEnrollment_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Certificate<Identity: ::windows::core::IUnknownImpl, Impl: IX509SCEPEnrollment_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, encoding: EncodingType, pvalue: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_Certificate<Identity: ::windows::core::IUnknownImpl, Impl: IX509SCEPEnrollment_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, encoding: EncodingType, pvalue: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).Certificate(::core::mem::transmute_copy(&encoding)) {
+            match (*this).get_Certificate(::core::mem::transmute_copy(&encoding)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pvalue = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -13726,13 +13726,13 @@ impl IX509SCEPEnrollment_Vtbl {
             SetSignerCertificate: SetSignerCertificate::<Identity, Impl, OFFSET>,
             OldCertificate: OldCertificate::<Identity, Impl, OFFSET>,
             SetOldCertificate: SetOldCertificate::<Identity, Impl, OFFSET>,
-            TransactionId: TransactionId::<Identity, Impl, OFFSET>,
-            SetTransactionId: SetTransactionId::<Identity, Impl, OFFSET>,
+            get_TransactionId: get_TransactionId::<Identity, Impl, OFFSET>,
+            put_TransactionId: put_TransactionId::<Identity, Impl, OFFSET>,
             Request: Request::<Identity, Impl, OFFSET>,
             CertificateFriendlyName: CertificateFriendlyName::<Identity, Impl, OFFSET>,
             SetCertificateFriendlyName: SetCertificateFriendlyName::<Identity, Impl, OFFSET>,
             Status: Status::<Identity, Impl, OFFSET>,
-            Certificate: Certificate::<Identity, Impl, OFFSET>,
+            get_Certificate: get_Certificate::<Identity, Impl, OFFSET>,
             Silent: Silent::<Identity, Impl, OFFSET>,
             SetSilent: SetSilent::<Identity, Impl, OFFSET>,
             DeleteRequest: DeleteRequest::<Identity, Impl, OFFSET>,
@@ -13914,8 +13914,8 @@ pub trait IX509SignatureInformation_Impl: Sized + super::super::super::System::C
     fn SetHashAlgorithm(&self, pvalue: &::core::option::Option<IObjectId>) -> ::windows::core::Result<()>;
     fn PublicKeyAlgorithm(&self) -> ::windows::core::Result<IObjectId>;
     fn SetPublicKeyAlgorithm(&self, pvalue: &::core::option::Option<IObjectId>) -> ::windows::core::Result<()>;
-    fn Parameters(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
-    fn SetParameters(&self, encoding: EncodingType, value: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn get_Parameters(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
+    fn put_Parameters(&self, encoding: EncodingType, value: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn AlternateSignatureAlgorithm(&self) -> ::windows::core::Result<i16>;
     fn SetAlternateSignatureAlgorithm(&self, value: i16) -> ::windows::core::Result<()>;
     fn AlternateSignatureAlgorithmSet(&self) -> ::windows::core::Result<i16>;
@@ -13959,10 +13959,10 @@ impl IX509SignatureInformation_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).SetPublicKeyAlgorithm(::core::mem::transmute(&pvalue)).into()
         }
-        unsafe extern "system" fn Parameters<Identity: ::windows::core::IUnknownImpl, Impl: IX509SignatureInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, encoding: EncodingType, pvalue: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_Parameters<Identity: ::windows::core::IUnknownImpl, Impl: IX509SignatureInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, encoding: EncodingType, pvalue: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).Parameters(::core::mem::transmute_copy(&encoding)) {
+            match (*this).get_Parameters(::core::mem::transmute_copy(&encoding)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pvalue = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -13970,10 +13970,10 @@ impl IX509SignatureInformation_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetParameters<Identity: ::windows::core::IUnknownImpl, Impl: IX509SignatureInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, encoding: EncodingType, value: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn put_Parameters<Identity: ::windows::core::IUnknownImpl, Impl: IX509SignatureInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, encoding: EncodingType, value: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetParameters(::core::mem::transmute_copy(&encoding), ::core::mem::transmute(&value)).into()
+            (*this).put_Parameters(::core::mem::transmute_copy(&encoding), ::core::mem::transmute(&value)).into()
         }
         unsafe extern "system" fn AlternateSignatureAlgorithm<Identity: ::windows::core::IUnknownImpl, Impl: IX509SignatureInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalue: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -14040,8 +14040,8 @@ impl IX509SignatureInformation_Vtbl {
             SetHashAlgorithm: SetHashAlgorithm::<Identity, Impl, OFFSET>,
             PublicKeyAlgorithm: PublicKeyAlgorithm::<Identity, Impl, OFFSET>,
             SetPublicKeyAlgorithm: SetPublicKeyAlgorithm::<Identity, Impl, OFFSET>,
-            Parameters: Parameters::<Identity, Impl, OFFSET>,
-            SetParameters: SetParameters::<Identity, Impl, OFFSET>,
+            get_Parameters: get_Parameters::<Identity, Impl, OFFSET>,
+            put_Parameters: put_Parameters::<Identity, Impl, OFFSET>,
             AlternateSignatureAlgorithm: AlternateSignatureAlgorithm::<Identity, Impl, OFFSET>,
             SetAlternateSignatureAlgorithm: SetAlternateSignatureAlgorithm::<Identity, Impl, OFFSET>,
             AlternateSignatureAlgorithmSet: AlternateSignatureAlgorithmSet::<Identity, Impl, OFFSET>,
