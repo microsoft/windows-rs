@@ -2,7 +2,7 @@
 name = "test_nightly_properties"
 version = "0.0.0"
 authors = ["Microsoft"]
-edition = "2021"
+edition = "2018"
 
 [dependencies.windows]
 path = "../../libs/windows"

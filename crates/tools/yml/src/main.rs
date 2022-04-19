@@ -198,7 +198,7 @@ jobs:
     runs-on: windows-2019
     strategy:
       matrix:
-        rust: [1.56.0, stable, nightly]
+        rust: [1.46.0, stable, nightly]
     steps:
     - name: Checkout
       uses: actions/checkout@v2
@@ -212,14 +212,14 @@ jobs:
     runs-on: windows-2019
     strategy:
       matrix:
-        rust: [1.59.0, stable, nightly]
+        rust: [1.50.0, stable, nightly]
     steps:
     - name: Checkout
       uses: actions/checkout@v2
     - name: Update toolchain
       run: rustup update --no-self-update ${{ matrix.rust }} && rustup default ${{ matrix.rust }}
     - name: Run cargo check
-      run: cargo check -p windows
+      run: cargo check -p windows --features Win32_Graphics_Direct2D
 
   cargo_clippy:
     name: Check clippy

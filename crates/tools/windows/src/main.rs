@@ -27,13 +27,13 @@ fn main() {
 name = "windows"
 version = "0.35.0"
 authors = ["Microsoft"]
-edition = "2021"
+edition = "2018"
 license = "MIT OR Apache-2.0"
 description = "Rust for Windows"
 repository = "https://github.com/microsoft/windows-rs"
 documentation = "https://microsoft.github.io/windows-docs-rs/"
 readme = "../../../.github/readme.md"
-rust-version = "1.59"
+rust-version = "1.50"
 
 [package.metadata.docs.rs]
 default-target = "x86_64-pc-windows-msvc"
