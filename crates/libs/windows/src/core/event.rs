@@ -2,37 +2,38 @@ use super::*;
 use bindings::*;
 use std::sync::*;
 
-pub struct Event<T: RuntimeType> {
+pub struct Event<T: Interface + Clone> {
     swap: Mutex<()>,
     change: Mutex<()>,
     delegates: Delegates<T>,
 }
 
-impl<T: RuntimeType> Default for Event<T> {
+impl<T: Interface + Clone> Default for Event<T> {
     fn default() -> Self {
         Self::new()
     }
 }
 
-impl<T: RuntimeType> Event<T> {
+impl<T: Interface + Clone> Event<T> {
     pub fn new() -> Self {
         Self { delegates: Delegates::new(), swap: Mutex::default(), change: Mutex::default(), }
     }
     pub fn add(&mut self, delegate: &T) -> Result<i64> {
         let mut _lock_free_drop = Delegates::new();
-        let token = {
+        Ok({
             let change_lock = self.change.lock().unwrap();
             let mut new_delegates = Delegates::with_capacity(self.delegates.len() + 1)?;
             for delegate in self.delegates.as_slice() {
-                new_delegates.push(delegate);
+                new_delegates.push(delegate.clone());
             }
+            let delegate = Delegate::new(delegate);
+            let token = delegate.to_token();
             new_delegates.push(delegate); // TODO: need to agile wrap this one
 
             let swap_lock = self.swap.lock().unwrap();
             _lock_free_drop = self.delegates.swap(new_delegates);
-            to_token(delegate) // TODO: make sure this is the agile-wrapped delegate that is being tokenized
-        };
-        Ok(token)
+            token
+        })
     }
     pub fn remove(&mut self, token: i64) -> Result<()> {
         let mut _lock_free_drop = Delegates::new();
@@ -45,13 +46,13 @@ impl<T: RuntimeType> Event<T> {
             let mut new_delegates = Delegates::new();
             let mut removed = false;
             if capacity == 0 {
-                if to_token(&self.delegates.as_slice()[0]) == token {
+                if self.delegates.as_slice()[0].to_token() == token {
                     removed = true;
                 }
             } else {
                 new_delegates = Delegates::with_capacity(capacity)?;
                 for delegate in self.delegates.as_slice() {
-                    if !removed && to_token(delegate) == token {
+                    if !removed && delegate.to_token() == token {
                         removed = true;
                         continue;
                     }
@@ -59,7 +60,7 @@ impl<T: RuntimeType> Event<T> {
                         debug_assert!(!removed);
                         break;
                     }
-                    new_delegates.push(delegate);
+                    new_delegates.push(delegate.clone());
                     capacity -= 1;
                 }
             }
@@ -87,10 +88,10 @@ impl<T: RuntimeType> Event<T> {
             self.delegates.clone()
         };
         for delegate in lock_free_calls.as_slice() {
-            if let Err(error) = callback(delegate) {
+            if let Err(error) = delegate.call(&mut callback) {
                 const RPC_E_SERVER_UNAVAILABLE: HRESULT = HRESULT(-2147023174); // HRESULT_FROM_WIN32(RPC_S_SERVER_UNAVAILABLE)
                 if matches!(error.code(), RPC_E_DISCONNECTED | JSCRIPT_E_CANTEXECUTE | RPC_E_SERVER_UNAVAILABLE) {
-                    self.remove(to_token(delegate))?;
+                    self.remove(delegate.to_token())?;
                 }
             }
         }
@@ -98,24 +99,24 @@ impl<T: RuntimeType> Event<T> {
     }
 }
 
-struct Delegates<T: RuntimeType> {
+struct Delegates<T: Interface + Clone> {
     buffer: *mut Buffer,
     len: usize,
     _phantom: std::marker::PhantomData<T>,
 }
 
-impl<T: RuntimeType> Default for Delegates<T> {
+impl<T: Interface + Clone> Default for Delegates<T> {
     fn default() -> Self {
         Self::new()
     }
 }
 
-impl<T: RuntimeType> Delegates<T> {
+impl<T: Interface + Clone> Delegates<T> {
     fn new() -> Self {
         Self { buffer: std::ptr::null_mut(), len: 0, _phantom: std::marker::PhantomData }
     }
     fn with_capacity(capacity: usize) -> Result<Self> {
-        Ok(Self { buffer: Buffer::new(capacity)?, len: 0, _phantom: std::marker::PhantomData })
+        Ok(Self { buffer: Buffer::new(capacity * std::mem::size_of::<Delegate<T>>())?, len: 0, _phantom: std::marker::PhantomData })
     }
     fn swap(&mut self, mut other: Self) -> Self {
         unsafe { std::ptr::swap(&mut self.buffer, &mut other.buffer) };
@@ -128,42 +129,41 @@ impl<T: RuntimeType> Delegates<T> {
     fn len(&self) -> usize {
         self.len
     }
-    fn push(&mut self, delegate: &T) {
+    fn push(&mut self, delegate: Delegate<T>) {
         unsafe {
-            debug_assert!(self.len < (*self.buffer).len);
-            std::ptr::write((*self.buffer).as_mut_ptr().add(self.len) as _, delegate.clone());
+            std::ptr::write((*self.buffer).as_mut_ptr::<Delegate<T>>().add(self.len) as _, delegate);
             self.len += 1;
         }
     }
-    fn as_slice(&self) -> &[T] {
+    fn as_slice(&self) -> &[Delegate<T>] {
         if self.is_empty() {
             &[]
         } else {
-            unsafe { std::slice::from_raw_parts((*self.buffer).as_ptr() as _, self.len) }
+            unsafe { std::slice::from_raw_parts((*self.buffer).as_ptr::<Delegate<T>>() as _, self.len) }
         }
     }
-    fn as_mut_slice(&mut self) -> &mut [Option<T>] {
+    fn as_mut_slice(&mut self) -> &mut [Delegate<T>] {
         if self.is_empty() {
             &mut []
         } else {
-            unsafe { std::slice::from_raw_parts_mut((*self.buffer).as_mut_ptr() as _, self.len) }
+            unsafe { std::slice::from_raw_parts_mut((*self.buffer).as_mut_ptr::<Delegate<T>>() as _, self.len) }
         }
     }
 }
 
-impl<T: RuntimeType> Clone for Delegates<T> {
+impl<T: Interface + Clone> Clone for Delegates<T> {
     fn clone(&self) -> Self {
         if !self.is_empty() {
-            unsafe { (*self.buffer).count.add_ref() };
+            unsafe { (*self.buffer).0.add_ref() };
         }
         Self { buffer: self.buffer, len: self.len, _phantom: std::marker::PhantomData }
     }
 }
 
-impl<T: RuntimeType> Drop for Delegates<T> {
+impl<T: Interface + Clone> Drop for Delegates<T> {
     fn drop(&mut self) {
         unsafe {
-            if !self.is_empty() && (*self.buffer).count.release() == 0 {
+            if !self.is_empty() && (*self.buffer).0.release() == 0 {
                 std::ptr::drop_in_place(self.as_mut_slice());
                 heap_free(self.buffer as _)
             }
@@ -172,33 +172,56 @@ impl<T: RuntimeType> Drop for Delegates<T> {
 }
 
 #[repr(C)]
-struct Buffer {
-    count: RefCount,
-    len: usize,
-}
+struct Buffer(RefCount);
 
 impl Buffer {
-    fn new(len: usize) -> Result<*mut Buffer> {
-        if len == 0 {
+    fn new(size: usize) -> Result<*mut Buffer> {
+        if size == 0 {
             Ok(std::ptr::null_mut())
         } else {
-            let alloc_size = std::mem::size_of::<Buffer>() + len * std::mem::size_of::<usize>();
+            let alloc_size = std::mem::size_of::<Buffer>() + size;
             let header = heap_alloc(alloc_size)? as *mut Buffer;
             unsafe {
-                (*header).count = RefCount::new(1);
-                (*header).len = len;
+                (*header).0 = RefCount::new(1);
             }
             Ok(header)
         }
     }
-    fn as_ptr(&self) -> *const usize {
+    fn as_ptr<T>(&self) -> *const T {
         unsafe { (self as *const Self).add(1) as *const _ }
     }
-    fn as_mut_ptr(&mut self) -> *mut usize {
+    fn as_mut_ptr<T>(&mut self) -> *mut T {
         unsafe { (self as *mut Self).add(1) as *mut _ }
     }
 }
 
-fn to_token<T: RuntimeType>(delegate: &T) -> i64 {
-    unsafe { EncodePointer(std::mem::transmute_copy(delegate)) as _ }
+#[derive(Clone)]
+enum Delegate<T: Interface + Clone> {
+    Direct(T),
+    Indirect(AgileReference<T>),
+}
+
+impl<T: Interface + Clone> Delegate<T> {
+    fn new(delegate: &T) -> Self {
+        if !delegate.cast::<IAgileObject>().is_ok() {
+            if let Ok(delegate) = AgileReference::new(delegate) {
+                return Self::Indirect(delegate);
+            }
+        }
+        Self::Direct(delegate.clone())
+    }
+    fn to_token(&self) -> i64 {
+        unsafe {
+            match self {
+                Self::Direct(delegate) => EncodePointer(std::mem::transmute_copy(delegate)) as _,
+                Self::Indirect(delegate) => EncodePointer(std::mem::transmute_copy(delegate)) as _,
+            }
+        }
+    }
+    fn call<F: FnMut(&T) -> Result<()>>(&self, mut callback: F) -> Result<()> {
+        match self {
+            Self::Direct(delegate) => callback(delegate),
+            Self::Indirect(delegate) => callback(&delegate.resolve()?),
+        }
+    }
 }
