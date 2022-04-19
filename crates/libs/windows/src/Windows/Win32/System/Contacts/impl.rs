@@ -35,7 +35,7 @@ pub trait IContactAggregationAggregate_Impl: Sized {
     fn Save(&self) -> ::windows::core::Result<()>;
     fn GetComponentItems(&self) -> ::windows::core::Result<IContactAggregationContactCollection>;
     fn Link(&self, paggregateid: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
-    fn Groups(&self, options: CONTACT_AGGREGATION_COLLECTION_OPTIONS) -> ::windows::core::Result<IContactAggregationGroupCollection>;
+    fn get_Groups(&self, options: CONTACT_AGGREGATION_COLLECTION_OPTIONS) -> ::windows::core::Result<IContactAggregationGroupCollection>;
     fn AntiLink(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
     fn SetAntiLink(&self, pantilink: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn FavoriteOrder(&self) -> ::windows::core::Result<u32>;
@@ -65,10 +65,10 @@ impl IContactAggregationAggregate_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).Link(::core::mem::transmute(&paggregateid)).into()
         }
-        unsafe extern "system" fn Groups<Identity: ::windows::core::IUnknownImpl, Impl: IContactAggregationAggregate_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, options: CONTACT_AGGREGATION_COLLECTION_OPTIONS, ppgroups: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_Groups<Identity: ::windows::core::IUnknownImpl, Impl: IContactAggregationAggregate_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, options: CONTACT_AGGREGATION_COLLECTION_OPTIONS, ppgroups: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).Groups(::core::mem::transmute_copy(&options)) {
+            match (*this).get_Groups(::core::mem::transmute_copy(&options)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppgroups = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -124,7 +124,7 @@ impl IContactAggregationAggregate_Vtbl {
             Save: Save::<Identity, Impl, OFFSET>,
             GetComponentItems: GetComponentItems::<Identity, Impl, OFFSET>,
             Link: Link::<Identity, Impl, OFFSET>,
-            Groups: Groups::<Identity, Impl, OFFSET>,
+            get_Groups: get_Groups::<Identity, Impl, OFFSET>,
             AntiLink: AntiLink::<Identity, Impl, OFFSET>,
             SetAntiLink: SetAntiLink::<Identity, Impl, OFFSET>,
             FavoriteOrder: FavoriteOrder::<Identity, Impl, OFFSET>,
@@ -898,11 +898,11 @@ pub trait IContactAggregationManager_Impl: Sized {
     fn OpenContact(&self, pitemid: &::windows::core::PCWSTR) -> ::windows::core::Result<IContactAggregationContact>;
     fn OpenServerContactLink(&self, pitemid: &::windows::core::PCWSTR) -> ::windows::core::Result<IContactAggregationLink>;
     fn OpenServerPerson(&self, pitemid: &::windows::core::PCWSTR) -> ::windows::core::Result<IContactAggregationServerPerson>;
-    fn Contacts(&self, options: CONTACT_AGGREGATION_COLLECTION_OPTIONS) -> ::windows::core::Result<IContactAggregationContactCollection>;
-    fn AggregateContacts(&self, options: CONTACT_AGGREGATION_COLLECTION_OPTIONS) -> ::windows::core::Result<IContactAggregationAggregateCollection>;
-    fn Groups(&self, options: CONTACT_AGGREGATION_COLLECTION_OPTIONS) -> ::windows::core::Result<IContactAggregationGroupCollection>;
+    fn get_Contacts(&self, options: CONTACT_AGGREGATION_COLLECTION_OPTIONS) -> ::windows::core::Result<IContactAggregationContactCollection>;
+    fn get_AggregateContacts(&self, options: CONTACT_AGGREGATION_COLLECTION_OPTIONS) -> ::windows::core::Result<IContactAggregationAggregateCollection>;
+    fn get_Groups(&self, options: CONTACT_AGGREGATION_COLLECTION_OPTIONS) -> ::windows::core::Result<IContactAggregationGroupCollection>;
     fn ServerPersons(&self) -> ::windows::core::Result<IContactAggregationServerPersonCollection>;
-    fn ServerContactLinks(&self, ppersonitemid: &::windows::core::PCWSTR) -> ::windows::core::Result<IContactAggregationLinkCollection>;
+    fn get_ServerContactLinks(&self, ppersonitemid: &::windows::core::PCWSTR) -> ::windows::core::Result<IContactAggregationLinkCollection>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IContactAggregationManager_Vtbl {
@@ -999,10 +999,10 @@ impl IContactAggregationManager_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Contacts<Identity: ::windows::core::IUnknownImpl, Impl: IContactAggregationManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, options: CONTACT_AGGREGATION_COLLECTION_OPTIONS, ppitems: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_Contacts<Identity: ::windows::core::IUnknownImpl, Impl: IContactAggregationManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, options: CONTACT_AGGREGATION_COLLECTION_OPTIONS, ppitems: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).Contacts(::core::mem::transmute_copy(&options)) {
+            match (*this).get_Contacts(::core::mem::transmute_copy(&options)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppitems = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1010,10 +1010,10 @@ impl IContactAggregationManager_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AggregateContacts<Identity: ::windows::core::IUnknownImpl, Impl: IContactAggregationManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, options: CONTACT_AGGREGATION_COLLECTION_OPTIONS, ppaggregates: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_AggregateContacts<Identity: ::windows::core::IUnknownImpl, Impl: IContactAggregationManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, options: CONTACT_AGGREGATION_COLLECTION_OPTIONS, ppaggregates: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).AggregateContacts(::core::mem::transmute_copy(&options)) {
+            match (*this).get_AggregateContacts(::core::mem::transmute_copy(&options)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppaggregates = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1021,10 +1021,10 @@ impl IContactAggregationManager_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Groups<Identity: ::windows::core::IUnknownImpl, Impl: IContactAggregationManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, options: CONTACT_AGGREGATION_COLLECTION_OPTIONS, ppgroups: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_Groups<Identity: ::windows::core::IUnknownImpl, Impl: IContactAggregationManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, options: CONTACT_AGGREGATION_COLLECTION_OPTIONS, ppgroups: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).Groups(::core::mem::transmute_copy(&options)) {
+            match (*this).get_Groups(::core::mem::transmute_copy(&options)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppgroups = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1043,10 +1043,10 @@ impl IContactAggregationManager_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ServerContactLinks<Identity: ::windows::core::IUnknownImpl, Impl: IContactAggregationManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppersonitemid: ::windows::core::PCWSTR, ppservercontactlinkcollection: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_ServerContactLinks<Identity: ::windows::core::IUnknownImpl, Impl: IContactAggregationManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppersonitemid: ::windows::core::PCWSTR, ppservercontactlinkcollection: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).ServerContactLinks(::core::mem::transmute(&ppersonitemid)) {
+            match (*this).get_ServerContactLinks(::core::mem::transmute(&ppersonitemid)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppservercontactlinkcollection = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1066,11 +1066,11 @@ impl IContactAggregationManager_Vtbl {
             OpenContact: OpenContact::<Identity, Impl, OFFSET>,
             OpenServerContactLink: OpenServerContactLink::<Identity, Impl, OFFSET>,
             OpenServerPerson: OpenServerPerson::<Identity, Impl, OFFSET>,
-            Contacts: Contacts::<Identity, Impl, OFFSET>,
-            AggregateContacts: AggregateContacts::<Identity, Impl, OFFSET>,
-            Groups: Groups::<Identity, Impl, OFFSET>,
+            get_Contacts: get_Contacts::<Identity, Impl, OFFSET>,
+            get_AggregateContacts: get_AggregateContacts::<Identity, Impl, OFFSET>,
+            get_Groups: get_Groups::<Identity, Impl, OFFSET>,
             ServerPersons: ServerPersons::<Identity, Impl, OFFSET>,
-            ServerContactLinks: ServerContactLinks::<Identity, Impl, OFFSET>,
+            get_ServerContactLinks: get_ServerContactLinks::<Identity, Impl, OFFSET>,
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {

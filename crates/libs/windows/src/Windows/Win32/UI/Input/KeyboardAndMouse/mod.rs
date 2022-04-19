@@ -1195,7 +1195,7 @@ impl ::core::default::Default for MODIFIERS {
 pub struct MOUSEINPUT {
     pub dx: i32,
     pub dy: i32,
-    pub mouseData: u32,
+    pub mouseData: i32,
     pub dwFlags: MOUSE_EVENT_FLAGS,
     pub time: u32,
     pub dwExtraInfo: usize,

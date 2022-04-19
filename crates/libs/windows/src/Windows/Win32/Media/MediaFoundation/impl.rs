@@ -8454,7 +8454,7 @@ impl IMFMediaKeySession_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IMFMediaKeySession2_Impl: Sized + IMFMediaKeySession_Impl {
-    fn KeyStatuses(&self, pkeystatusesarray: *mut *mut MFMediaKeyStatus, pusize: *mut u32) -> ::windows::core::Result<()>;
+    fn get_KeyStatuses(&self, pkeystatusesarray: *mut *mut MFMediaKeyStatus, pusize: *mut u32) -> ::windows::core::Result<()>;
     fn Load(&self, bstrsessionid: &super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::Foundation::BOOL>;
     fn GenerateRequest(&self, initdatatype: &super::super::Foundation::BSTR, pbinitdata: *const u8, cb: u32) -> ::windows::core::Result<()>;
     fn Expiration(&self) -> ::windows::core::Result<f64>;
@@ -8464,10 +8464,10 @@ pub trait IMFMediaKeySession2_Impl: Sized + IMFMediaKeySession_Impl {
 #[cfg(feature = "Win32_Foundation")]
 impl IMFMediaKeySession2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFMediaKeySession2_Impl, const OFFSET: isize>() -> IMFMediaKeySession2_Vtbl {
-        unsafe extern "system" fn KeyStatuses<Identity: ::windows::core::IUnknownImpl, Impl: IMFMediaKeySession2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pkeystatusesarray: *mut *mut MFMediaKeyStatus, pusize: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_KeyStatuses<Identity: ::windows::core::IUnknownImpl, Impl: IMFMediaKeySession2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pkeystatusesarray: *mut *mut MFMediaKeyStatus, pusize: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).KeyStatuses(::core::mem::transmute_copy(&pkeystatusesarray), ::core::mem::transmute_copy(&pusize)).into()
+            (*this).get_KeyStatuses(::core::mem::transmute_copy(&pkeystatusesarray), ::core::mem::transmute_copy(&pusize)).into()
         }
         unsafe extern "system" fn Load<Identity: ::windows::core::IUnknownImpl, Impl: IMFMediaKeySession2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrsessionid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pfloaded: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -8508,7 +8508,7 @@ impl IMFMediaKeySession2_Vtbl {
         }
         Self {
             base__: IMFMediaKeySession_Vtbl::new::<Identity, Impl, OFFSET>(),
-            KeyStatuses: KeyStatuses::<Identity, Impl, OFFSET>,
+            get_KeyStatuses: get_KeyStatuses::<Identity, Impl, OFFSET>,
             Load: Load::<Identity, Impl, OFFSET>,
             GenerateRequest: GenerateRequest::<Identity, Impl, OFFSET>,
             Expiration: Expiration::<Identity, Impl, OFFSET>,

@@ -310,8 +310,6 @@ impl ::core::clone::Clone for DSM_NOTIFICATION_REQUEST_BLOCK {
         *self
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
-pub type DUMP_DEVICE_POWERON_ROUTINE = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void) -> i32>;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
 pub struct DUMP_DRIVER {
@@ -1641,7 +1639,7 @@ pub const NVSEPWriteCacheTypeWriteBack: NV_SEP_WRITE_CACHE_TYPE = 2i32;
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
 pub const NVSEPWriteCacheTypeWriteThrough: NV_SEP_WRITE_CACHE_TYPE = 3i32;
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
-pub type PDUMP_DEVICE_POWERON_ROUTINE = ::core::option::Option<unsafe extern "system" fn() -> i32>;
+pub type PDUMP_DEVICE_POWERON_ROUTINE = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void) -> i32>;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

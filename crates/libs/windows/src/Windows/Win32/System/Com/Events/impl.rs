@@ -434,7 +434,7 @@ impl IEventObjectChange2_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
 pub trait IEventObjectCollection_Impl: Sized + super::IDispatch_Impl {
     fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn Item(&self, objectid: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<super::VARIANT>;
+    fn get_Item(&self, objectid: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<super::VARIANT>;
     fn NewEnum(&self) -> ::windows::core::Result<IEnumEventObject>;
     fn Count(&self) -> ::windows::core::Result<i32>;
     fn Add(&self, item: *const super::VARIANT, objectid: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
@@ -454,10 +454,10 @@ impl IEventObjectCollection_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Item<Identity: ::windows::core::IUnknownImpl, Impl: IEventObjectCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, objectid: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, pitem: *mut super::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_Item<Identity: ::windows::core::IUnknownImpl, Impl: IEventObjectCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, objectid: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, pitem: *mut super::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).Item(::core::mem::transmute(&objectid)) {
+            match (*this).get_Item(::core::mem::transmute(&objectid)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pitem = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -500,7 +500,7 @@ impl IEventObjectCollection_Vtbl {
         Self {
             base__: super::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
-            Item: Item::<Identity, Impl, OFFSET>,
+            get_Item: get_Item::<Identity, Impl, OFFSET>,
             NewEnum: NewEnum::<Identity, Impl, OFFSET>,
             Count: Count::<Identity, Impl, OFFSET>,
             Add: Add::<Identity, Impl, OFFSET>,

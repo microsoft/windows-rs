@@ -1391,6 +1391,11 @@ unsafe impl ::windows::core::Abi for HANDLE {
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct HINSTANCE(pub isize);
+impl HINSTANCE {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == 0
+    }
+}
 impl ::core::default::Default for HINSTANCE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -1846,14 +1851,15 @@ pub unsafe fn GetProcAddress<'a, Param0: ::windows::core::IntoParam<'a, HINSTANC
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn LoadLibraryA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(lplibfilename: Param0) -> HINSTANCE {
+pub unsafe fn LoadLibraryA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(lplibfilename: Param0) -> ::windows::core::Result<HINSTANCE> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn LoadLibraryA(lplibfilename: ::windows::core::PCSTR) -> HINSTANCE;
         }
-        ::core::mem::transmute(LoadLibraryA(lplibfilename.into_param().abi()))
+        let result__ = LoadLibraryA(lplibfilename.into_param().abi());
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

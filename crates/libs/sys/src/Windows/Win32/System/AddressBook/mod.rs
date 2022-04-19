@@ -689,9 +689,6 @@ impl ::core::clone::Clone for FLATMTSIDLIST {
         *self
     }
 }
-#[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub type FNIDLE = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
 pub type Gender = i32;
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
@@ -1111,7 +1108,7 @@ impl ::core::clone::Clone for OBJECT_NOTIFICATION {
 pub const OPENSTREAMONFILE: &'static str = "OpenStreamOnFile";
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type PFNIDLE = ::core::option::Option<unsafe extern "system" fn() -> super::super::Foundation::BOOL>;
+pub type PFNIDLE = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
 pub const PRIHIGHEST: u32 = 32767u32;
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]

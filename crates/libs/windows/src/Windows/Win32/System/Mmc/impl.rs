@@ -172,7 +172,7 @@ impl Columns_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ContextMenu_Impl: Sized + super::Com::IDispatch_Impl {
     fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn Item(&self, indexorpath: &super::Com::VARIANT) -> ::windows::core::Result<MenuItem>;
+    fn get_Item(&self, indexorpath: &super::Com::VARIANT) -> ::windows::core::Result<MenuItem>;
     fn Count(&self) -> ::windows::core::Result<i32>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -189,10 +189,10 @@ impl ContextMenu_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Item<Identity: ::windows::core::IUnknownImpl, Impl: ContextMenu_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, indexorpath: ::core::mem::ManuallyDrop<super::Com::VARIANT>, menuitem: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_Item<Identity: ::windows::core::IUnknownImpl, Impl: ContextMenu_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, indexorpath: ::core::mem::ManuallyDrop<super::Com::VARIANT>, menuitem: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).Item(::core::mem::transmute(&indexorpath)) {
+            match (*this).get_Item(::core::mem::transmute(&indexorpath)) {
                 ::core::result::Result::Ok(ok__) => {
                     *menuitem = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -214,7 +214,7 @@ impl ContextMenu_Vtbl {
         Self {
             base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
-            Item: Item::<Identity, Impl, OFFSET>,
+            get_Item: get_Item::<Identity, Impl, OFFSET>,
             Count: Count::<Identity, Impl, OFFSET>,
         }
     }
@@ -2716,7 +2716,7 @@ impl MenuItem_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait Node_Impl: Sized + super::Com::IDispatch_Impl {
     fn Name(&self) -> ::windows::core::Result<*mut u16>;
-    fn Property(&self, propertyname: &super::super::Foundation::BSTR) -> ::windows::core::Result<*mut u16>;
+    fn get_Property(&self, propertyname: &super::super::Foundation::BSTR) -> ::windows::core::Result<*mut u16>;
     fn Bookmark(&self) -> ::windows::core::Result<*mut u16>;
     fn IsScopeNode(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
     fn Nodetype(&self) -> ::windows::core::Result<*mut u16>;
@@ -2735,10 +2735,10 @@ impl Node_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Property<Identity: ::windows::core::IUnknownImpl, Impl: Node_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertyname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, propertyvalue: *mut *mut u16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_Property<Identity: ::windows::core::IUnknownImpl, Impl: Node_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertyname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, propertyvalue: *mut *mut u16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).Property(::core::mem::transmute(&propertyname)) {
+            match (*this).get_Property(::core::mem::transmute(&propertyname)) {
                 ::core::result::Result::Ok(ok__) => {
                     *propertyvalue = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -2782,7 +2782,7 @@ impl Node_Vtbl {
         Self {
             base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Name: Name::<Identity, Impl, OFFSET>,
-            Property: Property::<Identity, Impl, OFFSET>,
+            get_Property: get_Property::<Identity, Impl, OFFSET>,
             Bookmark: Bookmark::<Identity, Impl, OFFSET>,
             IsScopeNode: IsScopeNode::<Identity, Impl, OFFSET>,
             Nodetype: Nodetype::<Identity, Impl, OFFSET>,
@@ -3219,7 +3219,7 @@ pub trait View_Impl: Sized + super::Com::IDispatch_Impl {
     fn DeleteSelection(&self) -> ::windows::core::Result<()>;
     fn RenameScopeNode(&self, newname: &super::super::Foundation::BSTR, scopenode: &super::Com::VARIANT) -> ::windows::core::Result<()>;
     fn RenameSelectedItem(&self, newname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn ScopeNodeContextMenu(&self, scopenode: &super::Com::VARIANT) -> ::windows::core::Result<ContextMenu>;
+    fn get_ScopeNodeContextMenu(&self, scopenode: &super::Com::VARIANT) -> ::windows::core::Result<ContextMenu>;
     fn SelectionContextMenu(&self) -> ::windows::core::Result<ContextMenu>;
     fn RefreshScopeNode(&self, scopenode: &super::Com::VARIANT) -> ::windows::core::Result<()>;
     fn RefreshSelection(&self) -> ::windows::core::Result<()>;
@@ -3236,7 +3236,7 @@ pub trait View_Impl: Sized + super::Com::IDispatch_Impl {
     fn Memento(&self) -> ::windows::core::Result<*mut u16>;
     fn ViewMemento(&self, memento: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn Columns(&self) -> ::windows::core::Result<Columns>;
-    fn CellContents(&self, node: &::core::option::Option<Node>, column: i32) -> ::windows::core::Result<*mut u16>;
+    fn get_CellContents(&self, node: &::core::option::Option<Node>, column: i32) -> ::windows::core::Result<*mut u16>;
     fn ExportList(&self, file: &super::super::Foundation::BSTR, exportoptions: _ExportListOptions) -> ::windows::core::Result<()>;
     fn ListViewMode(&self) -> ::windows::core::Result<_ListViewMode>;
     fn SetListViewMode(&self, mode: _ListViewMode) -> ::windows::core::Result<()>;
@@ -3393,10 +3393,10 @@ impl View_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).RenameSelectedItem(::core::mem::transmute(&newname)).into()
         }
-        unsafe extern "system" fn ScopeNodeContextMenu<Identity: ::windows::core::IUnknownImpl, Impl: View_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, scopenode: ::core::mem::ManuallyDrop<super::Com::VARIANT>, contextmenu: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_ScopeNodeContextMenu<Identity: ::windows::core::IUnknownImpl, Impl: View_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, scopenode: ::core::mem::ManuallyDrop<super::Com::VARIANT>, contextmenu: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).ScopeNodeContextMenu(::core::mem::transmute(&scopenode)) {
+            match (*this).get_ScopeNodeContextMenu(::core::mem::transmute(&scopenode)) {
                 ::core::result::Result::Ok(ok__) => {
                     *contextmenu = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -3514,10 +3514,10 @@ impl View_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CellContents<Identity: ::windows::core::IUnknownImpl, Impl: View_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, node: ::windows::core::RawPtr, column: i32, cellcontents: *mut *mut u16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_CellContents<Identity: ::windows::core::IUnknownImpl, Impl: View_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, node: ::windows::core::RawPtr, column: i32, cellcontents: *mut *mut u16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).CellContents(::core::mem::transmute(&node), ::core::mem::transmute_copy(&column)) {
+            match (*this).get_CellContents(::core::mem::transmute(&node), ::core::mem::transmute_copy(&column)) {
                 ::core::result::Result::Ok(ok__) => {
                     *cellcontents = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -3579,7 +3579,7 @@ impl View_Vtbl {
             DeleteSelection: DeleteSelection::<Identity, Impl, OFFSET>,
             RenameScopeNode: RenameScopeNode::<Identity, Impl, OFFSET>,
             RenameSelectedItem: RenameSelectedItem::<Identity, Impl, OFFSET>,
-            ScopeNodeContextMenu: ScopeNodeContextMenu::<Identity, Impl, OFFSET>,
+            get_ScopeNodeContextMenu: get_ScopeNodeContextMenu::<Identity, Impl, OFFSET>,
             SelectionContextMenu: SelectionContextMenu::<Identity, Impl, OFFSET>,
             RefreshScopeNode: RefreshScopeNode::<Identity, Impl, OFFSET>,
             RefreshSelection: RefreshSelection::<Identity, Impl, OFFSET>,
@@ -3596,7 +3596,7 @@ impl View_Vtbl {
             Memento: Memento::<Identity, Impl, OFFSET>,
             ViewMemento: ViewMemento::<Identity, Impl, OFFSET>,
             Columns: Columns::<Identity, Impl, OFFSET>,
-            CellContents: CellContents::<Identity, Impl, OFFSET>,
+            get_CellContents: get_CellContents::<Identity, Impl, OFFSET>,
             ExportList: ExportList::<Identity, Impl, OFFSET>,
             ListViewMode: ListViewMode::<Identity, Impl, OFFSET>,
             SetListViewMode: SetListViewMode::<Identity, Impl, OFFSET>,

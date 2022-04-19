@@ -1089,7 +1089,7 @@ pub trait ITsSbClientConnection_Impl: Sized {
     fn PutContext(&self, contextid: &super::super::Foundation::BSTR, context: &super::Com::VARIANT) -> ::windows::core::Result<super::Com::VARIANT>;
     fn GetContext(&self, contextid: &super::super::Foundation::BSTR) -> ::windows::core::Result<super::Com::VARIANT>;
     fn Environment(&self) -> ::windows::core::Result<ITsSbEnvironment>;
-    fn ConnectionError(&self) -> ::windows::core::Result<()>;
+    fn get_ConnectionError(&self) -> ::windows::core::Result<()>;
     fn SamUserAccount(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn ClientConnectionPropertySet(&self) -> ::windows::core::Result<ITsSbClientConnectionPropertySet>;
     fn IsFirstAssignment(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
@@ -1188,10 +1188,10 @@ impl ITsSbClientConnection_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ConnectionError<Identity: ::windows::core::IUnknownImpl, Impl: ITsSbClientConnection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_ConnectionError<Identity: ::windows::core::IUnknownImpl, Impl: ITsSbClientConnection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).ConnectionError().into()
+            (*this).get_ConnectionError().into()
         }
         unsafe extern "system" fn SamUserAccount<Identity: ::windows::core::IUnknownImpl, Impl: ITsSbClientConnection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -1269,7 +1269,7 @@ impl ITsSbClientConnection_Vtbl {
             PutContext: PutContext::<Identity, Impl, OFFSET>,
             GetContext: GetContext::<Identity, Impl, OFFSET>,
             Environment: Environment::<Identity, Impl, OFFSET>,
-            ConnectionError: ConnectionError::<Identity, Impl, OFFSET>,
+            get_ConnectionError: get_ConnectionError::<Identity, Impl, OFFSET>,
             SamUserAccount: SamUserAccount::<Identity, Impl, OFFSET>,
             ClientConnectionPropertySet: ClientConnectionPropertySet::<Identity, Impl, OFFSET>,
             IsFirstAssignment: IsFirstAssignment::<Identity, Impl, OFFSET>,
@@ -2537,8 +2537,8 @@ pub trait ITsSbTarget_Impl: Sized {
     fn SetTargetFQDN(&self, val: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn TargetNetbios(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn SetTargetNetbios(&self, val: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn IpAddresses(&self, sockaddr: *mut TSSD_ConnectionPoint, numaddresses: *mut u32) -> ::windows::core::Result<()>;
-    fn SetIpAddresses(&self, sockaddr: *const TSSD_ConnectionPoint, numaddresses: u32) -> ::windows::core::Result<()>;
+    fn get_IpAddresses(&self, sockaddr: *mut TSSD_ConnectionPoint, numaddresses: *mut u32) -> ::windows::core::Result<()>;
+    fn put_IpAddresses(&self, sockaddr: *const TSSD_ConnectionPoint, numaddresses: u32) -> ::windows::core::Result<()>;
     fn TargetState(&self) -> ::windows::core::Result<TARGET_STATE>;
     fn SetTargetState(&self, state: TARGET_STATE) -> ::windows::core::Result<()>;
     fn TargetPropertySet(&self) -> ::windows::core::Result<ITsSbTargetPropertySet>;
@@ -2616,15 +2616,15 @@ impl ITsSbTarget_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).SetTargetNetbios(::core::mem::transmute(&val)).into()
         }
-        unsafe extern "system" fn IpAddresses<Identity: ::windows::core::IUnknownImpl, Impl: ITsSbTarget_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sockaddr: *mut TSSD_ConnectionPoint, numaddresses: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_IpAddresses<Identity: ::windows::core::IUnknownImpl, Impl: ITsSbTarget_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sockaddr: *mut TSSD_ConnectionPoint, numaddresses: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).IpAddresses(::core::mem::transmute_copy(&sockaddr), ::core::mem::transmute_copy(&numaddresses)).into()
+            (*this).get_IpAddresses(::core::mem::transmute_copy(&sockaddr), ::core::mem::transmute_copy(&numaddresses)).into()
         }
-        unsafe extern "system" fn SetIpAddresses<Identity: ::windows::core::IUnknownImpl, Impl: ITsSbTarget_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sockaddr: *const TSSD_ConnectionPoint, numaddresses: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn put_IpAddresses<Identity: ::windows::core::IUnknownImpl, Impl: ITsSbTarget_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sockaddr: *const TSSD_ConnectionPoint, numaddresses: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetIpAddresses(::core::mem::transmute_copy(&sockaddr), ::core::mem::transmute_copy(&numaddresses)).into()
+            (*this).put_IpAddresses(::core::mem::transmute_copy(&sockaddr), ::core::mem::transmute_copy(&numaddresses)).into()
         }
         unsafe extern "system" fn TargetState<Identity: ::windows::core::IUnknownImpl, Impl: ITsSbTarget_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pstate: *mut TARGET_STATE) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -2717,8 +2717,8 @@ impl ITsSbTarget_Vtbl {
             SetTargetFQDN: SetTargetFQDN::<Identity, Impl, OFFSET>,
             TargetNetbios: TargetNetbios::<Identity, Impl, OFFSET>,
             SetTargetNetbios: SetTargetNetbios::<Identity, Impl, OFFSET>,
-            IpAddresses: IpAddresses::<Identity, Impl, OFFSET>,
-            SetIpAddresses: SetIpAddresses::<Identity, Impl, OFFSET>,
+            get_IpAddresses: get_IpAddresses::<Identity, Impl, OFFSET>,
+            put_IpAddresses: put_IpAddresses::<Identity, Impl, OFFSET>,
             TargetState: TargetState::<Identity, Impl, OFFSET>,
             SetTargetState: SetTargetState::<Identity, Impl, OFFSET>,
             TargetPropertySet: TargetPropertySet::<Identity, Impl, OFFSET>,

@@ -491,9 +491,9 @@ extern "system" {
     #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
     pub fn MFTEnum(guidcategory: ::windows_sys::core::GUID, flags: u32, pinputtype: *const MFT_REGISTER_TYPE_INFO, poutputtype: *const MFT_REGISTER_TYPE_INFO, pattributes: IMFAttributes, ppclsidmft: *mut *mut ::windows_sys::core::GUID, pcmfts: *mut u32) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
-    pub fn MFTEnum2(guidcategory: ::windows_sys::core::GUID, flags: u32, pinputtype: *const MFT_REGISTER_TYPE_INFO, poutputtype: *const MFT_REGISTER_TYPE_INFO, pattributes: IMFAttributes, pppmftactivate: *mut *mut IMFActivate, pnummftactivate: *mut u32) -> ::windows_sys::core::HRESULT;
+    pub fn MFTEnum2(guidcategory: ::windows_sys::core::GUID, flags: MFT_ENUM_FLAG, pinputtype: *const MFT_REGISTER_TYPE_INFO, poutputtype: *const MFT_REGISTER_TYPE_INFO, pattributes: IMFAttributes, pppmftactivate: *mut *mut IMFActivate, pnummftactivate: *mut u32) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
-    pub fn MFTEnumEx(guidcategory: ::windows_sys::core::GUID, flags: u32, pinputtype: *const MFT_REGISTER_TYPE_INFO, poutputtype: *const MFT_REGISTER_TYPE_INFO, pppmftactivate: *mut *mut IMFActivate, pnummftactivate: *mut u32) -> ::windows_sys::core::HRESULT;
+    pub fn MFTEnumEx(guidcategory: ::windows_sys::core::GUID, flags: MFT_ENUM_FLAG, pinputtype: *const MFT_REGISTER_TYPE_INFO, poutputtype: *const MFT_REGISTER_TYPE_INFO, pppmftactivate: *mut *mut IMFActivate, pnummftactivate: *mut u32) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
     pub fn MFTGetInfo(clsidmft: ::windows_sys::core::GUID, pszname: *mut ::windows_sys::core::PWSTR, ppinputtypes: *mut *mut MFT_REGISTER_TYPE_INFO, pcinputtypes: *mut u32, ppoutputtypes: *mut *mut MFT_REGISTER_TYPE_INFO, pcoutputtypes: *mut u32, ppattributes: *mut IMFAttributes) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
@@ -4280,9 +4280,9 @@ impl ::core::clone::Clone for DEVICE_INFO {
         *self
     }
 }
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const DEVPKEY_DeviceInterface_IsVirtualCamera: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 1859937037, data2: 49891, data3: 17335, data4: [178, 209, 32, 82, 90, 26, 241, 32] }, pid: 3u32 };
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Devices_Properties\"`*"]
+#[cfg(feature = "Win32_Devices_Properties")]
+pub const DEVPKEY_DeviceInterface_IsVirtualCamera: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_sys::core::GUID { data1: 1859937037, data2: 49891, data3: 17335, data4: [178, 209, 32, 82, 90, 26, 241, 32] }, pid: 3u32 };
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -8716,6 +8716,32 @@ pub const MFT_ENCODER_ERROR: ::windows_sys::core::GUID = ::windows_sys::core::GU
 pub const MFT_ENCODER_SUPPORTS_CONFIG_EVENT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2258851246, data2: 14967, data3: 20164, data4: [159, 49, 1, 20, 154, 78, 146, 222] };
 pub const MFT_END_STREAMING_AWARE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1895548997, data2: 45182, data3: 16521, data4: [176, 100, 57, 157, 198, 17, 15, 41] };
 pub const MFT_ENUM_ADAPTER_LUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 490295692, data2: 57888, data3: 19880, data4: [160, 127, 186, 23, 37, 82, 214, 177] };
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub type MFT_ENUM_FLAG = u32;
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const MFT_ENUM_FLAG_SYNCMFT: MFT_ENUM_FLAG = 1u32;
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const MFT_ENUM_FLAG_ASYNCMFT: MFT_ENUM_FLAG = 2u32;
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const MFT_ENUM_FLAG_HARDWARE: MFT_ENUM_FLAG = 4u32;
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const MFT_ENUM_FLAG_FIELDOFUSE: MFT_ENUM_FLAG = 8u32;
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const MFT_ENUM_FLAG_LOCALMFT: MFT_ENUM_FLAG = 16u32;
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const MFT_ENUM_FLAG_TRANSCODE_ONLY: MFT_ENUM_FLAG = 32u32;
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const MFT_ENUM_FLAG_SORTANDFILTER: MFT_ENUM_FLAG = 64u32;
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const MFT_ENUM_FLAG_SORTANDFILTER_APPROVED_ONLY: MFT_ENUM_FLAG = 192u32;
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const MFT_ENUM_FLAG_SORTANDFILTER_WEB_ONLY: MFT_ENUM_FLAG = 320u32;
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const MFT_ENUM_FLAG_SORTANDFILTER_WEB_ONLY_EDGEMODE: MFT_ENUM_FLAG = 576u32;
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const MFT_ENUM_FLAG_UNTRUSTED_STOREMFT: MFT_ENUM_FLAG = 1024u32;
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const MFT_ENUM_FLAG_ALL: MFT_ENUM_FLAG = 63u32;
 pub const MFT_ENUM_HARDWARE_URL_Attribute: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 800614060, data2: 45176, data3: 18754, data4: [171, 108, 0, 61, 5, 205, 166, 116] };
 pub const MFT_ENUM_HARDWARE_VENDOR_ID_Attribute: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 988590284, data2: 859, data3: 19404, data4: [129, 133, 43, 141, 85, 30, 243, 175] };
 pub const MFT_ENUM_TRANSCODE_ONLY_ATTRIBUTE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 287221965, data2: 46634, data3: 19419, data4: [137, 246, 103, 255, 205, 194, 69, 139] };
@@ -13038,32 +13064,6 @@ pub const MFP_MEDIAITEM_CAN_SEEK: _MFP_MEDIAITEM_CHARACTERISTICS = 2i32;
 pub const MFP_MEDIAITEM_CAN_PAUSE: _MFP_MEDIAITEM_CHARACTERISTICS = 4i32;
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MFP_MEDIAITEM_HAS_SLOW_SEEK: _MFP_MEDIAITEM_CHARACTERISTICS = 8i32;
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
-pub type _MFT_ENUM_FLAG = i32;
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
-pub const MFT_ENUM_FLAG_SYNCMFT: _MFT_ENUM_FLAG = 1i32;
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
-pub const MFT_ENUM_FLAG_ASYNCMFT: _MFT_ENUM_FLAG = 2i32;
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
-pub const MFT_ENUM_FLAG_HARDWARE: _MFT_ENUM_FLAG = 4i32;
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
-pub const MFT_ENUM_FLAG_FIELDOFUSE: _MFT_ENUM_FLAG = 8i32;
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
-pub const MFT_ENUM_FLAG_LOCALMFT: _MFT_ENUM_FLAG = 16i32;
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
-pub const MFT_ENUM_FLAG_TRANSCODE_ONLY: _MFT_ENUM_FLAG = 32i32;
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
-pub const MFT_ENUM_FLAG_SORTANDFILTER: _MFT_ENUM_FLAG = 64i32;
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
-pub const MFT_ENUM_FLAG_SORTANDFILTER_APPROVED_ONLY: _MFT_ENUM_FLAG = 192i32;
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
-pub const MFT_ENUM_FLAG_SORTANDFILTER_WEB_ONLY: _MFT_ENUM_FLAG = 320i32;
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
-pub const MFT_ENUM_FLAG_SORTANDFILTER_WEB_ONLY_EDGEMODE: _MFT_ENUM_FLAG = 576i32;
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
-pub const MFT_ENUM_FLAG_UNTRUSTED_STOREMFT: _MFT_ENUM_FLAG = 1024i32;
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
-pub const MFT_ENUM_FLAG_ALL: _MFT_ENUM_FLAG = 63i32;
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub type _MFT_INPUT_DATA_BUFFER_FLAGS = i32;
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]

@@ -2505,7 +2505,7 @@ impl IWMPContentPartnerCallback_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IWMPControls_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn isAvailable(&self, bstritem: &super::super::Foundation::BSTR, pisavailable: *mut i16) -> ::windows::core::Result<()>;
+    fn get_isAvailable(&self, bstritem: &super::super::Foundation::BSTR, pisavailable: *mut i16) -> ::windows::core::Result<()>;
     fn play(&self) -> ::windows::core::Result<()>;
     fn stop(&self) -> ::windows::core::Result<()>;
     fn pause(&self) -> ::windows::core::Result<()>;
@@ -2525,10 +2525,10 @@ pub trait IWMPControls_Impl: Sized + super::super::System::Com::IDispatch_Impl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWMPControls_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMPControls_Impl, const OFFSET: isize>() -> IWMPControls_Vtbl {
-        unsafe extern "system" fn isAvailable<Identity: ::windows::core::IUnknownImpl, Impl: IWMPControls_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstritem: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pisavailable: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_isAvailable<Identity: ::windows::core::IUnknownImpl, Impl: IWMPControls_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstritem: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pisavailable: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).isAvailable(::core::mem::transmute(&bstritem), ::core::mem::transmute_copy(&pisavailable)).into()
+            (*this).get_isAvailable(::core::mem::transmute(&bstritem), ::core::mem::transmute_copy(&pisavailable)).into()
         }
         unsafe extern "system" fn play<Identity: ::windows::core::IUnknownImpl, Impl: IWMPControls_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -2613,7 +2613,7 @@ impl IWMPControls_Vtbl {
         }
         Self {
             base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
-            isAvailable: isAvailable::<Identity, Impl, OFFSET>,
+            get_isAvailable: get_isAvailable::<Identity, Impl, OFFSET>,
             play: play::<Identity, Impl, OFFSET>,
             stop: stop::<Identity, Impl, OFFSET>,
             pause: pause::<Identity, Impl, OFFSET>,
@@ -3052,7 +3052,7 @@ impl IWMPCore3_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IWMPDVD_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn isAvailable(&self, bstritem: &super::super::Foundation::BSTR, pisavailable: *mut i16) -> ::windows::core::Result<()>;
+    fn get_isAvailable(&self, bstritem: &super::super::Foundation::BSTR, pisavailable: *mut i16) -> ::windows::core::Result<()>;
     fn domain(&self, strdomain: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn topMenu(&self) -> ::windows::core::Result<()>;
     fn titleMenu(&self) -> ::windows::core::Result<()>;
@@ -3062,10 +3062,10 @@ pub trait IWMPDVD_Impl: Sized + super::super::System::Com::IDispatch_Impl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWMPDVD_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMPDVD_Impl, const OFFSET: isize>() -> IWMPDVD_Vtbl {
-        unsafe extern "system" fn isAvailable<Identity: ::windows::core::IUnknownImpl, Impl: IWMPDVD_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstritem: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pisavailable: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_isAvailable<Identity: ::windows::core::IUnknownImpl, Impl: IWMPDVD_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstritem: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pisavailable: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).isAvailable(::core::mem::transmute(&bstritem), ::core::mem::transmute_copy(&pisavailable)).into()
+            (*this).get_isAvailable(::core::mem::transmute(&bstritem), ::core::mem::transmute_copy(&pisavailable)).into()
         }
         unsafe extern "system" fn domain<Identity: ::windows::core::IUnknownImpl, Impl: IWMPDVD_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strdomain: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -3094,7 +3094,7 @@ impl IWMPDVD_Vtbl {
         }
         Self {
             base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
-            isAvailable: isAvailable::<Identity, Impl, OFFSET>,
+            get_isAvailable: get_isAvailable::<Identity, Impl, OFFSET>,
             domain: domain::<Identity, Impl, OFFSET>,
             topMenu: topMenu::<Identity, Impl, OFFSET>,
             titleMenu: titleMenu::<Identity, Impl, OFFSET>,
@@ -3453,7 +3453,7 @@ impl IWMPEffects2_Vtbl {
 pub trait IWMPError_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn clearErrorQueue(&self) -> ::windows::core::Result<()>;
     fn errorCount(&self, plnumerrors: *mut i32) -> ::windows::core::Result<()>;
-    fn item(&self, dwindex: i32) -> ::windows::core::Result<IWMPErrorItem>;
+    fn get_item(&self, dwindex: i32) -> ::windows::core::Result<IWMPErrorItem>;
     fn webHelp(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3469,10 +3469,10 @@ impl IWMPError_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).errorCount(::core::mem::transmute_copy(&plnumerrors)).into()
         }
-        unsafe extern "system" fn item<Identity: ::windows::core::IUnknownImpl, Impl: IWMPError_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwindex: i32, pperroritem: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_item<Identity: ::windows::core::IUnknownImpl, Impl: IWMPError_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwindex: i32, pperroritem: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).item(::core::mem::transmute_copy(&dwindex)) {
+            match (*this).get_item(::core::mem::transmute_copy(&dwindex)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pperroritem = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -3489,7 +3489,7 @@ impl IWMPError_Vtbl {
             base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             clearErrorQueue: clearErrorQueue::<Identity, Impl, OFFSET>,
             errorCount: errorCount::<Identity, Impl, OFFSET>,
-            item: item::<Identity, Impl, OFFSET>,
+            get_item: get_item::<Identity, Impl, OFFSET>,
             webHelp: webHelp::<Identity, Impl, OFFSET>,
         }
     }
@@ -4315,7 +4315,7 @@ impl IWMPLibrarySharingServices_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IWMPMedia_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn isIdentical(&self, piwmpmedia: &::core::option::Option<IWMPMedia>, pvbool: *mut i16) -> ::windows::core::Result<()>;
+    fn get_isIdentical(&self, piwmpmedia: &::core::option::Option<IWMPMedia>, pvbool: *mut i16) -> ::windows::core::Result<()>;
     fn sourceURL(&self, pbstrsourceurl: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn name(&self, pbstrname: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn Setname(&self, bstrname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
@@ -4337,10 +4337,10 @@ pub trait IWMPMedia_Impl: Sized + super::super::System::Com::IDispatch_Impl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWMPMedia_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMPMedia_Impl, const OFFSET: isize>() -> IWMPMedia_Vtbl {
-        unsafe extern "system" fn isIdentical<Identity: ::windows::core::IUnknownImpl, Impl: IWMPMedia_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, piwmpmedia: ::windows::core::RawPtr, pvbool: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_isIdentical<Identity: ::windows::core::IUnknownImpl, Impl: IWMPMedia_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, piwmpmedia: ::windows::core::RawPtr, pvbool: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).isIdentical(::core::mem::transmute(&piwmpmedia), ::core::mem::transmute_copy(&pvbool)).into()
+            (*this).get_isIdentical(::core::mem::transmute(&piwmpmedia), ::core::mem::transmute_copy(&pvbool)).into()
         }
         unsafe extern "system" fn sourceURL<Identity: ::windows::core::IUnknownImpl, Impl: IWMPMedia_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrsourceurl: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -4429,7 +4429,7 @@ impl IWMPMedia_Vtbl {
         }
         Self {
             base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
-            isIdentical: isIdentical::<Identity, Impl, OFFSET>,
+            get_isIdentical: get_isIdentical::<Identity, Impl, OFFSET>,
             sourceURL: sourceURL::<Identity, Impl, OFFSET>,
             name: name::<Identity, Impl, OFFSET>,
             Setname: Setname::<Identity, Impl, OFFSET>,
@@ -5692,11 +5692,11 @@ pub trait IWMPPlaylist_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn name(&self, pbstrname: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn Setname(&self, bstrname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn attributeCount(&self, plcount: *mut i32) -> ::windows::core::Result<()>;
-    fn attributeName(&self, lindex: i32, pbstrattributename: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn item(&self, lindex: i32) -> ::windows::core::Result<IWMPMedia>;
+    fn get_attributeName(&self, lindex: i32, pbstrattributename: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn get_item(&self, lindex: i32) -> ::windows::core::Result<IWMPMedia>;
     fn getItemInfo(&self, bstrname: &super::super::Foundation::BSTR, pbstrval: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn setItemInfo(&self, bstrname: &super::super::Foundation::BSTR, bstrvalue: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn isIdentical(&self, piwmpplaylist: &::core::option::Option<IWMPPlaylist>, pvbool: *mut i16) -> ::windows::core::Result<()>;
+    fn get_isIdentical(&self, piwmpplaylist: &::core::option::Option<IWMPPlaylist>, pvbool: *mut i16) -> ::windows::core::Result<()>;
     fn clear(&self) -> ::windows::core::Result<()>;
     fn insertItem(&self, lindex: i32, piwmpmedia: &::core::option::Option<IWMPMedia>) -> ::windows::core::Result<()>;
     fn appendItem(&self, piwmpmedia: &::core::option::Option<IWMPMedia>) -> ::windows::core::Result<()>;
@@ -5726,15 +5726,15 @@ impl IWMPPlaylist_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).attributeCount(::core::mem::transmute_copy(&plcount)).into()
         }
-        unsafe extern "system" fn attributeName<Identity: ::windows::core::IUnknownImpl, Impl: IWMPPlaylist_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lindex: i32, pbstrattributename: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_attributeName<Identity: ::windows::core::IUnknownImpl, Impl: IWMPPlaylist_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lindex: i32, pbstrattributename: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).attributeName(::core::mem::transmute_copy(&lindex), ::core::mem::transmute_copy(&pbstrattributename)).into()
+            (*this).get_attributeName(::core::mem::transmute_copy(&lindex), ::core::mem::transmute_copy(&pbstrattributename)).into()
         }
-        unsafe extern "system" fn item<Identity: ::windows::core::IUnknownImpl, Impl: IWMPPlaylist_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lindex: i32, ppiwmpmedia: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_item<Identity: ::windows::core::IUnknownImpl, Impl: IWMPPlaylist_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lindex: i32, ppiwmpmedia: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).item(::core::mem::transmute_copy(&lindex)) {
+            match (*this).get_item(::core::mem::transmute_copy(&lindex)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppiwmpmedia = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -5752,10 +5752,10 @@ impl IWMPPlaylist_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).setItemInfo(::core::mem::transmute(&bstrname), ::core::mem::transmute(&bstrvalue)).into()
         }
-        unsafe extern "system" fn isIdentical<Identity: ::windows::core::IUnknownImpl, Impl: IWMPPlaylist_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, piwmpplaylist: ::windows::core::RawPtr, pvbool: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_isIdentical<Identity: ::windows::core::IUnknownImpl, Impl: IWMPPlaylist_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, piwmpplaylist: ::windows::core::RawPtr, pvbool: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).isIdentical(::core::mem::transmute(&piwmpplaylist), ::core::mem::transmute_copy(&pvbool)).into()
+            (*this).get_isIdentical(::core::mem::transmute(&piwmpplaylist), ::core::mem::transmute_copy(&pvbool)).into()
         }
         unsafe extern "system" fn clear<Identity: ::windows::core::IUnknownImpl, Impl: IWMPPlaylist_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -5788,11 +5788,11 @@ impl IWMPPlaylist_Vtbl {
             name: name::<Identity, Impl, OFFSET>,
             Setname: Setname::<Identity, Impl, OFFSET>,
             attributeCount: attributeCount::<Identity, Impl, OFFSET>,
-            attributeName: attributeName::<Identity, Impl, OFFSET>,
-            item: item::<Identity, Impl, OFFSET>,
+            get_attributeName: get_attributeName::<Identity, Impl, OFFSET>,
+            get_item: get_item::<Identity, Impl, OFFSET>,
             getItemInfo: getItemInfo::<Identity, Impl, OFFSET>,
             setItemInfo: setItemInfo::<Identity, Impl, OFFSET>,
-            isIdentical: isIdentical::<Identity, Impl, OFFSET>,
+            get_isIdentical: get_isIdentical::<Identity, Impl, OFFSET>,
             clear: clear::<Identity, Impl, OFFSET>,
             insertItem: insertItem::<Identity, Impl, OFFSET>,
             appendItem: appendItem::<Identity, Impl, OFFSET>,
@@ -6196,7 +6196,7 @@ impl IWMPServices_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IWMPSettings_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn isAvailable(&self, bstritem: &super::super::Foundation::BSTR, pisavailable: *mut i16) -> ::windows::core::Result<()>;
+    fn get_isAvailable(&self, bstritem: &super::super::Foundation::BSTR, pisavailable: *mut i16) -> ::windows::core::Result<()>;
     fn autoStart(&self, pfautostart: *mut i16) -> ::windows::core::Result<()>;
     fn SetautoStart(&self, fautostart: i16) -> ::windows::core::Result<()>;
     fn baseURL(&self, pbstrbaseurl: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
@@ -6223,10 +6223,10 @@ pub trait IWMPSettings_Impl: Sized + super::super::System::Com::IDispatch_Impl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWMPSettings_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMPSettings_Impl, const OFFSET: isize>() -> IWMPSettings_Vtbl {
-        unsafe extern "system" fn isAvailable<Identity: ::windows::core::IUnknownImpl, Impl: IWMPSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstritem: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pisavailable: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_isAvailable<Identity: ::windows::core::IUnknownImpl, Impl: IWMPSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstritem: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pisavailable: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).isAvailable(::core::mem::transmute(&bstritem), ::core::mem::transmute_copy(&pisavailable)).into()
+            (*this).get_isAvailable(::core::mem::transmute(&bstritem), ::core::mem::transmute_copy(&pisavailable)).into()
         }
         unsafe extern "system" fn autoStart<Identity: ::windows::core::IUnknownImpl, Impl: IWMPSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfautostart: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -6340,7 +6340,7 @@ impl IWMPSettings_Vtbl {
         }
         Self {
             base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
-            isAvailable: isAvailable::<Identity, Impl, OFFSET>,
+            get_isAvailable: get_isAvailable::<Identity, Impl, OFFSET>,
             autoStart: autoStart::<Identity, Impl, OFFSET>,
             SetautoStart: SetautoStart::<Identity, Impl, OFFSET>,
             baseURL: baseURL::<Identity, Impl, OFFSET>,
