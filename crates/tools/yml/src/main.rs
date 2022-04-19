@@ -198,7 +198,7 @@ jobs:
     runs-on: windows-2019
     strategy:
       matrix:
-        rust: [1.56.0, stable, nightly]
+        rust: [1.46.0, stable, nightly]
     steps:
     - name: Checkout
       uses: actions/checkout@v2
