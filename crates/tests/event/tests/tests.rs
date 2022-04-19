@@ -13,7 +13,7 @@ fn add_remove() -> Result<()> {
     let check_sender = check.clone();
 
     // Add event handler.
-    let token = event.add(&EventHandler::<i32>::new(move |_, args| {
+    event.add(&EventHandler::<i32>::new(move |_, args| {
         check_sender.store(*args, Ordering::Relaxed);
         Ok(())
     }))?;
@@ -27,7 +27,7 @@ fn add_remove() -> Result<()> {
     assert_eq!(check.load(Ordering::Relaxed), 123);
 
     // Remove event handler.
-    event.remove(token)?;
+    event.clear();
 
     // Raise event without effect.
     check.store(0, Ordering::Relaxed);
