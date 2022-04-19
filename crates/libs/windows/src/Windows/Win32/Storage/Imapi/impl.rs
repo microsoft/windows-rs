@@ -1763,7 +1763,7 @@ impl IDiscMaster_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IDiscMaster2_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn _NewEnum(&self) -> ::windows::core::Result<super::super::System::Ole::IEnumVARIANT>;
-    fn Item(&self, index: i32) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn get_Item(&self, index: i32) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn Count(&self) -> ::windows::core::Result<i32>;
     fn IsSupportedEnvironment(&self) -> ::windows::core::Result<i16>;
 }
@@ -1781,10 +1781,10 @@ impl IDiscMaster2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Item<Identity: ::windows::core::IUnknownImpl, Impl: IDiscMaster2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, value: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_Item<Identity: ::windows::core::IUnknownImpl, Impl: IDiscMaster2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, value: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).Item(::core::mem::transmute_copy(&index)) {
+            match (*this).get_Item(::core::mem::transmute_copy(&index)) {
                 ::core::result::Result::Ok(ok__) => {
                     *value = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1817,7 +1817,7 @@ impl IDiscMaster2_Vtbl {
         Self {
             base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
-            Item: Item::<Identity, Impl, OFFSET>,
+            get_Item: get_Item::<Identity, Impl, OFFSET>,
             Count: Count::<Identity, Impl, OFFSET>,
             IsSupportedEnvironment: IsSupportedEnvironment::<Identity, Impl, OFFSET>,
         }
@@ -3390,7 +3390,7 @@ impl IFileSystemImageResult2_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IFsiDirectoryItem_Impl: Sized + super::super::System::Com::IDispatch_Impl + IFsiItem_Impl {
     fn _NewEnum(&self) -> ::windows::core::Result<super::super::System::Ole::IEnumVARIANT>;
-    fn Item(&self, path: &super::super::Foundation::BSTR) -> ::windows::core::Result<IFsiItem>;
+    fn get_Item(&self, path: &super::super::Foundation::BSTR) -> ::windows::core::Result<IFsiItem>;
     fn Count(&self) -> ::windows::core::Result<i32>;
     fn EnumFsiItems(&self) -> ::windows::core::Result<IEnumFsiItems>;
     fn AddDirectory(&self, path: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
@@ -3414,10 +3414,10 @@ impl IFsiDirectoryItem_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Item<Identity: ::windows::core::IUnknownImpl, Impl: IFsiDirectoryItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, path: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, item: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_Item<Identity: ::windows::core::IUnknownImpl, Impl: IFsiDirectoryItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, path: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, item: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).Item(::core::mem::transmute(&path)) {
+            match (*this).get_Item(::core::mem::transmute(&path)) {
                 ::core::result::Result::Ok(ok__) => {
                     *item = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -3480,7 +3480,7 @@ impl IFsiDirectoryItem_Vtbl {
         Self {
             base__: IFsiItem_Vtbl::new::<Identity, Impl, OFFSET>(),
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
-            Item: Item::<Identity, Impl, OFFSET>,
+            get_Item: get_Item::<Identity, Impl, OFFSET>,
             Count: Count::<Identity, Impl, OFFSET>,
             EnumFsiItems: EnumFsiItems::<Identity, Impl, OFFSET>,
             AddDirectory: AddDirectory::<Identity, Impl, OFFSET>,
@@ -3809,7 +3809,7 @@ impl IFsiItem_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IFsiNamedStreams_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn _NewEnum(&self) -> ::windows::core::Result<super::super::System::Ole::IEnumVARIANT>;
-    fn Item(&self, index: i32) -> ::windows::core::Result<IFsiFileItem2>;
+    fn get_Item(&self, index: i32) -> ::windows::core::Result<IFsiFileItem2>;
     fn Count(&self) -> ::windows::core::Result<i32>;
     fn EnumNamedStreams(&self) -> ::windows::core::Result<IEnumFsiItems>;
 }
@@ -3827,10 +3827,10 @@ impl IFsiNamedStreams_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Item<Identity: ::windows::core::IUnknownImpl, Impl: IFsiNamedStreams_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, item: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_Item<Identity: ::windows::core::IUnknownImpl, Impl: IFsiNamedStreams_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, item: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).Item(::core::mem::transmute_copy(&index)) {
+            match (*this).get_Item(::core::mem::transmute_copy(&index)) {
                 ::core::result::Result::Ok(ok__) => {
                     *item = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -3863,7 +3863,7 @@ impl IFsiNamedStreams_Vtbl {
         Self {
             base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
-            Item: Item::<Identity, Impl, OFFSET>,
+            get_Item: get_Item::<Identity, Impl, OFFSET>,
             Count: Count::<Identity, Impl, OFFSET>,
             EnumNamedStreams: EnumNamedStreams::<Identity, Impl, OFFSET>,
         }
@@ -4298,7 +4298,7 @@ impl IProgressItem_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IProgressItems_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn _NewEnum(&self) -> ::windows::core::Result<super::super::System::Ole::IEnumVARIANT>;
-    fn Item(&self, index: i32) -> ::windows::core::Result<IProgressItem>;
+    fn get_Item(&self, index: i32) -> ::windows::core::Result<IProgressItem>;
     fn Count(&self) -> ::windows::core::Result<i32>;
     fn ProgressItemFromBlock(&self, block: u32) -> ::windows::core::Result<IProgressItem>;
     fn ProgressItemFromDescription(&self, description: &super::super::Foundation::BSTR) -> ::windows::core::Result<IProgressItem>;
@@ -4318,10 +4318,10 @@ impl IProgressItems_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Item<Identity: ::windows::core::IUnknownImpl, Impl: IProgressItems_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, item: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_Item<Identity: ::windows::core::IUnknownImpl, Impl: IProgressItems_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, item: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).Item(::core::mem::transmute_copy(&index)) {
+            match (*this).get_Item(::core::mem::transmute_copy(&index)) {
                 ::core::result::Result::Ok(ok__) => {
                     *item = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -4376,7 +4376,7 @@ impl IProgressItems_Vtbl {
         Self {
             base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
-            Item: Item::<Identity, Impl, OFFSET>,
+            get_Item: get_Item::<Identity, Impl, OFFSET>,
             Count: Count::<Identity, Impl, OFFSET>,
             ProgressItemFromBlock: ProgressItemFromBlock::<Identity, Impl, OFFSET>,
             ProgressItemFromDescription: ProgressItemFromDescription::<Identity, Impl, OFFSET>,
@@ -4404,7 +4404,7 @@ pub trait IRawCDImageCreator_Impl: Sized + super::super::System::Com::IDispatch_
     fn MediaCatalogNumber(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn SetStartingTrackNumber(&self, value: i32) -> ::windows::core::Result<()>;
     fn StartingTrackNumber(&self) -> ::windows::core::Result<i32>;
-    fn TrackInfo(&self, trackindex: i32) -> ::windows::core::Result<IRawCDImageTrackInfo>;
+    fn get_TrackInfo(&self, trackindex: i32) -> ::windows::core::Result<IRawCDImageTrackInfo>;
     fn NumberOfExistingTracks(&self) -> ::windows::core::Result<i32>;
     fn LastUsedUserSectorInImage(&self) -> ::windows::core::Result<i32>;
     fn ExpectedTableOfContents(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
@@ -4535,10 +4535,10 @@ impl IRawCDImageCreator_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TrackInfo<Identity: ::windows::core::IUnknownImpl, Impl: IRawCDImageCreator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, trackindex: i32, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_TrackInfo<Identity: ::windows::core::IUnknownImpl, Impl: IRawCDImageCreator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, trackindex: i32, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).TrackInfo(::core::mem::transmute_copy(&trackindex)) {
+            match (*this).get_TrackInfo(::core::mem::transmute_copy(&trackindex)) {
                 ::core::result::Result::Ok(ok__) => {
                     *value = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -4596,7 +4596,7 @@ impl IRawCDImageCreator_Vtbl {
             MediaCatalogNumber: MediaCatalogNumber::<Identity, Impl, OFFSET>,
             SetStartingTrackNumber: SetStartingTrackNumber::<Identity, Impl, OFFSET>,
             StartingTrackNumber: StartingTrackNumber::<Identity, Impl, OFFSET>,
-            TrackInfo: TrackInfo::<Identity, Impl, OFFSET>,
+            get_TrackInfo: get_TrackInfo::<Identity, Impl, OFFSET>,
             NumberOfExistingTracks: NumberOfExistingTracks::<Identity, Impl, OFFSET>,
             LastUsedUserSectorInImage: LastUsedUserSectorInImage::<Identity, Impl, OFFSET>,
             ExpectedTableOfContents: ExpectedTableOfContents::<Identity, Impl, OFFSET>,
@@ -4921,8 +4921,8 @@ impl IStreamInterleave_Vtbl {
 pub trait IStreamPseudoRandomBased_Impl: Sized + super::super::System::Com::ISequentialStream_Impl + super::super::System::Com::IStream_Impl {
     fn SetSeed(&self, value: u32) -> ::windows::core::Result<()>;
     fn Seed(&self) -> ::windows::core::Result<u32>;
-    fn SetExtendedSeed(&self, values: *const u32, ecount: u32) -> ::windows::core::Result<()>;
-    fn ExtendedSeed(&self, values: *mut *mut u32, ecount: *mut u32) -> ::windows::core::Result<()>;
+    fn put_ExtendedSeed(&self, values: *const u32, ecount: u32) -> ::windows::core::Result<()>;
+    fn get_ExtendedSeed(&self, values: *mut *mut u32, ecount: *mut u32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 impl IStreamPseudoRandomBased_Vtbl {
@@ -4943,22 +4943,22 @@ impl IStreamPseudoRandomBased_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetExtendedSeed<Identity: ::windows::core::IUnknownImpl, Impl: IStreamPseudoRandomBased_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, values: *const u32, ecount: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn put_ExtendedSeed<Identity: ::windows::core::IUnknownImpl, Impl: IStreamPseudoRandomBased_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, values: *const u32, ecount: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetExtendedSeed(::core::mem::transmute_copy(&values), ::core::mem::transmute_copy(&ecount)).into()
+            (*this).put_ExtendedSeed(::core::mem::transmute_copy(&values), ::core::mem::transmute_copy(&ecount)).into()
         }
-        unsafe extern "system" fn ExtendedSeed<Identity: ::windows::core::IUnknownImpl, Impl: IStreamPseudoRandomBased_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, values: *mut *mut u32, ecount: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_ExtendedSeed<Identity: ::windows::core::IUnknownImpl, Impl: IStreamPseudoRandomBased_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, values: *mut *mut u32, ecount: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).ExtendedSeed(::core::mem::transmute_copy(&values), ::core::mem::transmute_copy(&ecount)).into()
+            (*this).get_ExtendedSeed(::core::mem::transmute_copy(&values), ::core::mem::transmute_copy(&ecount)).into()
         }
         Self {
             base__: super::super::System::Com::IStream_Vtbl::new::<Identity, Impl, OFFSET>(),
             SetSeed: SetSeed::<Identity, Impl, OFFSET>,
             Seed: Seed::<Identity, Impl, OFFSET>,
-            SetExtendedSeed: SetExtendedSeed::<Identity, Impl, OFFSET>,
-            ExtendedSeed: ExtendedSeed::<Identity, Impl, OFFSET>,
+            put_ExtendedSeed: put_ExtendedSeed::<Identity, Impl, OFFSET>,
+            get_ExtendedSeed: get_ExtendedSeed::<Identity, Impl, OFFSET>,
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {

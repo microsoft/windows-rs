@@ -181,17 +181,17 @@ impl IMXNamespaceManager_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMXNamespacePrefixes_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
-    fn item(&self, index: i32) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
+    fn get_item(&self, index: i32) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
     fn length(&self) -> ::windows::core::Result<i32>;
     fn _newEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMXNamespacePrefixes_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMXNamespacePrefixes_Impl, const OFFSET: isize>() -> IMXNamespacePrefixes_Vtbl {
-        unsafe extern "system" fn item<Identity: ::windows::core::IUnknownImpl, Impl: IMXNamespacePrefixes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, prefix: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_item<Identity: ::windows::core::IUnknownImpl, Impl: IMXNamespacePrefixes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, prefix: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).item(::core::mem::transmute_copy(&index)) {
+            match (*this).get_item(::core::mem::transmute_copy(&index)) {
                 ::core::result::Result::Ok(ok__) => {
                     *prefix = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -223,7 +223,7 @@ impl IMXNamespacePrefixes_Vtbl {
         }
         Self {
             base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
-            item: item::<Identity, Impl, OFFSET>,
+            get_item: get_item::<Identity, Impl, OFFSET>,
             length: length::<Identity, Impl, OFFSET>,
             _newEnum: _newEnum::<Identity, Impl, OFFSET>,
         }
@@ -1995,7 +1995,7 @@ impl ISchemaItem_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ISchemaItemCollection_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
-    fn item(&self, index: i32) -> ::windows::core::Result<ISchemaItem>;
+    fn get_item(&self, index: i32) -> ::windows::core::Result<ISchemaItem>;
     fn itemByName(&self, name: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<ISchemaItem>;
     fn itemByQName(&self, name: &super::super::super::Foundation::BSTR, namespaceuri: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<ISchemaItem>;
     fn length(&self) -> ::windows::core::Result<i32>;
@@ -2004,10 +2004,10 @@ pub trait ISchemaItemCollection_Impl: Sized + super::super::super::System::Com::
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ISchemaItemCollection_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISchemaItemCollection_Impl, const OFFSET: isize>() -> ISchemaItemCollection_Vtbl {
-        unsafe extern "system" fn item<Identity: ::windows::core::IUnknownImpl, Impl: ISchemaItemCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, item: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_item<Identity: ::windows::core::IUnknownImpl, Impl: ISchemaItemCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, item: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).item(::core::mem::transmute_copy(&index)) {
+            match (*this).get_item(::core::mem::transmute_copy(&index)) {
                 ::core::result::Result::Ok(ok__) => {
                     *item = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -2061,7 +2061,7 @@ impl ISchemaItemCollection_Vtbl {
         }
         Self {
             base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
-            item: item::<Identity, Impl, OFFSET>,
+            get_item: get_item::<Identity, Impl, OFFSET>,
             itemByName: itemByName::<Identity, Impl, OFFSET>,
             itemByQName: itemByQName::<Identity, Impl, OFFSET>,
             length: length::<Identity, Impl, OFFSET>,
@@ -2178,17 +2178,17 @@ impl ISchemaParticle_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ISchemaStringCollection_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
-    fn item(&self, index: i32) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
+    fn get_item(&self, index: i32) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
     fn length(&self) -> ::windows::core::Result<i32>;
     fn _newEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ISchemaStringCollection_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISchemaStringCollection_Impl, const OFFSET: isize>() -> ISchemaStringCollection_Vtbl {
-        unsafe extern "system" fn item<Identity: ::windows::core::IUnknownImpl, Impl: ISchemaStringCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, bstr: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_item<Identity: ::windows::core::IUnknownImpl, Impl: ISchemaStringCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, bstr: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).item(::core::mem::transmute_copy(&index)) {
+            match (*this).get_item(::core::mem::transmute_copy(&index)) {
                 ::core::result::Result::Ok(ok__) => {
                     *bstr = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -2220,7 +2220,7 @@ impl ISchemaStringCollection_Vtbl {
         }
         Self {
             base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
-            item: item::<Identity, Impl, OFFSET>,
+            get_item: get_item::<Identity, Impl, OFFSET>,
             length: length::<Identity, Impl, OFFSET>,
             _newEnum: _newEnum::<Identity, Impl, OFFSET>,
         }
@@ -4255,7 +4255,7 @@ pub trait IXMLDOMNamedNodeMap_Impl: Sized + super::super::super::System::Com::ID
     fn getNamedItem(&self, name: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<IXMLDOMNode>;
     fn setNamedItem(&self, newitem: &::core::option::Option<IXMLDOMNode>) -> ::windows::core::Result<IXMLDOMNode>;
     fn removeNamedItem(&self, name: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<IXMLDOMNode>;
-    fn item(&self, index: i32) -> ::windows::core::Result<IXMLDOMNode>;
+    fn get_item(&self, index: i32) -> ::windows::core::Result<IXMLDOMNode>;
     fn length(&self, listlength: *mut i32) -> ::windows::core::Result<()>;
     fn getQualifiedItem(&self, basename: &super::super::super::Foundation::BSTR, namespaceuri: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<IXMLDOMNode>;
     fn removeQualifiedItem(&self, basename: &super::super::super::Foundation::BSTR, namespaceuri: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<IXMLDOMNode>;
@@ -4299,10 +4299,10 @@ impl IXMLDOMNamedNodeMap_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn item<Identity: ::windows::core::IUnknownImpl, Impl: IXMLDOMNamedNodeMap_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, listitem: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_item<Identity: ::windows::core::IUnknownImpl, Impl: IXMLDOMNamedNodeMap_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, listitem: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).item(::core::mem::transmute_copy(&index)) {
+            match (*this).get_item(::core::mem::transmute_copy(&index)) {
                 ::core::result::Result::Ok(ok__) => {
                     *listitem = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -4369,7 +4369,7 @@ impl IXMLDOMNamedNodeMap_Vtbl {
             getNamedItem: getNamedItem::<Identity, Impl, OFFSET>,
             setNamedItem: setNamedItem::<Identity, Impl, OFFSET>,
             removeNamedItem: removeNamedItem::<Identity, Impl, OFFSET>,
-            item: item::<Identity, Impl, OFFSET>,
+            get_item: get_item::<Identity, Impl, OFFSET>,
             length: length::<Identity, Impl, OFFSET>,
             getQualifiedItem: getQualifiedItem::<Identity, Impl, OFFSET>,
             removeQualifiedItem: removeQualifiedItem::<Identity, Impl, OFFSET>,
@@ -4746,7 +4746,7 @@ impl IXMLDOMNode_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IXMLDOMNodeList_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
-    fn item(&self, index: i32) -> ::windows::core::Result<IXMLDOMNode>;
+    fn get_item(&self, index: i32) -> ::windows::core::Result<IXMLDOMNode>;
     fn length(&self, listlength: *mut i32) -> ::windows::core::Result<()>;
     fn nextNode(&self) -> ::windows::core::Result<IXMLDOMNode>;
     fn reset(&self) -> ::windows::core::Result<()>;
@@ -4755,10 +4755,10 @@ pub trait IXMLDOMNodeList_Impl: Sized + super::super::super::System::Com::IDispa
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IXMLDOMNodeList_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXMLDOMNodeList_Impl, const OFFSET: isize>() -> IXMLDOMNodeList_Vtbl {
-        unsafe extern "system" fn item<Identity: ::windows::core::IUnknownImpl, Impl: IXMLDOMNodeList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, listitem: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_item<Identity: ::windows::core::IUnknownImpl, Impl: IXMLDOMNodeList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, listitem: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).item(::core::mem::transmute_copy(&index)) {
+            match (*this).get_item(::core::mem::transmute_copy(&index)) {
                 ::core::result::Result::Ok(ok__) => {
                     *listitem = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -4800,7 +4800,7 @@ impl IXMLDOMNodeList_Vtbl {
         }
         Self {
             base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
-            item: item::<Identity, Impl, OFFSET>,
+            get_item: get_item::<Identity, Impl, OFFSET>,
             length: length::<Identity, Impl, OFFSET>,
             nextNode: nextNode::<Identity, Impl, OFFSET>,
             reset: reset::<Identity, Impl, OFFSET>,
@@ -4970,7 +4970,7 @@ impl IXMLDOMParseError2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IXMLDOMParseErrorCollection_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
-    fn item(&self, index: i32) -> ::windows::core::Result<IXMLDOMParseError2>;
+    fn get_item(&self, index: i32) -> ::windows::core::Result<IXMLDOMParseError2>;
     fn length(&self) -> ::windows::core::Result<i32>;
     fn next(&self) -> ::windows::core::Result<IXMLDOMParseError2>;
     fn reset(&self) -> ::windows::core::Result<()>;
@@ -4979,10 +4979,10 @@ pub trait IXMLDOMParseErrorCollection_Impl: Sized + super::super::super::System:
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IXMLDOMParseErrorCollection_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXMLDOMParseErrorCollection_Impl, const OFFSET: isize>() -> IXMLDOMParseErrorCollection_Vtbl {
-        unsafe extern "system" fn item<Identity: ::windows::core::IUnknownImpl, Impl: IXMLDOMParseErrorCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, error: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_item<Identity: ::windows::core::IUnknownImpl, Impl: IXMLDOMParseErrorCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, error: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).item(::core::mem::transmute_copy(&index)) {
+            match (*this).get_item(::core::mem::transmute_copy(&index)) {
                 ::core::result::Result::Ok(ok__) => {
                     *error = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -5030,7 +5030,7 @@ impl IXMLDOMParseErrorCollection_Vtbl {
         }
         Self {
             base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
-            item: item::<Identity, Impl, OFFSET>,
+            get_item: get_item::<Identity, Impl, OFFSET>,
             length: length::<Identity, Impl, OFFSET>,
             next: next::<Identity, Impl, OFFSET>,
             reset: reset::<Identity, Impl, OFFSET>,
@@ -5082,7 +5082,7 @@ pub trait IXMLDOMSchemaCollection_Impl: Sized + super::super::super::System::Com
     fn get(&self, namespaceuri: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<IXMLDOMNode>;
     fn remove(&self, namespaceuri: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn length(&self) -> ::windows::core::Result<i32>;
-    fn namespaceURI(&self, index: i32) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
+    fn get_namespaceURI(&self, index: i32) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
     fn addCollection(&self, othercollection: &::core::option::Option<IXMLDOMSchemaCollection>) -> ::windows::core::Result<()>;
     fn _newEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
@@ -5121,10 +5121,10 @@ impl IXMLDOMSchemaCollection_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn namespaceURI<Identity: ::windows::core::IUnknownImpl, Impl: IXMLDOMSchemaCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, length: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_namespaceURI<Identity: ::windows::core::IUnknownImpl, Impl: IXMLDOMSchemaCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, length: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).namespaceURI(::core::mem::transmute_copy(&index)) {
+            match (*this).get_namespaceURI(::core::mem::transmute_copy(&index)) {
                 ::core::result::Result::Ok(ok__) => {
                     *length = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -5154,7 +5154,7 @@ impl IXMLDOMSchemaCollection_Vtbl {
             get: get::<Identity, Impl, OFFSET>,
             remove: remove::<Identity, Impl, OFFSET>,
             length: length::<Identity, Impl, OFFSET>,
-            namespaceURI: namespaceURI::<Identity, Impl, OFFSET>,
+            get_namespaceURI: get_namespaceURI::<Identity, Impl, OFFSET>,
             addCollection: addCollection::<Identity, Impl, OFFSET>,
             _newEnum: _newEnum::<Identity, Impl, OFFSET>,
         }

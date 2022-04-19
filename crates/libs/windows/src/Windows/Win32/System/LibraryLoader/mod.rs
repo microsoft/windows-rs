@@ -502,14 +502,15 @@ pub unsafe fn GetModuleFileNameW<'a, Param0: ::windows::core::IntoParam<'a, supe
 #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetModuleHandleA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(lpmodulename: Param0) -> super::super::Foundation::HINSTANCE {
+pub unsafe fn GetModuleHandleA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(lpmodulename: Param0) -> ::windows::core::Result<super::super::Foundation::HINSTANCE> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn GetModuleHandleA(lpmodulename: ::windows::core::PCSTR) -> super::super::Foundation::HINSTANCE;
         }
-        ::core::mem::transmute(GetModuleHandleA(lpmodulename.into_param().abi()))
+        let result__ = GetModuleHandleA(lpmodulename.into_param().abi());
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -547,14 +548,15 @@ pub unsafe fn GetModuleHandleExW<'a, Param1: ::windows::core::IntoParam<'a, ::wi
 #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetModuleHandleW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(lpmodulename: Param0) -> super::super::Foundation::HINSTANCE {
+pub unsafe fn GetModuleHandleW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(lpmodulename: Param0) -> ::windows::core::Result<super::super::Foundation::HINSTANCE> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn GetModuleHandleW(lpmodulename: ::windows::core::PCWSTR) -> super::super::Foundation::HINSTANCE;
         }
-        ::core::mem::transmute(GetModuleHandleW(lpmodulename.into_param().abi()))
+        let result__ = GetModuleHandleW(lpmodulename.into_param().abi());
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -658,14 +660,15 @@ pub const LOAD_LIBRARY_OS_INTEGRITY_CONTINUITY: u32 = 32768u32;
 #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn LoadLibraryA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(lplibfilename: Param0) -> super::super::Foundation::HINSTANCE {
+pub unsafe fn LoadLibraryA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(lplibfilename: Param0) -> ::windows::core::Result<super::super::Foundation::HINSTANCE> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn LoadLibraryA(lplibfilename: ::windows::core::PCSTR) -> super::super::Foundation::HINSTANCE;
         }
-        ::core::mem::transmute(LoadLibraryA(lplibfilename.into_param().abi()))
+        let result__ = LoadLibraryA(lplibfilename.into_param().abi());
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -673,14 +676,15 @@ pub unsafe fn LoadLibraryA<'a, Param0: ::windows::core::IntoParam<'a, ::windows:
 #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn LoadLibraryExA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(lplibfilename: Param0, hfile: Param1, dwflags: LOAD_LIBRARY_FLAGS) -> super::super::Foundation::HINSTANCE {
+pub unsafe fn LoadLibraryExA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(lplibfilename: Param0, hfile: Param1, dwflags: LOAD_LIBRARY_FLAGS) -> ::windows::core::Result<super::super::Foundation::HINSTANCE> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn LoadLibraryExA(lplibfilename: ::windows::core::PCSTR, hfile: super::super::Foundation::HANDLE, dwflags: LOAD_LIBRARY_FLAGS) -> super::super::Foundation::HINSTANCE;
         }
-        ::core::mem::transmute(LoadLibraryExA(lplibfilename.into_param().abi(), hfile.into_param().abi(), ::core::mem::transmute(dwflags)))
+        let result__ = LoadLibraryExA(lplibfilename.into_param().abi(), hfile.into_param().abi(), ::core::mem::transmute(dwflags));
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -688,14 +692,15 @@ pub unsafe fn LoadLibraryExA<'a, Param0: ::windows::core::IntoParam<'a, ::window
 #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn LoadLibraryExW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(lplibfilename: Param0, hfile: Param1, dwflags: LOAD_LIBRARY_FLAGS) -> super::super::Foundation::HINSTANCE {
+pub unsafe fn LoadLibraryExW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(lplibfilename: Param0, hfile: Param1, dwflags: LOAD_LIBRARY_FLAGS) -> ::windows::core::Result<super::super::Foundation::HINSTANCE> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn LoadLibraryExW(lplibfilename: ::windows::core::PCWSTR, hfile: super::super::Foundation::HANDLE, dwflags: LOAD_LIBRARY_FLAGS) -> super::super::Foundation::HINSTANCE;
         }
-        ::core::mem::transmute(LoadLibraryExW(lplibfilename.into_param().abi(), hfile.into_param().abi(), ::core::mem::transmute(dwflags)))
+        let result__ = LoadLibraryExW(lplibfilename.into_param().abi(), hfile.into_param().abi(), ::core::mem::transmute(dwflags));
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -703,14 +708,15 @@ pub unsafe fn LoadLibraryExW<'a, Param0: ::windows::core::IntoParam<'a, ::window
 #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn LoadLibraryW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(lplibfilename: Param0) -> super::super::Foundation::HINSTANCE {
+pub unsafe fn LoadLibraryW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(lplibfilename: Param0) -> ::windows::core::Result<super::super::Foundation::HINSTANCE> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn LoadLibraryW(lplibfilename: ::windows::core::PCWSTR) -> super::super::Foundation::HINSTANCE;
         }
-        ::core::mem::transmute(LoadLibraryW(lplibfilename.into_param().abi()))
+        let result__ = LoadLibraryW(lplibfilename.into_param().abi());
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -732,14 +738,15 @@ pub unsafe fn LoadModule<'a, Param0: ::windows::core::IntoParam<'a, ::windows::c
 #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn LoadPackagedLibrary<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(lpwlibfilename: Param0, reserved: u32) -> super::super::Foundation::HINSTANCE {
+pub unsafe fn LoadPackagedLibrary<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(lpwlibfilename: Param0, reserved: u32) -> ::windows::core::Result<super::super::Foundation::HINSTANCE> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn LoadPackagedLibrary(lpwlibfilename: ::windows::core::PCWSTR, reserved: u32) -> super::super::Foundation::HINSTANCE;
         }
-        ::core::mem::transmute(LoadPackagedLibrary(lpwlibfilename.into_param().abi(), ::core::mem::transmute(reserved)))
+        let result__ = LoadPackagedLibrary(lpwlibfilename.into_param().abi(), ::core::mem::transmute(reserved));
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

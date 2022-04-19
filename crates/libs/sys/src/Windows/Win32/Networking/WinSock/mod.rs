@@ -512,14 +512,14 @@ extern "system" {
     #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
     pub fn ntohs(netshort: u16) -> u16;
     #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
-    pub fn recv(s: SOCKET, buf: ::windows_sys::core::PSTR, len: i32, flags: i32) -> i32;
+    pub fn recv(s: SOCKET, buf: ::windows_sys::core::PSTR, len: i32, flags: SEND_RECV_FLAGS) -> i32;
     #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn recvfrom(s: SOCKET, buf: ::windows_sys::core::PSTR, len: i32, flags: i32, from: *mut SOCKADDR, fromlen: *mut i32) -> i32;
     #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
     pub fn select(nfds: i32, readfds: *mut fd_set, writefds: *mut fd_set, exceptfds: *mut fd_set, timeout: *const timeval) -> i32;
     #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
-    pub fn send(s: SOCKET, buf: ::windows_sys::core::PCSTR, len: i32, flags: SEND_FLAGS) -> i32;
+    pub fn send(s: SOCKET, buf: ::windows_sys::core::PCSTR, len: i32, flags: SEND_RECV_FLAGS) -> i32;
     #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn sendto(s: SOCKET, buf: ::windows_sys::core::PCSTR, len: i32, flags: i32, to: *const SOCKADDR, tolen: i32) -> i32;
@@ -1546,7 +1546,7 @@ impl ::core::clone::Clone for INTERFACE_INFO_EX {
     }
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
-pub const INVALID_SOCKET: SOCKET = 4294967295u32 as _;
+pub const INVALID_SOCKET: SOCKET = -1i32 as _;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub struct IN_ADDR {
@@ -2706,13 +2706,7 @@ pub const MSG_MCAST: u32 = 2048u32;
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub const MSG_PARTIAL: u32 = 32768u32;
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
-pub const MSG_PEEK: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
-pub const MSG_PUSH_IMMEDIATE: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub const MSG_TRUNC: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
-pub const MSG_WAITALL: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub type MULTICAST_MODE_TYPE = i32;
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
@@ -4199,11 +4193,17 @@ pub const SENDER_DEFAULT_WINDOW_ADV_PERCENTAGE: u32 = 15u32;
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub const SENDER_MAX_LATE_JOINER_PERCENTAGE: u32 = 75u32;
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
-pub type SEND_FLAGS = u32;
+pub type SEND_RECV_FLAGS = i32;
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
-pub const MSG_DONTROUTE: SEND_FLAGS = 4u32;
+pub const MSG_OOB: SEND_RECV_FLAGS = 1i32;
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
-pub const MSG_OOB: SEND_FLAGS = 1u32;
+pub const MSG_PEEK: SEND_RECV_FLAGS = 2i32;
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub const MSG_DONTROUTE: SEND_RECV_FLAGS = 4i32;
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub const MSG_WAITALL: SEND_RECV_FLAGS = 8i32;
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub const MSG_PUSH_IMMEDIATE: SEND_RECV_FLAGS = 32i32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub struct SERVICE_ADDRESS {

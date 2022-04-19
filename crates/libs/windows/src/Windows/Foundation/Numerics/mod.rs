@@ -42,10 +42,10 @@ impl ::core::default::Default for Matrix3x2 {
     }
 }
 impl Matrix3x2 {
-    pub fn identity() -> Self {
+    pub const fn identity() -> Self {
         Self { M11: 1.0, M12: 0.0, M21: 0.0, M22: 1.0, M31: 0.0, M32: 0.0 }
     }
-    pub fn translation(x: f32, y: f32) -> Self {
+    pub const fn translation(x: f32, y: f32) -> Self {
         Self { M11: 1.0, M12: 0.0, M21: 0.0, M22: 1.0, M31: x, M32: y }
     }
     pub fn rotation(angle: f32, x: f32, y: f32) -> Self {

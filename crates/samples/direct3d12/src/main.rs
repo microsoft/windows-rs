@@ -44,7 +44,7 @@ fn run_sample<S>() -> Result<()>
 where
     S: DXSample,
 {
-    let instance = unsafe { GetModuleHandleA(None) };
+    let instance = unsafe { GetModuleHandleA(None)? };
 
     let wc = WNDCLASSEXA {
         cbSize: std::mem::size_of::<WNDCLASSEXA>() as u32,

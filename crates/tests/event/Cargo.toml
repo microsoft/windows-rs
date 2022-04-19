@@ -1,0 +1,12 @@
+[package]
+name = "test_event"
+version = "0.0.0"
+authors = ["Microsoft"]
+edition = "2021"
+
+[dependencies.windows]
+path = "../../libs/windows"
+features = [
+    "Foundation",
+    "Win32_System_WinRT",
+]

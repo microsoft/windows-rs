@@ -359,8 +359,6 @@ pub const INHERIT_NO_PROPAGATE: ACE_FLAGS = ACE_FLAGS(4u32);
 pub const INHERIT_ONLY: ACE_FLAGS = ACE_FLAGS(8u32);
 #[doc = "*Required features: `\"Win32_Security\"`*"]
 pub const NO_INHERITANCE: ACE_FLAGS = ACE_FLAGS(0u32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const INHERIT_ONLY_ACE_: ACE_FLAGS = ACE_FLAGS(8u32);
 impl ::core::marker::Copy for ACE_FLAGS {}
 impl ::core::clone::Clone for ACE_FLAGS {
     fn clone(&self) -> Self {

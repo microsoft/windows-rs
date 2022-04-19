@@ -6,18 +6,13 @@ use core::sync::atomic::{AtomicPtr, Ordering};
 #[doc(hidden)]
 pub struct FactoryCache<C, I> {
     shared: AtomicPtr<core::ffi::c_void>,
-    library: &'static [u8],
     _c: PhantomData<C>,
     _i: PhantomData<I>,
 }
 
 impl<C, I> FactoryCache<C, I> {
     pub const fn new() -> Self {
-        Self { shared: AtomicPtr::new(::core::ptr::null_mut()), library: &[], _c: PhantomData, _i: PhantomData }
-    }
-
-    pub const fn from_library(library: &'static [u8]) -> Self {
-        Self { library, ..Self::new() }
+        Self { shared: AtomicPtr::new(::core::ptr::null_mut()), _c: PhantomData, _i: PhantomData }
     }
 }
 
@@ -33,7 +28,7 @@ impl<C: RuntimeName, I: Interface> FactoryCache<C, I> {
             }
 
             // Otherwise, we load the factory the usual way.
-            let factory = if self.library.is_empty() { factory::<C, I>()? } else { factory_from_library::<C, I>(self.library)? };
+            let factory = factory::<C, I>()?;
 
             // If the factory is agile, we can safely cache it.
             if factory.cast::<IAgileObject>().is_ok() {
@@ -55,18 +50,14 @@ pub fn factory<C: RuntimeName, I: Interface>() -> Result<I> {
     let name = HSTRING::from(C::NAME);
 
     unsafe {
-        let function = delay_load(b"combase.dll\0", b"RoGetActivationFactory\0");
-
-        let code = if !function.is_null() {
+        let code = if let Ok(function) = delay_load(b"combase.dll\0", b"RoGetActivationFactory\0") {
             let function: RoGetActivationFactory = core::mem::transmute(function);
             let mut code = function(core::mem::transmute_copy(&name), &I::IID, &mut factory as *mut _ as *mut _);
 
             // If RoGetActivationFactory fails because combase hasn't been loaded yet then load combase
             // automatically so that it "just works" for apartment-agnostic code.
             if code == CO_E_NOTINITIALIZED {
-                let mta = delay_load(b"ole32.dll\0", b"CoIncrementMTAUsage\0");
-
-                if !mta.is_null() {
+                if let Ok(mta) = delay_load(b"ole32.dll\0", b"CoIncrementMTAUsage\0") {
                     let mta: CoIncrementMTAUsage = core::mem::transmute(mta);
                     let mut _cookie = core::ptr::null_mut();
                     let _ = mta(&mut _cookie);
@@ -114,15 +105,8 @@ pub fn factory<C: RuntimeName, I: Interface>() -> Result<I> {
     }
 }
 
-/// Attempts to load the factory interface for the given WinRT class located
-/// in the specified library.
-fn factory_from_library<C: RuntimeName, I: Interface>(library: &[u8]) -> Result<I> {
-    let name = HSTRING::from(C::NAME);
-    unsafe { get_activation_factory(library, &name)?.cast() }
-}
-
 unsafe fn get_activation_factory(library: &[u8], name: &HSTRING) -> Result<IGenericFactory> {
-    let function = delay_load(library, b"DllGetActivationFactory\0");
+    let function = delay_load(library, b"DllGetActivationFactory\0")?;
     let function: DllGetActivationFactory = core::mem::transmute(function);
     let mut abi = core::ptr::null_mut();
     function(core::mem::transmute_copy(name), &mut abi).from_abi(abi)

@@ -3462,8 +3462,9 @@ impl IAudioClient {
         (::windows::core::Interface::vtable(self).SetEventHandle)(::core::mem::transmute_copy(self), eventhandle.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-    pub unsafe fn GetService(&self, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetService)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
+    pub unsafe fn GetService<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
+        let mut result__ = ::core::option::Option::None;
+        (::windows::core::Interface::vtable(self).GetService)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
 impl ::core::convert::From<IAudioClient> for ::windows::core::IUnknown {
@@ -3580,8 +3581,9 @@ impl IAudioClient2 {
         (::windows::core::Interface::vtable(self).base__.SetEventHandle)(::core::mem::transmute_copy(self), eventhandle.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-    pub unsafe fn GetService(&self, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetService)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
+    pub unsafe fn GetService<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
+        let mut result__ = ::core::option::Option::None;
+        (::windows::core::Interface::vtable(self).base__.GetService)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -3731,8 +3733,9 @@ impl IAudioClient3 {
         (::windows::core::Interface::vtable(self).base__.base__.SetEventHandle)(::core::mem::transmute_copy(self), eventhandle.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-    pub unsafe fn GetService(&self, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.GetService)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
+    pub unsafe fn GetService<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
+        let mut result__ = ::core::option::Option::None;
+        (::windows::core::Interface::vtable(self).base__.base__.GetService)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]

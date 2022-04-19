@@ -788,7 +788,7 @@ impl ICOMLBArguments_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ICatalogCollection_Impl: Sized + super::Com::IDispatch_Impl {
     fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn Item(&self, lindex: i32) -> ::windows::core::Result<super::Com::IDispatch>;
+    fn get_Item(&self, lindex: i32) -> ::windows::core::Result<super::Com::IDispatch>;
     fn Count(&self) -> ::windows::core::Result<i32>;
     fn Remove(&self, lindex: i32) -> ::windows::core::Result<()>;
     fn Add(&self) -> ::windows::core::Result<super::Com::IDispatch>;
@@ -818,10 +818,10 @@ impl ICatalogCollection_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Item<Identity: ::windows::core::IUnknownImpl, Impl: ICatalogCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lindex: i32, ppcatalogobject: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_Item<Identity: ::windows::core::IUnknownImpl, Impl: ICatalogCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lindex: i32, ppcatalogobject: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).Item(::core::mem::transmute_copy(&lindex)) {
+            match (*this).get_Item(::core::mem::transmute_copy(&lindex)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppcatalogobject = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -962,7 +962,7 @@ impl ICatalogCollection_Vtbl {
         Self {
             base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
-            Item: Item::<Identity, Impl, OFFSET>,
+            get_Item: get_Item::<Identity, Impl, OFFSET>,
             Count: Count::<Identity, Impl, OFFSET>,
             Remove: Remove::<Identity, Impl, OFFSET>,
             Add: Add::<Identity, Impl, OFFSET>,
@@ -985,8 +985,8 @@ impl ICatalogCollection_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ICatalogObject_Impl: Sized + super::Com::IDispatch_Impl {
-    fn Value(&self, bstrpropname: &super::super::Foundation::BSTR) -> ::windows::core::Result<super::Com::VARIANT>;
-    fn SetValue(&self, bstrpropname: &super::super::Foundation::BSTR, val: &super::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn get_Value(&self, bstrpropname: &super::super::Foundation::BSTR) -> ::windows::core::Result<super::Com::VARIANT>;
+    fn put_Value(&self, bstrpropname: &super::super::Foundation::BSTR, val: &super::Com::VARIANT) -> ::windows::core::Result<()>;
     fn Key(&self) -> ::windows::core::Result<super::Com::VARIANT>;
     fn Name(&self) -> ::windows::core::Result<super::Com::VARIANT>;
     fn IsPropertyReadOnly(&self, bstrpropname: &super::super::Foundation::BSTR) -> ::windows::core::Result<i16>;
@@ -996,10 +996,10 @@ pub trait ICatalogObject_Impl: Sized + super::Com::IDispatch_Impl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ICatalogObject_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICatalogObject_Impl, const OFFSET: isize>() -> ICatalogObject_Vtbl {
-        unsafe extern "system" fn Value<Identity: ::windows::core::IUnknownImpl, Impl: ICatalogObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrpropname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pvarretval: *mut super::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_Value<Identity: ::windows::core::IUnknownImpl, Impl: ICatalogObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrpropname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pvarretval: *mut super::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).Value(::core::mem::transmute(&bstrpropname)) {
+            match (*this).get_Value(::core::mem::transmute(&bstrpropname)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pvarretval = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1007,10 +1007,10 @@ impl ICatalogObject_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetValue<Identity: ::windows::core::IUnknownImpl, Impl: ICatalogObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrpropname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, val: ::core::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn put_Value<Identity: ::windows::core::IUnknownImpl, Impl: ICatalogObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrpropname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, val: ::core::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetValue(::core::mem::transmute(&bstrpropname), ::core::mem::transmute(&val)).into()
+            (*this).put_Value(::core::mem::transmute(&bstrpropname), ::core::mem::transmute(&val)).into()
         }
         unsafe extern "system" fn Key<Identity: ::windows::core::IUnknownImpl, Impl: ICatalogObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarretval: *mut super::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -1069,8 +1069,8 @@ impl ICatalogObject_Vtbl {
         }
         Self {
             base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
-            Value: Value::<Identity, Impl, OFFSET>,
-            SetValue: SetValue::<Identity, Impl, OFFSET>,
+            get_Value: get_Value::<Identity, Impl, OFFSET>,
+            put_Value: put_Value::<Identity, Impl, OFFSET>,
             Key: Key::<Identity, Impl, OFFSET>,
             Name: Name::<Identity, Impl, OFFSET>,
             IsPropertyReadOnly: IsPropertyReadOnly::<Identity, Impl, OFFSET>,
@@ -3971,7 +3971,7 @@ pub trait IMtsEventInfo_Impl: Sized + super::Com::IDispatch_Impl {
     fn DisplayName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn EventID(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn Count(&self) -> ::windows::core::Result<i32>;
-    fn Value(&self, skey: &super::super::Foundation::BSTR) -> ::windows::core::Result<super::Com::VARIANT>;
+    fn get_Value(&self, skey: &super::super::Foundation::BSTR) -> ::windows::core::Result<super::Com::VARIANT>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMtsEventInfo_Vtbl {
@@ -4020,10 +4020,10 @@ impl IMtsEventInfo_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Value<Identity: ::windows::core::IUnknownImpl, Impl: IMtsEventInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, skey: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pval: *mut super::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_Value<Identity: ::windows::core::IUnknownImpl, Impl: IMtsEventInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, skey: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pval: *mut super::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).Value(::core::mem::transmute(&skey)) {
+            match (*this).get_Value(::core::mem::transmute(&skey)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pval = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -4037,7 +4037,7 @@ impl IMtsEventInfo_Vtbl {
             DisplayName: DisplayName::<Identity, Impl, OFFSET>,
             EventID: EventID::<Identity, Impl, OFFSET>,
             Count: Count::<Identity, Impl, OFFSET>,
-            Value: Value::<Identity, Impl, OFFSET>,
+            get_Value: get_Value::<Identity, Impl, OFFSET>,
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -4563,7 +4563,7 @@ impl IProcessInitializer_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ISecurityCallContext_Impl: Sized + super::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows::core::Result<i32>;
-    fn Item(&self, name: &super::super::Foundation::BSTR) -> ::windows::core::Result<super::Com::VARIANT>;
+    fn get_Item(&self, name: &super::super::Foundation::BSTR) -> ::windows::core::Result<super::Com::VARIANT>;
     fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
     fn IsCallerInRole(&self, bstrrole: &super::super::Foundation::BSTR) -> ::windows::core::Result<i16>;
     fn IsSecurityEnabled(&self) -> ::windows::core::Result<i16>;
@@ -4583,10 +4583,10 @@ impl ISecurityCallContext_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Item<Identity: ::windows::core::IUnknownImpl, Impl: ISecurityCallContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pitem: *mut super::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_Item<Identity: ::windows::core::IUnknownImpl, Impl: ISecurityCallContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pitem: *mut super::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).Item(::core::mem::transmute(&name)) {
+            match (*this).get_Item(::core::mem::transmute(&name)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pitem = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -4641,7 +4641,7 @@ impl ISecurityCallContext_Vtbl {
         Self {
             base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Count: Count::<Identity, Impl, OFFSET>,
-            Item: Item::<Identity, Impl, OFFSET>,
+            get_Item: get_Item::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
             IsCallerInRole: IsCallerInRole::<Identity, Impl, OFFSET>,
             IsSecurityEnabled: IsSecurityEnabled::<Identity, Impl, OFFSET>,
@@ -4655,7 +4655,7 @@ impl ISecurityCallContext_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ISecurityCallersColl_Impl: Sized + super::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows::core::Result<i32>;
-    fn Item(&self, lindex: i32) -> ::windows::core::Result<ISecurityIdentityColl>;
+    fn get_Item(&self, lindex: i32) -> ::windows::core::Result<ISecurityIdentityColl>;
     fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -4672,10 +4672,10 @@ impl ISecurityCallersColl_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Item<Identity: ::windows::core::IUnknownImpl, Impl: ISecurityCallersColl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lindex: i32, pobj: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_Item<Identity: ::windows::core::IUnknownImpl, Impl: ISecurityCallersColl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lindex: i32, pobj: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).Item(::core::mem::transmute_copy(&lindex)) {
+            match (*this).get_Item(::core::mem::transmute_copy(&lindex)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pobj = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -4697,7 +4697,7 @@ impl ISecurityCallersColl_Vtbl {
         Self {
             base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Count: Count::<Identity, Impl, OFFSET>,
-            Item: Item::<Identity, Impl, OFFSET>,
+            get_Item: get_Item::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
         }
     }
@@ -4708,7 +4708,7 @@ impl ISecurityCallersColl_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ISecurityIdentityColl_Impl: Sized + super::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows::core::Result<i32>;
-    fn Item(&self, name: &super::super::Foundation::BSTR) -> ::windows::core::Result<super::Com::VARIANT>;
+    fn get_Item(&self, name: &super::super::Foundation::BSTR) -> ::windows::core::Result<super::Com::VARIANT>;
     fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -4725,10 +4725,10 @@ impl ISecurityIdentityColl_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Item<Identity: ::windows::core::IUnknownImpl, Impl: ISecurityIdentityColl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pitem: *mut super::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_Item<Identity: ::windows::core::IUnknownImpl, Impl: ISecurityIdentityColl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pitem: *mut super::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).Item(::core::mem::transmute(&name)) {
+            match (*this).get_Item(::core::mem::transmute(&name)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pitem = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -4750,7 +4750,7 @@ impl ISecurityIdentityColl_Vtbl {
         Self {
             base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Count: Count::<Identity, Impl, OFFSET>,
-            Item: Item::<Identity, Impl, OFFSET>,
+            get_Item: get_Item::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
         }
     }
@@ -5326,9 +5326,9 @@ impl ISharedProperty_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ISharedPropertyGroup_Impl: Sized + super::Com::IDispatch_Impl {
     fn CreatePropertyByPosition(&self, index: i32, fexists: *mut i16, ppprop: *mut ::core::option::Option<ISharedProperty>) -> ::windows::core::Result<()>;
-    fn PropertyByPosition(&self, index: i32) -> ::windows::core::Result<ISharedProperty>;
+    fn get_PropertyByPosition(&self, index: i32) -> ::windows::core::Result<ISharedProperty>;
     fn CreateProperty(&self, name: &super::super::Foundation::BSTR, fexists: *mut i16, ppprop: *mut ::core::option::Option<ISharedProperty>) -> ::windows::core::Result<()>;
-    fn Property(&self, name: &super::super::Foundation::BSTR) -> ::windows::core::Result<ISharedProperty>;
+    fn get_Property(&self, name: &super::super::Foundation::BSTR) -> ::windows::core::Result<ISharedProperty>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ISharedPropertyGroup_Vtbl {
@@ -5338,10 +5338,10 @@ impl ISharedPropertyGroup_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).CreatePropertyByPosition(::core::mem::transmute_copy(&index), ::core::mem::transmute_copy(&fexists), ::core::mem::transmute_copy(&ppprop)).into()
         }
-        unsafe extern "system" fn PropertyByPosition<Identity: ::windows::core::IUnknownImpl, Impl: ISharedPropertyGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, ppproperty: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_PropertyByPosition<Identity: ::windows::core::IUnknownImpl, Impl: ISharedPropertyGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, ppproperty: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).PropertyByPosition(::core::mem::transmute_copy(&index)) {
+            match (*this).get_PropertyByPosition(::core::mem::transmute_copy(&index)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppproperty = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -5354,10 +5354,10 @@ impl ISharedPropertyGroup_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).CreateProperty(::core::mem::transmute(&name), ::core::mem::transmute_copy(&fexists), ::core::mem::transmute_copy(&ppprop)).into()
         }
-        unsafe extern "system" fn Property<Identity: ::windows::core::IUnknownImpl, Impl: ISharedPropertyGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppproperty: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_Property<Identity: ::windows::core::IUnknownImpl, Impl: ISharedPropertyGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppproperty: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).Property(::core::mem::transmute(&name)) {
+            match (*this).get_Property(::core::mem::transmute(&name)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppproperty = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -5368,9 +5368,9 @@ impl ISharedPropertyGroup_Vtbl {
         Self {
             base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             CreatePropertyByPosition: CreatePropertyByPosition::<Identity, Impl, OFFSET>,
-            PropertyByPosition: PropertyByPosition::<Identity, Impl, OFFSET>,
+            get_PropertyByPosition: get_PropertyByPosition::<Identity, Impl, OFFSET>,
             CreateProperty: CreateProperty::<Identity, Impl, OFFSET>,
-            Property: Property::<Identity, Impl, OFFSET>,
+            get_Property: get_Property::<Identity, Impl, OFFSET>,
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -5380,7 +5380,7 @@ impl ISharedPropertyGroup_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ISharedPropertyGroupManager_Impl: Sized + super::Com::IDispatch_Impl {
     fn CreatePropertyGroup(&self, name: &super::super::Foundation::BSTR, dwisomode: *mut i32, dwrelmode: *mut i32, fexists: *mut i16, ppgroup: *mut ::core::option::Option<ISharedPropertyGroup>) -> ::windows::core::Result<()>;
-    fn Group(&self, name: &super::super::Foundation::BSTR) -> ::windows::core::Result<ISharedPropertyGroup>;
+    fn get_Group(&self, name: &super::super::Foundation::BSTR) -> ::windows::core::Result<ISharedPropertyGroup>;
     fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -5391,10 +5391,10 @@ impl ISharedPropertyGroupManager_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).CreatePropertyGroup(::core::mem::transmute(&name), ::core::mem::transmute_copy(&dwisomode), ::core::mem::transmute_copy(&dwrelmode), ::core::mem::transmute_copy(&fexists), ::core::mem::transmute_copy(&ppgroup)).into()
         }
-        unsafe extern "system" fn Group<Identity: ::windows::core::IUnknownImpl, Impl: ISharedPropertyGroupManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppgroup: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_Group<Identity: ::windows::core::IUnknownImpl, Impl: ISharedPropertyGroupManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppgroup: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).Group(::core::mem::transmute(&name)) {
+            match (*this).get_Group(::core::mem::transmute(&name)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppgroup = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -5416,7 +5416,7 @@ impl ISharedPropertyGroupManager_Vtbl {
         Self {
             base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             CreatePropertyGroup: CreatePropertyGroup::<Identity, Impl, OFFSET>,
-            Group: Group::<Identity, Impl, OFFSET>,
+            get_Group: get_Group::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
         }
     }
@@ -5912,7 +5912,7 @@ pub trait ObjectContext_Impl: Sized + super::Com::IDispatch_Impl {
     fn IsSecurityEnabled(&self) -> ::windows::core::Result<i16>;
     fn IsCallerInRole(&self, bstrrole: &super::super::Foundation::BSTR) -> ::windows::core::Result<i16>;
     fn Count(&self) -> ::windows::core::Result<i32>;
-    fn Item(&self, name: &super::super::Foundation::BSTR) -> ::windows::core::Result<super::Com::VARIANT>;
+    fn get_Item(&self, name: &super::super::Foundation::BSTR) -> ::windows::core::Result<super::Com::VARIANT>;
     fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
     fn Security(&self) -> ::windows::core::Result<SecurityProperty>;
     fn ContextInfo(&self) -> ::windows::core::Result<ContextInfo>;
@@ -5995,10 +5995,10 @@ impl ObjectContext_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Item<Identity: ::windows::core::IUnknownImpl, Impl: ObjectContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pitem: *mut super::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_Item<Identity: ::windows::core::IUnknownImpl, Impl: ObjectContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pitem: *mut super::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).Item(::core::mem::transmute(&name)) {
+            match (*this).get_Item(::core::mem::transmute(&name)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pitem = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -6050,7 +6050,7 @@ impl ObjectContext_Vtbl {
             IsSecurityEnabled: IsSecurityEnabled::<Identity, Impl, OFFSET>,
             IsCallerInRole: IsCallerInRole::<Identity, Impl, OFFSET>,
             Count: Count::<Identity, Impl, OFFSET>,
-            Item: Item::<Identity, Impl, OFFSET>,
+            get_Item: get_Item::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
             Security: Security::<Identity, Impl, OFFSET>,
             ContextInfo: ContextInfo::<Identity, Impl, OFFSET>,

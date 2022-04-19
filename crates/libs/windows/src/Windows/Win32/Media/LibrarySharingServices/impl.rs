@@ -60,17 +60,17 @@ impl IWindowsMediaLibrarySharingDevice_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IWindowsMediaLibrarySharingDeviceProperties_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn Item(&self, index: i32) -> ::windows::core::Result<IWindowsMediaLibrarySharingDeviceProperty>;
+    fn get_Item(&self, index: i32) -> ::windows::core::Result<IWindowsMediaLibrarySharingDeviceProperty>;
     fn Count(&self) -> ::windows::core::Result<i32>;
     fn GetProperty(&self, name: &super::super::Foundation::BSTR) -> ::windows::core::Result<IWindowsMediaLibrarySharingDeviceProperty>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWindowsMediaLibrarySharingDeviceProperties_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWindowsMediaLibrarySharingDeviceProperties_Impl, const OFFSET: isize>() -> IWindowsMediaLibrarySharingDeviceProperties_Vtbl {
-        unsafe extern "system" fn Item<Identity: ::windows::core::IUnknownImpl, Impl: IWindowsMediaLibrarySharingDeviceProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, property: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_Item<Identity: ::windows::core::IUnknownImpl, Impl: IWindowsMediaLibrarySharingDeviceProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, property: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).Item(::core::mem::transmute_copy(&index)) {
+            match (*this).get_Item(::core::mem::transmute_copy(&index)) {
                 ::core::result::Result::Ok(ok__) => {
                     *property = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -102,7 +102,7 @@ impl IWindowsMediaLibrarySharingDeviceProperties_Vtbl {
         }
         Self {
             base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
-            Item: Item::<Identity, Impl, OFFSET>,
+            get_Item: get_Item::<Identity, Impl, OFFSET>,
             Count: Count::<Identity, Impl, OFFSET>,
             GetProperty: GetProperty::<Identity, Impl, OFFSET>,
         }
@@ -153,17 +153,17 @@ impl IWindowsMediaLibrarySharingDeviceProperty_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IWindowsMediaLibrarySharingDevices_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn Item(&self, index: i32) -> ::windows::core::Result<IWindowsMediaLibrarySharingDevice>;
+    fn get_Item(&self, index: i32) -> ::windows::core::Result<IWindowsMediaLibrarySharingDevice>;
     fn Count(&self) -> ::windows::core::Result<i32>;
     fn GetDevice(&self, deviceid: &super::super::Foundation::BSTR) -> ::windows::core::Result<IWindowsMediaLibrarySharingDevice>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWindowsMediaLibrarySharingDevices_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWindowsMediaLibrarySharingDevices_Impl, const OFFSET: isize>() -> IWindowsMediaLibrarySharingDevices_Vtbl {
-        unsafe extern "system" fn Item<Identity: ::windows::core::IUnknownImpl, Impl: IWindowsMediaLibrarySharingDevices_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, device: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_Item<Identity: ::windows::core::IUnknownImpl, Impl: IWindowsMediaLibrarySharingDevices_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, device: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).Item(::core::mem::transmute_copy(&index)) {
+            match (*this).get_Item(::core::mem::transmute_copy(&index)) {
                 ::core::result::Result::Ok(ok__) => {
                     *device = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -195,7 +195,7 @@ impl IWindowsMediaLibrarySharingDevices_Vtbl {
         }
         Self {
             base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
-            Item: Item::<Identity, Impl, OFFSET>,
+            get_Item: get_Item::<Identity, Impl, OFFSET>,
             Count: Count::<Identity, Impl, OFFSET>,
             GetDevice: GetDevice::<Identity, Impl, OFFSET>,
         }

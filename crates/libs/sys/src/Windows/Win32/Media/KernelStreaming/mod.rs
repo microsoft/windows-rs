@@ -239,15 +239,15 @@ impl ::core::clone::Clone for DEVCAPS {
         *self
     }
 }
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const DEVPKEY_KsAudio_Controller_DeviceInterface_Path: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 333448406, data2: 45158, data3: 17341, data4: [145, 59, 164, 21, 205, 19, 218, 135] }, pid: 3u32 };
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const DEVPKEY_KsAudio_PacketSize_Constraints: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 333448406, data2: 45158, data3: 17341, data4: [145, 59, 164, 21, 205, 19, 218, 135] }, pid: 2u32 };
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const DEVPKEY_KsAudio_PacketSize_Constraints2: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 2483353473, data2: 29073, data3: 16539, data4: [139, 11, 128, 191, 110, 194, 41, 174] }, pid: 2u32 };
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`, `\"Win32_Devices_Properties\"`*"]
+#[cfg(feature = "Win32_Devices_Properties")]
+pub const DEVPKEY_KsAudio_Controller_DeviceInterface_Path: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_sys::core::GUID { data1: 333448406, data2: 45158, data3: 17341, data4: [145, 59, 164, 21, 205, 19, 218, 135] }, pid: 3u32 };
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`, `\"Win32_Devices_Properties\"`*"]
+#[cfg(feature = "Win32_Devices_Properties")]
+pub const DEVPKEY_KsAudio_PacketSize_Constraints: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_sys::core::GUID { data1: 333448406, data2: 45158, data3: 17341, data4: [145, 59, 164, 21, 205, 19, 218, 135] }, pid: 2u32 };
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`, `\"Win32_Devices_Properties\"`*"]
+#[cfg(feature = "Win32_Devices_Properties")]
+pub const DEVPKEY_KsAudio_PacketSize_Constraints2: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_sys::core::GUID { data1: 2483353473, data2: 29073, data3: 16539, data4: [139, 11, 128, 191, 110, 194, 41, 174] }, pid: 2u32 };
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub struct DS3DVECTOR {

@@ -280,8 +280,6 @@ impl ::core::fmt::Debug for INTERNET_PORT {
     }
 }
 #[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
-pub type LPWINHTTP_STATUS_CALLBACK = ::core::option::Option<unsafe extern "system" fn()>;
-#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
 pub const NETWORKING_KEY_BUFSIZE: u32 = 128u32;
 #[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
 pub const SECURITY_FLAG_IGNORE_CERT_CN_INVALID: u32 = 4096u32;

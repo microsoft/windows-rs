@@ -5817,13 +5817,13 @@ pub struct INTERNET_CONNECTION(pub u32);
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
 pub const INTERNET_CONNECTION_CONFIGURED: INTERNET_CONNECTION = INTERNET_CONNECTION(64u32);
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const INTERNET_CONNECTION_LAN_: INTERNET_CONNECTION = INTERNET_CONNECTION(2u32);
+pub const INTERNET_CONNECTION_LAN: INTERNET_CONNECTION = INTERNET_CONNECTION(2u32);
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
 pub const INTERNET_CONNECTION_MODEM: INTERNET_CONNECTION = INTERNET_CONNECTION(1u32);
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
 pub const INTERNET_CONNECTION_MODEM_BUSY: INTERNET_CONNECTION = INTERNET_CONNECTION(8u32);
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const INTERNET_CONNECTION_OFFLINE_: INTERNET_CONNECTION = INTERNET_CONNECTION(32u32);
+pub const INTERNET_CONNECTION_OFFLINE: INTERNET_CONNECTION = INTERNET_CONNECTION(32u32);
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
 pub const INTERNET_CONNECTION_PROXY: INTERNET_CONNECTION = INTERNET_CONNECTION(4u32);
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
@@ -5875,10 +5875,6 @@ impl ::core::ops::Not for INTERNET_CONNECTION {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const INTERNET_CONNECTION_LAN: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const INTERNET_CONNECTION_OFFLINE: u32 = 32u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

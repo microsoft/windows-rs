@@ -2097,7 +2097,7 @@ impl ::core::default::Default for INTERFACE_INFO_EX {
     }
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
-pub const INVALID_SOCKET: SOCKET = SOCKET(4294967295u32 as _);
+pub const INVALID_SOCKET: SOCKET = SOCKET(-1i32 as _);
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub struct IN_ADDR {
@@ -3575,13 +3575,7 @@ pub const MSG_MCAST: u32 = 2048u32;
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub const MSG_PARTIAL: u32 = 32768u32;
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
-pub const MSG_PEEK: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
-pub const MSG_PUSH_IMMEDIATE: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub const MSG_TRUNC: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
-pub const MSG_WAITALL: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -6946,28 +6940,62 @@ pub const SENDER_MAX_LATE_JOINER_PERCENTAGE: u32 = 75u32;
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
-pub struct SEND_FLAGS(pub u32);
+pub struct SEND_RECV_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
-pub const MSG_DONTROUTE: SEND_FLAGS = SEND_FLAGS(4u32);
+pub const MSG_OOB: SEND_RECV_FLAGS = SEND_RECV_FLAGS(1i32);
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
-pub const MSG_OOB: SEND_FLAGS = SEND_FLAGS(1u32);
-impl ::core::marker::Copy for SEND_FLAGS {}
-impl ::core::clone::Clone for SEND_FLAGS {
+pub const MSG_PEEK: SEND_RECV_FLAGS = SEND_RECV_FLAGS(2i32);
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub const MSG_DONTROUTE: SEND_RECV_FLAGS = SEND_RECV_FLAGS(4i32);
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub const MSG_WAITALL: SEND_RECV_FLAGS = SEND_RECV_FLAGS(8i32);
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub const MSG_PUSH_IMMEDIATE: SEND_RECV_FLAGS = SEND_RECV_FLAGS(32i32);
+impl ::core::marker::Copy for SEND_RECV_FLAGS {}
+impl ::core::clone::Clone for SEND_RECV_FLAGS {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::default::Default for SEND_FLAGS {
+impl ::core::default::Default for SEND_RECV_FLAGS {
     fn default() -> Self {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for SEND_FLAGS {
+unsafe impl ::windows::core::Abi for SEND_RECV_FLAGS {
     type Abi = Self;
 }
-impl ::core::fmt::Debug for SEND_FLAGS {
+impl ::core::fmt::Debug for SEND_RECV_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SEND_FLAGS").field(&self.0).finish()
+        f.debug_tuple("SEND_RECV_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for SEND_RECV_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for SEND_RECV_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for SEND_RECV_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for SEND_RECV_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for SEND_RECV_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
     }
 }
 #[repr(C)]
@@ -15020,12 +15048,12 @@ impl ::core::default::Default for protoent {
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[inline]
-pub unsafe fn recv<'a, Param0: ::windows::core::IntoParam<'a, SOCKET>>(s: Param0, buf: ::windows::core::PSTR, len: i32, flags: i32) -> i32 {
+pub unsafe fn recv<'a, Param0: ::windows::core::IntoParam<'a, SOCKET>>(s: Param0, buf: ::windows::core::PSTR, len: i32, flags: SEND_RECV_FLAGS) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn recv(s: SOCKET, buf: ::windows::core::PSTR, len: i32, flags: i32) -> i32;
+            fn recv(s: SOCKET, buf: ::windows::core::PSTR, len: i32, flags: SEND_RECV_FLAGS) -> i32;
         }
         ::core::mem::transmute(recv(s.into_param().abi(), ::core::mem::transmute(buf), ::core::mem::transmute(len), ::core::mem::transmute(flags)))
     }
@@ -15063,12 +15091,12 @@ pub unsafe fn select(nfds: i32, readfds: *mut fd_set, writefds: *mut fd_set, exc
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[inline]
-pub unsafe fn send<'a, Param0: ::windows::core::IntoParam<'a, SOCKET>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(s: Param0, buf: Param1, len: i32, flags: SEND_FLAGS) -> i32 {
+pub unsafe fn send<'a, Param0: ::windows::core::IntoParam<'a, SOCKET>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(s: Param0, buf: Param1, len: i32, flags: SEND_RECV_FLAGS) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn send(s: SOCKET, buf: ::windows::core::PCSTR, len: i32, flags: SEND_FLAGS) -> i32;
+            fn send(s: SOCKET, buf: ::windows::core::PCSTR, len: i32, flags: SEND_RECV_FLAGS) -> i32;
         }
         ::core::mem::transmute(send(s.into_param().abi(), buf.into_param().abi(), ::core::mem::transmute(len), ::core::mem::transmute(flags)))
     }

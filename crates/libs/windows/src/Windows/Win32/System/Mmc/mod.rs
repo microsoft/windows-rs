@@ -575,9 +575,9 @@ impl ContextMenu {
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Item<'a, Param0: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, indexorpath: Param0) -> ::windows::core::Result<MenuItem> {
+    pub unsafe fn get_Item<'a, Param0: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, indexorpath: Param0) -> ::windows::core::Result<MenuItem> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Item)(::core::mem::transmute_copy(self), indexorpath.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<MenuItem>(result__)
+        (::windows::core::Interface::vtable(self).get_Item)(::core::mem::transmute_copy(self), indexorpath.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<MenuItem>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
     pub unsafe fn Count(&self) -> ::windows::core::Result<i32> {
@@ -665,9 +665,9 @@ pub struct ContextMenu_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, indexorpath: ::core::mem::ManuallyDrop<super::Com::VARIANT>, menuitem: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub get_Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, indexorpath: ::core::mem::ManuallyDrop<super::Com::VARIANT>, menuitem: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    Item: usize,
+    get_Item: usize,
     pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut i32) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
@@ -6664,9 +6664,9 @@ impl Node {
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Property<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, propertyname: Param0) -> ::windows::core::Result<*mut u16> {
+    pub unsafe fn get_Property<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, propertyname: Param0) -> ::windows::core::Result<*mut u16> {
         let mut result__: *mut u16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Property)(::core::mem::transmute_copy(self), propertyname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<*mut u16>(result__)
+        (::windows::core::Interface::vtable(self).get_Property)(::core::mem::transmute_copy(self), propertyname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<*mut u16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
     pub unsafe fn Bookmark(&self) -> ::windows::core::Result<*mut u16> {
@@ -6765,9 +6765,9 @@ pub struct Node_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *mut *mut u16) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
-    pub Property: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, propertyvalue: *mut *mut u16) -> ::windows::core::HRESULT,
+    pub get_Property: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, propertyvalue: *mut *mut u16) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
-    Property: usize,
+    get_Property: usize,
     pub Bookmark: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bookmark: *mut *mut u16) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub IsScopeNode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, isscopenode: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
@@ -8192,9 +8192,9 @@ impl View {
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn ScopeNodeContextMenu<'a, Param0: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, scopenode: Param0) -> ::windows::core::Result<ContextMenu> {
+    pub unsafe fn get_ScopeNodeContextMenu<'a, Param0: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, scopenode: Param0) -> ::windows::core::Result<ContextMenu> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ScopeNodeContextMenu)(::core::mem::transmute_copy(self), scopenode.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<ContextMenu>(result__)
+        (::windows::core::Interface::vtable(self).get_ScopeNodeContextMenu)(::core::mem::transmute_copy(self), scopenode.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<ContextMenu>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -8278,9 +8278,9 @@ impl View {
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CellContents<'a, Param0: ::windows::core::IntoParam<'a, Node>>(&self, node: Param0, column: i32) -> ::windows::core::Result<*mut u16> {
+    pub unsafe fn get_CellContents<'a, Param0: ::windows::core::IntoParam<'a, Node>>(&self, node: Param0, column: i32) -> ::windows::core::Result<*mut u16> {
         let mut result__: *mut u16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CellContents)(::core::mem::transmute_copy(self), node.into_param().abi(), ::core::mem::transmute(column), ::core::mem::transmute(&mut result__)).from_abi::<*mut u16>(result__)
+        (::windows::core::Interface::vtable(self).get_CellContents)(::core::mem::transmute_copy(self), node.into_param().abi(), ::core::mem::transmute(column), ::core::mem::transmute(&mut result__)).from_abi::<*mut u16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Mmc\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -8450,9 +8450,9 @@ pub struct View_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     RenameSelectedItem: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub ScopeNodeContextMenu: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, scopenode: ::core::mem::ManuallyDrop<super::Com::VARIANT>, contextmenu: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub get_ScopeNodeContextMenu: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, scopenode: ::core::mem::ManuallyDrop<super::Com::VARIANT>, contextmenu: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    ScopeNodeContextMenu: usize,
+    get_ScopeNodeContextMenu: usize,
     #[cfg(feature = "Win32_System_Com")]
     pub SelectionContextMenu: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, contextmenu: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -8503,9 +8503,9 @@ pub struct View_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     Columns: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub CellContents: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, node: ::windows::core::RawPtr, column: i32, cellcontents: *mut *mut u16) -> ::windows::core::HRESULT,
+    pub get_CellContents: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, node: ::windows::core::RawPtr, column: i32, cellcontents: *mut *mut u16) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
-    CellContents: usize,
+    get_CellContents: usize,
     #[cfg(feature = "Win32_Foundation")]
     pub ExportList: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, file: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, exportoptions: _ExportListOptions) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]

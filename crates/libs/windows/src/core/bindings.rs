@@ -1345,6 +1345,8 @@ pub unsafe fn CloseHandle<'a, Param0: ::windows::core::IntoParam<'a, HANDLE>>(ho
 pub const CO_E_NOTINITIALIZED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221008i32);
 pub const E_NOINTERFACE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147467262i32);
 pub const E_OUTOFMEMORY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147024882i32);
+pub const RPC_E_DISCONNECTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147417848i32);
+pub const JSCRIPT_E_CANTEXECUTE: ::windows::core::HRESULT = ::windows::core::HRESULT(-1996357631i32);
 pub type FARPROC = ::core::option::Option<unsafe extern "system" fn() -> isize>;
 #[inline]
 pub unsafe fn GetLastError() -> WIN32_ERROR {
@@ -1389,6 +1391,11 @@ unsafe impl ::windows::core::Abi for HANDLE {
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct HINSTANCE(pub isize);
+impl HINSTANCE {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == 0
+    }
+}
 impl ::core::default::Default for HINSTANCE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -1735,6 +1742,19 @@ pub unsafe fn SetErrorInfo<'a, Param1: ::windows::core::IntoParam<'a, IErrorInfo
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
+pub unsafe fn EncodePointer(ptr: *const ::core::ffi::c_void) -> *mut ::core::ffi::c_void {
+    #[cfg(windows)]
+    {
+        #[link(name = "windows")]
+        extern "system" {
+            fn EncodePointer(ptr: *const ::core::ffi::c_void) -> *mut ::core::ffi::c_void;
+        }
+        ::core::mem::transmute(EncodePointer(::core::mem::transmute(ptr)))
+    }
+    #[cfg(not(windows))]
+    unimplemented!("Unsupported target OS");
+}
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct FORMAT_MESSAGE_OPTIONS(pub u32);
@@ -1831,14 +1851,15 @@ pub unsafe fn GetProcAddress<'a, Param0: ::windows::core::IntoParam<'a, HINSTANC
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn LoadLibraryA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(lplibfilename: Param0) -> HINSTANCE {
+pub unsafe fn LoadLibraryA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(lplibfilename: Param0) -> ::windows::core::Result<HINSTANCE> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn LoadLibraryA(lplibfilename: ::windows::core::PCSTR) -> HINSTANCE;
         }
-        ::core::mem::transmute(LoadLibraryA(lplibfilename.into_param().abi()))
+        let result__ = LoadLibraryA(lplibfilename.into_param().abi());
+        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

@@ -213,7 +213,7 @@ impl IWdsTransportClient_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IWdsTransportCollection_Impl: Sized + super::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows::core::Result<u32>;
-    fn Item(&self, ulindex: u32) -> ::windows::core::Result<super::Com::IDispatch>;
+    fn get_Item(&self, ulindex: u32) -> ::windows::core::Result<super::Com::IDispatch>;
     fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -230,10 +230,10 @@ impl IWdsTransportCollection_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Item<Identity: ::windows::core::IUnknownImpl, Impl: IWdsTransportCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ulindex: u32, ppval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_Item<Identity: ::windows::core::IUnknownImpl, Impl: IWdsTransportCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ulindex: u32, ppval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).Item(::core::mem::transmute_copy(&ulindex)) {
+            match (*this).get_Item(::core::mem::transmute_copy(&ulindex)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppval = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -255,7 +255,7 @@ impl IWdsTransportCollection_Vtbl {
         Self {
             base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Count: Count::<Identity, Impl, OFFSET>,
-            Item: Item::<Identity, Impl, OFFSET>,
+            get_Item: get_Item::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
         }
     }
@@ -267,7 +267,7 @@ impl IWdsTransportCollection_Vtbl {
 pub trait IWdsTransportConfigurationManager_Impl: Sized + super::Com::IDispatch_Impl {
     fn ServicePolicy(&self) -> ::windows::core::Result<IWdsTransportServicePolicy>;
     fn DiagnosticsPolicy(&self) -> ::windows::core::Result<IWdsTransportDiagnosticsPolicy>;
-    fn WdsTransportServicesRunning(&self, brealtimestatus: i16) -> ::windows::core::Result<i16>;
+    fn get_WdsTransportServicesRunning(&self, brealtimestatus: i16) -> ::windows::core::Result<i16>;
     fn EnableWdsTransportServices(&self) -> ::windows::core::Result<()>;
     fn DisableWdsTransportServices(&self) -> ::windows::core::Result<()>;
     fn StartWdsTransportServices(&self) -> ::windows::core::Result<()>;
@@ -300,10 +300,10 @@ impl IWdsTransportConfigurationManager_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn WdsTransportServicesRunning<Identity: ::windows::core::IUnknownImpl, Impl: IWdsTransportConfigurationManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, brealtimestatus: i16, pbservicesrunning: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_WdsTransportServicesRunning<Identity: ::windows::core::IUnknownImpl, Impl: IWdsTransportConfigurationManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, brealtimestatus: i16, pbservicesrunning: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).WdsTransportServicesRunning(::core::mem::transmute_copy(&brealtimestatus)) {
+            match (*this).get_WdsTransportServicesRunning(::core::mem::transmute_copy(&brealtimestatus)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pbservicesrunning = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -345,7 +345,7 @@ impl IWdsTransportConfigurationManager_Vtbl {
             base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             ServicePolicy: ServicePolicy::<Identity, Impl, OFFSET>,
             DiagnosticsPolicy: DiagnosticsPolicy::<Identity, Impl, OFFSET>,
-            WdsTransportServicesRunning: WdsTransportServicesRunning::<Identity, Impl, OFFSET>,
+            get_WdsTransportServicesRunning: get_WdsTransportServicesRunning::<Identity, Impl, OFFSET>,
             EnableWdsTransportServices: EnableWdsTransportServices::<Identity, Impl, OFFSET>,
             DisableWdsTransportServices: DisableWdsTransportServices::<Identity, Impl, OFFSET>,
             StartWdsTransportServices: StartWdsTransportServices::<Identity, Impl, OFFSET>,
@@ -1181,12 +1181,12 @@ impl IWdsTransportServer2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IWdsTransportServicePolicy_Impl: Sized + super::Com::IDispatch_Impl + IWdsTransportCacheable_Impl {
-    fn IpAddressSource(&self, addresstype: WDSTRANSPORT_IP_ADDRESS_TYPE) -> ::windows::core::Result<WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE>;
-    fn SetIpAddressSource(&self, addresstype: WDSTRANSPORT_IP_ADDRESS_TYPE, sourcetype: WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE) -> ::windows::core::Result<()>;
-    fn StartIpAddress(&self, addresstype: WDSTRANSPORT_IP_ADDRESS_TYPE) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetStartIpAddress(&self, addresstype: WDSTRANSPORT_IP_ADDRESS_TYPE, bszstartipaddress: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn EndIpAddress(&self, addresstype: WDSTRANSPORT_IP_ADDRESS_TYPE) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetEndIpAddress(&self, addresstype: WDSTRANSPORT_IP_ADDRESS_TYPE, bszendipaddress: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn get_IpAddressSource(&self, addresstype: WDSTRANSPORT_IP_ADDRESS_TYPE) -> ::windows::core::Result<WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE>;
+    fn put_IpAddressSource(&self, addresstype: WDSTRANSPORT_IP_ADDRESS_TYPE, sourcetype: WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE) -> ::windows::core::Result<()>;
+    fn get_StartIpAddress(&self, addresstype: WDSTRANSPORT_IP_ADDRESS_TYPE) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn put_StartIpAddress(&self, addresstype: WDSTRANSPORT_IP_ADDRESS_TYPE, bszstartipaddress: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn get_EndIpAddress(&self, addresstype: WDSTRANSPORT_IP_ADDRESS_TYPE) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn put_EndIpAddress(&self, addresstype: WDSTRANSPORT_IP_ADDRESS_TYPE, bszendipaddress: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn StartPort(&self) -> ::windows::core::Result<u32>;
     fn SetStartPort(&self, ulstartport: u32) -> ::windows::core::Result<()>;
     fn EndPort(&self) -> ::windows::core::Result<u32>;
@@ -1197,10 +1197,10 @@ pub trait IWdsTransportServicePolicy_Impl: Sized + super::Com::IDispatch_Impl + 
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWdsTransportServicePolicy_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWdsTransportServicePolicy_Impl, const OFFSET: isize>() -> IWdsTransportServicePolicy_Vtbl {
-        unsafe extern "system" fn IpAddressSource<Identity: ::windows::core::IUnknownImpl, Impl: IWdsTransportServicePolicy_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, addresstype: WDSTRANSPORT_IP_ADDRESS_TYPE, psourcetype: *mut WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_IpAddressSource<Identity: ::windows::core::IUnknownImpl, Impl: IWdsTransportServicePolicy_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, addresstype: WDSTRANSPORT_IP_ADDRESS_TYPE, psourcetype: *mut WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).IpAddressSource(::core::mem::transmute_copy(&addresstype)) {
+            match (*this).get_IpAddressSource(::core::mem::transmute_copy(&addresstype)) {
                 ::core::result::Result::Ok(ok__) => {
                     *psourcetype = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1208,15 +1208,15 @@ impl IWdsTransportServicePolicy_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetIpAddressSource<Identity: ::windows::core::IUnknownImpl, Impl: IWdsTransportServicePolicy_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, addresstype: WDSTRANSPORT_IP_ADDRESS_TYPE, sourcetype: WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn put_IpAddressSource<Identity: ::windows::core::IUnknownImpl, Impl: IWdsTransportServicePolicy_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, addresstype: WDSTRANSPORT_IP_ADDRESS_TYPE, sourcetype: WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetIpAddressSource(::core::mem::transmute_copy(&addresstype), ::core::mem::transmute_copy(&sourcetype)).into()
+            (*this).put_IpAddressSource(::core::mem::transmute_copy(&addresstype), ::core::mem::transmute_copy(&sourcetype)).into()
         }
-        unsafe extern "system" fn StartIpAddress<Identity: ::windows::core::IUnknownImpl, Impl: IWdsTransportServicePolicy_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, addresstype: WDSTRANSPORT_IP_ADDRESS_TYPE, pbszstartipaddress: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_StartIpAddress<Identity: ::windows::core::IUnknownImpl, Impl: IWdsTransportServicePolicy_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, addresstype: WDSTRANSPORT_IP_ADDRESS_TYPE, pbszstartipaddress: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).StartIpAddress(::core::mem::transmute_copy(&addresstype)) {
+            match (*this).get_StartIpAddress(::core::mem::transmute_copy(&addresstype)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pbszstartipaddress = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1224,15 +1224,15 @@ impl IWdsTransportServicePolicy_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetStartIpAddress<Identity: ::windows::core::IUnknownImpl, Impl: IWdsTransportServicePolicy_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, addresstype: WDSTRANSPORT_IP_ADDRESS_TYPE, bszstartipaddress: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn put_StartIpAddress<Identity: ::windows::core::IUnknownImpl, Impl: IWdsTransportServicePolicy_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, addresstype: WDSTRANSPORT_IP_ADDRESS_TYPE, bszstartipaddress: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetStartIpAddress(::core::mem::transmute_copy(&addresstype), ::core::mem::transmute(&bszstartipaddress)).into()
+            (*this).put_StartIpAddress(::core::mem::transmute_copy(&addresstype), ::core::mem::transmute(&bszstartipaddress)).into()
         }
-        unsafe extern "system" fn EndIpAddress<Identity: ::windows::core::IUnknownImpl, Impl: IWdsTransportServicePolicy_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, addresstype: WDSTRANSPORT_IP_ADDRESS_TYPE, pbszendipaddress: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_EndIpAddress<Identity: ::windows::core::IUnknownImpl, Impl: IWdsTransportServicePolicy_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, addresstype: WDSTRANSPORT_IP_ADDRESS_TYPE, pbszendipaddress: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).EndIpAddress(::core::mem::transmute_copy(&addresstype)) {
+            match (*this).get_EndIpAddress(::core::mem::transmute_copy(&addresstype)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pbszendipaddress = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1240,10 +1240,10 @@ impl IWdsTransportServicePolicy_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetEndIpAddress<Identity: ::windows::core::IUnknownImpl, Impl: IWdsTransportServicePolicy_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, addresstype: WDSTRANSPORT_IP_ADDRESS_TYPE, bszendipaddress: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn put_EndIpAddress<Identity: ::windows::core::IUnknownImpl, Impl: IWdsTransportServicePolicy_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, addresstype: WDSTRANSPORT_IP_ADDRESS_TYPE, bszendipaddress: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetEndIpAddress(::core::mem::transmute_copy(&addresstype), ::core::mem::transmute(&bszendipaddress)).into()
+            (*this).put_EndIpAddress(::core::mem::transmute_copy(&addresstype), ::core::mem::transmute(&bszendipaddress)).into()
         }
         unsafe extern "system" fn StartPort<Identity: ::windows::core::IUnknownImpl, Impl: IWdsTransportServicePolicy_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pulstartport: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -1295,12 +1295,12 @@ impl IWdsTransportServicePolicy_Vtbl {
         }
         Self {
             base__: IWdsTransportCacheable_Vtbl::new::<Identity, Impl, OFFSET>(),
-            IpAddressSource: IpAddressSource::<Identity, Impl, OFFSET>,
-            SetIpAddressSource: SetIpAddressSource::<Identity, Impl, OFFSET>,
-            StartIpAddress: StartIpAddress::<Identity, Impl, OFFSET>,
-            SetStartIpAddress: SetStartIpAddress::<Identity, Impl, OFFSET>,
-            EndIpAddress: EndIpAddress::<Identity, Impl, OFFSET>,
-            SetEndIpAddress: SetEndIpAddress::<Identity, Impl, OFFSET>,
+            get_IpAddressSource: get_IpAddressSource::<Identity, Impl, OFFSET>,
+            put_IpAddressSource: put_IpAddressSource::<Identity, Impl, OFFSET>,
+            get_StartIpAddress: get_StartIpAddress::<Identity, Impl, OFFSET>,
+            put_StartIpAddress: put_StartIpAddress::<Identity, Impl, OFFSET>,
+            get_EndIpAddress: get_EndIpAddress::<Identity, Impl, OFFSET>,
+            put_EndIpAddress: put_EndIpAddress::<Identity, Impl, OFFSET>,
             StartPort: StartPort::<Identity, Impl, OFFSET>,
             SetStartPort: SetStartPort::<Identity, Impl, OFFSET>,
             EndPort: EndPort::<Identity, Impl, OFFSET>,

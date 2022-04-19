@@ -17247,9 +17247,9 @@ pub const CRYPT_XML_FLAG_ENFORCE_ID_NCNAME_FORMAT: u32 = 536870912u32;
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct CRYPT_XML_GROUP_ID(pub u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CRYPT_XML_GROUP_ID_HASH_________: CRYPT_XML_GROUP_ID = CRYPT_XML_GROUP_ID(1u32);
+pub const CRYPT_XML_GROUP_ID_HASH: CRYPT_XML_GROUP_ID = CRYPT_XML_GROUP_ID(1u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CRYPT_XML_GROUP_ID_SIGN_________: CRYPT_XML_GROUP_ID = CRYPT_XML_GROUP_ID(2u32);
+pub const CRYPT_XML_GROUP_ID_SIGN: CRYPT_XML_GROUP_ID = CRYPT_XML_GROUP_ID(2u32);
 impl ::core::marker::Copy for CRYPT_XML_GROUP_ID {}
 impl ::core::clone::Clone for CRYPT_XML_GROUP_ID {
     fn clone(&self) -> Self {
@@ -17269,10 +17269,6 @@ impl ::core::fmt::Debug for CRYPT_XML_GROUP_ID {
         f.debug_tuple("CRYPT_XML_GROUP_ID").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CRYPT_XML_GROUP_ID_HASH: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CRYPT_XML_GROUP_ID_SIGN: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CRYPT_XML_ID_MAX: u32 = 256u32;
 #[repr(C)]
@@ -24289,9 +24285,9 @@ impl ICertSrvSetupKeyInformationCollection {
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Item(&self, index: i32) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn get_Item(&self, index: i32) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Item)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).get_Item)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
     pub unsafe fn Count(&self) -> ::windows::core::Result<i32> {
@@ -24384,9 +24380,9 @@ pub struct ICertSrvSetupKeyInformationCollection_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32, pval: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub get_Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32, pval: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
-    Item: usize,
+    get_Item: usize,
     pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub Add: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pikeyinformation: ::windows::core::RawPtr) -> ::windows::core::HRESULT,

@@ -20,7 +20,7 @@ impl IWSCDefaultProduct_Vtbl {
 pub trait IWSCProductList_Impl: Sized + super::Com::IDispatch_Impl {
     fn Initialize(&self, provider: WSC_SECURITY_PROVIDER) -> ::windows::core::Result<()>;
     fn Count(&self) -> ::windows::core::Result<i32>;
-    fn Item(&self, index: u32) -> ::windows::core::Result<IWscProduct>;
+    fn get_Item(&self, index: u32) -> ::windows::core::Result<IWscProduct>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWSCProductList_Vtbl {
@@ -41,10 +41,10 @@ impl IWSCProductList_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Item<Identity: ::windows::core::IUnknownImpl, Impl: IWSCProductList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32, pval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_Item<Identity: ::windows::core::IUnknownImpl, Impl: IWSCProductList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32, pval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).Item(::core::mem::transmute_copy(&index)) {
+            match (*this).get_Item(::core::mem::transmute_copy(&index)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pval = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -56,7 +56,7 @@ impl IWSCProductList_Vtbl {
             base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Initialize: Initialize::<Identity, Impl, OFFSET>,
             Count: Count::<Identity, Impl, OFFSET>,
-            Item: Item::<Identity, Impl, OFFSET>,
+            get_Item: get_Item::<Identity, Impl, OFFSET>,
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {

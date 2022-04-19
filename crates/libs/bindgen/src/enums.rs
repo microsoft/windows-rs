@@ -133,6 +133,7 @@ pub fn gen(def: &TypeDef, gen: &Gen) -> TokenStream {
 
         if def.has_flags() {
             tokens.combine(&quote! {
+                #features
                 impl ::core::ops::BitOr for #ident {
                     type Output = Self;
 
@@ -140,6 +141,7 @@ pub fn gen(def: &TypeDef, gen: &Gen) -> TokenStream {
                         Self(self.0 | other.0)
                     }
                 }
+                #features
                 impl ::core::ops::BitAnd for #ident {
                     type Output = Self;
 
@@ -147,16 +149,19 @@ pub fn gen(def: &TypeDef, gen: &Gen) -> TokenStream {
                         Self(self.0 & other.0)
                     }
                 }
+                #features
                 impl ::core::ops::BitOrAssign for #ident {
                     fn bitor_assign(&mut self, other: Self) {
                         self.0.bitor_assign(other.0)
                     }
                 }
+                #features
                 impl ::core::ops::BitAndAssign for #ident {
                     fn bitand_assign(&mut self, other: Self) {
                         self.0.bitand_assign(other.0)
                     }
                 }
+                #features
                 impl ::core::ops::Not for #ident {
                     type Output = Self;
 

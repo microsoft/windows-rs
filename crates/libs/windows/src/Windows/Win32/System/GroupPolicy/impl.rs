@@ -444,7 +444,7 @@ impl IGPMBackup_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IGPMBackupCollection_Impl: Sized + super::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows::core::Result<i32>;
-    fn Item(&self, lindex: i32) -> ::windows::core::Result<super::Com::VARIANT>;
+    fn get_Item(&self, lindex: i32) -> ::windows::core::Result<super::Com::VARIANT>;
     fn _NewEnum(&self) -> ::windows::core::Result<super::Ole::IEnumVARIANT>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -461,10 +461,10 @@ impl IGPMBackupCollection_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Item<Identity: ::windows::core::IUnknownImpl, Impl: IGPMBackupCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lindex: i32, pval: *mut super::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_Item<Identity: ::windows::core::IUnknownImpl, Impl: IGPMBackupCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lindex: i32, pval: *mut super::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).Item(::core::mem::transmute_copy(&lindex)) {
+            match (*this).get_Item(::core::mem::transmute_copy(&lindex)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pval = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -486,7 +486,7 @@ impl IGPMBackupCollection_Vtbl {
         Self {
             base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Count: Count::<Identity, Impl, OFFSET>,
-            Item: Item::<Identity, Impl, OFFSET>,
+            get_Item: get_Item::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
         }
     }
@@ -616,7 +616,7 @@ impl IGPMBackupDirEx_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IGPMCSECollection_Impl: Sized + super::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows::core::Result<i32>;
-    fn Item(&self, lindex: i32) -> ::windows::core::Result<super::Com::VARIANT>;
+    fn get_Item(&self, lindex: i32) -> ::windows::core::Result<super::Com::VARIANT>;
     fn _NewEnum(&self) -> ::windows::core::Result<super::Ole::IEnumVARIANT>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -633,10 +633,10 @@ impl IGPMCSECollection_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Item<Identity: ::windows::core::IUnknownImpl, Impl: IGPMCSECollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lindex: i32, pval: *mut super::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_Item<Identity: ::windows::core::IUnknownImpl, Impl: IGPMCSECollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lindex: i32, pval: *mut super::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).Item(::core::mem::transmute_copy(&lindex)) {
+            match (*this).get_Item(::core::mem::transmute_copy(&lindex)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pval = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -658,7 +658,7 @@ impl IGPMCSECollection_Vtbl {
         Self {
             base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Count: Count::<Identity, Impl, OFFSET>,
-            Item: Item::<Identity, Impl, OFFSET>,
+            get_Item: get_Item::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
         }
     }
@@ -768,7 +768,7 @@ pub trait IGPMConstants_Impl: Sized + super::Com::IDispatch_Impl {
     fn SOMSite(&self) -> ::windows::core::Result<GPMSOMType>;
     fn SOMDomain(&self) -> ::windows::core::Result<GPMSOMType>;
     fn SOMOU(&self) -> ::windows::core::Result<GPMSOMType>;
-    fn SecurityFlags(&self, vbowner: i16, vbgroup: i16, vbdacl: i16, vbsacl: i16) -> ::windows::core::Result<i32>;
+    fn get_SecurityFlags(&self, vbowner: i16, vbgroup: i16, vbdacl: i16, vbsacl: i16) -> ::windows::core::Result<i32>;
     fn DoNotValidateDC(&self) -> ::windows::core::Result<i32>;
     fn ReportHTML(&self) -> ::windows::core::Result<GPMReportType>;
     fn ReportXML(&self) -> ::windows::core::Result<GPMReportType>;
@@ -791,7 +791,7 @@ pub trait IGPMConstants_Impl: Sized + super::Com::IDispatch_Impl {
     fn RsopLoggingNoComputer(&self) -> ::windows::core::Result<i32>;
     fn RsopLoggingNoUser(&self) -> ::windows::core::Result<i32>;
     fn RsopPlanningAssumeSlowLink(&self) -> ::windows::core::Result<i32>;
-    fn RsopPlanningLoopbackOption(&self, vbmerge: i16) -> ::windows::core::Result<i32>;
+    fn get_RsopPlanningLoopbackOption(&self, vbmerge: i16) -> ::windows::core::Result<i32>;
     fn RsopPlanningAssumeUserWQLFilterTrue(&self) -> ::windows::core::Result<i32>;
     fn RsopPlanningAssumeCompWQLFilterTrue(&self) -> ::windows::core::Result<i32>;
 }
@@ -1172,10 +1172,10 @@ impl IGPMConstants_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SecurityFlags<Identity: ::windows::core::IUnknownImpl, Impl: IGPMConstants_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vbowner: i16, vbgroup: i16, vbdacl: i16, vbsacl: i16, pval: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_SecurityFlags<Identity: ::windows::core::IUnknownImpl, Impl: IGPMConstants_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vbowner: i16, vbgroup: i16, vbdacl: i16, vbsacl: i16, pval: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).SecurityFlags(::core::mem::transmute_copy(&vbowner), ::core::mem::transmute_copy(&vbgroup), ::core::mem::transmute_copy(&vbdacl), ::core::mem::transmute_copy(&vbsacl)) {
+            match (*this).get_SecurityFlags(::core::mem::transmute_copy(&vbowner), ::core::mem::transmute_copy(&vbgroup), ::core::mem::transmute_copy(&vbdacl), ::core::mem::transmute_copy(&vbsacl)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pval = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1425,10 +1425,10 @@ impl IGPMConstants_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RsopPlanningLoopbackOption<Identity: ::windows::core::IUnknownImpl, Impl: IGPMConstants_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vbmerge: i16, pval: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_RsopPlanningLoopbackOption<Identity: ::windows::core::IUnknownImpl, Impl: IGPMConstants_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vbmerge: i16, pval: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).RsopPlanningLoopbackOption(::core::mem::transmute_copy(&vbmerge)) {
+            match (*this).get_RsopPlanningLoopbackOption(::core::mem::transmute_copy(&vbmerge)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pval = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1494,7 +1494,7 @@ impl IGPMConstants_Vtbl {
             SOMSite: SOMSite::<Identity, Impl, OFFSET>,
             SOMDomain: SOMDomain::<Identity, Impl, OFFSET>,
             SOMOU: SOMOU::<Identity, Impl, OFFSET>,
-            SecurityFlags: SecurityFlags::<Identity, Impl, OFFSET>,
+            get_SecurityFlags: get_SecurityFlags::<Identity, Impl, OFFSET>,
             DoNotValidateDC: DoNotValidateDC::<Identity, Impl, OFFSET>,
             ReportHTML: ReportHTML::<Identity, Impl, OFFSET>,
             ReportXML: ReportXML::<Identity, Impl, OFFSET>,
@@ -1517,7 +1517,7 @@ impl IGPMConstants_Vtbl {
             RsopLoggingNoComputer: RsopLoggingNoComputer::<Identity, Impl, OFFSET>,
             RsopLoggingNoUser: RsopLoggingNoUser::<Identity, Impl, OFFSET>,
             RsopPlanningAssumeSlowLink: RsopPlanningAssumeSlowLink::<Identity, Impl, OFFSET>,
-            RsopPlanningLoopbackOption: RsopPlanningLoopbackOption::<Identity, Impl, OFFSET>,
+            get_RsopPlanningLoopbackOption: get_RsopPlanningLoopbackOption::<Identity, Impl, OFFSET>,
             RsopPlanningAssumeUserWQLFilterTrue: RsopPlanningAssumeUserWQLFilterTrue::<Identity, Impl, OFFSET>,
             RsopPlanningAssumeCompWQLFilterTrue: RsopPlanningAssumeCompWQLFilterTrue::<Identity, Impl, OFFSET>,
         }
@@ -2398,7 +2398,7 @@ impl IGPMGPO3_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IGPMGPOCollection_Impl: Sized + super::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows::core::Result<i32>;
-    fn Item(&self, lindex: i32) -> ::windows::core::Result<super::Com::VARIANT>;
+    fn get_Item(&self, lindex: i32) -> ::windows::core::Result<super::Com::VARIANT>;
     fn _NewEnum(&self) -> ::windows::core::Result<super::Ole::IEnumVARIANT>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2415,10 +2415,10 @@ impl IGPMGPOCollection_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Item<Identity: ::windows::core::IUnknownImpl, Impl: IGPMGPOCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lindex: i32, pval: *mut super::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_Item<Identity: ::windows::core::IUnknownImpl, Impl: IGPMGPOCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lindex: i32, pval: *mut super::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).Item(::core::mem::transmute_copy(&lindex)) {
+            match (*this).get_Item(::core::mem::transmute_copy(&lindex)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pval = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -2440,7 +2440,7 @@ impl IGPMGPOCollection_Vtbl {
         Self {
             base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Count: Count::<Identity, Impl, OFFSET>,
-            Item: Item::<Identity, Impl, OFFSET>,
+            get_Item: get_Item::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
         }
     }
@@ -2564,7 +2564,7 @@ impl IGPMGPOLink_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IGPMGPOLinksCollection_Impl: Sized + super::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows::core::Result<i32>;
-    fn Item(&self, lindex: i32) -> ::windows::core::Result<super::Com::VARIANT>;
+    fn get_Item(&self, lindex: i32) -> ::windows::core::Result<super::Com::VARIANT>;
     fn _NewEnum(&self) -> ::windows::core::Result<super::Ole::IEnumVARIANT>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2581,10 +2581,10 @@ impl IGPMGPOLinksCollection_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Item<Identity: ::windows::core::IUnknownImpl, Impl: IGPMGPOLinksCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lindex: i32, pval: *mut super::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_Item<Identity: ::windows::core::IUnknownImpl, Impl: IGPMGPOLinksCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lindex: i32, pval: *mut super::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).Item(::core::mem::transmute_copy(&lindex)) {
+            match (*this).get_Item(::core::mem::transmute_copy(&lindex)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pval = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -2606,7 +2606,7 @@ impl IGPMGPOLinksCollection_Vtbl {
         Self {
             base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Count: Count::<Identity, Impl, OFFSET>,
-            Item: Item::<Identity, Impl, OFFSET>,
+            get_Item: get_Item::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
         }
     }
@@ -2683,7 +2683,7 @@ impl IGPMMapEntry_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IGPMMapEntryCollection_Impl: Sized + super::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows::core::Result<i32>;
-    fn Item(&self, lindex: i32) -> ::windows::core::Result<super::Com::VARIANT>;
+    fn get_Item(&self, lindex: i32) -> ::windows::core::Result<super::Com::VARIANT>;
     fn _NewEnum(&self) -> ::windows::core::Result<super::Ole::IEnumVARIANT>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2700,10 +2700,10 @@ impl IGPMMapEntryCollection_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Item<Identity: ::windows::core::IUnknownImpl, Impl: IGPMMapEntryCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lindex: i32, pval: *mut super::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_Item<Identity: ::windows::core::IUnknownImpl, Impl: IGPMMapEntryCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lindex: i32, pval: *mut super::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).Item(::core::mem::transmute_copy(&lindex)) {
+            match (*this).get_Item(::core::mem::transmute_copy(&lindex)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pval = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -2725,7 +2725,7 @@ impl IGPMMapEntryCollection_Vtbl {
         Self {
             base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Count: Count::<Identity, Impl, OFFSET>,
-            Item: Item::<Identity, Impl, OFFSET>,
+            get_Item: get_Item::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
         }
     }
@@ -3461,7 +3461,7 @@ impl IGPMSOM_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IGPMSOMCollection_Impl: Sized + super::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows::core::Result<i32>;
-    fn Item(&self, lindex: i32) -> ::windows::core::Result<super::Com::VARIANT>;
+    fn get_Item(&self, lindex: i32) -> ::windows::core::Result<super::Com::VARIANT>;
     fn _NewEnum(&self) -> ::windows::core::Result<super::Ole::IEnumVARIANT>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3478,10 +3478,10 @@ impl IGPMSOMCollection_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Item<Identity: ::windows::core::IUnknownImpl, Impl: IGPMSOMCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lindex: i32, pval: *mut super::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_Item<Identity: ::windows::core::IUnknownImpl, Impl: IGPMSOMCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lindex: i32, pval: *mut super::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).Item(::core::mem::transmute_copy(&lindex)) {
+            match (*this).get_Item(::core::mem::transmute_copy(&lindex)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pval = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -3503,7 +3503,7 @@ impl IGPMSOMCollection_Vtbl {
         Self {
             base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Count: Count::<Identity, Impl, OFFSET>,
-            Item: Item::<Identity, Impl, OFFSET>,
+            get_Item: get_Item::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
         }
     }
@@ -3532,7 +3532,7 @@ impl IGPMSearchCriteria_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IGPMSecurityInfo_Impl: Sized + super::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows::core::Result<i32>;
-    fn Item(&self, lindex: i32) -> ::windows::core::Result<super::Com::VARIANT>;
+    fn get_Item(&self, lindex: i32) -> ::windows::core::Result<super::Com::VARIANT>;
     fn _NewEnum(&self) -> ::windows::core::Result<super::Ole::IEnumVARIANT>;
     fn Add(&self, pperm: &::core::option::Option<IGPMPermission>) -> ::windows::core::Result<()>;
     fn Remove(&self, pperm: &::core::option::Option<IGPMPermission>) -> ::windows::core::Result<()>;
@@ -3552,10 +3552,10 @@ impl IGPMSecurityInfo_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Item<Identity: ::windows::core::IUnknownImpl, Impl: IGPMSecurityInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lindex: i32, pval: *mut super::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_Item<Identity: ::windows::core::IUnknownImpl, Impl: IGPMSecurityInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lindex: i32, pval: *mut super::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).Item(::core::mem::transmute_copy(&lindex)) {
+            match (*this).get_Item(::core::mem::transmute_copy(&lindex)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pval = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -3592,7 +3592,7 @@ impl IGPMSecurityInfo_Vtbl {
         Self {
             base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Count: Count::<Identity, Impl, OFFSET>,
-            Item: Item::<Identity, Impl, OFFSET>,
+            get_Item: get_Item::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
             Add: Add::<Identity, Impl, OFFSET>,
             Remove: Remove::<Identity, Impl, OFFSET>,
@@ -4083,7 +4083,7 @@ impl IGPMStarterGPOBackup_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IGPMStarterGPOBackupCollection_Impl: Sized + super::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows::core::Result<i32>;
-    fn Item(&self, lindex: i32) -> ::windows::core::Result<super::Com::VARIANT>;
+    fn get_Item(&self, lindex: i32) -> ::windows::core::Result<super::Com::VARIANT>;
     fn _NewEnum(&self) -> ::windows::core::Result<super::Ole::IEnumVARIANT>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -4100,10 +4100,10 @@ impl IGPMStarterGPOBackupCollection_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Item<Identity: ::windows::core::IUnknownImpl, Impl: IGPMStarterGPOBackupCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lindex: i32, pval: *mut super::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_Item<Identity: ::windows::core::IUnknownImpl, Impl: IGPMStarterGPOBackupCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lindex: i32, pval: *mut super::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).Item(::core::mem::transmute_copy(&lindex)) {
+            match (*this).get_Item(::core::mem::transmute_copy(&lindex)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pval = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -4125,7 +4125,7 @@ impl IGPMStarterGPOBackupCollection_Vtbl {
         Self {
             base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Count: Count::<Identity, Impl, OFFSET>,
-            Item: Item::<Identity, Impl, OFFSET>,
+            get_Item: get_Item::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
         }
     }
@@ -4136,7 +4136,7 @@ impl IGPMStarterGPOBackupCollection_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IGPMStarterGPOCollection_Impl: Sized + super::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows::core::Result<i32>;
-    fn Item(&self, lindex: i32) -> ::windows::core::Result<super::Com::VARIANT>;
+    fn get_Item(&self, lindex: i32) -> ::windows::core::Result<super::Com::VARIANT>;
     fn _NewEnum(&self) -> ::windows::core::Result<super::Ole::IEnumVARIANT>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -4153,10 +4153,10 @@ impl IGPMStarterGPOCollection_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Item<Identity: ::windows::core::IUnknownImpl, Impl: IGPMStarterGPOCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lindex: i32, pval: *mut super::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_Item<Identity: ::windows::core::IUnknownImpl, Impl: IGPMStarterGPOCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lindex: i32, pval: *mut super::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).Item(::core::mem::transmute_copy(&lindex)) {
+            match (*this).get_Item(::core::mem::transmute_copy(&lindex)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pval = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -4178,7 +4178,7 @@ impl IGPMStarterGPOCollection_Vtbl {
         Self {
             base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Count: Count::<Identity, Impl, OFFSET>,
-            Item: Item::<Identity, Impl, OFFSET>,
+            get_Item: get_Item::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
         }
     }
@@ -4269,7 +4269,7 @@ impl IGPMStatusMessage_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IGPMStatusMsgCollection_Impl: Sized + super::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows::core::Result<i32>;
-    fn Item(&self, lindex: i32) -> ::windows::core::Result<super::Com::VARIANT>;
+    fn get_Item(&self, lindex: i32) -> ::windows::core::Result<super::Com::VARIANT>;
     fn _NewEnum(&self) -> ::windows::core::Result<super::Ole::IEnumVARIANT>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -4286,10 +4286,10 @@ impl IGPMStatusMsgCollection_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Item<Identity: ::windows::core::IUnknownImpl, Impl: IGPMStatusMsgCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lindex: i32, pval: *mut super::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_Item<Identity: ::windows::core::IUnknownImpl, Impl: IGPMStatusMsgCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lindex: i32, pval: *mut super::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).Item(::core::mem::transmute_copy(&lindex)) {
+            match (*this).get_Item(::core::mem::transmute_copy(&lindex)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pval = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -4311,7 +4311,7 @@ impl IGPMStatusMsgCollection_Vtbl {
         Self {
             base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Count: Count::<Identity, Impl, OFFSET>,
-            Item: Item::<Identity, Impl, OFFSET>,
+            get_Item: get_Item::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
         }
     }
@@ -4501,7 +4501,7 @@ impl IGPMWMIFilter_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IGPMWMIFilterCollection_Impl: Sized + super::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows::core::Result<i32>;
-    fn Item(&self, lindex: i32) -> ::windows::core::Result<super::Com::VARIANT>;
+    fn get_Item(&self, lindex: i32) -> ::windows::core::Result<super::Com::VARIANT>;
     fn _NewEnum(&self) -> ::windows::core::Result<super::Ole::IEnumVARIANT>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -4518,10 +4518,10 @@ impl IGPMWMIFilterCollection_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Item<Identity: ::windows::core::IUnknownImpl, Impl: IGPMWMIFilterCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lindex: i32, pval: *mut super::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_Item<Identity: ::windows::core::IUnknownImpl, Impl: IGPMWMIFilterCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lindex: i32, pval: *mut super::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).Item(::core::mem::transmute_copy(&lindex)) {
+            match (*this).get_Item(::core::mem::transmute_copy(&lindex)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pval = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -4543,7 +4543,7 @@ impl IGPMWMIFilterCollection_Vtbl {
         Self {
             base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Count: Count::<Identity, Impl, OFFSET>,
-            Item: Item::<Identity, Impl, OFFSET>,
+            get_Item: get_Item::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
         }
     }

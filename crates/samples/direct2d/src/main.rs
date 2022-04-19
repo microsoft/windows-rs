@@ -309,7 +309,7 @@ impl Window {
 
     fn run(&mut self) -> Result<()> {
         unsafe {
-            let instance = GetModuleHandleA(None);
+            let instance = GetModuleHandleA(None)?;
             debug_assert!(instance.0 != 0);
 
             let wc = WNDCLASSA {

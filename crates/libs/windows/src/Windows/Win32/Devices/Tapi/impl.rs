@@ -1740,8 +1740,8 @@ pub trait ITAddress2_Impl: Sized + super::super::System::Com::IDispatch_Impl + I
     fn GetPhoneFromTerminal(&self, pterminal: &::core::option::Option<ITTerminal>) -> ::windows::core::Result<ITPhone>;
     fn PreferredPhones(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
     fn EnumeratePreferredPhones(&self) -> ::windows::core::Result<IEnumPhone>;
-    fn EventFilter(&self, tapievent: TAPI_EVENT, lsubevent: i32) -> ::windows::core::Result<i16>;
-    fn SetEventFilter(&self, tapievent: TAPI_EVENT, lsubevent: i32, benable: i16) -> ::windows::core::Result<()>;
+    fn get_EventFilter(&self, tapievent: TAPI_EVENT, lsubevent: i32) -> ::windows::core::Result<i16>;
+    fn put_EventFilter(&self, tapievent: TAPI_EVENT, lsubevent: i32, benable: i16) -> ::windows::core::Result<()>;
     fn DeviceSpecific(&self, pcall: &::core::option::Option<ITCallInfo>, pparams: *const u8, dwsize: u32) -> ::windows::core::Result<()>;
     fn DeviceSpecificVariant(&self, pcall: &::core::option::Option<ITCallInfo>, vardevspecificbytearray: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn NegotiateExtVersion(&self, llowversion: i32, lhighversion: i32) -> ::windows::core::Result<i32>;
@@ -1804,10 +1804,10 @@ impl ITAddress2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn EventFilter<Identity: ::windows::core::IUnknownImpl, Impl: ITAddress2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, tapievent: TAPI_EVENT, lsubevent: i32, penable: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_EventFilter<Identity: ::windows::core::IUnknownImpl, Impl: ITAddress2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, tapievent: TAPI_EVENT, lsubevent: i32, penable: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).EventFilter(::core::mem::transmute_copy(&tapievent), ::core::mem::transmute_copy(&lsubevent)) {
+            match (*this).get_EventFilter(::core::mem::transmute_copy(&tapievent), ::core::mem::transmute_copy(&lsubevent)) {
                 ::core::result::Result::Ok(ok__) => {
                     *penable = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1815,10 +1815,10 @@ impl ITAddress2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetEventFilter<Identity: ::windows::core::IUnknownImpl, Impl: ITAddress2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, tapievent: TAPI_EVENT, lsubevent: i32, benable: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn put_EventFilter<Identity: ::windows::core::IUnknownImpl, Impl: ITAddress2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, tapievent: TAPI_EVENT, lsubevent: i32, benable: i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetEventFilter(::core::mem::transmute_copy(&tapievent), ::core::mem::transmute_copy(&lsubevent), ::core::mem::transmute_copy(&benable)).into()
+            (*this).put_EventFilter(::core::mem::transmute_copy(&tapievent), ::core::mem::transmute_copy(&lsubevent), ::core::mem::transmute_copy(&benable)).into()
         }
         unsafe extern "system" fn DeviceSpecific<Identity: ::windows::core::IUnknownImpl, Impl: ITAddress2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcall: ::windows::core::RawPtr, pparams: *const u8, dwsize: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -1848,8 +1848,8 @@ impl ITAddress2_Vtbl {
             GetPhoneFromTerminal: GetPhoneFromTerminal::<Identity, Impl, OFFSET>,
             PreferredPhones: PreferredPhones::<Identity, Impl, OFFSET>,
             EnumeratePreferredPhones: EnumeratePreferredPhones::<Identity, Impl, OFFSET>,
-            EventFilter: EventFilter::<Identity, Impl, OFFSET>,
-            SetEventFilter: SetEventFilter::<Identity, Impl, OFFSET>,
+            get_EventFilter: get_EventFilter::<Identity, Impl, OFFSET>,
+            put_EventFilter: put_EventFilter::<Identity, Impl, OFFSET>,
             DeviceSpecific: DeviceSpecific::<Identity, Impl, OFFSET>,
             DeviceSpecificVariant: DeviceSpecificVariant::<Identity, Impl, OFFSET>,
             NegotiateExtVersion: NegotiateExtVersion::<Identity, Impl, OFFSET>,
@@ -1861,8 +1861,8 @@ impl ITAddress2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITAddressCapabilities_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn AddressCapability(&self, addresscap: ADDRESS_CAPABILITY) -> ::windows::core::Result<i32>;
-    fn AddressCapabilityString(&self, addresscapstring: ADDRESS_CAPABILITY_STRING) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn get_AddressCapability(&self, addresscap: ADDRESS_CAPABILITY) -> ::windows::core::Result<i32>;
+    fn get_AddressCapabilityString(&self, addresscapstring: ADDRESS_CAPABILITY_STRING) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn CallTreatments(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
     fn EnumerateCallTreatments(&self) -> ::windows::core::Result<IEnumBstr>;
     fn CompletionMessages(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
@@ -1873,10 +1873,10 @@ pub trait ITAddressCapabilities_Impl: Sized + super::super::System::Com::IDispat
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITAddressCapabilities_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITAddressCapabilities_Impl, const OFFSET: isize>() -> ITAddressCapabilities_Vtbl {
-        unsafe extern "system" fn AddressCapability<Identity: ::windows::core::IUnknownImpl, Impl: ITAddressCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, addresscap: ADDRESS_CAPABILITY, plcapability: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_AddressCapability<Identity: ::windows::core::IUnknownImpl, Impl: ITAddressCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, addresscap: ADDRESS_CAPABILITY, plcapability: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).AddressCapability(::core::mem::transmute_copy(&addresscap)) {
+            match (*this).get_AddressCapability(::core::mem::transmute_copy(&addresscap)) {
                 ::core::result::Result::Ok(ok__) => {
                     *plcapability = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1884,10 +1884,10 @@ impl ITAddressCapabilities_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AddressCapabilityString<Identity: ::windows::core::IUnknownImpl, Impl: ITAddressCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, addresscapstring: ADDRESS_CAPABILITY_STRING, ppcapabilitystring: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_AddressCapabilityString<Identity: ::windows::core::IUnknownImpl, Impl: ITAddressCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, addresscapstring: ADDRESS_CAPABILITY_STRING, ppcapabilitystring: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).AddressCapabilityString(::core::mem::transmute_copy(&addresscapstring)) {
+            match (*this).get_AddressCapabilityString(::core::mem::transmute_copy(&addresscapstring)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppcapabilitystring = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1963,8 +1963,8 @@ impl ITAddressCapabilities_Vtbl {
         }
         Self {
             base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
-            AddressCapability: AddressCapability::<Identity, Impl, OFFSET>,
-            AddressCapabilityString: AddressCapabilityString::<Identity, Impl, OFFSET>,
+            get_AddressCapability: get_AddressCapability::<Identity, Impl, OFFSET>,
+            get_AddressCapabilityString: get_AddressCapabilityString::<Identity, Impl, OFFSET>,
             CallTreatments: CallTreatments::<Identity, Impl, OFFSET>,
             EnumerateCallTreatments: EnumerateCallTreatments::<Identity, Impl, OFFSET>,
             CompletionMessages: CompletionMessages::<Identity, Impl, OFFSET>,
@@ -3726,14 +3726,14 @@ pub trait ITCallInfo_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn CallState(&self) -> ::windows::core::Result<CALL_STATE>;
     fn Privilege(&self) -> ::windows::core::Result<CALL_PRIVILEGE>;
     fn CallHub(&self) -> ::windows::core::Result<ITCallHub>;
-    fn CallInfoLong(&self, callinfolong: CALLINFO_LONG) -> ::windows::core::Result<i32>;
-    fn SetCallInfoLong(&self, callinfolong: CALLINFO_LONG, lcallinfolongval: i32) -> ::windows::core::Result<()>;
-    fn CallInfoString(&self, callinfostring: CALLINFO_STRING) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetCallInfoString(&self, callinfostring: CALLINFO_STRING, pcallinfostring: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn CallInfoBuffer(&self, callinfobuffer: CALLINFO_BUFFER) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn SetCallInfoBuffer(&self, callinfobuffer: CALLINFO_BUFFER, pcallinfobuffer: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn get_CallInfoLong(&self, callinfolong: CALLINFO_LONG) -> ::windows::core::Result<i32>;
+    fn put_CallInfoLong(&self, callinfolong: CALLINFO_LONG, lcallinfolongval: i32) -> ::windows::core::Result<()>;
+    fn get_CallInfoString(&self, callinfostring: CALLINFO_STRING) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn put_CallInfoString(&self, callinfostring: CALLINFO_STRING, pcallinfostring: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn get_CallInfoBuffer(&self, callinfobuffer: CALLINFO_BUFFER) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
+    fn put_CallInfoBuffer(&self, callinfobuffer: CALLINFO_BUFFER, pcallinfobuffer: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn GetCallInfoBuffer(&self, callinfobuffer: CALLINFO_BUFFER, pdwsize: *mut u32, ppcallinfobuffer: *mut *mut u8) -> ::windows::core::Result<()>;
-    fn SetCallInfoBuffer2(&self, callinfobuffer: CALLINFO_BUFFER, dwsize: u32, pcallinfobuffer: *const u8) -> ::windows::core::Result<()>;
+    fn SetCallInfoBuffer(&self, callinfobuffer: CALLINFO_BUFFER, dwsize: u32, pcallinfobuffer: *const u8) -> ::windows::core::Result<()>;
     fn ReleaseUserUserInfo(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3783,10 +3783,10 @@ impl ITCallInfo_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CallInfoLong<Identity: ::windows::core::IUnknownImpl, Impl: ITCallInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, callinfolong: CALLINFO_LONG, plcallinfolongval: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_CallInfoLong<Identity: ::windows::core::IUnknownImpl, Impl: ITCallInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, callinfolong: CALLINFO_LONG, plcallinfolongval: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).CallInfoLong(::core::mem::transmute_copy(&callinfolong)) {
+            match (*this).get_CallInfoLong(::core::mem::transmute_copy(&callinfolong)) {
                 ::core::result::Result::Ok(ok__) => {
                     *plcallinfolongval = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -3794,15 +3794,15 @@ impl ITCallInfo_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetCallInfoLong<Identity: ::windows::core::IUnknownImpl, Impl: ITCallInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, callinfolong: CALLINFO_LONG, lcallinfolongval: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn put_CallInfoLong<Identity: ::windows::core::IUnknownImpl, Impl: ITCallInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, callinfolong: CALLINFO_LONG, lcallinfolongval: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetCallInfoLong(::core::mem::transmute_copy(&callinfolong), ::core::mem::transmute_copy(&lcallinfolongval)).into()
+            (*this).put_CallInfoLong(::core::mem::transmute_copy(&callinfolong), ::core::mem::transmute_copy(&lcallinfolongval)).into()
         }
-        unsafe extern "system" fn CallInfoString<Identity: ::windows::core::IUnknownImpl, Impl: ITCallInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, callinfostring: CALLINFO_STRING, ppcallinfostring: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_CallInfoString<Identity: ::windows::core::IUnknownImpl, Impl: ITCallInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, callinfostring: CALLINFO_STRING, ppcallinfostring: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).CallInfoString(::core::mem::transmute_copy(&callinfostring)) {
+            match (*this).get_CallInfoString(::core::mem::transmute_copy(&callinfostring)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppcallinfostring = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -3810,15 +3810,15 @@ impl ITCallInfo_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetCallInfoString<Identity: ::windows::core::IUnknownImpl, Impl: ITCallInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, callinfostring: CALLINFO_STRING, pcallinfostring: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn put_CallInfoString<Identity: ::windows::core::IUnknownImpl, Impl: ITCallInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, callinfostring: CALLINFO_STRING, pcallinfostring: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetCallInfoString(::core::mem::transmute_copy(&callinfostring), ::core::mem::transmute(&pcallinfostring)).into()
+            (*this).put_CallInfoString(::core::mem::transmute_copy(&callinfostring), ::core::mem::transmute(&pcallinfostring)).into()
         }
-        unsafe extern "system" fn CallInfoBuffer<Identity: ::windows::core::IUnknownImpl, Impl: ITCallInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, callinfobuffer: CALLINFO_BUFFER, ppcallinfobuffer: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_CallInfoBuffer<Identity: ::windows::core::IUnknownImpl, Impl: ITCallInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, callinfobuffer: CALLINFO_BUFFER, ppcallinfobuffer: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).CallInfoBuffer(::core::mem::transmute_copy(&callinfobuffer)) {
+            match (*this).get_CallInfoBuffer(::core::mem::transmute_copy(&callinfobuffer)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppcallinfobuffer = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -3826,20 +3826,20 @@ impl ITCallInfo_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetCallInfoBuffer<Identity: ::windows::core::IUnknownImpl, Impl: ITCallInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, callinfobuffer: CALLINFO_BUFFER, pcallinfobuffer: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn put_CallInfoBuffer<Identity: ::windows::core::IUnknownImpl, Impl: ITCallInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, callinfobuffer: CALLINFO_BUFFER, pcallinfobuffer: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetCallInfoBuffer(::core::mem::transmute_copy(&callinfobuffer), ::core::mem::transmute(&pcallinfobuffer)).into()
+            (*this).put_CallInfoBuffer(::core::mem::transmute_copy(&callinfobuffer), ::core::mem::transmute(&pcallinfobuffer)).into()
         }
         unsafe extern "system" fn GetCallInfoBuffer<Identity: ::windows::core::IUnknownImpl, Impl: ITCallInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, callinfobuffer: CALLINFO_BUFFER, pdwsize: *mut u32, ppcallinfobuffer: *mut *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetCallInfoBuffer(::core::mem::transmute_copy(&callinfobuffer), ::core::mem::transmute_copy(&pdwsize), ::core::mem::transmute_copy(&ppcallinfobuffer)).into()
         }
-        unsafe extern "system" fn SetCallInfoBuffer2<Identity: ::windows::core::IUnknownImpl, Impl: ITCallInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, callinfobuffer: CALLINFO_BUFFER, dwsize: u32, pcallinfobuffer: *const u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetCallInfoBuffer<Identity: ::windows::core::IUnknownImpl, Impl: ITCallInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, callinfobuffer: CALLINFO_BUFFER, dwsize: u32, pcallinfobuffer: *const u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetCallInfoBuffer2(::core::mem::transmute_copy(&callinfobuffer), ::core::mem::transmute_copy(&dwsize), ::core::mem::transmute_copy(&pcallinfobuffer)).into()
+            (*this).SetCallInfoBuffer(::core::mem::transmute_copy(&callinfobuffer), ::core::mem::transmute_copy(&dwsize), ::core::mem::transmute_copy(&pcallinfobuffer)).into()
         }
         unsafe extern "system" fn ReleaseUserUserInfo<Identity: ::windows::core::IUnknownImpl, Impl: ITCallInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -3852,14 +3852,14 @@ impl ITCallInfo_Vtbl {
             CallState: CallState::<Identity, Impl, OFFSET>,
             Privilege: Privilege::<Identity, Impl, OFFSET>,
             CallHub: CallHub::<Identity, Impl, OFFSET>,
-            CallInfoLong: CallInfoLong::<Identity, Impl, OFFSET>,
-            SetCallInfoLong: SetCallInfoLong::<Identity, Impl, OFFSET>,
-            CallInfoString: CallInfoString::<Identity, Impl, OFFSET>,
-            SetCallInfoString: SetCallInfoString::<Identity, Impl, OFFSET>,
-            CallInfoBuffer: CallInfoBuffer::<Identity, Impl, OFFSET>,
-            SetCallInfoBuffer: SetCallInfoBuffer::<Identity, Impl, OFFSET>,
+            get_CallInfoLong: get_CallInfoLong::<Identity, Impl, OFFSET>,
+            put_CallInfoLong: put_CallInfoLong::<Identity, Impl, OFFSET>,
+            get_CallInfoString: get_CallInfoString::<Identity, Impl, OFFSET>,
+            put_CallInfoString: put_CallInfoString::<Identity, Impl, OFFSET>,
+            get_CallInfoBuffer: get_CallInfoBuffer::<Identity, Impl, OFFSET>,
+            put_CallInfoBuffer: put_CallInfoBuffer::<Identity, Impl, OFFSET>,
             GetCallInfoBuffer: GetCallInfoBuffer::<Identity, Impl, OFFSET>,
-            SetCallInfoBuffer2: SetCallInfoBuffer2::<Identity, Impl, OFFSET>,
+            SetCallInfoBuffer: SetCallInfoBuffer::<Identity, Impl, OFFSET>,
             ReleaseUserUserInfo: ReleaseUserUserInfo::<Identity, Impl, OFFSET>,
         }
     }
@@ -3869,16 +3869,16 @@ impl ITCallInfo_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITCallInfo2_Impl: Sized + super::super::System::Com::IDispatch_Impl + ITCallInfo_Impl {
-    fn EventFilter(&self, tapievent: TAPI_EVENT, lsubevent: i32) -> ::windows::core::Result<i16>;
-    fn SetEventFilter(&self, tapievent: TAPI_EVENT, lsubevent: i32, benable: i16) -> ::windows::core::Result<()>;
+    fn get_EventFilter(&self, tapievent: TAPI_EVENT, lsubevent: i32) -> ::windows::core::Result<i16>;
+    fn put_EventFilter(&self, tapievent: TAPI_EVENT, lsubevent: i32, benable: i16) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITCallInfo2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITCallInfo2_Impl, const OFFSET: isize>() -> ITCallInfo2_Vtbl {
-        unsafe extern "system" fn EventFilter<Identity: ::windows::core::IUnknownImpl, Impl: ITCallInfo2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, tapievent: TAPI_EVENT, lsubevent: i32, penable: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_EventFilter<Identity: ::windows::core::IUnknownImpl, Impl: ITCallInfo2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, tapievent: TAPI_EVENT, lsubevent: i32, penable: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).EventFilter(::core::mem::transmute_copy(&tapievent), ::core::mem::transmute_copy(&lsubevent)) {
+            match (*this).get_EventFilter(::core::mem::transmute_copy(&tapievent), ::core::mem::transmute_copy(&lsubevent)) {
                 ::core::result::Result::Ok(ok__) => {
                     *penable = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -3886,15 +3886,15 @@ impl ITCallInfo2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetEventFilter<Identity: ::windows::core::IUnknownImpl, Impl: ITCallInfo2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, tapievent: TAPI_EVENT, lsubevent: i32, benable: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn put_EventFilter<Identity: ::windows::core::IUnknownImpl, Impl: ITCallInfo2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, tapievent: TAPI_EVENT, lsubevent: i32, benable: i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetEventFilter(::core::mem::transmute_copy(&tapievent), ::core::mem::transmute_copy(&lsubevent), ::core::mem::transmute_copy(&benable)).into()
+            (*this).put_EventFilter(::core::mem::transmute_copy(&tapievent), ::core::mem::transmute_copy(&lsubevent), ::core::mem::transmute_copy(&benable)).into()
         }
         Self {
             base__: ITCallInfo_Vtbl::new::<Identity, Impl, OFFSET>(),
-            EventFilter: EventFilter::<Identity, Impl, OFFSET>,
-            SetEventFilter: SetEventFilter::<Identity, Impl, OFFSET>,
+            get_EventFilter: get_EventFilter::<Identity, Impl, OFFSET>,
+            put_EventFilter: put_EventFilter::<Identity, Impl, OFFSET>,
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -4273,7 +4273,7 @@ impl ITCallingCard_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITCollection_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows::core::Result<i32>;
-    fn Item(&self, index: i32) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
+    fn get_Item(&self, index: i32) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
     fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -4290,10 +4290,10 @@ impl ITCollection_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Item<Identity: ::windows::core::IUnknownImpl, Impl: ITCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, pvariant: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_Item<Identity: ::windows::core::IUnknownImpl, Impl: ITCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, pvariant: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).Item(::core::mem::transmute_copy(&index)) {
+            match (*this).get_Item(::core::mem::transmute_copy(&index)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pvariant = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -4315,7 +4315,7 @@ impl ITCollection_Vtbl {
         Self {
             base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Count: Count::<Identity, Impl, OFFSET>,
-            Item: Item::<Identity, Impl, OFFSET>,
+            get_Item: get_Item::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
         }
     }
@@ -4447,8 +4447,8 @@ pub trait ITDetectTone_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn SetAppSpecific(&self, lappspecific: i32) -> ::windows::core::Result<()>;
     fn Duration(&self) -> ::windows::core::Result<i32>;
     fn SetDuration(&self, lduration: i32) -> ::windows::core::Result<()>;
-    fn Frequency(&self, index: i32) -> ::windows::core::Result<i32>;
-    fn SetFrequency(&self, index: i32, lfrequency: i32) -> ::windows::core::Result<()>;
+    fn get_Frequency(&self, index: i32) -> ::windows::core::Result<i32>;
+    fn put_Frequency(&self, index: i32, lfrequency: i32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITDetectTone_Vtbl {
@@ -4485,10 +4485,10 @@ impl ITDetectTone_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).SetDuration(::core::mem::transmute_copy(&lduration)).into()
         }
-        unsafe extern "system" fn Frequency<Identity: ::windows::core::IUnknownImpl, Impl: ITDetectTone_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, plfrequency: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_Frequency<Identity: ::windows::core::IUnknownImpl, Impl: ITDetectTone_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, plfrequency: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).Frequency(::core::mem::transmute_copy(&index)) {
+            match (*this).get_Frequency(::core::mem::transmute_copy(&index)) {
                 ::core::result::Result::Ok(ok__) => {
                     *plfrequency = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -4496,10 +4496,10 @@ impl ITDetectTone_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetFrequency<Identity: ::windows::core::IUnknownImpl, Impl: ITDetectTone_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, lfrequency: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn put_Frequency<Identity: ::windows::core::IUnknownImpl, Impl: ITDetectTone_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, lfrequency: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetFrequency(::core::mem::transmute_copy(&index), ::core::mem::transmute_copy(&lfrequency)).into()
+            (*this).put_Frequency(::core::mem::transmute_copy(&index), ::core::mem::transmute_copy(&lfrequency)).into()
         }
         Self {
             base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -4507,8 +4507,8 @@ impl ITDetectTone_Vtbl {
             SetAppSpecific: SetAppSpecific::<Identity, Impl, OFFSET>,
             Duration: Duration::<Identity, Impl, OFFSET>,
             SetDuration: SetDuration::<Identity, Impl, OFFSET>,
-            Frequency: Frequency::<Identity, Impl, OFFSET>,
-            SetFrequency: SetFrequency::<Identity, Impl, OFFSET>,
+            get_Frequency: get_Frequency::<Identity, Impl, OFFSET>,
+            put_Frequency: put_Frequency::<Identity, Impl, OFFSET>,
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -4753,7 +4753,7 @@ pub trait ITDirectory_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn ModifyDirectoryObject(&self, pdirectoryobject: &::core::option::Option<ITDirectoryObject>) -> ::windows::core::Result<()>;
     fn RefreshDirectoryObject(&self, pdirectoryobject: &::core::option::Option<ITDirectoryObject>) -> ::windows::core::Result<()>;
     fn DeleteDirectoryObject(&self, pdirectoryobject: &::core::option::Option<ITDirectoryObject>) -> ::windows::core::Result<()>;
-    fn DirectoryObjects(&self, directoryobjecttype: DIRECTORY_OBJECT_TYPE, pname: &super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
+    fn get_DirectoryObjects(&self, directoryobjecttype: DIRECTORY_OBJECT_TYPE, pname: &super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
     fn EnumerateDirectoryObjects(&self, directoryobjecttype: DIRECTORY_OBJECT_TYPE, pname: &super::super::Foundation::BSTR) -> ::windows::core::Result<IEnumDirectoryObject>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -4843,10 +4843,10 @@ impl ITDirectory_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).DeleteDirectoryObject(::core::mem::transmute(&pdirectoryobject)).into()
         }
-        unsafe extern "system" fn DirectoryObjects<Identity: ::windows::core::IUnknownImpl, Impl: ITDirectory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, directoryobjecttype: DIRECTORY_OBJECT_TYPE, pname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pvariant: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_DirectoryObjects<Identity: ::windows::core::IUnknownImpl, Impl: ITDirectory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, directoryobjecttype: DIRECTORY_OBJECT_TYPE, pname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pvariant: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).DirectoryObjects(::core::mem::transmute_copy(&directoryobjecttype), ::core::mem::transmute(&pname)) {
+            match (*this).get_DirectoryObjects(::core::mem::transmute_copy(&directoryobjecttype), ::core::mem::transmute(&pname)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pvariant = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -4879,7 +4879,7 @@ impl ITDirectory_Vtbl {
             ModifyDirectoryObject: ModifyDirectoryObject::<Identity, Impl, OFFSET>,
             RefreshDirectoryObject: RefreshDirectoryObject::<Identity, Impl, OFFSET>,
             DeleteDirectoryObject: DeleteDirectoryObject::<Identity, Impl, OFFSET>,
-            DirectoryObjects: DirectoryObjects::<Identity, Impl, OFFSET>,
+            get_DirectoryObjects: get_DirectoryObjects::<Identity, Impl, OFFSET>,
             EnumerateDirectoryObjects: EnumerateDirectoryObjects::<Identity, Impl, OFFSET>,
         }
     }
@@ -4892,7 +4892,7 @@ pub trait ITDirectoryObject_Impl: Sized + super::super::System::Com::IDispatch_I
     fn ObjectType(&self) -> ::windows::core::Result<DIRECTORY_OBJECT_TYPE>;
     fn Name(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn SetName(&self, pname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn DialableAddrs(&self, dwaddresstype: i32) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
+    fn get_DialableAddrs(&self, dwaddresstype: i32) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
     fn EnumerateDialableAddrs(&self, dwaddresstype: u32) -> ::windows::core::Result<IEnumDialableAddrs>;
     fn SecurityDescriptor(&self) -> ::windows::core::Result<super::super::System::Com::IDispatch>;
     fn SetSecurityDescriptor(&self, psecdes: &::core::option::Option<super::super::System::Com::IDispatch>) -> ::windows::core::Result<()>;
@@ -4927,10 +4927,10 @@ impl ITDirectoryObject_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).SetName(::core::mem::transmute(&pname)).into()
         }
-        unsafe extern "system" fn DialableAddrs<Identity: ::windows::core::IUnknownImpl, Impl: ITDirectoryObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwaddresstype: i32, pvariant: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_DialableAddrs<Identity: ::windows::core::IUnknownImpl, Impl: ITDirectoryObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwaddresstype: i32, pvariant: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).DialableAddrs(::core::mem::transmute_copy(&dwaddresstype)) {
+            match (*this).get_DialableAddrs(::core::mem::transmute_copy(&dwaddresstype)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pvariant = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -4970,7 +4970,7 @@ impl ITDirectoryObject_Vtbl {
             ObjectType: ObjectType::<Identity, Impl, OFFSET>,
             Name: Name::<Identity, Impl, OFFSET>,
             SetName: SetName::<Identity, Impl, OFFSET>,
-            DialableAddrs: DialableAddrs::<Identity, Impl, OFFSET>,
+            get_DialableAddrs: get_DialableAddrs::<Identity, Impl, OFFSET>,
             EnumerateDialableAddrs: EnumerateDialableAddrs::<Identity, Impl, OFFSET>,
             SecurityDescriptor: SecurityDescriptor::<Identity, Impl, OFFSET>,
             SetSecurityDescriptor: SetSecurityDescriptor::<Identity, Impl, OFFSET>,
@@ -5385,8 +5385,8 @@ pub trait ITForwardInformation_Impl: Sized + super::super::System::Com::IDispatc
     fn SetNumRingsNoAnswer(&self, lnumrings: i32) -> ::windows::core::Result<()>;
     fn NumRingsNoAnswer(&self) -> ::windows::core::Result<i32>;
     fn SetForwardType(&self, forwardtype: i32, pdestaddress: &super::super::Foundation::BSTR, pcalleraddress: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn ForwardTypeDestination(&self, forwardtype: i32) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn ForwardTypeCaller(&self, forwardtype: i32) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn get_ForwardTypeDestination(&self, forwardtype: i32) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn get_ForwardTypeCaller(&self, forwardtype: i32) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn GetForwardType(&self, forwardtype: i32, ppdestinationaddress: *mut super::super::Foundation::BSTR, ppcalleraddress: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn Clear(&self) -> ::windows::core::Result<()>;
 }
@@ -5414,10 +5414,10 @@ impl ITForwardInformation_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).SetForwardType(::core::mem::transmute_copy(&forwardtype), ::core::mem::transmute(&pdestaddress), ::core::mem::transmute(&pcalleraddress)).into()
         }
-        unsafe extern "system" fn ForwardTypeDestination<Identity: ::windows::core::IUnknownImpl, Impl: ITForwardInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, forwardtype: i32, ppdestaddress: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_ForwardTypeDestination<Identity: ::windows::core::IUnknownImpl, Impl: ITForwardInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, forwardtype: i32, ppdestaddress: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).ForwardTypeDestination(::core::mem::transmute_copy(&forwardtype)) {
+            match (*this).get_ForwardTypeDestination(::core::mem::transmute_copy(&forwardtype)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppdestaddress = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -5425,10 +5425,10 @@ impl ITForwardInformation_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ForwardTypeCaller<Identity: ::windows::core::IUnknownImpl, Impl: ITForwardInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, forwardtype: i32, ppcalleraddress: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_ForwardTypeCaller<Identity: ::windows::core::IUnknownImpl, Impl: ITForwardInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, forwardtype: i32, ppcalleraddress: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).ForwardTypeCaller(::core::mem::transmute_copy(&forwardtype)) {
+            match (*this).get_ForwardTypeCaller(::core::mem::transmute_copy(&forwardtype)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppcalleraddress = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -5451,8 +5451,8 @@ impl ITForwardInformation_Vtbl {
             SetNumRingsNoAnswer: SetNumRingsNoAnswer::<Identity, Impl, OFFSET>,
             NumRingsNoAnswer: NumRingsNoAnswer::<Identity, Impl, OFFSET>,
             SetForwardType: SetForwardType::<Identity, Impl, OFFSET>,
-            ForwardTypeDestination: ForwardTypeDestination::<Identity, Impl, OFFSET>,
-            ForwardTypeCaller: ForwardTypeCaller::<Identity, Impl, OFFSET>,
+            get_ForwardTypeDestination: get_ForwardTypeDestination::<Identity, Impl, OFFSET>,
+            get_ForwardTypeCaller: get_ForwardTypeCaller::<Identity, Impl, OFFSET>,
             GetForwardType: GetForwardType::<Identity, Impl, OFFSET>,
             Clear: Clear::<Identity, Impl, OFFSET>,
         }
@@ -5465,8 +5465,8 @@ impl ITForwardInformation_Vtbl {
 pub trait ITForwardInformation2_Impl: Sized + super::super::System::Com::IDispatch_Impl + ITForwardInformation_Impl {
     fn SetForwardType2(&self, forwardtype: i32, pdestaddress: &super::super::Foundation::BSTR, destaddresstype: i32, pcalleraddress: &super::super::Foundation::BSTR, calleraddresstype: i32) -> ::windows::core::Result<()>;
     fn GetForwardType2(&self, forwardtype: i32, ppdestinationaddress: *mut super::super::Foundation::BSTR, pdestaddresstype: *mut i32, ppcalleraddress: *mut super::super::Foundation::BSTR, pcalleraddresstype: *mut i32) -> ::windows::core::Result<()>;
-    fn ForwardTypeDestinationAddressType(&self, forwardtype: i32) -> ::windows::core::Result<i32>;
-    fn ForwardTypeCallerAddressType(&self, forwardtype: i32) -> ::windows::core::Result<i32>;
+    fn get_ForwardTypeDestinationAddressType(&self, forwardtype: i32) -> ::windows::core::Result<i32>;
+    fn get_ForwardTypeCallerAddressType(&self, forwardtype: i32) -> ::windows::core::Result<i32>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITForwardInformation2_Vtbl {
@@ -5481,10 +5481,10 @@ impl ITForwardInformation2_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetForwardType2(::core::mem::transmute_copy(&forwardtype), ::core::mem::transmute_copy(&ppdestinationaddress), ::core::mem::transmute_copy(&pdestaddresstype), ::core::mem::transmute_copy(&ppcalleraddress), ::core::mem::transmute_copy(&pcalleraddresstype)).into()
         }
-        unsafe extern "system" fn ForwardTypeDestinationAddressType<Identity: ::windows::core::IUnknownImpl, Impl: ITForwardInformation2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, forwardtype: i32, pdestaddresstype: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_ForwardTypeDestinationAddressType<Identity: ::windows::core::IUnknownImpl, Impl: ITForwardInformation2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, forwardtype: i32, pdestaddresstype: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).ForwardTypeDestinationAddressType(::core::mem::transmute_copy(&forwardtype)) {
+            match (*this).get_ForwardTypeDestinationAddressType(::core::mem::transmute_copy(&forwardtype)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pdestaddresstype = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -5492,10 +5492,10 @@ impl ITForwardInformation2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ForwardTypeCallerAddressType<Identity: ::windows::core::IUnknownImpl, Impl: ITForwardInformation2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, forwardtype: i32, pcalleraddresstype: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_ForwardTypeCallerAddressType<Identity: ::windows::core::IUnknownImpl, Impl: ITForwardInformation2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, forwardtype: i32, pcalleraddresstype: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).ForwardTypeCallerAddressType(::core::mem::transmute_copy(&forwardtype)) {
+            match (*this).get_ForwardTypeCallerAddressType(::core::mem::transmute_copy(&forwardtype)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pcalleraddresstype = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -5507,8 +5507,8 @@ impl ITForwardInformation2_Vtbl {
             base__: ITForwardInformation_Vtbl::new::<Identity, Impl, OFFSET>(),
             SetForwardType2: SetForwardType2::<Identity, Impl, OFFSET>,
             GetForwardType2: GetForwardType2::<Identity, Impl, OFFSET>,
-            ForwardTypeDestinationAddressType: ForwardTypeDestinationAddressType::<Identity, Impl, OFFSET>,
-            ForwardTypeCallerAddressType: ForwardTypeCallerAddressType::<Identity, Impl, OFFSET>,
+            get_ForwardTypeDestinationAddressType: get_ForwardTypeDestinationAddressType::<Identity, Impl, OFFSET>,
+            get_ForwardTypeCallerAddressType: get_ForwardTypeCallerAddressType::<Identity, Impl, OFFSET>,
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -6252,28 +6252,28 @@ pub trait ITPhone_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Close(&self) -> ::windows::core::Result<()>;
     fn Addresses(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
     fn EnumerateAddresses(&self) -> ::windows::core::Result<IEnumAddress>;
-    fn PhoneCapsLong(&self, pclcap: PHONECAPS_LONG) -> ::windows::core::Result<i32>;
-    fn PhoneCapsString(&self, pcscap: PHONECAPS_STRING) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn Terminals(&self, paddress: &::core::option::Option<ITAddress>) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
+    fn get_PhoneCapsLong(&self, pclcap: PHONECAPS_LONG) -> ::windows::core::Result<i32>;
+    fn get_PhoneCapsString(&self, pcscap: PHONECAPS_STRING) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn get_Terminals(&self, paddress: &::core::option::Option<ITAddress>) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
     fn EnumerateTerminals(&self, paddress: &::core::option::Option<ITAddress>) -> ::windows::core::Result<IEnumTerminal>;
-    fn ButtonMode(&self, lbuttonid: i32) -> ::windows::core::Result<PHONE_BUTTON_MODE>;
-    fn SetButtonMode(&self, lbuttonid: i32, buttonmode: PHONE_BUTTON_MODE) -> ::windows::core::Result<()>;
-    fn ButtonFunction(&self, lbuttonid: i32) -> ::windows::core::Result<PHONE_BUTTON_FUNCTION>;
-    fn SetButtonFunction(&self, lbuttonid: i32, buttonfunction: PHONE_BUTTON_FUNCTION) -> ::windows::core::Result<()>;
-    fn ButtonText(&self, lbuttonid: i32) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetButtonText(&self, lbuttonid: i32, bstrbuttontext: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn ButtonState(&self, lbuttonid: i32) -> ::windows::core::Result<PHONE_BUTTON_STATE>;
-    fn HookSwitchState(&self, hookswitchdevice: PHONE_HOOK_SWITCH_DEVICE) -> ::windows::core::Result<PHONE_HOOK_SWITCH_STATE>;
-    fn SetHookSwitchState(&self, hookswitchdevice: PHONE_HOOK_SWITCH_DEVICE, hookswitchstate: PHONE_HOOK_SWITCH_STATE) -> ::windows::core::Result<()>;
+    fn get_ButtonMode(&self, lbuttonid: i32) -> ::windows::core::Result<PHONE_BUTTON_MODE>;
+    fn put_ButtonMode(&self, lbuttonid: i32, buttonmode: PHONE_BUTTON_MODE) -> ::windows::core::Result<()>;
+    fn get_ButtonFunction(&self, lbuttonid: i32) -> ::windows::core::Result<PHONE_BUTTON_FUNCTION>;
+    fn put_ButtonFunction(&self, lbuttonid: i32, buttonfunction: PHONE_BUTTON_FUNCTION) -> ::windows::core::Result<()>;
+    fn get_ButtonText(&self, lbuttonid: i32) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn put_ButtonText(&self, lbuttonid: i32, bstrbuttontext: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn get_ButtonState(&self, lbuttonid: i32) -> ::windows::core::Result<PHONE_BUTTON_STATE>;
+    fn get_HookSwitchState(&self, hookswitchdevice: PHONE_HOOK_SWITCH_DEVICE) -> ::windows::core::Result<PHONE_HOOK_SWITCH_STATE>;
+    fn put_HookSwitchState(&self, hookswitchdevice: PHONE_HOOK_SWITCH_DEVICE, hookswitchstate: PHONE_HOOK_SWITCH_STATE) -> ::windows::core::Result<()>;
     fn SetRingMode(&self, lringmode: i32) -> ::windows::core::Result<()>;
     fn RingMode(&self) -> ::windows::core::Result<i32>;
     fn SetRingVolume(&self, lringvolume: i32) -> ::windows::core::Result<()>;
     fn RingVolume(&self) -> ::windows::core::Result<i32>;
     fn Privilege(&self) -> ::windows::core::Result<PHONE_PRIVILEGE>;
     fn GetPhoneCapsBuffer(&self, pcbcaps: PHONECAPS_BUFFER, pdwsize: *mut u32, ppphonecapsbuffer: *mut *mut u8) -> ::windows::core::Result<()>;
-    fn PhoneCapsBuffer(&self, pcbcaps: PHONECAPS_BUFFER) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn LampMode(&self, llampid: i32) -> ::windows::core::Result<PHONE_LAMP_MODE>;
-    fn SetLampMode(&self, llampid: i32, lampmode: PHONE_LAMP_MODE) -> ::windows::core::Result<()>;
+    fn get_PhoneCapsBuffer(&self, pcbcaps: PHONECAPS_BUFFER) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
+    fn get_LampMode(&self, llampid: i32) -> ::windows::core::Result<PHONE_LAMP_MODE>;
+    fn put_LampMode(&self, llampid: i32, lampmode: PHONE_LAMP_MODE) -> ::windows::core::Result<()>;
     fn Display(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn SetDisplay(&self, lrow: i32, lcolumn: i32, bstrdisplay: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn PreferredAddresses(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
@@ -6317,10 +6317,10 @@ impl ITPhone_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PhoneCapsLong<Identity: ::windows::core::IUnknownImpl, Impl: ITPhone_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pclcap: PHONECAPS_LONG, plcapability: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_PhoneCapsLong<Identity: ::windows::core::IUnknownImpl, Impl: ITPhone_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pclcap: PHONECAPS_LONG, plcapability: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).PhoneCapsLong(::core::mem::transmute_copy(&pclcap)) {
+            match (*this).get_PhoneCapsLong(::core::mem::transmute_copy(&pclcap)) {
                 ::core::result::Result::Ok(ok__) => {
                     *plcapability = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -6328,10 +6328,10 @@ impl ITPhone_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PhoneCapsString<Identity: ::windows::core::IUnknownImpl, Impl: ITPhone_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcscap: PHONECAPS_STRING, ppcapability: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_PhoneCapsString<Identity: ::windows::core::IUnknownImpl, Impl: ITPhone_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcscap: PHONECAPS_STRING, ppcapability: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).PhoneCapsString(::core::mem::transmute_copy(&pcscap)) {
+            match (*this).get_PhoneCapsString(::core::mem::transmute_copy(&pcscap)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppcapability = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -6339,10 +6339,10 @@ impl ITPhone_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Terminals<Identity: ::windows::core::IUnknownImpl, Impl: ITPhone_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, paddress: ::windows::core::RawPtr, pterminals: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_Terminals<Identity: ::windows::core::IUnknownImpl, Impl: ITPhone_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, paddress: ::windows::core::RawPtr, pterminals: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).Terminals(::core::mem::transmute(&paddress)) {
+            match (*this).get_Terminals(::core::mem::transmute(&paddress)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pterminals = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -6361,10 +6361,10 @@ impl ITPhone_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ButtonMode<Identity: ::windows::core::IUnknownImpl, Impl: ITPhone_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lbuttonid: i32, pbuttonmode: *mut PHONE_BUTTON_MODE) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_ButtonMode<Identity: ::windows::core::IUnknownImpl, Impl: ITPhone_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lbuttonid: i32, pbuttonmode: *mut PHONE_BUTTON_MODE) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).ButtonMode(::core::mem::transmute_copy(&lbuttonid)) {
+            match (*this).get_ButtonMode(::core::mem::transmute_copy(&lbuttonid)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pbuttonmode = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -6372,15 +6372,15 @@ impl ITPhone_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetButtonMode<Identity: ::windows::core::IUnknownImpl, Impl: ITPhone_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lbuttonid: i32, buttonmode: PHONE_BUTTON_MODE) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn put_ButtonMode<Identity: ::windows::core::IUnknownImpl, Impl: ITPhone_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lbuttonid: i32, buttonmode: PHONE_BUTTON_MODE) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetButtonMode(::core::mem::transmute_copy(&lbuttonid), ::core::mem::transmute_copy(&buttonmode)).into()
+            (*this).put_ButtonMode(::core::mem::transmute_copy(&lbuttonid), ::core::mem::transmute_copy(&buttonmode)).into()
         }
-        unsafe extern "system" fn ButtonFunction<Identity: ::windows::core::IUnknownImpl, Impl: ITPhone_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lbuttonid: i32, pbuttonfunction: *mut PHONE_BUTTON_FUNCTION) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_ButtonFunction<Identity: ::windows::core::IUnknownImpl, Impl: ITPhone_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lbuttonid: i32, pbuttonfunction: *mut PHONE_BUTTON_FUNCTION) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).ButtonFunction(::core::mem::transmute_copy(&lbuttonid)) {
+            match (*this).get_ButtonFunction(::core::mem::transmute_copy(&lbuttonid)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pbuttonfunction = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -6388,15 +6388,15 @@ impl ITPhone_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetButtonFunction<Identity: ::windows::core::IUnknownImpl, Impl: ITPhone_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lbuttonid: i32, buttonfunction: PHONE_BUTTON_FUNCTION) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn put_ButtonFunction<Identity: ::windows::core::IUnknownImpl, Impl: ITPhone_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lbuttonid: i32, buttonfunction: PHONE_BUTTON_FUNCTION) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetButtonFunction(::core::mem::transmute_copy(&lbuttonid), ::core::mem::transmute_copy(&buttonfunction)).into()
+            (*this).put_ButtonFunction(::core::mem::transmute_copy(&lbuttonid), ::core::mem::transmute_copy(&buttonfunction)).into()
         }
-        unsafe extern "system" fn ButtonText<Identity: ::windows::core::IUnknownImpl, Impl: ITPhone_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lbuttonid: i32, ppbuttontext: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_ButtonText<Identity: ::windows::core::IUnknownImpl, Impl: ITPhone_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lbuttonid: i32, ppbuttontext: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).ButtonText(::core::mem::transmute_copy(&lbuttonid)) {
+            match (*this).get_ButtonText(::core::mem::transmute_copy(&lbuttonid)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppbuttontext = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -6404,15 +6404,15 @@ impl ITPhone_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetButtonText<Identity: ::windows::core::IUnknownImpl, Impl: ITPhone_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lbuttonid: i32, bstrbuttontext: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn put_ButtonText<Identity: ::windows::core::IUnknownImpl, Impl: ITPhone_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lbuttonid: i32, bstrbuttontext: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetButtonText(::core::mem::transmute_copy(&lbuttonid), ::core::mem::transmute(&bstrbuttontext)).into()
+            (*this).put_ButtonText(::core::mem::transmute_copy(&lbuttonid), ::core::mem::transmute(&bstrbuttontext)).into()
         }
-        unsafe extern "system" fn ButtonState<Identity: ::windows::core::IUnknownImpl, Impl: ITPhone_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lbuttonid: i32, pbuttonstate: *mut PHONE_BUTTON_STATE) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_ButtonState<Identity: ::windows::core::IUnknownImpl, Impl: ITPhone_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lbuttonid: i32, pbuttonstate: *mut PHONE_BUTTON_STATE) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).ButtonState(::core::mem::transmute_copy(&lbuttonid)) {
+            match (*this).get_ButtonState(::core::mem::transmute_copy(&lbuttonid)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pbuttonstate = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -6420,10 +6420,10 @@ impl ITPhone_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn HookSwitchState<Identity: ::windows::core::IUnknownImpl, Impl: ITPhone_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hookswitchdevice: PHONE_HOOK_SWITCH_DEVICE, phookswitchstate: *mut PHONE_HOOK_SWITCH_STATE) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_HookSwitchState<Identity: ::windows::core::IUnknownImpl, Impl: ITPhone_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hookswitchdevice: PHONE_HOOK_SWITCH_DEVICE, phookswitchstate: *mut PHONE_HOOK_SWITCH_STATE) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).HookSwitchState(::core::mem::transmute_copy(&hookswitchdevice)) {
+            match (*this).get_HookSwitchState(::core::mem::transmute_copy(&hookswitchdevice)) {
                 ::core::result::Result::Ok(ok__) => {
                     *phookswitchstate = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -6431,10 +6431,10 @@ impl ITPhone_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetHookSwitchState<Identity: ::windows::core::IUnknownImpl, Impl: ITPhone_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hookswitchdevice: PHONE_HOOK_SWITCH_DEVICE, hookswitchstate: PHONE_HOOK_SWITCH_STATE) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn put_HookSwitchState<Identity: ::windows::core::IUnknownImpl, Impl: ITPhone_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hookswitchdevice: PHONE_HOOK_SWITCH_DEVICE, hookswitchstate: PHONE_HOOK_SWITCH_STATE) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetHookSwitchState(::core::mem::transmute_copy(&hookswitchdevice), ::core::mem::transmute_copy(&hookswitchstate)).into()
+            (*this).put_HookSwitchState(::core::mem::transmute_copy(&hookswitchdevice), ::core::mem::transmute_copy(&hookswitchstate)).into()
         }
         unsafe extern "system" fn SetRingMode<Identity: ::windows::core::IUnknownImpl, Impl: ITPhone_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lringmode: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -6484,10 +6484,10 @@ impl ITPhone_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetPhoneCapsBuffer(::core::mem::transmute_copy(&pcbcaps), ::core::mem::transmute_copy(&pdwsize), ::core::mem::transmute_copy(&ppphonecapsbuffer)).into()
         }
-        unsafe extern "system" fn PhoneCapsBuffer<Identity: ::windows::core::IUnknownImpl, Impl: ITPhone_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcbcaps: PHONECAPS_BUFFER, pvarbuffer: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_PhoneCapsBuffer<Identity: ::windows::core::IUnknownImpl, Impl: ITPhone_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcbcaps: PHONECAPS_BUFFER, pvarbuffer: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).PhoneCapsBuffer(::core::mem::transmute_copy(&pcbcaps)) {
+            match (*this).get_PhoneCapsBuffer(::core::mem::transmute_copy(&pcbcaps)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pvarbuffer = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -6495,10 +6495,10 @@ impl ITPhone_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn LampMode<Identity: ::windows::core::IUnknownImpl, Impl: ITPhone_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, llampid: i32, plampmode: *mut PHONE_LAMP_MODE) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_LampMode<Identity: ::windows::core::IUnknownImpl, Impl: ITPhone_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, llampid: i32, plampmode: *mut PHONE_LAMP_MODE) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).LampMode(::core::mem::transmute_copy(&llampid)) {
+            match (*this).get_LampMode(::core::mem::transmute_copy(&llampid)) {
                 ::core::result::Result::Ok(ok__) => {
                     *plampmode = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -6506,10 +6506,10 @@ impl ITPhone_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetLampMode<Identity: ::windows::core::IUnknownImpl, Impl: ITPhone_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, llampid: i32, lampmode: PHONE_LAMP_MODE) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn put_LampMode<Identity: ::windows::core::IUnknownImpl, Impl: ITPhone_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, llampid: i32, lampmode: PHONE_LAMP_MODE) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetLampMode(::core::mem::transmute_copy(&llampid), ::core::mem::transmute_copy(&lampmode)).into()
+            (*this).put_LampMode(::core::mem::transmute_copy(&llampid), ::core::mem::transmute_copy(&lampmode)).into()
         }
         unsafe extern "system" fn Display<Identity: ::windows::core::IUnknownImpl, Impl: ITPhone_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrdisplay: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -6576,28 +6576,28 @@ impl ITPhone_Vtbl {
             Close: Close::<Identity, Impl, OFFSET>,
             Addresses: Addresses::<Identity, Impl, OFFSET>,
             EnumerateAddresses: EnumerateAddresses::<Identity, Impl, OFFSET>,
-            PhoneCapsLong: PhoneCapsLong::<Identity, Impl, OFFSET>,
-            PhoneCapsString: PhoneCapsString::<Identity, Impl, OFFSET>,
-            Terminals: Terminals::<Identity, Impl, OFFSET>,
+            get_PhoneCapsLong: get_PhoneCapsLong::<Identity, Impl, OFFSET>,
+            get_PhoneCapsString: get_PhoneCapsString::<Identity, Impl, OFFSET>,
+            get_Terminals: get_Terminals::<Identity, Impl, OFFSET>,
             EnumerateTerminals: EnumerateTerminals::<Identity, Impl, OFFSET>,
-            ButtonMode: ButtonMode::<Identity, Impl, OFFSET>,
-            SetButtonMode: SetButtonMode::<Identity, Impl, OFFSET>,
-            ButtonFunction: ButtonFunction::<Identity, Impl, OFFSET>,
-            SetButtonFunction: SetButtonFunction::<Identity, Impl, OFFSET>,
-            ButtonText: ButtonText::<Identity, Impl, OFFSET>,
-            SetButtonText: SetButtonText::<Identity, Impl, OFFSET>,
-            ButtonState: ButtonState::<Identity, Impl, OFFSET>,
-            HookSwitchState: HookSwitchState::<Identity, Impl, OFFSET>,
-            SetHookSwitchState: SetHookSwitchState::<Identity, Impl, OFFSET>,
+            get_ButtonMode: get_ButtonMode::<Identity, Impl, OFFSET>,
+            put_ButtonMode: put_ButtonMode::<Identity, Impl, OFFSET>,
+            get_ButtonFunction: get_ButtonFunction::<Identity, Impl, OFFSET>,
+            put_ButtonFunction: put_ButtonFunction::<Identity, Impl, OFFSET>,
+            get_ButtonText: get_ButtonText::<Identity, Impl, OFFSET>,
+            put_ButtonText: put_ButtonText::<Identity, Impl, OFFSET>,
+            get_ButtonState: get_ButtonState::<Identity, Impl, OFFSET>,
+            get_HookSwitchState: get_HookSwitchState::<Identity, Impl, OFFSET>,
+            put_HookSwitchState: put_HookSwitchState::<Identity, Impl, OFFSET>,
             SetRingMode: SetRingMode::<Identity, Impl, OFFSET>,
             RingMode: RingMode::<Identity, Impl, OFFSET>,
             SetRingVolume: SetRingVolume::<Identity, Impl, OFFSET>,
             RingVolume: RingVolume::<Identity, Impl, OFFSET>,
             Privilege: Privilege::<Identity, Impl, OFFSET>,
             GetPhoneCapsBuffer: GetPhoneCapsBuffer::<Identity, Impl, OFFSET>,
-            PhoneCapsBuffer: PhoneCapsBuffer::<Identity, Impl, OFFSET>,
-            LampMode: LampMode::<Identity, Impl, OFFSET>,
-            SetLampMode: SetLampMode::<Identity, Impl, OFFSET>,
+            get_PhoneCapsBuffer: get_PhoneCapsBuffer::<Identity, Impl, OFFSET>,
+            get_LampMode: get_LampMode::<Identity, Impl, OFFSET>,
+            put_LampMode: put_LampMode::<Identity, Impl, OFFSET>,
             Display: Display::<Identity, Impl, OFFSET>,
             SetDisplay: SetDisplay::<Identity, Impl, OFFSET>,
             PreferredAddresses: PreferredAddresses::<Identity, Impl, OFFSET>,
@@ -8616,7 +8616,7 @@ impl ITTerminalSupport_Vtbl {
 pub trait ITTerminalSupport2_Impl: Sized + super::super::System::Com::IDispatch_Impl + ITTerminalSupport_Impl {
     fn PluggableSuperclasses(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
     fn EnumeratePluggableSuperclasses(&self) -> ::windows::core::Result<IEnumPluggableSuperclassInfo>;
-    fn PluggableTerminalClasses(&self, bstrterminalsuperclass: &super::super::Foundation::BSTR, lmediatype: i32) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
+    fn get_PluggableTerminalClasses(&self, bstrterminalsuperclass: &super::super::Foundation::BSTR, lmediatype: i32) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
     fn EnumeratePluggableTerminalClasses(&self, iidterminalsuperclass: &::windows::core::GUID, lmediatype: i32) -> ::windows::core::Result<IEnumPluggableTerminalClassInfo>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -8644,10 +8644,10 @@ impl ITTerminalSupport2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PluggableTerminalClasses<Identity: ::windows::core::IUnknownImpl, Impl: ITTerminalSupport2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrterminalsuperclass: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, lmediatype: i32, pvariant: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_PluggableTerminalClasses<Identity: ::windows::core::IUnknownImpl, Impl: ITTerminalSupport2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrterminalsuperclass: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, lmediatype: i32, pvariant: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).PluggableTerminalClasses(::core::mem::transmute(&bstrterminalsuperclass), ::core::mem::transmute_copy(&lmediatype)) {
+            match (*this).get_PluggableTerminalClasses(::core::mem::transmute(&bstrterminalsuperclass), ::core::mem::transmute_copy(&lmediatype)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pvariant = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -8670,7 +8670,7 @@ impl ITTerminalSupport2_Vtbl {
             base__: ITTerminalSupport_Vtbl::new::<Identity, Impl, OFFSET>(),
             PluggableSuperclasses: PluggableSuperclasses::<Identity, Impl, OFFSET>,
             EnumeratePluggableSuperclasses: EnumeratePluggableSuperclasses::<Identity, Impl, OFFSET>,
-            PluggableTerminalClasses: PluggableTerminalClasses::<Identity, Impl, OFFSET>,
+            get_PluggableTerminalClasses: get_PluggableTerminalClasses::<Identity, Impl, OFFSET>,
             EnumeratePluggableTerminalClasses: EnumeratePluggableTerminalClasses::<Identity, Impl, OFFSET>,
         }
     }

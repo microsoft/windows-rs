@@ -424,7 +424,7 @@ impl IFaxAccountSet_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IFaxAccounts_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn Item(&self, vindex: &super::super::System::Com::VARIANT) -> ::windows::core::Result<IFaxAccount>;
+    fn get_Item(&self, vindex: &super::super::System::Com::VARIANT) -> ::windows::core::Result<IFaxAccount>;
     fn Count(&self) -> ::windows::core::Result<i32>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -441,10 +441,10 @@ impl IFaxAccounts_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Item<Identity: ::windows::core::IUnknownImpl, Impl: IFaxAccounts_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vindex: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pfaxaccount: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_Item<Identity: ::windows::core::IUnknownImpl, Impl: IFaxAccounts_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vindex: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pfaxaccount: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).Item(::core::mem::transmute(&vindex)) {
+            match (*this).get_Item(::core::mem::transmute(&vindex)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pfaxaccount = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -466,7 +466,7 @@ impl IFaxAccounts_Vtbl {
         Self {
             base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
-            Item: Item::<Identity, Impl, OFFSET>,
+            get_Item: get_Item::<Identity, Impl, OFFSET>,
             Count: Count::<Identity, Impl, OFFSET>,
         }
     }
@@ -1358,7 +1358,7 @@ impl IFaxDevice_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IFaxDeviceIds_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn Item(&self, lindex: i32) -> ::windows::core::Result<i32>;
+    fn get_Item(&self, lindex: i32) -> ::windows::core::Result<i32>;
     fn Count(&self) -> ::windows::core::Result<i32>;
     fn Add(&self, ldeviceid: i32) -> ::windows::core::Result<()>;
     fn Remove(&self, lindex: i32) -> ::windows::core::Result<()>;
@@ -1378,10 +1378,10 @@ impl IFaxDeviceIds_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Item<Identity: ::windows::core::IUnknownImpl, Impl: IFaxDeviceIds_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lindex: i32, pldeviceid: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_Item<Identity: ::windows::core::IUnknownImpl, Impl: IFaxDeviceIds_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lindex: i32, pldeviceid: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).Item(::core::mem::transmute_copy(&lindex)) {
+            match (*this).get_Item(::core::mem::transmute_copy(&lindex)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pldeviceid = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1418,7 +1418,7 @@ impl IFaxDeviceIds_Vtbl {
         Self {
             base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
-            Item: Item::<Identity, Impl, OFFSET>,
+            get_Item: get_Item::<Identity, Impl, OFFSET>,
             Count: Count::<Identity, Impl, OFFSET>,
             Add: Add::<Identity, Impl, OFFSET>,
             Remove: Remove::<Identity, Impl, OFFSET>,
@@ -1602,7 +1602,7 @@ impl IFaxDeviceProvider_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IFaxDeviceProviders_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn Item(&self, vindex: &super::super::System::Com::VARIANT) -> ::windows::core::Result<IFaxDeviceProvider>;
+    fn get_Item(&self, vindex: &super::super::System::Com::VARIANT) -> ::windows::core::Result<IFaxDeviceProvider>;
     fn Count(&self) -> ::windows::core::Result<i32>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -1619,10 +1619,10 @@ impl IFaxDeviceProviders_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Item<Identity: ::windows::core::IUnknownImpl, Impl: IFaxDeviceProviders_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vindex: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pfaxdeviceprovider: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_Item<Identity: ::windows::core::IUnknownImpl, Impl: IFaxDeviceProviders_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vindex: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pfaxdeviceprovider: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).Item(::core::mem::transmute(&vindex)) {
+            match (*this).get_Item(::core::mem::transmute(&vindex)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pfaxdeviceprovider = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1644,7 +1644,7 @@ impl IFaxDeviceProviders_Vtbl {
         Self {
             base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
-            Item: Item::<Identity, Impl, OFFSET>,
+            get_Item: get_Item::<Identity, Impl, OFFSET>,
             Count: Count::<Identity, Impl, OFFSET>,
         }
     }
@@ -1655,9 +1655,9 @@ impl IFaxDeviceProviders_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IFaxDevices_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn Item(&self, vindex: &super::super::System::Com::VARIANT) -> ::windows::core::Result<IFaxDevice>;
+    fn get_Item(&self, vindex: &super::super::System::Com::VARIANT) -> ::windows::core::Result<IFaxDevice>;
     fn Count(&self) -> ::windows::core::Result<i32>;
-    fn ItemById(&self, lid: i32) -> ::windows::core::Result<IFaxDevice>;
+    fn get_ItemById(&self, lid: i32) -> ::windows::core::Result<IFaxDevice>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IFaxDevices_Vtbl {
@@ -1673,10 +1673,10 @@ impl IFaxDevices_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Item<Identity: ::windows::core::IUnknownImpl, Impl: IFaxDevices_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vindex: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pfaxdevice: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_Item<Identity: ::windows::core::IUnknownImpl, Impl: IFaxDevices_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vindex: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pfaxdevice: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).Item(::core::mem::transmute(&vindex)) {
+            match (*this).get_Item(::core::mem::transmute(&vindex)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pfaxdevice = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1695,10 +1695,10 @@ impl IFaxDevices_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ItemById<Identity: ::windows::core::IUnknownImpl, Impl: IFaxDevices_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lid: i32, ppfaxdevice: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_ItemById<Identity: ::windows::core::IUnknownImpl, Impl: IFaxDevices_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lid: i32, ppfaxdevice: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).ItemById(::core::mem::transmute_copy(&lid)) {
+            match (*this).get_ItemById(::core::mem::transmute_copy(&lid)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppfaxdevice = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1709,9 +1709,9 @@ impl IFaxDevices_Vtbl {
         Self {
             base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
-            Item: Item::<Identity, Impl, OFFSET>,
+            get_Item: get_Item::<Identity, Impl, OFFSET>,
             Count: Count::<Identity, Impl, OFFSET>,
-            ItemById: ItemById::<Identity, Impl, OFFSET>,
+            get_ItemById: get_ItemById::<Identity, Impl, OFFSET>,
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -2519,7 +2519,7 @@ impl IFaxInboundRoutingExtension_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IFaxInboundRoutingExtensions_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn Item(&self, vindex: &super::super::System::Com::VARIANT) -> ::windows::core::Result<IFaxInboundRoutingExtension>;
+    fn get_Item(&self, vindex: &super::super::System::Com::VARIANT) -> ::windows::core::Result<IFaxInboundRoutingExtension>;
     fn Count(&self) -> ::windows::core::Result<i32>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2536,10 +2536,10 @@ impl IFaxInboundRoutingExtensions_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Item<Identity: ::windows::core::IUnknownImpl, Impl: IFaxInboundRoutingExtensions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vindex: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pfaxinboundroutingextension: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_Item<Identity: ::windows::core::IUnknownImpl, Impl: IFaxInboundRoutingExtensions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vindex: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pfaxinboundroutingextension: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).Item(::core::mem::transmute(&vindex)) {
+            match (*this).get_Item(::core::mem::transmute(&vindex)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pfaxinboundroutingextension = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -2561,7 +2561,7 @@ impl IFaxInboundRoutingExtensions_Vtbl {
         Self {
             base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
-            Item: Item::<Identity, Impl, OFFSET>,
+            get_Item: get_Item::<Identity, Impl, OFFSET>,
             Count: Count::<Identity, Impl, OFFSET>,
         }
     }
@@ -2685,7 +2685,7 @@ impl IFaxInboundRoutingMethod_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IFaxInboundRoutingMethods_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn Item(&self, vindex: &super::super::System::Com::VARIANT) -> ::windows::core::Result<IFaxInboundRoutingMethod>;
+    fn get_Item(&self, vindex: &super::super::System::Com::VARIANT) -> ::windows::core::Result<IFaxInboundRoutingMethod>;
     fn Count(&self) -> ::windows::core::Result<i32>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2702,10 +2702,10 @@ impl IFaxInboundRoutingMethods_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Item<Identity: ::windows::core::IUnknownImpl, Impl: IFaxInboundRoutingMethods_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vindex: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pfaxinboundroutingmethod: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_Item<Identity: ::windows::core::IUnknownImpl, Impl: IFaxInboundRoutingMethods_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vindex: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pfaxinboundroutingmethod: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).Item(::core::mem::transmute(&vindex)) {
+            match (*this).get_Item(::core::mem::transmute(&vindex)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pfaxinboundroutingmethod = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -2727,7 +2727,7 @@ impl IFaxInboundRoutingMethods_Vtbl {
         Self {
             base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
-            Item: Item::<Identity, Impl, OFFSET>,
+            get_Item: get_Item::<Identity, Impl, OFFSET>,
             Count: Count::<Identity, Impl, OFFSET>,
         }
     }
@@ -3181,7 +3181,7 @@ impl IFaxIncomingJob_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IFaxIncomingJobs_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn Item(&self, vindex: &super::super::System::Com::VARIANT) -> ::windows::core::Result<IFaxIncomingJob>;
+    fn get_Item(&self, vindex: &super::super::System::Com::VARIANT) -> ::windows::core::Result<IFaxIncomingJob>;
     fn Count(&self) -> ::windows::core::Result<i32>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3198,10 +3198,10 @@ impl IFaxIncomingJobs_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Item<Identity: ::windows::core::IUnknownImpl, Impl: IFaxIncomingJobs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vindex: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pfaxincomingjob: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_Item<Identity: ::windows::core::IUnknownImpl, Impl: IFaxIncomingJobs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vindex: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pfaxincomingjob: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).Item(::core::mem::transmute(&vindex)) {
+            match (*this).get_Item(::core::mem::transmute(&vindex)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pfaxincomingjob = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -3223,7 +3223,7 @@ impl IFaxIncomingJobs_Vtbl {
         Self {
             base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
-            Item: Item::<Identity, Impl, OFFSET>,
+            get_Item: get_Item::<Identity, Impl, OFFSET>,
             Count: Count::<Identity, Impl, OFFSET>,
         }
     }
@@ -4089,7 +4089,7 @@ impl IFaxOutboundRoutingGroup_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IFaxOutboundRoutingGroups_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn Item(&self, vindex: &super::super::System::Com::VARIANT) -> ::windows::core::Result<IFaxOutboundRoutingGroup>;
+    fn get_Item(&self, vindex: &super::super::System::Com::VARIANT) -> ::windows::core::Result<IFaxOutboundRoutingGroup>;
     fn Count(&self) -> ::windows::core::Result<i32>;
     fn Add(&self, bstrname: &super::super::Foundation::BSTR) -> ::windows::core::Result<IFaxOutboundRoutingGroup>;
     fn Remove(&self, vindex: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
@@ -4108,10 +4108,10 @@ impl IFaxOutboundRoutingGroups_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Item<Identity: ::windows::core::IUnknownImpl, Impl: IFaxOutboundRoutingGroups_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vindex: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pfaxoutboundroutinggroup: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_Item<Identity: ::windows::core::IUnknownImpl, Impl: IFaxOutboundRoutingGroups_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vindex: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pfaxoutboundroutinggroup: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).Item(::core::mem::transmute(&vindex)) {
+            match (*this).get_Item(::core::mem::transmute(&vindex)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pfaxoutboundroutinggroup = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -4149,7 +4149,7 @@ impl IFaxOutboundRoutingGroups_Vtbl {
         Self {
             base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
-            Item: Item::<Identity, Impl, OFFSET>,
+            get_Item: get_Item::<Identity, Impl, OFFSET>,
             Count: Count::<Identity, Impl, OFFSET>,
             Add: Add::<Identity, Impl, OFFSET>,
             Remove: Remove::<Identity, Impl, OFFSET>,
@@ -4289,7 +4289,7 @@ impl IFaxOutboundRoutingRule_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IFaxOutboundRoutingRules_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn Item(&self, lindex: i32) -> ::windows::core::Result<IFaxOutboundRoutingRule>;
+    fn get_Item(&self, lindex: i32) -> ::windows::core::Result<IFaxOutboundRoutingRule>;
     fn Count(&self) -> ::windows::core::Result<i32>;
     fn ItemByCountryAndArea(&self, lcountrycode: i32, lareacode: i32) -> ::windows::core::Result<IFaxOutboundRoutingRule>;
     fn RemoveByCountryAndArea(&self, lcountrycode: i32, lareacode: i32) -> ::windows::core::Result<()>;
@@ -4310,10 +4310,10 @@ impl IFaxOutboundRoutingRules_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Item<Identity: ::windows::core::IUnknownImpl, Impl: IFaxOutboundRoutingRules_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lindex: i32, pfaxoutboundroutingrule: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_Item<Identity: ::windows::core::IUnknownImpl, Impl: IFaxOutboundRoutingRules_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lindex: i32, pfaxoutboundroutingrule: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).Item(::core::mem::transmute_copy(&lindex)) {
+            match (*this).get_Item(::core::mem::transmute_copy(&lindex)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pfaxoutboundroutingrule = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -4367,7 +4367,7 @@ impl IFaxOutboundRoutingRules_Vtbl {
         Self {
             base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
-            Item: Item::<Identity, Impl, OFFSET>,
+            get_Item: get_Item::<Identity, Impl, OFFSET>,
             Count: Count::<Identity, Impl, OFFSET>,
             ItemByCountryAndArea: ItemByCountryAndArea::<Identity, Impl, OFFSET>,
             RemoveByCountryAndArea: RemoveByCountryAndArea::<Identity, Impl, OFFSET>,
@@ -5016,7 +5016,7 @@ impl IFaxOutgoingJob2_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IFaxOutgoingJobs_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn Item(&self, vindex: &super::super::System::Com::VARIANT) -> ::windows::core::Result<IFaxOutgoingJob>;
+    fn get_Item(&self, vindex: &super::super::System::Com::VARIANT) -> ::windows::core::Result<IFaxOutgoingJob>;
     fn Count(&self) -> ::windows::core::Result<i32>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -5033,10 +5033,10 @@ impl IFaxOutgoingJobs_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Item<Identity: ::windows::core::IUnknownImpl, Impl: IFaxOutgoingJobs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vindex: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pfaxoutgoingjob: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_Item<Identity: ::windows::core::IUnknownImpl, Impl: IFaxOutgoingJobs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vindex: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pfaxoutgoingjob: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).Item(::core::mem::transmute(&vindex)) {
+            match (*this).get_Item(::core::mem::transmute(&vindex)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pfaxoutgoingjob = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -5058,7 +5058,7 @@ impl IFaxOutgoingJobs_Vtbl {
         Self {
             base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
-            Item: Item::<Identity, Impl, OFFSET>,
+            get_Item: get_Item::<Identity, Impl, OFFSET>,
             Count: Count::<Identity, Impl, OFFSET>,
         }
     }
@@ -5975,7 +5975,7 @@ impl IFaxRecipient_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IFaxRecipients_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn Item(&self, lindex: i32) -> ::windows::core::Result<IFaxRecipient>;
+    fn get_Item(&self, lindex: i32) -> ::windows::core::Result<IFaxRecipient>;
     fn Count(&self) -> ::windows::core::Result<i32>;
     fn Add(&self, bstrfaxnumber: &super::super::Foundation::BSTR, bstrrecipientname: &super::super::Foundation::BSTR) -> ::windows::core::Result<IFaxRecipient>;
     fn Remove(&self, lindex: i32) -> ::windows::core::Result<()>;
@@ -5994,10 +5994,10 @@ impl IFaxRecipients_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Item<Identity: ::windows::core::IUnknownImpl, Impl: IFaxRecipients_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lindex: i32, ppfaxrecipient: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_Item<Identity: ::windows::core::IUnknownImpl, Impl: IFaxRecipients_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lindex: i32, ppfaxrecipient: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).Item(::core::mem::transmute_copy(&lindex)) {
+            match (*this).get_Item(::core::mem::transmute_copy(&lindex)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppfaxrecipient = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -6035,7 +6035,7 @@ impl IFaxRecipients_Vtbl {
         Self {
             base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
-            Item: Item::<Identity, Impl, OFFSET>,
+            get_Item: get_Item::<Identity, Impl, OFFSET>,
             Count: Count::<Identity, Impl, OFFSET>,
             Add: Add::<Identity, Impl, OFFSET>,
             Remove: Remove::<Identity, Impl, OFFSET>,

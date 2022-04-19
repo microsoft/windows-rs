@@ -2511,8 +2511,8 @@ impl ITsSbClientConnection {
         (::windows::core::Interface::vtable(self).Environment)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ITsSbEnvironment>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-    pub unsafe fn ConnectionError(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ConnectionError)(::core::mem::transmute_copy(self)).ok()
+    pub unsafe fn get_ConnectionError(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).get_ConnectionError)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2618,7 +2618,7 @@ pub struct ITsSbClientConnection_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     GetContext: usize,
     pub Environment: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenvironment: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub ConnectionError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub get_ConnectionError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub SamUserAccount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -5310,12 +5310,12 @@ impl ITsSbTarget {
         (::windows::core::Interface::vtable(self).SetTargetNetbios)(::core::mem::transmute_copy(self), val.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-    pub unsafe fn IpAddresses(&self, sockaddr: *mut TSSD_ConnectionPoint, numaddresses: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).IpAddresses)(::core::mem::transmute_copy(self), ::core::mem::transmute(sockaddr), ::core::mem::transmute(numaddresses)).ok()
+    pub unsafe fn get_IpAddresses(&self, sockaddr: *mut TSSD_ConnectionPoint, numaddresses: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).get_IpAddresses)(::core::mem::transmute_copy(self), ::core::mem::transmute(sockaddr), ::core::mem::transmute(numaddresses)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-    pub unsafe fn SetIpAddresses(&self, sockaddr: &[TSSD_ConnectionPoint]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetIpAddresses)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(sockaddr)), sockaddr.len() as _).ok()
+    pub unsafe fn put_IpAddresses(&self, sockaddr: &[TSSD_ConnectionPoint]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).put_IpAddresses)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(sockaddr)), sockaddr.len() as _).ok()
     }
     #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
     pub unsafe fn TargetState(&self) -> ::windows::core::Result<TARGET_STATE> {
@@ -5440,8 +5440,8 @@ pub struct ITsSbTarget_Vtbl {
     pub SetTargetNetbios: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, val: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     SetTargetNetbios: usize,
-    pub IpAddresses: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sockaddr: *mut TSSD_ConnectionPoint, numaddresses: *mut u32) -> ::windows::core::HRESULT,
-    pub SetIpAddresses: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sockaddr: *const TSSD_ConnectionPoint, numaddresses: u32) -> ::windows::core::HRESULT,
+    pub get_IpAddresses: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sockaddr: *mut TSSD_ConnectionPoint, numaddresses: *mut u32) -> ::windows::core::HRESULT,
+    pub put_IpAddresses: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sockaddr: *const TSSD_ConnectionPoint, numaddresses: u32) -> ::windows::core::HRESULT,
     pub TargetState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstate: *mut TARGET_STATE) -> ::windows::core::HRESULT,
     pub SetTargetState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, state: TARGET_STATE) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]

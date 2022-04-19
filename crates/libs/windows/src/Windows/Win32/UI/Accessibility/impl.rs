@@ -155,25 +155,25 @@ impl IAccPropServices_Vtbl {
 pub trait IAccessible_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn accParent(&self) -> ::windows::core::Result<super::super::System::Com::IDispatch>;
     fn accChildCount(&self) -> ::windows::core::Result<i32>;
-    fn accChild(&self, varchild: &super::super::System::Com::VARIANT) -> ::windows::core::Result<super::super::System::Com::IDispatch>;
-    fn accName(&self, varchild: &super::super::System::Com::VARIANT) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn accValue(&self, varchild: &super::super::System::Com::VARIANT) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn accDescription(&self, varchild: &super::super::System::Com::VARIANT) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn accRole(&self, varchild: &super::super::System::Com::VARIANT) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn accState(&self, varchild: &super::super::System::Com::VARIANT) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn accHelp(&self, varchild: &super::super::System::Com::VARIANT) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn accHelpTopic(&self, pszhelpfile: *mut super::super::Foundation::BSTR, varchild: &super::super::System::Com::VARIANT, pidtopic: *mut i32) -> ::windows::core::Result<()>;
-    fn accKeyboardShortcut(&self, varchild: &super::super::System::Com::VARIANT) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn get_accChild(&self, varchild: &super::super::System::Com::VARIANT) -> ::windows::core::Result<super::super::System::Com::IDispatch>;
+    fn get_accName(&self, varchild: &super::super::System::Com::VARIANT) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn get_accValue(&self, varchild: &super::super::System::Com::VARIANT) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn get_accDescription(&self, varchild: &super::super::System::Com::VARIANT) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn get_accRole(&self, varchild: &super::super::System::Com::VARIANT) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
+    fn get_accState(&self, varchild: &super::super::System::Com::VARIANT) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
+    fn get_accHelp(&self, varchild: &super::super::System::Com::VARIANT) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn get_accHelpTopic(&self, pszhelpfile: *mut super::super::Foundation::BSTR, varchild: &super::super::System::Com::VARIANT, pidtopic: *mut i32) -> ::windows::core::Result<()>;
+    fn get_accKeyboardShortcut(&self, varchild: &super::super::System::Com::VARIANT) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn accFocus(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
     fn accSelection(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn accDefaultAction(&self, varchild: &super::super::System::Com::VARIANT) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn get_accDefaultAction(&self, varchild: &super::super::System::Com::VARIANT) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn accSelect(&self, flagsselect: i32, varchild: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn accLocation(&self, pxleft: *mut i32, pytop: *mut i32, pcxwidth: *mut i32, pcyheight: *mut i32, varchild: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn accNavigate(&self, navdir: i32, varstart: &super::super::System::Com::VARIANT) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
     fn accHitTest(&self, xleft: i32, ytop: i32) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
     fn accDoDefaultAction(&self, varchild: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn SetaccName(&self, varchild: &super::super::System::Com::VARIANT, szname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn SetaccValue(&self, varchild: &super::super::System::Com::VARIANT, szvalue: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn put_accName(&self, varchild: &super::super::System::Com::VARIANT, szname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn put_accValue(&self, varchild: &super::super::System::Com::VARIANT, szvalue: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IAccessible_Vtbl {
@@ -200,10 +200,10 @@ impl IAccessible_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn accChild<Identity: ::windows::core::IUnknownImpl, Impl: IAccessible_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varchild: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, ppdispchild: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_accChild<Identity: ::windows::core::IUnknownImpl, Impl: IAccessible_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varchild: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, ppdispchild: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).accChild(::core::mem::transmute(&varchild)) {
+            match (*this).get_accChild(::core::mem::transmute(&varchild)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppdispchild = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -211,10 +211,10 @@ impl IAccessible_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn accName<Identity: ::windows::core::IUnknownImpl, Impl: IAccessible_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varchild: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pszname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_accName<Identity: ::windows::core::IUnknownImpl, Impl: IAccessible_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varchild: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pszname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).accName(::core::mem::transmute(&varchild)) {
+            match (*this).get_accName(::core::mem::transmute(&varchild)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pszname = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -222,10 +222,10 @@ impl IAccessible_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn accValue<Identity: ::windows::core::IUnknownImpl, Impl: IAccessible_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varchild: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pszvalue: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_accValue<Identity: ::windows::core::IUnknownImpl, Impl: IAccessible_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varchild: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pszvalue: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).accValue(::core::mem::transmute(&varchild)) {
+            match (*this).get_accValue(::core::mem::transmute(&varchild)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pszvalue = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -233,10 +233,10 @@ impl IAccessible_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn accDescription<Identity: ::windows::core::IUnknownImpl, Impl: IAccessible_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varchild: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pszdescription: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_accDescription<Identity: ::windows::core::IUnknownImpl, Impl: IAccessible_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varchild: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pszdescription: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).accDescription(::core::mem::transmute(&varchild)) {
+            match (*this).get_accDescription(::core::mem::transmute(&varchild)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pszdescription = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -244,10 +244,10 @@ impl IAccessible_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn accRole<Identity: ::windows::core::IUnknownImpl, Impl: IAccessible_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varchild: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pvarrole: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_accRole<Identity: ::windows::core::IUnknownImpl, Impl: IAccessible_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varchild: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pvarrole: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).accRole(::core::mem::transmute(&varchild)) {
+            match (*this).get_accRole(::core::mem::transmute(&varchild)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pvarrole = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -255,10 +255,10 @@ impl IAccessible_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn accState<Identity: ::windows::core::IUnknownImpl, Impl: IAccessible_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varchild: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pvarstate: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_accState<Identity: ::windows::core::IUnknownImpl, Impl: IAccessible_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varchild: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pvarstate: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).accState(::core::mem::transmute(&varchild)) {
+            match (*this).get_accState(::core::mem::transmute(&varchild)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pvarstate = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -266,10 +266,10 @@ impl IAccessible_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn accHelp<Identity: ::windows::core::IUnknownImpl, Impl: IAccessible_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varchild: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pszhelp: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_accHelp<Identity: ::windows::core::IUnknownImpl, Impl: IAccessible_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varchild: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pszhelp: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).accHelp(::core::mem::transmute(&varchild)) {
+            match (*this).get_accHelp(::core::mem::transmute(&varchild)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pszhelp = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -277,15 +277,15 @@ impl IAccessible_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn accHelpTopic<Identity: ::windows::core::IUnknownImpl, Impl: IAccessible_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszhelpfile: *mut super::super::Foundation::BSTR, varchild: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pidtopic: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_accHelpTopic<Identity: ::windows::core::IUnknownImpl, Impl: IAccessible_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszhelpfile: *mut super::super::Foundation::BSTR, varchild: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pidtopic: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).accHelpTopic(::core::mem::transmute_copy(&pszhelpfile), ::core::mem::transmute(&varchild), ::core::mem::transmute_copy(&pidtopic)).into()
+            (*this).get_accHelpTopic(::core::mem::transmute_copy(&pszhelpfile), ::core::mem::transmute(&varchild), ::core::mem::transmute_copy(&pidtopic)).into()
         }
-        unsafe extern "system" fn accKeyboardShortcut<Identity: ::windows::core::IUnknownImpl, Impl: IAccessible_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varchild: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pszkeyboardshortcut: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_accKeyboardShortcut<Identity: ::windows::core::IUnknownImpl, Impl: IAccessible_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varchild: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pszkeyboardshortcut: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).accKeyboardShortcut(::core::mem::transmute(&varchild)) {
+            match (*this).get_accKeyboardShortcut(::core::mem::transmute(&varchild)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pszkeyboardshortcut = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -315,10 +315,10 @@ impl IAccessible_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn accDefaultAction<Identity: ::windows::core::IUnknownImpl, Impl: IAccessible_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varchild: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pszdefaultaction: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_accDefaultAction<Identity: ::windows::core::IUnknownImpl, Impl: IAccessible_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varchild: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pszdefaultaction: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).accDefaultAction(::core::mem::transmute(&varchild)) {
+            match (*this).get_accDefaultAction(::core::mem::transmute(&varchild)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pszdefaultaction = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -363,39 +363,39 @@ impl IAccessible_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).accDoDefaultAction(::core::mem::transmute(&varchild)).into()
         }
-        unsafe extern "system" fn SetaccName<Identity: ::windows::core::IUnknownImpl, Impl: IAccessible_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varchild: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, szname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn put_accName<Identity: ::windows::core::IUnknownImpl, Impl: IAccessible_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varchild: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, szname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetaccName(::core::mem::transmute(&varchild), ::core::mem::transmute(&szname)).into()
+            (*this).put_accName(::core::mem::transmute(&varchild), ::core::mem::transmute(&szname)).into()
         }
-        unsafe extern "system" fn SetaccValue<Identity: ::windows::core::IUnknownImpl, Impl: IAccessible_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varchild: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, szvalue: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn put_accValue<Identity: ::windows::core::IUnknownImpl, Impl: IAccessible_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varchild: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, szvalue: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetaccValue(::core::mem::transmute(&varchild), ::core::mem::transmute(&szvalue)).into()
+            (*this).put_accValue(::core::mem::transmute(&varchild), ::core::mem::transmute(&szvalue)).into()
         }
         Self {
             base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             accParent: accParent::<Identity, Impl, OFFSET>,
             accChildCount: accChildCount::<Identity, Impl, OFFSET>,
-            accChild: accChild::<Identity, Impl, OFFSET>,
-            accName: accName::<Identity, Impl, OFFSET>,
-            accValue: accValue::<Identity, Impl, OFFSET>,
-            accDescription: accDescription::<Identity, Impl, OFFSET>,
-            accRole: accRole::<Identity, Impl, OFFSET>,
-            accState: accState::<Identity, Impl, OFFSET>,
-            accHelp: accHelp::<Identity, Impl, OFFSET>,
-            accHelpTopic: accHelpTopic::<Identity, Impl, OFFSET>,
-            accKeyboardShortcut: accKeyboardShortcut::<Identity, Impl, OFFSET>,
+            get_accChild: get_accChild::<Identity, Impl, OFFSET>,
+            get_accName: get_accName::<Identity, Impl, OFFSET>,
+            get_accValue: get_accValue::<Identity, Impl, OFFSET>,
+            get_accDescription: get_accDescription::<Identity, Impl, OFFSET>,
+            get_accRole: get_accRole::<Identity, Impl, OFFSET>,
+            get_accState: get_accState::<Identity, Impl, OFFSET>,
+            get_accHelp: get_accHelp::<Identity, Impl, OFFSET>,
+            get_accHelpTopic: get_accHelpTopic::<Identity, Impl, OFFSET>,
+            get_accKeyboardShortcut: get_accKeyboardShortcut::<Identity, Impl, OFFSET>,
             accFocus: accFocus::<Identity, Impl, OFFSET>,
             accSelection: accSelection::<Identity, Impl, OFFSET>,
-            accDefaultAction: accDefaultAction::<Identity, Impl, OFFSET>,
+            get_accDefaultAction: get_accDefaultAction::<Identity, Impl, OFFSET>,
             accSelect: accSelect::<Identity, Impl, OFFSET>,
             accLocation: accLocation::<Identity, Impl, OFFSET>,
             accNavigate: accNavigate::<Identity, Impl, OFFSET>,
             accHitTest: accHitTest::<Identity, Impl, OFFSET>,
             accDoDefaultAction: accDoDefaultAction::<Identity, Impl, OFFSET>,
-            SetaccName: SetaccName::<Identity, Impl, OFFSET>,
-            SetaccValue: SetaccValue::<Identity, Impl, OFFSET>,
+            put_accName: put_accName::<Identity, Impl, OFFSET>,
+            put_accValue: put_accValue::<Identity, Impl, OFFSET>,
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {

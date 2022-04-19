@@ -90,39 +90,3 @@ impl IMyInterface_Impl for MyStruct {
     }
 }
 ```
-
-### How are optional COM interfaces handled?
-
-TODO
-
-## Calling Windows APIs
-
-### What is `IntoParam<...>`?
-
-TODO
-
-### What's the idiomatic Windows and Rust way to handle errors from Win32 APIs (`HRESULT`, `BOOL`, etc.)?
-
-TODO
-
-### How do I handle the various string types Windows uses?
-
-TODO
-
-## Other
-
-### What is the `alloc` feature for?
-
-TODO
-
-### How do I create a `VARIANT`?
-
-TODO
-
-### Why does MSDN say a function takes an argument of type X but the windows crate says it takes an argument of type Y?
-
-TODO
-
-### How do I work with IAsyncOperation (async in general)?
-
-TODO
