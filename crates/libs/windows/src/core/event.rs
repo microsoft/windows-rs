@@ -3,6 +3,9 @@ use bindings::*;
 use std::sync::*;
 
 /// A type that you can use to declare and implement an event of a specified delegate type.
+///
+/// The implementation is thread-safe and designed to avoid contention between events being
+/// raise and delegates being added or removed.
 pub struct Event<T: Interface + Clone> {
     swap: Mutex<()>,
     change: Mutex<()>,
