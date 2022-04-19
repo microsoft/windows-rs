@@ -55,18 +55,14 @@ pub fn factory<C: RuntimeName, I: Interface>() -> Result<I> {
     let name = HSTRING::from(C::NAME);
 
     unsafe {
-        let function = delay_load(b"combase.dll\0", b"RoGetActivationFactory\0");
-
-        let code = if !function.is_null() {
+        let code = if let Ok(function) = delay_load(b"combase.dll\0", b"RoGetActivationFactory\0") {
             let function: RoGetActivationFactory = core::mem::transmute(function);
             let mut code = function(core::mem::transmute_copy(&name), &I::IID, &mut factory as *mut _ as *mut _);
 
             // If RoGetActivationFactory fails because combase hasn't been loaded yet then load combase
             // automatically so that it "just works" for apartment-agnostic code.
             if code == CO_E_NOTINITIALIZED {
-                let mta = delay_load(b"ole32.dll\0", b"CoIncrementMTAUsage\0");
-
-                if !mta.is_null() {
+                if let Ok(mta) = delay_load(b"ole32.dll\0", b"CoIncrementMTAUsage\0") {
                     let mta: CoIncrementMTAUsage = core::mem::transmute(mta);
                     let mut _cookie = core::ptr::null_mut();
                     let _ = mta(&mut _cookie);
@@ -122,7 +118,7 @@ fn factory_from_library<C: RuntimeName, I: Interface>(library: &[u8]) -> Result<
 }
 
 unsafe fn get_activation_factory(library: &[u8], name: &HSTRING) -> Result<IGenericFactory> {
-    let function = delay_load(library, b"DllGetActivationFactory\0");
+    let function = delay_load(library, b"DllGetActivationFactory\0")?;
     let function: DllGetActivationFactory = core::mem::transmute(function);
     let mut abi = core::ptr::null_mut();
     function(core::mem::transmute_copy(name), &mut abi).from_abi(abi)

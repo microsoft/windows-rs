@@ -5059,13 +5059,13 @@ impl ISpellChecker {
         (::windows::core::Interface::vtable(self).LocalizedName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Globalization\"`*"]
-    pub unsafe fn SpellCheckerChanged<'a, Param0: ::windows::core::IntoParam<'a, ISpellCheckerChangedEventHandler>>(&self, handler: Param0) -> ::windows::core::Result<u32> {
+    pub unsafe fn add_SpellCheckerChanged<'a, Param0: ::windows::core::IntoParam<'a, ISpellCheckerChangedEventHandler>>(&self, handler: Param0) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).SpellCheckerChanged)(::core::mem::transmute_copy(self), handler.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).add_SpellCheckerChanged)(::core::mem::transmute_copy(self), handler.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Globalization\"`*"]
-    pub unsafe fn RemoveSpellCheckerChanged(&self, eventcookie: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RemoveSpellCheckerChanged)(::core::mem::transmute_copy(self), ::core::mem::transmute(eventcookie)).ok()
+    pub unsafe fn remove_SpellCheckerChanged(&self, eventcookie: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).remove_SpellCheckerChanged)(::core::mem::transmute_copy(self), ::core::mem::transmute(eventcookie)).ok()
     }
     #[doc = "*Required features: `\"Win32_Globalization\"`*"]
     pub unsafe fn GetOptionDescription<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, optionid: Param0) -> ::windows::core::Result<IOptionDescription> {
@@ -5138,8 +5138,8 @@ pub struct ISpellChecker_Vtbl {
     OptionIds: usize,
     pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT,
     pub LocalizedName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT,
-    pub SpellCheckerChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, eventcookie: *mut u32) -> ::windows::core::HRESULT,
-    pub RemoveSpellCheckerChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, eventcookie: u32) -> ::windows::core::HRESULT,
+    pub add_SpellCheckerChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, eventcookie: *mut u32) -> ::windows::core::HRESULT,
+    pub remove_SpellCheckerChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, eventcookie: u32) -> ::windows::core::HRESULT,
     pub GetOptionDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, optionid: ::windows::core::PCWSTR, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub ComprehensiveCheck: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, text: ::windows::core::PCWSTR, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
@@ -5197,13 +5197,13 @@ impl ISpellChecker2 {
         (::windows::core::Interface::vtable(self).base__.LocalizedName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Globalization\"`*"]
-    pub unsafe fn SpellCheckerChanged<'a, Param0: ::windows::core::IntoParam<'a, ISpellCheckerChangedEventHandler>>(&self, handler: Param0) -> ::windows::core::Result<u32> {
+    pub unsafe fn add_SpellCheckerChanged<'a, Param0: ::windows::core::IntoParam<'a, ISpellCheckerChangedEventHandler>>(&self, handler: Param0) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.SpellCheckerChanged)(::core::mem::transmute_copy(self), handler.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).base__.add_SpellCheckerChanged)(::core::mem::transmute_copy(self), handler.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Globalization\"`*"]
-    pub unsafe fn RemoveSpellCheckerChanged(&self, eventcookie: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.RemoveSpellCheckerChanged)(::core::mem::transmute_copy(self), ::core::mem::transmute(eventcookie)).ok()
+    pub unsafe fn remove_SpellCheckerChanged(&self, eventcookie: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.remove_SpellCheckerChanged)(::core::mem::transmute_copy(self), ::core::mem::transmute(eventcookie)).ok()
     }
     #[doc = "*Required features: `\"Win32_Globalization\"`*"]
     pub unsafe fn GetOptionDescription<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, optionid: Param0) -> ::windows::core::Result<IOptionDescription> {

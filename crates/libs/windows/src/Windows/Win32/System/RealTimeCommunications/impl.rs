@@ -98,7 +98,7 @@ pub trait IRTCBuddy2_Impl: Sized + IRTCPresenceContact_Impl + IRTCBuddy_Impl {
     fn Refresh(&self) -> ::windows::core::Result<()>;
     fn EnumerateGroups(&self) -> ::windows::core::Result<IRTCEnumGroups>;
     fn Groups(&self) -> ::windows::core::Result<IRTCCollection>;
-    fn PresenceProperty(&self, enproperty: RTC_PRESENCE_PROPERTY) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn get_PresenceProperty(&self, enproperty: RTC_PRESENCE_PROPERTY) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn EnumeratePresenceDevices(&self) -> ::windows::core::Result<IRTCEnumPresenceDevices>;
     fn PresenceDevices(&self) -> ::windows::core::Result<IRTCCollection>;
     fn SubscriptionType(&self) -> ::windows::core::Result<RTC_BUDDY_SUBSCRIPTION_TYPE>;
@@ -144,10 +144,10 @@ impl IRTCBuddy2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PresenceProperty<Identity: ::windows::core::IUnknownImpl, Impl: IRTCBuddy2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, enproperty: RTC_PRESENCE_PROPERTY, pbstrproperty: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_PresenceProperty<Identity: ::windows::core::IUnknownImpl, Impl: IRTCBuddy2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, enproperty: RTC_PRESENCE_PROPERTY, pbstrproperty: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).PresenceProperty(::core::mem::transmute_copy(&enproperty)) {
+            match (*this).get_PresenceProperty(::core::mem::transmute_copy(&enproperty)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pbstrproperty = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -194,7 +194,7 @@ impl IRTCBuddy2_Vtbl {
             Refresh: Refresh::<Identity, Impl, OFFSET>,
             EnumerateGroups: EnumerateGroups::<Identity, Impl, OFFSET>,
             Groups: Groups::<Identity, Impl, OFFSET>,
-            PresenceProperty: PresenceProperty::<Identity, Impl, OFFSET>,
+            get_PresenceProperty: get_PresenceProperty::<Identity, Impl, OFFSET>,
             EnumeratePresenceDevices: EnumeratePresenceDevices::<Identity, Impl, OFFSET>,
             PresenceDevices: PresenceDevices::<Identity, Impl, OFFSET>,
             SubscriptionType: SubscriptionType::<Identity, Impl, OFFSET>,
@@ -467,16 +467,16 @@ pub trait IRTCClient_Impl: Sized {
     fn CreateSession(&self, entype: RTC_SESSION_TYPE, bstrlocalphoneuri: &super::super::Foundation::BSTR, pprofile: &::core::option::Option<IRTCProfile>, lflags: i32) -> ::windows::core::Result<IRTCSession>;
     fn SetListenForIncomingSessions(&self, enlisten: RTC_LISTEN_MODE) -> ::windows::core::Result<()>;
     fn ListenForIncomingSessions(&self) -> ::windows::core::Result<RTC_LISTEN_MODE>;
-    fn NetworkAddresses(&self, ftcp: i16, fexternal: i16) -> ::windows::core::Result<super::Com::VARIANT>;
-    fn SetVolume(&self, endevice: RTC_AUDIO_DEVICE, lvolume: i32) -> ::windows::core::Result<()>;
-    fn Volume(&self, endevice: RTC_AUDIO_DEVICE) -> ::windows::core::Result<i32>;
-    fn SetAudioMuted(&self, endevice: RTC_AUDIO_DEVICE, fmuted: i16) -> ::windows::core::Result<()>;
-    fn AudioMuted(&self, endevice: RTC_AUDIO_DEVICE) -> ::windows::core::Result<i16>;
-    fn IVideoWindow(&self, endevice: RTC_VIDEO_DEVICE) -> ::windows::core::Result<super::super::Media::DirectShow::IVideoWindow>;
-    fn SetPreferredAudioDevice(&self, endevice: RTC_AUDIO_DEVICE, bstrdevicename: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn PreferredAudioDevice(&self, endevice: RTC_AUDIO_DEVICE) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetPreferredVolume(&self, endevice: RTC_AUDIO_DEVICE, lvolume: i32) -> ::windows::core::Result<()>;
-    fn PreferredVolume(&self, endevice: RTC_AUDIO_DEVICE) -> ::windows::core::Result<i32>;
+    fn get_NetworkAddresses(&self, ftcp: i16, fexternal: i16) -> ::windows::core::Result<super::Com::VARIANT>;
+    fn put_Volume(&self, endevice: RTC_AUDIO_DEVICE, lvolume: i32) -> ::windows::core::Result<()>;
+    fn get_Volume(&self, endevice: RTC_AUDIO_DEVICE) -> ::windows::core::Result<i32>;
+    fn put_AudioMuted(&self, endevice: RTC_AUDIO_DEVICE, fmuted: i16) -> ::windows::core::Result<()>;
+    fn get_AudioMuted(&self, endevice: RTC_AUDIO_DEVICE) -> ::windows::core::Result<i16>;
+    fn get_IVideoWindow(&self, endevice: RTC_VIDEO_DEVICE) -> ::windows::core::Result<super::super::Media::DirectShow::IVideoWindow>;
+    fn put_PreferredAudioDevice(&self, endevice: RTC_AUDIO_DEVICE, bstrdevicename: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn get_PreferredAudioDevice(&self, endevice: RTC_AUDIO_DEVICE) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn put_PreferredVolume(&self, endevice: RTC_AUDIO_DEVICE, lvolume: i32) -> ::windows::core::Result<()>;
+    fn get_PreferredVolume(&self, endevice: RTC_AUDIO_DEVICE) -> ::windows::core::Result<i32>;
     fn SetPreferredAEC(&self, benable: i16) -> ::windows::core::Result<()>;
     fn PreferredAEC(&self) -> ::windows::core::Result<i16>;
     fn SetPreferredVideoDevice(&self, bstrdevicename: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
@@ -489,7 +489,7 @@ pub trait IRTCClient_Impl: Sized {
     fn NetworkQuality(&self) -> ::windows::core::Result<i32>;
     fn StartT120Applet(&self, enapplet: RTC_T120_APPLET) -> ::windows::core::Result<()>;
     fn StopT120Applets(&self) -> ::windows::core::Result<()>;
-    fn IsT120AppletRunning(&self, enapplet: RTC_T120_APPLET) -> ::windows::core::Result<i16>;
+    fn get_IsT120AppletRunning(&self, enapplet: RTC_T120_APPLET) -> ::windows::core::Result<i16>;
     fn LocalUserURI(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn SetLocalUserURI(&self, bstruseruri: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn LocalUserName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
@@ -587,10 +587,10 @@ impl IRTCClient_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn NetworkAddresses<Identity: ::windows::core::IUnknownImpl, Impl: IRTCClient_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ftcp: i16, fexternal: i16, pvaddresses: *mut super::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_NetworkAddresses<Identity: ::windows::core::IUnknownImpl, Impl: IRTCClient_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ftcp: i16, fexternal: i16, pvaddresses: *mut super::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).NetworkAddresses(::core::mem::transmute_copy(&ftcp), ::core::mem::transmute_copy(&fexternal)) {
+            match (*this).get_NetworkAddresses(::core::mem::transmute_copy(&ftcp), ::core::mem::transmute_copy(&fexternal)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pvaddresses = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -598,15 +598,15 @@ impl IRTCClient_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetVolume<Identity: ::windows::core::IUnknownImpl, Impl: IRTCClient_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, endevice: RTC_AUDIO_DEVICE, lvolume: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn put_Volume<Identity: ::windows::core::IUnknownImpl, Impl: IRTCClient_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, endevice: RTC_AUDIO_DEVICE, lvolume: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetVolume(::core::mem::transmute_copy(&endevice), ::core::mem::transmute_copy(&lvolume)).into()
+            (*this).put_Volume(::core::mem::transmute_copy(&endevice), ::core::mem::transmute_copy(&lvolume)).into()
         }
-        unsafe extern "system" fn Volume<Identity: ::windows::core::IUnknownImpl, Impl: IRTCClient_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, endevice: RTC_AUDIO_DEVICE, plvolume: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_Volume<Identity: ::windows::core::IUnknownImpl, Impl: IRTCClient_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, endevice: RTC_AUDIO_DEVICE, plvolume: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).Volume(::core::mem::transmute_copy(&endevice)) {
+            match (*this).get_Volume(::core::mem::transmute_copy(&endevice)) {
                 ::core::result::Result::Ok(ok__) => {
                     *plvolume = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -614,15 +614,15 @@ impl IRTCClient_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetAudioMuted<Identity: ::windows::core::IUnknownImpl, Impl: IRTCClient_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, endevice: RTC_AUDIO_DEVICE, fmuted: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn put_AudioMuted<Identity: ::windows::core::IUnknownImpl, Impl: IRTCClient_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, endevice: RTC_AUDIO_DEVICE, fmuted: i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetAudioMuted(::core::mem::transmute_copy(&endevice), ::core::mem::transmute_copy(&fmuted)).into()
+            (*this).put_AudioMuted(::core::mem::transmute_copy(&endevice), ::core::mem::transmute_copy(&fmuted)).into()
         }
-        unsafe extern "system" fn AudioMuted<Identity: ::windows::core::IUnknownImpl, Impl: IRTCClient_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, endevice: RTC_AUDIO_DEVICE, pfmuted: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_AudioMuted<Identity: ::windows::core::IUnknownImpl, Impl: IRTCClient_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, endevice: RTC_AUDIO_DEVICE, pfmuted: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).AudioMuted(::core::mem::transmute_copy(&endevice)) {
+            match (*this).get_AudioMuted(::core::mem::transmute_copy(&endevice)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pfmuted = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -630,10 +630,10 @@ impl IRTCClient_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IVideoWindow<Identity: ::windows::core::IUnknownImpl, Impl: IRTCClient_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, endevice: RTC_VIDEO_DEVICE, ppivideowindow: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_IVideoWindow<Identity: ::windows::core::IUnknownImpl, Impl: IRTCClient_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, endevice: RTC_VIDEO_DEVICE, ppivideowindow: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).IVideoWindow(::core::mem::transmute_copy(&endevice)) {
+            match (*this).get_IVideoWindow(::core::mem::transmute_copy(&endevice)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppivideowindow = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -641,15 +641,15 @@ impl IRTCClient_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetPreferredAudioDevice<Identity: ::windows::core::IUnknownImpl, Impl: IRTCClient_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, endevice: RTC_AUDIO_DEVICE, bstrdevicename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn put_PreferredAudioDevice<Identity: ::windows::core::IUnknownImpl, Impl: IRTCClient_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, endevice: RTC_AUDIO_DEVICE, bstrdevicename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetPreferredAudioDevice(::core::mem::transmute_copy(&endevice), ::core::mem::transmute(&bstrdevicename)).into()
+            (*this).put_PreferredAudioDevice(::core::mem::transmute_copy(&endevice), ::core::mem::transmute(&bstrdevicename)).into()
         }
-        unsafe extern "system" fn PreferredAudioDevice<Identity: ::windows::core::IUnknownImpl, Impl: IRTCClient_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, endevice: RTC_AUDIO_DEVICE, pbstrdevicename: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_PreferredAudioDevice<Identity: ::windows::core::IUnknownImpl, Impl: IRTCClient_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, endevice: RTC_AUDIO_DEVICE, pbstrdevicename: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).PreferredAudioDevice(::core::mem::transmute_copy(&endevice)) {
+            match (*this).get_PreferredAudioDevice(::core::mem::transmute_copy(&endevice)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pbstrdevicename = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -657,15 +657,15 @@ impl IRTCClient_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetPreferredVolume<Identity: ::windows::core::IUnknownImpl, Impl: IRTCClient_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, endevice: RTC_AUDIO_DEVICE, lvolume: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn put_PreferredVolume<Identity: ::windows::core::IUnknownImpl, Impl: IRTCClient_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, endevice: RTC_AUDIO_DEVICE, lvolume: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetPreferredVolume(::core::mem::transmute_copy(&endevice), ::core::mem::transmute_copy(&lvolume)).into()
+            (*this).put_PreferredVolume(::core::mem::transmute_copy(&endevice), ::core::mem::transmute_copy(&lvolume)).into()
         }
-        unsafe extern "system" fn PreferredVolume<Identity: ::windows::core::IUnknownImpl, Impl: IRTCClient_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, endevice: RTC_AUDIO_DEVICE, plvolume: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_PreferredVolume<Identity: ::windows::core::IUnknownImpl, Impl: IRTCClient_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, endevice: RTC_AUDIO_DEVICE, plvolume: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).PreferredVolume(::core::mem::transmute_copy(&endevice)) {
+            match (*this).get_PreferredVolume(::core::mem::transmute_copy(&endevice)) {
                 ::core::result::Result::Ok(ok__) => {
                     *plvolume = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -769,10 +769,10 @@ impl IRTCClient_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).StopT120Applets().into()
         }
-        unsafe extern "system" fn IsT120AppletRunning<Identity: ::windows::core::IUnknownImpl, Impl: IRTCClient_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, enapplet: RTC_T120_APPLET, pfrunning: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_IsT120AppletRunning<Identity: ::windows::core::IUnknownImpl, Impl: IRTCClient_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, enapplet: RTC_T120_APPLET, pfrunning: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).IsT120AppletRunning(::core::mem::transmute_copy(&enapplet)) {
+            match (*this).get_IsT120AppletRunning(::core::mem::transmute_copy(&enapplet)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pfrunning = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -851,16 +851,16 @@ impl IRTCClient_Vtbl {
             CreateSession: CreateSession::<Identity, Impl, OFFSET>,
             SetListenForIncomingSessions: SetListenForIncomingSessions::<Identity, Impl, OFFSET>,
             ListenForIncomingSessions: ListenForIncomingSessions::<Identity, Impl, OFFSET>,
-            NetworkAddresses: NetworkAddresses::<Identity, Impl, OFFSET>,
-            SetVolume: SetVolume::<Identity, Impl, OFFSET>,
-            Volume: Volume::<Identity, Impl, OFFSET>,
-            SetAudioMuted: SetAudioMuted::<Identity, Impl, OFFSET>,
-            AudioMuted: AudioMuted::<Identity, Impl, OFFSET>,
-            IVideoWindow: IVideoWindow::<Identity, Impl, OFFSET>,
-            SetPreferredAudioDevice: SetPreferredAudioDevice::<Identity, Impl, OFFSET>,
-            PreferredAudioDevice: PreferredAudioDevice::<Identity, Impl, OFFSET>,
-            SetPreferredVolume: SetPreferredVolume::<Identity, Impl, OFFSET>,
-            PreferredVolume: PreferredVolume::<Identity, Impl, OFFSET>,
+            get_NetworkAddresses: get_NetworkAddresses::<Identity, Impl, OFFSET>,
+            put_Volume: put_Volume::<Identity, Impl, OFFSET>,
+            get_Volume: get_Volume::<Identity, Impl, OFFSET>,
+            put_AudioMuted: put_AudioMuted::<Identity, Impl, OFFSET>,
+            get_AudioMuted: get_AudioMuted::<Identity, Impl, OFFSET>,
+            get_IVideoWindow: get_IVideoWindow::<Identity, Impl, OFFSET>,
+            put_PreferredAudioDevice: put_PreferredAudioDevice::<Identity, Impl, OFFSET>,
+            get_PreferredAudioDevice: get_PreferredAudioDevice::<Identity, Impl, OFFSET>,
+            put_PreferredVolume: put_PreferredVolume::<Identity, Impl, OFFSET>,
+            get_PreferredVolume: get_PreferredVolume::<Identity, Impl, OFFSET>,
             SetPreferredAEC: SetPreferredAEC::<Identity, Impl, OFFSET>,
             PreferredAEC: PreferredAEC::<Identity, Impl, OFFSET>,
             SetPreferredVideoDevice: SetPreferredVideoDevice::<Identity, Impl, OFFSET>,
@@ -873,7 +873,7 @@ impl IRTCClient_Vtbl {
             NetworkQuality: NetworkQuality::<Identity, Impl, OFFSET>,
             StartT120Applet: StartT120Applet::<Identity, Impl, OFFSET>,
             StopT120Applets: StopT120Applets::<Identity, Impl, OFFSET>,
-            IsT120AppletRunning: IsT120AppletRunning::<Identity, Impl, OFFSET>,
+            get_IsT120AppletRunning: get_IsT120AppletRunning::<Identity, Impl, OFFSET>,
             LocalUserURI: LocalUserURI::<Identity, Impl, OFFSET>,
             SetLocalUserURI: SetLocalUserURI::<Identity, Impl, OFFSET>,
             LocalUserName: LocalUserName::<Identity, Impl, OFFSET>,
@@ -890,8 +890,8 @@ impl IRTCClient_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_DirectShow", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IRTCClient2_Impl: Sized + IRTCClient_Impl {
-    fn SetAnswerMode(&self, entype: RTC_SESSION_TYPE, enmode: RTC_ANSWER_MODE) -> ::windows::core::Result<()>;
-    fn AnswerMode(&self, entype: RTC_SESSION_TYPE) -> ::windows::core::Result<RTC_ANSWER_MODE>;
+    fn put_AnswerMode(&self, entype: RTC_SESSION_TYPE, enmode: RTC_ANSWER_MODE) -> ::windows::core::Result<()>;
+    fn get_AnswerMode(&self, entype: RTC_SESSION_TYPE) -> ::windows::core::Result<RTC_ANSWER_MODE>;
     fn InvokeTuningWizardEx(&self, hwndparent: isize, fallowaudio: i16, fallowvideo: i16) -> ::windows::core::Result<()>;
     fn Version(&self) -> ::windows::core::Result<i32>;
     fn SetClientName(&self, bstrclientname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
@@ -899,23 +899,23 @@ pub trait IRTCClient2_Impl: Sized + IRTCClient_Impl {
     fn InitializeEx(&self, lflags: i32) -> ::windows::core::Result<()>;
     fn CreateSessionWithDescription(&self, bstrcontenttype: &super::super::Foundation::BSTR, bstrsessiondescription: &super::super::Foundation::BSTR, pprofile: &::core::option::Option<IRTCProfile>, lflags: i32) -> ::windows::core::Result<IRTCSession2>;
     fn SetSessionDescriptionManager(&self, psessiondescriptionmanager: &::core::option::Option<IRTCSessionDescriptionManager>) -> ::windows::core::Result<()>;
-    fn SetPreferredSecurityLevel(&self, ensecuritytype: RTC_SECURITY_TYPE, ensecuritylevel: RTC_SECURITY_LEVEL) -> ::windows::core::Result<()>;
-    fn PreferredSecurityLevel(&self, ensecuritytype: RTC_SECURITY_TYPE) -> ::windows::core::Result<RTC_SECURITY_LEVEL>;
-    fn SetAllowedPorts(&self, ltransport: i32, enlistenmode: RTC_LISTEN_MODE) -> ::windows::core::Result<()>;
-    fn AllowedPorts(&self, ltransport: i32) -> ::windows::core::Result<RTC_LISTEN_MODE>;
+    fn put_PreferredSecurityLevel(&self, ensecuritytype: RTC_SECURITY_TYPE, ensecuritylevel: RTC_SECURITY_LEVEL) -> ::windows::core::Result<()>;
+    fn get_PreferredSecurityLevel(&self, ensecuritytype: RTC_SECURITY_TYPE) -> ::windows::core::Result<RTC_SECURITY_LEVEL>;
+    fn put_AllowedPorts(&self, ltransport: i32, enlistenmode: RTC_LISTEN_MODE) -> ::windows::core::Result<()>;
+    fn get_AllowedPorts(&self, ltransport: i32) -> ::windows::core::Result<RTC_LISTEN_MODE>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_DirectShow", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IRTCClient2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRTCClient2_Impl, const OFFSET: isize>() -> IRTCClient2_Vtbl {
-        unsafe extern "system" fn SetAnswerMode<Identity: ::windows::core::IUnknownImpl, Impl: IRTCClient2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, entype: RTC_SESSION_TYPE, enmode: RTC_ANSWER_MODE) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn put_AnswerMode<Identity: ::windows::core::IUnknownImpl, Impl: IRTCClient2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, entype: RTC_SESSION_TYPE, enmode: RTC_ANSWER_MODE) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetAnswerMode(::core::mem::transmute_copy(&entype), ::core::mem::transmute_copy(&enmode)).into()
+            (*this).put_AnswerMode(::core::mem::transmute_copy(&entype), ::core::mem::transmute_copy(&enmode)).into()
         }
-        unsafe extern "system" fn AnswerMode<Identity: ::windows::core::IUnknownImpl, Impl: IRTCClient2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, entype: RTC_SESSION_TYPE, penmode: *mut RTC_ANSWER_MODE) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_AnswerMode<Identity: ::windows::core::IUnknownImpl, Impl: IRTCClient2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, entype: RTC_SESSION_TYPE, penmode: *mut RTC_ANSWER_MODE) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).AnswerMode(::core::mem::transmute_copy(&entype)) {
+            match (*this).get_AnswerMode(::core::mem::transmute_copy(&entype)) {
                 ::core::result::Result::Ok(ok__) => {
                     *penmode = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -970,15 +970,15 @@ impl IRTCClient2_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).SetSessionDescriptionManager(::core::mem::transmute(&psessiondescriptionmanager)).into()
         }
-        unsafe extern "system" fn SetPreferredSecurityLevel<Identity: ::windows::core::IUnknownImpl, Impl: IRTCClient2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ensecuritytype: RTC_SECURITY_TYPE, ensecuritylevel: RTC_SECURITY_LEVEL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn put_PreferredSecurityLevel<Identity: ::windows::core::IUnknownImpl, Impl: IRTCClient2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ensecuritytype: RTC_SECURITY_TYPE, ensecuritylevel: RTC_SECURITY_LEVEL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetPreferredSecurityLevel(::core::mem::transmute_copy(&ensecuritytype), ::core::mem::transmute_copy(&ensecuritylevel)).into()
+            (*this).put_PreferredSecurityLevel(::core::mem::transmute_copy(&ensecuritytype), ::core::mem::transmute_copy(&ensecuritylevel)).into()
         }
-        unsafe extern "system" fn PreferredSecurityLevel<Identity: ::windows::core::IUnknownImpl, Impl: IRTCClient2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ensecuritytype: RTC_SECURITY_TYPE, pensecuritylevel: *mut RTC_SECURITY_LEVEL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_PreferredSecurityLevel<Identity: ::windows::core::IUnknownImpl, Impl: IRTCClient2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ensecuritytype: RTC_SECURITY_TYPE, pensecuritylevel: *mut RTC_SECURITY_LEVEL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).PreferredSecurityLevel(::core::mem::transmute_copy(&ensecuritytype)) {
+            match (*this).get_PreferredSecurityLevel(::core::mem::transmute_copy(&ensecuritytype)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pensecuritylevel = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -986,15 +986,15 @@ impl IRTCClient2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetAllowedPorts<Identity: ::windows::core::IUnknownImpl, Impl: IRTCClient2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ltransport: i32, enlistenmode: RTC_LISTEN_MODE) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn put_AllowedPorts<Identity: ::windows::core::IUnknownImpl, Impl: IRTCClient2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ltransport: i32, enlistenmode: RTC_LISTEN_MODE) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetAllowedPorts(::core::mem::transmute_copy(&ltransport), ::core::mem::transmute_copy(&enlistenmode)).into()
+            (*this).put_AllowedPorts(::core::mem::transmute_copy(&ltransport), ::core::mem::transmute_copy(&enlistenmode)).into()
         }
-        unsafe extern "system" fn AllowedPorts<Identity: ::windows::core::IUnknownImpl, Impl: IRTCClient2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ltransport: i32, penlistenmode: *mut RTC_LISTEN_MODE) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_AllowedPorts<Identity: ::windows::core::IUnknownImpl, Impl: IRTCClient2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ltransport: i32, penlistenmode: *mut RTC_LISTEN_MODE) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).AllowedPorts(::core::mem::transmute_copy(&ltransport)) {
+            match (*this).get_AllowedPorts(::core::mem::transmute_copy(&ltransport)) {
                 ::core::result::Result::Ok(ok__) => {
                     *penlistenmode = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1004,8 +1004,8 @@ impl IRTCClient2_Vtbl {
         }
         Self {
             base__: IRTCClient_Vtbl::new::<Identity, Impl, OFFSET>(),
-            SetAnswerMode: SetAnswerMode::<Identity, Impl, OFFSET>,
-            AnswerMode: AnswerMode::<Identity, Impl, OFFSET>,
+            put_AnswerMode: put_AnswerMode::<Identity, Impl, OFFSET>,
+            get_AnswerMode: get_AnswerMode::<Identity, Impl, OFFSET>,
             InvokeTuningWizardEx: InvokeTuningWizardEx::<Identity, Impl, OFFSET>,
             Version: Version::<Identity, Impl, OFFSET>,
             SetClientName: SetClientName::<Identity, Impl, OFFSET>,
@@ -1013,10 +1013,10 @@ impl IRTCClient2_Vtbl {
             InitializeEx: InitializeEx::<Identity, Impl, OFFSET>,
             CreateSessionWithDescription: CreateSessionWithDescription::<Identity, Impl, OFFSET>,
             SetSessionDescriptionManager: SetSessionDescriptionManager::<Identity, Impl, OFFSET>,
-            SetPreferredSecurityLevel: SetPreferredSecurityLevel::<Identity, Impl, OFFSET>,
-            PreferredSecurityLevel: PreferredSecurityLevel::<Identity, Impl, OFFSET>,
-            SetAllowedPorts: SetAllowedPorts::<Identity, Impl, OFFSET>,
-            AllowedPorts: AllowedPorts::<Identity, Impl, OFFSET>,
+            put_PreferredSecurityLevel: put_PreferredSecurityLevel::<Identity, Impl, OFFSET>,
+            get_PreferredSecurityLevel: get_PreferredSecurityLevel::<Identity, Impl, OFFSET>,
+            put_AllowedPorts: put_AllowedPorts::<Identity, Impl, OFFSET>,
+            get_AllowedPorts: get_AllowedPorts::<Identity, Impl, OFFSET>,
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -1105,12 +1105,12 @@ pub trait IRTCClientPresence_Impl: Sized {
     fn Import(&self, varstorage: &super::Com::VARIANT, freplaceall: i16) -> ::windows::core::Result<()>;
     fn EnumerateBuddies(&self) -> ::windows::core::Result<IRTCEnumBuddies>;
     fn Buddies(&self) -> ::windows::core::Result<IRTCCollection>;
-    fn Buddy(&self, bstrpresentityuri: &super::super::Foundation::BSTR) -> ::windows::core::Result<IRTCBuddy>;
+    fn get_Buddy(&self, bstrpresentityuri: &super::super::Foundation::BSTR) -> ::windows::core::Result<IRTCBuddy>;
     fn AddBuddy(&self, bstrpresentityuri: &super::super::Foundation::BSTR, bstrusername: &super::super::Foundation::BSTR, bstrdata: &super::super::Foundation::BSTR, fpersistent: i16, pprofile: &::core::option::Option<IRTCProfile>, lflags: i32) -> ::windows::core::Result<IRTCBuddy>;
     fn RemoveBuddy(&self, pbuddy: &::core::option::Option<IRTCBuddy>) -> ::windows::core::Result<()>;
     fn EnumerateWatchers(&self) -> ::windows::core::Result<IRTCEnumWatchers>;
     fn Watchers(&self) -> ::windows::core::Result<IRTCCollection>;
-    fn Watcher(&self, bstrpresentityuri: &super::super::Foundation::BSTR) -> ::windows::core::Result<IRTCWatcher>;
+    fn get_Watcher(&self, bstrpresentityuri: &super::super::Foundation::BSTR) -> ::windows::core::Result<IRTCWatcher>;
     fn AddWatcher(&self, bstrpresentityuri: &super::super::Foundation::BSTR, bstrusername: &super::super::Foundation::BSTR, bstrdata: &super::super::Foundation::BSTR, fblocked: i16, fpersistent: i16) -> ::windows::core::Result<IRTCWatcher>;
     fn RemoveWatcher(&self, pwatcher: &::core::option::Option<IRTCWatcher>) -> ::windows::core::Result<()>;
     fn SetLocalPresenceInfo(&self, enstatus: RTC_PRESENCE_STATUS, bstrnotes: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
@@ -1159,10 +1159,10 @@ impl IRTCClientPresence_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Buddy<Identity: ::windows::core::IUnknownImpl, Impl: IRTCClientPresence_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrpresentityuri: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppbuddy: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_Buddy<Identity: ::windows::core::IUnknownImpl, Impl: IRTCClientPresence_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrpresentityuri: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppbuddy: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).Buddy(::core::mem::transmute(&bstrpresentityuri)) {
+            match (*this).get_Buddy(::core::mem::transmute(&bstrpresentityuri)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppbuddy = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1208,10 +1208,10 @@ impl IRTCClientPresence_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Watcher<Identity: ::windows::core::IUnknownImpl, Impl: IRTCClientPresence_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrpresentityuri: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppwatcher: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_Watcher<Identity: ::windows::core::IUnknownImpl, Impl: IRTCClientPresence_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrpresentityuri: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppwatcher: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).Watcher(::core::mem::transmute(&bstrpresentityuri)) {
+            match (*this).get_Watcher(::core::mem::transmute(&bstrpresentityuri)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppwatcher = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1279,12 +1279,12 @@ impl IRTCClientPresence_Vtbl {
             Import: Import::<Identity, Impl, OFFSET>,
             EnumerateBuddies: EnumerateBuddies::<Identity, Impl, OFFSET>,
             Buddies: Buddies::<Identity, Impl, OFFSET>,
-            Buddy: Buddy::<Identity, Impl, OFFSET>,
+            get_Buddy: get_Buddy::<Identity, Impl, OFFSET>,
             AddBuddy: AddBuddy::<Identity, Impl, OFFSET>,
             RemoveBuddy: RemoveBuddy::<Identity, Impl, OFFSET>,
             EnumerateWatchers: EnumerateWatchers::<Identity, Impl, OFFSET>,
             Watchers: Watchers::<Identity, Impl, OFFSET>,
-            Watcher: Watcher::<Identity, Impl, OFFSET>,
+            get_Watcher: get_Watcher::<Identity, Impl, OFFSET>,
             AddWatcher: AddWatcher::<Identity, Impl, OFFSET>,
             RemoveWatcher: RemoveWatcher::<Identity, Impl, OFFSET>,
             SetLocalPresenceInfo: SetLocalPresenceInfo::<Identity, Impl, OFFSET>,
@@ -1306,11 +1306,11 @@ pub trait IRTCClientPresence2_Impl: Sized + IRTCClientPresence_Impl {
     fn RemoveGroup(&self, pgroup: &::core::option::Option<IRTCBuddyGroup>) -> ::windows::core::Result<()>;
     fn EnumerateGroups(&self) -> ::windows::core::Result<IRTCEnumGroups>;
     fn Groups(&self) -> ::windows::core::Result<IRTCCollection>;
-    fn Group(&self, bstrgroupname: &super::super::Foundation::BSTR) -> ::windows::core::Result<IRTCBuddyGroup>;
+    fn get_Group(&self, bstrgroupname: &super::super::Foundation::BSTR) -> ::windows::core::Result<IRTCBuddyGroup>;
     fn AddWatcherEx(&self, bstrpresentityuri: &super::super::Foundation::BSTR, bstrusername: &super::super::Foundation::BSTR, bstrdata: &super::super::Foundation::BSTR, enstate: RTC_WATCHER_STATE, fpersistent: i16, enscope: RTC_ACE_SCOPE, pprofile: &::core::option::Option<IRTCProfile>, lflags: i32) -> ::windows::core::Result<IRTCWatcher2>;
-    fn WatcherEx(&self, enmode: RTC_WATCHER_MATCH_MODE, bstrpresentityuri: &super::super::Foundation::BSTR) -> ::windows::core::Result<IRTCWatcher2>;
-    fn SetPresenceProperty(&self, enproperty: RTC_PRESENCE_PROPERTY, bstrproperty: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn PresenceProperty(&self, enproperty: RTC_PRESENCE_PROPERTY) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn get_WatcherEx(&self, enmode: RTC_WATCHER_MATCH_MODE, bstrpresentityuri: &super::super::Foundation::BSTR) -> ::windows::core::Result<IRTCWatcher2>;
+    fn put_PresenceProperty(&self, enproperty: RTC_PRESENCE_PROPERTY, bstrproperty: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn get_PresenceProperty(&self, enproperty: RTC_PRESENCE_PROPERTY) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn SetPresenceData(&self, bstrnamespace: &super::super::Foundation::BSTR, bstrdata: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn GetPresenceData(&self, pbstrnamespace: *mut super::super::Foundation::BSTR, pbstrdata: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn GetLocalPresenceInfo(&self, penstatus: *mut RTC_PRESENCE_STATUS, pbstrnotes: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
@@ -1367,10 +1367,10 @@ impl IRTCClientPresence2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Group<Identity: ::windows::core::IUnknownImpl, Impl: IRTCClientPresence2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrgroupname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppgroup: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_Group<Identity: ::windows::core::IUnknownImpl, Impl: IRTCClientPresence2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrgroupname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppgroup: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).Group(::core::mem::transmute(&bstrgroupname)) {
+            match (*this).get_Group(::core::mem::transmute(&bstrgroupname)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppgroup = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1389,10 +1389,10 @@ impl IRTCClientPresence2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn WatcherEx<Identity: ::windows::core::IUnknownImpl, Impl: IRTCClientPresence2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, enmode: RTC_WATCHER_MATCH_MODE, bstrpresentityuri: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppwatcher: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_WatcherEx<Identity: ::windows::core::IUnknownImpl, Impl: IRTCClientPresence2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, enmode: RTC_WATCHER_MATCH_MODE, bstrpresentityuri: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppwatcher: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).WatcherEx(::core::mem::transmute_copy(&enmode), ::core::mem::transmute(&bstrpresentityuri)) {
+            match (*this).get_WatcherEx(::core::mem::transmute_copy(&enmode), ::core::mem::transmute(&bstrpresentityuri)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppwatcher = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1400,15 +1400,15 @@ impl IRTCClientPresence2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetPresenceProperty<Identity: ::windows::core::IUnknownImpl, Impl: IRTCClientPresence2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, enproperty: RTC_PRESENCE_PROPERTY, bstrproperty: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn put_PresenceProperty<Identity: ::windows::core::IUnknownImpl, Impl: IRTCClientPresence2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, enproperty: RTC_PRESENCE_PROPERTY, bstrproperty: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetPresenceProperty(::core::mem::transmute_copy(&enproperty), ::core::mem::transmute(&bstrproperty)).into()
+            (*this).put_PresenceProperty(::core::mem::transmute_copy(&enproperty), ::core::mem::transmute(&bstrproperty)).into()
         }
-        unsafe extern "system" fn PresenceProperty<Identity: ::windows::core::IUnknownImpl, Impl: IRTCClientPresence2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, enproperty: RTC_PRESENCE_PROPERTY, pbstrproperty: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_PresenceProperty<Identity: ::windows::core::IUnknownImpl, Impl: IRTCClientPresence2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, enproperty: RTC_PRESENCE_PROPERTY, pbstrproperty: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).PresenceProperty(::core::mem::transmute_copy(&enproperty)) {
+            match (*this).get_PresenceProperty(::core::mem::transmute_copy(&enproperty)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pbstrproperty = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1450,11 +1450,11 @@ impl IRTCClientPresence2_Vtbl {
             RemoveGroup: RemoveGroup::<Identity, Impl, OFFSET>,
             EnumerateGroups: EnumerateGroups::<Identity, Impl, OFFSET>,
             Groups: Groups::<Identity, Impl, OFFSET>,
-            Group: Group::<Identity, Impl, OFFSET>,
+            get_Group: get_Group::<Identity, Impl, OFFSET>,
             AddWatcherEx: AddWatcherEx::<Identity, Impl, OFFSET>,
-            WatcherEx: WatcherEx::<Identity, Impl, OFFSET>,
-            SetPresenceProperty: SetPresenceProperty::<Identity, Impl, OFFSET>,
-            PresenceProperty: PresenceProperty::<Identity, Impl, OFFSET>,
+            get_WatcherEx: get_WatcherEx::<Identity, Impl, OFFSET>,
+            put_PresenceProperty: put_PresenceProperty::<Identity, Impl, OFFSET>,
+            get_PresenceProperty: get_PresenceProperty::<Identity, Impl, OFFSET>,
             SetPresenceData: SetPresenceData::<Identity, Impl, OFFSET>,
             GetPresenceData: GetPresenceData::<Identity, Impl, OFFSET>,
             GetLocalPresenceInfo: GetLocalPresenceInfo::<Identity, Impl, OFFSET>,
@@ -1573,7 +1573,7 @@ impl IRTCClientProvisioning2_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IRTCCollection_Impl: Sized + super::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows::core::Result<i32>;
-    fn Item(&self, index: i32) -> ::windows::core::Result<super::Com::VARIANT>;
+    fn get_Item(&self, index: i32) -> ::windows::core::Result<super::Com::VARIANT>;
     fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -1590,10 +1590,10 @@ impl IRTCCollection_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Item<Identity: ::windows::core::IUnknownImpl, Impl: IRTCCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, pvariant: *mut super::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_Item<Identity: ::windows::core::IUnknownImpl, Impl: IRTCCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, pvariant: *mut super::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).Item(::core::mem::transmute_copy(&index)) {
+            match (*this).get_Item(::core::mem::transmute_copy(&index)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pvariant = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1615,7 +1615,7 @@ impl IRTCCollection_Vtbl {
         Self {
             base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Count: Count::<Identity, Impl, OFFSET>,
-            Item: Item::<Identity, Impl, OFFSET>,
+            get_Item: get_Item::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
         }
     }
@@ -2165,7 +2165,7 @@ pub trait IRTCMediaRequestEvent_Impl: Sized + super::Com::IDispatch_Impl {
     fn ProposedMedia(&self) -> ::windows::core::Result<i32>;
     fn CurrentMedia(&self) -> ::windows::core::Result<i32>;
     fn Accept(&self, lmediatypes: i32) -> ::windows::core::Result<()>;
-    fn RemotePreferredSecurityLevel(&self, ensecuritytype: RTC_SECURITY_TYPE) -> ::windows::core::Result<RTC_SECURITY_LEVEL>;
+    fn get_RemotePreferredSecurityLevel(&self, ensecuritytype: RTC_SECURITY_TYPE) -> ::windows::core::Result<RTC_SECURITY_LEVEL>;
     fn Reject(&self) -> ::windows::core::Result<()>;
     fn State(&self) -> ::windows::core::Result<RTC_REINVITE_STATE>;
 }
@@ -2210,10 +2210,10 @@ impl IRTCMediaRequestEvent_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).Accept(::core::mem::transmute_copy(&lmediatypes)).into()
         }
-        unsafe extern "system" fn RemotePreferredSecurityLevel<Identity: ::windows::core::IUnknownImpl, Impl: IRTCMediaRequestEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ensecuritytype: RTC_SECURITY_TYPE, pensecuritylevel: *mut RTC_SECURITY_LEVEL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_RemotePreferredSecurityLevel<Identity: ::windows::core::IUnknownImpl, Impl: IRTCMediaRequestEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ensecuritytype: RTC_SECURITY_TYPE, pensecuritylevel: *mut RTC_SECURITY_LEVEL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).RemotePreferredSecurityLevel(::core::mem::transmute_copy(&ensecuritytype)) {
+            match (*this).get_RemotePreferredSecurityLevel(::core::mem::transmute_copy(&ensecuritytype)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pensecuritylevel = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -2243,7 +2243,7 @@ impl IRTCMediaRequestEvent_Vtbl {
             ProposedMedia: ProposedMedia::<Identity, Impl, OFFSET>,
             CurrentMedia: CurrentMedia::<Identity, Impl, OFFSET>,
             Accept: Accept::<Identity, Impl, OFFSET>,
-            RemotePreferredSecurityLevel: RemotePreferredSecurityLevel::<Identity, Impl, OFFSET>,
+            get_RemotePreferredSecurityLevel: get_RemotePreferredSecurityLevel::<Identity, Impl, OFFSET>,
             Reject: Reject::<Identity, Impl, OFFSET>,
             State: State::<Identity, Impl, OFFSET>,
         }
@@ -2656,7 +2656,7 @@ impl IRTCPresenceDataEvent_Vtbl {
 pub trait IRTCPresenceDevice_Impl: Sized {
     fn Status(&self) -> ::windows::core::Result<RTC_PRESENCE_STATUS>;
     fn Notes(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn PresenceProperty(&self, enproperty: RTC_PRESENCE_PROPERTY) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn get_PresenceProperty(&self, enproperty: RTC_PRESENCE_PROPERTY) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn GetPresenceData(&self, pbstrnamespace: *mut super::super::Foundation::BSTR, pbstrdata: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2684,10 +2684,10 @@ impl IRTCPresenceDevice_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PresenceProperty<Identity: ::windows::core::IUnknownImpl, Impl: IRTCPresenceDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, enproperty: RTC_PRESENCE_PROPERTY, pbstrproperty: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_PresenceProperty<Identity: ::windows::core::IUnknownImpl, Impl: IRTCPresenceDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, enproperty: RTC_PRESENCE_PROPERTY, pbstrproperty: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).PresenceProperty(::core::mem::transmute_copy(&enproperty)) {
+            match (*this).get_PresenceProperty(::core::mem::transmute_copy(&enproperty)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pbstrproperty = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -2704,7 +2704,7 @@ impl IRTCPresenceDevice_Vtbl {
             base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             Status: Status::<Identity, Impl, OFFSET>,
             Notes: Notes::<Identity, Impl, OFFSET>,
-            PresenceProperty: PresenceProperty::<Identity, Impl, OFFSET>,
+            get_PresenceProperty: get_PresenceProperty::<Identity, Impl, OFFSET>,
             GetPresenceData: GetPresenceData::<Identity, Impl, OFFSET>,
         }
     }
@@ -2831,7 +2831,7 @@ pub trait IRTCProfile_Impl: Sized {
     fn Name(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn XML(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn ProviderName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn ProviderURI(&self, enuri: RTC_PROVIDER_URI) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn get_ProviderURI(&self, enuri: RTC_PROVIDER_URI) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn ProviderData(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn ClientName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn ClientBanner(&self) -> ::windows::core::Result<i16>;
@@ -2893,10 +2893,10 @@ impl IRTCProfile_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ProviderURI<Identity: ::windows::core::IUnknownImpl, Impl: IRTCProfile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, enuri: RTC_PROVIDER_URI, pbstruri: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_ProviderURI<Identity: ::windows::core::IUnknownImpl, Impl: IRTCProfile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, enuri: RTC_PROVIDER_URI, pbstruri: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).ProviderURI(::core::mem::transmute_copy(&enuri)) {
+            match (*this).get_ProviderURI(::core::mem::transmute_copy(&enuri)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pbstruri = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -3047,7 +3047,7 @@ impl IRTCProfile_Vtbl {
             Name: Name::<Identity, Impl, OFFSET>,
             XML: XML::<Identity, Impl, OFFSET>,
             ProviderName: ProviderName::<Identity, Impl, OFFSET>,
-            ProviderURI: ProviderURI::<Identity, Impl, OFFSET>,
+            get_ProviderURI: get_ProviderURI::<Identity, Impl, OFFSET>,
             ProviderData: ProviderData::<Identity, Impl, OFFSET>,
             ClientName: ClientName::<Identity, Impl, OFFSET>,
             ClientBanner: ClientBanner::<Identity, Impl, OFFSET>,
@@ -3412,7 +3412,7 @@ pub trait IRTCSession_Impl: Sized {
     fn SendMessageStatus(&self, enuserstatus: RTC_MESSAGING_USER_STATUS, lcookie: isize) -> ::windows::core::Result<()>;
     fn AddStream(&self, lmediatype: i32, lcookie: isize) -> ::windows::core::Result<()>;
     fn RemoveStream(&self, lmediatype: i32, lcookie: isize) -> ::windows::core::Result<()>;
-    fn SetEncryptionKey(&self, lmediatype: i32, encryptionkey: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn put_EncryptionKey(&self, lmediatype: i32, encryptionkey: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IRTCSession_Vtbl {
@@ -3572,10 +3572,10 @@ impl IRTCSession_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).RemoveStream(::core::mem::transmute_copy(&lmediatype), ::core::mem::transmute_copy(&lcookie)).into()
         }
-        unsafe extern "system" fn SetEncryptionKey<Identity: ::windows::core::IUnknownImpl, Impl: IRTCSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lmediatype: i32, encryptionkey: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn put_EncryptionKey<Identity: ::windows::core::IUnknownImpl, Impl: IRTCSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lmediatype: i32, encryptionkey: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetEncryptionKey(::core::mem::transmute_copy(&lmediatype), ::core::mem::transmute(&encryptionkey)).into()
+            (*this).put_EncryptionKey(::core::mem::transmute_copy(&lmediatype), ::core::mem::transmute(&encryptionkey)).into()
         }
         Self {
             base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
@@ -3598,7 +3598,7 @@ impl IRTCSession_Vtbl {
             SendMessageStatus: SendMessageStatus::<Identity, Impl, OFFSET>,
             AddStream: AddStream::<Identity, Impl, OFFSET>,
             RemoveStream: RemoveStream::<Identity, Impl, OFFSET>,
-            SetEncryptionKey: SetEncryptionKey::<Identity, Impl, OFFSET>,
+            put_EncryptionKey: put_EncryptionKey::<Identity, Impl, OFFSET>,
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -3608,8 +3608,8 @@ impl IRTCSession_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IRTCSession2_Impl: Sized + IRTCSession_Impl {
     fn SendInfo(&self, bstrinfoheader: &super::super::Foundation::BSTR, bstrinfo: &super::super::Foundation::BSTR, lcookie: isize) -> ::windows::core::Result<()>;
-    fn SetPreferredSecurityLevel(&self, ensecuritytype: RTC_SECURITY_TYPE, ensecuritylevel: RTC_SECURITY_LEVEL) -> ::windows::core::Result<()>;
-    fn PreferredSecurityLevel(&self, ensecuritytype: RTC_SECURITY_TYPE) -> ::windows::core::Result<RTC_SECURITY_LEVEL>;
+    fn put_PreferredSecurityLevel(&self, ensecuritytype: RTC_SECURITY_TYPE, ensecuritylevel: RTC_SECURITY_LEVEL) -> ::windows::core::Result<()>;
+    fn get_PreferredSecurityLevel(&self, ensecuritytype: RTC_SECURITY_TYPE) -> ::windows::core::Result<RTC_SECURITY_LEVEL>;
     fn IsSecurityEnabled(&self, ensecuritytype: RTC_SECURITY_TYPE) -> ::windows::core::Result<i16>;
     fn AnswerWithSessionDescription(&self, bstrcontenttype: &super::super::Foundation::BSTR, bstrsessiondescription: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn ReInviteWithSessionDescription(&self, bstrcontenttype: &super::super::Foundation::BSTR, bstrsessiondescription: &super::super::Foundation::BSTR, lcookie: isize) -> ::windows::core::Result<()>;
@@ -3622,15 +3622,15 @@ impl IRTCSession2_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).SendInfo(::core::mem::transmute(&bstrinfoheader), ::core::mem::transmute(&bstrinfo), ::core::mem::transmute_copy(&lcookie)).into()
         }
-        unsafe extern "system" fn SetPreferredSecurityLevel<Identity: ::windows::core::IUnknownImpl, Impl: IRTCSession2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ensecuritytype: RTC_SECURITY_TYPE, ensecuritylevel: RTC_SECURITY_LEVEL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn put_PreferredSecurityLevel<Identity: ::windows::core::IUnknownImpl, Impl: IRTCSession2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ensecuritytype: RTC_SECURITY_TYPE, ensecuritylevel: RTC_SECURITY_LEVEL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetPreferredSecurityLevel(::core::mem::transmute_copy(&ensecuritytype), ::core::mem::transmute_copy(&ensecuritylevel)).into()
+            (*this).put_PreferredSecurityLevel(::core::mem::transmute_copy(&ensecuritytype), ::core::mem::transmute_copy(&ensecuritylevel)).into()
         }
-        unsafe extern "system" fn PreferredSecurityLevel<Identity: ::windows::core::IUnknownImpl, Impl: IRTCSession2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ensecuritytype: RTC_SECURITY_TYPE, pensecuritylevel: *mut RTC_SECURITY_LEVEL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_PreferredSecurityLevel<Identity: ::windows::core::IUnknownImpl, Impl: IRTCSession2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ensecuritytype: RTC_SECURITY_TYPE, pensecuritylevel: *mut RTC_SECURITY_LEVEL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).PreferredSecurityLevel(::core::mem::transmute_copy(&ensecuritytype)) {
+            match (*this).get_PreferredSecurityLevel(::core::mem::transmute_copy(&ensecuritytype)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pensecuritylevel = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -3662,8 +3662,8 @@ impl IRTCSession2_Vtbl {
         Self {
             base__: IRTCSession_Vtbl::new::<Identity, Impl, OFFSET>(),
             SendInfo: SendInfo::<Identity, Impl, OFFSET>,
-            SetPreferredSecurityLevel: SetPreferredSecurityLevel::<Identity, Impl, OFFSET>,
-            PreferredSecurityLevel: PreferredSecurityLevel::<Identity, Impl, OFFSET>,
+            put_PreferredSecurityLevel: put_PreferredSecurityLevel::<Identity, Impl, OFFSET>,
+            get_PreferredSecurityLevel: get_PreferredSecurityLevel::<Identity, Impl, OFFSET>,
             IsSecurityEnabled: IsSecurityEnabled::<Identity, Impl, OFFSET>,
             AnswerWithSessionDescription: AnswerWithSessionDescription::<Identity, Impl, OFFSET>,
             ReInviteWithSessionDescription: ReInviteWithSessionDescription::<Identity, Impl, OFFSET>,
@@ -4127,7 +4127,7 @@ impl IRTCSessionStateChangeEvent_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IRTCSessionStateChangeEvent2_Impl: Sized + super::Com::IDispatch_Impl + IRTCSessionStateChangeEvent_Impl {
     fn MediaTypes(&self) -> ::windows::core::Result<i32>;
-    fn RemotePreferredSecurityLevel(&self, ensecuritytype: RTC_SECURITY_TYPE) -> ::windows::core::Result<RTC_SECURITY_LEVEL>;
+    fn get_RemotePreferredSecurityLevel(&self, ensecuritytype: RTC_SECURITY_TYPE) -> ::windows::core::Result<RTC_SECURITY_LEVEL>;
     fn IsForked(&self) -> ::windows::core::Result<i16>;
     fn GetRemoteSessionDescription(&self, pbstrcontenttype: *mut super::super::Foundation::BSTR, pbstrsessiondescription: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
@@ -4145,10 +4145,10 @@ impl IRTCSessionStateChangeEvent2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemotePreferredSecurityLevel<Identity: ::windows::core::IUnknownImpl, Impl: IRTCSessionStateChangeEvent2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ensecuritytype: RTC_SECURITY_TYPE, pensecuritylevel: *mut RTC_SECURITY_LEVEL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_RemotePreferredSecurityLevel<Identity: ::windows::core::IUnknownImpl, Impl: IRTCSessionStateChangeEvent2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ensecuritytype: RTC_SECURITY_TYPE, pensecuritylevel: *mut RTC_SECURITY_LEVEL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).RemotePreferredSecurityLevel(::core::mem::transmute_copy(&ensecuritytype)) {
+            match (*this).get_RemotePreferredSecurityLevel(::core::mem::transmute_copy(&ensecuritytype)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pensecuritylevel = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -4175,7 +4175,7 @@ impl IRTCSessionStateChangeEvent2_Vtbl {
         Self {
             base__: IRTCSessionStateChangeEvent_Vtbl::new::<Identity, Impl, OFFSET>(),
             MediaTypes: MediaTypes::<Identity, Impl, OFFSET>,
-            RemotePreferredSecurityLevel: RemotePreferredSecurityLevel::<Identity, Impl, OFFSET>,
+            get_RemotePreferredSecurityLevel: get_RemotePreferredSecurityLevel::<Identity, Impl, OFFSET>,
             IsForked: IsForked::<Identity, Impl, OFFSET>,
             GetRemoteSessionDescription: GetRemoteSessionDescription::<Identity, Impl, OFFSET>,
         }
@@ -4218,26 +4218,26 @@ impl IRTCUserSearch_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IRTCUserSearchQuery_Impl: Sized {
-    fn SetSearchTerm(&self, bstrname: &super::super::Foundation::BSTR, bstrvalue: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn SearchTerm(&self, bstrname: &super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn put_SearchTerm(&self, bstrname: &super::super::Foundation::BSTR, bstrvalue: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn get_SearchTerm(&self, bstrname: &super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn SearchTerms(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn SetSearchPreference(&self, enpreference: RTC_USER_SEARCH_PREFERENCE, lvalue: i32) -> ::windows::core::Result<()>;
-    fn SearchPreference(&self, enpreference: RTC_USER_SEARCH_PREFERENCE) -> ::windows::core::Result<i32>;
+    fn put_SearchPreference(&self, enpreference: RTC_USER_SEARCH_PREFERENCE, lvalue: i32) -> ::windows::core::Result<()>;
+    fn get_SearchPreference(&self, enpreference: RTC_USER_SEARCH_PREFERENCE) -> ::windows::core::Result<i32>;
     fn SetSearchDomain(&self, bstrdomain: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn SearchDomain(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IRTCUserSearchQuery_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRTCUserSearchQuery_Impl, const OFFSET: isize>() -> IRTCUserSearchQuery_Vtbl {
-        unsafe extern "system" fn SetSearchTerm<Identity: ::windows::core::IUnknownImpl, Impl: IRTCUserSearchQuery_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrvalue: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn put_SearchTerm<Identity: ::windows::core::IUnknownImpl, Impl: IRTCUserSearchQuery_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrvalue: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetSearchTerm(::core::mem::transmute(&bstrname), ::core::mem::transmute(&bstrvalue)).into()
+            (*this).put_SearchTerm(::core::mem::transmute(&bstrname), ::core::mem::transmute(&bstrvalue)).into()
         }
-        unsafe extern "system" fn SearchTerm<Identity: ::windows::core::IUnknownImpl, Impl: IRTCUserSearchQuery_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pbstrvalue: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_SearchTerm<Identity: ::windows::core::IUnknownImpl, Impl: IRTCUserSearchQuery_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pbstrvalue: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).SearchTerm(::core::mem::transmute(&bstrname)) {
+            match (*this).get_SearchTerm(::core::mem::transmute(&bstrname)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pbstrvalue = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -4256,15 +4256,15 @@ impl IRTCUserSearchQuery_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSearchPreference<Identity: ::windows::core::IUnknownImpl, Impl: IRTCUserSearchQuery_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, enpreference: RTC_USER_SEARCH_PREFERENCE, lvalue: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn put_SearchPreference<Identity: ::windows::core::IUnknownImpl, Impl: IRTCUserSearchQuery_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, enpreference: RTC_USER_SEARCH_PREFERENCE, lvalue: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetSearchPreference(::core::mem::transmute_copy(&enpreference), ::core::mem::transmute_copy(&lvalue)).into()
+            (*this).put_SearchPreference(::core::mem::transmute_copy(&enpreference), ::core::mem::transmute_copy(&lvalue)).into()
         }
-        unsafe extern "system" fn SearchPreference<Identity: ::windows::core::IUnknownImpl, Impl: IRTCUserSearchQuery_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, enpreference: RTC_USER_SEARCH_PREFERENCE, plvalue: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_SearchPreference<Identity: ::windows::core::IUnknownImpl, Impl: IRTCUserSearchQuery_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, enpreference: RTC_USER_SEARCH_PREFERENCE, plvalue: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).SearchPreference(::core::mem::transmute_copy(&enpreference)) {
+            match (*this).get_SearchPreference(::core::mem::transmute_copy(&enpreference)) {
                 ::core::result::Result::Ok(ok__) => {
                     *plvalue = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -4290,11 +4290,11 @@ impl IRTCUserSearchQuery_Vtbl {
         }
         Self {
             base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
-            SetSearchTerm: SetSearchTerm::<Identity, Impl, OFFSET>,
-            SearchTerm: SearchTerm::<Identity, Impl, OFFSET>,
+            put_SearchTerm: put_SearchTerm::<Identity, Impl, OFFSET>,
+            get_SearchTerm: get_SearchTerm::<Identity, Impl, OFFSET>,
             SearchTerms: SearchTerms::<Identity, Impl, OFFSET>,
-            SetSearchPreference: SetSearchPreference::<Identity, Impl, OFFSET>,
-            SearchPreference: SearchPreference::<Identity, Impl, OFFSET>,
+            put_SearchPreference: put_SearchPreference::<Identity, Impl, OFFSET>,
+            get_SearchPreference: get_SearchPreference::<Identity, Impl, OFFSET>,
             SetSearchDomain: SetSearchDomain::<Identity, Impl, OFFSET>,
             SearchDomain: SearchDomain::<Identity, Impl, OFFSET>,
         }
@@ -4305,15 +4305,15 @@ impl IRTCUserSearchQuery_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IRTCUserSearchResult_Impl: Sized {
-    fn Value(&self, encolumn: RTC_USER_SEARCH_COLUMN) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn get_Value(&self, encolumn: RTC_USER_SEARCH_COLUMN) -> ::windows::core::Result<super::super::Foundation::BSTR>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IRTCUserSearchResult_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRTCUserSearchResult_Impl, const OFFSET: isize>() -> IRTCUserSearchResult_Vtbl {
-        unsafe extern "system" fn Value<Identity: ::windows::core::IUnknownImpl, Impl: IRTCUserSearchResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, encolumn: RTC_USER_SEARCH_COLUMN, pbstrvalue: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_Value<Identity: ::windows::core::IUnknownImpl, Impl: IRTCUserSearchResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, encolumn: RTC_USER_SEARCH_COLUMN, pbstrvalue: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).Value(::core::mem::transmute_copy(&encolumn)) {
+            match (*this).get_Value(::core::mem::transmute_copy(&encolumn)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pbstrvalue = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -4321,7 +4321,7 @@ impl IRTCUserSearchResult_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Value: Value::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), get_Value: get_Value::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IRTCUserSearchResult as ::windows::core::Interface>::IID

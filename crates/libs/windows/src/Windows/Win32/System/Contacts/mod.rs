@@ -380,9 +380,9 @@ impl IContactAggregationAggregate {
         (::windows::core::Interface::vtable(self).Link)(::core::mem::transmute_copy(self), paggregateid.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Contacts\"`*"]
-    pub unsafe fn Groups(&self, options: CONTACT_AGGREGATION_COLLECTION_OPTIONS) -> ::windows::core::Result<IContactAggregationGroupCollection> {
+    pub unsafe fn get_Groups(&self, options: CONTACT_AGGREGATION_COLLECTION_OPTIONS) -> ::windows::core::Result<IContactAggregationGroupCollection> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Groups)(::core::mem::transmute_copy(self), ::core::mem::transmute(options), ::core::mem::transmute(&mut result__)).from_abi::<IContactAggregationGroupCollection>(result__)
+        (::windows::core::Interface::vtable(self).get_Groups)(::core::mem::transmute_copy(self), ::core::mem::transmute(options), ::core::mem::transmute(&mut result__)).from_abi::<IContactAggregationGroupCollection>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Contacts\"`*"]
     pub unsafe fn AntiLink(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
@@ -455,7 +455,7 @@ pub struct IContactAggregationAggregate_Vtbl {
     pub Save: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetComponentItems: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcomponentitems: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub Link: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, paggregateid: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
-    pub Groups: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, options: CONTACT_AGGREGATION_COLLECTION_OPTIONS, ppgroups: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub get_Groups: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, options: CONTACT_AGGREGATION_COLLECTION_OPTIONS, ppgroups: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub AntiLink: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppantilink: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT,
     pub SetAntiLink: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pantilink: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
     pub FavoriteOrder: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfavoriteorder: *mut u32) -> ::windows::core::HRESULT,
@@ -1229,19 +1229,19 @@ impl IContactAggregationManager {
         (::windows::core::Interface::vtable(self).OpenServerPerson)(::core::mem::transmute_copy(self), pitemid.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IContactAggregationServerPerson>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Contacts\"`*"]
-    pub unsafe fn Contacts(&self, options: CONTACT_AGGREGATION_COLLECTION_OPTIONS) -> ::windows::core::Result<IContactAggregationContactCollection> {
+    pub unsafe fn get_Contacts(&self, options: CONTACT_AGGREGATION_COLLECTION_OPTIONS) -> ::windows::core::Result<IContactAggregationContactCollection> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Contacts)(::core::mem::transmute_copy(self), ::core::mem::transmute(options), ::core::mem::transmute(&mut result__)).from_abi::<IContactAggregationContactCollection>(result__)
+        (::windows::core::Interface::vtable(self).get_Contacts)(::core::mem::transmute_copy(self), ::core::mem::transmute(options), ::core::mem::transmute(&mut result__)).from_abi::<IContactAggregationContactCollection>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Contacts\"`*"]
-    pub unsafe fn AggregateContacts(&self, options: CONTACT_AGGREGATION_COLLECTION_OPTIONS) -> ::windows::core::Result<IContactAggregationAggregateCollection> {
+    pub unsafe fn get_AggregateContacts(&self, options: CONTACT_AGGREGATION_COLLECTION_OPTIONS) -> ::windows::core::Result<IContactAggregationAggregateCollection> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).AggregateContacts)(::core::mem::transmute_copy(self), ::core::mem::transmute(options), ::core::mem::transmute(&mut result__)).from_abi::<IContactAggregationAggregateCollection>(result__)
+        (::windows::core::Interface::vtable(self).get_AggregateContacts)(::core::mem::transmute_copy(self), ::core::mem::transmute(options), ::core::mem::transmute(&mut result__)).from_abi::<IContactAggregationAggregateCollection>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Contacts\"`*"]
-    pub unsafe fn Groups(&self, options: CONTACT_AGGREGATION_COLLECTION_OPTIONS) -> ::windows::core::Result<IContactAggregationGroupCollection> {
+    pub unsafe fn get_Groups(&self, options: CONTACT_AGGREGATION_COLLECTION_OPTIONS) -> ::windows::core::Result<IContactAggregationGroupCollection> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Groups)(::core::mem::transmute_copy(self), ::core::mem::transmute(options), ::core::mem::transmute(&mut result__)).from_abi::<IContactAggregationGroupCollection>(result__)
+        (::windows::core::Interface::vtable(self).get_Groups)(::core::mem::transmute_copy(self), ::core::mem::transmute(options), ::core::mem::transmute(&mut result__)).from_abi::<IContactAggregationGroupCollection>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Contacts\"`*"]
     pub unsafe fn ServerPersons(&self) -> ::windows::core::Result<IContactAggregationServerPersonCollection> {
@@ -1249,9 +1249,9 @@ impl IContactAggregationManager {
         (::windows::core::Interface::vtable(self).ServerPersons)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IContactAggregationServerPersonCollection>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Contacts\"`*"]
-    pub unsafe fn ServerContactLinks<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, ppersonitemid: Param0) -> ::windows::core::Result<IContactAggregationLinkCollection> {
+    pub unsafe fn get_ServerContactLinks<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, ppersonitemid: Param0) -> ::windows::core::Result<IContactAggregationLinkCollection> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ServerContactLinks)(::core::mem::transmute_copy(self), ppersonitemid.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IContactAggregationLinkCollection>(result__)
+        (::windows::core::Interface::vtable(self).get_ServerContactLinks)(::core::mem::transmute_copy(self), ppersonitemid.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IContactAggregationLinkCollection>(result__)
     }
 }
 impl ::core::convert::From<IContactAggregationManager> for ::windows::core::IUnknown {
@@ -1311,11 +1311,11 @@ pub struct IContactAggregationManager_Vtbl {
     pub OpenContact: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pitemid: ::windows::core::PCWSTR, ppitem: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub OpenServerContactLink: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pitemid: ::windows::core::PCWSTR, ppitem: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub OpenServerPerson: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pitemid: ::windows::core::PCWSTR, ppitem: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub Contacts: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, options: CONTACT_AGGREGATION_COLLECTION_OPTIONS, ppitems: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub AggregateContacts: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, options: CONTACT_AGGREGATION_COLLECTION_OPTIONS, ppaggregates: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub Groups: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, options: CONTACT_AGGREGATION_COLLECTION_OPTIONS, ppgroups: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub get_Contacts: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, options: CONTACT_AGGREGATION_COLLECTION_OPTIONS, ppitems: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub get_AggregateContacts: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, options: CONTACT_AGGREGATION_COLLECTION_OPTIONS, ppaggregates: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub get_Groups: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, options: CONTACT_AGGREGATION_COLLECTION_OPTIONS, ppgroups: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub ServerPersons: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppserverpersoncollection: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub ServerContactLinks: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppersonitemid: ::windows::core::PCWSTR, ppservercontactlinkcollection: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub get_ServerContactLinks: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppersonitemid: ::windows::core::PCWSTR, ppservercontactlinkcollection: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Contacts\"`*"]
 #[repr(transparent)]

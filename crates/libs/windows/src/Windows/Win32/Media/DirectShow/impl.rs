@@ -710,19 +710,19 @@ impl IAMCopyCaptureFileProgress_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAMCrossbar_Impl: Sized {
-    fn PinCounts(&self, outputpincount: *mut i32, inputpincount: *mut i32) -> ::windows::core::Result<()>;
+    fn get_PinCounts(&self, outputpincount: *mut i32, inputpincount: *mut i32) -> ::windows::core::Result<()>;
     fn CanRoute(&self, outputpinindex: i32, inputpinindex: i32) -> ::windows::core::Result<()>;
     fn Route(&self, outputpinindex: i32, inputpinindex: i32) -> ::windows::core::Result<()>;
-    fn IsRoutedTo(&self, outputpinindex: i32) -> ::windows::core::Result<i32>;
-    fn CrossbarPinInfo(&self, isinputpin: super::super::Foundation::BOOL, pinindex: i32, pinindexrelated: *mut i32, physicaltype: *mut i32) -> ::windows::core::Result<()>;
+    fn get_IsRoutedTo(&self, outputpinindex: i32) -> ::windows::core::Result<i32>;
+    fn get_CrossbarPinInfo(&self, isinputpin: super::super::Foundation::BOOL, pinindex: i32, pinindexrelated: *mut i32, physicaltype: *mut i32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IAMCrossbar_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAMCrossbar_Impl, const OFFSET: isize>() -> IAMCrossbar_Vtbl {
-        unsafe extern "system" fn PinCounts<Identity: ::windows::core::IUnknownImpl, Impl: IAMCrossbar_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, outputpincount: *mut i32, inputpincount: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_PinCounts<Identity: ::windows::core::IUnknownImpl, Impl: IAMCrossbar_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, outputpincount: *mut i32, inputpincount: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).PinCounts(::core::mem::transmute_copy(&outputpincount), ::core::mem::transmute_copy(&inputpincount)).into()
+            (*this).get_PinCounts(::core::mem::transmute_copy(&outputpincount), ::core::mem::transmute_copy(&inputpincount)).into()
         }
         unsafe extern "system" fn CanRoute<Identity: ::windows::core::IUnknownImpl, Impl: IAMCrossbar_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, outputpinindex: i32, inputpinindex: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -734,10 +734,10 @@ impl IAMCrossbar_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).Route(::core::mem::transmute_copy(&outputpinindex), ::core::mem::transmute_copy(&inputpinindex)).into()
         }
-        unsafe extern "system" fn IsRoutedTo<Identity: ::windows::core::IUnknownImpl, Impl: IAMCrossbar_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, outputpinindex: i32, inputpinindex: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_IsRoutedTo<Identity: ::windows::core::IUnknownImpl, Impl: IAMCrossbar_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, outputpinindex: i32, inputpinindex: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).IsRoutedTo(::core::mem::transmute_copy(&outputpinindex)) {
+            match (*this).get_IsRoutedTo(::core::mem::transmute_copy(&outputpinindex)) {
                 ::core::result::Result::Ok(ok__) => {
                     *inputpinindex = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -745,18 +745,18 @@ impl IAMCrossbar_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CrossbarPinInfo<Identity: ::windows::core::IUnknownImpl, Impl: IAMCrossbar_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, isinputpin: super::super::Foundation::BOOL, pinindex: i32, pinindexrelated: *mut i32, physicaltype: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_CrossbarPinInfo<Identity: ::windows::core::IUnknownImpl, Impl: IAMCrossbar_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, isinputpin: super::super::Foundation::BOOL, pinindex: i32, pinindexrelated: *mut i32, physicaltype: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).CrossbarPinInfo(::core::mem::transmute_copy(&isinputpin), ::core::mem::transmute_copy(&pinindex), ::core::mem::transmute_copy(&pinindexrelated), ::core::mem::transmute_copy(&physicaltype)).into()
+            (*this).get_CrossbarPinInfo(::core::mem::transmute_copy(&isinputpin), ::core::mem::transmute_copy(&pinindex), ::core::mem::transmute_copy(&pinindexrelated), ::core::mem::transmute_copy(&physicaltype)).into()
         }
         Self {
             base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
-            PinCounts: PinCounts::<Identity, Impl, OFFSET>,
+            get_PinCounts: get_PinCounts::<Identity, Impl, OFFSET>,
             CanRoute: CanRoute::<Identity, Impl, OFFSET>,
             Route: Route::<Identity, Impl, OFFSET>,
-            IsRoutedTo: IsRoutedTo::<Identity, Impl, OFFSET>,
-            CrossbarPinInfo: CrossbarPinInfo::<Identity, Impl, OFFSET>,
+            get_IsRoutedTo: get_IsRoutedTo::<Identity, Impl, OFFSET>,
+            get_CrossbarPinInfo: get_CrossbarPinInfo::<Identity, Impl, OFFSET>,
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -1849,22 +1849,22 @@ impl IAMMediaContent_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IAMMediaContent2_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn MediaParameter(&self, entrynum: i32, bstrname: &super::super::Foundation::BSTR, pbstrvalue: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn MediaParameterName(&self, entrynum: i32, index: i32, pbstrname: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn get_MediaParameter(&self, entrynum: i32, bstrname: &super::super::Foundation::BSTR, pbstrvalue: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
+    fn get_MediaParameterName(&self, entrynum: i32, index: i32, pbstrname: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn PlaylistCount(&self, pnumberentries: *mut i32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IAMMediaContent2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAMMediaContent2_Impl, const OFFSET: isize>() -> IAMMediaContent2_Vtbl {
-        unsafe extern "system" fn MediaParameter<Identity: ::windows::core::IUnknownImpl, Impl: IAMMediaContent2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, entrynum: i32, bstrname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pbstrvalue: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_MediaParameter<Identity: ::windows::core::IUnknownImpl, Impl: IAMMediaContent2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, entrynum: i32, bstrname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pbstrvalue: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).MediaParameter(::core::mem::transmute_copy(&entrynum), ::core::mem::transmute(&bstrname), ::core::mem::transmute_copy(&pbstrvalue)).into()
+            (*this).get_MediaParameter(::core::mem::transmute_copy(&entrynum), ::core::mem::transmute(&bstrname), ::core::mem::transmute_copy(&pbstrvalue)).into()
         }
-        unsafe extern "system" fn MediaParameterName<Identity: ::windows::core::IUnknownImpl, Impl: IAMMediaContent2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, entrynum: i32, index: i32, pbstrname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_MediaParameterName<Identity: ::windows::core::IUnknownImpl, Impl: IAMMediaContent2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, entrynum: i32, index: i32, pbstrname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).MediaParameterName(::core::mem::transmute_copy(&entrynum), ::core::mem::transmute_copy(&index), ::core::mem::transmute_copy(&pbstrname)).into()
+            (*this).get_MediaParameterName(::core::mem::transmute_copy(&entrynum), ::core::mem::transmute_copy(&index), ::core::mem::transmute_copy(&pbstrname)).into()
         }
         unsafe extern "system" fn PlaylistCount<Identity: ::windows::core::IUnknownImpl, Impl: IAMMediaContent2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pnumberentries: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -1873,8 +1873,8 @@ impl IAMMediaContent2_Vtbl {
         }
         Self {
             base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
-            MediaParameter: MediaParameter::<Identity, Impl, OFFSET>,
-            MediaParameterName: MediaParameterName::<Identity, Impl, OFFSET>,
+            get_MediaParameter: get_MediaParameter::<Identity, Impl, OFFSET>,
+            get_MediaParameterName: get_MediaParameterName::<Identity, Impl, OFFSET>,
             PlaylistCount: PlaylistCount::<Identity, Impl, OFFSET>,
         }
     }
@@ -3374,8 +3374,8 @@ pub trait IAMTVTuner_Impl: Sized + IAMTuner_Impl {
     fn AutoTune(&self, lchannel: i32) -> ::windows::core::Result<i32>;
     fn StoreAutoTune(&self) -> ::windows::core::Result<()>;
     fn NumInputConnections(&self) -> ::windows::core::Result<i32>;
-    fn SetInputType(&self, lindex: i32, inputtype: TunerInputType) -> ::windows::core::Result<()>;
-    fn InputType(&self, lindex: i32) -> ::windows::core::Result<TunerInputType>;
+    fn put_InputType(&self, lindex: i32, inputtype: TunerInputType) -> ::windows::core::Result<()>;
+    fn get_InputType(&self, lindex: i32) -> ::windows::core::Result<TunerInputType>;
     fn SetConnectInput(&self, lindex: i32) -> ::windows::core::Result<()>;
     fn ConnectInput(&self) -> ::windows::core::Result<i32>;
     fn VideoFrequency(&self) -> ::windows::core::Result<i32>;
@@ -3433,15 +3433,15 @@ impl IAMTVTuner_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetInputType<Identity: ::windows::core::IUnknownImpl, Impl: IAMTVTuner_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lindex: i32, inputtype: TunerInputType) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn put_InputType<Identity: ::windows::core::IUnknownImpl, Impl: IAMTVTuner_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lindex: i32, inputtype: TunerInputType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetInputType(::core::mem::transmute_copy(&lindex), ::core::mem::transmute_copy(&inputtype)).into()
+            (*this).put_InputType(::core::mem::transmute_copy(&lindex), ::core::mem::transmute_copy(&inputtype)).into()
         }
-        unsafe extern "system" fn InputType<Identity: ::windows::core::IUnknownImpl, Impl: IAMTVTuner_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lindex: i32, pinputtype: *mut TunerInputType) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_InputType<Identity: ::windows::core::IUnknownImpl, Impl: IAMTVTuner_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lindex: i32, pinputtype: *mut TunerInputType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).InputType(::core::mem::transmute_copy(&lindex)) {
+            match (*this).get_InputType(::core::mem::transmute_copy(&lindex)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pinputtype = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -3494,8 +3494,8 @@ impl IAMTVTuner_Vtbl {
             AutoTune: AutoTune::<Identity, Impl, OFFSET>,
             StoreAutoTune: StoreAutoTune::<Identity, Impl, OFFSET>,
             NumInputConnections: NumInputConnections::<Identity, Impl, OFFSET>,
-            SetInputType: SetInputType::<Identity, Impl, OFFSET>,
-            InputType: InputType::<Identity, Impl, OFFSET>,
+            put_InputType: put_InputType::<Identity, Impl, OFFSET>,
+            get_InputType: get_InputType::<Identity, Impl, OFFSET>,
             SetConnectInput: SetConnectInput::<Identity, Impl, OFFSET>,
             ConnectInput: ConnectInput::<Identity, Impl, OFFSET>,
             VideoFrequency: VideoFrequency::<Identity, Impl, OFFSET>,
@@ -3697,8 +3697,8 @@ impl IAMTimecodeReader_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAMTuner_Impl: Sized {
-    fn SetChannel(&self, lchannel: i32, lvideosubchannel: i32, laudiosubchannel: i32) -> ::windows::core::Result<()>;
-    fn Channel(&self, plchannel: *mut i32, plvideosubchannel: *mut i32, plaudiosubchannel: *mut i32) -> ::windows::core::Result<()>;
+    fn put_Channel(&self, lchannel: i32, lvideosubchannel: i32, laudiosubchannel: i32) -> ::windows::core::Result<()>;
+    fn get_Channel(&self, plchannel: *mut i32, plvideosubchannel: *mut i32, plaudiosubchannel: *mut i32) -> ::windows::core::Result<()>;
     fn ChannelMinMax(&self, lchannelmin: *mut i32, lchannelmax: *mut i32) -> ::windows::core::Result<()>;
     fn SetCountryCode(&self, lcountrycode: i32) -> ::windows::core::Result<()>;
     fn CountryCode(&self) -> ::windows::core::Result<i32>;
@@ -3716,15 +3716,15 @@ pub trait IAMTuner_Impl: Sized {
 #[cfg(feature = "Win32_Foundation")]
 impl IAMTuner_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAMTuner_Impl, const OFFSET: isize>() -> IAMTuner_Vtbl {
-        unsafe extern "system" fn SetChannel<Identity: ::windows::core::IUnknownImpl, Impl: IAMTuner_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lchannel: i32, lvideosubchannel: i32, laudiosubchannel: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn put_Channel<Identity: ::windows::core::IUnknownImpl, Impl: IAMTuner_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lchannel: i32, lvideosubchannel: i32, laudiosubchannel: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetChannel(::core::mem::transmute_copy(&lchannel), ::core::mem::transmute_copy(&lvideosubchannel), ::core::mem::transmute_copy(&laudiosubchannel)).into()
+            (*this).put_Channel(::core::mem::transmute_copy(&lchannel), ::core::mem::transmute_copy(&lvideosubchannel), ::core::mem::transmute_copy(&laudiosubchannel)).into()
         }
-        unsafe extern "system" fn Channel<Identity: ::windows::core::IUnknownImpl, Impl: IAMTuner_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plchannel: *mut i32, plvideosubchannel: *mut i32, plaudiosubchannel: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_Channel<Identity: ::windows::core::IUnknownImpl, Impl: IAMTuner_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plchannel: *mut i32, plvideosubchannel: *mut i32, plaudiosubchannel: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).Channel(::core::mem::transmute_copy(&plchannel), ::core::mem::transmute_copy(&plvideosubchannel), ::core::mem::transmute_copy(&plaudiosubchannel)).into()
+            (*this).get_Channel(::core::mem::transmute_copy(&plchannel), ::core::mem::transmute_copy(&plvideosubchannel), ::core::mem::transmute_copy(&plaudiosubchannel)).into()
         }
         unsafe extern "system" fn ChannelMinMax<Identity: ::windows::core::IUnknownImpl, Impl: IAMTuner_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lchannelmin: *mut i32, lchannelmax: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -3823,8 +3823,8 @@ impl IAMTuner_Vtbl {
         }
         Self {
             base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
-            SetChannel: SetChannel::<Identity, Impl, OFFSET>,
-            Channel: Channel::<Identity, Impl, OFFSET>,
+            put_Channel: put_Channel::<Identity, Impl, OFFSET>,
+            get_Channel: get_Channel::<Identity, Impl, OFFSET>,
             ChannelMinMax: ChannelMinMax::<Identity, Impl, OFFSET>,
             SetCountryCode: SetCountryCode::<Identity, Impl, OFFSET>,
             CountryCode: CountryCode::<Identity, Impl, OFFSET>,
@@ -6526,48 +6526,48 @@ impl IBDA_AUX_Vtbl {
     }
 }
 pub trait IBDA_AutoDemodulate_Impl: Sized {
-    fn SetAutoDemodulate(&self) -> ::windows::core::Result<()>;
+    fn put_AutoDemodulate(&self) -> ::windows::core::Result<()>;
 }
 impl IBDA_AutoDemodulate_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBDA_AutoDemodulate_Impl, const OFFSET: isize>() -> IBDA_AutoDemodulate_Vtbl {
-        unsafe extern "system" fn SetAutoDemodulate<Identity: ::windows::core::IUnknownImpl, Impl: IBDA_AutoDemodulate_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn put_AutoDemodulate<Identity: ::windows::core::IUnknownImpl, Impl: IBDA_AutoDemodulate_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetAutoDemodulate().into()
+            (*this).put_AutoDemodulate().into()
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), SetAutoDemodulate: SetAutoDemodulate::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), put_AutoDemodulate: put_AutoDemodulate::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBDA_AutoDemodulate as ::windows::core::Interface>::IID
     }
 }
 pub trait IBDA_AutoDemodulateEx_Impl: Sized + IBDA_AutoDemodulate_Impl {
-    fn SupportedDeviceNodeTypes(&self, ulcdevicenodetypesmax: u32, pulcdevicenodetypes: *mut u32, pguiddevicenodetypes: *mut ::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn SupportedVideoFormats(&self, pulamtunermodetype: *mut u32, pulanalogvideostandard: *mut u32) -> ::windows::core::Result<()>;
-    fn AuxInputCount(&self, pulcompositecount: *mut u32, pulsvideocount: *mut u32) -> ::windows::core::Result<()>;
+    fn get_SupportedDeviceNodeTypes(&self, ulcdevicenodetypesmax: u32, pulcdevicenodetypes: *mut u32, pguiddevicenodetypes: *mut ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn get_SupportedVideoFormats(&self, pulamtunermodetype: *mut u32, pulanalogvideostandard: *mut u32) -> ::windows::core::Result<()>;
+    fn get_AuxInputCount(&self, pulcompositecount: *mut u32, pulsvideocount: *mut u32) -> ::windows::core::Result<()>;
 }
 impl IBDA_AutoDemodulateEx_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBDA_AutoDemodulateEx_Impl, const OFFSET: isize>() -> IBDA_AutoDemodulateEx_Vtbl {
-        unsafe extern "system" fn SupportedDeviceNodeTypes<Identity: ::windows::core::IUnknownImpl, Impl: IBDA_AutoDemodulateEx_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ulcdevicenodetypesmax: u32, pulcdevicenodetypes: *mut u32, pguiddevicenodetypes: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_SupportedDeviceNodeTypes<Identity: ::windows::core::IUnknownImpl, Impl: IBDA_AutoDemodulateEx_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ulcdevicenodetypesmax: u32, pulcdevicenodetypes: *mut u32, pguiddevicenodetypes: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SupportedDeviceNodeTypes(::core::mem::transmute_copy(&ulcdevicenodetypesmax), ::core::mem::transmute_copy(&pulcdevicenodetypes), ::core::mem::transmute_copy(&pguiddevicenodetypes)).into()
+            (*this).get_SupportedDeviceNodeTypes(::core::mem::transmute_copy(&ulcdevicenodetypesmax), ::core::mem::transmute_copy(&pulcdevicenodetypes), ::core::mem::transmute_copy(&pguiddevicenodetypes)).into()
         }
-        unsafe extern "system" fn SupportedVideoFormats<Identity: ::windows::core::IUnknownImpl, Impl: IBDA_AutoDemodulateEx_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pulamtunermodetype: *mut u32, pulanalogvideostandard: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_SupportedVideoFormats<Identity: ::windows::core::IUnknownImpl, Impl: IBDA_AutoDemodulateEx_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pulamtunermodetype: *mut u32, pulanalogvideostandard: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SupportedVideoFormats(::core::mem::transmute_copy(&pulamtunermodetype), ::core::mem::transmute_copy(&pulanalogvideostandard)).into()
+            (*this).get_SupportedVideoFormats(::core::mem::transmute_copy(&pulamtunermodetype), ::core::mem::transmute_copy(&pulanalogvideostandard)).into()
         }
-        unsafe extern "system" fn AuxInputCount<Identity: ::windows::core::IUnknownImpl, Impl: IBDA_AutoDemodulateEx_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pulcompositecount: *mut u32, pulsvideocount: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_AuxInputCount<Identity: ::windows::core::IUnknownImpl, Impl: IBDA_AutoDemodulateEx_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pulcompositecount: *mut u32, pulsvideocount: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).AuxInputCount(::core::mem::transmute_copy(&pulcompositecount), ::core::mem::transmute_copy(&pulsvideocount)).into()
+            (*this).get_AuxInputCount(::core::mem::transmute_copy(&pulcompositecount), ::core::mem::transmute_copy(&pulsvideocount)).into()
         }
         Self {
             base__: IBDA_AutoDemodulate_Vtbl::new::<Identity, Impl, OFFSET>(),
-            SupportedDeviceNodeTypes: SupportedDeviceNodeTypes::<Identity, Impl, OFFSET>,
-            SupportedVideoFormats: SupportedVideoFormats::<Identity, Impl, OFFSET>,
-            AuxInputCount: AuxInputCount::<Identity, Impl, OFFSET>,
+            get_SupportedDeviceNodeTypes: get_SupportedDeviceNodeTypes::<Identity, Impl, OFFSET>,
+            get_SupportedVideoFormats: get_SupportedVideoFormats::<Identity, Impl, OFFSET>,
+            get_AuxInputCount: get_AuxInputCount::<Identity, Impl, OFFSET>,
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -6576,10 +6576,10 @@ impl IBDA_AutoDemodulateEx_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IBDA_ConditionalAccess_Impl: Sized {
-    fn SmartCardStatus(&self, pcardstatus: *mut SmartCardStatusType, pcardassociation: *mut SmartCardAssociationType, pbstrcarderror: *mut super::super::Foundation::BSTR, pfooblocked: *mut i16) -> ::windows::core::Result<()>;
-    fn SmartCardInfo(&self, pbstrcardname: *mut super::super::Foundation::BSTR, pbstrcardmanufacturer: *mut super::super::Foundation::BSTR, pfdaylightsavings: *mut i16, pbyratingregion: *mut u8, pltimezoneoffsetminutes: *mut i32, pbstrlanguage: *mut super::super::Foundation::BSTR, pealocationcode: *mut EALocationCodeType) -> ::windows::core::Result<()>;
-    fn SmartCardApplications(&self, pulcapplications: *mut u32, ulcapplicationsmax: u32, rgapplications: *mut SmartCardApplication) -> ::windows::core::Result<()>;
-    fn Entitlement(&self, usvirtualchannel: u16) -> ::windows::core::Result<EntitlementType>;
+    fn get_SmartCardStatus(&self, pcardstatus: *mut SmartCardStatusType, pcardassociation: *mut SmartCardAssociationType, pbstrcarderror: *mut super::super::Foundation::BSTR, pfooblocked: *mut i16) -> ::windows::core::Result<()>;
+    fn get_SmartCardInfo(&self, pbstrcardname: *mut super::super::Foundation::BSTR, pbstrcardmanufacturer: *mut super::super::Foundation::BSTR, pfdaylightsavings: *mut i16, pbyratingregion: *mut u8, pltimezoneoffsetminutes: *mut i32, pbstrlanguage: *mut super::super::Foundation::BSTR, pealocationcode: *mut EALocationCodeType) -> ::windows::core::Result<()>;
+    fn get_SmartCardApplications(&self, pulcapplications: *mut u32, ulcapplicationsmax: u32, rgapplications: *mut SmartCardApplication) -> ::windows::core::Result<()>;
+    fn get_Entitlement(&self, usvirtualchannel: u16) -> ::windows::core::Result<EntitlementType>;
     fn TuneByChannel(&self, usvirtualchannel: u16) -> ::windows::core::Result<()>;
     fn SetProgram(&self, usprogramnumber: u16) -> ::windows::core::Result<()>;
     fn AddProgram(&self, usprogramnumber: u16) -> ::windows::core::Result<()>;
@@ -6590,25 +6590,25 @@ pub trait IBDA_ConditionalAccess_Impl: Sized {
 #[cfg(feature = "Win32_Foundation")]
 impl IBDA_ConditionalAccess_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBDA_ConditionalAccess_Impl, const OFFSET: isize>() -> IBDA_ConditionalAccess_Vtbl {
-        unsafe extern "system" fn SmartCardStatus<Identity: ::windows::core::IUnknownImpl, Impl: IBDA_ConditionalAccess_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcardstatus: *mut SmartCardStatusType, pcardassociation: *mut SmartCardAssociationType, pbstrcarderror: *mut super::super::Foundation::BSTR, pfooblocked: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_SmartCardStatus<Identity: ::windows::core::IUnknownImpl, Impl: IBDA_ConditionalAccess_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcardstatus: *mut SmartCardStatusType, pcardassociation: *mut SmartCardAssociationType, pbstrcarderror: *mut super::super::Foundation::BSTR, pfooblocked: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SmartCardStatus(::core::mem::transmute_copy(&pcardstatus), ::core::mem::transmute_copy(&pcardassociation), ::core::mem::transmute_copy(&pbstrcarderror), ::core::mem::transmute_copy(&pfooblocked)).into()
+            (*this).get_SmartCardStatus(::core::mem::transmute_copy(&pcardstatus), ::core::mem::transmute_copy(&pcardassociation), ::core::mem::transmute_copy(&pbstrcarderror), ::core::mem::transmute_copy(&pfooblocked)).into()
         }
-        unsafe extern "system" fn SmartCardInfo<Identity: ::windows::core::IUnknownImpl, Impl: IBDA_ConditionalAccess_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrcardname: *mut super::super::Foundation::BSTR, pbstrcardmanufacturer: *mut super::super::Foundation::BSTR, pfdaylightsavings: *mut i16, pbyratingregion: *mut u8, pltimezoneoffsetminutes: *mut i32, pbstrlanguage: *mut super::super::Foundation::BSTR, pealocationcode: *mut EALocationCodeType) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_SmartCardInfo<Identity: ::windows::core::IUnknownImpl, Impl: IBDA_ConditionalAccess_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrcardname: *mut super::super::Foundation::BSTR, pbstrcardmanufacturer: *mut super::super::Foundation::BSTR, pfdaylightsavings: *mut i16, pbyratingregion: *mut u8, pltimezoneoffsetminutes: *mut i32, pbstrlanguage: *mut super::super::Foundation::BSTR, pealocationcode: *mut EALocationCodeType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SmartCardInfo(::core::mem::transmute_copy(&pbstrcardname), ::core::mem::transmute_copy(&pbstrcardmanufacturer), ::core::mem::transmute_copy(&pfdaylightsavings), ::core::mem::transmute_copy(&pbyratingregion), ::core::mem::transmute_copy(&pltimezoneoffsetminutes), ::core::mem::transmute_copy(&pbstrlanguage), ::core::mem::transmute_copy(&pealocationcode)).into()
+            (*this).get_SmartCardInfo(::core::mem::transmute_copy(&pbstrcardname), ::core::mem::transmute_copy(&pbstrcardmanufacturer), ::core::mem::transmute_copy(&pfdaylightsavings), ::core::mem::transmute_copy(&pbyratingregion), ::core::mem::transmute_copy(&pltimezoneoffsetminutes), ::core::mem::transmute_copy(&pbstrlanguage), ::core::mem::transmute_copy(&pealocationcode)).into()
         }
-        unsafe extern "system" fn SmartCardApplications<Identity: ::windows::core::IUnknownImpl, Impl: IBDA_ConditionalAccess_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pulcapplications: *mut u32, ulcapplicationsmax: u32, rgapplications: *mut SmartCardApplication) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_SmartCardApplications<Identity: ::windows::core::IUnknownImpl, Impl: IBDA_ConditionalAccess_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pulcapplications: *mut u32, ulcapplicationsmax: u32, rgapplications: *mut SmartCardApplication) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SmartCardApplications(::core::mem::transmute_copy(&pulcapplications), ::core::mem::transmute_copy(&ulcapplicationsmax), ::core::mem::transmute_copy(&rgapplications)).into()
+            (*this).get_SmartCardApplications(::core::mem::transmute_copy(&pulcapplications), ::core::mem::transmute_copy(&ulcapplicationsmax), ::core::mem::transmute_copy(&rgapplications)).into()
         }
-        unsafe extern "system" fn Entitlement<Identity: ::windows::core::IUnknownImpl, Impl: IBDA_ConditionalAccess_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, usvirtualchannel: u16, pentitlement: *mut EntitlementType) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_Entitlement<Identity: ::windows::core::IUnknownImpl, Impl: IBDA_ConditionalAccess_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, usvirtualchannel: u16, pentitlement: *mut EntitlementType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).Entitlement(::core::mem::transmute_copy(&usvirtualchannel)) {
+            match (*this).get_Entitlement(::core::mem::transmute_copy(&usvirtualchannel)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pentitlement = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -6654,10 +6654,10 @@ impl IBDA_ConditionalAccess_Vtbl {
         }
         Self {
             base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
-            SmartCardStatus: SmartCardStatus::<Identity, Impl, OFFSET>,
-            SmartCardInfo: SmartCardInfo::<Identity, Impl, OFFSET>,
-            SmartCardApplications: SmartCardApplications::<Identity, Impl, OFFSET>,
-            Entitlement: Entitlement::<Identity, Impl, OFFSET>,
+            get_SmartCardStatus: get_SmartCardStatus::<Identity, Impl, OFFSET>,
+            get_SmartCardInfo: get_SmartCardInfo::<Identity, Impl, OFFSET>,
+            get_SmartCardApplications: get_SmartCardApplications::<Identity, Impl, OFFSET>,
+            get_Entitlement: get_Entitlement::<Identity, Impl, OFFSET>,
             TuneByChannel: TuneByChannel::<Identity, Impl, OFFSET>,
             SetProgram: SetProgram::<Identity, Impl, OFFSET>,
             AddProgram: AddProgram::<Identity, Impl, OFFSET>,
@@ -7164,8 +7164,8 @@ pub trait IBDA_DiseqCommand_Impl: Sized {
     fn SetDiseqLNBSource(&self, ullnbsource: u32) -> ::windows::core::Result<()>;
     fn SetDiseqUseToneBurst(&self, busetoneburst: super::super::Foundation::BOOLEAN) -> ::windows::core::Result<()>;
     fn SetDiseqRepeats(&self, ulrepeats: u32) -> ::windows::core::Result<()>;
-    fn SetDiseqSendCommand(&self, ulrequestid: u32, ulcbcommandlen: u32, pbcommand: *const u8) -> ::windows::core::Result<()>;
-    fn DiseqResponse(&self, ulrequestid: u32, pulcbresponselen: *mut u32, pbresponse: *mut u8) -> ::windows::core::Result<()>;
+    fn put_DiseqSendCommand(&self, ulrequestid: u32, ulcbcommandlen: u32, pbcommand: *const u8) -> ::windows::core::Result<()>;
+    fn get_DiseqResponse(&self, ulrequestid: u32, pulcbresponselen: *mut u32, pbresponse: *mut u8) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IBDA_DiseqCommand_Vtbl {
@@ -7190,15 +7190,15 @@ impl IBDA_DiseqCommand_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).SetDiseqRepeats(::core::mem::transmute_copy(&ulrepeats)).into()
         }
-        unsafe extern "system" fn SetDiseqSendCommand<Identity: ::windows::core::IUnknownImpl, Impl: IBDA_DiseqCommand_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ulrequestid: u32, ulcbcommandlen: u32, pbcommand: *const u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn put_DiseqSendCommand<Identity: ::windows::core::IUnknownImpl, Impl: IBDA_DiseqCommand_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ulrequestid: u32, ulcbcommandlen: u32, pbcommand: *const u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetDiseqSendCommand(::core::mem::transmute_copy(&ulrequestid), ::core::mem::transmute_copy(&ulcbcommandlen), ::core::mem::transmute_copy(&pbcommand)).into()
+            (*this).put_DiseqSendCommand(::core::mem::transmute_copy(&ulrequestid), ::core::mem::transmute_copy(&ulcbcommandlen), ::core::mem::transmute_copy(&pbcommand)).into()
         }
-        unsafe extern "system" fn DiseqResponse<Identity: ::windows::core::IUnknownImpl, Impl: IBDA_DiseqCommand_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ulrequestid: u32, pulcbresponselen: *mut u32, pbresponse: *mut u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_DiseqResponse<Identity: ::windows::core::IUnknownImpl, Impl: IBDA_DiseqCommand_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ulrequestid: u32, pulcbresponselen: *mut u32, pbresponse: *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).DiseqResponse(::core::mem::transmute_copy(&ulrequestid), ::core::mem::transmute_copy(&pulcbresponselen), ::core::mem::transmute_copy(&pbresponse)).into()
+            (*this).get_DiseqResponse(::core::mem::transmute_copy(&ulrequestid), ::core::mem::transmute_copy(&pulcbresponselen), ::core::mem::transmute_copy(&pbresponse)).into()
         }
         Self {
             base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
@@ -7206,8 +7206,8 @@ impl IBDA_DiseqCommand_Vtbl {
             SetDiseqLNBSource: SetDiseqLNBSource::<Identity, Impl, OFFSET>,
             SetDiseqUseToneBurst: SetDiseqUseToneBurst::<Identity, Impl, OFFSET>,
             SetDiseqRepeats: SetDiseqRepeats::<Identity, Impl, OFFSET>,
-            SetDiseqSendCommand: SetDiseqSendCommand::<Identity, Impl, OFFSET>,
-            DiseqResponse: DiseqResponse::<Identity, Impl, OFFSET>,
+            put_DiseqSendCommand: put_DiseqSendCommand::<Identity, Impl, OFFSET>,
+            get_DiseqResponse: get_DiseqResponse::<Identity, Impl, OFFSET>,
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -7215,16 +7215,16 @@ impl IBDA_DiseqCommand_Vtbl {
     }
 }
 pub trait IBDA_EasMessage_Impl: Sized {
-    fn EasMessage(&self, uleventid: u32, ppeasobject: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn get_EasMessage(&self, uleventid: u32, ppeasobject: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
 }
 impl IBDA_EasMessage_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBDA_EasMessage_Impl, const OFFSET: isize>() -> IBDA_EasMessage_Vtbl {
-        unsafe extern "system" fn EasMessage<Identity: ::windows::core::IUnknownImpl, Impl: IBDA_EasMessage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uleventid: u32, ppeasobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_EasMessage<Identity: ::windows::core::IUnknownImpl, Impl: IBDA_EasMessage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uleventid: u32, ppeasobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).EasMessage(::core::mem::transmute_copy(&uleventid), ::core::mem::transmute_copy(&ppeasobject)).into()
+            (*this).get_EasMessage(::core::mem::transmute_copy(&uleventid), ::core::mem::transmute_copy(&ppeasobject)).into()
         }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), EasMessage: EasMessage::<Identity, Impl, OFFSET> }
+        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), get_EasMessage: get_EasMessage::<Identity, Impl, OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IBDA_EasMessage as ::windows::core::Interface>::IID
@@ -7643,17 +7643,17 @@ impl IBDA_IPSinkControl_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IBDA_IPSinkInfo_Impl: Sized {
-    fn MulticastList(&self, pulcbaddresses: *mut u32, ppbaddresslist: *mut *mut u8) -> ::windows::core::Result<()>;
+    fn get_MulticastList(&self, pulcbaddresses: *mut u32, ppbaddresslist: *mut *mut u8) -> ::windows::core::Result<()>;
     fn AdapterIPAddress(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn AdapterDescription(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IBDA_IPSinkInfo_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBDA_IPSinkInfo_Impl, const OFFSET: isize>() -> IBDA_IPSinkInfo_Vtbl {
-        unsafe extern "system" fn MulticastList<Identity: ::windows::core::IUnknownImpl, Impl: IBDA_IPSinkInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pulcbaddresses: *mut u32, ppbaddresslist: *mut *mut u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_MulticastList<Identity: ::windows::core::IUnknownImpl, Impl: IBDA_IPSinkInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pulcbaddresses: *mut u32, ppbaddresslist: *mut *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).MulticastList(::core::mem::transmute_copy(&pulcbaddresses), ::core::mem::transmute_copy(&ppbaddresslist)).into()
+            (*this).get_MulticastList(::core::mem::transmute_copy(&pulcbaddresses), ::core::mem::transmute_copy(&ppbaddresslist)).into()
         }
         unsafe extern "system" fn AdapterIPAddress<Identity: ::windows::core::IUnknownImpl, Impl: IBDA_IPSinkInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrbuffer: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -7679,7 +7679,7 @@ impl IBDA_IPSinkInfo_Vtbl {
         }
         Self {
             base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
-            MulticastList: MulticastList::<Identity, Impl, OFFSET>,
+            get_MulticastList: get_MulticastList::<Identity, Impl, OFFSET>,
             AdapterIPAddress: AdapterIPAddress::<Identity, Impl, OFFSET>,
             AdapterDescription: AdapterDescription::<Identity, Impl, OFFSET>,
         }
@@ -8549,22 +8549,22 @@ impl IBDA_WMDRMTuner_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IBPCSatelliteTuner_Impl: Sized + IAMTuner_Impl {
-    fn DefaultSubChannelTypes(&self, pldefaultvideotype: *mut i32, pldefaultaudiotype: *mut i32) -> ::windows::core::Result<()>;
-    fn SetDefaultSubChannelTypes(&self, ldefaultvideotype: i32, ldefaultaudiotype: i32) -> ::windows::core::Result<()>;
+    fn get_DefaultSubChannelTypes(&self, pldefaultvideotype: *mut i32, pldefaultaudiotype: *mut i32) -> ::windows::core::Result<()>;
+    fn put_DefaultSubChannelTypes(&self, ldefaultvideotype: i32, ldefaultaudiotype: i32) -> ::windows::core::Result<()>;
     fn IsTapingPermitted(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl IBPCSatelliteTuner_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBPCSatelliteTuner_Impl, const OFFSET: isize>() -> IBPCSatelliteTuner_Vtbl {
-        unsafe extern "system" fn DefaultSubChannelTypes<Identity: ::windows::core::IUnknownImpl, Impl: IBPCSatelliteTuner_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pldefaultvideotype: *mut i32, pldefaultaudiotype: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_DefaultSubChannelTypes<Identity: ::windows::core::IUnknownImpl, Impl: IBPCSatelliteTuner_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pldefaultvideotype: *mut i32, pldefaultaudiotype: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).DefaultSubChannelTypes(::core::mem::transmute_copy(&pldefaultvideotype), ::core::mem::transmute_copy(&pldefaultaudiotype)).into()
+            (*this).get_DefaultSubChannelTypes(::core::mem::transmute_copy(&pldefaultvideotype), ::core::mem::transmute_copy(&pldefaultaudiotype)).into()
         }
-        unsafe extern "system" fn SetDefaultSubChannelTypes<Identity: ::windows::core::IUnknownImpl, Impl: IBPCSatelliteTuner_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ldefaultvideotype: i32, ldefaultaudiotype: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn put_DefaultSubChannelTypes<Identity: ::windows::core::IUnknownImpl, Impl: IBPCSatelliteTuner_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ldefaultvideotype: i32, ldefaultaudiotype: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetDefaultSubChannelTypes(::core::mem::transmute_copy(&ldefaultvideotype), ::core::mem::transmute_copy(&ldefaultaudiotype)).into()
+            (*this).put_DefaultSubChannelTypes(::core::mem::transmute_copy(&ldefaultvideotype), ::core::mem::transmute_copy(&ldefaultaudiotype)).into()
         }
         unsafe extern "system" fn IsTapingPermitted<Identity: ::windows::core::IUnknownImpl, Impl: IBPCSatelliteTuner_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -8573,8 +8573,8 @@ impl IBPCSatelliteTuner_Vtbl {
         }
         Self {
             base__: IAMTuner_Vtbl::new::<Identity, Impl, OFFSET>(),
-            DefaultSubChannelTypes: DefaultSubChannelTypes::<Identity, Impl, OFFSET>,
-            SetDefaultSubChannelTypes: SetDefaultSubChannelTypes::<Identity, Impl, OFFSET>,
+            get_DefaultSubChannelTypes: get_DefaultSubChannelTypes::<Identity, Impl, OFFSET>,
+            put_DefaultSubChannelTypes: put_DefaultSubChannelTypes::<Identity, Impl, OFFSET>,
             IsTapingPermitted: IsTapingPermitted::<Identity, Impl, OFFSET>,
         }
     }
@@ -9320,368 +9320,368 @@ impl ICCSubStreamFiltering_Vtbl {
     }
 }
 pub trait ICameraControl_Impl: Sized {
-    fn Exposure(&self, pvalue: *mut i32, pflags: *mut i32) -> ::windows::core::Result<()>;
-    fn SetExposure(&self, value: i32, flags: i32) -> ::windows::core::Result<()>;
+    fn get_Exposure(&self, pvalue: *mut i32, pflags: *mut i32) -> ::windows::core::Result<()>;
+    fn put_Exposure(&self, value: i32, flags: i32) -> ::windows::core::Result<()>;
     fn getRange_Exposure(&self, pmin: *mut i32, pmax: *mut i32, psteppingdelta: *mut i32, pdefault: *mut i32, pcapsflag: *mut i32) -> ::windows::core::Result<()>;
-    fn Focus(&self, pvalue: *mut i32, pflags: *mut i32) -> ::windows::core::Result<()>;
-    fn SetFocus(&self, value: i32, flags: i32) -> ::windows::core::Result<()>;
+    fn get_Focus(&self, pvalue: *mut i32, pflags: *mut i32) -> ::windows::core::Result<()>;
+    fn put_Focus(&self, value: i32, flags: i32) -> ::windows::core::Result<()>;
     fn getRange_Focus(&self, pmin: *mut i32, pmax: *mut i32, psteppingdelta: *mut i32, pdefault: *mut i32, pcapsflag: *mut i32) -> ::windows::core::Result<()>;
-    fn Iris(&self, pvalue: *mut i32, pflags: *mut i32) -> ::windows::core::Result<()>;
-    fn SetIris(&self, value: i32, flags: i32) -> ::windows::core::Result<()>;
+    fn get_Iris(&self, pvalue: *mut i32, pflags: *mut i32) -> ::windows::core::Result<()>;
+    fn put_Iris(&self, value: i32, flags: i32) -> ::windows::core::Result<()>;
     fn getRange_Iris(&self, pmin: *mut i32, pmax: *mut i32, psteppingdelta: *mut i32, pdefault: *mut i32, pcapsflag: *mut i32) -> ::windows::core::Result<()>;
-    fn Zoom(&self, pvalue: *mut i32, pflags: *mut i32) -> ::windows::core::Result<()>;
-    fn SetZoom(&self, value: i32, flags: i32) -> ::windows::core::Result<()>;
+    fn get_Zoom(&self, pvalue: *mut i32, pflags: *mut i32) -> ::windows::core::Result<()>;
+    fn put_Zoom(&self, value: i32, flags: i32) -> ::windows::core::Result<()>;
     fn getRange_Zoom(&self, pmin: *mut i32, pmax: *mut i32, psteppingdelta: *mut i32, pdefault: *mut i32, pcapsflag: *mut i32) -> ::windows::core::Result<()>;
-    fn FocalLengths(&self, plocularfocallength: *mut i32, plobjectivefocallengthmin: *mut i32, plobjectivefocallengthmax: *mut i32) -> ::windows::core::Result<()>;
-    fn Pan(&self, pvalue: *mut i32, pflags: *mut i32) -> ::windows::core::Result<()>;
-    fn SetPan(&self, value: i32, flags: i32) -> ::windows::core::Result<()>;
+    fn get_FocalLengths(&self, plocularfocallength: *mut i32, plobjectivefocallengthmin: *mut i32, plobjectivefocallengthmax: *mut i32) -> ::windows::core::Result<()>;
+    fn get_Pan(&self, pvalue: *mut i32, pflags: *mut i32) -> ::windows::core::Result<()>;
+    fn put_Pan(&self, value: i32, flags: i32) -> ::windows::core::Result<()>;
     fn getRange_Pan(&self, pmin: *mut i32, pmax: *mut i32, psteppingdelta: *mut i32, pdefault: *mut i32, pcapsflag: *mut i32) -> ::windows::core::Result<()>;
-    fn Tilt(&self, pvalue: *mut i32, pflags: *mut i32) -> ::windows::core::Result<()>;
-    fn SetTilt(&self, value: i32, flags: i32) -> ::windows::core::Result<()>;
+    fn get_Tilt(&self, pvalue: *mut i32, pflags: *mut i32) -> ::windows::core::Result<()>;
+    fn put_Tilt(&self, value: i32, flags: i32) -> ::windows::core::Result<()>;
     fn getRange_Tilt(&self, pmin: *mut i32, pmax: *mut i32, psteppingdelta: *mut i32, pdefault: *mut i32, pcapsflag: *mut i32) -> ::windows::core::Result<()>;
-    fn PanTilt(&self, ppanvalue: *mut i32, ptiltvalue: *mut i32, pflags: *mut i32) -> ::windows::core::Result<()>;
-    fn SetPanTilt(&self, panvalue: i32, tiltvalue: i32, flags: i32) -> ::windows::core::Result<()>;
-    fn Roll(&self, pvalue: *mut i32, pflags: *mut i32) -> ::windows::core::Result<()>;
-    fn SetRoll(&self, value: i32, flags: i32) -> ::windows::core::Result<()>;
+    fn get_PanTilt(&self, ppanvalue: *mut i32, ptiltvalue: *mut i32, pflags: *mut i32) -> ::windows::core::Result<()>;
+    fn put_PanTilt(&self, panvalue: i32, tiltvalue: i32, flags: i32) -> ::windows::core::Result<()>;
+    fn get_Roll(&self, pvalue: *mut i32, pflags: *mut i32) -> ::windows::core::Result<()>;
+    fn put_Roll(&self, value: i32, flags: i32) -> ::windows::core::Result<()>;
     fn getRange_Roll(&self, pmin: *mut i32, pmax: *mut i32, psteppingdelta: *mut i32, pdefault: *mut i32, pcapsflag: *mut i32) -> ::windows::core::Result<()>;
-    fn ExposureRelative(&self, pvalue: *mut i32, pflags: *mut i32) -> ::windows::core::Result<()>;
-    fn SetExposureRelative(&self, value: i32, flags: i32) -> ::windows::core::Result<()>;
+    fn get_ExposureRelative(&self, pvalue: *mut i32, pflags: *mut i32) -> ::windows::core::Result<()>;
+    fn put_ExposureRelative(&self, value: i32, flags: i32) -> ::windows::core::Result<()>;
     fn getRange_ExposureRelative(&self, pmin: *mut i32, pmax: *mut i32, psteppingdelta: *mut i32, pdefault: *mut i32, pcapsflag: *mut i32) -> ::windows::core::Result<()>;
-    fn FocusRelative(&self, pvalue: *mut i32, pflags: *mut i32) -> ::windows::core::Result<()>;
-    fn SetFocusRelative(&self, value: i32, flags: i32) -> ::windows::core::Result<()>;
+    fn get_FocusRelative(&self, pvalue: *mut i32, pflags: *mut i32) -> ::windows::core::Result<()>;
+    fn put_FocusRelative(&self, value: i32, flags: i32) -> ::windows::core::Result<()>;
     fn getRange_FocusRelative(&self, pmin: *mut i32, pmax: *mut i32, psteppingdelta: *mut i32, pdefault: *mut i32, pcapsflag: *mut i32) -> ::windows::core::Result<()>;
-    fn IrisRelative(&self, pvalue: *mut i32, pflags: *mut i32) -> ::windows::core::Result<()>;
-    fn SetIrisRelative(&self, value: i32, flags: i32) -> ::windows::core::Result<()>;
+    fn get_IrisRelative(&self, pvalue: *mut i32, pflags: *mut i32) -> ::windows::core::Result<()>;
+    fn put_IrisRelative(&self, value: i32, flags: i32) -> ::windows::core::Result<()>;
     fn getRange_IrisRelative(&self, pmin: *mut i32, pmax: *mut i32, psteppingdelta: *mut i32, pdefault: *mut i32, pcapsflag: *mut i32) -> ::windows::core::Result<()>;
-    fn ZoomRelative(&self, pvalue: *mut i32, pflags: *mut i32) -> ::windows::core::Result<()>;
-    fn SetZoomRelative(&self, value: i32, flags: i32) -> ::windows::core::Result<()>;
+    fn get_ZoomRelative(&self, pvalue: *mut i32, pflags: *mut i32) -> ::windows::core::Result<()>;
+    fn put_ZoomRelative(&self, value: i32, flags: i32) -> ::windows::core::Result<()>;
     fn getRange_ZoomRelative(&self, pmin: *mut i32, pmax: *mut i32, psteppingdelta: *mut i32, pdefault: *mut i32, pcapsflag: *mut i32) -> ::windows::core::Result<()>;
-    fn PanRelative(&self, pvalue: *mut i32, pflags: *mut i32) -> ::windows::core::Result<()>;
-    fn SetPanRelative(&self, value: i32, flags: i32) -> ::windows::core::Result<()>;
-    fn TiltRelative(&self, pvalue: *mut i32, pflags: *mut i32) -> ::windows::core::Result<()>;
-    fn SetTiltRelative(&self, value: i32, flags: i32) -> ::windows::core::Result<()>;
+    fn get_PanRelative(&self, pvalue: *mut i32, pflags: *mut i32) -> ::windows::core::Result<()>;
+    fn put_PanRelative(&self, value: i32, flags: i32) -> ::windows::core::Result<()>;
+    fn get_TiltRelative(&self, pvalue: *mut i32, pflags: *mut i32) -> ::windows::core::Result<()>;
+    fn put_TiltRelative(&self, value: i32, flags: i32) -> ::windows::core::Result<()>;
     fn getRange_TiltRelative(&self, pmin: *mut i32, pmax: *mut i32, psteppingdelta: *mut i32, pdefault: *mut i32, pcapsflag: *mut i32) -> ::windows::core::Result<()>;
-    fn PanTiltRelative(&self, ppanvalue: *mut i32, ptiltvalue: *mut i32, pflags: *mut i32) -> ::windows::core::Result<()>;
-    fn SetPanTiltRelative(&self, panvalue: i32, tiltvalue: i32, flags: i32) -> ::windows::core::Result<()>;
+    fn get_PanTiltRelative(&self, ppanvalue: *mut i32, ptiltvalue: *mut i32, pflags: *mut i32) -> ::windows::core::Result<()>;
+    fn put_PanTiltRelative(&self, panvalue: i32, tiltvalue: i32, flags: i32) -> ::windows::core::Result<()>;
     fn getRange_PanRelative(&self, pmin: *mut i32, pmax: *mut i32, psteppingdelta: *mut i32, pdefault: *mut i32, pcapsflag: *mut i32) -> ::windows::core::Result<()>;
-    fn RollRelative(&self, pvalue: *mut i32, pflags: *mut i32) -> ::windows::core::Result<()>;
-    fn SetRollRelative(&self, value: i32, flags: i32) -> ::windows::core::Result<()>;
+    fn get_RollRelative(&self, pvalue: *mut i32, pflags: *mut i32) -> ::windows::core::Result<()>;
+    fn put_RollRelative(&self, value: i32, flags: i32) -> ::windows::core::Result<()>;
     fn getRange_RollRelative(&self, pmin: *mut i32, pmax: *mut i32, psteppingdelta: *mut i32, pdefault: *mut i32, pcapsflag: *mut i32) -> ::windows::core::Result<()>;
-    fn ScanMode(&self, pvalue: *mut i32, pflags: *mut i32) -> ::windows::core::Result<()>;
-    fn SetScanMode(&self, value: i32, flags: i32) -> ::windows::core::Result<()>;
-    fn PrivacyMode(&self, pvalue: *mut i32, pflags: *mut i32) -> ::windows::core::Result<()>;
-    fn SetPrivacyMode(&self, value: i32, flags: i32) -> ::windows::core::Result<()>;
+    fn get_ScanMode(&self, pvalue: *mut i32, pflags: *mut i32) -> ::windows::core::Result<()>;
+    fn put_ScanMode(&self, value: i32, flags: i32) -> ::windows::core::Result<()>;
+    fn get_PrivacyMode(&self, pvalue: *mut i32, pflags: *mut i32) -> ::windows::core::Result<()>;
+    fn put_PrivacyMode(&self, value: i32, flags: i32) -> ::windows::core::Result<()>;
 }
 impl ICameraControl_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICameraControl_Impl, const OFFSET: isize>() -> ICameraControl_Vtbl {
-        unsafe extern "system" fn Exposure<Identity: ::windows::core::IUnknownImpl, Impl: ICameraControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalue: *mut i32, pflags: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_Exposure<Identity: ::windows::core::IUnknownImpl, Impl: ICameraControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalue: *mut i32, pflags: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).Exposure(::core::mem::transmute_copy(&pvalue), ::core::mem::transmute_copy(&pflags)).into()
+            (*this).get_Exposure(::core::mem::transmute_copy(&pvalue), ::core::mem::transmute_copy(&pflags)).into()
         }
-        unsafe extern "system" fn SetExposure<Identity: ::windows::core::IUnknownImpl, Impl: ICameraControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i32, flags: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn put_Exposure<Identity: ::windows::core::IUnknownImpl, Impl: ICameraControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i32, flags: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetExposure(::core::mem::transmute_copy(&value), ::core::mem::transmute_copy(&flags)).into()
+            (*this).put_Exposure(::core::mem::transmute_copy(&value), ::core::mem::transmute_copy(&flags)).into()
         }
         unsafe extern "system" fn getRange_Exposure<Identity: ::windows::core::IUnknownImpl, Impl: ICameraControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pmin: *mut i32, pmax: *mut i32, psteppingdelta: *mut i32, pdefault: *mut i32, pcapsflag: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             (*this).getRange_Exposure(::core::mem::transmute_copy(&pmin), ::core::mem::transmute_copy(&pmax), ::core::mem::transmute_copy(&psteppingdelta), ::core::mem::transmute_copy(&pdefault), ::core::mem::transmute_copy(&pcapsflag)).into()
         }
-        unsafe extern "system" fn Focus<Identity: ::windows::core::IUnknownImpl, Impl: ICameraControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalue: *mut i32, pflags: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_Focus<Identity: ::windows::core::IUnknownImpl, Impl: ICameraControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalue: *mut i32, pflags: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).Focus(::core::mem::transmute_copy(&pvalue), ::core::mem::transmute_copy(&pflags)).into()
+            (*this).get_Focus(::core::mem::transmute_copy(&pvalue), ::core::mem::transmute_copy(&pflags)).into()
         }
-        unsafe extern "system" fn SetFocus<Identity: ::windows::core::IUnknownImpl, Impl: ICameraControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i32, flags: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn put_Focus<Identity: ::windows::core::IUnknownImpl, Impl: ICameraControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i32, flags: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetFocus(::core::mem::transmute_copy(&value), ::core::mem::transmute_copy(&flags)).into()
+            (*this).put_Focus(::core::mem::transmute_copy(&value), ::core::mem::transmute_copy(&flags)).into()
         }
         unsafe extern "system" fn getRange_Focus<Identity: ::windows::core::IUnknownImpl, Impl: ICameraControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pmin: *mut i32, pmax: *mut i32, psteppingdelta: *mut i32, pdefault: *mut i32, pcapsflag: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             (*this).getRange_Focus(::core::mem::transmute_copy(&pmin), ::core::mem::transmute_copy(&pmax), ::core::mem::transmute_copy(&psteppingdelta), ::core::mem::transmute_copy(&pdefault), ::core::mem::transmute_copy(&pcapsflag)).into()
         }
-        unsafe extern "system" fn Iris<Identity: ::windows::core::IUnknownImpl, Impl: ICameraControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalue: *mut i32, pflags: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_Iris<Identity: ::windows::core::IUnknownImpl, Impl: ICameraControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalue: *mut i32, pflags: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).Iris(::core::mem::transmute_copy(&pvalue), ::core::mem::transmute_copy(&pflags)).into()
+            (*this).get_Iris(::core::mem::transmute_copy(&pvalue), ::core::mem::transmute_copy(&pflags)).into()
         }
-        unsafe extern "system" fn SetIris<Identity: ::windows::core::IUnknownImpl, Impl: ICameraControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i32, flags: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn put_Iris<Identity: ::windows::core::IUnknownImpl, Impl: ICameraControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i32, flags: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetIris(::core::mem::transmute_copy(&value), ::core::mem::transmute_copy(&flags)).into()
+            (*this).put_Iris(::core::mem::transmute_copy(&value), ::core::mem::transmute_copy(&flags)).into()
         }
         unsafe extern "system" fn getRange_Iris<Identity: ::windows::core::IUnknownImpl, Impl: ICameraControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pmin: *mut i32, pmax: *mut i32, psteppingdelta: *mut i32, pdefault: *mut i32, pcapsflag: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             (*this).getRange_Iris(::core::mem::transmute_copy(&pmin), ::core::mem::transmute_copy(&pmax), ::core::mem::transmute_copy(&psteppingdelta), ::core::mem::transmute_copy(&pdefault), ::core::mem::transmute_copy(&pcapsflag)).into()
         }
-        unsafe extern "system" fn Zoom<Identity: ::windows::core::IUnknownImpl, Impl: ICameraControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalue: *mut i32, pflags: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_Zoom<Identity: ::windows::core::IUnknownImpl, Impl: ICameraControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalue: *mut i32, pflags: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).Zoom(::core::mem::transmute_copy(&pvalue), ::core::mem::transmute_copy(&pflags)).into()
+            (*this).get_Zoom(::core::mem::transmute_copy(&pvalue), ::core::mem::transmute_copy(&pflags)).into()
         }
-        unsafe extern "system" fn SetZoom<Identity: ::windows::core::IUnknownImpl, Impl: ICameraControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i32, flags: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn put_Zoom<Identity: ::windows::core::IUnknownImpl, Impl: ICameraControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i32, flags: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetZoom(::core::mem::transmute_copy(&value), ::core::mem::transmute_copy(&flags)).into()
+            (*this).put_Zoom(::core::mem::transmute_copy(&value), ::core::mem::transmute_copy(&flags)).into()
         }
         unsafe extern "system" fn getRange_Zoom<Identity: ::windows::core::IUnknownImpl, Impl: ICameraControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pmin: *mut i32, pmax: *mut i32, psteppingdelta: *mut i32, pdefault: *mut i32, pcapsflag: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             (*this).getRange_Zoom(::core::mem::transmute_copy(&pmin), ::core::mem::transmute_copy(&pmax), ::core::mem::transmute_copy(&psteppingdelta), ::core::mem::transmute_copy(&pdefault), ::core::mem::transmute_copy(&pcapsflag)).into()
         }
-        unsafe extern "system" fn FocalLengths<Identity: ::windows::core::IUnknownImpl, Impl: ICameraControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plocularfocallength: *mut i32, plobjectivefocallengthmin: *mut i32, plobjectivefocallengthmax: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_FocalLengths<Identity: ::windows::core::IUnknownImpl, Impl: ICameraControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plocularfocallength: *mut i32, plobjectivefocallengthmin: *mut i32, plobjectivefocallengthmax: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).FocalLengths(::core::mem::transmute_copy(&plocularfocallength), ::core::mem::transmute_copy(&plobjectivefocallengthmin), ::core::mem::transmute_copy(&plobjectivefocallengthmax)).into()
+            (*this).get_FocalLengths(::core::mem::transmute_copy(&plocularfocallength), ::core::mem::transmute_copy(&plobjectivefocallengthmin), ::core::mem::transmute_copy(&plobjectivefocallengthmax)).into()
         }
-        unsafe extern "system" fn Pan<Identity: ::windows::core::IUnknownImpl, Impl: ICameraControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalue: *mut i32, pflags: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_Pan<Identity: ::windows::core::IUnknownImpl, Impl: ICameraControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalue: *mut i32, pflags: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).Pan(::core::mem::transmute_copy(&pvalue), ::core::mem::transmute_copy(&pflags)).into()
+            (*this).get_Pan(::core::mem::transmute_copy(&pvalue), ::core::mem::transmute_copy(&pflags)).into()
         }
-        unsafe extern "system" fn SetPan<Identity: ::windows::core::IUnknownImpl, Impl: ICameraControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i32, flags: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn put_Pan<Identity: ::windows::core::IUnknownImpl, Impl: ICameraControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i32, flags: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetPan(::core::mem::transmute_copy(&value), ::core::mem::transmute_copy(&flags)).into()
+            (*this).put_Pan(::core::mem::transmute_copy(&value), ::core::mem::transmute_copy(&flags)).into()
         }
         unsafe extern "system" fn getRange_Pan<Identity: ::windows::core::IUnknownImpl, Impl: ICameraControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pmin: *mut i32, pmax: *mut i32, psteppingdelta: *mut i32, pdefault: *mut i32, pcapsflag: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             (*this).getRange_Pan(::core::mem::transmute_copy(&pmin), ::core::mem::transmute_copy(&pmax), ::core::mem::transmute_copy(&psteppingdelta), ::core::mem::transmute_copy(&pdefault), ::core::mem::transmute_copy(&pcapsflag)).into()
         }
-        unsafe extern "system" fn Tilt<Identity: ::windows::core::IUnknownImpl, Impl: ICameraControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalue: *mut i32, pflags: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_Tilt<Identity: ::windows::core::IUnknownImpl, Impl: ICameraControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalue: *mut i32, pflags: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).Tilt(::core::mem::transmute_copy(&pvalue), ::core::mem::transmute_copy(&pflags)).into()
+            (*this).get_Tilt(::core::mem::transmute_copy(&pvalue), ::core::mem::transmute_copy(&pflags)).into()
         }
-        unsafe extern "system" fn SetTilt<Identity: ::windows::core::IUnknownImpl, Impl: ICameraControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i32, flags: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn put_Tilt<Identity: ::windows::core::IUnknownImpl, Impl: ICameraControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i32, flags: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetTilt(::core::mem::transmute_copy(&value), ::core::mem::transmute_copy(&flags)).into()
+            (*this).put_Tilt(::core::mem::transmute_copy(&value), ::core::mem::transmute_copy(&flags)).into()
         }
         unsafe extern "system" fn getRange_Tilt<Identity: ::windows::core::IUnknownImpl, Impl: ICameraControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pmin: *mut i32, pmax: *mut i32, psteppingdelta: *mut i32, pdefault: *mut i32, pcapsflag: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             (*this).getRange_Tilt(::core::mem::transmute_copy(&pmin), ::core::mem::transmute_copy(&pmax), ::core::mem::transmute_copy(&psteppingdelta), ::core::mem::transmute_copy(&pdefault), ::core::mem::transmute_copy(&pcapsflag)).into()
         }
-        unsafe extern "system" fn PanTilt<Identity: ::windows::core::IUnknownImpl, Impl: ICameraControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppanvalue: *mut i32, ptiltvalue: *mut i32, pflags: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_PanTilt<Identity: ::windows::core::IUnknownImpl, Impl: ICameraControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppanvalue: *mut i32, ptiltvalue: *mut i32, pflags: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).PanTilt(::core::mem::transmute_copy(&ppanvalue), ::core::mem::transmute_copy(&ptiltvalue), ::core::mem::transmute_copy(&pflags)).into()
+            (*this).get_PanTilt(::core::mem::transmute_copy(&ppanvalue), ::core::mem::transmute_copy(&ptiltvalue), ::core::mem::transmute_copy(&pflags)).into()
         }
-        unsafe extern "system" fn SetPanTilt<Identity: ::windows::core::IUnknownImpl, Impl: ICameraControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, panvalue: i32, tiltvalue: i32, flags: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn put_PanTilt<Identity: ::windows::core::IUnknownImpl, Impl: ICameraControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, panvalue: i32, tiltvalue: i32, flags: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetPanTilt(::core::mem::transmute_copy(&panvalue), ::core::mem::transmute_copy(&tiltvalue), ::core::mem::transmute_copy(&flags)).into()
+            (*this).put_PanTilt(::core::mem::transmute_copy(&panvalue), ::core::mem::transmute_copy(&tiltvalue), ::core::mem::transmute_copy(&flags)).into()
         }
-        unsafe extern "system" fn Roll<Identity: ::windows::core::IUnknownImpl, Impl: ICameraControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalue: *mut i32, pflags: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_Roll<Identity: ::windows::core::IUnknownImpl, Impl: ICameraControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalue: *mut i32, pflags: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).Roll(::core::mem::transmute_copy(&pvalue), ::core::mem::transmute_copy(&pflags)).into()
+            (*this).get_Roll(::core::mem::transmute_copy(&pvalue), ::core::mem::transmute_copy(&pflags)).into()
         }
-        unsafe extern "system" fn SetRoll<Identity: ::windows::core::IUnknownImpl, Impl: ICameraControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i32, flags: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn put_Roll<Identity: ::windows::core::IUnknownImpl, Impl: ICameraControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i32, flags: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetRoll(::core::mem::transmute_copy(&value), ::core::mem::transmute_copy(&flags)).into()
+            (*this).put_Roll(::core::mem::transmute_copy(&value), ::core::mem::transmute_copy(&flags)).into()
         }
         unsafe extern "system" fn getRange_Roll<Identity: ::windows::core::IUnknownImpl, Impl: ICameraControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pmin: *mut i32, pmax: *mut i32, psteppingdelta: *mut i32, pdefault: *mut i32, pcapsflag: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             (*this).getRange_Roll(::core::mem::transmute_copy(&pmin), ::core::mem::transmute_copy(&pmax), ::core::mem::transmute_copy(&psteppingdelta), ::core::mem::transmute_copy(&pdefault), ::core::mem::transmute_copy(&pcapsflag)).into()
         }
-        unsafe extern "system" fn ExposureRelative<Identity: ::windows::core::IUnknownImpl, Impl: ICameraControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalue: *mut i32, pflags: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_ExposureRelative<Identity: ::windows::core::IUnknownImpl, Impl: ICameraControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalue: *mut i32, pflags: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).ExposureRelative(::core::mem::transmute_copy(&pvalue), ::core::mem::transmute_copy(&pflags)).into()
+            (*this).get_ExposureRelative(::core::mem::transmute_copy(&pvalue), ::core::mem::transmute_copy(&pflags)).into()
         }
-        unsafe extern "system" fn SetExposureRelative<Identity: ::windows::core::IUnknownImpl, Impl: ICameraControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i32, flags: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn put_ExposureRelative<Identity: ::windows::core::IUnknownImpl, Impl: ICameraControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i32, flags: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetExposureRelative(::core::mem::transmute_copy(&value), ::core::mem::transmute_copy(&flags)).into()
+            (*this).put_ExposureRelative(::core::mem::transmute_copy(&value), ::core::mem::transmute_copy(&flags)).into()
         }
         unsafe extern "system" fn getRange_ExposureRelative<Identity: ::windows::core::IUnknownImpl, Impl: ICameraControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pmin: *mut i32, pmax: *mut i32, psteppingdelta: *mut i32, pdefault: *mut i32, pcapsflag: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             (*this).getRange_ExposureRelative(::core::mem::transmute_copy(&pmin), ::core::mem::transmute_copy(&pmax), ::core::mem::transmute_copy(&psteppingdelta), ::core::mem::transmute_copy(&pdefault), ::core::mem::transmute_copy(&pcapsflag)).into()
         }
-        unsafe extern "system" fn FocusRelative<Identity: ::windows::core::IUnknownImpl, Impl: ICameraControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalue: *mut i32, pflags: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_FocusRelative<Identity: ::windows::core::IUnknownImpl, Impl: ICameraControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalue: *mut i32, pflags: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).FocusRelative(::core::mem::transmute_copy(&pvalue), ::core::mem::transmute_copy(&pflags)).into()
+            (*this).get_FocusRelative(::core::mem::transmute_copy(&pvalue), ::core::mem::transmute_copy(&pflags)).into()
         }
-        unsafe extern "system" fn SetFocusRelative<Identity: ::windows::core::IUnknownImpl, Impl: ICameraControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i32, flags: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn put_FocusRelative<Identity: ::windows::core::IUnknownImpl, Impl: ICameraControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i32, flags: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetFocusRelative(::core::mem::transmute_copy(&value), ::core::mem::transmute_copy(&flags)).into()
+            (*this).put_FocusRelative(::core::mem::transmute_copy(&value), ::core::mem::transmute_copy(&flags)).into()
         }
         unsafe extern "system" fn getRange_FocusRelative<Identity: ::windows::core::IUnknownImpl, Impl: ICameraControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pmin: *mut i32, pmax: *mut i32, psteppingdelta: *mut i32, pdefault: *mut i32, pcapsflag: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             (*this).getRange_FocusRelative(::core::mem::transmute_copy(&pmin), ::core::mem::transmute_copy(&pmax), ::core::mem::transmute_copy(&psteppingdelta), ::core::mem::transmute_copy(&pdefault), ::core::mem::transmute_copy(&pcapsflag)).into()
         }
-        unsafe extern "system" fn IrisRelative<Identity: ::windows::core::IUnknownImpl, Impl: ICameraControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalue: *mut i32, pflags: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_IrisRelative<Identity: ::windows::core::IUnknownImpl, Impl: ICameraControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalue: *mut i32, pflags: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).IrisRelative(::core::mem::transmute_copy(&pvalue), ::core::mem::transmute_copy(&pflags)).into()
+            (*this).get_IrisRelative(::core::mem::transmute_copy(&pvalue), ::core::mem::transmute_copy(&pflags)).into()
         }
-        unsafe extern "system" fn SetIrisRelative<Identity: ::windows::core::IUnknownImpl, Impl: ICameraControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i32, flags: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn put_IrisRelative<Identity: ::windows::core::IUnknownImpl, Impl: ICameraControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i32, flags: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetIrisRelative(::core::mem::transmute_copy(&value), ::core::mem::transmute_copy(&flags)).into()
+            (*this).put_IrisRelative(::core::mem::transmute_copy(&value), ::core::mem::transmute_copy(&flags)).into()
         }
         unsafe extern "system" fn getRange_IrisRelative<Identity: ::windows::core::IUnknownImpl, Impl: ICameraControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pmin: *mut i32, pmax: *mut i32, psteppingdelta: *mut i32, pdefault: *mut i32, pcapsflag: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             (*this).getRange_IrisRelative(::core::mem::transmute_copy(&pmin), ::core::mem::transmute_copy(&pmax), ::core::mem::transmute_copy(&psteppingdelta), ::core::mem::transmute_copy(&pdefault), ::core::mem::transmute_copy(&pcapsflag)).into()
         }
-        unsafe extern "system" fn ZoomRelative<Identity: ::windows::core::IUnknownImpl, Impl: ICameraControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalue: *mut i32, pflags: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_ZoomRelative<Identity: ::windows::core::IUnknownImpl, Impl: ICameraControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalue: *mut i32, pflags: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).ZoomRelative(::core::mem::transmute_copy(&pvalue), ::core::mem::transmute_copy(&pflags)).into()
+            (*this).get_ZoomRelative(::core::mem::transmute_copy(&pvalue), ::core::mem::transmute_copy(&pflags)).into()
         }
-        unsafe extern "system" fn SetZoomRelative<Identity: ::windows::core::IUnknownImpl, Impl: ICameraControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i32, flags: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn put_ZoomRelative<Identity: ::windows::core::IUnknownImpl, Impl: ICameraControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i32, flags: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetZoomRelative(::core::mem::transmute_copy(&value), ::core::mem::transmute_copy(&flags)).into()
+            (*this).put_ZoomRelative(::core::mem::transmute_copy(&value), ::core::mem::transmute_copy(&flags)).into()
         }
         unsafe extern "system" fn getRange_ZoomRelative<Identity: ::windows::core::IUnknownImpl, Impl: ICameraControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pmin: *mut i32, pmax: *mut i32, psteppingdelta: *mut i32, pdefault: *mut i32, pcapsflag: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             (*this).getRange_ZoomRelative(::core::mem::transmute_copy(&pmin), ::core::mem::transmute_copy(&pmax), ::core::mem::transmute_copy(&psteppingdelta), ::core::mem::transmute_copy(&pdefault), ::core::mem::transmute_copy(&pcapsflag)).into()
         }
-        unsafe extern "system" fn PanRelative<Identity: ::windows::core::IUnknownImpl, Impl: ICameraControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalue: *mut i32, pflags: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_PanRelative<Identity: ::windows::core::IUnknownImpl, Impl: ICameraControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalue: *mut i32, pflags: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).PanRelative(::core::mem::transmute_copy(&pvalue), ::core::mem::transmute_copy(&pflags)).into()
+            (*this).get_PanRelative(::core::mem::transmute_copy(&pvalue), ::core::mem::transmute_copy(&pflags)).into()
         }
-        unsafe extern "system" fn SetPanRelative<Identity: ::windows::core::IUnknownImpl, Impl: ICameraControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i32, flags: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn put_PanRelative<Identity: ::windows::core::IUnknownImpl, Impl: ICameraControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i32, flags: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetPanRelative(::core::mem::transmute_copy(&value), ::core::mem::transmute_copy(&flags)).into()
+            (*this).put_PanRelative(::core::mem::transmute_copy(&value), ::core::mem::transmute_copy(&flags)).into()
         }
-        unsafe extern "system" fn TiltRelative<Identity: ::windows::core::IUnknownImpl, Impl: ICameraControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalue: *mut i32, pflags: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_TiltRelative<Identity: ::windows::core::IUnknownImpl, Impl: ICameraControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalue: *mut i32, pflags: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).TiltRelative(::core::mem::transmute_copy(&pvalue), ::core::mem::transmute_copy(&pflags)).into()
+            (*this).get_TiltRelative(::core::mem::transmute_copy(&pvalue), ::core::mem::transmute_copy(&pflags)).into()
         }
-        unsafe extern "system" fn SetTiltRelative<Identity: ::windows::core::IUnknownImpl, Impl: ICameraControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i32, flags: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn put_TiltRelative<Identity: ::windows::core::IUnknownImpl, Impl: ICameraControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i32, flags: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetTiltRelative(::core::mem::transmute_copy(&value), ::core::mem::transmute_copy(&flags)).into()
+            (*this).put_TiltRelative(::core::mem::transmute_copy(&value), ::core::mem::transmute_copy(&flags)).into()
         }
         unsafe extern "system" fn getRange_TiltRelative<Identity: ::windows::core::IUnknownImpl, Impl: ICameraControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pmin: *mut i32, pmax: *mut i32, psteppingdelta: *mut i32, pdefault: *mut i32, pcapsflag: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             (*this).getRange_TiltRelative(::core::mem::transmute_copy(&pmin), ::core::mem::transmute_copy(&pmax), ::core::mem::transmute_copy(&psteppingdelta), ::core::mem::transmute_copy(&pdefault), ::core::mem::transmute_copy(&pcapsflag)).into()
         }
-        unsafe extern "system" fn PanTiltRelative<Identity: ::windows::core::IUnknownImpl, Impl: ICameraControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppanvalue: *mut i32, ptiltvalue: *mut i32, pflags: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_PanTiltRelative<Identity: ::windows::core::IUnknownImpl, Impl: ICameraControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppanvalue: *mut i32, ptiltvalue: *mut i32, pflags: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).PanTiltRelative(::core::mem::transmute_copy(&ppanvalue), ::core::mem::transmute_copy(&ptiltvalue), ::core::mem::transmute_copy(&pflags)).into()
+            (*this).get_PanTiltRelative(::core::mem::transmute_copy(&ppanvalue), ::core::mem::transmute_copy(&ptiltvalue), ::core::mem::transmute_copy(&pflags)).into()
         }
-        unsafe extern "system" fn SetPanTiltRelative<Identity: ::windows::core::IUnknownImpl, Impl: ICameraControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, panvalue: i32, tiltvalue: i32, flags: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn put_PanTiltRelative<Identity: ::windows::core::IUnknownImpl, Impl: ICameraControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, panvalue: i32, tiltvalue: i32, flags: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetPanTiltRelative(::core::mem::transmute_copy(&panvalue), ::core::mem::transmute_copy(&tiltvalue), ::core::mem::transmute_copy(&flags)).into()
+            (*this).put_PanTiltRelative(::core::mem::transmute_copy(&panvalue), ::core::mem::transmute_copy(&tiltvalue), ::core::mem::transmute_copy(&flags)).into()
         }
         unsafe extern "system" fn getRange_PanRelative<Identity: ::windows::core::IUnknownImpl, Impl: ICameraControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pmin: *mut i32, pmax: *mut i32, psteppingdelta: *mut i32, pdefault: *mut i32, pcapsflag: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             (*this).getRange_PanRelative(::core::mem::transmute_copy(&pmin), ::core::mem::transmute_copy(&pmax), ::core::mem::transmute_copy(&psteppingdelta), ::core::mem::transmute_copy(&pdefault), ::core::mem::transmute_copy(&pcapsflag)).into()
         }
-        unsafe extern "system" fn RollRelative<Identity: ::windows::core::IUnknownImpl, Impl: ICameraControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalue: *mut i32, pflags: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_RollRelative<Identity: ::windows::core::IUnknownImpl, Impl: ICameraControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalue: *mut i32, pflags: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).RollRelative(::core::mem::transmute_copy(&pvalue), ::core::mem::transmute_copy(&pflags)).into()
+            (*this).get_RollRelative(::core::mem::transmute_copy(&pvalue), ::core::mem::transmute_copy(&pflags)).into()
         }
-        unsafe extern "system" fn SetRollRelative<Identity: ::windows::core::IUnknownImpl, Impl: ICameraControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i32, flags: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn put_RollRelative<Identity: ::windows::core::IUnknownImpl, Impl: ICameraControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i32, flags: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetRollRelative(::core::mem::transmute_copy(&value), ::core::mem::transmute_copy(&flags)).into()
+            (*this).put_RollRelative(::core::mem::transmute_copy(&value), ::core::mem::transmute_copy(&flags)).into()
         }
         unsafe extern "system" fn getRange_RollRelative<Identity: ::windows::core::IUnknownImpl, Impl: ICameraControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pmin: *mut i32, pmax: *mut i32, psteppingdelta: *mut i32, pdefault: *mut i32, pcapsflag: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             (*this).getRange_RollRelative(::core::mem::transmute_copy(&pmin), ::core::mem::transmute_copy(&pmax), ::core::mem::transmute_copy(&psteppingdelta), ::core::mem::transmute_copy(&pdefault), ::core::mem::transmute_copy(&pcapsflag)).into()
         }
-        unsafe extern "system" fn ScanMode<Identity: ::windows::core::IUnknownImpl, Impl: ICameraControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalue: *mut i32, pflags: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_ScanMode<Identity: ::windows::core::IUnknownImpl, Impl: ICameraControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalue: *mut i32, pflags: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).ScanMode(::core::mem::transmute_copy(&pvalue), ::core::mem::transmute_copy(&pflags)).into()
+            (*this).get_ScanMode(::core::mem::transmute_copy(&pvalue), ::core::mem::transmute_copy(&pflags)).into()
         }
-        unsafe extern "system" fn SetScanMode<Identity: ::windows::core::IUnknownImpl, Impl: ICameraControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i32, flags: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn put_ScanMode<Identity: ::windows::core::IUnknownImpl, Impl: ICameraControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i32, flags: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetScanMode(::core::mem::transmute_copy(&value), ::core::mem::transmute_copy(&flags)).into()
+            (*this).put_ScanMode(::core::mem::transmute_copy(&value), ::core::mem::transmute_copy(&flags)).into()
         }
-        unsafe extern "system" fn PrivacyMode<Identity: ::windows::core::IUnknownImpl, Impl: ICameraControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalue: *mut i32, pflags: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_PrivacyMode<Identity: ::windows::core::IUnknownImpl, Impl: ICameraControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalue: *mut i32, pflags: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).PrivacyMode(::core::mem::transmute_copy(&pvalue), ::core::mem::transmute_copy(&pflags)).into()
+            (*this).get_PrivacyMode(::core::mem::transmute_copy(&pvalue), ::core::mem::transmute_copy(&pflags)).into()
         }
-        unsafe extern "system" fn SetPrivacyMode<Identity: ::windows::core::IUnknownImpl, Impl: ICameraControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i32, flags: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn put_PrivacyMode<Identity: ::windows::core::IUnknownImpl, Impl: ICameraControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i32, flags: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetPrivacyMode(::core::mem::transmute_copy(&value), ::core::mem::transmute_copy(&flags)).into()
+            (*this).put_PrivacyMode(::core::mem::transmute_copy(&value), ::core::mem::transmute_copy(&flags)).into()
         }
         Self {
             base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
-            Exposure: Exposure::<Identity, Impl, OFFSET>,
-            SetExposure: SetExposure::<Identity, Impl, OFFSET>,
+            get_Exposure: get_Exposure::<Identity, Impl, OFFSET>,
+            put_Exposure: put_Exposure::<Identity, Impl, OFFSET>,
             getRange_Exposure: getRange_Exposure::<Identity, Impl, OFFSET>,
-            Focus: Focus::<Identity, Impl, OFFSET>,
-            SetFocus: SetFocus::<Identity, Impl, OFFSET>,
+            get_Focus: get_Focus::<Identity, Impl, OFFSET>,
+            put_Focus: put_Focus::<Identity, Impl, OFFSET>,
             getRange_Focus: getRange_Focus::<Identity, Impl, OFFSET>,
-            Iris: Iris::<Identity, Impl, OFFSET>,
-            SetIris: SetIris::<Identity, Impl, OFFSET>,
+            get_Iris: get_Iris::<Identity, Impl, OFFSET>,
+            put_Iris: put_Iris::<Identity, Impl, OFFSET>,
             getRange_Iris: getRange_Iris::<Identity, Impl, OFFSET>,
-            Zoom: Zoom::<Identity, Impl, OFFSET>,
-            SetZoom: SetZoom::<Identity, Impl, OFFSET>,
+            get_Zoom: get_Zoom::<Identity, Impl, OFFSET>,
+            put_Zoom: put_Zoom::<Identity, Impl, OFFSET>,
             getRange_Zoom: getRange_Zoom::<Identity, Impl, OFFSET>,
-            FocalLengths: FocalLengths::<Identity, Impl, OFFSET>,
-            Pan: Pan::<Identity, Impl, OFFSET>,
-            SetPan: SetPan::<Identity, Impl, OFFSET>,
+            get_FocalLengths: get_FocalLengths::<Identity, Impl, OFFSET>,
+            get_Pan: get_Pan::<Identity, Impl, OFFSET>,
+            put_Pan: put_Pan::<Identity, Impl, OFFSET>,
             getRange_Pan: getRange_Pan::<Identity, Impl, OFFSET>,
-            Tilt: Tilt::<Identity, Impl, OFFSET>,
-            SetTilt: SetTilt::<Identity, Impl, OFFSET>,
+            get_Tilt: get_Tilt::<Identity, Impl, OFFSET>,
+            put_Tilt: put_Tilt::<Identity, Impl, OFFSET>,
             getRange_Tilt: getRange_Tilt::<Identity, Impl, OFFSET>,
-            PanTilt: PanTilt::<Identity, Impl, OFFSET>,
-            SetPanTilt: SetPanTilt::<Identity, Impl, OFFSET>,
-            Roll: Roll::<Identity, Impl, OFFSET>,
-            SetRoll: SetRoll::<Identity, Impl, OFFSET>,
+            get_PanTilt: get_PanTilt::<Identity, Impl, OFFSET>,
+            put_PanTilt: put_PanTilt::<Identity, Impl, OFFSET>,
+            get_Roll: get_Roll::<Identity, Impl, OFFSET>,
+            put_Roll: put_Roll::<Identity, Impl, OFFSET>,
             getRange_Roll: getRange_Roll::<Identity, Impl, OFFSET>,
-            ExposureRelative: ExposureRelative::<Identity, Impl, OFFSET>,
-            SetExposureRelative: SetExposureRelative::<Identity, Impl, OFFSET>,
+            get_ExposureRelative: get_ExposureRelative::<Identity, Impl, OFFSET>,
+            put_ExposureRelative: put_ExposureRelative::<Identity, Impl, OFFSET>,
             getRange_ExposureRelative: getRange_ExposureRelative::<Identity, Impl, OFFSET>,
-            FocusRelative: FocusRelative::<Identity, Impl, OFFSET>,
-            SetFocusRelative: SetFocusRelative::<Identity, Impl, OFFSET>,
+            get_FocusRelative: get_FocusRelative::<Identity, Impl, OFFSET>,
+            put_FocusRelative: put_FocusRelative::<Identity, Impl, OFFSET>,
             getRange_FocusRelative: getRange_FocusRelative::<Identity, Impl, OFFSET>,
-            IrisRelative: IrisRelative::<Identity, Impl, OFFSET>,
-            SetIrisRelative: SetIrisRelative::<Identity, Impl, OFFSET>,
+            get_IrisRelative: get_IrisRelative::<Identity, Impl, OFFSET>,
+            put_IrisRelative: put_IrisRelative::<Identity, Impl, OFFSET>,
             getRange_IrisRelative: getRange_IrisRelative::<Identity, Impl, OFFSET>,
-            ZoomRelative: ZoomRelative::<Identity, Impl, OFFSET>,
-            SetZoomRelative: SetZoomRelative::<Identity, Impl, OFFSET>,
+            get_ZoomRelative: get_ZoomRelative::<Identity, Impl, OFFSET>,
+            put_ZoomRelative: put_ZoomRelative::<Identity, Impl, OFFSET>,
             getRange_ZoomRelative: getRange_ZoomRelative::<Identity, Impl, OFFSET>,
-            PanRelative: PanRelative::<Identity, Impl, OFFSET>,
-            SetPanRelative: SetPanRelative::<Identity, Impl, OFFSET>,
-            TiltRelative: TiltRelative::<Identity, Impl, OFFSET>,
-            SetTiltRelative: SetTiltRelative::<Identity, Impl, OFFSET>,
+            get_PanRelative: get_PanRelative::<Identity, Impl, OFFSET>,
+            put_PanRelative: put_PanRelative::<Identity, Impl, OFFSET>,
+            get_TiltRelative: get_TiltRelative::<Identity, Impl, OFFSET>,
+            put_TiltRelative: put_TiltRelative::<Identity, Impl, OFFSET>,
             getRange_TiltRelative: getRange_TiltRelative::<Identity, Impl, OFFSET>,
-            PanTiltRelative: PanTiltRelative::<Identity, Impl, OFFSET>,
-            SetPanTiltRelative: SetPanTiltRelative::<Identity, Impl, OFFSET>,
+            get_PanTiltRelative: get_PanTiltRelative::<Identity, Impl, OFFSET>,
+            put_PanTiltRelative: put_PanTiltRelative::<Identity, Impl, OFFSET>,
             getRange_PanRelative: getRange_PanRelative::<Identity, Impl, OFFSET>,
-            RollRelative: RollRelative::<Identity, Impl, OFFSET>,
-            SetRollRelative: SetRollRelative::<Identity, Impl, OFFSET>,
+            get_RollRelative: get_RollRelative::<Identity, Impl, OFFSET>,
+            put_RollRelative: put_RollRelative::<Identity, Impl, OFFSET>,
             getRange_RollRelative: getRange_RollRelative::<Identity, Impl, OFFSET>,
-            ScanMode: ScanMode::<Identity, Impl, OFFSET>,
-            SetScanMode: SetScanMode::<Identity, Impl, OFFSET>,
-            PrivacyMode: PrivacyMode::<Identity, Impl, OFFSET>,
-            SetPrivacyMode: SetPrivacyMode::<Identity, Impl, OFFSET>,
+            get_ScanMode: get_ScanMode::<Identity, Impl, OFFSET>,
+            put_ScanMode: put_ScanMode::<Identity, Impl, OFFSET>,
+            get_PrivacyMode: get_PrivacyMode::<Identity, Impl, OFFSET>,
+            put_PrivacyMode: put_PrivacyMode::<Identity, Impl, OFFSET>,
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -10304,8 +10304,8 @@ pub trait IComponentTypes_Impl: Sized + super::super::System::Com::IDispatch_Imp
     fn Count(&self) -> ::windows::core::Result<i32>;
     fn _NewEnum(&self) -> ::windows::core::Result<super::super::System::Ole::IEnumVARIANT>;
     fn EnumComponentTypes(&self) -> ::windows::core::Result<IEnumComponentTypes>;
-    fn Item(&self, index: &super::super::System::Com::VARIANT) -> ::windows::core::Result<IComponentType>;
-    fn SetItem(&self, index: &super::super::System::Com::VARIANT, componenttype: &::core::option::Option<IComponentType>) -> ::windows::core::Result<()>;
+    fn get_Item(&self, index: &super::super::System::Com::VARIANT) -> ::windows::core::Result<IComponentType>;
+    fn put_Item(&self, index: &super::super::System::Com::VARIANT, componenttype: &::core::option::Option<IComponentType>) -> ::windows::core::Result<()>;
     fn Add(&self, componenttype: &::core::option::Option<IComponentType>) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
     fn Remove(&self, index: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn Clone(&self) -> ::windows::core::Result<IComponentTypes>;
@@ -10346,10 +10346,10 @@ impl IComponentTypes_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Item<Identity: ::windows::core::IUnknownImpl, Impl: IComponentTypes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, componenttype: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_Item<Identity: ::windows::core::IUnknownImpl, Impl: IComponentTypes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, componenttype: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).Item(::core::mem::transmute(&index)) {
+            match (*this).get_Item(::core::mem::transmute(&index)) {
                 ::core::result::Result::Ok(ok__) => {
                     *componenttype = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -10357,10 +10357,10 @@ impl IComponentTypes_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetItem<Identity: ::windows::core::IUnknownImpl, Impl: IComponentTypes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, componenttype: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn put_Item<Identity: ::windows::core::IUnknownImpl, Impl: IComponentTypes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, componenttype: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetItem(::core::mem::transmute(&index), ::core::mem::transmute(&componenttype)).into()
+            (*this).put_Item(::core::mem::transmute(&index), ::core::mem::transmute(&componenttype)).into()
         }
         unsafe extern "system" fn Add<Identity: ::windows::core::IUnknownImpl, Impl: IComponentTypes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, componenttype: ::windows::core::RawPtr, newindex: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -10394,8 +10394,8 @@ impl IComponentTypes_Vtbl {
             Count: Count::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
             EnumComponentTypes: EnumComponentTypes::<Identity, Impl, OFFSET>,
-            Item: Item::<Identity, Impl, OFFSET>,
-            SetItem: SetItem::<Identity, Impl, OFFSET>,
+            get_Item: get_Item::<Identity, Impl, OFFSET>,
+            put_Item: put_Item::<Identity, Impl, OFFSET>,
             Add: Add::<Identity, Impl, OFFSET>,
             Remove: Remove::<Identity, Impl, OFFSET>,
             Clone: Clone::<Identity, Impl, OFFSET>,
@@ -10410,11 +10410,11 @@ pub trait IComponents_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows::core::Result<i32>;
     fn _NewEnum(&self) -> ::windows::core::Result<super::super::System::Ole::IEnumVARIANT>;
     fn EnumComponents(&self) -> ::windows::core::Result<IEnumComponents>;
-    fn Item(&self, index: &super::super::System::Com::VARIANT) -> ::windows::core::Result<IComponent>;
+    fn get_Item(&self, index: &super::super::System::Com::VARIANT) -> ::windows::core::Result<IComponent>;
     fn Add(&self, component: &::core::option::Option<IComponent>) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
     fn Remove(&self, index: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn Clone(&self) -> ::windows::core::Result<IComponents>;
-    fn SetItem(&self, index: &super::super::System::Com::VARIANT, ppcomponent: &::core::option::Option<IComponent>) -> ::windows::core::Result<()>;
+    fn put_Item(&self, index: &super::super::System::Com::VARIANT, ppcomponent: &::core::option::Option<IComponent>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IComponents_Vtbl {
@@ -10452,10 +10452,10 @@ impl IComponents_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Item<Identity: ::windows::core::IUnknownImpl, Impl: IComponents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, ppcomponent: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_Item<Identity: ::windows::core::IUnknownImpl, Impl: IComponents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, ppcomponent: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).Item(::core::mem::transmute(&index)) {
+            match (*this).get_Item(::core::mem::transmute(&index)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppcomponent = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -10490,21 +10490,21 @@ impl IComponents_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetItem<Identity: ::windows::core::IUnknownImpl, Impl: IComponents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, ppcomponent: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn put_Item<Identity: ::windows::core::IUnknownImpl, Impl: IComponents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, ppcomponent: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetItem(::core::mem::transmute(&index), ::core::mem::transmute(&ppcomponent)).into()
+            (*this).put_Item(::core::mem::transmute(&index), ::core::mem::transmute(&ppcomponent)).into()
         }
         Self {
             base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Count: Count::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
             EnumComponents: EnumComponents::<Identity, Impl, OFFSET>,
-            Item: Item::<Identity, Impl, OFFSET>,
+            get_Item: get_Item::<Identity, Impl, OFFSET>,
             Add: Add::<Identity, Impl, OFFSET>,
             Remove: Remove::<Identity, Impl, OFFSET>,
             Clone: Clone::<Identity, Impl, OFFSET>,
-            SetItem: SetItem::<Identity, Impl, OFFSET>,
+            put_Item: put_Item::<Identity, Impl, OFFSET>,
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -10516,7 +10516,7 @@ pub trait IComponentsOld_Impl: Sized + super::super::System::Com::IDispatch_Impl
     fn Count(&self) -> ::windows::core::Result<i32>;
     fn _NewEnum(&self) -> ::windows::core::Result<super::super::System::Ole::IEnumVARIANT>;
     fn EnumComponents(&self) -> ::windows::core::Result<IEnumComponents>;
-    fn Item(&self, index: &super::super::System::Com::VARIANT) -> ::windows::core::Result<IComponent>;
+    fn get_Item(&self, index: &super::super::System::Com::VARIANT) -> ::windows::core::Result<IComponent>;
     fn Add(&self, component: &::core::option::Option<IComponent>) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
     fn Remove(&self, index: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn Clone(&self) -> ::windows::core::Result<IComponents>;
@@ -10557,10 +10557,10 @@ impl IComponentsOld_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Item<Identity: ::windows::core::IUnknownImpl, Impl: IComponentsOld_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, ppcomponent: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_Item<Identity: ::windows::core::IUnknownImpl, Impl: IComponentsOld_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, ppcomponent: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).Item(::core::mem::transmute(&index)) {
+            match (*this).get_Item(::core::mem::transmute(&index)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppcomponent = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -10600,7 +10600,7 @@ impl IComponentsOld_Vtbl {
             Count: Count::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
             EnumComponents: EnumComponents::<Identity, Impl, OFFSET>,
-            Item: Item::<Identity, Impl, OFFSET>,
+            get_Item: get_Item::<Identity, Impl, OFFSET>,
             Add: Add::<Identity, Impl, OFFSET>,
             Remove: Remove::<Identity, Impl, OFFSET>,
             Clone: Clone::<Identity, Impl, OFFSET>,
@@ -10809,8 +10809,8 @@ impl IConfigAviMux_Vtbl {
 pub trait IConfigInterleaving_Impl: Sized {
     fn SetMode(&self, mode: InterleavingMode) -> ::windows::core::Result<()>;
     fn Mode(&self) -> ::windows::core::Result<InterleavingMode>;
-    fn SetInterleaving(&self, prtinterleave: *const i64, prtpreroll: *const i64) -> ::windows::core::Result<()>;
-    fn Interleaving(&self, prtinterleave: *mut i64, prtpreroll: *mut i64) -> ::windows::core::Result<()>;
+    fn put_Interleaving(&self, prtinterleave: *const i64, prtpreroll: *const i64) -> ::windows::core::Result<()>;
+    fn get_Interleaving(&self, prtinterleave: *mut i64, prtpreroll: *mut i64) -> ::windows::core::Result<()>;
 }
 impl IConfigInterleaving_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IConfigInterleaving_Impl, const OFFSET: isize>() -> IConfigInterleaving_Vtbl {
@@ -10830,22 +10830,22 @@ impl IConfigInterleaving_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetInterleaving<Identity: ::windows::core::IUnknownImpl, Impl: IConfigInterleaving_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, prtinterleave: *const i64, prtpreroll: *const i64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn put_Interleaving<Identity: ::windows::core::IUnknownImpl, Impl: IConfigInterleaving_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, prtinterleave: *const i64, prtpreroll: *const i64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetInterleaving(::core::mem::transmute_copy(&prtinterleave), ::core::mem::transmute_copy(&prtpreroll)).into()
+            (*this).put_Interleaving(::core::mem::transmute_copy(&prtinterleave), ::core::mem::transmute_copy(&prtpreroll)).into()
         }
-        unsafe extern "system" fn Interleaving<Identity: ::windows::core::IUnknownImpl, Impl: IConfigInterleaving_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, prtinterleave: *mut i64, prtpreroll: *mut i64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_Interleaving<Identity: ::windows::core::IUnknownImpl, Impl: IConfigInterleaving_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, prtinterleave: *mut i64, prtpreroll: *mut i64) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).Interleaving(::core::mem::transmute_copy(&prtinterleave), ::core::mem::transmute_copy(&prtpreroll)).into()
+            (*this).get_Interleaving(::core::mem::transmute_copy(&prtinterleave), ::core::mem::transmute_copy(&prtpreroll)).into()
         }
         Self {
             base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             SetMode: SetMode::<Identity, Impl, OFFSET>,
             Mode: Mode::<Identity, Impl, OFFSET>,
-            SetInterleaving: SetInterleaving::<Identity, Impl, OFFSET>,
-            Interleaving: Interleaving::<Identity, Impl, OFFSET>,
+            put_Interleaving: put_Interleaving::<Identity, Impl, OFFSET>,
+            get_Interleaving: get_Interleaving::<Identity, Impl, OFFSET>,
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -11034,8 +11034,8 @@ impl IDShowPlugin_Vtbl {
 pub trait IDTFilter_Impl: Sized {
     fn EvalRatObjOK(&self) -> ::windows::core::Result<::windows::core::HRESULT>;
     fn GetCurrRating(&self, pensystem: *mut EnTvRat_System, penrating: *mut EnTvRat_GenericLevel, plbfenattr: *mut i32) -> ::windows::core::Result<()>;
-    fn BlockedRatingAttributes(&self, ensystem: EnTvRat_System, enlevel: EnTvRat_GenericLevel) -> ::windows::core::Result<i32>;
-    fn SetBlockedRatingAttributes(&self, ensystem: EnTvRat_System, enlevel: EnTvRat_GenericLevel, lbfattrs: i32) -> ::windows::core::Result<()>;
+    fn get_BlockedRatingAttributes(&self, ensystem: EnTvRat_System, enlevel: EnTvRat_GenericLevel) -> ::windows::core::Result<i32>;
+    fn put_BlockedRatingAttributes(&self, ensystem: EnTvRat_System, enlevel: EnTvRat_GenericLevel, lbfattrs: i32) -> ::windows::core::Result<()>;
     fn BlockUnRated(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
     fn SetBlockUnRated(&self, fblockunratedshows: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn BlockUnRatedDelay(&self) -> ::windows::core::Result<i32>;
@@ -11060,10 +11060,10 @@ impl IDTFilter_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).GetCurrRating(::core::mem::transmute_copy(&pensystem), ::core::mem::transmute_copy(&penrating), ::core::mem::transmute_copy(&plbfenattr)).into()
         }
-        unsafe extern "system" fn BlockedRatingAttributes<Identity: ::windows::core::IUnknownImpl, Impl: IDTFilter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ensystem: EnTvRat_System, enlevel: EnTvRat_GenericLevel, plbfenattr: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_BlockedRatingAttributes<Identity: ::windows::core::IUnknownImpl, Impl: IDTFilter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ensystem: EnTvRat_System, enlevel: EnTvRat_GenericLevel, plbfenattr: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).BlockedRatingAttributes(::core::mem::transmute_copy(&ensystem), ::core::mem::transmute_copy(&enlevel)) {
+            match (*this).get_BlockedRatingAttributes(::core::mem::transmute_copy(&ensystem), ::core::mem::transmute_copy(&enlevel)) {
                 ::core::result::Result::Ok(ok__) => {
                     *plbfenattr = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -11071,10 +11071,10 @@ impl IDTFilter_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetBlockedRatingAttributes<Identity: ::windows::core::IUnknownImpl, Impl: IDTFilter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ensystem: EnTvRat_System, enlevel: EnTvRat_GenericLevel, lbfattrs: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn put_BlockedRatingAttributes<Identity: ::windows::core::IUnknownImpl, Impl: IDTFilter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ensystem: EnTvRat_System, enlevel: EnTvRat_GenericLevel, lbfattrs: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetBlockedRatingAttributes(::core::mem::transmute_copy(&ensystem), ::core::mem::transmute_copy(&enlevel), ::core::mem::transmute_copy(&lbfattrs)).into()
+            (*this).put_BlockedRatingAttributes(::core::mem::transmute_copy(&ensystem), ::core::mem::transmute_copy(&enlevel), ::core::mem::transmute_copy(&lbfattrs)).into()
         }
         unsafe extern "system" fn BlockUnRated<Identity: ::windows::core::IUnknownImpl, Impl: IDTFilter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfblockunratedshows: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -11112,8 +11112,8 @@ impl IDTFilter_Vtbl {
             base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             EvalRatObjOK: EvalRatObjOK::<Identity, Impl, OFFSET>,
             GetCurrRating: GetCurrRating::<Identity, Impl, OFFSET>,
-            BlockedRatingAttributes: BlockedRatingAttributes::<Identity, Impl, OFFSET>,
-            SetBlockedRatingAttributes: SetBlockedRatingAttributes::<Identity, Impl, OFFSET>,
+            get_BlockedRatingAttributes: get_BlockedRatingAttributes::<Identity, Impl, OFFSET>,
+            put_BlockedRatingAttributes: put_BlockedRatingAttributes::<Identity, Impl, OFFSET>,
             BlockUnRated: BlockUnRated::<Identity, Impl, OFFSET>,
             SetBlockUnRated: SetBlockUnRated::<Identity, Impl, OFFSET>,
             BlockUnRatedDelay: BlockUnRatedDelay::<Identity, Impl, OFFSET>,
@@ -13325,25 +13325,25 @@ impl IDVB_TOT_Vtbl {
     }
 }
 pub trait IDVEnc_Impl: Sized {
-    fn IFormatResolution(&self, videoformat: *mut i32, dvformat: *mut i32, resolution: *mut i32, fdvinfo: u8, sdvinfo: *mut DVINFO) -> ::windows::core::Result<()>;
-    fn SetIFormatResolution(&self, videoformat: i32, dvformat: i32, resolution: i32, fdvinfo: u8, sdvinfo: *const DVINFO) -> ::windows::core::Result<()>;
+    fn get_IFormatResolution(&self, videoformat: *mut i32, dvformat: *mut i32, resolution: *mut i32, fdvinfo: u8, sdvinfo: *mut DVINFO) -> ::windows::core::Result<()>;
+    fn put_IFormatResolution(&self, videoformat: i32, dvformat: i32, resolution: i32, fdvinfo: u8, sdvinfo: *const DVINFO) -> ::windows::core::Result<()>;
 }
 impl IDVEnc_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDVEnc_Impl, const OFFSET: isize>() -> IDVEnc_Vtbl {
-        unsafe extern "system" fn IFormatResolution<Identity: ::windows::core::IUnknownImpl, Impl: IDVEnc_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, videoformat: *mut i32, dvformat: *mut i32, resolution: *mut i32, fdvinfo: u8, sdvinfo: *mut DVINFO) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_IFormatResolution<Identity: ::windows::core::IUnknownImpl, Impl: IDVEnc_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, videoformat: *mut i32, dvformat: *mut i32, resolution: *mut i32, fdvinfo: u8, sdvinfo: *mut DVINFO) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).IFormatResolution(::core::mem::transmute_copy(&videoformat), ::core::mem::transmute_copy(&dvformat), ::core::mem::transmute_copy(&resolution), ::core::mem::transmute_copy(&fdvinfo), ::core::mem::transmute_copy(&sdvinfo)).into()
+            (*this).get_IFormatResolution(::core::mem::transmute_copy(&videoformat), ::core::mem::transmute_copy(&dvformat), ::core::mem::transmute_copy(&resolution), ::core::mem::transmute_copy(&fdvinfo), ::core::mem::transmute_copy(&sdvinfo)).into()
         }
-        unsafe extern "system" fn SetIFormatResolution<Identity: ::windows::core::IUnknownImpl, Impl: IDVEnc_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, videoformat: i32, dvformat: i32, resolution: i32, fdvinfo: u8, sdvinfo: *const DVINFO) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn put_IFormatResolution<Identity: ::windows::core::IUnknownImpl, Impl: IDVEnc_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, videoformat: i32, dvformat: i32, resolution: i32, fdvinfo: u8, sdvinfo: *const DVINFO) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetIFormatResolution(::core::mem::transmute_copy(&videoformat), ::core::mem::transmute_copy(&dvformat), ::core::mem::transmute_copy(&resolution), ::core::mem::transmute_copy(&fdvinfo), ::core::mem::transmute_copy(&sdvinfo)).into()
+            (*this).put_IFormatResolution(::core::mem::transmute_copy(&videoformat), ::core::mem::transmute_copy(&dvformat), ::core::mem::transmute_copy(&resolution), ::core::mem::transmute_copy(&fdvinfo), ::core::mem::transmute_copy(&sdvinfo)).into()
         }
         Self {
             base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
-            IFormatResolution: IFormatResolution::<Identity, Impl, OFFSET>,
-            SetIFormatResolution: SetIFormatResolution::<Identity, Impl, OFFSET>,
+            get_IFormatResolution: get_IFormatResolution::<Identity, Impl, OFFSET>,
+            put_IFormatResolution: put_IFormatResolution::<Identity, Impl, OFFSET>,
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -19615,8 +19615,8 @@ impl IEnumTuningSpaces_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IEvalRat_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn BlockedRatingAttributes(&self, ensystem: EnTvRat_System, enlevel: EnTvRat_GenericLevel) -> ::windows::core::Result<i32>;
-    fn SetBlockedRatingAttributes(&self, ensystem: EnTvRat_System, enlevel: EnTvRat_GenericLevel, lbfattrs: i32) -> ::windows::core::Result<()>;
+    fn get_BlockedRatingAttributes(&self, ensystem: EnTvRat_System, enlevel: EnTvRat_GenericLevel) -> ::windows::core::Result<i32>;
+    fn put_BlockedRatingAttributes(&self, ensystem: EnTvRat_System, enlevel: EnTvRat_GenericLevel, lbfattrs: i32) -> ::windows::core::Result<()>;
     fn BlockUnRated(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
     fn SetBlockUnRated(&self, fblockunratedshows: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn MostRestrictiveRating(&self, ensystem1: EnTvRat_System, enenlevel1: EnTvRat_GenericLevel, lbfenattr1: i32, ensystem2: EnTvRat_System, enenlevel2: EnTvRat_GenericLevel, lbfenattr2: i32, pensystem: *mut EnTvRat_System, penenlevel: *mut EnTvRat_GenericLevel, plbfenattr: *mut i32) -> ::windows::core::Result<()>;
@@ -19625,10 +19625,10 @@ pub trait IEvalRat_Impl: Sized + super::super::System::Com::IDispatch_Impl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IEvalRat_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEvalRat_Impl, const OFFSET: isize>() -> IEvalRat_Vtbl {
-        unsafe extern "system" fn BlockedRatingAttributes<Identity: ::windows::core::IUnknownImpl, Impl: IEvalRat_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ensystem: EnTvRat_System, enlevel: EnTvRat_GenericLevel, plbfattrs: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_BlockedRatingAttributes<Identity: ::windows::core::IUnknownImpl, Impl: IEvalRat_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ensystem: EnTvRat_System, enlevel: EnTvRat_GenericLevel, plbfattrs: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).BlockedRatingAttributes(::core::mem::transmute_copy(&ensystem), ::core::mem::transmute_copy(&enlevel)) {
+            match (*this).get_BlockedRatingAttributes(::core::mem::transmute_copy(&ensystem), ::core::mem::transmute_copy(&enlevel)) {
                 ::core::result::Result::Ok(ok__) => {
                     *plbfattrs = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -19636,10 +19636,10 @@ impl IEvalRat_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetBlockedRatingAttributes<Identity: ::windows::core::IUnknownImpl, Impl: IEvalRat_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ensystem: EnTvRat_System, enlevel: EnTvRat_GenericLevel, lbfattrs: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn put_BlockedRatingAttributes<Identity: ::windows::core::IUnknownImpl, Impl: IEvalRat_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ensystem: EnTvRat_System, enlevel: EnTvRat_GenericLevel, lbfattrs: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetBlockedRatingAttributes(::core::mem::transmute_copy(&ensystem), ::core::mem::transmute_copy(&enlevel), ::core::mem::transmute_copy(&lbfattrs)).into()
+            (*this).put_BlockedRatingAttributes(::core::mem::transmute_copy(&ensystem), ::core::mem::transmute_copy(&enlevel), ::core::mem::transmute_copy(&lbfattrs)).into()
         }
         unsafe extern "system" fn BlockUnRated<Identity: ::windows::core::IUnknownImpl, Impl: IEvalRat_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfblockunratedshows: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -19669,8 +19669,8 @@ impl IEvalRat_Vtbl {
         }
         Self {
             base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
-            BlockedRatingAttributes: BlockedRatingAttributes::<Identity, Impl, OFFSET>,
-            SetBlockedRatingAttributes: SetBlockedRatingAttributes::<Identity, Impl, OFFSET>,
+            get_BlockedRatingAttributes: get_BlockedRatingAttributes::<Identity, Impl, OFFSET>,
+            put_BlockedRatingAttributes: put_BlockedRatingAttributes::<Identity, Impl, OFFSET>,
             BlockUnRated: BlockUnRated::<Identity, Impl, OFFSET>,
             SetBlockUnRated: SetBlockUnRated::<Identity, Impl, OFFSET>,
             MostRestrictiveRating: MostRestrictiveRating::<Identity, Impl, OFFSET>,
@@ -20227,24 +20227,24 @@ impl IFilterMapper3_Vtbl {
     }
 }
 pub trait IFrequencyMap_Impl: Sized {
-    fn FrequencyMapping(&self, ulcount: *mut u32, ppullist: *mut *mut u32) -> ::windows::core::Result<()>;
-    fn SetFrequencyMapping(&self, ulcount: u32, plist: *const u32) -> ::windows::core::Result<()>;
+    fn get_FrequencyMapping(&self, ulcount: *mut u32, ppullist: *mut *mut u32) -> ::windows::core::Result<()>;
+    fn put_FrequencyMapping(&self, ulcount: u32, plist: *const u32) -> ::windows::core::Result<()>;
     fn CountryCode(&self) -> ::windows::core::Result<u32>;
     fn SetCountryCode(&self, ulcountrycode: u32) -> ::windows::core::Result<()>;
-    fn DefaultFrequencyMapping(&self, ulcountrycode: u32, pulcount: *mut u32, ppullist: *mut *mut u32) -> ::windows::core::Result<()>;
-    fn CountryCodeList(&self, pulcount: *mut u32, ppullist: *mut *mut u32) -> ::windows::core::Result<()>;
+    fn get_DefaultFrequencyMapping(&self, ulcountrycode: u32, pulcount: *mut u32, ppullist: *mut *mut u32) -> ::windows::core::Result<()>;
+    fn get_CountryCodeList(&self, pulcount: *mut u32, ppullist: *mut *mut u32) -> ::windows::core::Result<()>;
 }
 impl IFrequencyMap_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFrequencyMap_Impl, const OFFSET: isize>() -> IFrequencyMap_Vtbl {
-        unsafe extern "system" fn FrequencyMapping<Identity: ::windows::core::IUnknownImpl, Impl: IFrequencyMap_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ulcount: *mut u32, ppullist: *mut *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_FrequencyMapping<Identity: ::windows::core::IUnknownImpl, Impl: IFrequencyMap_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ulcount: *mut u32, ppullist: *mut *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).FrequencyMapping(::core::mem::transmute_copy(&ulcount), ::core::mem::transmute_copy(&ppullist)).into()
+            (*this).get_FrequencyMapping(::core::mem::transmute_copy(&ulcount), ::core::mem::transmute_copy(&ppullist)).into()
         }
-        unsafe extern "system" fn SetFrequencyMapping<Identity: ::windows::core::IUnknownImpl, Impl: IFrequencyMap_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ulcount: u32, plist: *const u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn put_FrequencyMapping<Identity: ::windows::core::IUnknownImpl, Impl: IFrequencyMap_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ulcount: u32, plist: *const u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetFrequencyMapping(::core::mem::transmute_copy(&ulcount), ::core::mem::transmute_copy(&plist)).into()
+            (*this).put_FrequencyMapping(::core::mem::transmute_copy(&ulcount), ::core::mem::transmute_copy(&plist)).into()
         }
         unsafe extern "system" fn CountryCode<Identity: ::windows::core::IUnknownImpl, Impl: IFrequencyMap_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pulcountrycode: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -20262,24 +20262,24 @@ impl IFrequencyMap_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).SetCountryCode(::core::mem::transmute_copy(&ulcountrycode)).into()
         }
-        unsafe extern "system" fn DefaultFrequencyMapping<Identity: ::windows::core::IUnknownImpl, Impl: IFrequencyMap_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ulcountrycode: u32, pulcount: *mut u32, ppullist: *mut *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_DefaultFrequencyMapping<Identity: ::windows::core::IUnknownImpl, Impl: IFrequencyMap_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ulcountrycode: u32, pulcount: *mut u32, ppullist: *mut *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).DefaultFrequencyMapping(::core::mem::transmute_copy(&ulcountrycode), ::core::mem::transmute_copy(&pulcount), ::core::mem::transmute_copy(&ppullist)).into()
+            (*this).get_DefaultFrequencyMapping(::core::mem::transmute_copy(&ulcountrycode), ::core::mem::transmute_copy(&pulcount), ::core::mem::transmute_copy(&ppullist)).into()
         }
-        unsafe extern "system" fn CountryCodeList<Identity: ::windows::core::IUnknownImpl, Impl: IFrequencyMap_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pulcount: *mut u32, ppullist: *mut *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_CountryCodeList<Identity: ::windows::core::IUnknownImpl, Impl: IFrequencyMap_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pulcount: *mut u32, ppullist: *mut *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).CountryCodeList(::core::mem::transmute_copy(&pulcount), ::core::mem::transmute_copy(&ppullist)).into()
+            (*this).get_CountryCodeList(::core::mem::transmute_copy(&pulcount), ::core::mem::transmute_copy(&ppullist)).into()
         }
         Self {
             base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
-            FrequencyMapping: FrequencyMapping::<Identity, Impl, OFFSET>,
-            SetFrequencyMapping: SetFrequencyMapping::<Identity, Impl, OFFSET>,
+            get_FrequencyMapping: get_FrequencyMapping::<Identity, Impl, OFFSET>,
+            put_FrequencyMapping: put_FrequencyMapping::<Identity, Impl, OFFSET>,
             CountryCode: CountryCode::<Identity, Impl, OFFSET>,
             SetCountryCode: SetCountryCode::<Identity, Impl, OFFSET>,
-            DefaultFrequencyMapping: DefaultFrequencyMapping::<Identity, Impl, OFFSET>,
-            CountryCodeList: CountryCodeList::<Identity, Impl, OFFSET>,
+            get_DefaultFrequencyMapping: get_DefaultFrequencyMapping::<Identity, Impl, OFFSET>,
+            get_CountryCodeList: get_CountryCodeList::<Identity, Impl, OFFSET>,
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -24172,12 +24172,12 @@ impl IKsNodeControl_Vtbl {
 #[cfg(feature = "Win32_Media_KernelStreaming")]
 pub trait IKsTopologyInfo_Impl: Sized {
     fn NumCategories(&self) -> ::windows::core::Result<u32>;
-    fn Category(&self, dwindex: u32) -> ::windows::core::Result<::windows::core::GUID>;
+    fn get_Category(&self, dwindex: u32) -> ::windows::core::Result<::windows::core::GUID>;
     fn NumConnections(&self) -> ::windows::core::Result<u32>;
-    fn ConnectionInfo(&self, dwindex: u32) -> ::windows::core::Result<super::KernelStreaming::KSTOPOLOGY_CONNECTION>;
-    fn NodeName(&self, dwnodeid: u32, pwchnodename: ::windows::core::PWSTR, dwbufsize: u32, pdwnamelen: *mut u32) -> ::windows::core::Result<()>;
+    fn get_ConnectionInfo(&self, dwindex: u32) -> ::windows::core::Result<super::KernelStreaming::KSTOPOLOGY_CONNECTION>;
+    fn get_NodeName(&self, dwnodeid: u32, pwchnodename: ::windows::core::PWSTR, dwbufsize: u32, pdwnamelen: *mut u32) -> ::windows::core::Result<()>;
     fn NumNodes(&self) -> ::windows::core::Result<u32>;
-    fn NodeType(&self, dwnodeid: u32) -> ::windows::core::Result<::windows::core::GUID>;
+    fn get_NodeType(&self, dwnodeid: u32) -> ::windows::core::Result<::windows::core::GUID>;
     fn CreateNodeInstance(&self, dwnodeid: u32, iid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Media_KernelStreaming")]
@@ -24194,10 +24194,10 @@ impl IKsTopologyInfo_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Category<Identity: ::windows::core::IUnknownImpl, Impl: IKsTopologyInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwindex: u32, pcategory: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_Category<Identity: ::windows::core::IUnknownImpl, Impl: IKsTopologyInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwindex: u32, pcategory: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).Category(::core::mem::transmute_copy(&dwindex)) {
+            match (*this).get_Category(::core::mem::transmute_copy(&dwindex)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pcategory = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -24216,10 +24216,10 @@ impl IKsTopologyInfo_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ConnectionInfo<Identity: ::windows::core::IUnknownImpl, Impl: IKsTopologyInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwindex: u32, pconnectioninfo: *mut super::KernelStreaming::KSTOPOLOGY_CONNECTION) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_ConnectionInfo<Identity: ::windows::core::IUnknownImpl, Impl: IKsTopologyInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwindex: u32, pconnectioninfo: *mut super::KernelStreaming::KSTOPOLOGY_CONNECTION) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).ConnectionInfo(::core::mem::transmute_copy(&dwindex)) {
+            match (*this).get_ConnectionInfo(::core::mem::transmute_copy(&dwindex)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pconnectioninfo = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -24227,10 +24227,10 @@ impl IKsTopologyInfo_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn NodeName<Identity: ::windows::core::IUnknownImpl, Impl: IKsTopologyInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwnodeid: u32, pwchnodename: ::windows::core::PWSTR, dwbufsize: u32, pdwnamelen: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_NodeName<Identity: ::windows::core::IUnknownImpl, Impl: IKsTopologyInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwnodeid: u32, pwchnodename: ::windows::core::PWSTR, dwbufsize: u32, pdwnamelen: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).NodeName(::core::mem::transmute_copy(&dwnodeid), ::core::mem::transmute_copy(&pwchnodename), ::core::mem::transmute_copy(&dwbufsize), ::core::mem::transmute_copy(&pdwnamelen)).into()
+            (*this).get_NodeName(::core::mem::transmute_copy(&dwnodeid), ::core::mem::transmute_copy(&pwchnodename), ::core::mem::transmute_copy(&dwbufsize), ::core::mem::transmute_copy(&pdwnamelen)).into()
         }
         unsafe extern "system" fn NumNodes<Identity: ::windows::core::IUnknownImpl, Impl: IKsTopologyInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwnumnodes: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -24243,10 +24243,10 @@ impl IKsTopologyInfo_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn NodeType<Identity: ::windows::core::IUnknownImpl, Impl: IKsTopologyInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwnodeid: u32, pnodetype: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_NodeType<Identity: ::windows::core::IUnknownImpl, Impl: IKsTopologyInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwnodeid: u32, pnodetype: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).NodeType(::core::mem::transmute_copy(&dwnodeid)) {
+            match (*this).get_NodeType(::core::mem::transmute_copy(&dwnodeid)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pnodetype = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -24262,12 +24262,12 @@ impl IKsTopologyInfo_Vtbl {
         Self {
             base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
             NumCategories: NumCategories::<Identity, Impl, OFFSET>,
-            Category: Category::<Identity, Impl, OFFSET>,
+            get_Category: get_Category::<Identity, Impl, OFFSET>,
             NumConnections: NumConnections::<Identity, Impl, OFFSET>,
-            ConnectionInfo: ConnectionInfo::<Identity, Impl, OFFSET>,
-            NodeName: NodeName::<Identity, Impl, OFFSET>,
+            get_ConnectionInfo: get_ConnectionInfo::<Identity, Impl, OFFSET>,
+            get_NodeName: get_NodeName::<Identity, Impl, OFFSET>,
             NumNodes: NumNodes::<Identity, Impl, OFFSET>,
-            NodeType: NodeType::<Identity, Impl, OFFSET>,
+            get_NodeType: get_NodeType::<Identity, Impl, OFFSET>,
             CreateNodeInstance: CreateNodeInstance::<Identity, Impl, OFFSET>,
         }
     }
@@ -25075,7 +25075,7 @@ impl IMSVidAudioRenderer_Vtbl {
 pub trait IMSVidAudioRendererDevices_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows::core::Result<i32>;
     fn _NewEnum(&self) -> ::windows::core::Result<super::super::System::Ole::IEnumVARIANT>;
-    fn Item(&self, v: &super::super::System::Com::VARIANT) -> ::windows::core::Result<IMSVidAudioRenderer>;
+    fn get_Item(&self, v: &super::super::System::Com::VARIANT) -> ::windows::core::Result<IMSVidAudioRenderer>;
     fn Add(&self, pdb: &::core::option::Option<IMSVidAudioRenderer>) -> ::windows::core::Result<()>;
     fn Remove(&self, v: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
 }
@@ -25104,10 +25104,10 @@ impl IMSVidAudioRendererDevices_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Item<Identity: ::windows::core::IUnknownImpl, Impl: IMSVidAudioRendererDevices_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, v: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pdb: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_Item<Identity: ::windows::core::IUnknownImpl, Impl: IMSVidAudioRendererDevices_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, v: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pdb: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).Item(::core::mem::transmute(&v)) {
+            match (*this).get_Item(::core::mem::transmute(&v)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pdb = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -25129,7 +25129,7 @@ impl IMSVidAudioRendererDevices_Vtbl {
             base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Count: Count::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
-            Item: Item::<Identity, Impl, OFFSET>,
+            get_Item: get_Item::<Identity, Impl, OFFSET>,
             Add: Add::<Identity, Impl, OFFSET>,
             Remove: Remove::<Identity, Impl, OFFSET>,
         }
@@ -25376,10 +25376,10 @@ pub trait IMSVidCtl_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn SetMaintainAspectRatio(&self, newvalue: i16) -> ::windows::core::Result<()>;
     fn ColorKey(&self) -> ::windows::core::Result<u32>;
     fn SetColorKey(&self, newvalue: u32) -> ::windows::core::Result<()>;
-    fn InputsAvailable(&self, categoryguid: &super::super::Foundation::BSTR) -> ::windows::core::Result<IMSVidInputDevices>;
-    fn OutputsAvailable(&self, categoryguid: &super::super::Foundation::BSTR) -> ::windows::core::Result<IMSVidOutputDevices>;
-    fn _InputsAvailable(&self, categoryguid: *const ::windows::core::GUID) -> ::windows::core::Result<IMSVidInputDevices>;
-    fn _OutputsAvailable(&self, categoryguid: *const ::windows::core::GUID) -> ::windows::core::Result<IMSVidOutputDevices>;
+    fn get_InputsAvailable(&self, categoryguid: &super::super::Foundation::BSTR) -> ::windows::core::Result<IMSVidInputDevices>;
+    fn get_OutputsAvailable(&self, categoryguid: &super::super::Foundation::BSTR) -> ::windows::core::Result<IMSVidOutputDevices>;
+    fn get__InputsAvailable(&self, categoryguid: *const ::windows::core::GUID) -> ::windows::core::Result<IMSVidInputDevices>;
+    fn get__OutputsAvailable(&self, categoryguid: *const ::windows::core::GUID) -> ::windows::core::Result<IMSVidOutputDevices>;
     fn VideoRenderersAvailable(&self) -> ::windows::core::Result<IMSVidVideoRendererDevices>;
     fn AudioRenderersAvailable(&self) -> ::windows::core::Result<IMSVidAudioRendererDevices>;
     fn FeaturesAvailable(&self) -> ::windows::core::Result<IMSVidFeatures>;
@@ -25535,10 +25535,10 @@ impl IMSVidCtl_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).SetColorKey(::core::mem::transmute_copy(&newvalue)).into()
         }
-        unsafe extern "system" fn InputsAvailable<Identity: ::windows::core::IUnknownImpl, Impl: IMSVidCtl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, categoryguid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_InputsAvailable<Identity: ::windows::core::IUnknownImpl, Impl: IMSVidCtl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, categoryguid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).InputsAvailable(::core::mem::transmute(&categoryguid)) {
+            match (*this).get_InputsAvailable(::core::mem::transmute(&categoryguid)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pval = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -25546,10 +25546,10 @@ impl IMSVidCtl_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn OutputsAvailable<Identity: ::windows::core::IUnknownImpl, Impl: IMSVidCtl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, categoryguid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_OutputsAvailable<Identity: ::windows::core::IUnknownImpl, Impl: IMSVidCtl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, categoryguid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).OutputsAvailable(::core::mem::transmute(&categoryguid)) {
+            match (*this).get_OutputsAvailable(::core::mem::transmute(&categoryguid)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pval = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -25557,10 +25557,10 @@ impl IMSVidCtl_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn _InputsAvailable<Identity: ::windows::core::IUnknownImpl, Impl: IMSVidCtl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, categoryguid: *const ::windows::core::GUID, pval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get__InputsAvailable<Identity: ::windows::core::IUnknownImpl, Impl: IMSVidCtl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, categoryguid: *const ::windows::core::GUID, pval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this)._InputsAvailable(::core::mem::transmute_copy(&categoryguid)) {
+            match (*this).get__InputsAvailable(::core::mem::transmute_copy(&categoryguid)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pval = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -25568,10 +25568,10 @@ impl IMSVidCtl_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn _OutputsAvailable<Identity: ::windows::core::IUnknownImpl, Impl: IMSVidCtl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, categoryguid: *const ::windows::core::GUID, pval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get__OutputsAvailable<Identity: ::windows::core::IUnknownImpl, Impl: IMSVidCtl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, categoryguid: *const ::windows::core::GUID, pval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this)._OutputsAvailable(::core::mem::transmute_copy(&categoryguid)) {
+            match (*this).get__OutputsAvailable(::core::mem::transmute_copy(&categoryguid)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pval = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -25766,10 +25766,10 @@ impl IMSVidCtl_Vtbl {
             SetMaintainAspectRatio: SetMaintainAspectRatio::<Identity, Impl, OFFSET>,
             ColorKey: ColorKey::<Identity, Impl, OFFSET>,
             SetColorKey: SetColorKey::<Identity, Impl, OFFSET>,
-            InputsAvailable: InputsAvailable::<Identity, Impl, OFFSET>,
-            OutputsAvailable: OutputsAvailable::<Identity, Impl, OFFSET>,
-            _InputsAvailable: _InputsAvailable::<Identity, Impl, OFFSET>,
-            _OutputsAvailable: _OutputsAvailable::<Identity, Impl, OFFSET>,
+            get_InputsAvailable: get_InputsAvailable::<Identity, Impl, OFFSET>,
+            get_OutputsAvailable: get_OutputsAvailable::<Identity, Impl, OFFSET>,
+            get__InputsAvailable: get__InputsAvailable::<Identity, Impl, OFFSET>,
+            get__OutputsAvailable: get__OutputsAvailable::<Identity, Impl, OFFSET>,
             VideoRenderersAvailable: VideoRenderersAvailable::<Identity, Impl, OFFSET>,
             AudioRenderersAvailable: AudioRenderersAvailable::<Identity, Impl, OFFSET>,
             FeaturesAvailable: FeaturesAvailable::<Identity, Impl, OFFSET>,
@@ -26126,7 +26126,7 @@ impl IMSVidFeatureEvent_Vtbl {
 pub trait IMSVidFeatures_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows::core::Result<i32>;
     fn _NewEnum(&self) -> ::windows::core::Result<super::super::System::Ole::IEnumVARIANT>;
-    fn Item(&self, v: &super::super::System::Com::VARIANT) -> ::windows::core::Result<IMSVidFeature>;
+    fn get_Item(&self, v: &super::super::System::Com::VARIANT) -> ::windows::core::Result<IMSVidFeature>;
     fn Add(&self, pdb: &::core::option::Option<IMSVidFeature>) -> ::windows::core::Result<()>;
     fn Remove(&self, v: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
 }
@@ -26155,10 +26155,10 @@ impl IMSVidFeatures_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Item<Identity: ::windows::core::IUnknownImpl, Impl: IMSVidFeatures_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, v: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pdb: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_Item<Identity: ::windows::core::IUnknownImpl, Impl: IMSVidFeatures_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, v: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pdb: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).Item(::core::mem::transmute(&v)) {
+            match (*this).get_Item(::core::mem::transmute(&v)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pdb = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -26180,7 +26180,7 @@ impl IMSVidFeatures_Vtbl {
             base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Count: Count::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
-            Item: Item::<Identity, Impl, OFFSET>,
+            get_Item: get_Item::<Identity, Impl, OFFSET>,
             Add: Add::<Identity, Impl, OFFSET>,
             Remove: Remove::<Identity, Impl, OFFSET>,
         }
@@ -26736,7 +26736,7 @@ impl IMSVidInputDeviceEvent_Vtbl {
 pub trait IMSVidInputDevices_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows::core::Result<i32>;
     fn _NewEnum(&self) -> ::windows::core::Result<super::super::System::Ole::IEnumVARIANT>;
-    fn Item(&self, v: &super::super::System::Com::VARIANT) -> ::windows::core::Result<IMSVidInputDevice>;
+    fn get_Item(&self, v: &super::super::System::Com::VARIANT) -> ::windows::core::Result<IMSVidInputDevice>;
     fn Add(&self, pdb: &::core::option::Option<IMSVidInputDevice>) -> ::windows::core::Result<()>;
     fn Remove(&self, v: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
 }
@@ -26765,10 +26765,10 @@ impl IMSVidInputDevices_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Item<Identity: ::windows::core::IUnknownImpl, Impl: IMSVidInputDevices_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, v: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pdb: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_Item<Identity: ::windows::core::IUnknownImpl, Impl: IMSVidInputDevices_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, v: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pdb: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).Item(::core::mem::transmute(&v)) {
+            match (*this).get_Item(::core::mem::transmute(&v)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pdb = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -26790,7 +26790,7 @@ impl IMSVidInputDevices_Vtbl {
             base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Count: Count::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
-            Item: Item::<Identity, Impl, OFFSET>,
+            get_Item: get_Item::<Identity, Impl, OFFSET>,
             Add: Add::<Identity, Impl, OFFSET>,
             Remove: Remove::<Identity, Impl, OFFSET>,
         }
@@ -26825,7 +26825,7 @@ impl IMSVidOutputDeviceEvent_Vtbl {
 pub trait IMSVidOutputDevices_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows::core::Result<i32>;
     fn _NewEnum(&self) -> ::windows::core::Result<super::super::System::Ole::IEnumVARIANT>;
-    fn Item(&self, v: &super::super::System::Com::VARIANT) -> ::windows::core::Result<IMSVidOutputDevice>;
+    fn get_Item(&self, v: &super::super::System::Com::VARIANT) -> ::windows::core::Result<IMSVidOutputDevice>;
     fn Add(&self, pdb: &::core::option::Option<IMSVidOutputDevice>) -> ::windows::core::Result<()>;
     fn Remove(&self, v: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
 }
@@ -26854,10 +26854,10 @@ impl IMSVidOutputDevices_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Item<Identity: ::windows::core::IUnknownImpl, Impl: IMSVidOutputDevices_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, v: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pdb: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_Item<Identity: ::windows::core::IUnknownImpl, Impl: IMSVidOutputDevices_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, v: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pdb: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).Item(::core::mem::transmute(&v)) {
+            match (*this).get_Item(::core::mem::transmute(&v)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pdb = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -26879,7 +26879,7 @@ impl IMSVidOutputDevices_Vtbl {
             base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Count: Count::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
-            Item: Item::<Identity, Impl, OFFSET>,
+            get_Item: get_Item::<Identity, Impl, OFFSET>,
             Add: Add::<Identity, Impl, OFFSET>,
             Remove: Remove::<Identity, Impl, OFFSET>,
         }
@@ -26895,7 +26895,7 @@ pub trait IMSVidPlayback_Impl: Sized + super::super::System::Com::IDispatch_Impl
     fn Run(&self) -> ::windows::core::Result<()>;
     fn Pause(&self) -> ::windows::core::Result<()>;
     fn Stop(&self) -> ::windows::core::Result<()>;
-    fn CanStep(&self, fbackwards: i16) -> ::windows::core::Result<i16>;
+    fn get_CanStep(&self, fbackwards: i16) -> ::windows::core::Result<i16>;
     fn Step(&self, lstep: i32) -> ::windows::core::Result<()>;
     fn SetRate(&self, plrate: f64) -> ::windows::core::Result<()>;
     fn Rate(&self) -> ::windows::core::Result<f64>;
@@ -26939,10 +26939,10 @@ impl IMSVidPlayback_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).Stop().into()
         }
-        unsafe extern "system" fn CanStep<Identity: ::windows::core::IUnknownImpl, Impl: IMSVidPlayback_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fbackwards: i16, pfcan: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_CanStep<Identity: ::windows::core::IUnknownImpl, Impl: IMSVidPlayback_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fbackwards: i16, pfcan: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).CanStep(::core::mem::transmute_copy(&fbackwards)) {
+            match (*this).get_CanStep(::core::mem::transmute_copy(&fbackwards)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pfcan = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -27021,7 +27021,7 @@ impl IMSVidPlayback_Vtbl {
             Run: Run::<Identity, Impl, OFFSET>,
             Pause: Pause::<Identity, Impl, OFFSET>,
             Stop: Stop::<Identity, Impl, OFFSET>,
-            CanStep: CanStep::<Identity, Impl, OFFSET>,
+            get_CanStep: get_CanStep::<Identity, Impl, OFFSET>,
             Step: Step::<Identity, Impl, OFFSET>,
             SetRate: SetRate::<Identity, Impl, OFFSET>,
             Rate: Rate::<Identity, Impl, OFFSET>,
@@ -27283,8 +27283,8 @@ impl IMSVidStreamBufferRecordingControl_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMSVidStreamBufferSink_Impl: Sized + super::super::System::Com::IDispatch_Impl + IMSVidDevice_Impl + IMSVidOutputDevice_Impl {
-    fn ContentRecorder(&self, pszfilename: &super::super::Foundation::BSTR) -> ::windows::core::Result<IMSVidStreamBufferRecordingControl>;
-    fn ReferenceRecorder(&self, pszfilename: &super::super::Foundation::BSTR) -> ::windows::core::Result<IMSVidStreamBufferRecordingControl>;
+    fn get_ContentRecorder(&self, pszfilename: &super::super::Foundation::BSTR) -> ::windows::core::Result<IMSVidStreamBufferRecordingControl>;
+    fn get_ReferenceRecorder(&self, pszfilename: &super::super::Foundation::BSTR) -> ::windows::core::Result<IMSVidStreamBufferRecordingControl>;
     fn SinkName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn SetSinkName(&self, name: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn NameSetLock(&self) -> ::windows::core::Result<()>;
@@ -27293,10 +27293,10 @@ pub trait IMSVidStreamBufferSink_Impl: Sized + super::super::System::Com::IDispa
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMSVidStreamBufferSink_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMSVidStreamBufferSink_Impl, const OFFSET: isize>() -> IMSVidStreamBufferSink_Vtbl {
-        unsafe extern "system" fn ContentRecorder<Identity: ::windows::core::IUnknownImpl, Impl: IMSVidStreamBufferSink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszfilename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, precordingiunknown: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_ContentRecorder<Identity: ::windows::core::IUnknownImpl, Impl: IMSVidStreamBufferSink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszfilename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, precordingiunknown: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).ContentRecorder(::core::mem::transmute(&pszfilename)) {
+            match (*this).get_ContentRecorder(::core::mem::transmute(&pszfilename)) {
                 ::core::result::Result::Ok(ok__) => {
                     *precordingiunknown = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -27304,10 +27304,10 @@ impl IMSVidStreamBufferSink_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReferenceRecorder<Identity: ::windows::core::IUnknownImpl, Impl: IMSVidStreamBufferSink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszfilename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, precordingiunknown: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_ReferenceRecorder<Identity: ::windows::core::IUnknownImpl, Impl: IMSVidStreamBufferSink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszfilename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, precordingiunknown: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).ReferenceRecorder(::core::mem::transmute(&pszfilename)) {
+            match (*this).get_ReferenceRecorder(::core::mem::transmute(&pszfilename)) {
                 ::core::result::Result::Ok(ok__) => {
                     *precordingiunknown = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -27349,8 +27349,8 @@ impl IMSVidStreamBufferSink_Vtbl {
         }
         Self {
             base__: IMSVidOutputDevice_Vtbl::new::<Identity, Impl, OFFSET>(),
-            ContentRecorder: ContentRecorder::<Identity, Impl, OFFSET>,
-            ReferenceRecorder: ReferenceRecorder::<Identity, Impl, OFFSET>,
+            get_ContentRecorder: get_ContentRecorder::<Identity, Impl, OFFSET>,
+            get_ReferenceRecorder: get_ReferenceRecorder::<Identity, Impl, OFFSET>,
             SinkName: SinkName::<Identity, Impl, OFFSET>,
             SetSinkName: SetSinkName::<Identity, Impl, OFFSET>,
             NameSetLock: NameSetLock::<Identity, Impl, OFFSET>,
@@ -27773,7 +27773,7 @@ impl IMSVidStreamBufferSource_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMSVidStreamBufferSource2_Impl: Sized + super::super::System::Com::IDispatch_Impl + IMSVidDevice_Impl + IMSVidInputDevice_Impl + IMSVidPlayback_Impl + IMSVidFilePlayback_Impl + IMSVidStreamBufferSource_Impl {
-    fn SetRateEx(&self, dwrate: f64, dwframespersecond: u32) -> ::windows::core::Result<()>;
+    fn put_RateEx(&self, dwrate: f64, dwframespersecond: u32) -> ::windows::core::Result<()>;
     fn AudioCounter(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
     fn VideoCounter(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
     fn CCCounter(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
@@ -27782,10 +27782,10 @@ pub trait IMSVidStreamBufferSource2_Impl: Sized + super::super::System::Com::IDi
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMSVidStreamBufferSource2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMSVidStreamBufferSource2_Impl, const OFFSET: isize>() -> IMSVidStreamBufferSource2_Vtbl {
-        unsafe extern "system" fn SetRateEx<Identity: ::windows::core::IUnknownImpl, Impl: IMSVidStreamBufferSource2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwrate: f64, dwframespersecond: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn put_RateEx<Identity: ::windows::core::IUnknownImpl, Impl: IMSVidStreamBufferSource2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwrate: f64, dwframespersecond: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetRateEx(::core::mem::transmute_copy(&dwrate), ::core::mem::transmute_copy(&dwframespersecond)).into()
+            (*this).put_RateEx(::core::mem::transmute_copy(&dwrate), ::core::mem::transmute_copy(&dwframespersecond)).into()
         }
         unsafe extern "system" fn AudioCounter<Identity: ::windows::core::IUnknownImpl, Impl: IMSVidStreamBufferSource2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -27833,7 +27833,7 @@ impl IMSVidStreamBufferSource2_Vtbl {
         }
         Self {
             base__: IMSVidStreamBufferSource_Vtbl::new::<Identity, Impl, OFFSET>(),
-            SetRateEx: SetRateEx::<Identity, Impl, OFFSET>,
+            put_RateEx: put_RateEx::<Identity, Impl, OFFSET>,
             AudioCounter: AudioCounter::<Identity, Impl, OFFSET>,
             VideoCounter: VideoCounter::<Identity, Impl, OFFSET>,
             CCCounter: CCCounter::<Identity, Impl, OFFSET>,
@@ -28219,7 +28219,7 @@ pub trait IMSVidVRGraphSegment_Impl: Sized + super::super::System::Com::IPersist
     fn SetSource(&self, r: &super::super::Foundation::RECT) -> ::windows::core::Result<()>;
     fn Destination(&self) -> ::windows::core::Result<super::super::Foundation::RECT>;
     fn SetDestination(&self, r: &super::super::Foundation::RECT) -> ::windows::core::Result<()>;
-    fn NativeSize(&self, sizeval: *mut super::super::Foundation::SIZE, aspectratio: *mut super::super::Foundation::SIZE) -> ::windows::core::Result<()>;
+    fn get_NativeSize(&self, sizeval: *mut super::super::Foundation::SIZE, aspectratio: *mut super::super::Foundation::SIZE) -> ::windows::core::Result<()>;
     fn BorderColor(&self) -> ::windows::core::Result<u32>;
     fn SetBorderColor(&self, color: u32) -> ::windows::core::Result<()>;
     fn MaintainAspectRatio(&self) -> ::windows::core::Result<i16>;
@@ -28332,10 +28332,10 @@ impl IMSVidVRGraphSegment_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).SetDestination(::core::mem::transmute(&r)).into()
         }
-        unsafe extern "system" fn NativeSize<Identity: ::windows::core::IUnknownImpl, Impl: IMSVidVRGraphSegment_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sizeval: *mut super::super::Foundation::SIZE, aspectratio: *mut super::super::Foundation::SIZE) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_NativeSize<Identity: ::windows::core::IUnknownImpl, Impl: IMSVidVRGraphSegment_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sizeval: *mut super::super::Foundation::SIZE, aspectratio: *mut super::super::Foundation::SIZE) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).NativeSize(::core::mem::transmute_copy(&sizeval), ::core::mem::transmute_copy(&aspectratio)).into()
+            (*this).get_NativeSize(::core::mem::transmute_copy(&sizeval), ::core::mem::transmute_copy(&aspectratio)).into()
         }
         unsafe extern "system" fn BorderColor<Identity: ::windows::core::IUnknownImpl, Impl: IMSVidVRGraphSegment_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, color: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -28399,7 +28399,7 @@ impl IMSVidVRGraphSegment_Vtbl {
             SetSource: SetSource::<Identity, Impl, OFFSET>,
             Destination: Destination::<Identity, Impl, OFFSET>,
             SetDestination: SetDestination::<Identity, Impl, OFFSET>,
-            NativeSize: NativeSize::<Identity, Impl, OFFSET>,
+            get_NativeSize: get_NativeSize::<Identity, Impl, OFFSET>,
             BorderColor: BorderColor::<Identity, Impl, OFFSET>,
             SetBorderColor: SetBorderColor::<Identity, Impl, OFFSET>,
             MaintainAspectRatio: MaintainAspectRatio::<Identity, Impl, OFFSET>,
@@ -28841,7 +28841,7 @@ impl IMSVidVideoRenderer2_Vtbl {
 pub trait IMSVidVideoRendererDevices_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows::core::Result<i32>;
     fn _NewEnum(&self) -> ::windows::core::Result<super::super::System::Ole::IEnumVARIANT>;
-    fn Item(&self, v: &super::super::System::Com::VARIANT) -> ::windows::core::Result<IMSVidVideoRenderer>;
+    fn get_Item(&self, v: &super::super::System::Com::VARIANT) -> ::windows::core::Result<IMSVidVideoRenderer>;
     fn Add(&self, pdb: &::core::option::Option<IMSVidVideoRenderer>) -> ::windows::core::Result<()>;
     fn Remove(&self, v: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
 }
@@ -28870,10 +28870,10 @@ impl IMSVidVideoRendererDevices_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Item<Identity: ::windows::core::IUnknownImpl, Impl: IMSVidVideoRendererDevices_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, v: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pdb: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_Item<Identity: ::windows::core::IUnknownImpl, Impl: IMSVidVideoRendererDevices_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, v: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pdb: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).Item(::core::mem::transmute(&v)) {
+            match (*this).get_Item(::core::mem::transmute(&v)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pdb = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -28895,7 +28895,7 @@ impl IMSVidVideoRendererDevices_Vtbl {
             base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Count: Count::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
-            Item: Item::<Identity, Impl, OFFSET>,
+            get_Item: get_Item::<Identity, Impl, OFFSET>,
             Add: Add::<Identity, Impl, OFFSET>,
             Remove: Remove::<Identity, Impl, OFFSET>,
         }
@@ -28954,7 +28954,7 @@ pub trait IMSVidWebDVD_Impl: Sized + super::super::System::Com::IDispatch_Impl +
     fn PlayPrevChapter(&self) -> ::windows::core::Result<()>;
     fn PlayNextChapter(&self) -> ::windows::core::Result<()>;
     fn StillOff(&self) -> ::windows::core::Result<()>;
-    fn AudioLanguage(&self, lstream: i32, fformat: i16) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn get_AudioLanguage(&self, lstream: i32, fformat: i16) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn ShowMenu(&self, menuid: DVDMenuIDConstants) -> ::windows::core::Result<()>;
     fn Resume(&self) -> ::windows::core::Result<()>;
     fn ReturnFromSubmenu(&self) -> ::windows::core::Result<()>;
@@ -28968,8 +28968,8 @@ pub trait IMSVidWebDVD_Impl: Sized + super::super::System::Com::IDispatch_Impl +
     fn SelectUpperButton(&self) -> ::windows::core::Result<()>;
     fn ActivateAtPosition(&self, xpos: i32, ypos: i32) -> ::windows::core::Result<()>;
     fn SelectAtPosition(&self, xpos: i32, ypos: i32) -> ::windows::core::Result<()>;
-    fn ButtonAtPosition(&self, xpos: i32, ypos: i32) -> ::windows::core::Result<i32>;
-    fn NumberOfChapters(&self, ltitle: i32) -> ::windows::core::Result<i32>;
+    fn get_ButtonAtPosition(&self, xpos: i32, ypos: i32) -> ::windows::core::Result<i32>;
+    fn get_NumberOfChapters(&self, ltitle: i32) -> ::windows::core::Result<i32>;
     fn TotalTitleTime(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn TitlesAvailable(&self) -> ::windows::core::Result<i32>;
     fn VolumesAvailable(&self) -> ::windows::core::Result<i32>;
@@ -28986,7 +28986,7 @@ pub trait IMSVidWebDVD_Impl: Sized + super::super::System::Com::IDispatch_Impl +
     fn IsAudioStreamEnabled(&self, lstream: i32) -> ::windows::core::Result<i16>;
     fn CurrentSubpictureStream(&self) -> ::windows::core::Result<i32>;
     fn SetCurrentSubpictureStream(&self, newval: i32) -> ::windows::core::Result<()>;
-    fn SubpictureLanguage(&self, lstream: i32) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn get_SubpictureLanguage(&self, lstream: i32) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn CurrentAudioStream(&self) -> ::windows::core::Result<i32>;
     fn SetCurrentAudioStream(&self, newval: i32) -> ::windows::core::Result<()>;
     fn AudioStreamsAvailable(&self) -> ::windows::core::Result<i32>;
@@ -29001,19 +29001,19 @@ pub trait IMSVidWebDVD_Impl: Sized + super::super::System::Com::IDispatch_Impl +
     fn NotifyParentalLevelChange(&self, newval: i16) -> ::windows::core::Result<()>;
     fn SelectParentalCountry(&self, lcountry: i32, strusername: &super::super::Foundation::BSTR, strpassword: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn SelectParentalLevel(&self, lparentallevel: i32, strusername: &super::super::Foundation::BSTR, strpassword: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
-    fn TitleParentalLevels(&self, ltitle: i32) -> ::windows::core::Result<i32>;
+    fn get_TitleParentalLevels(&self, ltitle: i32) -> ::windows::core::Result<i32>;
     fn PlayerParentalCountry(&self) -> ::windows::core::Result<i32>;
     fn PlayerParentalLevel(&self) -> ::windows::core::Result<i32>;
     fn Eject(&self) -> ::windows::core::Result<()>;
     fn UOPValid(&self, luop: i32) -> ::windows::core::Result<i16>;
-    fn SPRM(&self, lindex: i32) -> ::windows::core::Result<i16>;
-    fn GPRM(&self, lindex: i32) -> ::windows::core::Result<i16>;
-    fn SetGPRM(&self, lindex: i32, svalue: i16) -> ::windows::core::Result<()>;
-    fn DVDTextStringType(&self, llangindex: i32, lstringindex: i32) -> ::windows::core::Result<DVDTextStringType>;
-    fn DVDTextString(&self, llangindex: i32, lstringindex: i32) -> ::windows::core::Result<super::super::Foundation::BSTR>;
-    fn DVDTextNumberOfStrings(&self, llangindex: i32) -> ::windows::core::Result<i32>;
+    fn get_SPRM(&self, lindex: i32) -> ::windows::core::Result<i16>;
+    fn get_GPRM(&self, lindex: i32) -> ::windows::core::Result<i16>;
+    fn put_GPRM(&self, lindex: i32, svalue: i16) -> ::windows::core::Result<()>;
+    fn get_DVDTextStringType(&self, llangindex: i32, lstringindex: i32) -> ::windows::core::Result<DVDTextStringType>;
+    fn get_DVDTextString(&self, llangindex: i32, lstringindex: i32) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn get_DVDTextNumberOfStrings(&self, llangindex: i32) -> ::windows::core::Result<i32>;
     fn DVDTextNumberOfLanguages(&self) -> ::windows::core::Result<i32>;
-    fn DVDTextLanguageLCID(&self, llangindex: i32) -> ::windows::core::Result<i32>;
+    fn get_DVDTextLanguageLCID(&self, llangindex: i32) -> ::windows::core::Result<i32>;
     fn RegionChange(&self) -> ::windows::core::Result<()>;
     fn DVDAdm(&self) -> ::windows::core::Result<super::super::System::Com::IDispatch>;
     fn DeleteBookmark(&self) -> ::windows::core::Result<()>;
@@ -29028,13 +29028,13 @@ pub trait IMSVidWebDVD_Impl: Sized + super::super::System::Com::IDispatch_Impl +
     fn DefaultAudioLanguage(&self) -> ::windows::core::Result<i32>;
     fn DefaultSubpictureLanguageExt(&self) -> ::windows::core::Result<DVDSPExt>;
     fn DefaultAudioLanguageExt(&self) -> ::windows::core::Result<i32>;
-    fn LanguageFromLCID(&self, lcid: i32) -> ::windows::core::Result<super::super::Foundation::BSTR>;
+    fn get_LanguageFromLCID(&self, lcid: i32) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn KaraokeAudioPresentationMode(&self) -> ::windows::core::Result<i32>;
     fn SetKaraokeAudioPresentationMode(&self, newval: i32) -> ::windows::core::Result<()>;
-    fn KaraokeChannelContent(&self, lstream: i32, lchan: i32) -> ::windows::core::Result<i32>;
-    fn KaraokeChannelAssignment(&self, lstream: i32) -> ::windows::core::Result<i32>;
+    fn get_KaraokeChannelContent(&self, lstream: i32, lchan: i32) -> ::windows::core::Result<i32>;
+    fn get_KaraokeChannelAssignment(&self, lstream: i32) -> ::windows::core::Result<i32>;
     fn RestorePreferredSettings(&self) -> ::windows::core::Result<()>;
-    fn ButtonRect(&self, lbutton: i32) -> ::windows::core::Result<IMSVidRect>;
+    fn get_ButtonRect(&self, lbutton: i32) -> ::windows::core::Result<IMSVidRect>;
     fn DVDScreenInMouseCoordinates(&self) -> ::windows::core::Result<IMSVidRect>;
     fn SetDVDScreenInMouseCoordinates(&self, prect: &::core::option::Option<IMSVidRect>) -> ::windows::core::Result<()>;
 }
@@ -29101,10 +29101,10 @@ impl IMSVidWebDVD_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).StillOff().into()
         }
-        unsafe extern "system" fn AudioLanguage<Identity: ::windows::core::IUnknownImpl, Impl: IMSVidWebDVD_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lstream: i32, fformat: i16, straudiolang: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_AudioLanguage<Identity: ::windows::core::IUnknownImpl, Impl: IMSVidWebDVD_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lstream: i32, fformat: i16, straudiolang: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).AudioLanguage(::core::mem::transmute_copy(&lstream), ::core::mem::transmute_copy(&fformat)) {
+            match (*this).get_AudioLanguage(::core::mem::transmute_copy(&lstream), ::core::mem::transmute_copy(&fformat)) {
                 ::core::result::Result::Ok(ok__) => {
                     *straudiolang = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -29189,10 +29189,10 @@ impl IMSVidWebDVD_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).SelectAtPosition(::core::mem::transmute_copy(&xpos), ::core::mem::transmute_copy(&ypos)).into()
         }
-        unsafe extern "system" fn ButtonAtPosition<Identity: ::windows::core::IUnknownImpl, Impl: IMSVidWebDVD_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xpos: i32, ypos: i32, plbutton: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_ButtonAtPosition<Identity: ::windows::core::IUnknownImpl, Impl: IMSVidWebDVD_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xpos: i32, ypos: i32, plbutton: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).ButtonAtPosition(::core::mem::transmute_copy(&xpos), ::core::mem::transmute_copy(&ypos)) {
+            match (*this).get_ButtonAtPosition(::core::mem::transmute_copy(&xpos), ::core::mem::transmute_copy(&ypos)) {
                 ::core::result::Result::Ok(ok__) => {
                     *plbutton = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -29200,10 +29200,10 @@ impl IMSVidWebDVD_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn NumberOfChapters<Identity: ::windows::core::IUnknownImpl, Impl: IMSVidWebDVD_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ltitle: i32, pval: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_NumberOfChapters<Identity: ::windows::core::IUnknownImpl, Impl: IMSVidWebDVD_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ltitle: i32, pval: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).NumberOfChapters(::core::mem::transmute_copy(&ltitle)) {
+            match (*this).get_NumberOfChapters(::core::mem::transmute_copy(&ltitle)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pval = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -29375,10 +29375,10 @@ impl IMSVidWebDVD_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).SetCurrentSubpictureStream(::core::mem::transmute_copy(&newval)).into()
         }
-        unsafe extern "system" fn SubpictureLanguage<Identity: ::windows::core::IUnknownImpl, Impl: IMSVidWebDVD_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lstream: i32, strlanguage: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_SubpictureLanguage<Identity: ::windows::core::IUnknownImpl, Impl: IMSVidWebDVD_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lstream: i32, strlanguage: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).SubpictureLanguage(::core::mem::transmute_copy(&lstream)) {
+            match (*this).get_SubpictureLanguage(::core::mem::transmute_copy(&lstream)) {
                 ::core::result::Result::Ok(ok__) => {
                     *strlanguage = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -29498,10 +29498,10 @@ impl IMSVidWebDVD_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).SelectParentalLevel(::core::mem::transmute_copy(&lparentallevel), ::core::mem::transmute(&strusername), ::core::mem::transmute(&strpassword)).into()
         }
-        unsafe extern "system" fn TitleParentalLevels<Identity: ::windows::core::IUnknownImpl, Impl: IMSVidWebDVD_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ltitle: i32, plparentallevels: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_TitleParentalLevels<Identity: ::windows::core::IUnknownImpl, Impl: IMSVidWebDVD_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ltitle: i32, plparentallevels: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).TitleParentalLevels(::core::mem::transmute_copy(&ltitle)) {
+            match (*this).get_TitleParentalLevels(::core::mem::transmute_copy(&ltitle)) {
                 ::core::result::Result::Ok(ok__) => {
                     *plparentallevels = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -29547,10 +29547,10 @@ impl IMSVidWebDVD_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SPRM<Identity: ::windows::core::IUnknownImpl, Impl: IMSVidWebDVD_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lindex: i32, pssprm: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_SPRM<Identity: ::windows::core::IUnknownImpl, Impl: IMSVidWebDVD_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lindex: i32, pssprm: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).SPRM(::core::mem::transmute_copy(&lindex)) {
+            match (*this).get_SPRM(::core::mem::transmute_copy(&lindex)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pssprm = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -29558,10 +29558,10 @@ impl IMSVidWebDVD_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GPRM<Identity: ::windows::core::IUnknownImpl, Impl: IMSVidWebDVD_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lindex: i32, pssprm: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_GPRM<Identity: ::windows::core::IUnknownImpl, Impl: IMSVidWebDVD_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lindex: i32, pssprm: *mut i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).GPRM(::core::mem::transmute_copy(&lindex)) {
+            match (*this).get_GPRM(::core::mem::transmute_copy(&lindex)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pssprm = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -29569,15 +29569,15 @@ impl IMSVidWebDVD_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetGPRM<Identity: ::windows::core::IUnknownImpl, Impl: IMSVidWebDVD_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lindex: i32, svalue: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn put_GPRM<Identity: ::windows::core::IUnknownImpl, Impl: IMSVidWebDVD_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lindex: i32, svalue: i16) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetGPRM(::core::mem::transmute_copy(&lindex), ::core::mem::transmute_copy(&svalue)).into()
+            (*this).put_GPRM(::core::mem::transmute_copy(&lindex), ::core::mem::transmute_copy(&svalue)).into()
         }
-        unsafe extern "system" fn DVDTextStringType<Identity: ::windows::core::IUnknownImpl, Impl: IMSVidWebDVD_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, llangindex: i32, lstringindex: i32, ptype: *mut DVDTextStringType) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_DVDTextStringType<Identity: ::windows::core::IUnknownImpl, Impl: IMSVidWebDVD_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, llangindex: i32, lstringindex: i32, ptype: *mut DVDTextStringType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).DVDTextStringType(::core::mem::transmute_copy(&llangindex), ::core::mem::transmute_copy(&lstringindex)) {
+            match (*this).get_DVDTextStringType(::core::mem::transmute_copy(&llangindex), ::core::mem::transmute_copy(&lstringindex)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ptype = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -29585,10 +29585,10 @@ impl IMSVidWebDVD_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DVDTextString<Identity: ::windows::core::IUnknownImpl, Impl: IMSVidWebDVD_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, llangindex: i32, lstringindex: i32, pstrtext: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_DVDTextString<Identity: ::windows::core::IUnknownImpl, Impl: IMSVidWebDVD_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, llangindex: i32, lstringindex: i32, pstrtext: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).DVDTextString(::core::mem::transmute_copy(&llangindex), ::core::mem::transmute_copy(&lstringindex)) {
+            match (*this).get_DVDTextString(::core::mem::transmute_copy(&llangindex), ::core::mem::transmute_copy(&lstringindex)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pstrtext = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -29596,10 +29596,10 @@ impl IMSVidWebDVD_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DVDTextNumberOfStrings<Identity: ::windows::core::IUnknownImpl, Impl: IMSVidWebDVD_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, llangindex: i32, plnumofstrings: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_DVDTextNumberOfStrings<Identity: ::windows::core::IUnknownImpl, Impl: IMSVidWebDVD_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, llangindex: i32, plnumofstrings: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).DVDTextNumberOfStrings(::core::mem::transmute_copy(&llangindex)) {
+            match (*this).get_DVDTextNumberOfStrings(::core::mem::transmute_copy(&llangindex)) {
                 ::core::result::Result::Ok(ok__) => {
                     *plnumofstrings = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -29618,10 +29618,10 @@ impl IMSVidWebDVD_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DVDTextLanguageLCID<Identity: ::windows::core::IUnknownImpl, Impl: IMSVidWebDVD_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, llangindex: i32, lcid: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_DVDTextLanguageLCID<Identity: ::windows::core::IUnknownImpl, Impl: IMSVidWebDVD_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, llangindex: i32, lcid: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).DVDTextLanguageLCID(::core::mem::transmute_copy(&llangindex)) {
+            match (*this).get_DVDTextLanguageLCID(::core::mem::transmute_copy(&llangindex)) {
                 ::core::result::Result::Ok(ok__) => {
                     *lcid = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -29741,10 +29741,10 @@ impl IMSVidWebDVD_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn LanguageFromLCID<Identity: ::windows::core::IUnknownImpl, Impl: IMSVidWebDVD_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lcid: i32, lang: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_LanguageFromLCID<Identity: ::windows::core::IUnknownImpl, Impl: IMSVidWebDVD_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lcid: i32, lang: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).LanguageFromLCID(::core::mem::transmute_copy(&lcid)) {
+            match (*this).get_LanguageFromLCID(::core::mem::transmute_copy(&lcid)) {
                 ::core::result::Result::Ok(ok__) => {
                     *lang = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -29768,10 +29768,10 @@ impl IMSVidWebDVD_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).SetKaraokeAudioPresentationMode(::core::mem::transmute_copy(&newval)).into()
         }
-        unsafe extern "system" fn KaraokeChannelContent<Identity: ::windows::core::IUnknownImpl, Impl: IMSVidWebDVD_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lstream: i32, lchan: i32, lcontent: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_KaraokeChannelContent<Identity: ::windows::core::IUnknownImpl, Impl: IMSVidWebDVD_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lstream: i32, lchan: i32, lcontent: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).KaraokeChannelContent(::core::mem::transmute_copy(&lstream), ::core::mem::transmute_copy(&lchan)) {
+            match (*this).get_KaraokeChannelContent(::core::mem::transmute_copy(&lstream), ::core::mem::transmute_copy(&lchan)) {
                 ::core::result::Result::Ok(ok__) => {
                     *lcontent = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -29779,10 +29779,10 @@ impl IMSVidWebDVD_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn KaraokeChannelAssignment<Identity: ::windows::core::IUnknownImpl, Impl: IMSVidWebDVD_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lstream: i32, lchannelassignment: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_KaraokeChannelAssignment<Identity: ::windows::core::IUnknownImpl, Impl: IMSVidWebDVD_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lstream: i32, lchannelassignment: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).KaraokeChannelAssignment(::core::mem::transmute_copy(&lstream)) {
+            match (*this).get_KaraokeChannelAssignment(::core::mem::transmute_copy(&lstream)) {
                 ::core::result::Result::Ok(ok__) => {
                     *lchannelassignment = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -29795,10 +29795,10 @@ impl IMSVidWebDVD_Vtbl {
             let this = (*this).get_impl() as *mut Impl;
             (*this).RestorePreferredSettings().into()
         }
-        unsafe extern "system" fn ButtonRect<Identity: ::windows::core::IUnknownImpl, Impl: IMSVidWebDVD_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lbutton: i32, prect: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_ButtonRect<Identity: ::windows::core::IUnknownImpl, Impl: IMSVidWebDVD_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lbutton: i32, prect: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).ButtonRect(::core::mem::transmute_copy(&lbutton)) {
+            match (*this).get_ButtonRect(::core::mem::transmute_copy(&lbutton)) {
                 ::core::result::Result::Ok(ok__) => {
                     *prect = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -29836,7 +29836,7 @@ impl IMSVidWebDVD_Vtbl {
             PlayPrevChapter: PlayPrevChapter::<Identity, Impl, OFFSET>,
             PlayNextChapter: PlayNextChapter::<Identity, Impl, OFFSET>,
             StillOff: StillOff::<Identity, Impl, OFFSET>,
-            AudioLanguage: AudioLanguage::<Identity, Impl, OFFSET>,
+            get_AudioLanguage: get_AudioLanguage::<Identity, Impl, OFFSET>,
             ShowMenu: ShowMenu::<Identity, Impl, OFFSET>,
             Resume: Resume::<Identity, Impl, OFFSET>,
             ReturnFromSubmenu: ReturnFromSubmenu::<Identity, Impl, OFFSET>,
@@ -29850,8 +29850,8 @@ impl IMSVidWebDVD_Vtbl {
             SelectUpperButton: SelectUpperButton::<Identity, Impl, OFFSET>,
             ActivateAtPosition: ActivateAtPosition::<Identity, Impl, OFFSET>,
             SelectAtPosition: SelectAtPosition::<Identity, Impl, OFFSET>,
-            ButtonAtPosition: ButtonAtPosition::<Identity, Impl, OFFSET>,
-            NumberOfChapters: NumberOfChapters::<Identity, Impl, OFFSET>,
+            get_ButtonAtPosition: get_ButtonAtPosition::<Identity, Impl, OFFSET>,
+            get_NumberOfChapters: get_NumberOfChapters::<Identity, Impl, OFFSET>,
             TotalTitleTime: TotalTitleTime::<Identity, Impl, OFFSET>,
             TitlesAvailable: TitlesAvailable::<Identity, Impl, OFFSET>,
             VolumesAvailable: VolumesAvailable::<Identity, Impl, OFFSET>,
@@ -29868,7 +29868,7 @@ impl IMSVidWebDVD_Vtbl {
             IsAudioStreamEnabled: IsAudioStreamEnabled::<Identity, Impl, OFFSET>,
             CurrentSubpictureStream: CurrentSubpictureStream::<Identity, Impl, OFFSET>,
             SetCurrentSubpictureStream: SetCurrentSubpictureStream::<Identity, Impl, OFFSET>,
-            SubpictureLanguage: SubpictureLanguage::<Identity, Impl, OFFSET>,
+            get_SubpictureLanguage: get_SubpictureLanguage::<Identity, Impl, OFFSET>,
             CurrentAudioStream: CurrentAudioStream::<Identity, Impl, OFFSET>,
             SetCurrentAudioStream: SetCurrentAudioStream::<Identity, Impl, OFFSET>,
             AudioStreamsAvailable: AudioStreamsAvailable::<Identity, Impl, OFFSET>,
@@ -29883,19 +29883,19 @@ impl IMSVidWebDVD_Vtbl {
             NotifyParentalLevelChange: NotifyParentalLevelChange::<Identity, Impl, OFFSET>,
             SelectParentalCountry: SelectParentalCountry::<Identity, Impl, OFFSET>,
             SelectParentalLevel: SelectParentalLevel::<Identity, Impl, OFFSET>,
-            TitleParentalLevels: TitleParentalLevels::<Identity, Impl, OFFSET>,
+            get_TitleParentalLevels: get_TitleParentalLevels::<Identity, Impl, OFFSET>,
             PlayerParentalCountry: PlayerParentalCountry::<Identity, Impl, OFFSET>,
             PlayerParentalLevel: PlayerParentalLevel::<Identity, Impl, OFFSET>,
             Eject: Eject::<Identity, Impl, OFFSET>,
             UOPValid: UOPValid::<Identity, Impl, OFFSET>,
-            SPRM: SPRM::<Identity, Impl, OFFSET>,
-            GPRM: GPRM::<Identity, Impl, OFFSET>,
-            SetGPRM: SetGPRM::<Identity, Impl, OFFSET>,
-            DVDTextStringType: DVDTextStringType::<Identity, Impl, OFFSET>,
-            DVDTextString: DVDTextString::<Identity, Impl, OFFSET>,
-            DVDTextNumberOfStrings: DVDTextNumberOfStrings::<Identity, Impl, OFFSET>,
+            get_SPRM: get_SPRM::<Identity, Impl, OFFSET>,
+            get_GPRM: get_GPRM::<Identity, Impl, OFFSET>,
+            put_GPRM: put_GPRM::<Identity, Impl, OFFSET>,
+            get_DVDTextStringType: get_DVDTextStringType::<Identity, Impl, OFFSET>,
+            get_DVDTextString: get_DVDTextString::<Identity, Impl, OFFSET>,
+            get_DVDTextNumberOfStrings: get_DVDTextNumberOfStrings::<Identity, Impl, OFFSET>,
             DVDTextNumberOfLanguages: DVDTextNumberOfLanguages::<Identity, Impl, OFFSET>,
-            DVDTextLanguageLCID: DVDTextLanguageLCID::<Identity, Impl, OFFSET>,
+            get_DVDTextLanguageLCID: get_DVDTextLanguageLCID::<Identity, Impl, OFFSET>,
             RegionChange: RegionChange::<Identity, Impl, OFFSET>,
             DVDAdm: DVDAdm::<Identity, Impl, OFFSET>,
             DeleteBookmark: DeleteBookmark::<Identity, Impl, OFFSET>,
@@ -29910,13 +29910,13 @@ impl IMSVidWebDVD_Vtbl {
             DefaultAudioLanguage: DefaultAudioLanguage::<Identity, Impl, OFFSET>,
             DefaultSubpictureLanguageExt: DefaultSubpictureLanguageExt::<Identity, Impl, OFFSET>,
             DefaultAudioLanguageExt: DefaultAudioLanguageExt::<Identity, Impl, OFFSET>,
-            LanguageFromLCID: LanguageFromLCID::<Identity, Impl, OFFSET>,
+            get_LanguageFromLCID: get_LanguageFromLCID::<Identity, Impl, OFFSET>,
             KaraokeAudioPresentationMode: KaraokeAudioPresentationMode::<Identity, Impl, OFFSET>,
             SetKaraokeAudioPresentationMode: SetKaraokeAudioPresentationMode::<Identity, Impl, OFFSET>,
-            KaraokeChannelContent: KaraokeChannelContent::<Identity, Impl, OFFSET>,
-            KaraokeChannelAssignment: KaraokeChannelAssignment::<Identity, Impl, OFFSET>,
+            get_KaraokeChannelContent: get_KaraokeChannelContent::<Identity, Impl, OFFSET>,
+            get_KaraokeChannelAssignment: get_KaraokeChannelAssignment::<Identity, Impl, OFFSET>,
             RestorePreferredSettings: RestorePreferredSettings::<Identity, Impl, OFFSET>,
-            ButtonRect: ButtonRect::<Identity, Impl, OFFSET>,
+            get_ButtonRect: get_ButtonRect::<Identity, Impl, OFFSET>,
             DVDScreenInMouseCoordinates: DVDScreenInMouseCoordinates::<Identity, Impl, OFFSET>,
             SetDVDScreenInMouseCoordinates: SetDVDScreenInMouseCoordinates::<Identity, Impl, OFFSET>,
         }
@@ -29927,26 +29927,26 @@ impl IMSVidWebDVD_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMSVidWebDVD2_Impl: Sized + super::super::System::Com::IDispatch_Impl + IMSVidDevice_Impl + IMSVidInputDevice_Impl + IMSVidPlayback_Impl + IMSVidWebDVD_Impl {
-    fn Bookmark(&self, ppdata: *mut *mut u8, pdatalength: *mut u32) -> ::windows::core::Result<()>;
-    fn SetBookmark(&self, pdata: *const u8, dwdatalength: u32) -> ::windows::core::Result<()>;
+    fn get_Bookmark(&self, ppdata: *mut *mut u8, pdatalength: *mut u32) -> ::windows::core::Result<()>;
+    fn put_Bookmark(&self, pdata: *const u8, dwdatalength: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMSVidWebDVD2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMSVidWebDVD2_Impl, const OFFSET: isize>() -> IMSVidWebDVD2_Vtbl {
-        unsafe extern "system" fn Bookmark<Identity: ::windows::core::IUnknownImpl, Impl: IMSVidWebDVD2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppdata: *mut *mut u8, pdatalength: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_Bookmark<Identity: ::windows::core::IUnknownImpl, Impl: IMSVidWebDVD2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppdata: *mut *mut u8, pdatalength: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).Bookmark(::core::mem::transmute_copy(&ppdata), ::core::mem::transmute_copy(&pdatalength)).into()
+            (*this).get_Bookmark(::core::mem::transmute_copy(&ppdata), ::core::mem::transmute_copy(&pdatalength)).into()
         }
-        unsafe extern "system" fn SetBookmark<Identity: ::windows::core::IUnknownImpl, Impl: IMSVidWebDVD2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdata: *const u8, dwdatalength: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn put_Bookmark<Identity: ::windows::core::IUnknownImpl, Impl: IMSVidWebDVD2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdata: *const u8, dwdatalength: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetBookmark(::core::mem::transmute_copy(&pdata), ::core::mem::transmute_copy(&dwdatalength)).into()
+            (*this).put_Bookmark(::core::mem::transmute_copy(&pdata), ::core::mem::transmute_copy(&dwdatalength)).into()
         }
         Self {
             base__: IMSVidWebDVD_Vtbl::new::<Identity, Impl, OFFSET>(),
-            Bookmark: Bookmark::<Identity, Impl, OFFSET>,
-            SetBookmark: SetBookmark::<Identity, Impl, OFFSET>,
+            get_Bookmark: get_Bookmark::<Identity, Impl, OFFSET>,
+            put_Bookmark: put_Bookmark::<Identity, Impl, OFFSET>,
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -36104,32 +36104,32 @@ impl ITuner_Vtbl {
     }
 }
 pub trait ITunerCap_Impl: Sized {
-    fn SupportedNetworkTypes(&self, ulcnetworktypesmax: u32, pulcnetworktypes: *mut u32, pguidnetworktypes: *mut ::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn SupportedVideoFormats(&self, pulamtunermodetype: *mut u32, pulanalogvideostandard: *mut u32) -> ::windows::core::Result<()>;
-    fn AuxInputCount(&self, pulcompositecount: *mut u32, pulsvideocount: *mut u32) -> ::windows::core::Result<()>;
+    fn get_SupportedNetworkTypes(&self, ulcnetworktypesmax: u32, pulcnetworktypes: *mut u32, pguidnetworktypes: *mut ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn get_SupportedVideoFormats(&self, pulamtunermodetype: *mut u32, pulanalogvideostandard: *mut u32) -> ::windows::core::Result<()>;
+    fn get_AuxInputCount(&self, pulcompositecount: *mut u32, pulsvideocount: *mut u32) -> ::windows::core::Result<()>;
 }
 impl ITunerCap_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITunerCap_Impl, const OFFSET: isize>() -> ITunerCap_Vtbl {
-        unsafe extern "system" fn SupportedNetworkTypes<Identity: ::windows::core::IUnknownImpl, Impl: ITunerCap_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ulcnetworktypesmax: u32, pulcnetworktypes: *mut u32, pguidnetworktypes: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_SupportedNetworkTypes<Identity: ::windows::core::IUnknownImpl, Impl: ITunerCap_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ulcnetworktypesmax: u32, pulcnetworktypes: *mut u32, pguidnetworktypes: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SupportedNetworkTypes(::core::mem::transmute_copy(&ulcnetworktypesmax), ::core::mem::transmute_copy(&pulcnetworktypes), ::core::mem::transmute_copy(&pguidnetworktypes)).into()
+            (*this).get_SupportedNetworkTypes(::core::mem::transmute_copy(&ulcnetworktypesmax), ::core::mem::transmute_copy(&pulcnetworktypes), ::core::mem::transmute_copy(&pguidnetworktypes)).into()
         }
-        unsafe extern "system" fn SupportedVideoFormats<Identity: ::windows::core::IUnknownImpl, Impl: ITunerCap_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pulamtunermodetype: *mut u32, pulanalogvideostandard: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_SupportedVideoFormats<Identity: ::windows::core::IUnknownImpl, Impl: ITunerCap_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pulamtunermodetype: *mut u32, pulanalogvideostandard: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SupportedVideoFormats(::core::mem::transmute_copy(&pulamtunermodetype), ::core::mem::transmute_copy(&pulanalogvideostandard)).into()
+            (*this).get_SupportedVideoFormats(::core::mem::transmute_copy(&pulamtunermodetype), ::core::mem::transmute_copy(&pulanalogvideostandard)).into()
         }
-        unsafe extern "system" fn AuxInputCount<Identity: ::windows::core::IUnknownImpl, Impl: ITunerCap_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pulcompositecount: *mut u32, pulsvideocount: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_AuxInputCount<Identity: ::windows::core::IUnknownImpl, Impl: ITunerCap_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pulcompositecount: *mut u32, pulsvideocount: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).AuxInputCount(::core::mem::transmute_copy(&pulcompositecount), ::core::mem::transmute_copy(&pulsvideocount)).into()
+            (*this).get_AuxInputCount(::core::mem::transmute_copy(&pulcompositecount), ::core::mem::transmute_copy(&pulsvideocount)).into()
         }
         Self {
             base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
-            SupportedNetworkTypes: SupportedNetworkTypes::<Identity, Impl, OFFSET>,
-            SupportedVideoFormats: SupportedVideoFormats::<Identity, Impl, OFFSET>,
-            AuxInputCount: AuxInputCount::<Identity, Impl, OFFSET>,
+            get_SupportedNetworkTypes: get_SupportedNetworkTypes::<Identity, Impl, OFFSET>,
+            get_SupportedVideoFormats: get_SupportedVideoFormats::<Identity, Impl, OFFSET>,
+            get_AuxInputCount: get_AuxInputCount::<Identity, Impl, OFFSET>,
         }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
@@ -36381,8 +36381,8 @@ impl ITuningSpace_Vtbl {
 pub trait ITuningSpaceContainer_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows::core::Result<i32>;
     fn _NewEnum(&self) -> ::windows::core::Result<super::super::System::Ole::IEnumVARIANT>;
-    fn Item(&self, varindex: &super::super::System::Com::VARIANT) -> ::windows::core::Result<ITuningSpace>;
-    fn SetItem(&self, varindex: &super::super::System::Com::VARIANT, tuningspace: &::core::option::Option<ITuningSpace>) -> ::windows::core::Result<()>;
+    fn get_Item(&self, varindex: &super::super::System::Com::VARIANT) -> ::windows::core::Result<ITuningSpace>;
+    fn put_Item(&self, varindex: &super::super::System::Com::VARIANT, tuningspace: &::core::option::Option<ITuningSpace>) -> ::windows::core::Result<()>;
     fn TuningSpacesForCLSID(&self, spaceclsid: &super::super::Foundation::BSTR) -> ::windows::core::Result<ITuningSpaces>;
     fn _TuningSpacesForCLSID2(&self, spaceclsid: *const ::windows::core::GUID) -> ::windows::core::Result<ITuningSpaces>;
     fn TuningSpacesForName(&self, name: &super::super::Foundation::BSTR) -> ::windows::core::Result<ITuningSpaces>;
@@ -36418,10 +36418,10 @@ impl ITuningSpaceContainer_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Item<Identity: ::windows::core::IUnknownImpl, Impl: ITuningSpaceContainer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varindex: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, tuningspace: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_Item<Identity: ::windows::core::IUnknownImpl, Impl: ITuningSpaceContainer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varindex: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, tuningspace: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).Item(::core::mem::transmute(&varindex)) {
+            match (*this).get_Item(::core::mem::transmute(&varindex)) {
                 ::core::result::Result::Ok(ok__) => {
                     *tuningspace = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -36429,10 +36429,10 @@ impl ITuningSpaceContainer_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetItem<Identity: ::windows::core::IUnknownImpl, Impl: ITuningSpaceContainer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varindex: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, tuningspace: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn put_Item<Identity: ::windows::core::IUnknownImpl, Impl: ITuningSpaceContainer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varindex: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, tuningspace: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetItem(::core::mem::transmute(&varindex), ::core::mem::transmute(&tuningspace)).into()
+            (*this).put_Item(::core::mem::transmute(&varindex), ::core::mem::transmute(&tuningspace)).into()
         }
         unsafe extern "system" fn TuningSpacesForCLSID<Identity: ::windows::core::IUnknownImpl, Impl: ITuningSpaceContainer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, spaceclsid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, newcoll: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -36525,8 +36525,8 @@ impl ITuningSpaceContainer_Vtbl {
             base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Count: Count::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
-            Item: Item::<Identity, Impl, OFFSET>,
-            SetItem: SetItem::<Identity, Impl, OFFSET>,
+            get_Item: get_Item::<Identity, Impl, OFFSET>,
+            put_Item: put_Item::<Identity, Impl, OFFSET>,
             TuningSpacesForCLSID: TuningSpacesForCLSID::<Identity, Impl, OFFSET>,
             _TuningSpacesForCLSID2: _TuningSpacesForCLSID2::<Identity, Impl, OFFSET>,
             TuningSpacesForName: TuningSpacesForName::<Identity, Impl, OFFSET>,
@@ -36546,7 +36546,7 @@ impl ITuningSpaceContainer_Vtbl {
 pub trait ITuningSpaces_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows::core::Result<i32>;
     fn _NewEnum(&self) -> ::windows::core::Result<super::super::System::Ole::IEnumVARIANT>;
-    fn Item(&self, varindex: &super::super::System::Com::VARIANT) -> ::windows::core::Result<ITuningSpace>;
+    fn get_Item(&self, varindex: &super::super::System::Com::VARIANT) -> ::windows::core::Result<ITuningSpace>;
     fn EnumTuningSpaces(&self) -> ::windows::core::Result<IEnumTuningSpaces>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -36574,10 +36574,10 @@ impl ITuningSpaces_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Item<Identity: ::windows::core::IUnknownImpl, Impl: ITuningSpaces_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varindex: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, tuningspace: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_Item<Identity: ::windows::core::IUnknownImpl, Impl: ITuningSpaces_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varindex: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, tuningspace: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).Item(::core::mem::transmute(&varindex)) {
+            match (*this).get_Item(::core::mem::transmute(&varindex)) {
                 ::core::result::Result::Ok(ok__) => {
                     *tuningspace = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -36600,7 +36600,7 @@ impl ITuningSpaces_Vtbl {
             base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
             Count: Count::<Identity, Impl, OFFSET>,
             _NewEnum: _NewEnum::<Identity, Impl, OFFSET>,
-            Item: Item::<Identity, Impl, OFFSET>,
+            get_Item: get_Item::<Identity, Impl, OFFSET>,
             EnumTuningSpaces: EnumTuningSpaces::<Identity, Impl, OFFSET>,
         }
     }
@@ -38522,237 +38522,237 @@ impl IVideoFrameStep_Vtbl {
     }
 }
 pub trait IVideoProcAmp_Impl: Sized {
-    fn BacklightCompensation(&self, pvalue: *mut i32, pflags: *mut i32) -> ::windows::core::Result<()>;
-    fn SetBacklightCompensation(&self, value: i32, flags: i32) -> ::windows::core::Result<()>;
+    fn get_BacklightCompensation(&self, pvalue: *mut i32, pflags: *mut i32) -> ::windows::core::Result<()>;
+    fn put_BacklightCompensation(&self, value: i32, flags: i32) -> ::windows::core::Result<()>;
     fn getRange_BacklightCompensation(&self, pmin: *mut i32, pmax: *mut i32, psteppingdelta: *mut i32, pdefault: *mut i32, pcapsflag: *mut i32) -> ::windows::core::Result<()>;
-    fn Brightness(&self, pvalue: *mut i32, pflags: *mut i32) -> ::windows::core::Result<()>;
-    fn SetBrightness(&self, value: i32, flags: i32) -> ::windows::core::Result<()>;
+    fn get_Brightness(&self, pvalue: *mut i32, pflags: *mut i32) -> ::windows::core::Result<()>;
+    fn put_Brightness(&self, value: i32, flags: i32) -> ::windows::core::Result<()>;
     fn getRange_Brightness(&self, pmin: *mut i32, pmax: *mut i32, psteppingdelta: *mut i32, pdefault: *mut i32, pcapsflag: *mut i32) -> ::windows::core::Result<()>;
-    fn ColorEnable(&self, pvalue: *mut i32, pflags: *mut i32) -> ::windows::core::Result<()>;
-    fn SetColorEnable(&self, value: i32, flags: i32) -> ::windows::core::Result<()>;
+    fn get_ColorEnable(&self, pvalue: *mut i32, pflags: *mut i32) -> ::windows::core::Result<()>;
+    fn put_ColorEnable(&self, value: i32, flags: i32) -> ::windows::core::Result<()>;
     fn getRange_ColorEnable(&self, pmin: *mut i32, pmax: *mut i32, psteppingdelta: *mut i32, pdefault: *mut i32, pcapsflag: *mut i32) -> ::windows::core::Result<()>;
-    fn Contrast(&self, pvalue: *mut i32, pflags: *mut i32) -> ::windows::core::Result<()>;
-    fn SetContrast(&self, value: i32, flags: i32) -> ::windows::core::Result<()>;
+    fn get_Contrast(&self, pvalue: *mut i32, pflags: *mut i32) -> ::windows::core::Result<()>;
+    fn put_Contrast(&self, value: i32, flags: i32) -> ::windows::core::Result<()>;
     fn getRange_Contrast(&self, pmin: *mut i32, pmax: *mut i32, psteppingdelta: *mut i32, pdefault: *mut i32, pcapsflag: *mut i32) -> ::windows::core::Result<()>;
-    fn Gamma(&self, pvalue: *mut i32, pflags: *mut i32) -> ::windows::core::Result<()>;
-    fn SetGamma(&self, value: i32, flags: i32) -> ::windows::core::Result<()>;
+    fn get_Gamma(&self, pvalue: *mut i32, pflags: *mut i32) -> ::windows::core::Result<()>;
+    fn put_Gamma(&self, value: i32, flags: i32) -> ::windows::core::Result<()>;
     fn getRange_Gamma(&self, pmin: *mut i32, pmax: *mut i32, psteppingdelta: *mut i32, pdefault: *mut i32, pcapsflag: *mut i32) -> ::windows::core::Result<()>;
-    fn Saturation(&self, pvalue: *mut i32, pflags: *mut i32) -> ::windows::core::Result<()>;
-    fn SetSaturation(&self, value: i32, flags: i32) -> ::windows::core::Result<()>;
+    fn get_Saturation(&self, pvalue: *mut i32, pflags: *mut i32) -> ::windows::core::Result<()>;
+    fn put_Saturation(&self, value: i32, flags: i32) -> ::windows::core::Result<()>;
     fn getRange_Saturation(&self, pmin: *mut i32, pmax: *mut i32, psteppingdelta: *mut i32, pdefault: *mut i32, pcapsflag: *mut i32) -> ::windows::core::Result<()>;
-    fn Sharpness(&self, pvalue: *mut i32, pflags: *mut i32) -> ::windows::core::Result<()>;
-    fn SetSharpness(&self, value: i32, flags: i32) -> ::windows::core::Result<()>;
+    fn get_Sharpness(&self, pvalue: *mut i32, pflags: *mut i32) -> ::windows::core::Result<()>;
+    fn put_Sharpness(&self, value: i32, flags: i32) -> ::windows::core::Result<()>;
     fn getRange_Sharpness(&self, pmin: *mut i32, pmax: *mut i32, psteppingdelta: *mut i32, pdefault: *mut i32, pcapsflag: *mut i32) -> ::windows::core::Result<()>;
-    fn WhiteBalance(&self, pvalue: *mut i32, pflags: *mut i32) -> ::windows::core::Result<()>;
-    fn SetWhiteBalance(&self, value: i32, flags: i32) -> ::windows::core::Result<()>;
+    fn get_WhiteBalance(&self, pvalue: *mut i32, pflags: *mut i32) -> ::windows::core::Result<()>;
+    fn put_WhiteBalance(&self, value: i32, flags: i32) -> ::windows::core::Result<()>;
     fn getRange_WhiteBalance(&self, pmin: *mut i32, pmax: *mut i32, psteppingdelta: *mut i32, pdefault: *mut i32, pcapsflag: *mut i32) -> ::windows::core::Result<()>;
-    fn Gain(&self, pvalue: *mut i32, pflags: *mut i32) -> ::windows::core::Result<()>;
-    fn SetGain(&self, value: i32, flags: i32) -> ::windows::core::Result<()>;
+    fn get_Gain(&self, pvalue: *mut i32, pflags: *mut i32) -> ::windows::core::Result<()>;
+    fn put_Gain(&self, value: i32, flags: i32) -> ::windows::core::Result<()>;
     fn getRange_Gain(&self, pmin: *mut i32, pmax: *mut i32, psteppingdelta: *mut i32, pdefault: *mut i32, pcapsflag: *mut i32) -> ::windows::core::Result<()>;
-    fn Hue(&self, pvalue: *mut i32, pflags: *mut i32) -> ::windows::core::Result<()>;
-    fn SetHue(&self, value: i32, flags: i32) -> ::windows::core::Result<()>;
+    fn get_Hue(&self, pvalue: *mut i32, pflags: *mut i32) -> ::windows::core::Result<()>;
+    fn put_Hue(&self, value: i32, flags: i32) -> ::windows::core::Result<()>;
     fn getRange_Hue(&self, pmin: *mut i32, pmax: *mut i32, psteppingdelta: *mut i32, pdefault: *mut i32, pcapsflag: *mut i32) -> ::windows::core::Result<()>;
-    fn DigitalMultiplier(&self, pvalue: *mut i32, pflags: *mut i32) -> ::windows::core::Result<()>;
-    fn SetDigitalMultiplier(&self, value: i32, flags: i32) -> ::windows::core::Result<()>;
+    fn get_DigitalMultiplier(&self, pvalue: *mut i32, pflags: *mut i32) -> ::windows::core::Result<()>;
+    fn put_DigitalMultiplier(&self, value: i32, flags: i32) -> ::windows::core::Result<()>;
     fn getRange_DigitalMultiplier(&self, pmin: *mut i32, pmax: *mut i32, psteppingdelta: *mut i32, pdefault: *mut i32, pcapsflag: *mut i32) -> ::windows::core::Result<()>;
-    fn PowerlineFrequency(&self, pvalue: *mut i32, pflags: *mut i32) -> ::windows::core::Result<()>;
-    fn SetPowerlineFrequency(&self, value: i32, flags: i32) -> ::windows::core::Result<()>;
+    fn get_PowerlineFrequency(&self, pvalue: *mut i32, pflags: *mut i32) -> ::windows::core::Result<()>;
+    fn put_PowerlineFrequency(&self, value: i32, flags: i32) -> ::windows::core::Result<()>;
     fn getRange_PowerlineFrequency(&self, pmin: *mut i32, pmax: *mut i32, psteppingdelta: *mut i32, pdefault: *mut i32, pcapsflag: *mut i32) -> ::windows::core::Result<()>;
-    fn WhiteBalanceComponent(&self, pvalue1: *mut i32, pvalue2: *mut i32, pflags: *mut i32) -> ::windows::core::Result<()>;
-    fn SetWhiteBalanceComponent(&self, value1: i32, value2: i32, flags: i32) -> ::windows::core::Result<()>;
+    fn get_WhiteBalanceComponent(&self, pvalue1: *mut i32, pvalue2: *mut i32, pflags: *mut i32) -> ::windows::core::Result<()>;
+    fn put_WhiteBalanceComponent(&self, value1: i32, value2: i32, flags: i32) -> ::windows::core::Result<()>;
     fn getRange_WhiteBalanceComponent(&self, pmin: *mut i32, pmax: *mut i32, psteppingdelta: *mut i32, pdefault: *mut i32, pcapsflag: *mut i32) -> ::windows::core::Result<()>;
 }
 impl IVideoProcAmp_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVideoProcAmp_Impl, const OFFSET: isize>() -> IVideoProcAmp_Vtbl {
-        unsafe extern "system" fn BacklightCompensation<Identity: ::windows::core::IUnknownImpl, Impl: IVideoProcAmp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalue: *mut i32, pflags: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_BacklightCompensation<Identity: ::windows::core::IUnknownImpl, Impl: IVideoProcAmp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalue: *mut i32, pflags: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).BacklightCompensation(::core::mem::transmute_copy(&pvalue), ::core::mem::transmute_copy(&pflags)).into()
+            (*this).get_BacklightCompensation(::core::mem::transmute_copy(&pvalue), ::core::mem::transmute_copy(&pflags)).into()
         }
-        unsafe extern "system" fn SetBacklightCompensation<Identity: ::windows::core::IUnknownImpl, Impl: IVideoProcAmp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i32, flags: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn put_BacklightCompensation<Identity: ::windows::core::IUnknownImpl, Impl: IVideoProcAmp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i32, flags: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetBacklightCompensation(::core::mem::transmute_copy(&value), ::core::mem::transmute_copy(&flags)).into()
+            (*this).put_BacklightCompensation(::core::mem::transmute_copy(&value), ::core::mem::transmute_copy(&flags)).into()
         }
         unsafe extern "system" fn getRange_BacklightCompensation<Identity: ::windows::core::IUnknownImpl, Impl: IVideoProcAmp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pmin: *mut i32, pmax: *mut i32, psteppingdelta: *mut i32, pdefault: *mut i32, pcapsflag: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             (*this).getRange_BacklightCompensation(::core::mem::transmute_copy(&pmin), ::core::mem::transmute_copy(&pmax), ::core::mem::transmute_copy(&psteppingdelta), ::core::mem::transmute_copy(&pdefault), ::core::mem::transmute_copy(&pcapsflag)).into()
         }
-        unsafe extern "system" fn Brightness<Identity: ::windows::core::IUnknownImpl, Impl: IVideoProcAmp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalue: *mut i32, pflags: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_Brightness<Identity: ::windows::core::IUnknownImpl, Impl: IVideoProcAmp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalue: *mut i32, pflags: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).Brightness(::core::mem::transmute_copy(&pvalue), ::core::mem::transmute_copy(&pflags)).into()
+            (*this).get_Brightness(::core::mem::transmute_copy(&pvalue), ::core::mem::transmute_copy(&pflags)).into()
         }
-        unsafe extern "system" fn SetBrightness<Identity: ::windows::core::IUnknownImpl, Impl: IVideoProcAmp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i32, flags: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn put_Brightness<Identity: ::windows::core::IUnknownImpl, Impl: IVideoProcAmp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i32, flags: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetBrightness(::core::mem::transmute_copy(&value), ::core::mem::transmute_copy(&flags)).into()
+            (*this).put_Brightness(::core::mem::transmute_copy(&value), ::core::mem::transmute_copy(&flags)).into()
         }
         unsafe extern "system" fn getRange_Brightness<Identity: ::windows::core::IUnknownImpl, Impl: IVideoProcAmp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pmin: *mut i32, pmax: *mut i32, psteppingdelta: *mut i32, pdefault: *mut i32, pcapsflag: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             (*this).getRange_Brightness(::core::mem::transmute_copy(&pmin), ::core::mem::transmute_copy(&pmax), ::core::mem::transmute_copy(&psteppingdelta), ::core::mem::transmute_copy(&pdefault), ::core::mem::transmute_copy(&pcapsflag)).into()
         }
-        unsafe extern "system" fn ColorEnable<Identity: ::windows::core::IUnknownImpl, Impl: IVideoProcAmp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalue: *mut i32, pflags: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_ColorEnable<Identity: ::windows::core::IUnknownImpl, Impl: IVideoProcAmp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalue: *mut i32, pflags: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).ColorEnable(::core::mem::transmute_copy(&pvalue), ::core::mem::transmute_copy(&pflags)).into()
+            (*this).get_ColorEnable(::core::mem::transmute_copy(&pvalue), ::core::mem::transmute_copy(&pflags)).into()
         }
-        unsafe extern "system" fn SetColorEnable<Identity: ::windows::core::IUnknownImpl, Impl: IVideoProcAmp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i32, flags: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn put_ColorEnable<Identity: ::windows::core::IUnknownImpl, Impl: IVideoProcAmp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i32, flags: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetColorEnable(::core::mem::transmute_copy(&value), ::core::mem::transmute_copy(&flags)).into()
+            (*this).put_ColorEnable(::core::mem::transmute_copy(&value), ::core::mem::transmute_copy(&flags)).into()
         }
         unsafe extern "system" fn getRange_ColorEnable<Identity: ::windows::core::IUnknownImpl, Impl: IVideoProcAmp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pmin: *mut i32, pmax: *mut i32, psteppingdelta: *mut i32, pdefault: *mut i32, pcapsflag: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             (*this).getRange_ColorEnable(::core::mem::transmute_copy(&pmin), ::core::mem::transmute_copy(&pmax), ::core::mem::transmute_copy(&psteppingdelta), ::core::mem::transmute_copy(&pdefault), ::core::mem::transmute_copy(&pcapsflag)).into()
         }
-        unsafe extern "system" fn Contrast<Identity: ::windows::core::IUnknownImpl, Impl: IVideoProcAmp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalue: *mut i32, pflags: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_Contrast<Identity: ::windows::core::IUnknownImpl, Impl: IVideoProcAmp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalue: *mut i32, pflags: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).Contrast(::core::mem::transmute_copy(&pvalue), ::core::mem::transmute_copy(&pflags)).into()
+            (*this).get_Contrast(::core::mem::transmute_copy(&pvalue), ::core::mem::transmute_copy(&pflags)).into()
         }
-        unsafe extern "system" fn SetContrast<Identity: ::windows::core::IUnknownImpl, Impl: IVideoProcAmp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i32, flags: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn put_Contrast<Identity: ::windows::core::IUnknownImpl, Impl: IVideoProcAmp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i32, flags: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetContrast(::core::mem::transmute_copy(&value), ::core::mem::transmute_copy(&flags)).into()
+            (*this).put_Contrast(::core::mem::transmute_copy(&value), ::core::mem::transmute_copy(&flags)).into()
         }
         unsafe extern "system" fn getRange_Contrast<Identity: ::windows::core::IUnknownImpl, Impl: IVideoProcAmp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pmin: *mut i32, pmax: *mut i32, psteppingdelta: *mut i32, pdefault: *mut i32, pcapsflag: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             (*this).getRange_Contrast(::core::mem::transmute_copy(&pmin), ::core::mem::transmute_copy(&pmax), ::core::mem::transmute_copy(&psteppingdelta), ::core::mem::transmute_copy(&pdefault), ::core::mem::transmute_copy(&pcapsflag)).into()
         }
-        unsafe extern "system" fn Gamma<Identity: ::windows::core::IUnknownImpl, Impl: IVideoProcAmp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalue: *mut i32, pflags: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_Gamma<Identity: ::windows::core::IUnknownImpl, Impl: IVideoProcAmp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalue: *mut i32, pflags: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).Gamma(::core::mem::transmute_copy(&pvalue), ::core::mem::transmute_copy(&pflags)).into()
+            (*this).get_Gamma(::core::mem::transmute_copy(&pvalue), ::core::mem::transmute_copy(&pflags)).into()
         }
-        unsafe extern "system" fn SetGamma<Identity: ::windows::core::IUnknownImpl, Impl: IVideoProcAmp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i32, flags: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn put_Gamma<Identity: ::windows::core::IUnknownImpl, Impl: IVideoProcAmp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i32, flags: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetGamma(::core::mem::transmute_copy(&value), ::core::mem::transmute_copy(&flags)).into()
+            (*this).put_Gamma(::core::mem::transmute_copy(&value), ::core::mem::transmute_copy(&flags)).into()
         }
         unsafe extern "system" fn getRange_Gamma<Identity: ::windows::core::IUnknownImpl, Impl: IVideoProcAmp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pmin: *mut i32, pmax: *mut i32, psteppingdelta: *mut i32, pdefault: *mut i32, pcapsflag: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             (*this).getRange_Gamma(::core::mem::transmute_copy(&pmin), ::core::mem::transmute_copy(&pmax), ::core::mem::transmute_copy(&psteppingdelta), ::core::mem::transmute_copy(&pdefault), ::core::mem::transmute_copy(&pcapsflag)).into()
         }
-        unsafe extern "system" fn Saturation<Identity: ::windows::core::IUnknownImpl, Impl: IVideoProcAmp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalue: *mut i32, pflags: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_Saturation<Identity: ::windows::core::IUnknownImpl, Impl: IVideoProcAmp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalue: *mut i32, pflags: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).Saturation(::core::mem::transmute_copy(&pvalue), ::core::mem::transmute_copy(&pflags)).into()
+            (*this).get_Saturation(::core::mem::transmute_copy(&pvalue), ::core::mem::transmute_copy(&pflags)).into()
         }
-        unsafe extern "system" fn SetSaturation<Identity: ::windows::core::IUnknownImpl, Impl: IVideoProcAmp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i32, flags: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn put_Saturation<Identity: ::windows::core::IUnknownImpl, Impl: IVideoProcAmp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i32, flags: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetSaturation(::core::mem::transmute_copy(&value), ::core::mem::transmute_copy(&flags)).into()
+            (*this).put_Saturation(::core::mem::transmute_copy(&value), ::core::mem::transmute_copy(&flags)).into()
         }
         unsafe extern "system" fn getRange_Saturation<Identity: ::windows::core::IUnknownImpl, Impl: IVideoProcAmp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pmin: *mut i32, pmax: *mut i32, psteppingdelta: *mut i32, pdefault: *mut i32, pcapsflag: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             (*this).getRange_Saturation(::core::mem::transmute_copy(&pmin), ::core::mem::transmute_copy(&pmax), ::core::mem::transmute_copy(&psteppingdelta), ::core::mem::transmute_copy(&pdefault), ::core::mem::transmute_copy(&pcapsflag)).into()
         }
-        unsafe extern "system" fn Sharpness<Identity: ::windows::core::IUnknownImpl, Impl: IVideoProcAmp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalue: *mut i32, pflags: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_Sharpness<Identity: ::windows::core::IUnknownImpl, Impl: IVideoProcAmp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalue: *mut i32, pflags: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).Sharpness(::core::mem::transmute_copy(&pvalue), ::core::mem::transmute_copy(&pflags)).into()
+            (*this).get_Sharpness(::core::mem::transmute_copy(&pvalue), ::core::mem::transmute_copy(&pflags)).into()
         }
-        unsafe extern "system" fn SetSharpness<Identity: ::windows::core::IUnknownImpl, Impl: IVideoProcAmp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i32, flags: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn put_Sharpness<Identity: ::windows::core::IUnknownImpl, Impl: IVideoProcAmp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i32, flags: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetSharpness(::core::mem::transmute_copy(&value), ::core::mem::transmute_copy(&flags)).into()
+            (*this).put_Sharpness(::core::mem::transmute_copy(&value), ::core::mem::transmute_copy(&flags)).into()
         }
         unsafe extern "system" fn getRange_Sharpness<Identity: ::windows::core::IUnknownImpl, Impl: IVideoProcAmp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pmin: *mut i32, pmax: *mut i32, psteppingdelta: *mut i32, pdefault: *mut i32, pcapsflag: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             (*this).getRange_Sharpness(::core::mem::transmute_copy(&pmin), ::core::mem::transmute_copy(&pmax), ::core::mem::transmute_copy(&psteppingdelta), ::core::mem::transmute_copy(&pdefault), ::core::mem::transmute_copy(&pcapsflag)).into()
         }
-        unsafe extern "system" fn WhiteBalance<Identity: ::windows::core::IUnknownImpl, Impl: IVideoProcAmp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalue: *mut i32, pflags: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_WhiteBalance<Identity: ::windows::core::IUnknownImpl, Impl: IVideoProcAmp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalue: *mut i32, pflags: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).WhiteBalance(::core::mem::transmute_copy(&pvalue), ::core::mem::transmute_copy(&pflags)).into()
+            (*this).get_WhiteBalance(::core::mem::transmute_copy(&pvalue), ::core::mem::transmute_copy(&pflags)).into()
         }
-        unsafe extern "system" fn SetWhiteBalance<Identity: ::windows::core::IUnknownImpl, Impl: IVideoProcAmp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i32, flags: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn put_WhiteBalance<Identity: ::windows::core::IUnknownImpl, Impl: IVideoProcAmp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i32, flags: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetWhiteBalance(::core::mem::transmute_copy(&value), ::core::mem::transmute_copy(&flags)).into()
+            (*this).put_WhiteBalance(::core::mem::transmute_copy(&value), ::core::mem::transmute_copy(&flags)).into()
         }
         unsafe extern "system" fn getRange_WhiteBalance<Identity: ::windows::core::IUnknownImpl, Impl: IVideoProcAmp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pmin: *mut i32, pmax: *mut i32, psteppingdelta: *mut i32, pdefault: *mut i32, pcapsflag: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             (*this).getRange_WhiteBalance(::core::mem::transmute_copy(&pmin), ::core::mem::transmute_copy(&pmax), ::core::mem::transmute_copy(&psteppingdelta), ::core::mem::transmute_copy(&pdefault), ::core::mem::transmute_copy(&pcapsflag)).into()
         }
-        unsafe extern "system" fn Gain<Identity: ::windows::core::IUnknownImpl, Impl: IVideoProcAmp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalue: *mut i32, pflags: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_Gain<Identity: ::windows::core::IUnknownImpl, Impl: IVideoProcAmp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalue: *mut i32, pflags: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).Gain(::core::mem::transmute_copy(&pvalue), ::core::mem::transmute_copy(&pflags)).into()
+            (*this).get_Gain(::core::mem::transmute_copy(&pvalue), ::core::mem::transmute_copy(&pflags)).into()
         }
-        unsafe extern "system" fn SetGain<Identity: ::windows::core::IUnknownImpl, Impl: IVideoProcAmp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i32, flags: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn put_Gain<Identity: ::windows::core::IUnknownImpl, Impl: IVideoProcAmp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i32, flags: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetGain(::core::mem::transmute_copy(&value), ::core::mem::transmute_copy(&flags)).into()
+            (*this).put_Gain(::core::mem::transmute_copy(&value), ::core::mem::transmute_copy(&flags)).into()
         }
         unsafe extern "system" fn getRange_Gain<Identity: ::windows::core::IUnknownImpl, Impl: IVideoProcAmp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pmin: *mut i32, pmax: *mut i32, psteppingdelta: *mut i32, pdefault: *mut i32, pcapsflag: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             (*this).getRange_Gain(::core::mem::transmute_copy(&pmin), ::core::mem::transmute_copy(&pmax), ::core::mem::transmute_copy(&psteppingdelta), ::core::mem::transmute_copy(&pdefault), ::core::mem::transmute_copy(&pcapsflag)).into()
         }
-        unsafe extern "system" fn Hue<Identity: ::windows::core::IUnknownImpl, Impl: IVideoProcAmp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalue: *mut i32, pflags: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_Hue<Identity: ::windows::core::IUnknownImpl, Impl: IVideoProcAmp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalue: *mut i32, pflags: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).Hue(::core::mem::transmute_copy(&pvalue), ::core::mem::transmute_copy(&pflags)).into()
+            (*this).get_Hue(::core::mem::transmute_copy(&pvalue), ::core::mem::transmute_copy(&pflags)).into()
         }
-        unsafe extern "system" fn SetHue<Identity: ::windows::core::IUnknownImpl, Impl: IVideoProcAmp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i32, flags: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn put_Hue<Identity: ::windows::core::IUnknownImpl, Impl: IVideoProcAmp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i32, flags: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetHue(::core::mem::transmute_copy(&value), ::core::mem::transmute_copy(&flags)).into()
+            (*this).put_Hue(::core::mem::transmute_copy(&value), ::core::mem::transmute_copy(&flags)).into()
         }
         unsafe extern "system" fn getRange_Hue<Identity: ::windows::core::IUnknownImpl, Impl: IVideoProcAmp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pmin: *mut i32, pmax: *mut i32, psteppingdelta: *mut i32, pdefault: *mut i32, pcapsflag: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             (*this).getRange_Hue(::core::mem::transmute_copy(&pmin), ::core::mem::transmute_copy(&pmax), ::core::mem::transmute_copy(&psteppingdelta), ::core::mem::transmute_copy(&pdefault), ::core::mem::transmute_copy(&pcapsflag)).into()
         }
-        unsafe extern "system" fn DigitalMultiplier<Identity: ::windows::core::IUnknownImpl, Impl: IVideoProcAmp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalue: *mut i32, pflags: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_DigitalMultiplier<Identity: ::windows::core::IUnknownImpl, Impl: IVideoProcAmp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalue: *mut i32, pflags: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).DigitalMultiplier(::core::mem::transmute_copy(&pvalue), ::core::mem::transmute_copy(&pflags)).into()
+            (*this).get_DigitalMultiplier(::core::mem::transmute_copy(&pvalue), ::core::mem::transmute_copy(&pflags)).into()
         }
-        unsafe extern "system" fn SetDigitalMultiplier<Identity: ::windows::core::IUnknownImpl, Impl: IVideoProcAmp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i32, flags: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn put_DigitalMultiplier<Identity: ::windows::core::IUnknownImpl, Impl: IVideoProcAmp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i32, flags: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetDigitalMultiplier(::core::mem::transmute_copy(&value), ::core::mem::transmute_copy(&flags)).into()
+            (*this).put_DigitalMultiplier(::core::mem::transmute_copy(&value), ::core::mem::transmute_copy(&flags)).into()
         }
         unsafe extern "system" fn getRange_DigitalMultiplier<Identity: ::windows::core::IUnknownImpl, Impl: IVideoProcAmp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pmin: *mut i32, pmax: *mut i32, psteppingdelta: *mut i32, pdefault: *mut i32, pcapsflag: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             (*this).getRange_DigitalMultiplier(::core::mem::transmute_copy(&pmin), ::core::mem::transmute_copy(&pmax), ::core::mem::transmute_copy(&psteppingdelta), ::core::mem::transmute_copy(&pdefault), ::core::mem::transmute_copy(&pcapsflag)).into()
         }
-        unsafe extern "system" fn PowerlineFrequency<Identity: ::windows::core::IUnknownImpl, Impl: IVideoProcAmp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalue: *mut i32, pflags: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_PowerlineFrequency<Identity: ::windows::core::IUnknownImpl, Impl: IVideoProcAmp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalue: *mut i32, pflags: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).PowerlineFrequency(::core::mem::transmute_copy(&pvalue), ::core::mem::transmute_copy(&pflags)).into()
+            (*this).get_PowerlineFrequency(::core::mem::transmute_copy(&pvalue), ::core::mem::transmute_copy(&pflags)).into()
         }
-        unsafe extern "system" fn SetPowerlineFrequency<Identity: ::windows::core::IUnknownImpl, Impl: IVideoProcAmp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i32, flags: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn put_PowerlineFrequency<Identity: ::windows::core::IUnknownImpl, Impl: IVideoProcAmp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i32, flags: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetPowerlineFrequency(::core::mem::transmute_copy(&value), ::core::mem::transmute_copy(&flags)).into()
+            (*this).put_PowerlineFrequency(::core::mem::transmute_copy(&value), ::core::mem::transmute_copy(&flags)).into()
         }
         unsafe extern "system" fn getRange_PowerlineFrequency<Identity: ::windows::core::IUnknownImpl, Impl: IVideoProcAmp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pmin: *mut i32, pmax: *mut i32, psteppingdelta: *mut i32, pdefault: *mut i32, pcapsflag: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
             (*this).getRange_PowerlineFrequency(::core::mem::transmute_copy(&pmin), ::core::mem::transmute_copy(&pmax), ::core::mem::transmute_copy(&psteppingdelta), ::core::mem::transmute_copy(&pdefault), ::core::mem::transmute_copy(&pcapsflag)).into()
         }
-        unsafe extern "system" fn WhiteBalanceComponent<Identity: ::windows::core::IUnknownImpl, Impl: IVideoProcAmp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalue1: *mut i32, pvalue2: *mut i32, pflags: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_WhiteBalanceComponent<Identity: ::windows::core::IUnknownImpl, Impl: IVideoProcAmp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalue1: *mut i32, pvalue2: *mut i32, pflags: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).WhiteBalanceComponent(::core::mem::transmute_copy(&pvalue1), ::core::mem::transmute_copy(&pvalue2), ::core::mem::transmute_copy(&pflags)).into()
+            (*this).get_WhiteBalanceComponent(::core::mem::transmute_copy(&pvalue1), ::core::mem::transmute_copy(&pvalue2), ::core::mem::transmute_copy(&pflags)).into()
         }
-        unsafe extern "system" fn SetWhiteBalanceComponent<Identity: ::windows::core::IUnknownImpl, Impl: IVideoProcAmp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value1: i32, value2: i32, flags: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn put_WhiteBalanceComponent<Identity: ::windows::core::IUnknownImpl, Impl: IVideoProcAmp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value1: i32, value2: i32, flags: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).SetWhiteBalanceComponent(::core::mem::transmute_copy(&value1), ::core::mem::transmute_copy(&value2), ::core::mem::transmute_copy(&flags)).into()
+            (*this).put_WhiteBalanceComponent(::core::mem::transmute_copy(&value1), ::core::mem::transmute_copy(&value2), ::core::mem::transmute_copy(&flags)).into()
         }
         unsafe extern "system" fn getRange_WhiteBalanceComponent<Identity: ::windows::core::IUnknownImpl, Impl: IVideoProcAmp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pmin: *mut i32, pmax: *mut i32, psteppingdelta: *mut i32, pdefault: *mut i32, pcapsflag: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -38761,44 +38761,44 @@ impl IVideoProcAmp_Vtbl {
         }
         Self {
             base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
-            BacklightCompensation: BacklightCompensation::<Identity, Impl, OFFSET>,
-            SetBacklightCompensation: SetBacklightCompensation::<Identity, Impl, OFFSET>,
+            get_BacklightCompensation: get_BacklightCompensation::<Identity, Impl, OFFSET>,
+            put_BacklightCompensation: put_BacklightCompensation::<Identity, Impl, OFFSET>,
             getRange_BacklightCompensation: getRange_BacklightCompensation::<Identity, Impl, OFFSET>,
-            Brightness: Brightness::<Identity, Impl, OFFSET>,
-            SetBrightness: SetBrightness::<Identity, Impl, OFFSET>,
+            get_Brightness: get_Brightness::<Identity, Impl, OFFSET>,
+            put_Brightness: put_Brightness::<Identity, Impl, OFFSET>,
             getRange_Brightness: getRange_Brightness::<Identity, Impl, OFFSET>,
-            ColorEnable: ColorEnable::<Identity, Impl, OFFSET>,
-            SetColorEnable: SetColorEnable::<Identity, Impl, OFFSET>,
+            get_ColorEnable: get_ColorEnable::<Identity, Impl, OFFSET>,
+            put_ColorEnable: put_ColorEnable::<Identity, Impl, OFFSET>,
             getRange_ColorEnable: getRange_ColorEnable::<Identity, Impl, OFFSET>,
-            Contrast: Contrast::<Identity, Impl, OFFSET>,
-            SetContrast: SetContrast::<Identity, Impl, OFFSET>,
+            get_Contrast: get_Contrast::<Identity, Impl, OFFSET>,
+            put_Contrast: put_Contrast::<Identity, Impl, OFFSET>,
             getRange_Contrast: getRange_Contrast::<Identity, Impl, OFFSET>,
-            Gamma: Gamma::<Identity, Impl, OFFSET>,
-            SetGamma: SetGamma::<Identity, Impl, OFFSET>,
+            get_Gamma: get_Gamma::<Identity, Impl, OFFSET>,
+            put_Gamma: put_Gamma::<Identity, Impl, OFFSET>,
             getRange_Gamma: getRange_Gamma::<Identity, Impl, OFFSET>,
-            Saturation: Saturation::<Identity, Impl, OFFSET>,
-            SetSaturation: SetSaturation::<Identity, Impl, OFFSET>,
+            get_Saturation: get_Saturation::<Identity, Impl, OFFSET>,
+            put_Saturation: put_Saturation::<Identity, Impl, OFFSET>,
             getRange_Saturation: getRange_Saturation::<Identity, Impl, OFFSET>,
-            Sharpness: Sharpness::<Identity, Impl, OFFSET>,
-            SetSharpness: SetSharpness::<Identity, Impl, OFFSET>,
+            get_Sharpness: get_Sharpness::<Identity, Impl, OFFSET>,
+            put_Sharpness: put_Sharpness::<Identity, Impl, OFFSET>,
             getRange_Sharpness: getRange_Sharpness::<Identity, Impl, OFFSET>,
-            WhiteBalance: WhiteBalance::<Identity, Impl, OFFSET>,
-            SetWhiteBalance: SetWhiteBalance::<Identity, Impl, OFFSET>,
+            get_WhiteBalance: get_WhiteBalance::<Identity, Impl, OFFSET>,
+            put_WhiteBalance: put_WhiteBalance::<Identity, Impl, OFFSET>,
             getRange_WhiteBalance: getRange_WhiteBalance::<Identity, Impl, OFFSET>,
-            Gain: Gain::<Identity, Impl, OFFSET>,
-            SetGain: SetGain::<Identity, Impl, OFFSET>,
+            get_Gain: get_Gain::<Identity, Impl, OFFSET>,
+            put_Gain: put_Gain::<Identity, Impl, OFFSET>,
             getRange_Gain: getRange_Gain::<Identity, Impl, OFFSET>,
-            Hue: Hue::<Identity, Impl, OFFSET>,
-            SetHue: SetHue::<Identity, Impl, OFFSET>,
+            get_Hue: get_Hue::<Identity, Impl, OFFSET>,
+            put_Hue: put_Hue::<Identity, Impl, OFFSET>,
             getRange_Hue: getRange_Hue::<Identity, Impl, OFFSET>,
-            DigitalMultiplier: DigitalMultiplier::<Identity, Impl, OFFSET>,
-            SetDigitalMultiplier: SetDigitalMultiplier::<Identity, Impl, OFFSET>,
+            get_DigitalMultiplier: get_DigitalMultiplier::<Identity, Impl, OFFSET>,
+            put_DigitalMultiplier: put_DigitalMultiplier::<Identity, Impl, OFFSET>,
             getRange_DigitalMultiplier: getRange_DigitalMultiplier::<Identity, Impl, OFFSET>,
-            PowerlineFrequency: PowerlineFrequency::<Identity, Impl, OFFSET>,
-            SetPowerlineFrequency: SetPowerlineFrequency::<Identity, Impl, OFFSET>,
+            get_PowerlineFrequency: get_PowerlineFrequency::<Identity, Impl, OFFSET>,
+            put_PowerlineFrequency: put_PowerlineFrequency::<Identity, Impl, OFFSET>,
             getRange_PowerlineFrequency: getRange_PowerlineFrequency::<Identity, Impl, OFFSET>,
-            WhiteBalanceComponent: WhiteBalanceComponent::<Identity, Impl, OFFSET>,
-            SetWhiteBalanceComponent: SetWhiteBalanceComponent::<Identity, Impl, OFFSET>,
+            get_WhiteBalanceComponent: get_WhiteBalanceComponent::<Identity, Impl, OFFSET>,
+            put_WhiteBalanceComponent: put_WhiteBalanceComponent::<Identity, Impl, OFFSET>,
             getRange_WhiteBalanceComponent: getRange_WhiteBalanceComponent::<Identity, Impl, OFFSET>,
         }
     }

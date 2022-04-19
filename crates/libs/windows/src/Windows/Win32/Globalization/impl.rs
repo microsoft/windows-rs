@@ -1520,8 +1520,8 @@ pub trait ISpellChecker_Impl: Sized {
     fn OptionIds(&self) -> ::windows::core::Result<super::System::Com::IEnumString>;
     fn Id(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
     fn LocalizedName(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
-    fn SpellCheckerChanged(&self, handler: &::core::option::Option<ISpellCheckerChangedEventHandler>) -> ::windows::core::Result<u32>;
-    fn RemoveSpellCheckerChanged(&self, eventcookie: u32) -> ::windows::core::Result<()>;
+    fn add_SpellCheckerChanged(&self, handler: &::core::option::Option<ISpellCheckerChangedEventHandler>) -> ::windows::core::Result<u32>;
+    fn remove_SpellCheckerChanged(&self, eventcookie: u32) -> ::windows::core::Result<()>;
     fn GetOptionDescription(&self, optionid: &::windows::core::PCWSTR) -> ::windows::core::Result<IOptionDescription>;
     fn ComprehensiveCheck(&self, text: &::windows::core::PCWSTR) -> ::windows::core::Result<IEnumSpellingError>;
 }
@@ -1620,10 +1620,10 @@ impl ISpellChecker_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SpellCheckerChanged<Identity: ::windows::core::IUnknownImpl, Impl: ISpellChecker_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, eventcookie: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn add_SpellCheckerChanged<Identity: ::windows::core::IUnknownImpl, Impl: ISpellChecker_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, eventcookie: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).SpellCheckerChanged(::core::mem::transmute(&handler)) {
+            match (*this).add_SpellCheckerChanged(::core::mem::transmute(&handler)) {
                 ::core::result::Result::Ok(ok__) => {
                     *eventcookie = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1631,10 +1631,10 @@ impl ISpellChecker_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveSpellCheckerChanged<Identity: ::windows::core::IUnknownImpl, Impl: ISpellChecker_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventcookie: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn remove_SpellCheckerChanged<Identity: ::windows::core::IUnknownImpl, Impl: ISpellChecker_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventcookie: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            (*this).RemoveSpellCheckerChanged(::core::mem::transmute_copy(&eventcookie)).into()
+            (*this).remove_SpellCheckerChanged(::core::mem::transmute_copy(&eventcookie)).into()
         }
         unsafe extern "system" fn GetOptionDescription<Identity: ::windows::core::IUnknownImpl, Impl: ISpellChecker_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, optionid: ::windows::core::PCWSTR, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
@@ -1670,8 +1670,8 @@ impl ISpellChecker_Vtbl {
             OptionIds: OptionIds::<Identity, Impl, OFFSET>,
             Id: Id::<Identity, Impl, OFFSET>,
             LocalizedName: LocalizedName::<Identity, Impl, OFFSET>,
-            SpellCheckerChanged: SpellCheckerChanged::<Identity, Impl, OFFSET>,
-            RemoveSpellCheckerChanged: RemoveSpellCheckerChanged::<Identity, Impl, OFFSET>,
+            add_SpellCheckerChanged: add_SpellCheckerChanged::<Identity, Impl, OFFSET>,
+            remove_SpellCheckerChanged: remove_SpellCheckerChanged::<Identity, Impl, OFFSET>,
             GetOptionDescription: GetOptionDescription::<Identity, Impl, OFFSET>,
             ComprehensiveCheck: ComprehensiveCheck::<Identity, Impl, OFFSET>,
         }

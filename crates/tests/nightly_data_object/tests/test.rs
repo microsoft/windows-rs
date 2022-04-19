@@ -41,10 +41,10 @@ impl IDataObject_Impl for Test {
         }
     }
 
-    fn GetCanonicalFormatEtc(&self, _: *const FORMATETC) -> Result<FORMATETC> {
+    fn GetCanonicalFormatEtc(&self, _: *const FORMATETC, _: *mut FORMATETC) -> HRESULT {
         unsafe {
             (*self.0.get()).GetCanonicalFormatEtc = true;
-            Ok(FORMATETC::default())
+            S_OK
         }
     }
 
@@ -91,7 +91,7 @@ fn test() -> Result<()> {
         d.GetData(core::ptr::null_mut())?;
         d.GetDataHere(core::ptr::null_mut(), core::ptr::null_mut())?;
         d.QueryGetData(core::ptr::null_mut())?;
-        d.GetCanonicalFormatEtc(core::ptr::null_mut())?;
+        d.GetCanonicalFormatEtc(core::ptr::null(), core::ptr::null_mut()).ok()?;
         d.SetData(core::ptr::null_mut(), core::ptr::null_mut(), false)?;
         let _ = d.EnumFormatEtc(0);
         d.DAdvise(core::ptr::null_mut(), 0, None)?;

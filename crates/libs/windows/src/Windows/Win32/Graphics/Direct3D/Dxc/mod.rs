@@ -195,14 +195,15 @@ impl ::core::default::Default for DxcBuffer {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
 #[inline]
-pub unsafe fn DxcCreateInstance(rclsid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+pub unsafe fn DxcCreateInstance<T: ::windows::core::Interface>(rclsid: *const ::windows::core::GUID) -> ::windows::core::Result<T> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn DxcCreateInstance(rclsid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
-        DxcCreateInstance(::core::mem::transmute(rclsid), ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
+        let mut result__ = ::core::option::Option::None;
+        DxcCreateInstance(::core::mem::transmute(rclsid), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -210,14 +211,15 @@ pub unsafe fn DxcCreateInstance(rclsid: *const ::windows::core::GUID, riid: *con
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn DxcCreateInstance2<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::IMalloc>>(pmalloc: Param0, rclsid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+pub unsafe fn DxcCreateInstance2<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::IMalloc>, T: ::windows::core::Interface>(pmalloc: Param0, rclsid: *const ::windows::core::GUID) -> ::windows::core::Result<T> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn DxcCreateInstance2(pmalloc: ::windows::core::RawPtr, rclsid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
-        DxcCreateInstance2(pmalloc.into_param().abi(), ::core::mem::transmute(rclsid), ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
+        let mut result__ = ::core::option::Option::None;
+        DxcCreateInstance2(pmalloc.into_param().abi(), ::core::mem::transmute(rclsid), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

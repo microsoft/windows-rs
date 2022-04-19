@@ -4148,6 +4148,11 @@ pub const HCS_E_WINDOWS_INSIDER_REQUIRED: ::windows::core::HRESULT = ::windows::
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct HINSTANCE(pub isize);
+impl HINSTANCE {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == 0
+    }
+}
 impl ::core::default::Default for HINSTANCE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }

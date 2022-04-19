@@ -1440,7 +1440,7 @@ pub trait IDataObject_Impl: Sized {
     fn GetData(&self, pformatetcin: *const FORMATETC) -> ::windows::core::Result<STGMEDIUM>;
     fn GetDataHere(&self, pformatetc: *const FORMATETC, pmedium: *mut STGMEDIUM) -> ::windows::core::Result<()>;
     fn QueryGetData(&self, pformatetc: *const FORMATETC) -> ::windows::core::Result<()>;
-    fn GetCanonicalFormatEtc(&self, pformatectin: *const FORMATETC) -> ::windows::core::Result<FORMATETC>;
+    fn GetCanonicalFormatEtc(&self, pformatectin: *const FORMATETC, pformatetcout: *mut FORMATETC) -> ::windows::core::HRESULT;
     fn SetData(&self, pformatetc: *const FORMATETC, pmedium: *const STGMEDIUM, frelease: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn EnumFormatEtc(&self, dwdirection: u32) -> ::windows::core::Result<IEnumFORMATETC>;
     fn DAdvise(&self, pformatetc: *const FORMATETC, advf: u32, padvsink: &::core::option::Option<IAdviseSink>) -> ::windows::core::Result<u32>;
@@ -1474,13 +1474,7 @@ impl IDataObject_Vtbl {
         unsafe extern "system" fn GetCanonicalFormatEtc<Identity: ::windows::core::IUnknownImpl, Impl: IDataObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pformatectin: *const FORMATETC, pformatetcout: *mut FORMATETC) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetCanonicalFormatEtc(::core::mem::transmute_copy(&pformatectin)) {
-                ::core::result::Result::Ok(ok__) => {
-                    *pformatetcout = ::core::mem::transmute(ok__);
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            (*this).GetCanonicalFormatEtc(::core::mem::transmute_copy(&pformatectin), ::core::mem::transmute_copy(&pformatetcout))
         }
         unsafe extern "system" fn SetData<Identity: ::windows::core::IUnknownImpl, Impl: IDataObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pformatetc: *const FORMATETC, pmedium: *const STGMEDIUM, frelease: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;

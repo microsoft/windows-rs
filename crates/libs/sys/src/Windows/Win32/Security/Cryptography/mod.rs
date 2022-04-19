@@ -9621,13 +9621,9 @@ pub const CRYPT_XML_FLAG_ENFORCE_ID_NCNAME_FORMAT: u32 = 536870912u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub type CRYPT_XML_GROUP_ID = u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CRYPT_XML_GROUP_ID_HASH_________: CRYPT_XML_GROUP_ID = 1u32;
+pub const CRYPT_XML_GROUP_ID_HASH: CRYPT_XML_GROUP_ID = 1u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CRYPT_XML_GROUP_ID_SIGN_________: CRYPT_XML_GROUP_ID = 2u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CRYPT_XML_GROUP_ID_HASH: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CRYPT_XML_GROUP_ID_SIGN: u32 = 2u32;
+pub const CRYPT_XML_GROUP_ID_SIGN: CRYPT_XML_GROUP_ID = 2u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CRYPT_XML_ID_MAX: u32 = 256u32;
 #[repr(C)]
