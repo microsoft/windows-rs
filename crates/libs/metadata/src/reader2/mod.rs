@@ -154,6 +154,6 @@ pub struct SignatureParam {
 
 #[derive(Default, Clone)]
 pub struct Cfg<'a> {
-    types: BTreeMap<&'a str, BTreeSet<Row>>,
-    arches: BTreeSet<&'static str>,
+    pub types: BTreeMap<&'a str, BTreeSet<Row>>,
+    pub arches: BTreeSet<&'static str>,
 }
