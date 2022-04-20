@@ -572,7 +572,7 @@ impl<'a> Reader<'a> {
         self.type_def_methods(row).find(|method| self.method_def_name(*method) == "Invoke").expect("`Invoke` method not found")
     }
     pub fn type_def_interfaces(&'a self, row: TypeDef, generics: &'a [Type]) -> impl Iterator<Item = Interface> + '_ {
-        self.type_def_interface_impls(row).map(|row| self.interface_impl_type(row, generics))
+        self.type_def_interface_impls(row).map(move |row| self.interface_impl_type(row, generics))
     }
     pub fn type_def_is_deprecated(&self, row: TypeDef) -> bool {
         self.type_def_attributes(row).any(|attribute| self.attribute_name(attribute) == "DeprecatedAttribute")

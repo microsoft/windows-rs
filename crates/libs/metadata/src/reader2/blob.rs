@@ -1,4 +1,5 @@
 use super::*;
+use std::convert::*;
 
 pub struct Blob<'a> {
     pub file: usize,

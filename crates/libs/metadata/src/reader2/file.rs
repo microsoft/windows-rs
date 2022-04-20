@@ -60,7 +60,7 @@ impl File {
 
         let dos = result.bytes.view_as::<IMAGE_DOS_HEADER>(0);
 
-        if dos.e_magic != IMAGE_DOS_SIGNATURE as _ || result.bytes.copy_as::<u32>(dos.e_lfanew as _) != IMAGE_NT_SIGNATURE {
+        if dos.e_magic != IMAGE_DOS_SIGNATURE as _ || result.bytes.copy_as::<u16>(dos.e_lfanew as _) != IMAGE_NT_SIGNATURE {
             return Err(error_invalid_winmd());
         }
 
