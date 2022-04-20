@@ -27,7 +27,7 @@ fn main() {
 name = "windows"
 version = "0.35.0"
 authors = ["Microsoft"]
-edition = "2021"
+edition = "2018"
 license = "MIT OR Apache-2.0"
 description = "Rust for Windows"
 repository = "https://github.com/microsoft/windows-rs"
