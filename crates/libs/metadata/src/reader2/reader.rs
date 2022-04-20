@@ -782,11 +782,10 @@ impl<'a> Reader<'a> {
         self.cfg_add_attributes(&mut cfg, self.type_def_attributes(row));
         cfg
     }
-    fn type_def_cfg_impl(&self, row:TypeDef, generics:&[Type]) -> Cfg {
-        let mut cfg = Cfg::default();
-        cfg
+    fn type_def_cfg_impl(&self, _row:TypeDef, _generics:&[Type]) -> Cfg {
+        todo!()
     }
-    fn type_def_cfg_combine(&self, row:TypeDef, generics:&[Type], cfg: &mut Cfg) {
+    fn type_def_cfg_combine(&self, _row:TypeDef, _generics:&[Type], _cfg: &mut Cfg) {
         // for generic in &self.generics {
         //     self.type_cfg_combine(generic, cfg);
         // }
