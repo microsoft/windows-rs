@@ -52,7 +52,11 @@ impl<'a> Gen<'a> {
     fn define_interface(&self, _def: TypeDef) -> TokenStream {
         quote!{interface}
     }
-    fn define_enum(&self, _def: TypeDef) -> TokenStream {
+    fn define_enum(&self, def: TypeDef) -> TokenStream {
+        let name = self.reader.type_def_name(def);
+        let ident = to_ident(name);
+
+
         quote!{enum}
     }
     fn define_struct(&self, _def: TypeDef) -> TokenStream {
@@ -60,6 +64,16 @@ impl<'a> Gen<'a> {
     }
     fn define_delegate(&self, _def: TypeDef) -> TokenStream {
         quote!{delegate}
+    }
+}
+
+pub fn to_ident(name: &str) -> TokenStream {
+    // keywords list based on https://doc.rust-lang.org/reference/keywords.html
+    match name {
+        "abstract" | "as" | "become" | "box" | "break" | "const" | "continue" | "crate" | "do" | "else" | "enum" | "extern" | "false" | "final" | "fn" | "for" | "if" | "impl" | "in" | "let" | "loop" | "macro" | "match" | "mod" | "move" | "mut" | "override" | "priv" | "pub" | "ref" | "return" | "static" | "struct" | "super" | "trait" | "true" | "type" | "typeof" | "unsafe" | "unsized" | "use" | "virtual" | "where" | "while" | "yield" | "try" | "async" | "await" | "dyn" => format!("r#{}", name).into(),
+        "Self" | "self" => format!("{}_", name).into(),
+        "_" => "unused".into(),
+        _ => trim_tick(name).into(),
     }
 }
 
