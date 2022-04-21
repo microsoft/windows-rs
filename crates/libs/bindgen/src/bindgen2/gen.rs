@@ -40,33 +40,26 @@ impl<'a> Gen<'a> {
             TypeKind::Delegate => self.define_delegate(def),
         }
     }
-
-    pub(crate) fn define_class(&self, _def: TypeDef) -> TokenStream {
-        quote!{class}
-    }
-
-    pub(crate) fn define_interface(&self, _def: TypeDef) -> TokenStream {
-        quote!{interface}
-    }
-
-    pub(crate) fn define_enum(&self, _def: TypeDef) -> TokenStream {
-        quote!{enum}
-    }
-
-    pub(crate) fn define_struct(&self, _def: TypeDef) -> TokenStream {
-        quote!{struct}
-    }
-
-    pub(crate) fn define_delegate(&self, _def: TypeDef) -> TokenStream {
-        quote!{delegate}
-    }
-
     pub(crate) fn define_function(&self, _def: MethodDef) -> TokenStream {
         quote!{function}
     }
-
     pub(crate) fn define_constant(&self, _def: Field) -> TokenStream {
         quote!{constant}
+    }
+    fn define_class(&self, _def: TypeDef) -> TokenStream {
+        quote!{class}
+    }
+    fn define_interface(&self, _def: TypeDef) -> TokenStream {
+        quote!{interface}
+    }
+    fn define_enum(&self, _def: TypeDef) -> TokenStream {
+        quote!{enum}
+    }
+    fn define_struct(&self, _def: TypeDef) -> TokenStream {
+        quote!{struct}
+    }
+    fn define_delegate(&self, _def: TypeDef) -> TokenStream {
+        quote!{delegate}
     }
 }
 
