@@ -1,23 +1,23 @@
 // mod r#async;
-// mod callbacks;
-// mod classes;
+mod callbacks;
+mod classes;
 mod constants;
-// mod delegates;
-// mod enums;
+mod delegates;
+mod enums;
 // mod extensions;
 mod functions;
 mod gen;
 // mod handles;
 // mod helpers;
 // mod implements;
-// mod interfaces;
+mod interfaces;
 // mod iterator;
 // mod method_names;
 // mod methods;
 // mod names;
 // mod replacements;
 // mod signatures;
-// mod structs;
+mod structs;
 
 // use functions::*;
 pub use gen::*;
@@ -120,14 +120,14 @@ pub fn gen_type(name: &str, gen: &Gen) -> String {
 //     tokens
 // }
 
-fn gen_type_imp(def: TypeDef, gen: &Gen) -> TokenStream {
-    match def.kind() {
+fn gen_type_def(def: TypeDef, gen: &Gen) -> TokenStream {
+    match gen.reader.type_def_kind(def) {
         TypeKind::Class => classes::gen(def, gen),
         TypeKind::Interface => interfaces::gen(def, gen),
         TypeKind::Enum => enums::gen(def, gen),
         TypeKind::Struct => structs::gen(def, gen),
         TypeKind::Delegate => {
-            if def.is_winrt() {
+            if gen.reader.type_def_flags(def).winrt() {
                 delegates::gen(def, gen)
             } else {
                 callbacks::gen(def, gen)

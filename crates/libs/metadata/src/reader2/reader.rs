@@ -14,7 +14,7 @@ impl<'a> Reader<'a> {
             for row in 0..file.tables[TABLE_TYPEDEF].len {
                 let key = Row::new(row, TABLE_TYPEDEF, file_index);
                 let namespace = file.str(key.row as _, key.table as _, 2);
-                let name = file.str(key.row as _, key.table as _, 1);
+                let name = trim_tick(file.str(key.row as _, key.table as _, 1));
                 types.entry(namespace).or_default().entry(name).or_default().push(TypeDef(key));
             }
             for row in 0..file.tables[TABLE_NESTEDCLASS].len {

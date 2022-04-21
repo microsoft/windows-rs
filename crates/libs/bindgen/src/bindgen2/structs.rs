@@ -1,315 +1,317 @@
 use super::*;
 
-pub fn gen(def: &TypeDef, gen: &Gen) -> TokenStream {
-    if def.is_api_contract() {
-        return quote! {};
-    }
-
-    if !gen.sys {
-        if let Some(replacement) = replacements::gen(def) {
-            return replacement;
-        }
-    }
-
-    if def.is_handle() {
-        return handles::gen(def, gen);
-    }
-
-    gen_struct_with_name(def, def.name(), &Cfg::new(), gen)
+pub fn gen(def: TypeDef, gen: &Gen) -> TokenStream {
+    quote! { struct }
 }
+//     if def.is_api_contract() {
+//         return quote! {};
+//     }
 
-fn gen_struct_with_name(def: &TypeDef, struct_name: &str, cfg: &Cfg, gen: &Gen) -> TokenStream {
-    let name = gen_ident(struct_name);
+//     if !gen.sys {
+//         if let Some(replacement) = replacements::gen(def) {
+//             return replacement;
+//         }
+//     }
 
-    if def.fields().next().is_none() {
-        if let Some(guid) = GUID::from_attributes(def.attributes()) {
-            let value = gen_guid(&guid, gen);
-            let guid = gen_element_name(&Type::GUID, gen);
-            return quote! { pub const #name: #guid = #value; };
-        } else if name.as_str().ends_with("Vtbl") {
-            // This just omits some useless struct declarations like `IDDVideoPortContainerVtbl`
-            return quote! {};
-        } else {
-            return quote! {
-                #[repr(C)]
-                pub struct #name(pub u8);
-            };
-        }
-    }
+//     if def.is_handle() {
+//         return handles::gen(def, gen);
+//     }
 
-    let is_union = def.is_union();
-    let cfg = cfg.union(&def.cfg());
+//     gen_struct_with_name(def, def.name(), &Cfg::new(), gen)
+// }
 
-    let repr = if let Some(layout) = def.class_layout() {
-        let packing = Literal::u32_unsuffixed(layout.packing_size());
-        quote! { #[repr(C, packed(#packing))] }
-    } else {
-        quote! { #[repr(C)] }
-    };
+// fn gen_struct_with_name(def: &TypeDef, struct_name: &str, cfg: &Cfg, gen: &Gen) -> TokenStream {
+//     let name = gen_ident(struct_name);
 
-    let fields = def.fields().map(|f| {
-        let name = gen_ident(f.name());
-        let ty = f.get_type(Some(def));
-        let ty = gen_default_type(&ty, gen);
+//     if def.fields().next().is_none() {
+//         if let Some(guid) = GUID::from_attributes(def.attributes()) {
+//             let value = gen_guid(&guid, gen);
+//             let guid = gen_element_name(&Type::GUID, gen);
+//             return quote! { pub const #name: #guid = #value; };
+//         } else if name.as_str().ends_with("Vtbl") {
+//             // This just omits some useless struct declarations like `IDDVideoPortContainerVtbl`
+//             return quote! {};
+//         } else {
+//             return quote! {
+//                 #[repr(C)]
+//                 pub struct #name(pub u8);
+//             };
+//         }
+//     }
 
-        if f.is_literal() {
-            quote! {}
-        } else if !gen.sys && is_union && !f.is_blittable(Some(def)) {
-            quote! { pub #name: ::core::mem::ManuallyDrop<#ty>, }
-        } else {
-            quote! { pub #name: #ty, }
-        }
-    });
+//     let is_union = def.is_union();
+//     let cfg = cfg.union(&def.cfg());
 
-    let struct_or_union = if is_union {
-        quote! { union }
-    } else {
-        quote! { struct }
-    };
+//     let repr = if let Some(layout) = def.class_layout() {
+//         let packing = Literal::u32_unsuffixed(layout.packing_size());
+//         quote! { #[repr(C, packed(#packing))] }
+//     } else {
+//         quote! { #[repr(C)] }
+//     };
 
-    let doc = gen.doc(&cfg);
-    let features = gen.cfg(&cfg);
+//     let fields = def.fields().map(|f| {
+//         let name = gen_ident(f.name());
+//         let ty = f.get_type(Some(def));
+//         let ty = gen_default_type(&ty, gen);
 
-    let mut tokens = quote! {
-        #repr
-        #doc
-        #features
-        pub #struct_or_union #name {#(#fields)*}
-    };
+//         if f.is_literal() {
+//             quote! {}
+//         } else if !gen.sys && is_union && !f.is_blittable(Some(def)) {
+//             quote! { pub #name: ::core::mem::ManuallyDrop<#ty>, }
+//         } else {
+//             quote! { pub #name: #ty, }
+//         }
+//     });
 
-    tokens.combine(&gen_struct_constants(def, &name, &cfg, gen));
-    tokens.combine(&gen_copy_clone(def, &name, &cfg, gen));
-    tokens.combine(&gen_debug(def, &name, &cfg, gen));
-    tokens.combine(&gen_windows_traits(def, &name, &cfg, gen));
-    tokens.combine(&gen_compare_traits(def, &name, &cfg, gen));
+//     let struct_or_union = if is_union {
+//         quote! { union }
+//     } else {
+//         quote! { struct }
+//     };
 
-    if !gen.sys {
-        tokens.combine(&quote! {
-            #features
-            impl ::core::default::Default for #name {
-                fn default() -> Self {
-                    unsafe { ::core::mem::zeroed() }
-                }
-            }
-        });
+//     let doc = gen.doc(&cfg);
+//     let features = gen.cfg(&cfg);
 
-        tokens.combine(&extensions::gen(def));
-    }
+//     let mut tokens = quote! {
+//         #repr
+//         #doc
+//         #features
+//         pub #struct_or_union #name {#(#fields)*}
+//     };
 
-    if let Some(nested_types) = def.nested_types() {
-        for (index, (_, nested_type)) in nested_types.iter().enumerate() {
-            let nested_name = format!("{}_{}", struct_name, index);
-            tokens.combine(&gen_struct_with_name(nested_type, &nested_name, &cfg, gen));
-        }
-    }
+//     tokens.combine(&gen_struct_constants(def, &name, &cfg, gen));
+//     tokens.combine(&gen_copy_clone(def, &name, &cfg, gen));
+//     tokens.combine(&gen_debug(def, &name, &cfg, gen));
+//     tokens.combine(&gen_windows_traits(def, &name, &cfg, gen));
+//     tokens.combine(&gen_compare_traits(def, &name, &cfg, gen));
 
-    tokens
-}
+//     if !gen.sys {
+//         tokens.combine(&quote! {
+//             #features
+//             impl ::core::default::Default for #name {
+//                 fn default() -> Self {
+//                     unsafe { ::core::mem::zeroed() }
+//                 }
+//             }
+//         });
 
-fn gen_windows_traits(def: &TypeDef, name: &TokenStream, cfg: &Cfg, gen: &Gen) -> TokenStream {
-    if gen.sys {
-        quote! {}
-    } else {
-        let abi = if def.is_blittable() {
-            quote! { Self }
-        } else {
-            quote! { ::core::mem::ManuallyDrop<Self> }
-        };
+//         tokens.combine(&extensions::gen(def));
+//     }
 
-        let features = gen.cfg(cfg);
+//     if let Some(nested_types) = def.nested_types() {
+//         for (index, (_, nested_type)) in nested_types.iter().enumerate() {
+//             let nested_name = format!("{}_{}", struct_name, index);
+//             tokens.combine(&gen_struct_with_name(nested_type, &nested_name, &cfg, gen));
+//         }
+//     }
 
-        let mut tokens = quote! {
-            #features
-            unsafe impl ::windows::core::Abi for #name {
-                type Abi = #abi;
-            }
-        };
+//     tokens
+// }
 
-        if def.is_winrt() {
-            let signature = Literal::byte_string(def.type_signature().as_bytes());
+// fn gen_windows_traits(def: &TypeDef, name: &TokenStream, cfg: &Cfg, gen: &Gen) -> TokenStream {
+//     if gen.sys {
+//         quote! {}
+//     } else {
+//         let abi = if def.is_blittable() {
+//             quote! { Self }
+//         } else {
+//             quote! { ::core::mem::ManuallyDrop<Self> }
+//         };
 
-            let clone = if def.is_blittable() {
-                quote! { *from }
-            } else {
-                quote! { from.clone() }
-            };
+//         let features = gen.cfg(cfg);
 
-            tokens.combine(&quote! {
-                #features
-                unsafe impl ::windows::core::RuntimeType for #name {
-                    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(#signature);
-                    type DefaultType = Self;
-                    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-                        Ok(#clone)
-                    }
-                }
-            });
-        }
+//         let mut tokens = quote! {
+//             #features
+//             unsafe impl ::windows::core::Abi for #name {
+//                 type Abi = #abi;
+//             }
+//         };
 
-        tokens
-    }
-}
+//         if def.is_winrt() {
+//             let signature = Literal::byte_string(def.type_signature().as_bytes());
 
-fn gen_compare_traits(def: &TypeDef, name: &TokenStream, cfg: &Cfg, gen: &Gen) -> TokenStream {
-    let features = gen.cfg(cfg);
+//             let clone = if def.is_blittable() {
+//                 quote! { *from }
+//             } else {
+//                 quote! { from.clone() }
+//             };
 
-    if gen.sys {
-        quote! {}
-    } else if def.is_blittable() || def.is_union() || def.class_layout().is_some() {
-        quote! {
-            #features
-            impl ::core::cmp::PartialEq for #name {
-                fn eq(&self, other: &Self) -> bool {
-                    unsafe {
-                        ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<#name>()) == 0
-                    }
-                }
-            }
-            #features
-            impl ::core::cmp::Eq for #name {}
-        }
-    } else {
-        let fields = def.fields().map(|f| {
-            let name = gen_ident(f.name());
-            if f.is_literal() {
-                quote! {}
-            } else {
-                let ty = f.get_type(Some(def));
-                if ty.is_callback() {
-                    quote! {
-                        self.#name.map(|f| f as usize) == other.#name.map(|f| f as usize)
-                    }
-                } else {
-                    quote! { self.#name == other.#name }
-                }
-            }
-        });
+//             tokens.combine(&quote! {
+//                 #features
+//                 unsafe impl ::windows::core::RuntimeType for #name {
+//                     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(#signature);
+//                     type DefaultType = Self;
+//                     fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+//                         Ok(#clone)
+//                     }
+//                 }
+//             });
+//         }
 
-        quote! {
-            #features
-            impl ::core::cmp::PartialEq for #name {
-                fn eq(&self, other: &Self) -> bool {
-                    #(#fields)&&*
-                }
-            }
-            #features
-            impl ::core::cmp::Eq for #name {}
-        }
-    }
-}
+//         tokens
+//     }
+// }
 
-fn gen_debug(def: &TypeDef, ident: &TokenStream, cfg: &Cfg, gen: &Gen) -> TokenStream {
-    if gen.sys || def.has_union() || def.has_pack() {
-        quote! {}
-    } else {
-        let name = ident.as_str();
-        let features = gen.cfg(cfg);
+// fn gen_compare_traits(def: &TypeDef, name: &TokenStream, cfg: &Cfg, gen: &Gen) -> TokenStream {
+//     let features = gen.cfg(cfg);
 
-        let fields = def.fields().map(|f| {
-            if f.is_literal() {
-                quote! {}
-            } else {
-                let name = f.name();
-                let ident = gen_ident(name);
-                let ty = f.get_type(Some(def));
-                if !ty.is_pointer() && ty.is_callback() {
-                    quote! { .field(#name, &self.#ident.map(|f| f as usize)) }
-                } else if ty.is_callback_array() {
-                    quote! {}
-                } else {
-                    quote! { .field(#name, &self.#ident) }
-                }
-            }
-        });
+//     if gen.sys {
+//         quote! {}
+//     } else if def.is_blittable() || def.is_union() || def.class_layout().is_some() {
+//         quote! {
+//             #features
+//             impl ::core::cmp::PartialEq for #name {
+//                 fn eq(&self, other: &Self) -> bool {
+//                     unsafe {
+//                         ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<#name>()) == 0
+//                     }
+//                 }
+//             }
+//             #features
+//             impl ::core::cmp::Eq for #name {}
+//         }
+//     } else {
+//         let fields = def.fields().map(|f| {
+//             let name = gen_ident(f.name());
+//             if f.is_literal() {
+//                 quote! {}
+//             } else {
+//                 let ty = f.get_type(Some(def));
+//                 if ty.is_callback() {
+//                     quote! {
+//                         self.#name.map(|f| f as usize) == other.#name.map(|f| f as usize)
+//                     }
+//                 } else {
+//                     quote! { self.#name == other.#name }
+//                 }
+//             }
+//         });
 
-        quote! {
-            #features
-            impl ::core::fmt::Debug for #ident {
-                fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-                    f.debug_struct(#name) #(#fields)* .finish()
-                }
-            }
-        }
-    }
-}
+//         quote! {
+//             #features
+//             impl ::core::cmp::PartialEq for #name {
+//                 fn eq(&self, other: &Self) -> bool {
+//                     #(#fields)&&*
+//                 }
+//             }
+//             #features
+//             impl ::core::cmp::Eq for #name {}
+//         }
+//     }
+// }
 
-fn gen_copy_clone(def: &TypeDef, name: &TokenStream, cfg: &Cfg, gen: &Gen) -> TokenStream {
-    let features = gen.cfg(cfg);
+// fn gen_debug(def: &TypeDef, ident: &TokenStream, cfg: &Cfg, gen: &Gen) -> TokenStream {
+//     if gen.sys || def.has_union() || def.has_pack() {
+//         quote! {}
+//     } else {
+//         let name = ident.as_str();
+//         let features = gen.cfg(cfg);
 
-    if gen.sys || def.is_blittable() {
-        quote! {
-            #features
-            impl ::core::marker::Copy for #name {}
-            #features
-            impl ::core::clone::Clone for #name {
-                fn clone(&self) -> Self {
-                    *self
-                }
-            }
-        }
-    } else if def.is_union() {
-        quote! {
-            #features
-            impl ::core::clone::Clone for #name {
-                fn clone(&self) -> Self {
-                    unsafe { ::core::mem::transmute_copy(self) }
-                }
-            }
-        }
-    } else if def.class_layout().is_some() {
-        // Don't support copy/clone of packed structs: https://github.com/rust-lang/rust/issues/82523
-        quote! {}
-    } else {
-        let fields = def.fields().map(|f| {
-            let name = gen_ident(f.name());
-            if f.is_literal() {
-                quote! {}
-            } else if f.is_blittable(Some(def)) {
-                quote! { #name: self.#name }
-            } else {
-                quote! { #name: self.#name.clone() }
-            }
-        });
+//         let fields = def.fields().map(|f| {
+//             if f.is_literal() {
+//                 quote! {}
+//             } else {
+//                 let name = f.name();
+//                 let ident = gen_ident(name);
+//                 let ty = f.get_type(Some(def));
+//                 if !ty.is_pointer() && ty.is_callback() {
+//                     quote! { .field(#name, &self.#ident.map(|f| f as usize)) }
+//                 } else if ty.is_callback_array() {
+//                     quote! {}
+//                 } else {
+//                     quote! { .field(#name, &self.#ident) }
+//                 }
+//             }
+//         });
 
-        quote! {
-            #features
-            impl ::core::clone::Clone for #name {
-                fn clone(&self) -> Self {
-                    Self { #(#fields),* }
-                }
-            }
-        }
-    }
-}
+//         quote! {
+//             #features
+//             impl ::core::fmt::Debug for #ident {
+//                 fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+//                     f.debug_struct(#name) #(#fields)* .finish()
+//                 }
+//             }
+//         }
+//     }
+// }
 
-fn gen_struct_constants(def: &TypeDef, struct_name: &TokenStream, cfg: &Cfg, gen: &Gen) -> TokenStream {
-    let features = gen.cfg(cfg);
+// fn gen_copy_clone(def: &TypeDef, name: &TokenStream, cfg: &Cfg, gen: &Gen) -> TokenStream {
+//     let features = gen.cfg(cfg);
 
-    let constants = def.fields().filter_map(|f| {
-        if f.is_literal() {
-            if let Some(constant) = f.constant() {
-                let name = gen_ident(f.name());
-                let value = gen_constant_type_value(&constant.value());
+//     if gen.sys || def.is_blittable() {
+//         quote! {
+//             #features
+//             impl ::core::marker::Copy for #name {}
+//             #features
+//             impl ::core::clone::Clone for #name {
+//                 fn clone(&self) -> Self {
+//                     *self
+//                 }
+//             }
+//         }
+//     } else if def.is_union() {
+//         quote! {
+//             #features
+//             impl ::core::clone::Clone for #name {
+//                 fn clone(&self) -> Self {
+//                     unsafe { ::core::mem::transmute_copy(self) }
+//                 }
+//             }
+//         }
+//     } else if def.class_layout().is_some() {
+//         // Don't support copy/clone of packed structs: https://github.com/rust-lang/rust/issues/82523
+//         quote! {}
+//     } else {
+//         let fields = def.fields().map(|f| {
+//             let name = gen_ident(f.name());
+//             if f.is_literal() {
+//                 quote! {}
+//             } else if f.is_blittable(Some(def)) {
+//                 quote! { #name: self.#name }
+//             } else {
+//                 quote! { #name: self.#name.clone() }
+//             }
+//         });
 
-                return Some(quote! {
-                    pub const #name: #value;
-                });
-            }
-        }
+//         quote! {
+//             #features
+//             impl ::core::clone::Clone for #name {
+//                 fn clone(&self) -> Self {
+//                     Self { #(#fields),* }
+//                 }
+//             }
+//         }
+//     }
+// }
 
-        None
-    });
+// fn gen_struct_constants(def: &TypeDef, struct_name: &TokenStream, cfg: &Cfg, gen: &Gen) -> TokenStream {
+//     let features = gen.cfg(cfg);
 
-    let mut tokens = quote! { #(#constants)* };
+//     let constants = def.fields().filter_map(|f| {
+//         if f.is_literal() {
+//             if let Some(constant) = f.constant() {
+//                 let name = gen_ident(f.name());
+//                 let value = gen_constant_type_value(&constant.value());
 
-    if !tokens.is_empty() {
-        tokens = quote! {
-            #features
-            impl #struct_name {
-                #tokens
-            }
-        };
-    }
+//                 return Some(quote! {
+//                     pub const #name: #value;
+//                 });
+//             }
+//         }
 
-    tokens
-}
+//         None
+//     });
+
+//     let mut tokens = quote! { #(#constants)* };
+
+//     if !tokens.is_empty() {
+//         tokens = quote! {
+//             #features
+//             impl #struct_name {
+//                 #tokens
+//             }
+//         };
+//     }
+
+//     tokens
+// }

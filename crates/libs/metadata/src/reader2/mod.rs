@@ -116,7 +116,6 @@ pub enum AsyncKind {
 
 #[derive(PartialEq)]
 pub enum TypeKind {
-    None,
     Interface,
     Class,
     Enum,
