@@ -33,13 +33,25 @@ use tokens::*;
 
 pub fn gen_type(name: &str, gen: &Gen) -> String {
     let mut tokens = String::new();
+    let type_name = TypeName::parse(name);
 
-    for def in gen.reader.get(TypeName::parse(name)) {
-        // TODO: if it can't be found then its likely a free function or constant in which case
-        // we need to look for it in the Apis class. This is only used for too_bindings so perf
-        // should be fine. 
+    for def in gen.reader.get(type_name) {
+        tokens.push_str(gen_type_imp(&Type::TypeDef((def, Vec::new())), gen).as_str());
+    }
 
-        //tokens.push_str(gen_type_imp(def, gen).as_str());
+    if tokens.is_empty() {
+        if let Some(apis) = gen.reader.get(TypeName::new(type_name.namespace, "Apis")).next() {
+            for method in gen.reader.type_def_methods(apis) {
+                if gen.reader.method_def_name(method) == type_name.name {
+                    tokens.push_str(gen_type_imp(&Type::MethodDef(method), gen).as_str());
+                }
+            }
+            for field in gen.reader.type_def_fields(apis) {
+                if gen.reader.field_name(field) == type_name.name {
+                    tokens.push_str(gen_type_imp(&Type::Field(field), gen).as_str());
+                }
+            }
+        }
     }
 
     assert!(!tokens.is_empty(), "`{}` not found", name);
@@ -108,7 +120,7 @@ pub fn gen_type(name: &str, gen: &Gen) -> String {
 //     tokens
 // }
 
-// fn gen_type_imp(def: &Type, gen: &Gen) -> TokenStream {
+fn gen_type_imp(def: &Type, gen: &Gen) -> TokenStream {
 //     match def {
 //         Type::Field(def) => constants::gen(def, gen),
 //         Type::TypeDef(def) => {
@@ -136,4 +148,5 @@ pub fn gen_type(name: &str, gen: &Gen) -> String {
 //         }
 //         _ => quote! {},
 //     }
-// }
+    quote! {}
+}
