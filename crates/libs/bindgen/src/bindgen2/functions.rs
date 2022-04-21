@@ -23,7 +23,7 @@ use super::*;
 //     }
 // }
 
-pub fn gen_function(def: MethodDef, gen: &Gen) -> TokenStream {
+pub fn gen_function(_def: MethodDef, _gen: &Gen) -> TokenStream {
     // if gen.sys {
     //     let function = gen_sys_function(def, gen);
 

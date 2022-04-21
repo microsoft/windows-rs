@@ -1,6 +1,6 @@
 use super::*;
 
-pub fn gen(def: Field, gen: &Gen) -> TokenStream {
+pub fn gen(_def: Field, _gen: &Gen) -> TokenStream {
     quote! { constant }
 }
 //     let name = gen_ident(def.name());

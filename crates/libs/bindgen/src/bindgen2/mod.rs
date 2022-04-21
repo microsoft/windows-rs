@@ -46,9 +46,11 @@ pub fn gen_type(name: &str, gen: &Gen) -> String {
                     tokens.push_str(functions::gen_function(method, gen).as_str());
                 }
             }
-            for field in gen.reader.type_def_fields(apis) {
-                if gen.reader.field_name(field) == type_name.name {
-                    tokens.push_str(constants::gen(field, gen).as_str());
+            if tokens.is_empty() {
+                for field in gen.reader.type_def_fields(apis) {
+                    if gen.reader.field_name(field) == type_name.name {
+                        tokens.push_str(constants::gen(field, gen).as_str());
+                    }
                 }
             }
         }

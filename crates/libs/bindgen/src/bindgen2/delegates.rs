@@ -1,6 +1,6 @@
 use super::*;
 
-pub fn gen(def: TypeDef, gen: &Gen) -> TokenStream {
+pub fn gen(_def: TypeDef, _gen: &Gen) -> TokenStream {
     quote! { delegate }
 }
 //     let name = gen_type_ident(def, gen);

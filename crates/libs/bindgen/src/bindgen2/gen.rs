@@ -30,7 +30,7 @@ impl<'a> Gen<'a> {
             component:false,
         }
     }
-    pub(crate) fn namespace(&self, namespace: &str) -> TokenStream {
+    pub fn namespace(&self, namespace: &str) -> TokenStream {
         if self.flatten || namespace == self.namespace {
             quote! {}
         } else {
@@ -66,7 +66,7 @@ impl<'a> Gen<'a> {
         }
     }
 
-    pub(crate) fn doc(&self, cfg: &Cfg) -> TokenStream {
+    pub fn doc(&self, cfg: &Cfg) -> TokenStream {
         if !self.doc {
             quote! {}
         } else {
@@ -84,7 +84,7 @@ impl<'a> Gen<'a> {
         }
     }
 
-    pub(crate) fn cfg(&self, cfg: &Cfg) -> TokenStream {
+    pub fn cfg(&self, cfg: &Cfg) -> TokenStream {
         if !self.cfg {
             quote! {}
         } else {
@@ -120,7 +120,7 @@ impl<'a> Gen<'a> {
         }
     }
 
-    pub(crate) fn not_cfg(&self, cfg: &Cfg) -> TokenStream {
+    pub fn not_cfg(&self, cfg: &Cfg) -> TokenStream {
         let mut features = cfg_features(cfg, self.namespace);
         if !self.cfg || features.is_empty() {
             quote! {}

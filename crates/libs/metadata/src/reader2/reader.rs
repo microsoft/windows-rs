@@ -764,7 +764,6 @@ impl<'a> Reader<'a> {
                     self.type_def_interface_signature(row, generics)
                 }
             }
-            _ => unimplemented!(),
         }
     }
     fn type_def_interface_signature(&self, row: TypeDef, generics: &[Type]) -> String {
