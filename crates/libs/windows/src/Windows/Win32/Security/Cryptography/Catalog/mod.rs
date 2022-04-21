@@ -1,4 +1,3 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Catalog\"`*"]
 pub struct CATALOG_INFO {
@@ -261,7 +260,7 @@ pub const CRYPTCAT_E_CDF_TAGNOTFOUND: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Catalog\"`*"]
 pub const CRYPTCAT_E_CDF_UNSUPPORTED: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Catalog\"`*"]
-pub const CRYPTCAT_FILEEXT: &'static str = "CAT";
+pub const CRYPTCAT_FILEEXT: &str = "CAT";
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Catalog\"`*"]
 pub const CRYPTCAT_MAX_MEMBERTAG: u32 = 64u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Catalog\"`*"]
@@ -873,10 +872,10 @@ pub unsafe fn IsCatalogFile<'a, Param0: ::windows::core::IntoParam<'a, super::su
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Catalog\"`*"]
 pub type PFN_CDF_PARSE_ERROR_CALLBACK = ::core::option::Option<unsafe extern "system" fn(dwerrorarea: u32, dwlocalerror: u32, pwszline: ::windows::core::PCWSTR)>;
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Catalog\"`*"]
-pub const szOID_CATALOG_LIST: &'static str = "1.3.6.1.4.1.311.12.1.1";
+pub const szOID_CATALOG_LIST: &str = "1.3.6.1.4.1.311.12.1.1";
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Catalog\"`*"]
-pub const szOID_CATALOG_LIST_MEMBER: &'static str = "1.3.6.1.4.1.311.12.1.2";
+pub const szOID_CATALOG_LIST_MEMBER: &str = "1.3.6.1.4.1.311.12.1.2";
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Catalog\"`*"]
-pub const szOID_CATALOG_LIST_MEMBER2: &'static str = "1.3.6.1.4.1.311.12.1.3";
+pub const szOID_CATALOG_LIST_MEMBER2: &str = "1.3.6.1.4.1.311.12.1.3";
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

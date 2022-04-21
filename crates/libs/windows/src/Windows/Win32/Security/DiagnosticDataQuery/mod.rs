@@ -1,4 +1,3 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Security_DiagnosticDataQuery\"`*"]
 pub struct DIAGNOSTIC_DATA_EVENT_BINARY_STATS {

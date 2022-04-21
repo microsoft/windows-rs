@@ -1,4 +1,3 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 pub type IWCNConnectNotify = *mut ::core::ffi::c_void;
 pub type IWCNDevice = *mut ::core::ffi::c_void;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsConnectNow\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
@@ -254,7 +253,7 @@ pub const WCN_PASSWORD_TYPE_OOB_SPECIFIED: WCN_PASSWORD_TYPE = 3i32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsConnectNow\"`*"]
 pub const WCN_PASSWORD_TYPE_WFDS: WCN_PASSWORD_TYPE = 4i32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsConnectNow\"`*"]
-pub const WCN_QUERY_CONSTRAINT_USE_SOFTAP: &'static str = "WCN.Discovery.SoftAP";
+pub const WCN_QUERY_CONSTRAINT_USE_SOFTAP: &str = "WCN.Discovery.SoftAP";
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsConnectNow\"`*"]
 pub type WCN_SESSION_STATUS = i32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsConnectNow\"`*"]

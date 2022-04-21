@@ -1,4 +1,3 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {
     #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`*"]
@@ -605,7 +604,7 @@ impl ::core::clone::Clone for TF_DISPLAYATTRIBUTE {
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_ENABLE_PROCESS_ATOM: &'static str = "_CTF_ENABLE_PROCESS_ATOM_";
+pub const TF_ENABLE_PROCESS_ATOM: &str = "_CTF_ENABLE_PROCESS_ATOM_";
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_E_ALREADY_EXISTS: ::windows_sys::core::HRESULT = -2147220218i32;
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
@@ -651,11 +650,11 @@ pub const TF_E_STACKFULL: ::windows_sys::core::HRESULT = -2147220223i32;
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_E_SYNCHRONOUS: ::windows_sys::core::HRESULT = -2147220984i32;
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_FLOATINGLANGBAR_WNDTITLE: &'static str = "TF_FloatingLangBar_WndTitle";
+pub const TF_FLOATINGLANGBAR_WNDTITLE: &str = "TF_FloatingLangBar_WndTitle";
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_FLOATINGLANGBAR_WNDTITLEA: &'static str = "TF_FloatingLangBar_WndTitle";
+pub const TF_FLOATINGLANGBAR_WNDTITLEA: &str = "TF_FloatingLangBar_WndTitle";
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_FLOATINGLANGBAR_WNDTITLEW: &'static str = "TF_FloatingLangBar_WndTitle";
+pub const TF_FLOATINGLANGBAR_WNDTITLEW: &str = "TF_FloatingLangBar_WndTitle";
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub struct TF_HALTCOND {
@@ -917,7 +916,7 @@ impl ::core::clone::Clone for TF_PRESERVEDKEY {
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_PROCESS_ATOM: &'static str = "_CTF_PROCESS_ATOM_";
+pub const TF_PROCESS_ATOM: &str = "_CTF_PROCESS_ATOM_";
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_PROFILETYPE_INPUTPROCESSOR: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]

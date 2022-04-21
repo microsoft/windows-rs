@@ -1,4 +1,3 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {
     #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`, `\"Win32_Foundation\"`*"]
@@ -504,15 +503,15 @@ pub const WEBAUTHN_ATTESTATION_DECODE_COMMON: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WEBAUTHN_ATTESTATION_DECODE_NONE: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WEBAUTHN_ATTESTATION_TYPE_NONE: &'static str = "none";
+pub const WEBAUTHN_ATTESTATION_TYPE_NONE: &str = "none";
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WEBAUTHN_ATTESTATION_TYPE_PACKED: &'static str = "packed";
+pub const WEBAUTHN_ATTESTATION_TYPE_PACKED: &str = "packed";
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WEBAUTHN_ATTESTATION_TYPE_TPM: &'static str = "tpm";
+pub const WEBAUTHN_ATTESTATION_TYPE_TPM: &str = "tpm";
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WEBAUTHN_ATTESTATION_TYPE_U2F: &'static str = "fido-u2f";
+pub const WEBAUTHN_ATTESTATION_TYPE_U2F: &str = "fido-u2f";
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WEBAUTHN_ATTESTATION_VER_TPM_2_0: &'static str = "2.0";
+pub const WEBAUTHN_ATTESTATION_VER_TPM_2_0: &str = "2.0";
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WEBAUTHN_AUTHENTICATOR_ATTACHMENT_ANY: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
@@ -780,7 +779,7 @@ impl ::core::clone::Clone for WEBAUTHN_CREDENTIAL_LIST {
     }
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WEBAUTHN_CREDENTIAL_TYPE_PUBLIC_KEY: &'static str = "public-key";
+pub const WEBAUTHN_CREDENTIAL_TYPE_PUBLIC_KEY: &str = "public-key";
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub struct WEBAUTHN_CRED_BLOB_EXTENSION {
@@ -880,19 +879,19 @@ impl ::core::clone::Clone for WEBAUTHN_EXTENSIONS {
     }
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WEBAUTHN_EXTENSIONS_IDENTIFIER_CRED_BLOB: &'static str = "credBlob";
+pub const WEBAUTHN_EXTENSIONS_IDENTIFIER_CRED_BLOB: &str = "credBlob";
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WEBAUTHN_EXTENSIONS_IDENTIFIER_CRED_PROTECT: &'static str = "credProtect";
+pub const WEBAUTHN_EXTENSIONS_IDENTIFIER_CRED_PROTECT: &str = "credProtect";
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WEBAUTHN_EXTENSIONS_IDENTIFIER_HMAC_SECRET: &'static str = "hmac-secret";
+pub const WEBAUTHN_EXTENSIONS_IDENTIFIER_HMAC_SECRET: &str = "hmac-secret";
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WEBAUTHN_EXTENSIONS_IDENTIFIER_MIN_PIN_LENGTH: &'static str = "minPinLength";
+pub const WEBAUTHN_EXTENSIONS_IDENTIFIER_MIN_PIN_LENGTH: &str = "minPinLength";
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WEBAUTHN_HASH_ALGORITHM_SHA_256: &'static str = "SHA-256";
+pub const WEBAUTHN_HASH_ALGORITHM_SHA_256: &str = "SHA-256";
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WEBAUTHN_HASH_ALGORITHM_SHA_384: &'static str = "SHA-384";
+pub const WEBAUTHN_HASH_ALGORITHM_SHA_384: &str = "SHA-384";
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WEBAUTHN_HASH_ALGORITHM_SHA_512: &'static str = "SHA-512";
+pub const WEBAUTHN_HASH_ALGORITHM_SHA_512: &str = "SHA-512";
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WEBAUTHN_LARGE_BLOB_SUPPORT_NONE: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]

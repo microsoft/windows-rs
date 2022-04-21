@@ -1,4 +1,3 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {
     #[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
@@ -480,9 +479,9 @@ pub type IJolietDiscMaster = *mut ::core::ffi::c_void;
 #[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI2FS_BOOT_ENTRY_COUNT_MAX: u32 = 32u32;
 #[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
-pub const IMAPI2FS_FullVersion_STR: &'static str = "1.0";
+pub const IMAPI2FS_FullVersion_STR: &str = "1.0";
 #[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
-pub const IMAPI2FS_FullVersion_WSTR: &'static str = "1.0";
+pub const IMAPI2FS_FullVersion_WSTR: &str = "1.0";
 #[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI2FS_MajorVersion: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
@@ -1371,7 +1370,7 @@ impl ::core::clone::Clone for SPropAttrArray {
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
-pub const SZ_PROGID_SMTPCAT: &'static str = "Smtp.Cat";
+pub const SZ_PROGID_SMTPCAT: &str = "Smtp.Cat";
 #[repr(C)]
 pub struct _MSGSESS(pub u8);
 pub const tagIMMPID_CPV_STRUCT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2728880938, data2: 58669, data3: 4561, data4: [170, 100, 0, 192, 79, 163, 91, 130] };

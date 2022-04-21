@@ -1,4 +1,3 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3D9_RESOURCE_PRIORITY_HIGH: u32 = 2684354560u32;
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]

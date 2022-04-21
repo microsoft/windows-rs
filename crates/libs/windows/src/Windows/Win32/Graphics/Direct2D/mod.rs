@@ -1,4 +1,3 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 pub mod Common;
 pub const CLSID_D2D12DAffineTransform: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6aa97485_6354_4cfc_908c_e4a74f62c96c);

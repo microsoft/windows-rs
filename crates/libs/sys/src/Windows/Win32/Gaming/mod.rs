@@ -1,4 +1,3 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {
     #[doc = "*Required features: `\"Win32_Gaming\"`, `\"Win32_Foundation\"`*"]
@@ -122,9 +121,9 @@ pub const GameStatistics: ::windows_sys::core::GUID = ::windows_sys::core::GUID 
 #[doc = "*Required features: `\"Win32_Gaming\"`*"]
 pub type GameUICompletionRoutine = ::core::option::Option<unsafe extern "system" fn(returncode: ::windows_sys::core::HRESULT, context: *const ::core::ffi::c_void)>;
 #[doc = "*Required features: `\"Win32_Gaming\"`*"]
-pub const ID_GDF_THUMBNAIL_STR: &'static str = "__GDF_THUMBNAIL";
+pub const ID_GDF_THUMBNAIL_STR: &str = "__GDF_THUMBNAIL";
 #[doc = "*Required features: `\"Win32_Gaming\"`*"]
-pub const ID_GDF_XML_STR: &'static str = "__GDF_XML";
+pub const ID_GDF_XML_STR: &str = "__GDF_XML";
 pub type IGameExplorer = *mut ::core::ffi::c_void;
 pub type IGameExplorer2 = *mut ::core::ffi::c_void;
 pub type IGameStatistics = *mut ::core::ffi::c_void;

@@ -1,4 +1,3 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[doc = "*Required features: `\"Win32_Management_MobileDeviceManagementRegistration\"`*"]
 #[inline]
 pub unsafe fn ApplyLocalManagementSyncML<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(syncmlrequest: Param0) -> ::windows::core::Result<::windows::core::PWSTR> {

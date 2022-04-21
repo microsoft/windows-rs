@@ -1,4 +1,3 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -12793,9 +12792,9 @@ pub const MI_SERIALIZER_FLAGS_CLASS_DEEP: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 pub const MI_SERIALIZER_FLAGS_INSTANCE_WITH_CLASS: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_SUBSCRIBE_BOOKMARK_NEWEST: &'static str = "MI_SUBSCRIBE_BOOKMARK_NEWEST";
+pub const MI_SUBSCRIBE_BOOKMARK_NEWEST: &str = "MI_SUBSCRIBE_BOOKMARK_NEWEST";
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_SUBSCRIBE_BOOKMARK_OLDEST: &'static str = "MI_SUBSCRIBE_BOOKMARK_OLDEST";
+pub const MI_SUBSCRIBE_BOOKMARK_OLDEST: &str = "MI_SUBSCRIBE_BOOKMARK_OLDEST";
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 pub struct MI_SchemaDecl {

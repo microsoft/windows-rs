@@ -1,4 +1,3 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 pub type AddPagesEventArgs = *mut ::core::ffi::c_void;
 pub type AddPagesEventHandler = *mut ::core::ffi::c_void;
 pub type GetPreviewPageEventArgs = *mut ::core::ffi::c_void;

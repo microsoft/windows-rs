@@ -1,4 +1,3 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {
     #[doc = "*Required features: `\"Win32_UI_Input_XboxController\"`, `\"Win32_Foundation\"`*"]
@@ -101,11 +100,11 @@ pub const XINPUT_DEVSUBTYPE_WHEEL: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_UI_Input_XboxController\"`*"]
 pub const XINPUT_DEVTYPE_GAMEPAD: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_UI_Input_XboxController\"`*"]
-pub const XINPUT_DLL: &'static str = "xinput1_4.dll";
+pub const XINPUT_DLL: &str = "xinput1_4.dll";
 #[doc = "*Required features: `\"Win32_UI_Input_XboxController\"`*"]
-pub const XINPUT_DLL_A: &'static str = "xinput1_4.dll";
+pub const XINPUT_DLL_A: &str = "xinput1_4.dll";
 #[doc = "*Required features: `\"Win32_UI_Input_XboxController\"`*"]
-pub const XINPUT_DLL_W: &'static str = "xinput1_4.dll";
+pub const XINPUT_DLL_W: &str = "xinput1_4.dll";
 #[doc = "*Required features: `\"Win32_UI_Input_XboxController\"`*"]
 pub const XINPUT_FLAG_GAMEPAD: u32 = 1u32;
 #[repr(C)]

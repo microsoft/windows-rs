@@ -1,4 +1,3 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
 pub const ACTRL_DS_CONTROL_ACCESS: u32 = 256u32;
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
@@ -26,29 +25,29 @@ pub const ADAM_REPL_AUTHENTICATION_MODE_NEGOTIATE: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
 pub const ADAM_REPL_AUTHENTICATION_MODE_NEGOTIATE_PASS_THROUGH: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADAM_SCP_FSMO_NAMING_STRING: &'static str = "naming";
+pub const ADAM_SCP_FSMO_NAMING_STRING: &str = "naming";
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADAM_SCP_FSMO_NAMING_STRING_W: &'static str = "naming";
+pub const ADAM_SCP_FSMO_NAMING_STRING_W: &str = "naming";
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADAM_SCP_FSMO_SCHEMA_STRING: &'static str = "schema";
+pub const ADAM_SCP_FSMO_SCHEMA_STRING: &str = "schema";
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADAM_SCP_FSMO_SCHEMA_STRING_W: &'static str = "schema";
+pub const ADAM_SCP_FSMO_SCHEMA_STRING_W: &str = "schema";
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADAM_SCP_FSMO_STRING: &'static str = "fsmo:";
+pub const ADAM_SCP_FSMO_STRING: &str = "fsmo:";
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADAM_SCP_FSMO_STRING_W: &'static str = "fsmo:";
+pub const ADAM_SCP_FSMO_STRING_W: &str = "fsmo:";
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADAM_SCP_INSTANCE_NAME_STRING: &'static str = "instance:";
+pub const ADAM_SCP_INSTANCE_NAME_STRING: &str = "instance:";
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADAM_SCP_INSTANCE_NAME_STRING_W: &'static str = "instance:";
+pub const ADAM_SCP_INSTANCE_NAME_STRING_W: &str = "instance:";
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADAM_SCP_PARTITION_STRING: &'static str = "partition:";
+pub const ADAM_SCP_PARTITION_STRING: &str = "partition:";
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADAM_SCP_PARTITION_STRING_W: &'static str = "partition:";
+pub const ADAM_SCP_PARTITION_STRING_W: &str = "partition:";
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADAM_SCP_SITE_NAME_STRING: &'static str = "site:";
+pub const ADAM_SCP_SITE_NAME_STRING: &str = "site:";
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADAM_SCP_SITE_NAME_STRING_W: &'static str = "site:";
+pub const ADAM_SCP_SITE_NAME_STRING_W: &str = "site:";
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -2551,19 +2550,19 @@ pub unsafe fn BinarySDToSecurityDescriptor<'a, Param0: ::windows::core::IntoPara
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const CFSTR_DSDISPLAYSPECOPTIONS: &'static str = "DsDisplaySpecOptions";
+pub const CFSTR_DSDISPLAYSPECOPTIONS: &str = "DsDisplaySpecOptions";
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const CFSTR_DSOBJECTNAMES: &'static str = "DsObjectNames";
+pub const CFSTR_DSOBJECTNAMES: &str = "DsObjectNames";
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const CFSTR_DSOP_DS_SELECTION_LIST: &'static str = "CFSTR_DSOP_DS_SELECTION_LIST";
+pub const CFSTR_DSOP_DS_SELECTION_LIST: &str = "CFSTR_DSOP_DS_SELECTION_LIST";
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const CFSTR_DSPROPERTYPAGEINFO: &'static str = "DsPropPageInfo";
+pub const CFSTR_DSPROPERTYPAGEINFO: &str = "DsPropPageInfo";
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const CFSTR_DSQUERYPARAMS: &'static str = "DsQueryParameters";
+pub const CFSTR_DSQUERYPARAMS: &str = "DsQueryParameters";
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const CFSTR_DSQUERYSCOPE: &'static str = "DsQueryScope";
+pub const CFSTR_DSQUERYSCOPE: &str = "DsQueryScope";
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const CFSTR_DS_DISPLAY_SPEC_OPTIONS: &'static str = "DsDisplaySpecOptions";
+pub const CFSTR_DS_DISPLAY_SPEC_OPTIONS: &str = "DsDisplaySpecOptions";
 pub const CLSID_CommonQuery: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x83bc5ec0_6f2a_11d0_a1c4_00aa00c16e65);
 pub const CLSID_DsAdminCreateObj: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe301a009_f901_11d2_82b9_00c04f68928b);
 pub const CLSID_DsDisplaySpecifier: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1ab4a8c0_6a0b_11d2_ad49_00c04fa31a86);
@@ -3708,7 +3707,7 @@ impl ::core::default::Default for DSPROPERTYPAGEINFO {
     }
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSPROP_ATTRCHANGED_MSG: &'static str = "DsPropAttrChanged";
+pub const DSPROP_ATTRCHANGED_MSG: &str = "DsPropAttrChanged";
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
 pub const DSPROVIDER_ADVANCED: u32 = 16u32;
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
@@ -4965,9 +4964,9 @@ pub const DS_PDC_REQUIRED: u32 = 128u32;
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
 pub const DS_PING_FLAGS: u32 = 1048575u32;
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_PROP_ADMIN_PREFIX: &'static str = "admin";
+pub const DS_PROP_ADMIN_PREFIX: &str = "admin";
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_PROP_SHELL_PREFIX: &'static str = "shell";
+pub const DS_PROP_SHELL_PREFIX: &str = "shell";
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
 pub const DS_REPADD_ASYNCHRONOUS_OPERATION: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
@@ -7147,9 +7146,9 @@ impl ::core::fmt::Debug for DS_SPN_WRITE_OP {
     }
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_SYNCED_EVENT_NAME: &'static str = "NTDSInitialSyncsCompleted";
+pub const DS_SYNCED_EVENT_NAME: &str = "NTDSInitialSyncsCompleted";
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_SYNCED_EVENT_NAME_W: &'static str = "NTDSInitialSyncsCompleted";
+pub const DS_SYNCED_EVENT_NAME_W: &str = "NTDSInitialSyncsCompleted";
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
 pub const DS_TIMESERV_FLAG: u32 = 64u32;
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
@@ -9102,61 +9101,61 @@ pub unsafe fn FreeADsStr<'a, Param0: ::windows::core::IntoParam<'a, ::windows::c
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const GUID_COMPUTRS_CONTAINER_A: &'static str = "aa312825768811d1aded00c04fd8d5cd";
+pub const GUID_COMPUTRS_CONTAINER_A: &str = "aa312825768811d1aded00c04fd8d5cd";
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const GUID_COMPUTRS_CONTAINER_W: &'static str = "aa312825768811d1aded00c04fd8d5cd";
+pub const GUID_COMPUTRS_CONTAINER_W: &str = "aa312825768811d1aded00c04fd8d5cd";
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const GUID_DELETED_OBJECTS_CONTAINER_A: &'static str = "18e2ea80684f11d2b9aa00c04f79f805";
+pub const GUID_DELETED_OBJECTS_CONTAINER_A: &str = "18e2ea80684f11d2b9aa00c04f79f805";
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const GUID_DELETED_OBJECTS_CONTAINER_W: &'static str = "18e2ea80684f11d2b9aa00c04f79f805";
+pub const GUID_DELETED_OBJECTS_CONTAINER_W: &str = "18e2ea80684f11d2b9aa00c04f79f805";
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const GUID_DOMAIN_CONTROLLERS_CONTAINER_A: &'static str = "a361b2ffffd211d1aa4b00c04fd7d83a";
+pub const GUID_DOMAIN_CONTROLLERS_CONTAINER_A: &str = "a361b2ffffd211d1aa4b00c04fd7d83a";
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const GUID_DOMAIN_CONTROLLERS_CONTAINER_W: &'static str = "a361b2ffffd211d1aa4b00c04fd7d83a";
+pub const GUID_DOMAIN_CONTROLLERS_CONTAINER_W: &str = "a361b2ffffd211d1aa4b00c04fd7d83a";
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const GUID_FOREIGNSECURITYPRINCIPALS_CONTAINER_A: &'static str = "22b70c67d56e4efb91e9300fca3dc1aa";
+pub const GUID_FOREIGNSECURITYPRINCIPALS_CONTAINER_A: &str = "22b70c67d56e4efb91e9300fca3dc1aa";
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const GUID_FOREIGNSECURITYPRINCIPALS_CONTAINER_W: &'static str = "22b70c67d56e4efb91e9300fca3dc1aa";
+pub const GUID_FOREIGNSECURITYPRINCIPALS_CONTAINER_W: &str = "22b70c67d56e4efb91e9300fca3dc1aa";
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const GUID_INFRASTRUCTURE_CONTAINER_A: &'static str = "2fbac1870ade11d297c400c04fd8d5cd";
+pub const GUID_INFRASTRUCTURE_CONTAINER_A: &str = "2fbac1870ade11d297c400c04fd8d5cd";
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const GUID_INFRASTRUCTURE_CONTAINER_W: &'static str = "2fbac1870ade11d297c400c04fd8d5cd";
+pub const GUID_INFRASTRUCTURE_CONTAINER_W: &str = "2fbac1870ade11d297c400c04fd8d5cd";
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const GUID_KEYS_CONTAINER_W: &'static str = "683A24E2E8164BD3AF86AC3C2CF3F981";
+pub const GUID_KEYS_CONTAINER_W: &str = "683A24E2E8164BD3AF86AC3C2CF3F981";
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const GUID_LOSTANDFOUND_CONTAINER_A: &'static str = "ab8153b7768811d1aded00c04fd8d5cd";
+pub const GUID_LOSTANDFOUND_CONTAINER_A: &str = "ab8153b7768811d1aded00c04fd8d5cd";
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const GUID_LOSTANDFOUND_CONTAINER_W: &'static str = "ab8153b7768811d1aded00c04fd8d5cd";
+pub const GUID_LOSTANDFOUND_CONTAINER_W: &str = "ab8153b7768811d1aded00c04fd8d5cd";
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const GUID_MANAGED_SERVICE_ACCOUNTS_CONTAINER_W: &'static str = "1EB93889E40C45DF9F0C64D23BBB6237";
+pub const GUID_MANAGED_SERVICE_ACCOUNTS_CONTAINER_W: &str = "1EB93889E40C45DF9F0C64D23BBB6237";
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const GUID_MICROSOFT_PROGRAM_DATA_CONTAINER_A: &'static str = "f4be92a4c777485e878e9421d53087db";
+pub const GUID_MICROSOFT_PROGRAM_DATA_CONTAINER_A: &str = "f4be92a4c777485e878e9421d53087db";
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const GUID_MICROSOFT_PROGRAM_DATA_CONTAINER_W: &'static str = "f4be92a4c777485e878e9421d53087db";
+pub const GUID_MICROSOFT_PROGRAM_DATA_CONTAINER_W: &str = "f4be92a4c777485e878e9421d53087db";
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const GUID_NTDS_QUOTAS_CONTAINER_A: &'static str = "6227f0af1fc2410d8e3bb10615bb5b0f";
+pub const GUID_NTDS_QUOTAS_CONTAINER_A: &str = "6227f0af1fc2410d8e3bb10615bb5b0f";
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const GUID_NTDS_QUOTAS_CONTAINER_W: &'static str = "6227f0af1fc2410d8e3bb10615bb5b0f";
+pub const GUID_NTDS_QUOTAS_CONTAINER_W: &str = "6227f0af1fc2410d8e3bb10615bb5b0f";
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const GUID_PRIVILEGED_ACCESS_MANAGEMENT_OPTIONAL_FEATURE_A: &'static str = "73e843ece8cc4046b4ab07ffe4ab5bcd";
+pub const GUID_PRIVILEGED_ACCESS_MANAGEMENT_OPTIONAL_FEATURE_A: &str = "73e843ece8cc4046b4ab07ffe4ab5bcd";
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const GUID_PRIVILEGED_ACCESS_MANAGEMENT_OPTIONAL_FEATURE_W: &'static str = "73e843ece8cc4046b4ab07ffe4ab5bcd";
+pub const GUID_PRIVILEGED_ACCESS_MANAGEMENT_OPTIONAL_FEATURE_W: &str = "73e843ece8cc4046b4ab07ffe4ab5bcd";
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const GUID_PROGRAM_DATA_CONTAINER_A: &'static str = "09460c08ae1e4a4ea0f64aee7daa1e5a";
+pub const GUID_PROGRAM_DATA_CONTAINER_A: &str = "09460c08ae1e4a4ea0f64aee7daa1e5a";
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const GUID_PROGRAM_DATA_CONTAINER_W: &'static str = "09460c08ae1e4a4ea0f64aee7daa1e5a";
+pub const GUID_PROGRAM_DATA_CONTAINER_W: &str = "09460c08ae1e4a4ea0f64aee7daa1e5a";
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const GUID_RECYCLE_BIN_OPTIONAL_FEATURE_A: &'static str = "d8dc6d76d0ac5e44f3b9a7f9b6744f2a";
+pub const GUID_RECYCLE_BIN_OPTIONAL_FEATURE_A: &str = "d8dc6d76d0ac5e44f3b9a7f9b6744f2a";
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const GUID_RECYCLE_BIN_OPTIONAL_FEATURE_W: &'static str = "d8dc6d76d0ac5e44f3b9a7f9b6744f2a";
+pub const GUID_RECYCLE_BIN_OPTIONAL_FEATURE_W: &str = "d8dc6d76d0ac5e44f3b9a7f9b6744f2a";
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const GUID_SYSTEMS_CONTAINER_A: &'static str = "ab1d30f3768811d1aded00c04fd8d5cd";
+pub const GUID_SYSTEMS_CONTAINER_A: &str = "ab1d30f3768811d1aded00c04fd8d5cd";
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const GUID_SYSTEMS_CONTAINER_W: &'static str = "ab1d30f3768811d1aded00c04fd8d5cd";
+pub const GUID_SYSTEMS_CONTAINER_W: &str = "ab1d30f3768811d1aded00c04fd8d5cd";
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const GUID_USERS_CONTAINER_A: &'static str = "a9d1ca15768811d1aded00c04fd8d5cd";
+pub const GUID_USERS_CONTAINER_A: &str = "a9d1ca15768811d1aded00c04fd8d5cd";
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const GUID_USERS_CONTAINER_W: &'static str = "a9d1ca15768811d1aded00c04fd8d5cd";
+pub const GUID_USERS_CONTAINER_W: &str = "a9d1ca15768811d1aded00c04fd8d5cd";
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct GetDcContextHandle(pub isize);

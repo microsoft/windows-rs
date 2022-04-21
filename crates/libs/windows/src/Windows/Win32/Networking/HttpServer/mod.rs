@@ -1,4 +1,3 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
 pub struct HTTP2_SETTINGS_LIMITS_PARAM {
@@ -4965,7 +4964,7 @@ impl ::core::fmt::Debug for HTTP_VERB {
     }
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HTTP_VERSION: &'static str = "HTTP/1.0";
+pub const HTTP_VERSION: &str = "HTTP/1.0";
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
 pub struct HTTP_VERSION {

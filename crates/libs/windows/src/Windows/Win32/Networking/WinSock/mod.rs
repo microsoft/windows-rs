@@ -1,4 +1,3 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub const AAL5_MODE_MESSAGE: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
@@ -7415,39 +7414,39 @@ impl ::core::default::Default for SERVICE_TYPE_VALUE_ABSW {
     }
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
-pub const SERVICE_TYPE_VALUE_CONN: &'static str = "ConnectionOriented";
+pub const SERVICE_TYPE_VALUE_CONN: &str = "ConnectionOriented";
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
-pub const SERVICE_TYPE_VALUE_CONNA: &'static str = "ConnectionOriented";
+pub const SERVICE_TYPE_VALUE_CONNA: &str = "ConnectionOriented";
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
-pub const SERVICE_TYPE_VALUE_CONNW: &'static str = "ConnectionOriented";
+pub const SERVICE_TYPE_VALUE_CONNW: &str = "ConnectionOriented";
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
-pub const SERVICE_TYPE_VALUE_IPXPORTA: &'static str = "IpxSocket";
+pub const SERVICE_TYPE_VALUE_IPXPORTA: &str = "IpxSocket";
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
-pub const SERVICE_TYPE_VALUE_IPXPORTW: &'static str = "IpxSocket";
+pub const SERVICE_TYPE_VALUE_IPXPORTW: &str = "IpxSocket";
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
-pub const SERVICE_TYPE_VALUE_OBJECTID: &'static str = "ObjectId";
+pub const SERVICE_TYPE_VALUE_OBJECTID: &str = "ObjectId";
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
-pub const SERVICE_TYPE_VALUE_OBJECTIDA: &'static str = "ObjectId";
+pub const SERVICE_TYPE_VALUE_OBJECTIDA: &str = "ObjectId";
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
-pub const SERVICE_TYPE_VALUE_OBJECTIDW: &'static str = "ObjectId";
+pub const SERVICE_TYPE_VALUE_OBJECTIDW: &str = "ObjectId";
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
-pub const SERVICE_TYPE_VALUE_SAPID: &'static str = "SapId";
+pub const SERVICE_TYPE_VALUE_SAPID: &str = "SapId";
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
-pub const SERVICE_TYPE_VALUE_SAPIDA: &'static str = "SapId";
+pub const SERVICE_TYPE_VALUE_SAPIDA: &str = "SapId";
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
-pub const SERVICE_TYPE_VALUE_SAPIDW: &'static str = "SapId";
+pub const SERVICE_TYPE_VALUE_SAPIDW: &str = "SapId";
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
-pub const SERVICE_TYPE_VALUE_TCPPORT: &'static str = "TcpPort";
+pub const SERVICE_TYPE_VALUE_TCPPORT: &str = "TcpPort";
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
-pub const SERVICE_TYPE_VALUE_TCPPORTA: &'static str = "TcpPort";
+pub const SERVICE_TYPE_VALUE_TCPPORTA: &str = "TcpPort";
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
-pub const SERVICE_TYPE_VALUE_TCPPORTW: &'static str = "TcpPort";
+pub const SERVICE_TYPE_VALUE_TCPPORTW: &str = "TcpPort";
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
-pub const SERVICE_TYPE_VALUE_UDPPORT: &'static str = "UdpPort";
+pub const SERVICE_TYPE_VALUE_UDPPORT: &str = "UdpPort";
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
-pub const SERVICE_TYPE_VALUE_UDPPORTA: &'static str = "UdpPort";
+pub const SERVICE_TYPE_VALUE_UDPPORTA: &str = "UdpPort";
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
-pub const SERVICE_TYPE_VALUE_UDPPORTW: &'static str = "UdpPort";
+pub const SERVICE_TYPE_VALUE_UDPPORTW: &str = "UdpPort";
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]

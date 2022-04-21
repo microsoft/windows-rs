@@ -1,4 +1,3 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 pub const BlockRange: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb507ca27_2204_11dd_966a_001aa01bbc58);
 pub const BlockRangeList: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb507ca28_2204_11dd_966a_001aa01bbc58);
 pub const BootOptions: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2c941fce_975b_59be_a960_9a2a262853a5);
@@ -7725,9 +7724,9 @@ pub struct IJolietDiscMaster_Vtbl {
 #[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI2FS_BOOT_ENTRY_COUNT_MAX: u32 = 32u32;
 #[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
-pub const IMAPI2FS_FullVersion_STR: &'static str = "1.0";
+pub const IMAPI2FS_FullVersion_STR: &str = "1.0";
 #[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
-pub const IMAPI2FS_FullVersion_WSTR: &'static str = "1.0";
+pub const IMAPI2FS_FullVersion_WSTR: &str = "1.0";
 #[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI2FS_MajorVersion: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
@@ -11517,7 +11516,7 @@ impl ::core::default::Default for SPropAttrArray {
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
-pub const SZ_PROGID_SMTPCAT: &'static str = "Smtp.Cat";
+pub const SZ_PROGID_SMTPCAT: &str = "Smtp.Cat";
 #[doc = "*Required features: `\"Win32_Storage_Imapi\"`, `\"Win32_System_AddressBook\"`*"]
 #[cfg(feature = "Win32_System_AddressBook")]
 #[inline]

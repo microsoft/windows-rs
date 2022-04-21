@@ -75,8 +75,7 @@ fn main() -> std::io::Result<()> {
     gen.min_inherit = true;
     gen.flatten = true;
 
-    // TODO: bindgen crate should just make this a public const variable so we can manage this list centrally.
-    let mut tokens = "#![allow(non_snake_case, non_upper_case_globals, dead_code, non_camel_case_types, clippy::upper_case_acronyms, clippy::derivable_impls)]".to_string();
+    let mut tokens = String::new();
 
     for name in types {
         tokens += &bindgen::bindgen2::gen_type(name, &gen);

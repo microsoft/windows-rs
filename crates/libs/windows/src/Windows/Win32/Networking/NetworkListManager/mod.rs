@@ -1,4 +1,3 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
@@ -1156,31 +1155,31 @@ pub struct INetworkListManagerEvents_Vtbl {
     pub ConnectivityChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newconnectivity: NLM_CONNECTIVITY) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
-pub const NA_AllowMerge: &'static str = "NA_AllowMerge";
+pub const NA_AllowMerge: &str = "NA_AllowMerge";
 #[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
-pub const NA_CategoryReadOnly: &'static str = "NA_CategoryReadOnly";
+pub const NA_CategoryReadOnly: &str = "NA_CategoryReadOnly";
 #[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
-pub const NA_CategorySetByPolicy: &'static str = "NA_CategorySetByPolicy";
+pub const NA_CategorySetByPolicy: &str = "NA_CategorySetByPolicy";
 #[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
-pub const NA_DescriptionReadOnly: &'static str = "NA_DescriptionReadOnly";
+pub const NA_DescriptionReadOnly: &str = "NA_DescriptionReadOnly";
 #[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
-pub const NA_DescriptionSetByPolicy: &'static str = "NA_DescriptionSetByPolicy";
+pub const NA_DescriptionSetByPolicy: &str = "NA_DescriptionSetByPolicy";
 #[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
-pub const NA_DomainAuthenticationFailed: &'static str = "NA_DomainAuthenticationFailed";
+pub const NA_DomainAuthenticationFailed: &str = "NA_DomainAuthenticationFailed";
 #[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
-pub const NA_IconReadOnly: &'static str = "NA_IconReadOnly";
+pub const NA_IconReadOnly: &str = "NA_IconReadOnly";
 #[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
-pub const NA_IconSetByPolicy: &'static str = "NA_IconSetByPolicy";
+pub const NA_IconSetByPolicy: &str = "NA_IconSetByPolicy";
 #[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
-pub const NA_InternetConnectivityV4: &'static str = "NA_InternetConnectivityV4";
+pub const NA_InternetConnectivityV4: &str = "NA_InternetConnectivityV4";
 #[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
-pub const NA_InternetConnectivityV6: &'static str = "NA_InternetConnectivityV6";
+pub const NA_InternetConnectivityV6: &str = "NA_InternetConnectivityV6";
 #[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
-pub const NA_NameReadOnly: &'static str = "NA_NameReadOnly";
+pub const NA_NameReadOnly: &str = "NA_NameReadOnly";
 #[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
-pub const NA_NameSetByPolicy: &'static str = "NA_NameSetByPolicy";
+pub const NA_NameSetByPolicy: &str = "NA_NameSetByPolicy";
 #[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
-pub const NA_NetworkClass: &'static str = "NA_NetworkClass";
+pub const NA_NetworkClass: &str = "NA_NetworkClass";
 #[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]

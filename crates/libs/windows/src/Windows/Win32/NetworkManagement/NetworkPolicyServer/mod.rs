@@ -1,4 +1,3 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkPolicyServer\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -810,13 +809,13 @@ impl ::core::fmt::Debug for AUTHENTICATION_TYPE {
     }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkPolicyServer\"`*"]
-pub const AUTHSRV_AUTHORIZATION_VALUE_W: &'static str = "AuthorizationDLLs";
+pub const AUTHSRV_AUTHORIZATION_VALUE_W: &str = "AuthorizationDLLs";
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkPolicyServer\"`*"]
-pub const AUTHSRV_ENFORCE_NP_FOR_PAP_CHALLENGE_RESPONSE_VALUE_W: &'static str = "EnforceNetworkPolicyForPAPBasedChallengeResponse";
+pub const AUTHSRV_ENFORCE_NP_FOR_PAP_CHALLENGE_RESPONSE_VALUE_W: &str = "EnforceNetworkPolicyForPAPBasedChallengeResponse";
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkPolicyServer\"`*"]
-pub const AUTHSRV_EXTENSIONS_VALUE_W: &'static str = "ExtensionDLLs";
+pub const AUTHSRV_EXTENSIONS_VALUE_W: &str = "ExtensionDLLs";
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkPolicyServer\"`*"]
-pub const AUTHSRV_PARAMETERS_KEY_W: &'static str = "System\\CurrentControlSet\\Services\\AuthSrv\\Parameters";
+pub const AUTHSRV_PARAMETERS_KEY_W: &str = "System\\CurrentControlSet\\Services\\AuthSrv\\Parameters";
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkPolicyServer\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -3047,9 +3046,9 @@ impl ::core::default::Default for RADIUS_EXTENSION_CONTROL_BLOCK {
     }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkPolicyServer\"`*"]
-pub const RADIUS_EXTENSION_FREE_ATTRIBUTES: &'static str = "RadiusExtensionFreeAttributes";
+pub const RADIUS_EXTENSION_FREE_ATTRIBUTES: &str = "RadiusExtensionFreeAttributes";
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkPolicyServer\"`*"]
-pub const RADIUS_EXTENSION_INIT: &'static str = "RadiusExtensionInit";
+pub const RADIUS_EXTENSION_INIT: &str = "RadiusExtensionInit";
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkPolicyServer\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -3078,13 +3077,13 @@ impl ::core::fmt::Debug for RADIUS_EXTENSION_POINT {
     }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkPolicyServer\"`*"]
-pub const RADIUS_EXTENSION_PROCESS: &'static str = "RadiusExtensionProcess";
+pub const RADIUS_EXTENSION_PROCESS: &str = "RadiusExtensionProcess";
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkPolicyServer\"`*"]
-pub const RADIUS_EXTENSION_PROCESS2: &'static str = "RadiusExtensionProcess2";
+pub const RADIUS_EXTENSION_PROCESS2: &str = "RadiusExtensionProcess2";
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkPolicyServer\"`*"]
-pub const RADIUS_EXTENSION_PROCESS_EX: &'static str = "RadiusExtensionProcessEx";
+pub const RADIUS_EXTENSION_PROCESS_EX: &str = "RadiusExtensionProcessEx";
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkPolicyServer\"`*"]
-pub const RADIUS_EXTENSION_TERM: &'static str = "RadiusExtensionTerm";
+pub const RADIUS_EXTENSION_TERM: &str = "RadiusExtensionTerm";
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkPolicyServer\"`*"]
 pub const RADIUS_EXTENSION_VERSION: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkPolicyServer\"`*"]

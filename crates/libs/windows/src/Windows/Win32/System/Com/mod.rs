@@ -1,4 +1,3 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[cfg(feature = "Win32_System_Com_CallObj")]
 pub mod CallObj;
 #[cfg(feature = "Win32_System_Com_ChannelCredentials")]
@@ -15165,7 +15164,7 @@ impl ::core::default::Default for WORD_BLOB {
     }
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const _CRT_INTERNAL_COMBASE_SYMBOL_PREFIX: &'static str = "_";
+pub const _CRT_INTERNAL_COMBASE_SYMBOL_PREFIX: &str = "_";
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 pub struct uCLSSPEC {

@@ -1,4 +1,3 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {
     #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`, `\"Win32_Foundation\"`*"]
@@ -2637,23 +2636,23 @@ pub const STRING_NAME_OFFSET: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
 pub const STRING_PROVIDER_NAME_OFFSET: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
-pub const STR_ADDR_FMT: &'static str = "(%02x:%02x:%02x:%02x:%02x:%02x)";
+pub const STR_ADDR_FMT: &str = "(%02x:%02x:%02x:%02x:%02x:%02x)";
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
-pub const STR_ADDR_FMTA: &'static str = "(%02x:%02x:%02x:%02x:%02x:%02x)";
+pub const STR_ADDR_FMTA: &str = "(%02x:%02x:%02x:%02x:%02x:%02x)";
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
-pub const STR_ADDR_FMTW: &'static str = "(%02x:%02x:%02x:%02x:%02x:%02x)";
+pub const STR_ADDR_FMTW: &str = "(%02x:%02x:%02x:%02x:%02x:%02x)";
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
-pub const STR_ADDR_SHORT_FMT: &'static str = "%04x%08x";
+pub const STR_ADDR_SHORT_FMT: &str = "%04x%08x";
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
-pub const STR_ADDR_SHORT_FMTA: &'static str = "%04x%08x";
+pub const STR_ADDR_SHORT_FMTA: &str = "%04x%08x";
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
-pub const STR_ADDR_SHORT_FMTW: &'static str = "%04x%08x";
+pub const STR_ADDR_SHORT_FMTW: &str = "%04x%08x";
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
-pub const STR_USBHCI_CLASS_HARDWAREID: &'static str = "USB\\Class_E0&SubClass_01&Prot_01";
+pub const STR_USBHCI_CLASS_HARDWAREID: &str = "USB\\Class_E0&SubClass_01&Prot_01";
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
-pub const STR_USBHCI_CLASS_HARDWAREIDA: &'static str = "USB\\Class_E0&SubClass_01&Prot_01";
+pub const STR_USBHCI_CLASS_HARDWAREIDA: &str = "USB\\Class_E0&SubClass_01&Prot_01";
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
-pub const STR_USBHCI_CLASS_HARDWAREIDW: &'static str = "USB\\Class_E0&SubClass_01&Prot_01";
+pub const STR_USBHCI_CLASS_HARDWAREIDW: &str = "USB\\Class_E0&SubClass_01&Prot_01";
 pub const SVCID_BTH_PROVIDER: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 111829984, data2: 32096, data3: 16895, data4: [175, 178, 62, 230, 210, 217, 57, 45] };
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
 pub const SYNCH_DATA_STORE_CALENDAR: u32 = 3u32;

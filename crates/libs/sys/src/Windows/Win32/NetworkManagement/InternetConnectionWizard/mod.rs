@@ -1,4 +1,3 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_InternetConnectionWizard\"`*"]
 pub const ICW_ALREADYRUN: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_InternetConnectionWizard\"`*"]
@@ -32,9 +31,9 @@ pub const ICW_MAX_RASNAME: u32 = 256u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_InternetConnectionWizard\"`*"]
 pub const ICW_MAX_SERVERNAME: u32 = 64u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_InternetConnectionWizard\"`*"]
-pub const ICW_REGKEYCOMPLETED: &'static str = "Completed";
+pub const ICW_REGKEYCOMPLETED: &str = "Completed";
 #[doc = "*Required features: `\"Win32_NetworkManagement_InternetConnectionWizard\"`*"]
-pub const ICW_REGPATHSETTINGS: &'static str = "Software\\Microsoft\\Internet Connection Wizard";
+pub const ICW_REGPATHSETTINGS: &str = "Software\\Microsoft\\Internet Connection Wizard";
 #[doc = "*Required features: `\"Win32_NetworkManagement_InternetConnectionWizard\"`*"]
 pub const ICW_USEDEFAULTS: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_InternetConnectionWizard\"`*"]
