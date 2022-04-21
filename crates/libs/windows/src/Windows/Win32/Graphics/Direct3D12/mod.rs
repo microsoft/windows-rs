@@ -1,4 +1,3 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 pub const CLSID_D3D12Debug: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2352aeb_dd84_49fe_b97b_a9dcfdcc1b4f);
 pub const CLSID_D3D12DeviceRemovedExtendedData: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4a75bbc4_9ff4_4ad8_9f18_abae84dc5ff2);
 pub const CLSID_D3D12SDKConfiguration: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7cda6aca_a03e_49c8_9458_0334d20e07ce);

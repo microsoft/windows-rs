@@ -1,4 +1,3 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {
     #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`, `\"Win32_Foundation\"`*"]
@@ -1153,7 +1152,7 @@ pub const ALLJOYN_MESSAGE_FLAG_NO_REPLY_EXPECTED: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 pub const ALLJOYN_MESSAGE_FLAG_SESSIONLESS: u32 = 16u32;
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
-pub const ALLJOYN_NAMED_PIPE_CONNECT_SPEC: &'static str = "npipe:";
+pub const ALLJOYN_NAMED_PIPE_CONNECT_SPEC: &str = "npipe:";
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 pub const ALLJOYN_PROP_ACCESS_READ: u8 = 1u8;
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]

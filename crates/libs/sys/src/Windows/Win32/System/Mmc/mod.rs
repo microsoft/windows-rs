@@ -1,4 +1,3 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
 pub const AUTO_WIDTH: i32 = -1i32;
 pub type AppEvents = *mut ::core::ffi::c_void;

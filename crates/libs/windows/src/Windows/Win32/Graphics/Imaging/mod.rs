@@ -1,4 +1,3 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[cfg(feature = "Win32_Graphics_Imaging_D2D")]
 pub mod D2D;
 pub const CATID_WICBitmapDecoders: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7ed96837_96f0_4812_b211_f13c24117ed3);

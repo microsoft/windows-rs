@@ -1,4 +1,3 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -1128,7 +1127,7 @@ impl ::core::fmt::Debug for FULLDUPLEX_SUPPORT {
     }
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const GETTNEFSTREAMCODEPAGE: &'static str = "GetTnefStreamCodePage";
+pub const GETTNEFSTREAMCODEPAGE: &str = "GetTnefStreamCodePage";
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
@@ -20666,9 +20665,9 @@ impl ::core::default::Default for NSID_0 {
     }
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const OPENTNEFSTREAM: &'static str = "OpenTnefStream";
+pub const OPENTNEFSTREAM: &str = "OpenTnefStream";
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const OPENTNEFSTREAMEX: &'static str = "OpenTnefStreamEx";
+pub const OPENTNEFSTREAMEX: &str = "OpenTnefStreamEx";
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_System_AddressBook\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_System_AddressBook", feature = "Win32_System_Com"))]
 #[inline]

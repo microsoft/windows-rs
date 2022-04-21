@@ -1,4 +1,3 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const CERTIFICATE_HASH_LENGTH: u32 = 20u32;
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
@@ -535,13 +534,13 @@ impl ::core::fmt::Debug for EAP_AUTHENTICATOR_SEND_TIMEOUT {
     }
 }
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
-pub const EAP_AUTHENTICATOR_VALUENAME_CONFIGUI: &'static str = "AuthenticatorConfigUIPath";
+pub const EAP_AUTHENTICATOR_VALUENAME_CONFIGUI: &str = "AuthenticatorConfigUIPath";
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
-pub const EAP_AUTHENTICATOR_VALUENAME_DLL_PATH: &'static str = "AuthenticatorDllPath";
+pub const EAP_AUTHENTICATOR_VALUENAME_DLL_PATH: &str = "AuthenticatorDllPath";
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
-pub const EAP_AUTHENTICATOR_VALUENAME_FRIENDLY_NAME: &'static str = "AuthenticatorFriendlyName";
+pub const EAP_AUTHENTICATOR_VALUENAME_FRIENDLY_NAME: &str = "AuthenticatorFriendlyName";
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
-pub const EAP_AUTHENTICATOR_VALUENAME_PROPERTIES: &'static str = "Properties";
+pub const EAP_AUTHENTICATOR_VALUENAME_PROPERTIES: &str = "Properties";
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub struct EAP_CONFIG_INPUT_FIELD_ARRAY {
@@ -1568,25 +1567,25 @@ impl ::core::default::Default for EAP_PEER_METHOD_ROUTINES {
     }
 }
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
-pub const EAP_PEER_VALUENAME_CONFIGUI: &'static str = "PeerConfigUIPath";
+pub const EAP_PEER_VALUENAME_CONFIGUI: &str = "PeerConfigUIPath";
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
-pub const EAP_PEER_VALUENAME_DLL_PATH: &'static str = "PeerDllPath";
+pub const EAP_PEER_VALUENAME_DLL_PATH: &str = "PeerDllPath";
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
-pub const EAP_PEER_VALUENAME_FRIENDLY_NAME: &'static str = "PeerFriendlyName";
+pub const EAP_PEER_VALUENAME_FRIENDLY_NAME: &str = "PeerFriendlyName";
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
-pub const EAP_PEER_VALUENAME_IDENTITY: &'static str = "PeerIdentityPath";
+pub const EAP_PEER_VALUENAME_IDENTITY: &str = "PeerIdentityPath";
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
-pub const EAP_PEER_VALUENAME_INTERACTIVEUI: &'static str = "PeerInteractiveUIPath";
+pub const EAP_PEER_VALUENAME_INTERACTIVEUI: &str = "PeerInteractiveUIPath";
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
-pub const EAP_PEER_VALUENAME_INVOKE_NAMEDLG: &'static str = "PeerInvokeUsernameDialog";
+pub const EAP_PEER_VALUENAME_INVOKE_NAMEDLG: &str = "PeerInvokeUsernameDialog";
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
-pub const EAP_PEER_VALUENAME_INVOKE_PWDDLG: &'static str = "PeerInvokePasswordDialog";
+pub const EAP_PEER_VALUENAME_INVOKE_PWDDLG: &str = "PeerInvokePasswordDialog";
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
-pub const EAP_PEER_VALUENAME_PROPERTIES: &'static str = "Properties";
+pub const EAP_PEER_VALUENAME_PROPERTIES: &str = "Properties";
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
-pub const EAP_PEER_VALUENAME_REQUIRE_CONFIGUI: &'static str = "PeerRequireConfigUI";
+pub const EAP_PEER_VALUENAME_REQUIRE_CONFIGUI: &str = "PeerRequireConfigUI";
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
-pub const EAP_REGISTRY_LOCATION: &'static str = "System\\CurrentControlSet\\Services\\EapHost\\Methods";
+pub const EAP_REGISTRY_LOCATION: &str = "System\\CurrentControlSet\\Services\\EapHost\\Methods";
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub struct EAP_TYPE {
@@ -1655,7 +1654,7 @@ pub const EAP_UI_INPUT_FIELD_PROPS_NON_PERSIST: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const EAP_UI_INPUT_FIELD_PROPS_READ_ONLY: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
-pub const EAP_VALUENAME_PROPERTIES: &'static str = "Properties";
+pub const EAP_VALUENAME_PROPERTIES: &str = "Properties";
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub struct EapCertificateCredential {
@@ -4050,7 +4049,7 @@ pub const RAS_EAP_FLAG_SAVE_CREDMAN: u32 = 2097152u32;
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const RAS_EAP_FLAG_SERVER_VALIDATION_REQUIRED: u32 = 33554432u32;
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
-pub const RAS_EAP_REGISTRY_LOCATION: &'static str = "System\\CurrentControlSet\\Services\\Rasman\\PPP\\EAP";
+pub const RAS_EAP_REGISTRY_LOCATION: &str = "System\\CurrentControlSet\\Services\\Rasman\\PPP\\EAP";
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const RAS_EAP_ROLE_AUTHENTICATEE: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
@@ -4062,37 +4061,37 @@ pub const RAS_EAP_ROLE_EXCLUDE_IN_PEAP: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const RAS_EAP_ROLE_EXCLUDE_IN_VPN: u32 = 16u32;
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
-pub const RAS_EAP_VALUENAME_CONFIGUI: &'static str = "ConfigUIPath";
+pub const RAS_EAP_VALUENAME_CONFIGUI: &str = "ConfigUIPath";
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
-pub const RAS_EAP_VALUENAME_CONFIG_CLSID: &'static str = "ConfigCLSID";
+pub const RAS_EAP_VALUENAME_CONFIG_CLSID: &str = "ConfigCLSID";
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
-pub const RAS_EAP_VALUENAME_DEFAULT_DATA: &'static str = "ConfigData";
+pub const RAS_EAP_VALUENAME_DEFAULT_DATA: &str = "ConfigData";
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
-pub const RAS_EAP_VALUENAME_ENCRYPTION: &'static str = "MPPEEncryptionSupported";
+pub const RAS_EAP_VALUENAME_ENCRYPTION: &str = "MPPEEncryptionSupported";
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
-pub const RAS_EAP_VALUENAME_FILTER_INNERMETHODS: &'static str = "FilterInnerMethods";
+pub const RAS_EAP_VALUENAME_FILTER_INNERMETHODS: &str = "FilterInnerMethods";
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
-pub const RAS_EAP_VALUENAME_FRIENDLY_NAME: &'static str = "FriendlyName";
+pub const RAS_EAP_VALUENAME_FRIENDLY_NAME: &str = "FriendlyName";
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
-pub const RAS_EAP_VALUENAME_IDENTITY: &'static str = "IdentityPath";
+pub const RAS_EAP_VALUENAME_IDENTITY: &str = "IdentityPath";
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
-pub const RAS_EAP_VALUENAME_INTERACTIVEUI: &'static str = "InteractiveUIPath";
+pub const RAS_EAP_VALUENAME_INTERACTIVEUI: &str = "InteractiveUIPath";
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
-pub const RAS_EAP_VALUENAME_INVOKE_NAMEDLG: &'static str = "InvokeUsernameDialog";
+pub const RAS_EAP_VALUENAME_INVOKE_NAMEDLG: &str = "InvokeUsernameDialog";
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
-pub const RAS_EAP_VALUENAME_INVOKE_PWDDLG: &'static str = "InvokePasswordDialog";
+pub const RAS_EAP_VALUENAME_INVOKE_PWDDLG: &str = "InvokePasswordDialog";
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
-pub const RAS_EAP_VALUENAME_ISTUNNEL_METHOD: &'static str = "IsTunnelMethod";
+pub const RAS_EAP_VALUENAME_ISTUNNEL_METHOD: &str = "IsTunnelMethod";
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
-pub const RAS_EAP_VALUENAME_PATH: &'static str = "Path";
+pub const RAS_EAP_VALUENAME_PATH: &str = "Path";
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
-pub const RAS_EAP_VALUENAME_PER_POLICY_CONFIG: &'static str = "PerPolicyConfig";
+pub const RAS_EAP_VALUENAME_PER_POLICY_CONFIG: &str = "PerPolicyConfig";
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
-pub const RAS_EAP_VALUENAME_REQUIRE_CONFIGUI: &'static str = "RequireConfigUI";
+pub const RAS_EAP_VALUENAME_REQUIRE_CONFIGUI: &str = "RequireConfigUI";
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
-pub const RAS_EAP_VALUENAME_ROLES_SUPPORTED: &'static str = "RolesSupported";
+pub const RAS_EAP_VALUENAME_ROLES_SUPPORTED: &str = "RolesSupported";
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
-pub const RAS_EAP_VALUENAME_STANDALONE_SUPPORTED: &'static str = "StandaloneSupported";
+pub const RAS_EAP_VALUENAME_STANDALONE_SUPPORTED: &str = "StandaloneSupported";
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
 pub const eapPropCertifiedMethod: u32 = 4194304u32;
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]

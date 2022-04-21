@@ -1,4 +1,3 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {
     #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
@@ -2287,7 +2286,7 @@ pub const HttpVerbSEARCH: HTTP_VERB = 19i32;
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
 pub const HttpVerbMaximum: HTTP_VERB = 20i32;
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HTTP_VERSION: &'static str = "HTTP/1.0";
+pub const HTTP_VERSION: &str = "HTTP/1.0";
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
 pub struct HTTP_VERSION {

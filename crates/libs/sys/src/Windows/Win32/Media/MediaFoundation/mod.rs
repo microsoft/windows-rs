@@ -1,4 +1,3 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {
     #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
@@ -13973,16 +13972,16 @@ pub const eVideoEncoderDisplayContent_Unknown: eVideoEncoderDisplayContentType =
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const eVideoEncoderDisplayContent_FullScreenVideo: eVideoEncoderDisplayContentType = 1i32;
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
-pub const g_wszSpeechFormatCaps: &'static str = "SpeechFormatCap";
+pub const g_wszSpeechFormatCaps: &str = "SpeechFormatCap";
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
-pub const g_wszWMCPAudioVBRQuality: &'static str = "_VBRQUALITY";
+pub const g_wszWMCPAudioVBRQuality: &str = "_VBRQUALITY";
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
-pub const g_wszWMCPAudioVBRSupported: &'static str = "_VBRENABLED";
+pub const g_wszWMCPAudioVBRSupported: &str = "_VBRENABLED";
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
-pub const g_wszWMCPCodecName: &'static str = "_CODECNAME";
+pub const g_wszWMCPCodecName: &str = "_CODECNAME";
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
-pub const g_wszWMCPDefaultCrisp: &'static str = "_DEFAULTCRISP";
+pub const g_wszWMCPDefaultCrisp: &str = "_DEFAULTCRISP";
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
-pub const g_wszWMCPMaxPasses: &'static str = "_PASSESRECOMMENDED";
+pub const g_wszWMCPMaxPasses: &str = "_PASSESRECOMMENDED";
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
-pub const g_wszWMCPSupportedVBRModes: &'static str = "_SUPPORTEDVBRMODES";
+pub const g_wszWMCPSupportedVBRModes: &str = "_SUPPORTEDVBRMODES";

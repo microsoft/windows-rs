@@ -1,4 +1,3 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {
     #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
@@ -773,21 +772,21 @@ pub type PFNCALLBACK = ::core::option::Option<unsafe extern "system" fn(wtype: u
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 pub const QID_SYNC: u32 = 4294967295u32;
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const SZDDESYS_ITEM_FORMATS: &'static str = "Formats";
+pub const SZDDESYS_ITEM_FORMATS: &str = "Formats";
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const SZDDESYS_ITEM_HELP: &'static str = "Help";
+pub const SZDDESYS_ITEM_HELP: &str = "Help";
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const SZDDESYS_ITEM_RTNMSG: &'static str = "ReturnMessage";
+pub const SZDDESYS_ITEM_RTNMSG: &str = "ReturnMessage";
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const SZDDESYS_ITEM_STATUS: &'static str = "Status";
+pub const SZDDESYS_ITEM_STATUS: &str = "Status";
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const SZDDESYS_ITEM_SYSITEMS: &'static str = "SysItems";
+pub const SZDDESYS_ITEM_SYSITEMS: &str = "SysItems";
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const SZDDESYS_ITEM_TOPICS: &'static str = "Topics";
+pub const SZDDESYS_ITEM_TOPICS: &str = "Topics";
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const SZDDESYS_TOPIC: &'static str = "System";
+pub const SZDDESYS_TOPIC: &str = "System";
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const SZDDE_ITEM_ITEMLIST: &'static str = "TopicItemList";
+pub const SZDDE_ITEM_ITEMLIST: &str = "TopicItemList";
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 pub const TIMEOUT_ASYNC: u32 = 4294967295u32;
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]

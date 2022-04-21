@@ -1,4 +1,3 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[cfg(feature = "Win32_Media_Audio_Apo")]
 pub mod Apo;
 #[cfg(feature = "Win32_Media_Audio_DirectMusic")]
@@ -901,23 +900,23 @@ pub type ACMFORMATTAGENUMCBA = ::core::option::Option<unsafe extern "system" fn(
 #[cfg(feature = "Win32_Foundation")]
 pub type ACMFORMATTAGENUMCBW = ::core::option::Option<unsafe extern "system" fn(hadid: HACMDRIVERID, paftd: *mut ACMFORMATTAGDETAILSW, dwinstance: usize, fdwsupport: u32) -> super::super::Foundation::BOOL>;
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const ACMHELPMSGCONTEXTHELP: &'static str = "acmchoose_contexthelp";
+pub const ACMHELPMSGCONTEXTHELP: &str = "acmchoose_contexthelp";
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const ACMHELPMSGCONTEXTHELPA: &'static str = "acmchoose_contexthelp";
+pub const ACMHELPMSGCONTEXTHELPA: &str = "acmchoose_contexthelp";
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const ACMHELPMSGCONTEXTHELPW: &'static str = "acmchoose_contexthelp";
+pub const ACMHELPMSGCONTEXTHELPW: &str = "acmchoose_contexthelp";
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const ACMHELPMSGCONTEXTMENU: &'static str = "acmchoose_contextmenu";
+pub const ACMHELPMSGCONTEXTMENU: &str = "acmchoose_contextmenu";
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const ACMHELPMSGCONTEXTMENUA: &'static str = "acmchoose_contextmenu";
+pub const ACMHELPMSGCONTEXTMENUA: &str = "acmchoose_contextmenu";
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const ACMHELPMSGCONTEXTMENUW: &'static str = "acmchoose_contextmenu";
+pub const ACMHELPMSGCONTEXTMENUW: &str = "acmchoose_contextmenu";
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const ACMHELPMSGSTRING: &'static str = "acmchoose_help";
+pub const ACMHELPMSGSTRING: &str = "acmchoose_help";
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const ACMHELPMSGSTRINGA: &'static str = "acmchoose_help";
+pub const ACMHELPMSGSTRINGA: &str = "acmchoose_help";
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const ACMHELPMSGSTRINGW: &'static str = "acmchoose_help";
+pub const ACMHELPMSGSTRINGW: &str = "acmchoose_help";
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -3354,7 +3353,7 @@ impl ::core::clone::Clone for SpatialAudioObjectRenderStreamForMetadataActivatio
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const VIRTUAL_AUDIO_DEVICE_PROCESS_LOOPBACK: &'static str = "VAD\\Process_Loopback";
+pub const VIRTUAL_AUDIO_DEVICE_PROCESS_LOOPBACK: &str = "VAD\\Process_Loopback";
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub struct VOLUMEWAVEFILTER {

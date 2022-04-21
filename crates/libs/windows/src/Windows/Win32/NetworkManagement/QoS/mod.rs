@@ -1,4 +1,3 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
 pub const ABLE_TO_RECV_RSVP: u32 = 50002u32;
 #[repr(C)]
@@ -253,7 +252,7 @@ impl ::core::default::Default for CtrlLoadFlowspec {
     }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
-pub const DD_TCP_DEVICE_NAME: &'static str = "\\Device\\Tcp";
+pub const DD_TCP_DEVICE_NAME: &str = "\\Device\\Tcp";
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
 pub const DUP_RESULTS: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]

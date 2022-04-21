@@ -1,4 +1,3 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 pub const CUSTOM_SYSTEM_STATE_CHANGE_EVENT_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2d7a2816_0c5e_45fc_9ce7_570e5ecde9c9);
 #[doc = "*Required features: `\"Win32_System_Services\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -1220,7 +1219,7 @@ impl ::core::fmt::Debug for SC_ACTION_TYPE {
     }
 }
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
-pub const SC_AGGREGATE_STORAGE_KEY: &'static str = "System\\CurrentControlSet\\Control\\ServiceAggregatedEvents";
+pub const SC_AGGREGATE_STORAGE_KEY: &str = "System\\CurrentControlSet\\Control\\ServiceAggregatedEvents";
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -1315,17 +1314,17 @@ impl ::core::fmt::Debug for SC_STATUS_TYPE {
     }
 }
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
-pub const SERVICES_ACTIVE_DATABASE: &'static str = "ServicesActive";
+pub const SERVICES_ACTIVE_DATABASE: &str = "ServicesActive";
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
-pub const SERVICES_ACTIVE_DATABASEA: &'static str = "ServicesActive";
+pub const SERVICES_ACTIVE_DATABASEA: &str = "ServicesActive";
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
-pub const SERVICES_ACTIVE_DATABASEW: &'static str = "ServicesActive";
+pub const SERVICES_ACTIVE_DATABASEW: &str = "ServicesActive";
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
-pub const SERVICES_FAILED_DATABASE: &'static str = "ServicesFailed";
+pub const SERVICES_FAILED_DATABASE: &str = "ServicesFailed";
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
-pub const SERVICES_FAILED_DATABASEA: &'static str = "ServicesFailed";
+pub const SERVICES_FAILED_DATABASEA: &str = "ServicesFailed";
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
-pub const SERVICES_FAILED_DATABASEW: &'static str = "ServicesFailed";
+pub const SERVICES_FAILED_DATABASEW: &str = "ServicesFailed";
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
 pub const SERVICE_ACCEPT_HARDWAREPROFILECHANGE: u32 = 32u32;
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
@@ -2940,7 +2939,7 @@ impl ::core::fmt::Debug for SERVICE_TRIGGER_SPECIFIC_DATA_ITEM_DATA_TYPE {
     }
 }
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
-pub const SERVICE_TRIGGER_STARTED_ARGUMENT: &'static str = "TriggerStarted";
+pub const SERVICE_TRIGGER_STARTED_ARGUMENT: &str = "TriggerStarted";
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]

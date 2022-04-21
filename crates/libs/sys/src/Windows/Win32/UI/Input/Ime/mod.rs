@@ -1,4 +1,3 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {
     #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Foundation\"`, `\"Win32_Globalization\"`*"]
@@ -2435,31 +2434,31 @@ impl ::core::clone::Clone for REGISTERWORDW {
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
-pub const RWM_CHGKEYMAP: &'static str = "MSIMEChangeKeyMap";
+pub const RWM_CHGKEYMAP: &str = "MSIMEChangeKeyMap";
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
-pub const RWM_DOCUMENTFEED: &'static str = "MSIMEDocumentFeed";
+pub const RWM_DOCUMENTFEED: &str = "MSIMEDocumentFeed";
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
-pub const RWM_KEYMAP: &'static str = "MSIMEKeyMap";
+pub const RWM_KEYMAP: &str = "MSIMEKeyMap";
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
-pub const RWM_MODEBIAS: &'static str = "MSIMEModeBias";
+pub const RWM_MODEBIAS: &str = "MSIMEModeBias";
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
-pub const RWM_MOUSE: &'static str = "MSIMEMouseOperation";
+pub const RWM_MOUSE: &str = "MSIMEMouseOperation";
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
-pub const RWM_NTFYKEYMAP: &'static str = "MSIMENotifyKeyMap";
+pub const RWM_NTFYKEYMAP: &str = "MSIMENotifyKeyMap";
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
-pub const RWM_QUERYPOSITION: &'static str = "MSIMEQueryPosition";
+pub const RWM_QUERYPOSITION: &str = "MSIMEQueryPosition";
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
-pub const RWM_RECONVERT: &'static str = "MSIMEReconvert";
+pub const RWM_RECONVERT: &str = "MSIMEReconvert";
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
-pub const RWM_RECONVERTOPTIONS: &'static str = "MSIMEReconvertOptions";
+pub const RWM_RECONVERTOPTIONS: &str = "MSIMEReconvertOptions";
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
-pub const RWM_RECONVERTREQUEST: &'static str = "MSIMEReconvertRequest";
+pub const RWM_RECONVERTREQUEST: &str = "MSIMEReconvertRequest";
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
-pub const RWM_SERVICE: &'static str = "MSIMEService";
+pub const RWM_SERVICE: &str = "MSIMEService";
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
-pub const RWM_SHOWIMEPAD: &'static str = "MSIMEShowImePad";
+pub const RWM_SHOWIMEPAD: &str = "MSIMEShowImePad";
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
-pub const RWM_UIREADY: &'static str = "MSIMEUIReady";
+pub const RWM_UIREADY: &str = "MSIMEUIReady";
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
 pub const SCS_CAP_COMPSTR: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
@@ -2641,13 +2640,13 @@ pub type fpCreateIFEDictionaryInstanceType = ::core::option::Option<unsafe exter
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
 pub type fpCreateIFELanguageInstanceType = ::core::option::Option<unsafe extern "system" fn(clsid: *const ::windows_sys::core::GUID, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT>;
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
-pub const szImeChina: &'static str = "MSIME.China";
+pub const szImeChina: &str = "MSIME.China";
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
-pub const szImeJapan: &'static str = "MSIME.Japan";
+pub const szImeJapan: &str = "MSIME.Japan";
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
-pub const szImeKorea: &'static str = "MSIME.Korea";
+pub const szImeKorea: &str = "MSIME.Korea";
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
-pub const szImeTaiwan: &'static str = "MSIME.Taiwan";
+pub const szImeTaiwan: &str = "MSIME.Taiwan";
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
 pub struct tabIMEFAREASTINFO {

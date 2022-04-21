@@ -246,7 +246,7 @@ pub fn gen_constant_type_value(value: &ConstantValue) -> TokenStream {
         ConstantValue::F64(value) => quote! { f64 = #value },
         ConstantValue::String(value) => {
             let value = gen_string_literal(value);
-            quote! { &'static str = #value }
+            quote! { &str = #value }
         }
         _ => unimplemented!(),
     }

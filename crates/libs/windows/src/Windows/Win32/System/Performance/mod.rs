@@ -1,4 +1,3 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[cfg(feature = "Win32_System_Performance_HardwareCounterProfiling")]
 pub mod HardwareCounterProfiling;
 pub const AppearPropPage: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe49741e9_93a8_4ab1_8e96_bf4482282e9c);
@@ -8896,7 +8895,7 @@ pub type PERFLIBREQUEST = ::core::option::Option<unsafe extern "system" fn(reque
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 pub const PERF_ADD_COUNTER: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const PERF_AGGREGATE_INSTANCE: &'static str = "_Total";
+pub const PERF_AGGREGATE_INSTANCE: &str = "_Total";
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 pub const PERF_AGGREGATE_MAX: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
@@ -10015,7 +10014,7 @@ pub const PERF_TYPE_ZERO: u32 = 3072u32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 pub const PERF_WILDCARD_COUNTER: u32 = 4294967295u32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const PERF_WILDCARD_INSTANCE: &'static str = "*";
+pub const PERF_WILDCARD_INSTANCE: &str = "*";
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 pub type PLA_CABEXTRACT_CALLBACK = ::core::option::Option<unsafe extern "system" fn(filename: ::windows::core::PCWSTR, context: *mut ::core::ffi::c_void)>;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]

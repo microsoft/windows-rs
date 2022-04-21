@@ -1,4 +1,3 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {
     #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
@@ -2676,7 +2675,7 @@ pub const WTS_PROCESS_INFO_LEVEL_0: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 pub const WTS_PROCESS_INFO_LEVEL_1: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTS_PROPERTY_DEFAULT_CONFIG: &'static str = "DefaultConfig";
+pub const WTS_PROPERTY_DEFAULT_CONFIG: &str = "DefaultConfig";
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 pub struct WTS_PROPERTY_VALUE {

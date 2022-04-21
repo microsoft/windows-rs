@@ -1,4 +1,3 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
 pub const ADDRESS_TYPE_IANA: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
@@ -1453,11 +1452,11 @@ impl ::core::default::Default for DHCP_BOOTP_IP_RANGE {
     }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-pub const DHCP_CALLOUT_ENTRY_POINT: &'static str = "DhcpServerCalloutEntry";
+pub const DHCP_CALLOUT_ENTRY_POINT: &str = "DhcpServerCalloutEntry";
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-pub const DHCP_CALLOUT_LIST_KEY: &'static str = "System\\CurrentControlSet\\Services\\DHCPServer\\Parameters";
+pub const DHCP_CALLOUT_LIST_KEY: &str = "System\\CurrentControlSet\\Services\\DHCPServer\\Parameters";
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-pub const DHCP_CALLOUT_LIST_VALUE: &'static str = "CalloutDlls";
+pub const DHCP_CALLOUT_LIST_VALUE: &str = "CalloutDlls";
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

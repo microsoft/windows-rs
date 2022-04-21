@@ -1,4 +1,3 @@
-#![allow(non_snake_case, non_upper_case_globals, dead_code, non_camel_case_types, clippy::upper_case_acronyms, clippy::derivable_impls)]
 #[repr(C)]
 pub struct DateTime {
     pub UniversalTime: i64,

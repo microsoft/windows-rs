@@ -1,4 +1,3 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 pub const CLSID_IITCmdInt: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1180883618, data2: 54163, data3: 4560, data4: [154, 86, 0, 192, 79, 182, 139, 247] };
 pub const CLSID_IITDatabase: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1718039634, data2: 35875, data3: 4560, data4: [168, 78, 0, 170, 0, 108, 125, 1] };
 pub const CLSID_IITDatabaseLocal: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1180883625, data2: 54163, data3: 4560, data4: [154, 86, 0, 192, 79, 182, 139, 247] };
@@ -818,11 +817,11 @@ pub const STDPROP_USERPROP_BASE: u32 = 65536u32;
 #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`*"]
 pub const STDPROP_USERPROP_MAX: u32 = 2147483647u32;
 #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`*"]
-pub const SZ_WWDEST_GLOBAL: &'static str = "GLOBAL";
+pub const SZ_WWDEST_GLOBAL: &str = "GLOBAL";
 #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`*"]
-pub const SZ_WWDEST_KEY: &'static str = "KEY";
+pub const SZ_WWDEST_KEY: &str = "KEY";
 #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`*"]
-pub const SZ_WWDEST_OCC: &'static str = "OCC";
+pub const SZ_WWDEST_OCC: &str = "OCC";
 #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`*"]
 pub const TYPE_POINTER: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`*"]

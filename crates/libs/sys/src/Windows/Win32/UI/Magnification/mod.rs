@@ -1,4 +1,3 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {
     #[doc = "*Required features: `\"Win32_UI_Magnification\"`, `\"Win32_Foundation\"`*"]
@@ -111,8 +110,8 @@ pub const MW_FILTERMODE_INCLUDE: u32 = 1u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type MagImageScalingCallback = ::core::option::Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, srcdata: *mut ::core::ffi::c_void, srcheader: MAGIMAGEHEADER, destdata: *mut ::core::ffi::c_void, destheader: MAGIMAGEHEADER, unclipped: super::super::Foundation::RECT, clipped: super::super::Foundation::RECT, dirty: super::super::Graphics::Gdi::HRGN) -> super::super::Foundation::BOOL>;
 #[doc = "*Required features: `\"Win32_UI_Magnification\"`*"]
-pub const WC_MAGNIFIER: &'static str = "Magnifier";
+pub const WC_MAGNIFIER: &str = "Magnifier";
 #[doc = "*Required features: `\"Win32_UI_Magnification\"`*"]
-pub const WC_MAGNIFIERA: &'static str = "Magnifier";
+pub const WC_MAGNIFIERA: &str = "Magnifier";
 #[doc = "*Required features: `\"Win32_UI_Magnification\"`*"]
-pub const WC_MAGNIFIERW: &'static str = "Magnifier";
+pub const WC_MAGNIFIERW: &str = "Magnifier";

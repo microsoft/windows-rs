@@ -1,4 +1,3 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
@@ -3675,7 +3674,7 @@ impl ::core::default::Default for PEER_PEOPLE_NEAR_ME {
     }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
-pub const PEER_PNRP_ALL_LINK_CLOUDS: &'static str = "PEER_PNRP_ALL_LINKS";
+pub const PEER_PNRP_ALL_LINK_CLOUDS: &str = "PEER_PNRP_ALL_LINKS";
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 pub struct PEER_PNRP_CLOUD_INFO {
@@ -7128,10 +7127,10 @@ pub const WSA_PNRP_INVALID_IDENTITY: u32 = 11503u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 pub const WSA_PNRP_TOO_MUCH_LOAD: u32 = 11504u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
-pub const WSZ_SCOPE_GLOBAL: &'static str = "GLOBAL";
+pub const WSZ_SCOPE_GLOBAL: &str = "GLOBAL";
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
-pub const WSZ_SCOPE_LINKLOCAL: &'static str = "LINKLOCAL";
+pub const WSZ_SCOPE_LINKLOCAL: &str = "LINKLOCAL";
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
-pub const WSZ_SCOPE_SITELOCAL: &'static str = "SITELOCAL";
+pub const WSZ_SCOPE_SITELOCAL: &str = "SITELOCAL";
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

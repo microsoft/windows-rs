@@ -1,4 +1,3 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {
     #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_System_Com\"`*"]
@@ -1060,7 +1059,7 @@ pub const FDS_NOTSUPPORTED: FULLDUPLEX_SUPPORT = 1i32;
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 pub const FDS_UNKNOWN: FULLDUPLEX_SUPPORT = 2i32;
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const GETTNEFSTREAMCODEPAGE: &'static str = "GetTnefStreamCodePage";
+pub const GETTNEFSTREAMCODEPAGE: &str = "GetTnefStreamCodePage";
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 pub struct HDRVCALL__ {
@@ -4360,9 +4359,9 @@ impl ::core::clone::Clone for NSID_0 {
     }
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const OPENTNEFSTREAM: &'static str = "OpenTnefStream";
+pub const OPENTNEFSTREAM: &str = "OpenTnefStream";
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const OPENTNEFSTREAMEX: &'static str = "OpenTnefStreamEx";
+pub const OPENTNEFSTREAMEX: &str = "OpenTnefStreamEx";
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 pub const PHONEBUTTONFUNCTION_ABBREVDIAL: u32 = 11u32;
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]

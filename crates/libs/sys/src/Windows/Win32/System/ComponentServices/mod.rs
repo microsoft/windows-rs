@@ -1,4 +1,3 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {
     #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
@@ -1153,9 +1152,9 @@ pub const SharedProperty: ::windows_sys::core::GUID = ::windows_sys::core::GUID 
 pub const SharedPropertyGroup: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 704666635, data2: 42462, data3: 4559, data4: [158, 102, 0, 170, 0, 163, 244, 100] };
 pub const SharedPropertyGroupManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 704666641, data2: 42462, data3: 4559, data4: [158, 102, 0, 170, 0, 163, 244, 100] };
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const TRACKER_INIT_EVENT: &'static str = "Global\\COM+ Tracker Init Event";
+pub const TRACKER_INIT_EVENT: &str = "Global\\COM+ Tracker Init Event";
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const TRACKER_STARTSTOP_EVENT: &'static str = "Global\\COM+ Tracker Push Event";
+pub const TRACKER_STARTSTOP_EVENT: &str = "Global\\COM+ Tracker Push Event";
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub type TRACKING_COLL_TYPE = i32;
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]

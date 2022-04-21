@@ -1,4 +1,3 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {
     #[doc = "*Required features: `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
@@ -33,7 +32,7 @@ pub const CHUNK_EOP: CHUNK_BREAKTYPE = 3i32;
 #[doc = "*Required features: `\"Win32_Storage_IndexServer\"`*"]
 pub const CHUNK_EOC: CHUNK_BREAKTYPE = 4i32;
 #[doc = "*Required features: `\"Win32_Storage_IndexServer\"`*"]
-pub const CIADMIN: &'static str = "::_nodocstore_::";
+pub const CIADMIN: &str = "::_nodocstore_::";
 #[doc = "*Required features: `\"Win32_Storage_IndexServer\"`*"]
 pub const CICAT_ALL_OPENED: u32 = 32u32;
 #[doc = "*Required features: `\"Win32_Storage_IndexServer\"`*"]
@@ -47,7 +46,7 @@ pub const CICAT_STOPPED: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Storage_IndexServer\"`*"]
 pub const CICAT_WRITABLE: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_Storage_IndexServer\"`*"]
-pub const CINULLCATALOG: &'static str = "::_noindex_::";
+pub const CINULLCATALOG: &str = "::_noindex_::";
 #[doc = "*Required features: `\"Win32_Storage_IndexServer\"`*"]
 pub const CI_PROVIDER_ALL: u32 = 4294967295u32;
 #[doc = "*Required features: `\"Win32_Storage_IndexServer\"`*"]

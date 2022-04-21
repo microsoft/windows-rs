@@ -1,4 +1,3 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {
     #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
@@ -4751,11 +4750,11 @@ pub const JET_wrnTargetInstanceRunning: u32 = 578u32;
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
 pub const JET_wrnUniqueKey: u32 = 345u32;
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
-pub const JET_wszConfigStoreReadControl: &'static str = "CsReadControl";
+pub const JET_wszConfigStoreReadControl: &str = "CsReadControl";
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
-pub const JET_wszConfigStoreRelPathSysParamDefault: &'static str = "SysParamDefault";
+pub const JET_wszConfigStoreRelPathSysParamDefault: &str = "SysParamDefault";
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
-pub const JET_wszConfigStoreRelPathSysParamOverride: &'static str = "SysParamOverride";
+pub const JET_wszConfigStoreRelPathSysParamOverride: &str = "SysParamOverride";
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
 pub const cColumnInfoCols: u32 = 14u32;
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]

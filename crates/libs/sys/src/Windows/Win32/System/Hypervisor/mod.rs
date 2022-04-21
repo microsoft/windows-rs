@@ -1,4 +1,3 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {
     #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
@@ -1085,7 +1084,7 @@ impl ::core::clone::Clone for VM_GENCOUNTER {
     }
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const VM_GENCOUNTER_SYMBOLIC_LINK_NAME: &'static str = "\\VmGenerationCounter";
+pub const VM_GENCOUNTER_SYMBOLIC_LINK_NAME: &str = "\\VmGenerationCounter";
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 pub union WHV_ACCESS_GPA_CONTROLS {

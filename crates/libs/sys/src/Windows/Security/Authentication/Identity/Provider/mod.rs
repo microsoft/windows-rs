@@ -1,4 +1,3 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 pub type SecondaryAuthenticationFactorAuthentication = *mut ::core::ffi::c_void;
 #[doc = "*Required features: `\"Security_Authentication_Identity_Provider\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]

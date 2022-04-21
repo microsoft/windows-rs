@@ -1,4 +1,3 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsConnectNow\"`*"]
 #[repr(transparent)]
 pub struct IWCNConnectNotify(::windows::core::IUnknown);
@@ -460,7 +459,7 @@ impl ::core::fmt::Debug for WCN_PASSWORD_TYPE {
     }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsConnectNow\"`*"]
-pub const WCN_QUERY_CONSTRAINT_USE_SOFTAP: &'static str = "WCN.Discovery.SoftAP";
+pub const WCN_QUERY_CONSTRAINT_USE_SOFTAP: &str = "WCN.Discovery.SoftAP";
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsConnectNow\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]

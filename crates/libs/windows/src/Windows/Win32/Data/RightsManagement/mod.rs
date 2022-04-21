@@ -1,4 +1,3 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[doc = "*Required features: `\"Win32_Data_RightsManagement\"`*"]
 pub const DRMACTSERVINFOVERSION: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Data_RightsManagement\"`*"]
@@ -1604,9 +1603,9 @@ impl ::core::default::Default for DRM_CLIENT_VERSION_INFO {
     }
 }
 #[doc = "*Required features: `\"Win32_Data_RightsManagement\"`*"]
-pub const DRM_DEFAULTGROUPIDTYPE_PASSPORT: &'static str = "PassportAuthProvider";
+pub const DRM_DEFAULTGROUPIDTYPE_PASSPORT: &str = "PassportAuthProvider";
 #[doc = "*Required features: `\"Win32_Data_RightsManagement\"`*"]
-pub const DRM_DEFAULTGROUPIDTYPE_WINDOWSAUTH: &'static str = "WindowsAuthProvider";
+pub const DRM_DEFAULTGROUPIDTYPE_WINDOWSAUTH: &str = "WindowsAuthProvider";
 #[doc = "*Required features: `\"Win32_Data_RightsManagement\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]

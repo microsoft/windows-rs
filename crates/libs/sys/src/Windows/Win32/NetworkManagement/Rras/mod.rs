@@ -1,4 +1,3 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {
     #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
@@ -1740,31 +1739,31 @@ impl ::core::clone::Clone for MPRAPI_TUNNEL_CONFIG_PARAMS1 {
     }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
-pub const MPRDT_Atm: &'static str = "ATM";
+pub const MPRDT_Atm: &str = "ATM";
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
-pub const MPRDT_FrameRelay: &'static str = "FRAMERELAY";
+pub const MPRDT_FrameRelay: &str = "FRAMERELAY";
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
-pub const MPRDT_Generic: &'static str = "GENERIC";
+pub const MPRDT_Generic: &str = "GENERIC";
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
-pub const MPRDT_Irda: &'static str = "IRDA";
+pub const MPRDT_Irda: &str = "IRDA";
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
-pub const MPRDT_Isdn: &'static str = "isdn";
+pub const MPRDT_Isdn: &str = "isdn";
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
-pub const MPRDT_Modem: &'static str = "modem";
+pub const MPRDT_Modem: &str = "modem";
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
-pub const MPRDT_Pad: &'static str = "pad";
+pub const MPRDT_Pad: &str = "pad";
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
-pub const MPRDT_Parallel: &'static str = "PARALLEL";
+pub const MPRDT_Parallel: &str = "PARALLEL";
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
-pub const MPRDT_SW56: &'static str = "SW56";
+pub const MPRDT_SW56: &str = "SW56";
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
-pub const MPRDT_Serial: &'static str = "SERIAL";
+pub const MPRDT_Serial: &str = "SERIAL";
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
-pub const MPRDT_Sonet: &'static str = "SONET";
+pub const MPRDT_Sonet: &str = "SONET";
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
-pub const MPRDT_Vpn: &'static str = "vpn";
+pub const MPRDT_Vpn: &str = "vpn";
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
-pub const MPRDT_X25: &'static str = "x25";
+pub const MPRDT_X25: &str = "x25";
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 pub const MPRET_Direct: u32 = 3u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
@@ -3312,7 +3311,7 @@ impl ::core::clone::Clone for RASDIALDLG {
     }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
-pub const RASDIALEVENT: &'static str = "RasDialEvent";
+pub const RASDIALEVENT: &str = "RasDialEvent";
 #[repr(C, packed(4))]
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3386,33 +3385,33 @@ impl ::core::clone::Clone for RASDIALPARAMSW {
     }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
-pub const RASDT_Atm: &'static str = "ATM";
+pub const RASDT_Atm: &str = "ATM";
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
-pub const RASDT_FrameRelay: &'static str = "FRAMERELAY";
+pub const RASDT_FrameRelay: &str = "FRAMERELAY";
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
-pub const RASDT_Generic: &'static str = "GENERIC";
+pub const RASDT_Generic: &str = "GENERIC";
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
-pub const RASDT_Irda: &'static str = "IRDA";
+pub const RASDT_Irda: &str = "IRDA";
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
-pub const RASDT_Isdn: &'static str = "isdn";
+pub const RASDT_Isdn: &str = "isdn";
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
-pub const RASDT_Modem: &'static str = "modem";
+pub const RASDT_Modem: &str = "modem";
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
-pub const RASDT_PPPoE: &'static str = "PPPoE";
+pub const RASDT_PPPoE: &str = "PPPoE";
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
-pub const RASDT_Pad: &'static str = "pad";
+pub const RASDT_Pad: &str = "pad";
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
-pub const RASDT_Parallel: &'static str = "PARALLEL";
+pub const RASDT_Parallel: &str = "PARALLEL";
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
-pub const RASDT_SW56: &'static str = "SW56";
+pub const RASDT_SW56: &str = "SW56";
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
-pub const RASDT_Serial: &'static str = "SERIAL";
+pub const RASDT_Serial: &str = "SERIAL";
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
-pub const RASDT_Sonet: &'static str = "SONET";
+pub const RASDT_Sonet: &str = "SONET";
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
-pub const RASDT_Vpn: &'static str = "vpn";
+pub const RASDT_Vpn: &str = "vpn";
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
-pub const RASDT_X25: &'static str = "x25";
+pub const RASDT_X25: &str = "x25";
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 pub const RASEAPF_Logon: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
@@ -5047,7 +5046,7 @@ impl ::core::clone::Clone for ROUTING_PROTOCOL_CONFIG {
     }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
-pub const RRAS_SERVICE_NAME: &'static str = "RemoteAccess";
+pub const RRAS_SERVICE_NAME: &str = "RemoteAccess";
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 pub const RTM_BLOCK_METHODS: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
