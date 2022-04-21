@@ -63,11 +63,11 @@ fn main() -> std::io::Result<()> {
     ];
 
     let files = vec![
-        reader2::File::new("crates/libs/metadata/default/Windows.winmd").unwrap(),
-        reader2::File::new("crates/libs/metadata/default/Windows.Win32.winmd").unwrap(),
+        metadata::reader2::File::new("crates/libs/metadata/default/Windows.winmd").unwrap(),
+        metadata::reader2::File::new("crates/libs/metadata/default/Windows.Win32.winmd").unwrap(),
         ];
     
-        let reader = &reader2::Reader::new(&files);
+        let reader = &metadata::reader2::Reader::new(&files);
 
     let mut gen = bindgen::bindgen2::Gen::new(reader);
     gen.namespace = "Windows."; // TODO: why? this seems like a hack

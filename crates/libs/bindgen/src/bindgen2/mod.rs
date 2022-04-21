@@ -121,7 +121,7 @@ pub fn gen_type(name: &str, gen: &Gen) -> String {
 // }
 
 fn gen_type_imp(def: &Type, gen: &Gen) -> TokenStream {
-//     match def {
+     match def {
 //         Type::Field(def) => constants::gen(def, gen),
 //         Type::TypeDef(def) => {
 //             let def = &def.clone().with_generics();
@@ -146,7 +146,6 @@ fn gen_type_imp(def: &Type, gen: &Gen) -> TokenStream {
 //                 quote! {}
 //             }
 //         }
-//         _ => quote! {},
-//     }
-    quote! {}
+         _ => quote! {},
+     }
 }

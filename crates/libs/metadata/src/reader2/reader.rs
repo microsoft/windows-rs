@@ -48,7 +48,12 @@ impl<'a> Reader<'a> {
         self.nested[&type_def].values().copied()
     }
     pub fn get(&self, type_name: TypeName) -> impl Iterator<Item = TypeDef> + '_ {
-        self.types[type_name.namespace][type_name.name].iter().copied()
+        if let Some(types) = self.types.get(type_name.namespace) {
+            if let Some(definitions) = types.get(type_name.name) {
+                return definitions.iter().copied();
+            }
+        }
+        [].iter().copied()
     }
     pub fn get_nested(&self, outer: TypeDef, name: &str) -> TypeDef {
         self.nested[&outer][name]
