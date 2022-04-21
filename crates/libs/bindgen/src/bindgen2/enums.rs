@@ -1,11 +1,9 @@
 use super::*;
 
-pub fn gen(_def: TypeDef, _gen: &Gen) -> TokenStream {
-    quote! { enum }
-}
-//     let name = def.name();
-//     let ident = gen_ident(name);
-//     let underlying_type = def.underlying_type();
+pub fn gen(def: TypeDef, gen: &Gen) -> TokenStream {
+     let name = gen.reader.type_def_name(def);
+     let ident = gen_ident(name);
+     let underlying_type = gen.reader.type_def_underlying_type(def);
 //     let underlying_type = gen_element_name(&underlying_type, gen);
 //     let is_scoped = def.is_scoped();
 //     let cfg = def.cfg();
@@ -193,4 +191,5 @@ pub fn gen(_def: TypeDef, _gen: &Gen) -> TokenStream {
 //     }
 
 //     tokens
-// }
+    quote! { enum }
+}
