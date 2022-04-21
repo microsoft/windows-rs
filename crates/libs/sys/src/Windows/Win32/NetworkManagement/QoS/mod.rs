@@ -216,7 +216,7 @@ impl ::core::clone::Clone for CtrlLoadFlowspec {
     }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
-pub const DD_TCP_DEVICE_NAME: &'static str = "\\Device\\Tcp";
+pub const DD_TCP_DEVICE_NAME: &str = "\\Device\\Tcp";
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
 pub const DUP_RESULTS: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]

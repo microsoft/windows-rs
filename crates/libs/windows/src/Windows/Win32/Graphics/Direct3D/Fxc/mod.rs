@@ -1,7 +1,7 @@
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Fxc\"`*"]
-pub const D3DCOMPILER_DLL_A: &'static str = "d3dcompiler_47.dll";
+pub const D3DCOMPILER_DLL_A: &str = "d3dcompiler_47.dll";
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Fxc\"`*"]
-pub const D3DCOMPILER_DLL_W: &'static str = "d3dcompiler_47.dll";
+pub const D3DCOMPILER_DLL_W: &str = "d3dcompiler_47.dll";
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Fxc\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]

@@ -392,10 +392,10 @@ pub unsafe fn MagUninitialize() -> super::super::Foundation::BOOL {
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `\"Win32_UI_Magnification\"`*"]
-pub const WC_MAGNIFIER: &'static str = "Magnifier";
+pub const WC_MAGNIFIER: &str = "Magnifier";
 #[doc = "*Required features: `\"Win32_UI_Magnification\"`*"]
-pub const WC_MAGNIFIERA: &'static str = "Magnifier";
+pub const WC_MAGNIFIERA: &str = "Magnifier";
 #[doc = "*Required features: `\"Win32_UI_Magnification\"`*"]
-pub const WC_MAGNIFIERW: &'static str = "Magnifier";
+pub const WC_MAGNIFIERW: &str = "Magnifier";
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

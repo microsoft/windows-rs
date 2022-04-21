@@ -25,7 +25,7 @@ extern "system" {
     pub fn SwMemFree(pmem: *const ::core::ffi::c_void);
 }
 #[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`*"]
-pub const ADDRESS_FAMILY_VALUE_NAME: &'static str = "AddressFamily";
+pub const ADDRESS_FAMILY_VALUE_NAME: &str = "AddressFamily";
 #[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`*"]
 pub const FAULT_ACTION_SPECIFIC_BASE: u32 = 600u32;
 #[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`*"]
@@ -68,7 +68,7 @@ pub type IUPnPServiceDocumentAccess = *mut ::core::ffi::c_void;
 pub type IUPnPServiceEnumProperty = *mut ::core::ffi::c_void;
 pub type IUPnPServices = *mut ::core::ffi::c_void;
 #[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`*"]
-pub const REMOTE_ADDRESS_VALUE_NAME: &'static str = "RemoteAddress";
+pub const REMOTE_ADDRESS_VALUE_NAME: &str = "RemoteAddress";
 #[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`*"]
 pub type SW_DEVICE_CAPABILITIES = i32;
 #[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`*"]

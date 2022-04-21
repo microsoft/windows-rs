@@ -2294,7 +2294,7 @@ impl ::core::default::Default for VM_GENCOUNTER {
     }
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const VM_GENCOUNTER_SYMBOLIC_LINK_NAME: &'static str = "\\VmGenerationCounter";
+pub const VM_GENCOUNTER_SYMBOLIC_LINK_NAME: &str = "\\VmGenerationCounter";
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 pub union WHV_ACCESS_GPA_CONTROLS {

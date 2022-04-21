@@ -1219,7 +1219,7 @@ impl ::core::fmt::Debug for SC_ACTION_TYPE {
     }
 }
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
-pub const SC_AGGREGATE_STORAGE_KEY: &'static str = "System\\CurrentControlSet\\Control\\ServiceAggregatedEvents";
+pub const SC_AGGREGATE_STORAGE_KEY: &str = "System\\CurrentControlSet\\Control\\ServiceAggregatedEvents";
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -1314,17 +1314,17 @@ impl ::core::fmt::Debug for SC_STATUS_TYPE {
     }
 }
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
-pub const SERVICES_ACTIVE_DATABASE: &'static str = "ServicesActive";
+pub const SERVICES_ACTIVE_DATABASE: &str = "ServicesActive";
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
-pub const SERVICES_ACTIVE_DATABASEA: &'static str = "ServicesActive";
+pub const SERVICES_ACTIVE_DATABASEA: &str = "ServicesActive";
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
-pub const SERVICES_ACTIVE_DATABASEW: &'static str = "ServicesActive";
+pub const SERVICES_ACTIVE_DATABASEW: &str = "ServicesActive";
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
-pub const SERVICES_FAILED_DATABASE: &'static str = "ServicesFailed";
+pub const SERVICES_FAILED_DATABASE: &str = "ServicesFailed";
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
-pub const SERVICES_FAILED_DATABASEA: &'static str = "ServicesFailed";
+pub const SERVICES_FAILED_DATABASEA: &str = "ServicesFailed";
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
-pub const SERVICES_FAILED_DATABASEW: &'static str = "ServicesFailed";
+pub const SERVICES_FAILED_DATABASEW: &str = "ServicesFailed";
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
 pub const SERVICE_ACCEPT_HARDWAREPROFILECHANGE: u32 = 32u32;
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
@@ -2939,7 +2939,7 @@ impl ::core::fmt::Debug for SERVICE_TRIGGER_SPECIFIC_DATA_ITEM_DATA_TYPE {
     }
 }
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
-pub const SERVICE_TRIGGER_STARTED_ARGUMENT: &'static str = "TriggerStarted";
+pub const SERVICE_TRIGGER_STARTED_ARGUMENT: &str = "TriggerStarted";
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]

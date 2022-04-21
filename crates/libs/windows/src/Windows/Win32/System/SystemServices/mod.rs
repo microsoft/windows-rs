@@ -17,13 +17,13 @@ pub const ACCESS_DENIED_CALLBACK_OBJECT_ACE_TYPE: u32 = 12u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const ACCESS_DENIED_OBJECT_ACE_TYPE: u32 = 6u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const ACCESS_DS_OBJECT_TYPE_NAME_A: &'static str = "Directory Service Object";
+pub const ACCESS_DS_OBJECT_TYPE_NAME_A: &str = "Directory Service Object";
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const ACCESS_DS_OBJECT_TYPE_NAME_W: &'static str = "Directory Service Object";
+pub const ACCESS_DS_OBJECT_TYPE_NAME_W: &str = "Directory Service Object";
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const ACCESS_DS_SOURCE_A: &'static str = "DS";
+pub const ACCESS_DS_SOURCE_A: &str = "DS";
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const ACCESS_DS_SOURCE_W: &'static str = "DS";
+pub const ACCESS_DS_SOURCE_W: &str = "DS";
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const ACCESS_FILTER_SECURITY_INFORMATION: i32 = 256i32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
@@ -2156,9 +2156,9 @@ pub const DEDICATED_MEMORY_CACHE_ELIGIBLE: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const DELETE: u32 = 65536u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const DEVICEFAMILYDEVICEFORM_KEY: &'static str = "\\Registry\\Machine\\Software\\Microsoft\\Windows NT\\CurrentVersion\\OEM";
+pub const DEVICEFAMILYDEVICEFORM_KEY: &str = "\\Registry\\Machine\\Software\\Microsoft\\Windows NT\\CurrentVersion\\OEM";
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const DEVICEFAMILYDEVICEFORM_VALUE: &'static str = "DeviceForm";
+pub const DEVICEFAMILYDEVICEFORM_VALUE: &str = "DeviceForm";
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub struct DEVICE_EVENT_BECOMING_READY {
@@ -4201,13 +4201,13 @@ impl ::core::default::Default for IMAGE_ARCHITECTURE_HEADER {
     }
 }
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const IMAGE_ARCHIVE_END: &'static str = "`\n";
+pub const IMAGE_ARCHIVE_END: &str = "`\n";
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const IMAGE_ARCHIVE_HYBRIDMAP_MEMBER: &'static str = "/<HYBRIDMAP>/   ";
+pub const IMAGE_ARCHIVE_HYBRIDMAP_MEMBER: &str = "/<HYBRIDMAP>/   ";
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const IMAGE_ARCHIVE_LINKER_MEMBER: &'static str = "/               ";
+pub const IMAGE_ARCHIVE_LINKER_MEMBER: &str = "/               ";
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const IMAGE_ARCHIVE_LONGNAMES_MEMBER: &'static str = "//              ";
+pub const IMAGE_ARCHIVE_LONGNAMES_MEMBER: &str = "//              ";
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub struct IMAGE_ARCHIVE_MEMBER_HEADER {
@@ -4245,9 +4245,9 @@ impl ::core::default::Default for IMAGE_ARCHIVE_MEMBER_HEADER {
     }
 }
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const IMAGE_ARCHIVE_PAD: &'static str = "\n";
+pub const IMAGE_ARCHIVE_PAD: &str = "\n";
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const IMAGE_ARCHIVE_START: &'static str = "!<arch>\n";
+pub const IMAGE_ARCHIVE_START: &str = "!<arch>\n";
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const IMAGE_ARCHIVE_START_SIZE: u32 = 8u32;
 #[repr(C)]
@@ -6060,7 +6060,7 @@ impl ::core::default::Default for IMAGE_POLICY_METADATA {
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const IMAGE_POLICY_METADATA_VERSION: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const IMAGE_POLICY_SECTION_NAME: &'static str = ".tPolicy";
+pub const IMAGE_POLICY_SECTION_NAME: &str = ".tPolicy";
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub struct IMAGE_PROLOGUE_DYNAMIC_RELOCATION_HEADER {
@@ -9306,7 +9306,7 @@ pub const N_TMASK2: u32 = 240u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const N_TSHIFT: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const OUT_OF_PROCESS_FUNCTION_TABLE_CALLBACK_EXPORT_NAME: &'static str = "OutOfProcessFunctionTableCallback";
+pub const OUT_OF_PROCESS_FUNCTION_TABLE_CALLBACK_EXPORT_NAME: &str = "OutOfProcessFunctionTableCallback";
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub struct PACKEDEVENTINFO {
@@ -14346,27 +14346,27 @@ pub const SE_ACCESS_CHECK_FLAG_NO_LEARNING_MODE_LOGGING: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const SE_ACCESS_CHECK_VALID_FLAGS: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SE_ACTIVATE_AS_USER_CAPABILITY: &'static str = "activateAsUser";
+pub const SE_ACTIVATE_AS_USER_CAPABILITY: &str = "activateAsUser";
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SE_ASSIGNPRIMARYTOKEN_NAME: &'static str = "SeAssignPrimaryTokenPrivilege";
+pub const SE_ASSIGNPRIMARYTOKEN_NAME: &str = "SeAssignPrimaryTokenPrivilege";
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SE_AUDIT_NAME: &'static str = "SeAuditPrivilege";
+pub const SE_AUDIT_NAME: &str = "SeAuditPrivilege";
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SE_BACKUP_NAME: &'static str = "SeBackupPrivilege";
+pub const SE_BACKUP_NAME: &str = "SeBackupPrivilege";
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SE_CHANGE_NOTIFY_NAME: &'static str = "SeChangeNotifyPrivilege";
+pub const SE_CHANGE_NOTIFY_NAME: &str = "SeChangeNotifyPrivilege";
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SE_CONSTRAINED_IMPERSONATION_CAPABILITY: &'static str = "constrainedImpersonation";
+pub const SE_CONSTRAINED_IMPERSONATION_CAPABILITY: &str = "constrainedImpersonation";
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SE_CREATE_GLOBAL_NAME: &'static str = "SeCreateGlobalPrivilege";
+pub const SE_CREATE_GLOBAL_NAME: &str = "SeCreateGlobalPrivilege";
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SE_CREATE_PAGEFILE_NAME: &'static str = "SeCreatePagefilePrivilege";
+pub const SE_CREATE_PAGEFILE_NAME: &str = "SeCreatePagefilePrivilege";
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SE_CREATE_PERMANENT_NAME: &'static str = "SeCreatePermanentPrivilege";
+pub const SE_CREATE_PERMANENT_NAME: &str = "SeCreatePermanentPrivilege";
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SE_CREATE_SYMBOLIC_LINK_NAME: &'static str = "SeCreateSymbolicLinkPrivilege";
+pub const SE_CREATE_SYMBOLIC_LINK_NAME: &str = "SeCreateSymbolicLinkPrivilege";
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SE_CREATE_TOKEN_NAME: &'static str = "SeCreateTokenPrivilege";
+pub const SE_CREATE_TOKEN_NAME: &str = "SeCreateTokenPrivilege";
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const SE_DACL_AUTO_INHERITED: u32 = 1024u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
@@ -14378,13 +14378,13 @@ pub const SE_DACL_PRESENT: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const SE_DACL_PROTECTED: u32 = 4096u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SE_DEBUG_NAME: &'static str = "SeDebugPrivilege";
+pub const SE_DEBUG_NAME: &str = "SeDebugPrivilege";
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SE_DELEGATE_SESSION_USER_IMPERSONATE_NAME: &'static str = "SeDelegateSessionUserImpersonatePrivilege";
+pub const SE_DELEGATE_SESSION_USER_IMPERSONATE_NAME: &str = "SeDelegateSessionUserImpersonatePrivilege";
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SE_DEVELOPMENT_MODE_NETWORK_CAPABILITY: &'static str = "developmentModeNetwork";
+pub const SE_DEVELOPMENT_MODE_NETWORK_CAPABILITY: &str = "developmentModeNetwork";
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SE_ENABLE_DELEGATION_NAME: &'static str = "SeEnableDelegationPrivilege";
+pub const SE_ENABLE_DELEGATION_NAME: &str = "SeEnableDelegationPrivilege";
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const SE_GROUP_DEFAULTED: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
@@ -14445,13 +14445,13 @@ impl ::core::fmt::Debug for SE_IMAGE_SIGNATURE_TYPE {
     }
 }
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SE_IMPERSONATE_NAME: &'static str = "SeImpersonatePrivilege";
+pub const SE_IMPERSONATE_NAME: &str = "SeImpersonatePrivilege";
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SE_INCREASE_QUOTA_NAME: &'static str = "SeIncreaseQuotaPrivilege";
+pub const SE_INCREASE_QUOTA_NAME: &str = "SeIncreaseQuotaPrivilege";
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SE_INC_BASE_PRIORITY_NAME: &'static str = "SeIncreaseBasePriorityPrivilege";
+pub const SE_INC_BASE_PRIORITY_NAME: &str = "SeIncreaseBasePriorityPrivilege";
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SE_INC_WORKING_SET_NAME: &'static str = "SeIncreaseWorkingSetPrivilege";
+pub const SE_INC_WORKING_SET_NAME: &str = "SeIncreaseWorkingSetPrivilege";
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -14484,27 +14484,27 @@ impl ::core::fmt::Debug for SE_LEARNING_MODE_DATA_TYPE {
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const SE_LEARNING_MODE_FLAG_PERMISSIVE: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SE_LOAD_DRIVER_NAME: &'static str = "SeLoadDriverPrivilege";
+pub const SE_LOAD_DRIVER_NAME: &str = "SeLoadDriverPrivilege";
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SE_LOCK_MEMORY_NAME: &'static str = "SeLockMemoryPrivilege";
+pub const SE_LOCK_MEMORY_NAME: &str = "SeLockMemoryPrivilege";
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SE_MACHINE_ACCOUNT_NAME: &'static str = "SeMachineAccountPrivilege";
+pub const SE_MACHINE_ACCOUNT_NAME: &str = "SeMachineAccountPrivilege";
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SE_MANAGE_VOLUME_NAME: &'static str = "SeManageVolumePrivilege";
+pub const SE_MANAGE_VOLUME_NAME: &str = "SeManageVolumePrivilege";
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SE_MUMA_CAPABILITY: &'static str = "muma";
+pub const SE_MUMA_CAPABILITY: &str = "muma";
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const SE_OWNER_DEFAULTED: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SE_PERMISSIVE_LEARNING_MODE_CAPABILITY: &'static str = "permissiveLearningMode";
+pub const SE_PERMISSIVE_LEARNING_MODE_CAPABILITY: &str = "permissiveLearningMode";
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SE_PROF_SINGLE_PROCESS_NAME: &'static str = "SeProfileSingleProcessPrivilege";
+pub const SE_PROF_SINGLE_PROCESS_NAME: &str = "SeProfileSingleProcessPrivilege";
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SE_RELABEL_NAME: &'static str = "SeRelabelPrivilege";
+pub const SE_RELABEL_NAME: &str = "SeRelabelPrivilege";
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SE_REMOTE_SHUTDOWN_NAME: &'static str = "SeRemoteShutdownPrivilege";
+pub const SE_REMOTE_SHUTDOWN_NAME: &str = "SeRemoteShutdownPrivilege";
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SE_RESTORE_NAME: &'static str = "SeRestorePrivilege";
+pub const SE_RESTORE_NAME: &str = "SeRestorePrivilege";
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const SE_RM_CONTROL_VALID: u32 = 16384u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
@@ -14526,13 +14526,13 @@ pub const SE_SECURITY_DESCRIPTOR_FLAG_NO_OWNER_ACE: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const SE_SECURITY_DESCRIPTOR_VALID_FLAGS: u32 = 7u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SE_SECURITY_NAME: &'static str = "SeSecurityPrivilege";
+pub const SE_SECURITY_NAME: &str = "SeSecurityPrivilege";
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const SE_SELF_RELATIVE: u32 = 32768u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SE_SESSION_IMPERSONATION_CAPABILITY: &'static str = "sessionImpersonation";
+pub const SE_SESSION_IMPERSONATION_CAPABILITY: &str = "sessionImpersonation";
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SE_SHUTDOWN_NAME: &'static str = "SeShutdownPrivilege";
+pub const SE_SHUTDOWN_NAME: &str = "SeShutdownPrivilege";
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const SE_SIGNING_LEVEL_ANTIMALWARE: u32 = 7u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
@@ -14570,19 +14570,19 @@ pub const SE_SIGNING_LEVEL_WINDOWS: u32 = 12u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const SE_SIGNING_LEVEL_WINDOWS_TCB: u32 = 14u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SE_SYNC_AGENT_NAME: &'static str = "SeSyncAgentPrivilege";
+pub const SE_SYNC_AGENT_NAME: &str = "SeSyncAgentPrivilege";
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SE_SYSTEMTIME_NAME: &'static str = "SeSystemtimePrivilege";
+pub const SE_SYSTEMTIME_NAME: &str = "SeSystemtimePrivilege";
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SE_SYSTEM_ENVIRONMENT_NAME: &'static str = "SeSystemEnvironmentPrivilege";
+pub const SE_SYSTEM_ENVIRONMENT_NAME: &str = "SeSystemEnvironmentPrivilege";
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SE_SYSTEM_PROFILE_NAME: &'static str = "SeSystemProfilePrivilege";
+pub const SE_SYSTEM_PROFILE_NAME: &str = "SeSystemProfilePrivilege";
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SE_TAKE_OWNERSHIP_NAME: &'static str = "SeTakeOwnershipPrivilege";
+pub const SE_TAKE_OWNERSHIP_NAME: &str = "SeTakeOwnershipPrivilege";
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SE_TCB_NAME: &'static str = "SeTcbPrivilege";
+pub const SE_TCB_NAME: &str = "SeTcbPrivilege";
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SE_TIME_ZONE_NAME: &'static str = "SeTimeZonePrivilege";
+pub const SE_TIME_ZONE_NAME: &str = "SeTimeZonePrivilege";
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -14683,11 +14683,11 @@ impl ::core::default::Default for SE_TOKEN_USER_1 {
     }
 }
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SE_TRUSTED_CREDMAN_ACCESS_NAME: &'static str = "SeTrustedCredManAccessPrivilege";
+pub const SE_TRUSTED_CREDMAN_ACCESS_NAME: &str = "SeTrustedCredManAccessPrivilege";
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SE_UNDOCK_NAME: &'static str = "SeUndockPrivilege";
+pub const SE_UNDOCK_NAME: &str = "SeUndockPrivilege";
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SE_UNSOLICITED_INPUT_NAME: &'static str = "SeUnsolicitedInputPrivilege";
+pub const SE_UNSOLICITED_INPUT_NAME: &str = "SeUnsolicitedInputPrivilege";
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub struct SHARED_VIRTUAL_DISK_SUPPORT {
@@ -14808,7 +14808,7 @@ pub const SIZEOF_RFPO_DATA: u32 = 16u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const SIZE_OF_80387_REGISTERS: u32 = 80u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SMB_CCF_APP_INSTANCE_EA_NAME: &'static str = "ClusteredApplicationInstance";
+pub const SMB_CCF_APP_INSTANCE_EA_NAME: &str = "ClusteredApplicationInstance";
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const SORT_CHINESE_BIG5: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
@@ -16623,11 +16623,11 @@ impl ::core::default::Default for UMS_CREATE_THREAD_ATTRIBUTES {
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const UNICODE_STRING_MAX_CHARS: u32 = 32767u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const UNIFIEDBUILDREVISION_KEY: &'static str = "\\Registry\\Machine\\Software\\Microsoft\\Windows NT\\CurrentVersion";
+pub const UNIFIEDBUILDREVISION_KEY: &str = "\\Registry\\Machine\\Software\\Microsoft\\Windows NT\\CurrentVersion";
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const UNIFIEDBUILDREVISION_MIN: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const UNIFIEDBUILDREVISION_VALUE: &'static str = "UBR";
+pub const UNIFIEDBUILDREVISION_VALUE: &str = "UBR";
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const UNWIND_CHAIN_LIMIT: u32 = 32u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]

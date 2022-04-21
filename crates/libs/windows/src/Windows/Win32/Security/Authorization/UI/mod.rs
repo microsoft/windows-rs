@@ -1,5 +1,5 @@
 #[doc = "*Required features: `\"Win32_Security_Authorization_UI\"`*"]
-pub const CFSTR_ACLUI_SID_INFO_LIST: &'static str = "CFSTR_ACLUI_SID_INFO_LIST";
+pub const CFSTR_ACLUI_SID_INFO_LIST: &str = "CFSTR_ACLUI_SID_INFO_LIST";
 #[doc = "*Required features: `\"Win32_Security_Authorization_UI\"`, `\"Win32_UI_Controls\"`*"]
 #[cfg(feature = "Win32_UI_Controls")]
 #[inline]

@@ -68867,18 +68867,18 @@ impl ::core::fmt::Debug for eVideoEncoderDisplayContentType {
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
-pub const g_wszSpeechFormatCaps: &'static str = "SpeechFormatCap";
+pub const g_wszSpeechFormatCaps: &str = "SpeechFormatCap";
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
-pub const g_wszWMCPAudioVBRQuality: &'static str = "_VBRQUALITY";
+pub const g_wszWMCPAudioVBRQuality: &str = "_VBRQUALITY";
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
-pub const g_wszWMCPAudioVBRSupported: &'static str = "_VBRENABLED";
+pub const g_wszWMCPAudioVBRSupported: &str = "_VBRENABLED";
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
-pub const g_wszWMCPCodecName: &'static str = "_CODECNAME";
+pub const g_wszWMCPCodecName: &str = "_CODECNAME";
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
-pub const g_wszWMCPDefaultCrisp: &'static str = "_DEFAULTCRISP";
+pub const g_wszWMCPDefaultCrisp: &str = "_DEFAULTCRISP";
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
-pub const g_wszWMCPMaxPasses: &'static str = "_PASSESRECOMMENDED";
+pub const g_wszWMCPMaxPasses: &str = "_PASSESRECOMMENDED";
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
-pub const g_wszWMCPSupportedVBRModes: &'static str = "_SUPPORTEDVBRMODES";
+pub const g_wszWMCPSupportedVBRModes: &str = "_SUPPORTEDVBRMODES";
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

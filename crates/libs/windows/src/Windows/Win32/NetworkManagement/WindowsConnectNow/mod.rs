@@ -459,7 +459,7 @@ impl ::core::fmt::Debug for WCN_PASSWORD_TYPE {
     }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsConnectNow\"`*"]
-pub const WCN_QUERY_CONSTRAINT_USE_SOFTAP: &'static str = "WCN.Discovery.SoftAP";
+pub const WCN_QUERY_CONSTRAINT_USE_SOFTAP: &str = "WCN.Discovery.SoftAP";
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsConnectNow\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]

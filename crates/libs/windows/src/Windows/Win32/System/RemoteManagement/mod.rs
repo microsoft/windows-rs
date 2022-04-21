@@ -3241,11 +3241,11 @@ impl ::core::default::Default for WSMAN_CERTIFICATE_DETAILS {
     }
 }
 #[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
-pub const WSMAN_CMDSHELL_OPTION_CODEPAGE: &'static str = "WINRS_CODEPAGE";
+pub const WSMAN_CMDSHELL_OPTION_CODEPAGE: &str = "WINRS_CODEPAGE";
 #[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
-pub const WSMAN_CMDSHELL_OPTION_CONSOLEMODE_STDIN: &'static str = "WINRS_CONSOLEMODE_STDIN";
+pub const WSMAN_CMDSHELL_OPTION_CONSOLEMODE_STDIN: &str = "WINRS_CONSOLEMODE_STDIN";
 #[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
-pub const WSMAN_CMDSHELL_OPTION_SKIP_CMD_SHELL: &'static str = "WINRS_SKIP_CMD_SHELL";
+pub const WSMAN_CMDSHELL_OPTION_SKIP_CMD_SHELL: &str = "WINRS_SKIP_CMD_SHELL";
 #[repr(C)]
 pub struct WSMAN_COMMAND(pub u8);
 #[repr(C)]
@@ -4200,9 +4200,9 @@ impl ::core::default::Default for WSMAN_SHELL_DISCONNECT_INFO {
     }
 }
 #[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
-pub const WSMAN_SHELL_NS: &'static str = "http://schemas.microsoft.com/wbem/wsman/1/windows/shell";
+pub const WSMAN_SHELL_NS: &str = "http://schemas.microsoft.com/wbem/wsman/1/windows/shell";
 #[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
-pub const WSMAN_SHELL_OPTION_NOPROFILE: &'static str = "WINRS_NOPROFILE";
+pub const WSMAN_SHELL_OPTION_NOPROFILE: &str = "WINRS_NOPROFILE";
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
 pub struct WSMAN_SHELL_STARTUP_INFO_V10 {
@@ -4300,11 +4300,11 @@ impl ::core::default::Default for WSMAN_STREAM_ID_SET {
     }
 }
 #[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
-pub const WSMAN_STREAM_ID_STDERR: &'static str = "stderr";
+pub const WSMAN_STREAM_ID_STDERR: &str = "stderr";
 #[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
-pub const WSMAN_STREAM_ID_STDIN: &'static str = "stdin";
+pub const WSMAN_STREAM_ID_STDIN: &str = "stdin";
 #[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
-pub const WSMAN_STREAM_ID_STDOUT: &'static str = "stdout";
+pub const WSMAN_STREAM_ID_STDOUT: &str = "stdout";
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
 pub struct WSMAN_USERNAME_PASSWORD_CREDS {

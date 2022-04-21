@@ -283,9 +283,9 @@ pub unsafe fn HasExpandedResources() -> ::windows::core::Result<super::Foundatio
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `\"Win32_Gaming\"`*"]
-pub const ID_GDF_THUMBNAIL_STR: &'static str = "__GDF_THUMBNAIL";
+pub const ID_GDF_THUMBNAIL_STR: &str = "__GDF_THUMBNAIL";
 #[doc = "*Required features: `\"Win32_Gaming\"`*"]
-pub const ID_GDF_XML_STR: &'static str = "__GDF_XML";
+pub const ID_GDF_XML_STR: &str = "__GDF_XML";
 #[doc = "*Required features: `\"Win32_Gaming\"`*"]
 #[repr(transparent)]
 pub struct IGameExplorer(::windows::core::IUnknown);

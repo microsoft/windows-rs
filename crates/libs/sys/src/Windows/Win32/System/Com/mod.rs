@@ -2269,7 +2269,7 @@ impl ::core::clone::Clone for WORD_BLOB {
     }
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const _CRT_INTERNAL_COMBASE_SYMBOL_PREFIX: &'static str = "_";
+pub const _CRT_INTERNAL_COMBASE_SYMBOL_PREFIX: &str = "_";
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 pub struct uCLSSPEC {

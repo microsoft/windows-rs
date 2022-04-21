@@ -585,27 +585,27 @@ impl ::core::default::Default for SAFER_URLZONE_IDENTIFICATION {
     }
 }
 #[doc = "*Required features: `\"Win32_Security_AppLocker\"`*"]
-pub const SRP_POLICY_APPX: &'static str = "APPX";
+pub const SRP_POLICY_APPX: &str = "APPX";
 #[doc = "*Required features: `\"Win32_Security_AppLocker\"`*"]
-pub const SRP_POLICY_DLL: &'static str = "DLL";
+pub const SRP_POLICY_DLL: &str = "DLL";
 #[doc = "*Required features: `\"Win32_Security_AppLocker\"`*"]
-pub const SRP_POLICY_EXE: &'static str = "EXE";
+pub const SRP_POLICY_EXE: &str = "EXE";
 #[doc = "*Required features: `\"Win32_Security_AppLocker\"`*"]
-pub const SRP_POLICY_MANAGEDINSTALLER: &'static str = "MANAGEDINSTALLER";
+pub const SRP_POLICY_MANAGEDINSTALLER: &str = "MANAGEDINSTALLER";
 #[doc = "*Required features: `\"Win32_Security_AppLocker\"`*"]
-pub const SRP_POLICY_MSI: &'static str = "MSI";
+pub const SRP_POLICY_MSI: &str = "MSI";
 #[doc = "*Required features: `\"Win32_Security_AppLocker\"`*"]
-pub const SRP_POLICY_NOV2: &'static str = "IGNORESRPV2";
+pub const SRP_POLICY_NOV2: &str = "IGNORESRPV2";
 #[doc = "*Required features: `\"Win32_Security_AppLocker\"`*"]
-pub const SRP_POLICY_SCRIPT: &'static str = "SCRIPT";
+pub const SRP_POLICY_SCRIPT: &str = "SCRIPT";
 #[doc = "*Required features: `\"Win32_Security_AppLocker\"`*"]
-pub const SRP_POLICY_SHELL: &'static str = "SHELL";
+pub const SRP_POLICY_SHELL: &str = "SHELL";
 #[doc = "*Required features: `\"Win32_Security_AppLocker\"`*"]
-pub const SRP_POLICY_WLDPCONFIGCI: &'static str = "WLDPCONFIGCI";
+pub const SRP_POLICY_WLDPCONFIGCI: &str = "WLDPCONFIGCI";
 #[doc = "*Required features: `\"Win32_Security_AppLocker\"`*"]
-pub const SRP_POLICY_WLDPMSI: &'static str = "WLDPMSI";
+pub const SRP_POLICY_WLDPMSI: &str = "WLDPMSI";
 #[doc = "*Required features: `\"Win32_Security_AppLocker\"`*"]
-pub const SRP_POLICY_WLDPSCRIPT: &'static str = "WLDPSCRIPT";
+pub const SRP_POLICY_WLDPSCRIPT: &str = "WLDPSCRIPT";
 #[doc = "*Required features: `\"Win32_Security_AppLocker\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]

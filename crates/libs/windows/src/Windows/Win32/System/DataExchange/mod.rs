@@ -2348,21 +2348,21 @@ pub unsafe fn ReuseDDElParam<'a, Param0: ::windows::core::IntoParam<'a, super::s
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const SZDDESYS_ITEM_FORMATS: &'static str = "Formats";
+pub const SZDDESYS_ITEM_FORMATS: &str = "Formats";
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const SZDDESYS_ITEM_HELP: &'static str = "Help";
+pub const SZDDESYS_ITEM_HELP: &str = "Help";
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const SZDDESYS_ITEM_RTNMSG: &'static str = "ReturnMessage";
+pub const SZDDESYS_ITEM_RTNMSG: &str = "ReturnMessage";
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const SZDDESYS_ITEM_STATUS: &'static str = "Status";
+pub const SZDDESYS_ITEM_STATUS: &str = "Status";
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const SZDDESYS_ITEM_SYSITEMS: &'static str = "SysItems";
+pub const SZDDESYS_ITEM_SYSITEMS: &str = "SysItems";
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const SZDDESYS_ITEM_TOPICS: &'static str = "Topics";
+pub const SZDDESYS_ITEM_TOPICS: &str = "Topics";
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const SZDDESYS_TOPIC: &'static str = "System";
+pub const SZDDESYS_TOPIC: &str = "System";
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const SZDDE_ITEM_ITEMLIST: &'static str = "TopicItemList";
+pub const SZDDE_ITEM_ITEMLIST: &str = "TopicItemList";
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]

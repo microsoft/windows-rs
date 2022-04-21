@@ -612,11 +612,11 @@ impl ::core::clone::Clone for WSD_DATETIME {
     }
 }
 #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
-pub const WSD_DEFAULT_EVENTING_ADDRESS: &'static str = "http://*:5357/";
+pub const WSD_DEFAULT_EVENTING_ADDRESS: &str = "http://*:5357/";
 #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
-pub const WSD_DEFAULT_HOSTING_ADDRESS: &'static str = "http://*:5357/";
+pub const WSD_DEFAULT_HOSTING_ADDRESS: &str = "http://*:5357/";
 #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
-pub const WSD_DEFAULT_SECURE_HOSTING_ADDRESS: &'static str = "https://*:5358/";
+pub const WSD_DEFAULT_SECURE_HOSTING_ADDRESS: &str = "https://*:5358/";
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

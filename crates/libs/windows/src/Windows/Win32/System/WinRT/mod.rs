@@ -215,11 +215,11 @@ impl ::core::fmt::Debug for CASTING_CONNECTION_STATE {
     }
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-pub const CastingSourceInfo_Property_CastingTypes: &'static str = "CastingTypes";
+pub const CastingSourceInfo_Property_CastingTypes: &str = "CastingTypes";
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-pub const CastingSourceInfo_Property_PreferredSourceUriScheme: &'static str = "PreferredSourceUriScheme";
+pub const CastingSourceInfo_Property_PreferredSourceUriScheme: &str = "PreferredSourceUriScheme";
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-pub const CastingSourceInfo_Property_ProtectedMedia: &'static str = "ProtectedMedia";
+pub const CastingSourceInfo_Property_ProtectedMedia: &str = "ProtectedMedia";
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
 pub unsafe fn CoDecodeProxy(dwclientpid: u32, ui64proxyaddress: u64) -> ::windows::core::Result<ServerInformation> {

@@ -15198,17 +15198,17 @@ pub const KSSTREAM_UVC_SECURE_ATTRIBUTE_SIZE: u32 = 8192u32;
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub const KSSTREAM_WRITE: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSSTRING_Allocator: &'static str = "{642F5D00-4791-11D0-A5D6-28DB04C10000}";
+pub const KSSTRING_Allocator: &str = "{642F5D00-4791-11D0-A5D6-28DB04C10000}";
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSSTRING_AllocatorEx: &'static str = "{091BB63B-603F-11D1-B067-00A0C9062802}";
+pub const KSSTRING_AllocatorEx: &str = "{091BB63B-603F-11D1-B067-00A0C9062802}";
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSSTRING_Clock: &'static str = "{53172480-4791-11D0-A5D6-28DB04C10000}";
+pub const KSSTRING_Clock: &str = "{53172480-4791-11D0-A5D6-28DB04C10000}";
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSSTRING_Filter: &'static str = "{9B365890-165F-11D0-A195-0020AFD156E4}";
+pub const KSSTRING_Filter: &str = "{9B365890-165F-11D0-A195-0020AFD156E4}";
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSSTRING_Pin: &'static str = "{146F1A80-4791-11D0-A5D6-28DB04C10000}";
+pub const KSSTRING_Pin: &str = "{146F1A80-4791-11D0-A5D6-28DB04C10000}";
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSSTRING_TopologyNode: &'static str = "{0621061A-EE75-11D0-B915-00A0C9223196}";
+pub const KSSTRING_TopologyNode: &str = "{0621061A-EE75-11D0-B915-00A0C9223196}";
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub struct KSTELEPHONY_CALLCONTROL {

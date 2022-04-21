@@ -5081,7 +5081,7 @@ impl ::core::default::Default for OBJECT_NOTIFICATION {
     }
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
-pub const OPENSTREAMONFILE: &'static str = "OpenStreamOnFile";
+pub const OPENSTREAMONFILE: &str = "OpenStreamOnFile";
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
@@ -6814,9 +6814,9 @@ pub const WAB_DISPLAY_ISNTDS: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
 pub const WAB_DISPLAY_LDAPURL: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
-pub const WAB_DLL_NAME: &'static str = "WAB32.DLL";
+pub const WAB_DLL_NAME: &str = "WAB32.DLL";
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
-pub const WAB_DLL_PATH_KEY: &'static str = "Software\\Microsoft\\WAB\\DLLPath";
+pub const WAB_DLL_PATH_KEY: &str = "Software\\Microsoft\\WAB\\DLLPath";
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
 pub const WAB_ENABLE_PROFILES: u32 = 4194304u32;
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
@@ -7004,10 +7004,10 @@ pub const fMapiUnicode: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
 pub const hrSuccess: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
-pub const szHrDispatchNotifications: &'static str = "HrDispatchNotifications";
+pub const szHrDispatchNotifications: &str = "HrDispatchNotifications";
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
-pub const szMAPINotificationMsg: &'static str = "MAPI Notify window message";
+pub const szMAPINotificationMsg: &str = "MAPI Notify window message";
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
-pub const szScCreateConversationIndex: &'static str = "ScCreateConversationIndex";
+pub const szScCreateConversationIndex: &str = "ScCreateConversationIndex";
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

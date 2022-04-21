@@ -153,9 +153,9 @@ impl ::core::default::Default for CARET_INFO {
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
-pub const CERICHEDIT_CLASSA: &'static str = "RichEditCEA";
+pub const CERICHEDIT_CLASSA: &str = "RichEditCEA";
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
-pub const CERICHEDIT_CLASSW: &'static str = "RichEditCEW";
+pub const CERICHEDIT_CLASSW: &str = "RichEditCEW";
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -395,11 +395,11 @@ impl ::core::ops::Not for CFM_MASK {
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
-pub const CF_RETEXTOBJ: &'static str = "RichEdit Text and Objects";
+pub const CF_RETEXTOBJ: &str = "RichEdit Text and Objects";
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
-pub const CF_RTF: &'static str = "Rich Text Format";
+pub const CF_RTF: &str = "Rich Text Format";
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
-pub const CF_RTFNOOBJS: &'static str = "Rich Text Format Without Objects";
+pub const CF_RTFNOOBJS: &str = "Rich Text Format Without Objects";
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub struct CHANGENOTIFY {
@@ -9703,7 +9703,7 @@ pub const MAX_TABLE_CELLS: u32 = 63u32;
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const MAX_TAB_STOPS: u32 = 32u32;
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
-pub const MSFTEDIT_CLASS: &'static str = "RICHEDIT50W";
+pub const MSFTEDIT_CLASS: &str = "RICHEDIT50W";
 #[repr(C, packed(4))]
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -10538,15 +10538,15 @@ impl ::core::default::Default for REQRESIZE {
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
-pub const RICHEDIT60_CLASS: &'static str = "RICHEDIT60W";
+pub const RICHEDIT60_CLASS: &str = "RICHEDIT60W";
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
-pub const RICHEDIT_CLASS: &'static str = "RichEdit20W";
+pub const RICHEDIT_CLASS: &str = "RichEdit20W";
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
-pub const RICHEDIT_CLASS10A: &'static str = "RICHEDIT";
+pub const RICHEDIT_CLASS10A: &str = "RICHEDIT";
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
-pub const RICHEDIT_CLASSA: &'static str = "RichEdit20A";
+pub const RICHEDIT_CLASSA: &str = "RichEdit20A";
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
-pub const RICHEDIT_CLASSW: &'static str = "RichEdit20W";
+pub const RICHEDIT_CLASSW: &str = "RichEdit20W";
 #[repr(C, packed(4))]
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]

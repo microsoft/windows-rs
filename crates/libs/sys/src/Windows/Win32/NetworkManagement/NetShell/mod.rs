@@ -106,13 +106,13 @@ pub const ERROR_TAG_ALREADY_PRESENT: u32 = 15008u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`*"]
 pub const ERROR_TRANSPORT_NOT_PRESENT: u32 = 15012u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`*"]
-pub const GET_RESOURCE_STRING_FN_NAME: &'static str = "GetResourceString";
+pub const GET_RESOURCE_STRING_FN_NAME: &str = "GetResourceString";
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`*"]
 pub const MAX_NAME_LEN: u32 = 48u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`*"]
-pub const NETSH_ARG_DELIMITER: &'static str = "=";
+pub const NETSH_ARG_DELIMITER: &str = "=";
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`*"]
-pub const NETSH_CMD_DELIMITER: &'static str = " ";
+pub const NETSH_CMD_DELIMITER: &str = " ";
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`*"]
 pub const NETSH_ERROR_BASE: u32 = 15000u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`*"]
@@ -209,7 +209,7 @@ pub const NS_EVENT_FROM_N: NS_EVENTS = 4i32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`*"]
 pub const NS_EVENT_FROM_START: NS_EVENTS = 8i32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`*"]
-pub const NS_GET_EVENT_IDS_FN_NAME: &'static str = "GetEventIds";
+pub const NS_GET_EVENT_IDS_FN_NAME: &str = "GetEventIds";
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`*"]
 pub struct NS_HELPER_ATTRIBUTES {

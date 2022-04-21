@@ -12653,7 +12653,7 @@ impl ::core::fmt::Debug for OLERENDER {
     }
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLESTDDELIM: &'static str = "\\";
+pub const OLESTDDELIM: &str = "\\";
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_Media\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media"))]
@@ -16676,7 +16676,7 @@ impl ::core::fmt::Debug for PROPPAGESTATUS {
     }
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const PROP_HWND_CHGICONDLG: &'static str = "HWND_CIDLG";
+pub const PROP_HWND_CHGICONDLG: &str = "HWND_CIDLG";
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const PSF_CHECKDISPLAYASICON: i32 = 8i32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
@@ -17134,27 +17134,27 @@ pub const STDOLE_MAJORVERNUM: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const STDOLE_MINORVERNUM: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const STDOLE_TLB: &'static str = "stdole2.tlb";
+pub const STDOLE_TLB: &str = "stdole2.tlb";
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const STDTYPE_TLB: &'static str = "stdole2.tlb";
+pub const STDTYPE_TLB: &str = "stdole2.tlb";
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const SZOLEUI_MSG_ADDCONTROL: &'static str = "OLEUI_MSG_ADDCONTROL";
+pub const SZOLEUI_MSG_ADDCONTROL: &str = "OLEUI_MSG_ADDCONTROL";
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const SZOLEUI_MSG_BROWSE: &'static str = "OLEUI_MSG_BROWSE";
+pub const SZOLEUI_MSG_BROWSE: &str = "OLEUI_MSG_BROWSE";
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const SZOLEUI_MSG_BROWSE_OFN: &'static str = "OLEUI_MSG_BROWSE_OFN";
+pub const SZOLEUI_MSG_BROWSE_OFN: &str = "OLEUI_MSG_BROWSE_OFN";
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const SZOLEUI_MSG_CHANGEICON: &'static str = "OLEUI_MSG_CHANGEICON";
+pub const SZOLEUI_MSG_CHANGEICON: &str = "OLEUI_MSG_CHANGEICON";
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const SZOLEUI_MSG_CHANGESOURCE: &'static str = "OLEUI_MSG_CHANGESOURCE";
+pub const SZOLEUI_MSG_CHANGESOURCE: &str = "OLEUI_MSG_CHANGESOURCE";
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const SZOLEUI_MSG_CLOSEBUSYDIALOG: &'static str = "OLEUI_MSG_CLOSEBUSYDIALOG";
+pub const SZOLEUI_MSG_CLOSEBUSYDIALOG: &str = "OLEUI_MSG_CLOSEBUSYDIALOG";
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const SZOLEUI_MSG_CONVERT: &'static str = "OLEUI_MSG_CONVERT";
+pub const SZOLEUI_MSG_CONVERT: &str = "OLEUI_MSG_CONVERT";
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const SZOLEUI_MSG_ENDDIALOG: &'static str = "OLEUI_MSG_ENDDIALOG";
+pub const SZOLEUI_MSG_ENDDIALOG: &str = "OLEUI_MSG_ENDDIALOG";
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const SZOLEUI_MSG_HELP: &'static str = "OLEUI_MSG_HELP";
+pub const SZOLEUI_MSG_HELP: &str = "OLEUI_MSG_HELP";
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]

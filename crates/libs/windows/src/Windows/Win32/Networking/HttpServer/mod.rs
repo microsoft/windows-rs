@@ -4964,7 +4964,7 @@ impl ::core::fmt::Debug for HTTP_VERB {
     }
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HTTP_VERSION: &'static str = "HTTP/1.0";
+pub const HTTP_VERSION: &str = "HTTP/1.0";
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
 pub struct HTTP_VERSION {

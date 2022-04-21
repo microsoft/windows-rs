@@ -297,15 +297,15 @@ pub type CLAIMMEDIALABEL = ::core::option::Option<unsafe extern "system" fn(pbuf
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub type CLAIMMEDIALABELEX = ::core::option::Option<unsafe extern "system" fn(pbuffer: *const u8, nbuffersize: u32, plabelinfo: *mut MediaLabelInfo, labelguid: *mut ::windows::core::GUID) -> u32>;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const CLFS_BASELOG_EXTENSION: &'static str = ".blf";
+pub const CLFS_BASELOG_EXTENSION: &str = ".blf";
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub type CLFS_BLOCK_ALLOCATION = ::core::option::Option<unsafe extern "system" fn(cbbufferlength: u32, pvusercontext: *mut ::core::ffi::c_void) -> *mut ::core::ffi::c_void>;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub type CLFS_BLOCK_DEALLOCATION = ::core::option::Option<unsafe extern "system" fn(pvbuffer: *mut ::core::ffi::c_void, pvusercontext: *mut ::core::ffi::c_void)>;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const CLFS_CONTAINER_RELATIVE_PREFIX: &'static str = "%BLF%\\";
+pub const CLFS_CONTAINER_RELATIVE_PREFIX: &str = "%BLF%\\";
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const CLFS_CONTAINER_STREAM_PREFIX: &'static str = "%BLF%:";
+pub const CLFS_CONTAINER_STREAM_PREFIX: &str = "%BLF%:";
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -3447,9 +3447,9 @@ pub unsafe fn DuplicateEncryptionInfoFile<'a, Param0: ::windows::core::IntoParam
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const EA_CONTAINER_NAME: &'static str = "ContainerName";
+pub const EA_CONTAINER_NAME: &str = "ContainerName";
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const EA_CONTAINER_SIZE: &'static str = "ContainerSize";
+pub const EA_CONTAINER_SIZE: &str = "ContainerSize";
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct EFS_CERTIFICATE_BLOB {
@@ -4043,7 +4043,7 @@ impl ::core::default::Default for ENCRYPTION_PROTECTOR_LIST {
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const ENLISTMENT_MAXIMUM_OPTION: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const ENLISTMENT_OBJECT_PATH: &'static str = "\\Enlistment\\";
+pub const ENLISTMENT_OBJECT_PATH: &str = "\\Enlistment\\";
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const ENLISTMENT_SUPERIOR: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
@@ -15025,7 +15025,7 @@ pub const RESOURCE_MANAGER_COMMUNICATION: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const RESOURCE_MANAGER_MAXIMUM_OPTION: u32 = 3u32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const RESOURCE_MANAGER_OBJECT_PATH: &'static str = "\\ResourceManager\\";
+pub const RESOURCE_MANAGER_OBJECT_PATH: &str = "\\ResourceManager\\";
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const RESOURCE_MANAGER_VOLATILE: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -17799,7 +17799,7 @@ impl ::core::default::Default for TAPE_WRITE_MARKS {
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const TRANSACTIONMANAGER_OBJECT_PATH: &'static str = "\\TransactionManager\\";
+pub const TRANSACTIONMANAGER_OBJECT_PATH: &str = "\\TransactionManager\\";
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const TRANSACTION_DO_NOT_PROMOTE: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
@@ -18066,7 +18066,7 @@ pub const TRANSACTION_NOTIFY_SINGLE_PHASE_COMMIT: u32 = 512u32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const TRANSACTION_NOTIFY_TM_ONLINE: u32 = 33554432u32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const TRANSACTION_OBJECT_PATH: &'static str = "\\Transaction\\";
+pub const TRANSACTION_OBJECT_PATH: &str = "\\Transaction\\";
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]

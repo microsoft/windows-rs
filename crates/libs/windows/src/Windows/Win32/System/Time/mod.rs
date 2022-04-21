@@ -322,16 +322,16 @@ pub unsafe fn TzSpecificLocalTimeToSystemTimeEx(lptimezoneinformation: *const DY
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `\"Win32_System_Time\"`*"]
-pub const wszW32TimeRegKeyPolicyTimeProviders: &'static str = "Software\\Policies\\Microsoft\\W32Time\\TimeProviders";
+pub const wszW32TimeRegKeyPolicyTimeProviders: &str = "Software\\Policies\\Microsoft\\W32Time\\TimeProviders";
 #[doc = "*Required features: `\"Win32_System_Time\"`*"]
-pub const wszW32TimeRegKeyTimeProviders: &'static str = "System\\CurrentControlSet\\Services\\W32Time\\TimeProviders";
+pub const wszW32TimeRegKeyTimeProviders: &str = "System\\CurrentControlSet\\Services\\W32Time\\TimeProviders";
 #[doc = "*Required features: `\"Win32_System_Time\"`*"]
-pub const wszW32TimeRegValueDllName: &'static str = "DllName";
+pub const wszW32TimeRegValueDllName: &str = "DllName";
 #[doc = "*Required features: `\"Win32_System_Time\"`*"]
-pub const wszW32TimeRegValueEnabled: &'static str = "Enabled";
+pub const wszW32TimeRegValueEnabled: &str = "Enabled";
 #[doc = "*Required features: `\"Win32_System_Time\"`*"]
-pub const wszW32TimeRegValueInputProvider: &'static str = "InputProvider";
+pub const wszW32TimeRegValueInputProvider: &str = "InputProvider";
 #[doc = "*Required features: `\"Win32_System_Time\"`*"]
-pub const wszW32TimeRegValueMetaDataProvider: &'static str = "MetaDataProvider";
+pub const wszW32TimeRegValueMetaDataProvider: &str = "MetaDataProvider";
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

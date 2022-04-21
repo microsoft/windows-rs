@@ -96,7 +96,7 @@ extern "system" {
     pub fn WerUnregisterRuntimeExceptionModule(pwszoutofprocesscallbackdll: ::windows_sys::core::PCWSTR, pcontext: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
 }
 #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`*"]
-pub const APPCRASH_EVENT: &'static str = "APPCRASH";
+pub const APPCRASH_EVENT: &str = "APPCRASH";
 #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`*"]
 pub type EFaultRepRetVal = i32;
 #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`*"]
@@ -124,7 +124,7 @@ pub const frrvErrDoubleFault: EFaultRepRetVal = 10i32;
 pub type HREPORT = isize;
 pub type HREPORTSTORE = isize;
 #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`*"]
-pub const PACKAGED_APPCRASH_EVENT: &'static str = "MoAppCrash";
+pub const PACKAGED_APPCRASH_EVENT: &str = "MoAppCrash";
 #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`, `\"Win32_Foundation\"`, `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 pub type PFN_WER_RUNTIME_EXCEPTION_DEBUGGER_LAUNCH = ::core::option::Option<unsafe extern "system" fn(pcontext: *const ::core::ffi::c_void, pexceptioninformation: *const WER_RUNTIME_EXCEPTION_INFORMATION, pbiscustomdebugger: *mut super::super::Foundation::BOOL, pwszdebuggerlaunch: ::windows_sys::core::PWSTR, pchdebuggerlaunch: *mut u32, pbisdebuggerautolaunch: *mut super::super::Foundation::BOOL) -> ::windows_sys::core::HRESULT>;
@@ -622,11 +622,11 @@ pub const WerUICloseDlgButtonText: WER_REPORT_UI = 10i32;
 #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`*"]
 pub const WerUIMax: WER_REPORT_UI = 11i32;
 #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`*"]
-pub const WER_RUNTIME_EXCEPTION_DEBUGGER_LAUNCH: &'static str = "OutOfProcessExceptionEventDebuggerLaunchCallback";
+pub const WER_RUNTIME_EXCEPTION_DEBUGGER_LAUNCH: &str = "OutOfProcessExceptionEventDebuggerLaunchCallback";
 #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`*"]
-pub const WER_RUNTIME_EXCEPTION_EVENT_FUNCTION: &'static str = "OutOfProcessExceptionEventCallback";
+pub const WER_RUNTIME_EXCEPTION_EVENT_FUNCTION: &str = "OutOfProcessExceptionEventCallback";
 #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`*"]
-pub const WER_RUNTIME_EXCEPTION_EVENT_SIGNATURE_FUNCTION: &'static str = "OutOfProcessExceptionEventSignatureCallback";
+pub const WER_RUNTIME_EXCEPTION_EVENT_SIGNATURE_FUNCTION: &str = "OutOfProcessExceptionEventSignatureCallback";
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`, `\"Win32_Foundation\"`, `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]

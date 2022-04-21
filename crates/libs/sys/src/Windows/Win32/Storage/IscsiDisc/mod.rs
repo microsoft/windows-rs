@@ -291,7 +291,7 @@ impl ::core::clone::Clone for ATA_PASS_THROUGH_EX32 {
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
-pub const DD_SCSI_DEVICE_NAME: &'static str = "\\Device\\ScsiPort";
+pub const DD_SCSI_DEVICE_NAME: &str = "\\Device\\ScsiPort";
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
 pub struct DSM_NOTIFICATION_REQUEST_BLOCK {
@@ -653,13 +653,13 @@ impl ::core::clone::Clone for IDE_IO_CONTROL {
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
-pub const ID_FQDN: &'static str = "2";
+pub const ID_FQDN: &str = "2";
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
-pub const ID_IPV4_ADDR: &'static str = "1";
+pub const ID_IPV4_ADDR: &str = "1";
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
-pub const ID_IPV6_ADDR: &'static str = "5";
+pub const ID_IPV6_ADDR: &str = "5";
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
-pub const ID_USER_FQDN: &'static str = "3";
+pub const ID_USER_FQDN: &str = "3";
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
 pub struct IKE_AUTHENTICATION_INFORMATION {
@@ -714,27 +714,27 @@ pub const IOCTL_IDE_PASS_THROUGH: u32 = 315432u32;
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
 pub const IOCTL_MINIPORT_PROCESS_SERVICE_IRP: u32 = 315448u32;
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
-pub const IOCTL_MINIPORT_SIGNATURE_DSM_GENERAL: &'static str = "MPDSMGEN";
+pub const IOCTL_MINIPORT_SIGNATURE_DSM_GENERAL: &str = "MPDSMGEN";
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
-pub const IOCTL_MINIPORT_SIGNATURE_DSM_NOTIFICATION: &'static str = "MPDSM   ";
+pub const IOCTL_MINIPORT_SIGNATURE_DSM_NOTIFICATION: &str = "MPDSM   ";
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
-pub const IOCTL_MINIPORT_SIGNATURE_ENDURANCE_INFO: &'static str = "ENDURINF";
+pub const IOCTL_MINIPORT_SIGNATURE_ENDURANCE_INFO: &str = "ENDURINF";
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
-pub const IOCTL_MINIPORT_SIGNATURE_FIRMWARE: &'static str = "FIRMWARE";
+pub const IOCTL_MINIPORT_SIGNATURE_FIRMWARE: &str = "FIRMWARE";
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
-pub const IOCTL_MINIPORT_SIGNATURE_HYBRDISK: &'static str = "HYBRDISK";
+pub const IOCTL_MINIPORT_SIGNATURE_HYBRDISK: &str = "HYBRDISK";
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
-pub const IOCTL_MINIPORT_SIGNATURE_QUERY_PHYSICAL_TOPOLOGY: &'static str = "TOPOLOGY";
+pub const IOCTL_MINIPORT_SIGNATURE_QUERY_PHYSICAL_TOPOLOGY: &str = "TOPOLOGY";
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
-pub const IOCTL_MINIPORT_SIGNATURE_QUERY_PROTOCOL: &'static str = "PROTOCOL";
+pub const IOCTL_MINIPORT_SIGNATURE_QUERY_PROTOCOL: &str = "PROTOCOL";
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
-pub const IOCTL_MINIPORT_SIGNATURE_QUERY_TEMPERATURE: &'static str = "TEMPERAT";
+pub const IOCTL_MINIPORT_SIGNATURE_QUERY_TEMPERATURE: &str = "TEMPERAT";
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
-pub const IOCTL_MINIPORT_SIGNATURE_SCSIDISK: &'static str = "SCSIDISK";
+pub const IOCTL_MINIPORT_SIGNATURE_SCSIDISK: &str = "SCSIDISK";
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
-pub const IOCTL_MINIPORT_SIGNATURE_SET_PROTOCOL: &'static str = "SETPROTO";
+pub const IOCTL_MINIPORT_SIGNATURE_SET_PROTOCOL: &str = "SETPROTO";
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
-pub const IOCTL_MINIPORT_SIGNATURE_SET_TEMPERATURE_THRESHOLD: &'static str = "SETTEMPT";
+pub const IOCTL_MINIPORT_SIGNATURE_SET_TEMPERATURE_THRESHOLD: &str = "SETTEMPT";
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
 pub const IOCTL_MPIO_PASS_THROUGH_PATH: u32 = 315452u32;
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
@@ -931,37 +931,37 @@ impl ::core::clone::Clone for ISCSI_LOGIN_OPTIONS {
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
-pub const ISCSI_LOGIN_OPTIONS_AUTH_TYPE: &'static str = "0x00000080";
+pub const ISCSI_LOGIN_OPTIONS_AUTH_TYPE: &str = "0x00000080";
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
-pub const ISCSI_LOGIN_OPTIONS_DATA_DIGEST: &'static str = "0x00000002";
+pub const ISCSI_LOGIN_OPTIONS_DATA_DIGEST: &str = "0x00000002";
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
-pub const ISCSI_LOGIN_OPTIONS_DEFAULT_TIME_2_RETAIN: &'static str = "0x00000010";
+pub const ISCSI_LOGIN_OPTIONS_DEFAULT_TIME_2_RETAIN: &str = "0x00000010";
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
-pub const ISCSI_LOGIN_OPTIONS_DEFAULT_TIME_2_WAIT: &'static str = "0x00000008";
+pub const ISCSI_LOGIN_OPTIONS_DEFAULT_TIME_2_WAIT: &str = "0x00000008";
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
-pub const ISCSI_LOGIN_OPTIONS_HEADER_DIGEST: &'static str = "0x00000001";
+pub const ISCSI_LOGIN_OPTIONS_HEADER_DIGEST: &str = "0x00000001";
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
-pub const ISCSI_LOGIN_OPTIONS_MAXIMUM_CONNECTIONS: &'static str = "0x00000004";
+pub const ISCSI_LOGIN_OPTIONS_MAXIMUM_CONNECTIONS: &str = "0x00000004";
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
-pub const ISCSI_LOGIN_OPTIONS_PASSWORD: &'static str = "0x00000040";
+pub const ISCSI_LOGIN_OPTIONS_PASSWORD: &str = "0x00000040";
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
-pub const ISCSI_LOGIN_OPTIONS_USERNAME: &'static str = "0x00000020";
+pub const ISCSI_LOGIN_OPTIONS_USERNAME: &str = "0x00000020";
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
 pub const ISCSI_LOGIN_OPTIONS_VERSION: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
-pub const ISCSI_SECURITY_FLAG_AGGRESSIVE_MODE_ENABLED: &'static str = "0x00000008";
+pub const ISCSI_SECURITY_FLAG_AGGRESSIVE_MODE_ENABLED: &str = "0x00000008";
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
-pub const ISCSI_SECURITY_FLAG_IKE_IPSEC_ENABLED: &'static str = "0x00000002";
+pub const ISCSI_SECURITY_FLAG_IKE_IPSEC_ENABLED: &str = "0x00000002";
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
-pub const ISCSI_SECURITY_FLAG_MAIN_MODE_ENABLED: &'static str = "0x00000004";
+pub const ISCSI_SECURITY_FLAG_MAIN_MODE_ENABLED: &str = "0x00000004";
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
-pub const ISCSI_SECURITY_FLAG_PFS_ENABLED: &'static str = "0x00000010";
+pub const ISCSI_SECURITY_FLAG_PFS_ENABLED: &str = "0x00000010";
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
-pub const ISCSI_SECURITY_FLAG_TRANSPORT_MODE_PREFERRED: &'static str = "0x00000020";
+pub const ISCSI_SECURITY_FLAG_TRANSPORT_MODE_PREFERRED: &str = "0x00000020";
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
-pub const ISCSI_SECURITY_FLAG_TUNNEL_MODE_PREFERRED: &'static str = "0x00000040";
+pub const ISCSI_SECURITY_FLAG_TUNNEL_MODE_PREFERRED: &str = "0x00000040";
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
-pub const ISCSI_SECURITY_FLAG_VALID: &'static str = "0x00000001";
+pub const ISCSI_SECURITY_FLAG_VALID: &str = "0x00000001";
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
 pub struct ISCSI_SESSION_INFOA {

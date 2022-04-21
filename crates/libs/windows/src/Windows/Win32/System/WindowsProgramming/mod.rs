@@ -2350,23 +2350,23 @@ pub unsafe fn FileTimeToDosDateTime(lpfiletime: *const super::super::Foundation:
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const GET_SYSTEM_WOW64_DIRECTORY_NAME_A_A: &'static str = "GetSystemWow64DirectoryA";
+pub const GET_SYSTEM_WOW64_DIRECTORY_NAME_A_A: &str = "GetSystemWow64DirectoryA";
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const GET_SYSTEM_WOW64_DIRECTORY_NAME_A_T: &'static str = "GetSystemWow64DirectoryA";
+pub const GET_SYSTEM_WOW64_DIRECTORY_NAME_A_T: &str = "GetSystemWow64DirectoryA";
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const GET_SYSTEM_WOW64_DIRECTORY_NAME_A_W: &'static str = "GetSystemWow64DirectoryA";
+pub const GET_SYSTEM_WOW64_DIRECTORY_NAME_A_W: &str = "GetSystemWow64DirectoryA";
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const GET_SYSTEM_WOW64_DIRECTORY_NAME_T_A: &'static str = "GetSystemWow64DirectoryW";
+pub const GET_SYSTEM_WOW64_DIRECTORY_NAME_T_A: &str = "GetSystemWow64DirectoryW";
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const GET_SYSTEM_WOW64_DIRECTORY_NAME_T_T: &'static str = "GetSystemWow64DirectoryW";
+pub const GET_SYSTEM_WOW64_DIRECTORY_NAME_T_T: &str = "GetSystemWow64DirectoryW";
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const GET_SYSTEM_WOW64_DIRECTORY_NAME_T_W: &'static str = "GetSystemWow64DirectoryW";
+pub const GET_SYSTEM_WOW64_DIRECTORY_NAME_T_W: &str = "GetSystemWow64DirectoryW";
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const GET_SYSTEM_WOW64_DIRECTORY_NAME_W_A: &'static str = "GetSystemWow64DirectoryW";
+pub const GET_SYSTEM_WOW64_DIRECTORY_NAME_W_A: &str = "GetSystemWow64DirectoryW";
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const GET_SYSTEM_WOW64_DIRECTORY_NAME_W_T: &'static str = "GetSystemWow64DirectoryW";
+pub const GET_SYSTEM_WOW64_DIRECTORY_NAME_W_T: &str = "GetSystemWow64DirectoryW";
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const GET_SYSTEM_WOW64_DIRECTORY_NAME_W_W: &'static str = "GetSystemWow64DirectoryW";
+pub const GET_SYSTEM_WOW64_DIRECTORY_NAME_W_W: &str = "GetSystemWow64DirectoryW";
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub const GMEM_DDESHARE: u32 = 8192u32;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
@@ -5598,9 +5598,9 @@ pub const RECOVERY_DEFAULT_PING_INTERVAL: u32 = 5000u32;
 #[cfg(feature = "Win32_Foundation")]
 pub type REGINSTALLA = ::core::option::Option<unsafe extern "system" fn(hm: super::super::Foundation::HINSTANCE, pszsection: ::windows::core::PCSTR, psttable: *mut STRTABLEA) -> ::windows::core::HRESULT>;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const REG_RESTORE_LOG_KEY: &'static str = "RegRestoreLogFile";
+pub const REG_RESTORE_LOG_KEY: &str = "RegRestoreLogFile";
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const REG_SAVE_LOG_KEY: &'static str = "RegSaveLogFile";
+pub const REG_SAVE_LOG_KEY: &str = "RegSaveLogFile";
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub const REMOTE_PROTOCOL_INFO_FLAG_LOOPBACK: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
@@ -7746,11 +7746,11 @@ impl ::core::default::Default for WLDP_DEVICE_SECURITY_INFORMATION {
     }
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const WLDP_DLL: &'static str = "WLDP.DLL";
+pub const WLDP_DLL: &str = "WLDP.DLL";
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub const WLDP_FLAGS_SKIPSIGNATUREVALIDATION: u32 = 256u32;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const WLDP_GETLOCKDOWNPOLICY_FN: &'static str = "WldpGetLockdownPolicy";
+pub const WLDP_GETLOCKDOWNPOLICY_FN: &str = "WldpGetLockdownPolicy";
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -7865,15 +7865,15 @@ impl ::core::default::Default for WLDP_HOST_INFORMATION {
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub const WLDP_HOST_INFORMATION_REVISION: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const WLDP_ISAPPAPPROVEDBYPOLICY_FN: &'static str = "WldpIsAppApprovedByPolicy";
+pub const WLDP_ISAPPAPPROVEDBYPOLICY_FN: &str = "WldpIsAppApprovedByPolicy";
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const WLDP_ISCLASSINAPPROVEDLIST_FN: &'static str = "WldpIsClassInApprovedList";
+pub const WLDP_ISCLASSINAPPROVEDLIST_FN: &str = "WldpIsClassInApprovedList";
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const WLDP_ISDYNAMICCODEPOLICYENABLED_FN: &'static str = "WldpIsDynamicCodePolicyEnabled";
+pub const WLDP_ISDYNAMICCODEPOLICYENABLED_FN: &str = "WldpIsDynamicCodePolicyEnabled";
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const WLDP_ISPRODUCTIONCONFIGURATION_FN: &'static str = "WldpIsProductionConfiguration";
+pub const WLDP_ISPRODUCTIONCONFIGURATION_FN: &str = "WldpIsProductionConfiguration";
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const WLDP_ISWCOSPRODUCTIONCONFIGURATION_FN: &'static str = "WldpIsWcosProductionConfiguration";
+pub const WLDP_ISWCOSPRODUCTIONCONFIGURATION_FN: &str = "WldpIsWcosProductionConfiguration";
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
@@ -7945,27 +7945,27 @@ impl ::core::fmt::Debug for WLDP_POLICY_SETTING {
     }
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const WLDP_QUERYDANAMICCODETRUST_FN: &'static str = "WldpQueryDynamicCodeTrust";
+pub const WLDP_QUERYDANAMICCODETRUST_FN: &str = "WldpQueryDynamicCodeTrust";
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const WLDP_QUERYDEVICESECURITYINFORMATION_FN: &'static str = "WldpQueryDeviceSecurityInformation";
+pub const WLDP_QUERYDEVICESECURITYINFORMATION_FN: &str = "WldpQueryDeviceSecurityInformation";
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const WLDP_QUERYDYNAMICCODETRUST_FN: &'static str = "WldpQueryDynamicCodeTrust";
+pub const WLDP_QUERYDYNAMICCODETRUST_FN: &str = "WldpQueryDynamicCodeTrust";
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const WLDP_QUERYPOLICYSETTINGENABLED2_FN: &'static str = "WldpQueryPolicySettingEnabled2";
+pub const WLDP_QUERYPOLICYSETTINGENABLED2_FN: &str = "WldpQueryPolicySettingEnabled2";
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const WLDP_QUERYPOLICYSETTINGENABLED_FN: &'static str = "WldpQueryPolicySettingEnabled";
+pub const WLDP_QUERYPOLICYSETTINGENABLED_FN: &str = "WldpQueryPolicySettingEnabled";
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const WLDP_QUERYWINDOWSLOCKDOWNMODE_FN: &'static str = "WldpQueryWindowsLockdownMode";
+pub const WLDP_QUERYWINDOWSLOCKDOWNMODE_FN: &str = "WldpQueryWindowsLockdownMode";
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const WLDP_QUERYWINDOWSLOCKDOWNRESTRICTION_FN: &'static str = "WldpQueryWindowsLockdownRestriction";
+pub const WLDP_QUERYWINDOWSLOCKDOWNRESTRICTION_FN: &str = "WldpQueryWindowsLockdownRestriction";
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const WLDP_RESETPRODUCTIONCONFIGURATION_FN: &'static str = "WldpResetProductionConfiguration";
+pub const WLDP_RESETPRODUCTIONCONFIGURATION_FN: &str = "WldpResetProductionConfiguration";
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const WLDP_RESETWCOSPRODUCTIONCONFIGURATION_FN: &'static str = "WldpResetWcosProductionConfiguration";
+pub const WLDP_RESETWCOSPRODUCTIONCONFIGURATION_FN: &str = "WldpResetWcosProductionConfiguration";
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const WLDP_SETDYNAMICCODETRUST_FN: &'static str = "WldpSetDynamicCodeTrust";
+pub const WLDP_SETDYNAMICCODETRUST_FN: &str = "WldpSetDynamicCodeTrust";
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const WLDP_SETWINDOWSLOCKDOWNRESTRICTION_FN: &'static str = "WldpSetWindowsLockdownRestriction";
+pub const WLDP_SETWINDOWSLOCKDOWNRESTRICTION_FN: &str = "WldpSetWindowsLockdownRestriction";
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
