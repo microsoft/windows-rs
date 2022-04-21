@@ -1,11 +1,11 @@
 // mod r#async;
 // mod callbacks;
 // mod classes;
-// mod constants;
+mod constants;
 // mod delegates;
 // mod enums;
 // mod extensions;
-// mod functions;
+mod functions;
 mod gen;
 // mod handles;
 // mod helpers;
@@ -36,19 +36,19 @@ pub fn gen_type(name: &str, gen: &Gen) -> String {
     let type_name = TypeName::parse(name);
 
     for def in gen.reader.get(type_name) {
-        tokens.push_str(gen_type_imp(&Type::TypeDef((def, Vec::new())), gen).as_str());
+        tokens.push_str(gen_type_def(def, gen).as_str());
     }
 
     if tokens.is_empty() {
         if let Some(apis) = gen.reader.get(TypeName::new(type_name.namespace, "Apis")).next() {
             for method in gen.reader.type_def_methods(apis) {
                 if gen.reader.method_def_name(method) == type_name.name {
-                    tokens.push_str(gen_type_imp(&Type::MethodDef(method), gen).as_str());
+                    tokens.push_str(functions::gen_function(method, gen).as_str());
                 }
             }
             for field in gen.reader.type_def_fields(apis) {
                 if gen.reader.field_name(field) == type_name.name {
-                    tokens.push_str(gen_type_imp(&Type::Field(field), gen).as_str());
+                    tokens.push_str(constants::gen(field, gen).as_str());
                 }
             }
         }
@@ -120,32 +120,18 @@ pub fn gen_type(name: &str, gen: &Gen) -> String {
 //     tokens
 // }
 
-fn gen_type_imp(def: &Type, gen: &Gen) -> TokenStream {
-     match def {
-//         Type::Field(def) => constants::gen(def, gen),
-//         Type::TypeDef(def) => {
-//             let def = &def.clone().with_generics();
-//             match def.kind() {
-//                 TypeKind::Class => classes::gen(def, gen),
-//                 TypeKind::Interface => interfaces::gen(def, gen),
-//                 TypeKind::Enum => enums::gen(def, gen),
-//                 TypeKind::Struct => structs::gen(def, gen),
-//                 TypeKind::Delegate => {
-//                     if def.is_winrt() {
-//                         delegates::gen(def, gen)
-//                     } else {
-//                         callbacks::gen(def, gen)
-//                     }
-//                 }
-//             }
-//         }
-//         Type::MethodDef(def) => {
-//             if !gen.sys {
-//                 gen_function(def, gen)
-//             } else {
-//                 quote! {}
-//             }
-//         }
-         _ => quote! {},
-     }
+fn gen_type_imp(def: TypeDef, gen: &Gen) -> TokenStream {
+    match def.kind() {
+        TypeKind::Class => classes::gen(def, gen),
+        TypeKind::Interface => interfaces::gen(def, gen),
+        TypeKind::Enum => enums::gen(def, gen),
+        TypeKind::Struct => structs::gen(def, gen),
+        TypeKind::Delegate => {
+            if def.is_winrt() {
+                delegates::gen(def, gen)
+            } else {
+                callbacks::gen(def, gen)
+            }
+        }
+    }
 }
