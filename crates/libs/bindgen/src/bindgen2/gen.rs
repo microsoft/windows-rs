@@ -14,7 +14,22 @@ pub struct Gen<'a> {
     pub component: bool,
 }
 
-impl Gen<'_> {
+impl<'a> Gen<'a> {
+    pub fn new(reader: &'a Reader) -> Self {
+        Self {
+            reader,
+            namespace:"",
+            sys: false,
+            flatten: false,
+            cfg:false,
+            doc:false,
+            min_enum:false,
+            min_inherit:false,
+            min_xaml: false,
+            windows_extern:false,
+            component:false,
+        }
+    }
     pub(crate) fn namespace(&self, namespace: &str) -> TokenStream {
         if self.flatten || namespace == self.namespace {
             quote! {}

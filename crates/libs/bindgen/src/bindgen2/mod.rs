@@ -31,17 +31,20 @@ use metadata::reader2::*;
 // use signatures::*;
 use tokens::*;
 
-// pub fn gen_type(name: &str, gen: &Gen) -> String {
-//     let reader = TypeReader::get();
-//     let mut tokens = String::new();
+pub fn gen_type(name: &str, gen: &Gen) -> String {
+    let mut tokens = String::new();
 
-//     for def in reader.get_type_entry(TypeName::parse(name)).iter().flat_map(|entry| entry.iter()) {
-//         tokens.push_str(gen_type_impl(def, gen).as_str());
-//     }
+    for def in gen.reader.get(TypeName::parse(name)) {
+        // TODO: if it can't be found then its likely a free function or constant in which case
+        // we need to look for it in the Apis class. This is only used for too_bindings so perf
+        // should be fine. 
 
-//     assert!(!tokens.is_empty(), "`{}` not found", name);
-//     tokens
-// }
+        //tokens.push_str(gen_type_imp(def, gen).as_str());
+    }
+
+    assert!(!tokens.is_empty(), "`{}` not found", name);
+    tokens
+}
 
 // pub fn gen_namespace(gen: &Gen) -> String {
 //     let tree = TypeReader::get().get_namespace(gen.namespace).expect("Namespace not found");
@@ -98,14 +101,14 @@ use tokens::*;
 
 //     for entry in tree.types.values() {
 //         for def in entry {
-//             tokens.combine(&gen_type_impl(def, gen));
+//             tokens.combine(&gen_type_imp(def, gen));
 //         }
 //     }
 
 //     tokens
 // }
 
-// fn gen_type_impl(def: &Type, gen: &Gen) -> TokenStream {
+// fn gen_type_imp(def: &Type, gen: &Gen) -> TokenStream {
 //     match def {
 //         Type::Field(def) => constants::gen(def, gen),
 //         Type::TypeDef(def) => {
