@@ -1,4 +1,3 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 pub const CLSID_WPD_NAMESPACE_EXTENSION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x35786d3c_b075_49b9_88dd_029876e11c01);
 #[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
 #[repr(transparent)]

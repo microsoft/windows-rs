@@ -1,4 +1,3 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
 pub const CF_MSFAXSRV_DEVICE_ID: &'static str = "FAXSRV_DeviceID";
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]

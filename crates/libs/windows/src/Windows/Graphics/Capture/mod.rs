@@ -1,4 +1,3 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[doc = "*Required features: `\"Graphics_Capture\"`*"]
 #[repr(transparent)]
 pub struct Direct3D11CaptureFrame(::windows::core::IUnknown);

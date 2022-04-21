@@ -1,4 +1,3 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[doc = "*Required features: `\"Win32_Devices_Properties\"`*"]
 pub const DEVPKEY_DevQuery_ObjectType: DEVPROPKEY = DEVPROPKEY { fmtid: ::windows_sys::core::GUID { data1: 325533506, data2: 41942, data3: 18934, data4: [180, 218, 174, 70, 224, 197, 35, 124] }, pid: 2u32 };
 #[doc = "*Required features: `\"Win32_Devices_Properties\"`*"]

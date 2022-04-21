@@ -1,4 +1,3 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
 pub const ABLE_TO_RECV_RSVP: u32 = 50002u32;
 #[repr(C)]

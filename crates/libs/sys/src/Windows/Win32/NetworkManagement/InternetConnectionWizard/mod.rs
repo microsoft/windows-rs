@@ -1,4 +1,3 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_InternetConnectionWizard\"`*"]
 pub const ICW_ALREADYRUN: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_InternetConnectionWizard\"`*"]

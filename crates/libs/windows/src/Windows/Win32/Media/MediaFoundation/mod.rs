@@ -1,4 +1,3 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 pub const AACMFTEncoder: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x93af0c51_2275_45d2_a35b_f2ba21caed00);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]

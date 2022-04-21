@@ -1,4 +1,3 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
 pub type DBGPRINT = ::core::option::Option<unsafe extern "system" fn(format: ::windows::core::PCSTR) -> u32>;
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]

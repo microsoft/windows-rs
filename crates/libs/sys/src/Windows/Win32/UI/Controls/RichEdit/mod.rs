@@ -1,4 +1,3 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const ATP_CHANGE: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]

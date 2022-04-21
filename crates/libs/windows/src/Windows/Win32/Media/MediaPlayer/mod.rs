@@ -1,4 +1,3 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 pub const CLSID_WMPMediaPluginRegistrar: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5569e7f5_424b_4b93_89ca_79d17924689a);
 pub const CLSID_WMPSkinManager: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb2a7fd52_301f_4348_b93a_638c6de49229);
 pub const CLSID_XFeedsManager: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfe6b11c3_c72e_4061_86c6_9d163121f229);

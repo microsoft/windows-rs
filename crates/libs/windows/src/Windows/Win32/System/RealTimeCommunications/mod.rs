@@ -1,4 +1,3 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]
 pub const FACILITY_PINT_STATUS_CODE: u32 = 240u32;
 #[doc = "*Required features: `\"Win32_System_RealTimeCommunications\"`*"]

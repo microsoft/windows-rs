@@ -1,4 +1,3 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 pub const BlockRange: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb507ca27_2204_11dd_966a_001aa01bbc58);
 pub const BlockRangeList: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb507ca28_2204_11dd_966a_001aa01bbc58);
 pub const BootOptions: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2c941fce_975b_59be_a960_9a2a262853a5);
