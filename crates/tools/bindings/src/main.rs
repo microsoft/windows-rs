@@ -78,7 +78,7 @@ fn main() -> std::io::Result<()> {
     let mut tokens = String::new();
 
     for name in types {
-        tokens += &bindgen::bindgen2::gen_type(name, &gen);
+        tokens += &bindgen::bindgen2::define(name, &gen);
     }
 
     let path = std::path::Path::new("crates/libs/windows/src/core/bindings.rs");
