@@ -1,7 +1,11 @@
 mod gen;
+mod extensions;
+mod replacements;
 pub use gen::*;
 use metadata::reader2::*;
 use tokens::*;
+use extensions::*;
+use replacements::*;
 
 pub fn define(name: &str, gen: &Gen) -> String {
     let mut tokens = String::new();

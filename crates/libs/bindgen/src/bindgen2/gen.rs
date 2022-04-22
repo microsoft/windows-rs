@@ -57,15 +57,196 @@ impl<'a> Gen<'a> {
         quote!{interface}
     }
     fn define_enum(&self, def: TypeDef) -> TokenStream {
-        let name = self.reader.type_def_name(def);
-        let ident = to_ident(name);
+        let type_name = self.reader.type_def_type_name(def);
+        let ident = to_ident(type_name.name);
         let underlying_type = self.reader.type_def_underlying_type(def);
         let underlying_type = self.type_name(&underlying_type);
         let is_scoped = self.reader.type_def_is_scoped(def);
         let cfg = self.reader.type_def_cfg(def, &[]);
+        let doc = self.cfg_doc(&cfg);
+        let features = self.cfg_features(&cfg);
 
+        let mut fields: Vec<(TokenStream, TokenStream)> = self.reader.type_def_fields(def)
+        .filter_map(|field| {
+            if self.reader.field_flags(field).literal() {
+                let field_name = to_ident(self.reader.field_name(field));
+                let constant = self.reader.field_constant(field).unwrap();
+                let value = self.value(&self.reader.constant_value(constant));
 
-        quote!{enum}
+                Some((field_name, value))
+            } else {
+                None
+            }
+        })
+        .collect();
+
+        if self.min_enum && fields.len() > 100 {
+            fields.clear();
+        }
+
+        let eq = if self.sys {
+            quote! {}
+        } else {
+            quote! {
+                // Unfortunately, Rust requires these to be derived to allow constant patterns.
+                #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+            }
+        };
+
+        let mut tokens = if is_scoped || !self.sys {
+            quote! {
+                #doc
+                #features
+                #[repr(transparent)]
+                #eq
+                pub struct #ident(pub #underlying_type);
+            }
+        } else {
+            quote! {
+                #doc
+                #features
+                pub type #ident = #underlying_type;
+            }
+        };
+    
+        tokens.combine(&if is_scoped {
+            let fields = fields.iter().map(|(field_name, value)| {
+                quote! {
+                    pub const #field_name: Self = Self(#value);
+                }
+            });
+    
+            quote! {
+                #features
+                impl #ident {
+                    #(#fields)*
+                }
+            }
+        } else if !self.sys {
+            let fields = fields.iter().map(|(field_name, value)| {
+                quote! {
+                    #doc
+                    #features
+                    pub const #field_name: #ident = #ident(#value);
+                }
+            });
+    
+            quote! {
+                #(#fields)*
+            }
+        } else {
+            let fields = fields.iter().map(|(field_name, value)| {
+                quote! {
+                    #doc
+                    #features
+                    pub const #field_name: #ident = #value;
+                }
+            });
+    
+            quote! {
+                #(#fields)*
+            }
+        });
+    
+        if is_scoped || !self.sys {
+            tokens.combine(&quote! {
+                #features
+                impl ::core::marker::Copy for #ident {}
+                #features
+                impl ::core::clone::Clone for #ident {
+                    fn clone(&self) -> Self {
+                        *self
+                    }
+                }
+            });
+        }
+    
+        if !self.sys {
+            tokens.combine(&quote! {
+                #features
+                impl ::core::default::Default for #ident {
+                    fn default() -> Self {
+                        Self(0)
+                    }
+                }
+            });
+        }
+    
+        if !self.sys {
+            let name = type_name.name;
+            tokens.combine(&quote! {
+                #features
+                unsafe impl ::windows::core::Abi for #ident {
+                    type Abi = Self;
+                }
+                #features
+                impl ::core::fmt::Debug for #ident {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+                        f.debug_tuple(#name).field(&self.0).finish()
+                    }
+                }
+            });
+    
+            if self.reader.type_def_is_flags(def) {
+                tokens.combine(&quote! {
+                    #features
+                    impl ::core::ops::BitOr for #ident {
+                        type Output = Self;
+    
+                        fn bitor(self, other: Self) -> Self {
+                            Self(self.0 | other.0)
+                        }
+                    }
+                    #features
+                    impl ::core::ops::BitAnd for #ident {
+                        type Output = Self;
+    
+                        fn bitand(self, other: Self) -> Self {
+                            Self(self.0 & other.0)
+                        }
+                    }
+                    #features
+                    impl ::core::ops::BitOrAssign for #ident {
+                        fn bitor_assign(&mut self, other: Self) {
+                            self.0.bitor_assign(other.0)
+                        }
+                    }
+                    #features
+                    impl ::core::ops::BitAndAssign for #ident {
+                        fn bitand_assign(&mut self, other: Self) {
+                            self.0.bitand_assign(other.0)
+                        }
+                    }
+                    #features
+                    impl ::core::ops::Not for #ident {
+                        type Output = Self;
+    
+                        fn not(self) -> Self {
+                            Self(self.0.not())
+                        }
+                    }
+                });
+            }
+    
+            if self.reader.type_def_flags(def).winrt() {
+                let signature = Literal::byte_string(self.reader.type_def_signature(def, &[]).as_bytes());
+    
+                tokens.combine(&quote! {
+                    #features
+                    unsafe impl ::windows::core::RuntimeType for #ident {
+                        const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(#signature);
+                        type DefaultType = Self;
+                        fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+                            Ok(*from)
+                        }
+                    }
+                });
+            }
+    
+            tokens.combine(&extensions(type_name));
+        }
+    
+        tokens
     }
     fn define_struct(&self, _def: TypeDef) -> TokenStream {
         quote!{struct}
@@ -203,6 +384,86 @@ impl<'a> Gen<'a> {
     }
 
     //
+    // Cfg
+    //
+
+    pub(crate) fn cfg_doc(&self, cfg: &Cfg) -> TokenStream {
+        if !self.doc {
+            quote! {}
+        } else {
+            let mut tokens = format!(r#"`\"{}\"`"#, to_feature(self.namespace));
+
+            let mut features = cfg_features(cfg, self.namespace);
+            if self.windows_extern {
+                features = features.into_iter().filter(|f| !f.starts_with("Windows.")).collect();
+            }
+            for features in features {
+                tokens.push_str(&format!(r#", `\"{}\"`"#, to_feature(features)));
+            }
+
+            format!(r#"#[doc = "*Required features: {}*"]"#, tokens).into()
+        }
+    }
+
+    fn cfg_features(&self, cfg: &Cfg) -> TokenStream {
+        if !self.cfg {
+            quote! {}
+        } else {
+            let arches = &cfg.arches;
+            let arch = match arches.len() {
+                0 => quote! {},
+                1 => {
+                    quote! { #[cfg(#(target_arch = #arches),*)] }
+                }
+                _ => {
+                    quote! { #[cfg(any(#(target_arch = #arches),*))] }
+                }
+            };
+
+            let mut features = cfg_features(cfg, self.namespace);
+            if self.windows_extern {
+                features = features.into_iter().filter(|f| !f.starts_with("Windows.")).collect();
+            }
+
+            let features = match features.len() {
+                0 => quote! {},
+                1 => {
+                    let features = features.iter().cloned().map(to_feature);
+                    quote! { #[cfg(#(feature = #features)*)] }
+                }
+                _ => {
+                    let features = features.iter().cloned().map(to_feature);
+                    quote! { #[cfg(all( #(feature = #features),* ))] }
+                }
+            };
+
+            quote! { #arch #features }
+        }
+    }
+
+    fn cfg_not_features(&self, cfg: &Cfg) -> TokenStream {
+        let mut features = cfg_features(cfg, self.namespace);
+        if !self.cfg || features.is_empty() {
+            quote! {}
+        } else {
+            if self.windows_extern {
+                features = features.into_iter().filter(|f| !f.starts_with("Windows.")).collect();
+            }
+            match features.len() {
+                0 => quote! {},
+                1 => {
+                    let features = features.iter().cloned().map(to_feature);
+                    quote! { #[cfg(not(#(feature = #features)*))] }
+                }
+                _ => {
+                    let features = features.iter().cloned().map(to_feature);
+                    quote! { #[cfg(not(all( #(feature = #features),* )))] }
+                }
+            }
+        }
+    }
+
+    //
     // Other helpers
     //
 
@@ -258,6 +519,32 @@ impl<'a> Gen<'a> {
         }
         self.reader.type_def_name(def).to_string()
     }    
+    pub fn value(&self, value: &Value) -> TokenStream {
+        match value {
+            Value::Bool(value) => quote! { #value },
+            Value::U8(value) => quote! { #value },
+            Value::I8(value) => quote! { #value },
+            Value::U16(value) => quote! { #value },
+            Value::I16(value) => quote! { #value },
+            Value::U32(value) => quote! { #value },
+            Value::I32(value) => quote! { #value },
+            Value::U64(value) => quote! { #value },
+            Value::I64(value) => quote! { #value },
+            Value::F32(value) => quote! { #value },
+            Value::F64(value) => quote! { #value },
+            Value::String(value) => {
+                let mut tokens = "\"".to_string();
+
+                for u in value.chars() {
+                    tokens.push_str(&format!("{}", u.escape_default()));
+                }
+            
+                tokens.push('\"');
+                tokens.into()
+            }
+            _ => unimplemented!(),
+        }
+    }
 }
 
 pub fn to_ident(name: &str) -> TokenStream {
@@ -278,47 +565,47 @@ fn const_ptrs(pointers: usize) -> TokenStream {
     "*const ".repeat(pointers).into()
 }
 
-// fn to_feature(name: &str) -> String {
-//     let mut feature = String::new();
+fn to_feature(name: &str) -> String {
+    let mut feature = String::new();
 
-//     for name in name.split('.').skip(1) {
-//         feature.push_str(name);
-//         feature.push('_');
-//     }
+    for name in name.split('.').skip(1) {
+        feature.push_str(name);
+        feature.push('_');
+    }
 
-//     if feature.is_empty() {
-//         feature = name.to_string();
-//     } else {
-//         feature.truncate(feature.len() - 1);
-//     }
+    if feature.is_empty() {
+        feature = name.to_string();
+    } else {
+        feature.truncate(feature.len() - 1);
+    }
 
-//     feature
-// }
+    feature
+}
 
-// pub fn cfg_features<'a>(cfg:&'a Cfg, namespace: &'a str) -> Vec<&'a str> {
-//     let mut compact = Vec::<&'static str>::new();
-//     for feature in cfg.types.keys() {
-//         if !feature.is_empty() && !starts_with(namespace, feature) {
-//             for pos in 0..compact.len() {
-//                 if starts_with(feature, unsafe { compact.get_unchecked(pos) }) {
-//                     compact.remove(pos);
-//                     break;
-//                 }
-//             }
-//             compact.push(feature);
-//         }
-//     }
-//     compact
-// }
+pub fn cfg_features<'a>(cfg:&'a Cfg, namespace: &'a str) -> Vec<&'a str> {
+    let mut compact = Vec::<&'static str>::new();
+    for feature in cfg.types.keys() {
+        if !feature.is_empty() && !starts_with(namespace, feature) {
+            for pos in 0..compact.len() {
+                if starts_with(feature, unsafe { compact.get_unchecked(pos) }) {
+                    compact.remove(pos);
+                    break;
+                }
+            }
+            compact.push(feature);
+        }
+    }
+    compact
+}
 
-// fn starts_with(namespace: &str, feature: &str) -> bool {
-//     if namespace == feature {
-//         return true;
-//     }
+fn starts_with(namespace: &str, feature: &str) -> bool {
+    if namespace == feature {
+        return true;
+    }
 
-//     if namespace.len() > feature.len() && namespace.as_bytes().get(feature.len()) == Some(&b'.') {
-//         return namespace.starts_with(feature);
-//     }
+    if namespace.len() > feature.len() && namespace.as_bytes().get(feature.len()) == Some(&b'.') {
+        return namespace.starts_with(feature);
+    }
 
-//     false
-// }
+    false
+}

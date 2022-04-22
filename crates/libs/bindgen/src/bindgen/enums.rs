@@ -28,7 +28,6 @@ pub fn gen(def: &TypeDef, gen: &Gen) -> TokenStream {
     if gen.min_enum && fields.len() > 100 {
         fields.clear();
     }
-
     let eq = if gen.sys {
         quote! {}
     } else {
