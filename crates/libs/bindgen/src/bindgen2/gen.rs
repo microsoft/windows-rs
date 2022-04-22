@@ -60,6 +60,9 @@ impl<'a> Gen<'a> {
         let name = self.reader.type_def_name(def);
         let ident = to_ident(name);
         let underlying_type = self.reader.type_def_underlying_type(def);
+        let underlying_type = self.type_name(&underlying_type);
+        let is_scoped = self.reader.type_def_is_scoped(def);
+        let cfg = self.reader.type_def_cfg(def, &[]);
 
 
         quote!{enum}

@@ -783,7 +783,7 @@ impl<'a> Reader<'a> {
             result
         }
     }
-    fn type_def_cfg(&self, row:TypeDef, generics:&[Type]) -> Cfg {
+    pub fn type_def_cfg(&self, row:TypeDef, generics:&[Type]) -> Cfg {
         let mut cfg = Cfg::default();
         self.type_def_cfg_combine(row, generics, &mut cfg);
         self.cfg_add_attributes(&mut cfg, self.type_def_attributes(row));
