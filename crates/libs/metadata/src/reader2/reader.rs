@@ -510,6 +510,9 @@ impl<'a> Reader<'a> {
     pub fn type_def_interface_impls(&self, row: TypeDef) -> impl Iterator<Item = InterfaceImpl> {
         self.row_equal_range(row.0, TABLE_INTERFACEIMPL, 0, (row.0.row + 1) as _).map(InterfaceImpl)
     }
+    pub fn type_def_enclosing_type(&self, row:TypeDef) -> Option<TypeDef> {
+        self.row_equal_range(row.0, TABLE_NESTEDCLASS, 0, (row.0.row + 1) as _).next().map(|row| TypeDef(Row::new(self.files[row.file as usize].usize(row.row as _, row.table as _, 1) - 1, TABLE_TYPEDEF, row.file as _)))
+    }
     pub fn type_def_class_layout(&self, row: TypeDef) -> Option<ClassLayout> {
         self.row_equal_range(row.0, TABLE_CLASSLAYOUT, 2, (row.0.row + 1) as _).map(ClassLayout).next()
     }
@@ -1213,17 +1216,17 @@ impl<'a> Reader<'a> {
             _ => false,
         }
     }
+    pub fn type_is_generic(&self, ty: &Type) -> bool {
+        matches!(ty, Type::GenericParam(_))
+    }
+    pub fn type_is_pointer(&self, ty: &Type) -> bool {
+        matches!(ty, Type::ConstPtr(_) | Type::MutPtr(_))
+    }
+    pub fn type_is_unsigned(&self, ty: &Type) -> bool {
+        matches!(ty, Type::U8 | Type::U16 | Type::U32 | Type::U64 | Type::USize)
+    }
 }
 
-pub fn type_is_generic(ty: &Type) -> bool {
-    matches!(ty, Type::GenericParam(_))
-}
-pub fn type_is_pointer(ty: &Type) -> bool {
-    matches!(ty, Type::ConstPtr(_) | Type::MutPtr(_))
-}
-pub fn type_is_unsigned(ty: &Type) -> bool {
-    matches!(ty, Type::U8 | Type::U16 | Type::U32 | Type::U64 | Type::USize)
-}
 pub fn type_is_void(ty: &Type) -> bool {
     match ty {
         // TODO: do we care about void behind pointers?

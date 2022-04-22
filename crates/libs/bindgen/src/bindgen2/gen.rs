@@ -31,6 +31,10 @@ impl<'a> Gen<'a> {
         }
     }
 
+    //
+    // Definitions
+    //
+
     pub(crate) fn define(&self, def: TypeDef) -> TokenStream {
         match self.reader.type_def_kind(def) {
             TypeKind::Class => self.define_class(def),
@@ -55,6 +59,7 @@ impl<'a> Gen<'a> {
     fn define_enum(&self, def: TypeDef) -> TokenStream {
         let name = self.reader.type_def_name(def);
         let ident = to_ident(name);
+        let underlying_type = self.reader.type_def_underlying_type(def);
 
 
         quote!{enum}
@@ -65,6 +70,191 @@ impl<'a> Gen<'a> {
     fn define_delegate(&self, _def: TypeDef) -> TokenStream {
         quote!{delegate}
     }
+
+    //
+    // TypeDef
+    //
+
+    pub fn type_def_name(&self, def: TypeDef, generics: &[Type]) -> TokenStream {
+        let type_name = self.reader.type_def_type_name(def);
+
+        if type_name.namespace.is_empty() {
+            to_ident(&self.scoped_name(def))
+        } else {
+            let mut namespace = self.namespace(type_name.namespace);
+            let name = to_ident(type_name.name);
+    
+            if generics.is_empty() || self.sys {
+                namespace.combine(&name);
+                namespace
+            } else {
+                let colon_separated = if !namespace.as_str().is_empty() {
+                    quote! { :: }
+                } else {
+                    quote! {}
+                };
+    
+                let generics = generics.iter().map(|ty| self.type_name(ty));
+                quote! { #namespace #name #colon_separated<#(#generics),*> }
+            }
+        }
+    }
+
+    //
+    // Type
+    //
+
+    pub fn type_default_name(&self, ty: &Type) -> TokenStream {
+        if let Type::WinrtArray(ty) = ty {
+            self.type_default_name(ty)
+        } else {
+            let kind = self.type_name(ty);
+    
+            if self.reader.type_is_generic(ty) {
+                quote! { <#kind as ::windows::core::RuntimeType>::DefaultType }
+            } else if self.reader.type_is_nullable(ty) && !self.sys {
+                quote! { ::core::option::Option<#kind> }
+            } else {
+                kind
+            }
+        }
+    }
+
+    fn type_name(&self, ty:&Type) -> TokenStream {
+        match ty {
+            Type::Void => quote! { ::core::ffi::c_void },
+            Type::Bool => quote! { bool },
+            Type::Char => quote! { u16 },
+            Type::I8 => quote! { i8 },
+            Type::U8 => quote! { u8 },
+            Type::I16 => quote! { i16 },
+            Type::U16 => quote! { u16 },
+            Type::I32 => quote! { i32 },
+            Type::U32 => quote! { u32 },
+            Type::I64 => quote! { i64 },
+            Type::U64 => quote! { u64 },
+            Type::F32 => quote! { f32 },
+            Type::F64 => quote! { f64 },
+            Type::ISize => quote! { isize },
+            Type::USize => quote! { usize },
+            Type::String => {
+                let crate_name = self.crate_name();
+                quote! { ::#crate_name::core::HSTRING }
+            }
+            Type::IInspectable => {
+                let crate_name = self.crate_name();
+                quote! { ::#crate_name::core::IInspectable }
+            }
+            Type::GUID => {
+                let crate_name = self.crate_name();
+                quote! { ::#crate_name::core::GUID }
+            }
+            Type::IUnknown => {
+                let crate_name = self.crate_name();
+                quote! { ::#crate_name::core::IUnknown }
+            }
+            Type::HRESULT => {
+                let crate_name = self.crate_name();
+                quote! { ::#crate_name::core::HRESULT }
+            }
+            Type::PSTR => {
+                let crate_name = self.crate_name();
+                quote! { ::#crate_name::core::PSTR }
+            }
+            Type::PWSTR => {
+                let crate_name = self.crate_name();
+                quote! { ::#crate_name::core::PWSTR }
+            }
+            Type::PCSTR => {
+                let crate_name = self.crate_name();
+                quote! { ::#crate_name::core::PCSTR }
+            }
+            Type::PCWSTR => {
+                let crate_name = self.crate_name();
+                quote! { ::#crate_name::core::PCWSTR }
+            }
+            Type::Win32Array((ty, len)) => {
+                let name = self.type_default_name(ty);
+                let len = Literal::usize_unsuffixed(*len);
+                quote! { [#name; #len] }
+            }
+            Type::GenericParam(generic) => self.reader.generic_param_name(*generic).into(),
+            //Type::MethodDef(def) => self.reader.method_def_name(def).into(),
+            //Type::Field(field) => field.name().into(),
+            Type::TypeDef((def, generics)) => self.type_def_name(*def, generics),
+            Type::MutPtr((ty, pointers)) => {
+                let pointers = mut_ptrs(*pointers);
+                let ty = self.type_default_name(ty);
+                quote! { #pointers #ty }
+            }
+            Type::ConstPtr((ty, pointers)) => {
+                let pointers = const_ptrs(*pointers);
+                let ty = self.type_default_name(ty);
+                quote! { #pointers #ty }
+            }
+            Type::WinrtArray(ty) => self.type_name(ty),
+            Type::WinrtArrayRef(ty) => self.type_name(ty),
+            Type::WinrtConstRef(ty) => self.type_name(ty),
+            _ => unimplemented!(),
+        }
+    }
+
+    //
+    // Other helpers
+    //
+
+    fn namespace(&self, namespace: &str) -> TokenStream {
+        if self.flatten || namespace == self.namespace {
+            quote! {}
+        } else {
+            let is_external = namespace.starts_with("Windows.") && !self.namespace.starts_with("Windows");
+            let mut relative = self.namespace.split('.').peekable();
+            let mut namespace = namespace.split('.').peekable();
+
+            while relative.peek() == namespace.peek() {
+                if relative.next().is_none() {
+                    break;
+                }
+
+                namespace.next();
+            }
+
+            let mut tokens = TokenStream::new();
+
+            if is_external {
+                tokens.push_str("::windows::");
+                namespace.next();
+            } else {
+                for _ in 0..relative.count() {
+                    tokens.push_str("super::");
+                }
+            }
+
+            for namespace in namespace {
+                tokens.push_str(namespace);
+                tokens.push_str("::");
+            }
+
+            tokens
+        }
+    }
+    fn crate_name(&self) -> TokenStream {
+        if self.sys {
+            "windows_sys".into()
+        } else {
+            "windows".into()
+        }
+    }
+    fn scoped_name(&self, def: TypeDef) -> String {
+        if let Some(enclosing_type) = self.reader.type_def_enclosing_type(def) {
+            for (index, nested_type) in self.reader.nested_types(enclosing_type).enumerate() {
+                if self.reader.type_def_name(nested_type) == self.reader.type_def_name(def) {
+                    return format!("{}_{}", &self.scoped_name(enclosing_type), index);
+                }
+            }
+        }
+        self.reader.type_def_name(def).to_string()
+    }    
 }
 
 pub fn to_ident(name: &str) -> TokenStream {
@@ -75,6 +265,14 @@ pub fn to_ident(name: &str) -> TokenStream {
         "_" => "unused".into(),
         _ => trim_tick(name).into(),
     }
+}
+
+fn mut_ptrs(pointers: usize) -> TokenStream {
+    "*mut ".repeat(pointers).into()
+}
+
+fn const_ptrs(pointers: usize) -> TokenStream {
+    "*const ".repeat(pointers).into()
 }
 
 // fn to_feature(name: &str) -> String {

@@ -77,7 +77,7 @@ pub enum Type {
     PCSTR,
     PCWSTR,
     TypeName,
-    GenericParam(Param),
+    GenericParam(GenericParam),
     MethodDef(MethodDef),
     Field(Field),
     TypeDef((TypeDef, Vec<Self>)),
