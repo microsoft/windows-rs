@@ -490,7 +490,7 @@ impl<'a> Reader<'a> {
         self.row_str(row.0, 2)
     }
     pub fn type_def_type_name(&self, row: TypeDef) -> TypeName {
-        TypeName::new(self.type_def_namespace(row), self.type_def_namespace(row))
+        TypeName::new(self.type_def_namespace(row), self.type_def_name(row))
     }
     pub fn type_def_extends(&self, row: TypeDef) -> TypeName {
         self.type_def_or_ref(self.row_decode(row.0, 3))

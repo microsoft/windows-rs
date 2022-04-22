@@ -45,16 +45,16 @@ impl<'a> Gen<'a> {
         }
     }
     pub(crate) fn define_function(&self, _def: MethodDef) -> TokenStream {
-        quote!{function}
+        " ".into()
     }
     pub(crate) fn define_constant(&self, _def: Field) -> TokenStream {
-        quote!{constant}
+        " ".into()
     }
     fn define_class(&self, _def: TypeDef) -> TokenStream {
-        quote!{class}
+        " ".into()
     }
     fn define_interface(&self, _def: TypeDef) -> TokenStream {
-        quote!{interface}
+        " ".into()
     }
     fn define_enum(&self, def: TypeDef) -> TokenStream {
         let type_name = self.reader.type_def_type_name(def);
@@ -249,10 +249,10 @@ impl<'a> Gen<'a> {
         tokens
     }
     fn define_struct(&self, _def: TypeDef) -> TokenStream {
-        quote!{struct}
+        " ".into()
     }
     fn define_delegate(&self, _def: TypeDef) -> TokenStream {
-        quote!{delegate}
+        " ".into()
     }
 
     //
