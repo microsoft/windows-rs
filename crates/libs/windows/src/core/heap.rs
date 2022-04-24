@@ -51,7 +51,7 @@ where
     let ptr = heap_alloc((len + 1) * std::mem::size_of::<T>()).expect("could not allocate string") as *mut T;
     assert_eq!(ptr.align_offset(std::mem::align_of::<T>()), 0, "heap allocated buffer is not properly aligned");
 
-    for (index, elem) in iter.chain(core::iter::once(Default::default())).enumerate() {
+    for (index, elem) in iter.chain(core::iter::once(T::default())).enumerate() {
         core::ptr::write(ptr.add(index), elem);
     }
 
