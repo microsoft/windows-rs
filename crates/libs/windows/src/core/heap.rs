@@ -48,12 +48,27 @@ where
     I: Iterator<Item = T>,
     T: Copy + Default,
 {
-    let ptr = heap_alloc((len + 1) * std::mem::size_of::<T>()).expect("could not allocate string") as *mut T;
+    let str_len = len + 1;
+    let ptr = heap_alloc(str_len * std::mem::size_of::<T>()).expect("could not allocate string") as *mut T;
+
+    // TODO this assert is mostly redundant, HeapAlloc has alignment of 8, we currently only require alignments of 1 or 2.
+    // There is no meaningful string type with characters that require an alignment above 8.
     assert_eq!(ptr.align_offset(std::mem::align_of::<T>()), 0, "heap allocated buffer is not properly aligned");
 
-    for (index, elem) in iter.chain(core::iter::once(T::default())).enumerate() {
-        core::ptr::write(ptr.add(index), elem);
+    let mut encoder = iter.chain(core::iter::once(T::default()));
+
+    for i in 0..str_len {
+        core::ptr::write(
+            ptr.add(i),
+            match encoder.next() {
+                Some(encoded) => encoded,
+                None => break,
+            },
+        );
     }
+
+    // TODO ensure `encoder` is a fused iterator
+    assert!(encoder.next().is_none(), "encoder returned more characters than expected");
 
     ptr
 }
