@@ -32,20 +32,28 @@ pub unsafe fn heap_free(ptr: RawPtr) {
     }
 }
 
-/// Copy a slice of `T` into a freshly allocated buffer with an additional default `T` at the end.
+/// Copy an iterator of `T` into a freshly allocated buffer with an additional default `T` at the end.
 ///
-/// Returns a pointer to the beginning of the buffer
+/// Returns a pointer to the beginning of the buffer. This pointer must be freed when done using `heap_free`.
 ///
 /// # Panics
 ///
 /// This function panics if the heap allocation fails or if the pointer returned from
 /// the heap allocation is not properly aligned to `T`.
-pub fn heap_string<T: Copy + Default + Sized>(slice: &[T]) -> *const T {
-    unsafe {
-        let buffer = heap_alloc((slice.len() + 1) * std::mem::size_of::<T>()).expect("could not allocate string") as *mut T;
-        assert!(buffer.align_offset(std::mem::align_of::<T>()) == 0, "heap allocated buffer is not properly aligned");
-        buffer.copy_from_nonoverlapping(slice.as_ptr(), slice.len());
-        buffer.add(slice.len()).write(T::default());
-        buffer
+///
+/// # Safety
+/// len must not be less than the number of items in the iterator.
+pub unsafe fn from_iter<I, T>(iter: I, len: usize) -> *const T
+where
+    I: Iterator<Item = T>,
+    T: Copy + Default,
+{
+    let ptr = heap_alloc((len + 1) * std::mem::size_of::<T>()).expect("could not allocate string") as *mut T;
+    assert_eq!(ptr.align_offset(std::mem::align_of::<T>()), 0, "heap allocated buffer is not properly aligned");
+
+    for (index, elem) in iter.chain(core::iter::once(Default::default())).enumerate() {
+        core::ptr::write(ptr.add(index), elem);
     }
+
+    ptr
 }

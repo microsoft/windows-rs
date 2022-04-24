@@ -45,7 +45,7 @@ unsafe impl Abi for PCWSTR {
 #[cfg(feature = "alloc")]
 impl<'a> IntoParam<'a, PCWSTR> for &str {
     fn into_param(self) -> Param<'a, PCWSTR> {
-        Param::Boxed(PCWSTR(heap_string(&self.encode_utf16().collect::<alloc::vec::Vec<u16>>())))
+        Param::Boxed(PCWSTR(unsafe{ from_iter(self.encode_utf16(), self.len()) }))
     }
 }
 #[cfg(feature = "alloc")]
@@ -58,7 +58,7 @@ impl<'a> IntoParam<'a, PCWSTR> for alloc::string::String {
 impl<'a> IntoParam<'a, PCWSTR> for &::std::ffi::OsStr {
     fn into_param(self) -> Param<'a, PCWSTR> {
         use ::std::os::windows::ffi::OsStrExt;
-        Param::Boxed(PCWSTR(heap_string(&self.encode_wide().collect::<alloc::vec::Vec<u16>>())))
+        Param::Boxed(PCWSTR(unsafe{ from_iter(self.encode_wide(), self.len()) }))
     }
 }
 #[cfg(feature = "alloc")]
