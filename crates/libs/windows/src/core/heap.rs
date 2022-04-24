@@ -43,7 +43,7 @@ pub unsafe fn heap_free(ptr: RawPtr) {
 ///
 /// # Safety
 /// len must not be less than the number of items in the iterator.
-pub unsafe fn from_iter<I, T>(iter: I, len: usize) -> *const T
+pub unsafe fn string_from_iter<I, T>(iter: I, len: usize) -> *const T
 where
     I: Iterator<Item = T>,
     T: Copy + Default,

@@ -45,7 +45,7 @@ unsafe impl Abi for PCSTR {
 #[cfg(feature = "alloc")]
 impl<'a> IntoParam<'a, PCSTR> for &str {
     fn into_param(self) -> Param<'a, PCSTR> {
-        Param::Boxed(PCSTR(unsafe { from_iter(self.as_bytes().iter().copied(), self.len()) }))
+        Param::Boxed(PCSTR(unsafe { string_from_iter(self.as_bytes().iter().copied(), self.len()) }))
     }
 }
 #[cfg(feature = "alloc")]
