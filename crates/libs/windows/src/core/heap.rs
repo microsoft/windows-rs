@@ -67,7 +67,6 @@ where
         );
     }
 
-    // TODO ensure `encoder` is a fused iterator
     assert!(encoder.next().is_none(), "encoder returned more characters than expected");
 
     ptr
