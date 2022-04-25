@@ -56,6 +56,7 @@ impl<'a> Gen<'a> {
     fn define_interface(&self, _def: TypeDef) -> TokenStream {
         " ".into()
     }
+    // TODO: move to enum.rs
     fn define_enum(&self, def: TypeDef) -> TokenStream {
         let type_name = self.reader.type_def_type_name(def);
         let ident = to_ident(type_name.name);
