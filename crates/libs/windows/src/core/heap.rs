@@ -38,33 +38,33 @@ pub unsafe fn heap_free(ptr: RawPtr) {
 ///
 /// # Panics
 ///
-/// This function panics if the heap allocation fails or if the pointer returned from
-/// the heap allocation is not properly aligned to `T`.
-///
-/// # Safety
-/// len must not be less than the number of items in the iterator.
-pub unsafe fn string_from_iter<I, T>(iter: I, len: usize) -> *const T
+/// This function panics if the heap allocation fails, the alignment requirements of 'T' surpass
+/// 8 (HeapAlloc's alignment) or if len is less than the number of items in the iterator.
+pub fn string_from_iter<I, T>(iter: I, len: usize) -> *const T
 where
     I: Iterator<Item = T>,
     T: Copy + Default,
 {
-    let str_len = len + 1;
-    let ptr = heap_alloc(str_len * std::mem::size_of::<T>()).expect("could not allocate string") as *mut T;
+    // alignment of memory returned by HeapAlloc is at least 8
+    // Source: https://docs.microsoft.com/en-us/windows/win32/api/heapapi/nf-heapapi-heapalloc
+    // Ensure that T has sufficient alignment requirements
+    assert!(std::mem::align_of::<T>() <= 8, "T alignment surpasses HeapAlloc alignment");
 
-    // TODO this assert is mostly redundant, HeapAlloc has alignment of 8, we currently only require alignments of 1 or 2.
-    // There is no meaningful string type with characters that require an alignment above 8.
-    assert_eq!(ptr.align_offset(std::mem::align_of::<T>()), 0, "heap allocated buffer is not properly aligned");
-
+    let len = len + 1;
+    let ptr = heap_alloc(len * std::mem::size_of::<T>()).expect("could not allocate string") as *mut T;
     let mut encoder = iter.chain(core::iter::once(T::default()));
 
-    for i in 0..str_len {
-        core::ptr::write(
-            ptr.add(i),
-            match encoder.next() {
-                Some(encoded) => encoded,
-                None => break,
-            },
-        );
+    for i in 0..len {
+        // SAFETY: ptr points to an allocation object of size `len`, indices accessed are always lower than `len`
+        unsafe {
+            core::ptr::write(
+                ptr.add(i),
+                match encoder.next() {
+                    Some(encoded) => encoded,
+                    None => break,
+                },
+            );
+        }
     }
 
     assert!(encoder.next().is_none(), "encoder returned more characters than expected");
