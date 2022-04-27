@@ -32,7 +32,7 @@ pub unsafe fn heap_free(ptr: RawPtr) {
     }
 }
 
-/// Copy len elements of an iterator of type `T` into a freshly allocated buffer with an additional default `T` at the end.
+/// Copy len elements of an iterator of type `T` into a freshly allocated buffer.
 ///
 /// Returns a pointer to the beginning of the buffer. This pointer must be freed when done using `heap_free`.
 ///
