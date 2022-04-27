@@ -32,42 +32,32 @@ pub unsafe fn heap_free(ptr: RawPtr) {
     }
 }
 
-/// Copy an iterator of `T` into a freshly allocated buffer with an additional default `T` at the end.
+/// Copy len elements of an iterator of type `T` into a freshly allocated buffer with an additional default `T` at the end.
 ///
 /// Returns a pointer to the beginning of the buffer. This pointer must be freed when done using `heap_free`.
 ///
 /// # Panics
 ///
 /// This function panics if the heap allocation fails, the alignment requirements of 'T' surpass
-/// 8 (HeapAlloc's alignment) or if len is less than the number of items in the iterator.
-pub fn string_from_iter<I, T>(iter: I, len: usize) -> *const T
+/// 8 (HeapAlloc's alignment).
+pub fn alloc_from_iter<I, T>(iter: I, len: usize) -> *const T
 where
     I: Iterator<Item = T>,
-    T: Copy + Default,
+    T: Copy,
 {
     // alignment of memory returned by HeapAlloc is at least 8
     // Source: https://docs.microsoft.com/en-us/windows/win32/api/heapapi/nf-heapapi-heapalloc
     // Ensure that T has sufficient alignment requirements
     assert!(std::mem::align_of::<T>() <= 8, "T alignment surpasses HeapAlloc alignment");
 
-    let len = len + 1;
     let ptr = heap_alloc(len * std::mem::size_of::<T>()).expect("could not allocate string") as *mut T;
-    let mut encoder = iter.chain(core::iter::once(T::default()));
 
-    for i in 0..len {
+    for (offset, c) in iter.take(len).enumerate() {
         // SAFETY: ptr points to an allocation object of size `len`, indices accessed are always lower than `len`
         unsafe {
-            core::ptr::write(
-                ptr.add(i),
-                match encoder.next() {
-                    Some(encoded) => encoded,
-                    None => break,
-                },
-            );
+            ptr.add(offset).write(c);
         }
     }
-
-    assert!(encoder.next().is_none(), "encoder returned more characters than expected");
 
     ptr
 }
