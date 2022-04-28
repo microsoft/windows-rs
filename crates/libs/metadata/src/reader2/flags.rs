@@ -46,7 +46,7 @@ impl TypeAttributes {
         self.0 & 0x10 != 0
     }
     pub fn winrt(&self) -> bool {
-        self.0 & 0x800 != 0
+        self.0 & 0x4000 != 0
     }
     pub fn interface(&self) -> bool {
         self.0 & 0x20 != 0
