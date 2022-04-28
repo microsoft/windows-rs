@@ -14,12 +14,18 @@ use windows::{
 };
 
 #[implement(IApplicationOverrides)]
-struct MyApp();
+struct MyApp {
+    text: &'static str,
+    placeholder: &'static str,
+}
 
 impl IApplicationOverrides_Impl for MyApp {
     fn OnLaunched(&self, _: &Option<LaunchActivatedEventArgs>) -> Result<()> {
         let window = Window::Current()?;
-        window.SetContent(TextBox::new()?)?;
+        let text_box = TextBox::new()?;
+        text_box.SetText(self.text)?;
+        text_box.SetPlaceholderText(self.placeholder)?;
+        window.SetContent(text_box)?;
         window.Activate()
     }
 }
@@ -35,7 +41,7 @@ fn main() -> Result<()> {
     }
 
     Application::Start(ApplicationInitializationCallback::new(|_| {
-        Application::compose(MyApp())?;
+        Application::compose(MyApp { text: "Hello world", placeholder: "What are you going to build today?" })?;
         Ok(())
     }))
 }
