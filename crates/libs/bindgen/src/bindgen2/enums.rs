@@ -126,7 +126,7 @@ pub fn gen(def: TypeDef, gen: &Gen) -> TokenStream {
             #features
             impl ::core::fmt::Debug for #ident {
                 fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-                    f.debug_tuple(#name).field(&gen.0).finish()
+                    f.debug_tuple(#name).field(&self.0).finish()
                 }
             }
         });
