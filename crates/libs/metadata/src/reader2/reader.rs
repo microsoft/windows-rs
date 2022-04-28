@@ -44,8 +44,9 @@ impl<'a> Reader<'a> {
     pub fn namespace_types(&self, namespace: &str) -> impl Iterator<Item = TypeDef> + '_ {
         self.types[namespace].values().flatten().copied()
     }
-    pub fn nested_types(&self, type_def: TypeDef) -> impl Iterator<Item = TypeDef> + '_ {
-        self.nested[&type_def].values().copied()
+    pub fn nested_types(&'a self, type_def: TypeDef) -> Vec<TypeDef> {
+        // TODO: shouldn't have to collect, like we do in the `get` function below...
+        self.nested.get(&type_def).iter().map(|map|map.values()).flatten().copied().collect()
     }
     pub fn get(&self, type_name: TypeName) -> impl Iterator<Item = TypeDef> + '_ {
         if let Some(types) = self.types.get(type_name.namespace) {
@@ -1061,10 +1062,12 @@ impl<'a> Reader<'a> {
         }
 
         if let Some(outer) = enclosing {
-            Type::TypeDef((self.get_nested(outer, full_name.name), Vec::new()))
-        } else {
-            Type::TypeDef((self.get(full_name).next().expect("Type not found"), Vec::new()))
+            if full_name.namespace.is_empty() {
+                return Type::TypeDef((self.get_nested(outer, full_name.name), Vec::new()));
+            }
         }
+        
+        Type::TypeDef((self.get(full_name).next().expect("Type not found"), Vec::new()))
     }
     fn type_from_blob(&self, blob: &mut Blob, enclosing: Option<TypeDef>, generics: &[Type]) -> Option<Type> {
         let is_winrt_const_ref = blob.read_modifiers().iter().any(|def| self.type_def_or_ref(*def) == TypeName::IsConst);

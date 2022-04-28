@@ -7,7 +7,7 @@ mod vector3;
 mod vector4;
 mod win32_error;
 
-pub fn extensions(type_name: TypeName) -> TokenStream {
+pub fn gen(type_name: TypeName) -> TokenStream {
     match type_name {
         TypeName::TimeSpan => timespan::gen(),
         TypeName::Vector2 => vector2::gen(),

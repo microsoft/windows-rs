@@ -156,3 +156,19 @@ pub struct Cfg<'a> {
     pub types: BTreeMap<&'a str, BTreeSet<Row>>,
     pub arches: BTreeSet<&'static str>,
 }
+
+// TODO: get rid of this
+impl<'a> Cfg<'a> {
+    pub fn union(&self, other: &Self) -> Self {
+        let mut union = Self::default();
+        self.types.keys().for_each(|feature| {union.types.entry(feature).or_default();});
+        other.types.keys().for_each(|feature| {union.types.entry(feature).or_default();});
+        self.arches.iter().for_each(|arch| {
+            union.arches.insert(arch);
+        });
+        other.arches.iter().for_each(|arch| {
+            union.arches.insert(arch);
+        });
+        union
+    }
+}

@@ -316,8 +316,8 @@ impl<'a> Gen<'a> {
     }
     fn scoped_name(&self, def: TypeDef) -> String {
         if let Some(enclosing_type) = self.reader.type_def_enclosing_type(def) {
-            for (index, nested_type) in self.reader.nested_types(enclosing_type).enumerate() {
-                if self.reader.type_def_name(nested_type) == self.reader.type_def_name(def) {
+            for (index, nested_type) in self.reader.nested_types(enclosing_type).iter().enumerate() {
+                if self.reader.type_def_name(*nested_type) == self.reader.type_def_name(def) {
                     return format!("{}_{}", &self.scoped_name(enclosing_type), index);
                 }
             }
@@ -348,6 +348,50 @@ impl<'a> Gen<'a> {
                 tokens.into()
             }
             _ => unimplemented!(),
+        }
+    }
+    pub fn typed_value(&self, value: &Value) -> TokenStream {
+        let literal = self.value(value);
+        match value {
+            Value::Bool(_) => quote! { bool = #literal },
+            Value::U8(_) => quote! { u8 = #literal },
+            Value::I8(_) => quote! { i8 = #literal },
+            Value::U16(_) => quote! { u16 = #literal },
+            Value::I16(_) => quote! { i16 = #literal },
+            Value::U32(_) => quote! { u32 = #literal },
+            Value::I32(_) => quote! { i32 = #literal },
+            Value::U64(_) => quote! { u64 = #literal },
+            Value::I64(_) => quote! { i64 = #literal },
+            Value::F32(_) => quote! { f32 = #literal },
+            Value::F64(_) => quote! { f64 = #literal },
+            Value::String(_) => {
+                quote! { &str = #literal }
+            }
+            _ => unimplemented!(),
+        }
+    }
+    
+    pub fn guid(&self, value: &GUID) -> TokenStream {
+        let guid = self.type_name(&Type::GUID);
+    
+        if self.sys {
+            let a = Literal::u32_unsuffixed(value.0);
+            let b = Literal::u16_unsuffixed(value.1);
+            let c = Literal::u16_unsuffixed(value.2);
+            let d = Literal::u8_unsuffixed(value.3);
+            let e = Literal::u8_unsuffixed(value.4);
+            let f = Literal::u8_unsuffixed(value.5);
+            let g = Literal::u8_unsuffixed(value.6);
+            let h = Literal::u8_unsuffixed(value.7);
+            let i = Literal::u8_unsuffixed(value.8);
+            let j = Literal::u8_unsuffixed(value.9);
+            let k = Literal::u8_unsuffixed(value.10);
+    
+            quote! {
+                #guid { data1:#a, data2:#b, data3:#c, data4:[#d, #e, #f, #g, #h, #i, #j, #k] }
+            }
+        } else {
+            format!("{}::from_u128(0x{:08x?}_{:04x?}_{:04x?}_{:02x?}{:02x?}_{:02x?}{:02x?}{:02x?}{:02x?}{:02x?}{:02x?})", guid.into_string(), value.0, value.1, value.2, value.3, value.4, value.5, value.6, value.7, value.8, value.9, value.10).into()
         }
     }
 }
