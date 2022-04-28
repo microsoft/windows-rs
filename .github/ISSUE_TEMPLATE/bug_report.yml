@@ -83,7 +83,7 @@ body:
         # ...
 
         [dependencies.windows]
-        version = "0.36.0"
+        version = "0.36.1"
         features = [
             "alloc",
             "Win32_Foundation",
