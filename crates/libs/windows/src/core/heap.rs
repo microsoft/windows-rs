@@ -32,20 +32,32 @@ pub unsafe fn heap_free(ptr: RawPtr) {
     }
 }
 
-/// Copy a slice of `T` into a freshly allocated buffer with an additional default `T` at the end.
+/// Copy len elements of an iterator of type `T` into a freshly allocated buffer.
 ///
-/// Returns a pointer to the beginning of the buffer
+/// Returns a pointer to the beginning of the buffer. This pointer must be freed when done using `heap_free`.
 ///
 /// # Panics
 ///
-/// This function panics if the heap allocation fails or if the pointer returned from
-/// the heap allocation is not properly aligned to `T`.
-pub fn heap_string<T: Copy + Default + Sized>(slice: &[T]) -> *const T {
-    unsafe {
-        let buffer = heap_alloc((slice.len() + 1) * std::mem::size_of::<T>()).expect("could not allocate string") as *mut T;
-        assert!(buffer.align_offset(std::mem::align_of::<T>()) == 0, "heap allocated buffer is not properly aligned");
-        buffer.copy_from_nonoverlapping(slice.as_ptr(), slice.len());
-        buffer.add(slice.len()).write(T::default());
-        buffer
+/// This function panics if the heap allocation fails, the alignment requirements of 'T' surpass
+/// 8 (HeapAlloc's alignment).
+pub fn alloc_from_iter<I, T>(iter: I, len: usize) -> *const T
+where
+    I: Iterator<Item = T>,
+    T: Copy,
+{
+    // alignment of memory returned by HeapAlloc is at least 8
+    // Source: https://docs.microsoft.com/en-us/windows/win32/api/heapapi/nf-heapapi-heapalloc
+    // Ensure that T has sufficient alignment requirements
+    assert!(std::mem::align_of::<T>() <= 8, "T alignment surpasses HeapAlloc alignment");
+
+    let ptr = heap_alloc(len * std::mem::size_of::<T>()).expect("could not allocate string") as *mut T;
+
+    for (offset, c) in iter.take(len).enumerate() {
+        // SAFETY: ptr points to an allocation object of size `len`, indices accessed are always lower than `len`
+        unsafe {
+            ptr.add(offset).write(c);
+        }
     }
+
+    ptr
 }
