@@ -39,7 +39,7 @@ impl<'a> Gen<'a> {
         match self.reader.type_def_kind(def) {
             TypeKind::Class => self.define_class(def),
             TypeKind::Interface => self.define_interface(def),
-            TypeKind::Enum => self.define_enum(def),
+            TypeKind::Enum => enums::gen(def,self), //self.define_enum(def),
             TypeKind::Struct => self.define_struct(def),
             TypeKind::Delegate => self.define_delegate(def),
         }
@@ -55,199 +55,6 @@ impl<'a> Gen<'a> {
     }
     fn define_interface(&self, _def: TypeDef) -> TokenStream {
         " ".into()
-    }
-    // TODO: move to enum.rs
-    fn define_enum(&self, def: TypeDef) -> TokenStream {
-        let type_name = self.reader.type_def_type_name(def);
-        let ident = to_ident(type_name.name);
-        let underlying_type = self.reader.type_def_underlying_type(def);
-        let underlying_type = self.type_name(&underlying_type);
-        let is_scoped = self.reader.type_def_is_scoped(def);
-        let cfg = self.reader.type_def_cfg(def, &[]);
-        let doc = self.cfg_doc(&cfg);
-        let features = self.cfg_features(&cfg);
-
-        let mut fields: Vec<(TokenStream, TokenStream)> = self.reader.type_def_fields(def)
-        .filter_map(|field| {
-            if self.reader.field_flags(field).literal() {
-                let field_name = to_ident(self.reader.field_name(field));
-                let constant = self.reader.field_constant(field).unwrap();
-                let value = self.value(&self.reader.constant_value(constant));
-
-                Some((field_name, value))
-            } else {
-                None
-            }
-        })
-        .collect();
-
-        if self.min_enum && fields.len() > 100 {
-            fields.clear();
-        }
-
-        let eq = if self.sys {
-            quote! {}
-        } else {
-            quote! {
-                // Unfortunately, Rust requires these to be derived to allow constant patterns.
-                #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-            }
-        };
-
-        let mut tokens = if is_scoped || !self.sys {
-            quote! {
-                #doc
-                #features
-                #[repr(transparent)]
-                #eq
-                pub struct #ident(pub #underlying_type);
-            }
-        } else {
-            quote! {
-                #doc
-                #features
-                pub type #ident = #underlying_type;
-            }
-        };
-    
-        tokens.combine(&if is_scoped {
-            let fields = fields.iter().map(|(field_name, value)| {
-                quote! {
-                    pub const #field_name: Self = Self(#value);
-                }
-            });
-    
-            quote! {
-                #features
-                impl #ident {
-                    #(#fields)*
-                }
-            }
-        } else if !self.sys {
-            let fields = fields.iter().map(|(field_name, value)| {
-                quote! {
-                    #doc
-                    #features
-                    pub const #field_name: #ident = #ident(#value);
-                }
-            });
-    
-            quote! {
-                #(#fields)*
-            }
-        } else {
-            let fields = fields.iter().map(|(field_name, value)| {
-                quote! {
-                    #doc
-                    #features
-                    pub const #field_name: #ident = #value;
-                }
-            });
-    
-            quote! {
-                #(#fields)*
-            }
-        });
-    
-        if is_scoped || !self.sys {
-            tokens.combine(&quote! {
-                #features
-                impl ::core::marker::Copy for #ident {}
-                #features
-                impl ::core::clone::Clone for #ident {
-                    fn clone(&self) -> Self {
-                        *self
-                    }
-                }
-            });
-        }
-    
-        if !self.sys {
-            tokens.combine(&quote! {
-                #features
-                impl ::core::default::Default for #ident {
-                    fn default() -> Self {
-                        Self(0)
-                    }
-                }
-            });
-        }
-    
-        if !self.sys {
-            let name = type_name.name;
-            tokens.combine(&quote! {
-                #features
-                unsafe impl ::windows::core::Abi for #ident {
-                    type Abi = Self;
-                }
-                #features
-                impl ::core::fmt::Debug for #ident {
-                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-                        f.debug_tuple(#name).field(&self.0).finish()
-                    }
-                }
-            });
-    
-            if self.reader.type_def_is_flags(def) {
-                tokens.combine(&quote! {
-                    #features
-                    impl ::core::ops::BitOr for #ident {
-                        type Output = Self;
-    
-                        fn bitor(self, other: Self) -> Self {
-                            Self(self.0 | other.0)
-                        }
-                    }
-                    #features
-                    impl ::core::ops::BitAnd for #ident {
-                        type Output = Self;
-    
-                        fn bitand(self, other: Self) -> Self {
-                            Self(self.0 & other.0)
-                        }
-                    }
-                    #features
-                    impl ::core::ops::BitOrAssign for #ident {
-                        fn bitor_assign(&mut self, other: Self) {
-                            self.0.bitor_assign(other.0)
-                        }
-                    }
-                    #features
-                    impl ::core::ops::BitAndAssign for #ident {
-                        fn bitand_assign(&mut self, other: Self) {
-                            self.0.bitand_assign(other.0)
-                        }
-                    }
-                    #features
-                    impl ::core::ops::Not for #ident {
-                        type Output = Self;
-    
-                        fn not(self) -> Self {
-                            Self(self.0.not())
-                        }
-                    }
-                });
-            }
-    
-            if self.reader.type_def_flags(def).winrt() {
-                let signature = Literal::byte_string(self.reader.type_def_signature(def, &[]).as_bytes());
-    
-                tokens.combine(&quote! {
-                    #features
-                    unsafe impl ::windows::core::RuntimeType for #ident {
-                        const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(#signature);
-                        type DefaultType = Self;
-                        fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-                            Ok(*from)
-                        }
-                    }
-                });
-            }
-    
-            tokens.combine(&extensions(type_name));
-        }
-    
-        tokens
     }
     fn define_struct(&self, _def: TypeDef) -> TokenStream {
         " ".into()
@@ -305,7 +112,7 @@ impl<'a> Gen<'a> {
         }
     }
 
-    fn type_name(&self, ty:&Type) -> TokenStream {
+    pub(crate)fn type_name(&self, ty:&Type) -> TokenStream {
         match ty {
             Type::Void => quote! { ::core::ffi::c_void },
             Type::Bool => quote! { bool },
@@ -406,7 +213,7 @@ impl<'a> Gen<'a> {
         }
     }
 
-    fn cfg_features(&self, cfg: &Cfg) -> TokenStream {
+    pub(crate) fn cfg_features(&self, cfg: &Cfg) -> TokenStream {
         if !self.cfg {
             quote! {}
         } else {

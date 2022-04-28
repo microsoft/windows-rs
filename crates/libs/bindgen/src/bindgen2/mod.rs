@@ -1,6 +1,7 @@
 mod gen;
 mod extensions;
 mod replacements;
+mod enums;
 pub use gen::*;
 use metadata::reader2::*;
 use tokens::*;
