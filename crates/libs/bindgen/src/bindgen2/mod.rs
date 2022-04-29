@@ -12,7 +12,7 @@ use tokens::*;
 use method_names::*;
 use std::collections::*;
 
-pub fn define(name: &str, gen: &Gen) -> String {
+pub fn define(gen:&Gen, name: &str) -> String {
     let mut tokens = String::new();
     let type_name = TypeName::parse(name);
 

@@ -1,14 +1,14 @@
 use super::*;
 
-pub fn gen(def: TypeDef, gen: &Gen) -> TokenStream {
+pub fn gen(gen: &Gen, def: TypeDef) -> TokenStream {
     if gen.sys {
-        gen_sys_handle(def, gen)
+        gen_sys_handle(gen, def)
     } else {
-        gen_win_handle(def, gen)
+        gen_win_handle(gen, def)
     }
 }
 
-pub fn gen_sys_handle(def: TypeDef, gen: &Gen) -> TokenStream {
+pub fn gen_sys_handle(gen: &Gen, def: TypeDef) -> TokenStream {
     let ident = to_ident(gen.reader.type_def_name(def));
     let signature = gen.type_default_name(&gen.reader.type_def_underlying_type(def));
 
@@ -17,7 +17,7 @@ pub fn gen_sys_handle(def: TypeDef, gen: &Gen) -> TokenStream {
     }
 }
 
-pub fn gen_win_handle(def: TypeDef, gen: &Gen) -> TokenStream {
+pub fn gen_win_handle(gen: &Gen, def: TypeDef) -> TokenStream {
     let name = gen.reader.type_def_name(def);
     let ident = to_ident(name);
     let underlying_type = gen.reader.type_def_underlying_type(def);

@@ -1,6 +1,6 @@
 use super::*;
 
-pub fn gen(def: TypeDef, gen: &Gen) -> TokenStream {
+pub fn gen(gen: &Gen, def: TypeDef) -> TokenStream {
     let type_name = gen.reader.type_def_type_name(def);
     let ident = to_ident(type_name.name);
     let underlying_type = gen.reader.type_def_underlying_type(def);

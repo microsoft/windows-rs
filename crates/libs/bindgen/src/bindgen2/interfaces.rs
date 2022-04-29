@@ -1,14 +1,14 @@
 use super::*;
 
-pub fn gen(def: TypeDef, gen: &Gen) -> TokenStream {
+pub fn gen(gen: &Gen, def: TypeDef) -> TokenStream {
     if gen.sys {
-        gen_sys_interface(def, gen)
+        gen_sys_interface(gen, def)
     } else {
-        gen_win_interface(def, gen)
+        gen_win_interface(gen, def)
     }
 }
 
-fn gen_sys_interface(def: TypeDef, gen: &Gen) -> TokenStream {
+fn gen_sys_interface(gen: &Gen, def: TypeDef) -> TokenStream {
     let name = gen.reader.type_def_name(def);
     let ident = to_ident(name);
 
@@ -21,7 +21,7 @@ fn gen_sys_interface(def: TypeDef, gen: &Gen) -> TokenStream {
     }
 }
 
-fn gen_win_interface(def: TypeDef, gen: &Gen) -> TokenStream {
+fn gen_win_interface(gen: &Gen, def: TypeDef) -> TokenStream {
     let name = gen.reader.type_def_name(def);
     let ident = to_ident(name);
 
@@ -56,7 +56,7 @@ fn gen_win_interface(def: TypeDef, gen: &Gen) -> TokenStream {
     });
 
     if !is_exclusive {
-        let methods = gen_methods(def, gen, &generics);
+        let methods = gen_methods(gen, def, &generics);
         tokens.combine(&quote! {
             #features
             impl<#constraints> #name {
@@ -64,13 +64,13 @@ fn gen_win_interface(def: TypeDef, gen: &Gen) -> TokenStream {
             }
         });
 
-    //     tokens.combine(&gen_methods(def, &cfg, gen));
-    //     tokens.combine(&gen_conversions(def, &cfg, gen));
-    //     tokens.combine(&gen_std_traits(def, &cfg, gen));
-    //     tokens.combine(&gen_runtime_trait(def, &cfg, gen));
-    //     tokens.combine(&gen_async(def, &cfg, gen));
-    //     tokens.combine(&gen_iterator(def, &cfg, gen));
-    //     tokens.combine(&gen_agile(def, gen));
+    //     tokens.combine(&gen_methods(gen, def, &cfg, gen));
+    //     tokens.combine(&gen_conversions(gen, def, &cfg, gen));
+    //     tokens.combine(&gen_std_traits(gen, def, &cfg, gen));
+    //     tokens.combine(&gen_runtime_trait(gen, def, &cfg, gen));
+    //     tokens.combine(&gen_async(gen, def, &cfg, gen));
+    //     tokens.combine(&gen_iterator(gen, def, &cfg, gen));
+    //     tokens.combine(&gen_agile(gen, def, gen));
     }
 
     // tokens.combine(&gen_interface_trait(def, &cfg, gen));
@@ -80,7 +80,7 @@ fn gen_win_interface(def: TypeDef, gen: &Gen) -> TokenStream {
     " ".into()
 }
 
-fn gen_methods(def: TypeDef, gen: &Gen, generics: &[Type]) -> TokenStream {
+fn gen_methods(gen: &Gen, def: TypeDef, generics: &[Type]) -> TokenStream {
     let mut methods = quote! {};
     // TODO: why do we need to distinguish between public and virtual methods?
     let mut method_names = MethodNames::new();
@@ -120,7 +120,7 @@ fn gen_methods(def: TypeDef, gen: &Gen, generics: &[Type]) -> TokenStream {
 }
 
 
-// fn gen_conversions(def: TypeDef, cfg: &Cfg, gen: &Gen) -> TokenStream {
+// fn gen_conversions(gen: &Gen, def: TypeDef, cfg: &Cfg) -> TokenStream {
 //     let name = gen_type_ident(def, gen);
 //     let constraints = gen_type_constraints(def, gen);
 //     let mut tokens = quote! {};
@@ -196,7 +196,7 @@ fn gen_methods(def: TypeDef, gen: &Gen, generics: &[Type]) -> TokenStream {
 //     tokens
 // }
 
-// fn gen_agile(def: TypeDef, gen: &Gen) -> TokenStream {
+// fn gen_agile(gen: &Gen, def: TypeDef) -> TokenStream {
 //     if def.type_name() == TypeName::IRestrictedErrorInfo || def.async_kind() != AsyncKind::None {
 //         let name = gen_type_ident(def, gen);
 //         let constraints = gen_type_constraints(def, gen);
