@@ -64,7 +64,6 @@ fn gen_win_interface(gen: &Gen, def: TypeDef) -> TokenStream {
             }
         });
 
-        //     tokens.combine(&gen_methods(gen, def, &cfg, gen));
         //     tokens.combine(&gen_conversions(gen, def, &cfg, gen));
         //     tokens.combine(&gen_std_traits(gen, def, &cfg, gen));
         //     tokens.combine(&gen_runtime_trait(gen, def, &cfg, gen));
@@ -88,12 +87,14 @@ fn gen_methods(gen: &Gen, def: TypeDef, generics: &[Type]) -> TokenStream {
 
     if gen.reader.type_def_flags(def).winrt() {
         for method in gen.reader.type_def_methods(def) {
-            methods.combine(&winrt_methods::gen(gen, def, InterfaceKind::Default, method, method_names, virtual_names));
+            methods.combine(&winrt_methods::gen(gen, def, generics, InterfaceKind::Default, method, method_names, virtual_names));
         }
         if !gen.min_inherit {
-            for ty in gen.reader.type_def_interfaces(def, generics) {
-                for method in gen.reader.type_def_methods(def) {
-                    methods.combine(&winrt_methods::gen(gen, def, InterfaceKind::None, method, method_names, virtual_names));
+            for interface in gen.reader.type_def_interfaces(def, generics) {
+                if let Type::TypeDef((def, generics)) = interface.ty {
+                    for method in gen.reader.type_def_methods(def) {
+                        methods.combine(&winrt_methods::gen(gen, def, &generics, InterfaceKind::None, method, method_names, virtual_names));
+                    }
                 }
             }
         }

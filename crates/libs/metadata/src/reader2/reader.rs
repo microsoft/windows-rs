@@ -884,6 +884,18 @@ impl<'a> Reader<'a> {
     }
 
     //
+    // Signature queries
+    //
+
+    fn signature_cfg_combine(&self, signature: &Signature, cfg: &mut Cfg) {
+        signature.return_type.iter().for_each(|ty| self.type_cfg_combine(ty, cfg));
+        signature.params.iter().for_each(|param| self.type_cfg_combine(&param.ty, cfg));
+    }
+    pub fn signature_param_is_convertible(&self, param: &SignatureParam) -> bool {
+        self.param_flags(param.def).input() && !self.type_is_winrt_array(&param.ty) && !self.type_is_pointer(&param.ty) && self.type_is_convertible(&param.ty) && param.array_info.is_none()
+    }
+
+    //
     // Other type queries
     //
 
@@ -909,10 +921,6 @@ impl<'a> Reader<'a> {
                 _ => {}
             }
         }
-    }
-    fn signature_cfg_combine(&self, signature: &Signature, cfg: &mut Cfg) {
-        signature.return_type.iter().for_each(|ty| self.type_cfg_combine(ty, cfg));
-        signature.params.iter().for_each(|param| self.type_cfg_combine(&param.ty, cfg));
     }
     fn type_cfg(&self, ty:&Type) -> Cfg {
         let mut cfg = Cfg::default();
@@ -1228,27 +1236,27 @@ impl<'a> Reader<'a> {
     pub fn type_is_unsigned(&self, ty: &Type) -> bool {
         matches!(ty, Type::U8 | Type::U16 | Type::U32 | Type::U64 | Type::USize)
     }
-}
-
-pub fn type_is_void(ty: &Type) -> bool {
-    match ty {
-        // TODO: do we care about void behind pointers?
-        Type::ConstPtr((kind, _)) | Type::MutPtr((kind, _)) => type_is_void(kind),
-        Type::Void => true,
-        _ => false,
+    pub fn type_is_void(&self, ty: &Type) -> bool {
+        match ty {
+            // TODO: do we care about void behind pointers?
+            Type::ConstPtr((kind, _)) | Type::MutPtr((kind, _)) => self.type_is_void(kind),
+            Type::Void => true,
+            _ => false,
+        }
+    }
+    pub fn type_is_winrt_array(&self, ty: &Type) -> bool {
+        matches!(ty, Type::WinrtArray(_))
+    }
+    
+    pub fn type_is_winrt_array_ref(&self, ty: &Type) -> bool {
+        matches!(ty, Type::WinrtArrayRef(_))
+    }
+    
+    pub fn type_is_winrt_const_ref(&self, ty: &Type) -> bool {
+        matches!(ty, Type::WinrtConstRef(_))
     }
 }
-pub fn is_winrt_array(ty: &Type) -> bool {
-    matches!(ty, Type::WinrtArray(_))
-}
 
-pub fn is_winrt_array_ref(ty: &Type) -> bool {
-    matches!(ty, Type::WinrtArrayRef(_))
-}
-
-pub fn is_winrt_const_ref(ty: &Type) -> bool {
-    matches!(ty, Type::WinrtConstRef(_))
-}
 fn type_from_code(code: usize) -> Option<Type> {
     match code {
         0x01 => Some(Type::Void),

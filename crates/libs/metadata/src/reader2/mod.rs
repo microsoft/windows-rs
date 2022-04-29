@@ -140,15 +140,15 @@ pub enum Value {
 }
 
 pub struct Signature {
-    def: MethodDef,
-    params: Vec<SignatureParam>,
-    return_type: Option<Type>,
+    pub def: MethodDef,
+    pub params: Vec<SignatureParam>,
+    pub return_type: Option<Type>,
 }
 
 pub struct SignatureParam {
-    def: Param,
-    ty: Type,
-    array_info: Option<ArrayInfo>,
+    pub def: Param,
+    pub ty: Type,
+    pub array_info: Option<ArrayInfo>,
 }
 
 #[derive(Default, Clone)]

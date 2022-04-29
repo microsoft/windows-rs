@@ -1,20 +1,23 @@
 use super::*;
 
-pub fn gen(gen: &Gen, def: TypeDef, kind: InterfaceKind, method: MethodDef, method_names: &mut MethodNames, virtual_names: &mut MethodNames) -> TokenStream {
-    // let signature = method.signature(&def.generics);
+pub fn gen(gen: &Gen, def: TypeDef, generics: &[Type], kind: InterfaceKind, method: MethodDef, method_names: &mut MethodNames, virtual_names: &mut MethodNames) -> TokenStream {
+     //let signature = gen.reader.method_def_signature(method, generics);
     // let params = if kind == InterfaceKind::Composable { &signature.params[..signature.params.len() - 2] } else { &signature.params };
 
     // let (name, name_compose) = if kind == InterfaceKind::Composable && signature.params.len() == 2 {
     //     ("new".into(), "compose".into())
     // } else {
-    //     let name = method_names.add(method);
+    //     let name = method_names.add(gen, method);
     //     let name_compose = name.join("_compose");
     //     (name, name_compose)
     // };
 
-    // let vname = virtual_names.add(method);
+    // let vname = virtual_names.add(gen, method);
+    // let constraints = gen.param_constraints(params);
 
-    // let constraints = gen_param_constraints(params, gen);
+
+
+
     // let mut cfg = method.cfg();
     // cfg.add_feature(def.namespace());
     // let doc = gen.doc(&cfg);

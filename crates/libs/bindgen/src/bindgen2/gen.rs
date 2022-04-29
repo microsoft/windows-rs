@@ -186,7 +186,7 @@ impl<'a> Gen<'a> {
     }
 
     //
-    // Generics
+    // Constraints
     //
 
     pub fn generic_phantoms(&self, generics: &[Type]) -> TokenStream {
@@ -205,6 +205,22 @@ impl<'a> Gen<'a> {
         }
         tokens
     }
+    pub fn param_constraints(&self, params: &[SignatureParam]) -> TokenStream {
+        let mut tokens = TokenStream::new();
+        for (position, param) in params.iter().enumerate() {
+            if self.reader.signature_param_is_convertible(param) {
+                let name: TokenStream = format!("Param{}", position).into();
+                let into = self.type_name(&param.ty);
+                tokens.combine(&quote! { #name: ::windows::core::IntoParam<'a, #into>, });
+            }
+        }
+        if !tokens.is_empty() {
+            quote! { 'a, #tokens }
+        } else {
+            tokens
+        }
+    }
+    
 
     //
     // Cfg
