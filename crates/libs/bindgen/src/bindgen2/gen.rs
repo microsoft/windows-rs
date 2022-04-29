@@ -38,7 +38,7 @@ impl<'a> Gen<'a> {
     pub(crate) fn define(&self, def: TypeDef) -> TokenStream {
         match self.reader.type_def_kind(def) {
             TypeKind::Class => self.define_class(def),
-            TypeKind::Interface => self.define_interface(def),
+            TypeKind::Interface => interfaces::gen(def, self),
             TypeKind::Enum => enums::gen(def,self),
             TypeKind::Struct => structs::gen(def,self),
             TypeKind::Delegate => self.define_delegate(def),
@@ -51,9 +51,6 @@ impl<'a> Gen<'a> {
         " ".into()
     }
     fn define_class(&self, _def: TypeDef) -> TokenStream {
-        " ".into()
-    }
-    fn define_interface(&self, _def: TypeDef) -> TokenStream {
         " ".into()
     }
     fn define_delegate(&self, _def: TypeDef) -> TokenStream {

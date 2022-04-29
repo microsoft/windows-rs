@@ -39,7 +39,7 @@ fn gen_win_interface(def: TypeDef, gen: &Gen) -> TokenStream {
     let generics = gen.type_def_generics(def);
     let phantoms = gen.phantoms(&generics);
     let constraints = gen.constraints(&generics);
-    let cfg = gen.reader.type_def_cfg(def);
+    let cfg = gen.reader.type_def_cfg(def, &[]);
     let doc = gen.cfg_doc(&cfg);
     let features = gen.cfg_features(&cfg);
 
@@ -56,6 +56,14 @@ fn gen_win_interface(def: TypeDef, gen: &Gen) -> TokenStream {
     });
 
     if !is_exclusive {
+        let methods = gen_methods(def, gen);
+        tokens.combine(&quote! {
+            #features
+            impl<#constraints> #name {
+                #methods
+            }
+        });
+
     //     tokens.combine(&gen_methods(def, &cfg, gen));
     //     tokens.combine(&gen_conversions(def, &cfg, gen));
     //     tokens.combine(&gen_std_traits(def, &cfg, gen));
@@ -72,45 +80,37 @@ fn gen_win_interface(def: TypeDef, gen: &Gen) -> TokenStream {
     " ".into()
 }
 
-fn gen_methods(def: TypeDef, cfg: &Cfg, gen: &Gen) -> TokenStream {
-    let name = gen_type_ident(def, gen);
-    let constraints = gen_type_constraints(def, gen);
+fn gen_methods(def: TypeDef, gen: &Gen) -> TokenStream {
     let mut methods = quote! {};
-    let is_winrt = def.is_winrt();
+    // TODO: why do we need to distinguish between public and virtual methods?
     let mut method_names = MethodNames::new();
     let mut virtual_names = MethodNames::new();
-    let cfg = gen.cfg(cfg);
-    let vtable_types = def.vtable_types();
+    let vtable_types = gen.reader.type_def_vtables(def);
     let mut bases = vtable_types.len();
 
-    for def in vtable_types {
-        match def {
-            Type::IUnknown | Type::IInspectable => {}
-            Type::TypeDef(def) => {
-                let kind = if def.type_name() == TypeName::IDispatch { InterfaceKind::NonDefault } else { InterfaceKind::Default };
-                methods.combine(&gen_methods_impl(&def, kind, &mut method_names, &mut virtual_names, bases, gen));
-            }
-            _ => unimplemented!(),
-        }
+    // for def in vtable_types {
+    //     match def {
+    //         Type::IUnknown | Type::IInspectable => {}
+    //         Type::TypeDef(def) => {
+    //             let kind = if def.type_name() == TypeName::IDispatch { InterfaceKind::NonDefault } else { InterfaceKind::Default };
+    //             methods.combine(&gen_methods_impl(&def, kind, &mut method_names, &mut virtual_names, bases, gen));
+    //         }
+    //         _ => unimplemented!(),
+    //     }
 
-        bases -= 1;
-    }
+    //     bases -= 1;
+    // }
 
-    // Methods for vtable bases are added first (above) so that any overloads are renamed accordingly.
-    methods.combine(&gen_methods_impl(def, InterfaceKind::Default, &mut method_names, &mut virtual_names, 0, gen));
+    // // Methods for vtable bases are added first (above) so that any overloads are renamed accordingly.
+    // methods.combine(&gen_methods_impl(def, InterfaceKind::Default, &mut method_names, &mut virtual_names, 0, gen));
 
-    if is_winrt && !gen.min_inherit {
-        for def in def.required_interfaces() {
-            methods.combine(&gen_methods_impl(&def, InterfaceKind::NonDefault, &mut method_names, &mut virtual_names, 0, gen));
-        }
-    }
+    // if is_winrt && !gen.min_inherit {
+    //     for def in def.required_interfaces() {
+    //         methods.combine(&gen_methods_impl(&def, InterfaceKind::NonDefault, &mut method_names, &mut virtual_names, 0, gen));
+    //     }
+    // }
 
-    quote! {
-        #cfg
-        impl<#(#constraints)*> #name {
-            #methods
-        }
-    }
+    methods
 }
 
 // fn gen_methods_impl(def: TypeDef, kind: InterfaceKind, method_names: &mut MethodNames, virtual_names: &mut MethodNames, bases: usize, gen: &Gen) -> TokenStream {

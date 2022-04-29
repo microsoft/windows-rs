@@ -4,9 +4,13 @@ mod replacements;
 mod enums;
 mod structs;
 mod handles;
+mod interfaces;
+mod method_names;
 pub use gen::*;
 use metadata::reader2::*;
 use tokens::*;
+use method_names::*;
+use std::collections::*;
 
 pub fn define(name: &str, gen: &Gen) -> String {
     let mut tokens = String::new();
