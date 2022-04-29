@@ -85,23 +85,6 @@ impl<'a> Gen<'a> {
             }
         }
     }
-    pub fn type_def_generics(&self, def: TypeDef) -> Vec<TokenStream> {
-        self.reader.type_def_generic_params(def).map(|param|self.reader.generic_param_name(param)).map(|name|to_ident(name)).collect()
-    }
-    pub fn phantoms(&self, generics: &[TokenStream]) -> TokenStream {
-        let mut tokens = TokenStream::new();
-        for generic in generics {
-            tokens.combine(&quote! { ::core::marker::PhantomData::<#generic>, });
-        }
-        tokens
-    }
-    pub fn constraints(&self, generics: &[TokenStream]) -> TokenStream {
-        let mut tokens = TokenStream::new();
-        for generic in generics {
-            tokens.combine(&quote! { #generic: ::windows::core::RuntimeType + 'static, });
-        }
-        tokens
-    }
 
     //
     // Type
@@ -200,6 +183,27 @@ impl<'a> Gen<'a> {
             Type::WinrtConstRef(ty) => self.type_name(ty),
             _ => unimplemented!(),
         }
+    }
+
+    //
+    // Generics
+    //
+
+    pub fn generic_phantoms(&self, generics: &[Type]) -> TokenStream {
+        let mut tokens = TokenStream::new();
+        for generic in generics {
+            let generic = self.type_name(generic);
+            tokens.combine(&quote! { ::core::marker::PhantomData::<#generic>, });
+        }
+        tokens
+    }
+    pub fn generic_constraints(&self, generics: &[Type]) -> TokenStream {
+        let mut tokens = TokenStream::new();
+        for generic in generics {
+            let generic = self.type_name(generic);
+            tokens.combine(&quote! { #generic: ::windows::core::RuntimeType + 'static, });
+        }
+        tokens
     }
 
     //

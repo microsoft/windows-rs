@@ -36,9 +36,9 @@ fn gen_win_interface(def: TypeDef, gen: &Gen) -> TokenStream {
     }
 
     let is_exclusive = gen.reader.type_def_is_exclusive(def);
-    let generics = gen.type_def_generics(def);
-    let phantoms = gen.phantoms(&generics);
-    let constraints = gen.constraints(&generics);
+    let generics :Vec<Type> = gen.reader.type_def_generics(def).collect();
+    let phantoms = gen.generic_phantoms(&generics);
+    let constraints = gen.generic_constraints(&generics);
     let cfg = gen.reader.type_def_cfg(def, &[]);
     let doc = gen.cfg_doc(&cfg);
     let features = gen.cfg_features(&cfg);
@@ -56,7 +56,7 @@ fn gen_win_interface(def: TypeDef, gen: &Gen) -> TokenStream {
     });
 
     if !is_exclusive {
-        let methods = gen_methods(def, gen);
+        let methods = gen_methods(def, gen, &generics);
         tokens.combine(&quote! {
             #features
             impl<#constraints> #name {
@@ -80,53 +80,45 @@ fn gen_win_interface(def: TypeDef, gen: &Gen) -> TokenStream {
     " ".into()
 }
 
-fn gen_methods(def: TypeDef, gen: &Gen) -> TokenStream {
+fn gen_methods(def: TypeDef, gen: &Gen, generics: &[Type]) -> TokenStream {
     let mut methods = quote! {};
     // TODO: why do we need to distinguish between public and virtual methods?
     let mut method_names = MethodNames::new();
     let mut virtual_names = MethodNames::new();
-    let vtable_types = gen.reader.type_def_vtables(def);
-    let mut bases = vtable_types.len();
 
-    // for def in vtable_types {
-    //     match def {
-    //         Type::IUnknown | Type::IInspectable => {}
-    //         Type::TypeDef(def) => {
-    //             let kind = if def.type_name() == TypeName::IDispatch { InterfaceKind::NonDefault } else { InterfaceKind::Default };
-    //             methods.combine(&gen_methods_impl(&def, kind, &mut method_names, &mut virtual_names, bases, gen));
-    //         }
-    //         _ => unimplemented!(),
-    //     }
+    if gen.reader.type_def_flags(def).winrt() {
+        for method in gen.reader.type_def_methods(def) {
+            //methods.combine(&gen.winrt_method(def, InterfaceKind::Default, method, method_names, virtual_names));
+        }
+        if !gen.min_inherit {
+            for ty in gen.reader.type_def_interfaces(def, generics) {
+                for method in gen.reader.type_def_methods(def) {
+                    //methods.combine(&gen.winrt_method(def, InterfaceKind::NonDefault, method, method_names, virtual_names));
+                }
+            }
+        }
+    } else {
+        let vtable_types = gen.reader.type_def_vtables(def);
+        let mut bases = vtable_types.len();
+        for ty in vtable_types {
+            match ty {
+                Type::IUnknown | Type::IInspectable => {}
+                Type::TypeDef((def, _)) => {
+                    let kind = if gen.reader.type_def_type_name(def) == TypeName::IDispatch { InterfaceKind::None } else { InterfaceKind::Default };
+                    for method in gen.reader.type_def_methods(def) {
+                        //methods.combine(&gen.com_method(def, kind, method, method_names, virtual_names, bases, gen));
+                    }
+                }
+                _ => unimplemented!(),
+            }
 
-    //     bases -= 1;
-    // }
-
-    // // Methods for vtable bases are added first (above) so that any overloads are renamed accordingly.
-    // methods.combine(&gen_methods_impl(def, InterfaceKind::Default, &mut method_names, &mut virtual_names, 0, gen));
-
-    // if is_winrt && !gen.min_inherit {
-    //     for def in def.required_interfaces() {
-    //         methods.combine(&gen_methods_impl(&def, InterfaceKind::NonDefault, &mut method_names, &mut virtual_names, 0, gen));
-    //     }
-    // }
-
+            bases -= 1;
+        }
+        //methods.combine(&gen.com_method(def, InterfaceKind::Default, &mut method_names, &mut virtual_names, 0, gen));
+    }
     methods
 }
 
-// fn gen_methods_impl(def: TypeDef, kind: InterfaceKind, method_names: &mut MethodNames, virtual_names: &mut MethodNames, bases: usize, gen: &Gen) -> TokenStream {
-//     let mut methods = quote! {};
-//     let is_winrt = def.is_winrt();
-
-//     for method in def.methods() {
-//         if is_winrt {
-//             methods.combine(&gen_winrt_method(def, kind, &method, method_names, virtual_names, gen));
-//         } else {
-//             methods.combine(&gen_com_method(def, kind, &method, method_names, virtual_names, bases, gen));
-//         }
-//     }
-
-//     methods
-// }
 
 // fn gen_conversions(def: TypeDef, cfg: &Cfg, gen: &Gen) -> TokenStream {
 //     let name = gen_type_ident(def, gen);
