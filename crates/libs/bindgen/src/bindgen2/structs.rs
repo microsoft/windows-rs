@@ -1,6 +1,6 @@
 use super::*;
 
-pub fn gen(gen:&Gen, def: TypeDef) -> TokenStream {
+pub fn gen(gen: &Gen, def: TypeDef) -> TokenStream {
     if gen.reader.type_def_is_contract(def) {
         return quote! {};
     }
@@ -18,7 +18,7 @@ pub fn gen(gen:&Gen, def: TypeDef) -> TokenStream {
     gen_struct_with_name(gen, def, gen.reader.type_def_name(def), &Cfg::default())
 }
 
-fn gen_struct_with_name(gen:&Gen, def: TypeDef, struct_name: &str, cfg: &Cfg) -> TokenStream {
+fn gen_struct_with_name(gen: &Gen, def: TypeDef, struct_name: &str, cfg: &Cfg) -> TokenStream {
     let name = to_ident(struct_name);
 
     if gen.reader.type_def_fields(def).next().is_none() {
@@ -78,10 +78,10 @@ fn gen_struct_with_name(gen:&Gen, def: TypeDef, struct_name: &str, cfg: &Cfg) ->
     };
 
     tokens.combine(&gen_struct_constants(gen, def, &name, &cfg));
-    tokens.combine(&gen_copy_clone(gen,def, &name, &cfg));
-    tokens.combine(&gen_debug(gen,def, &name, &cfg));
-    tokens.combine(&gen_windows_traits(gen,def, &name, &cfg));
-    tokens.combine(&gen_compare_traits(gen,def, &name, &cfg));
+    tokens.combine(&gen_copy_clone(gen, def, &name, &cfg));
+    tokens.combine(&gen_debug(gen, def, &name, &cfg));
+    tokens.combine(&gen_windows_traits(gen, def, &name, &cfg));
+    tokens.combine(&gen_compare_traits(gen, def, &name, &cfg));
 
     if !gen.sys {
         tokens.combine(&quote! {
@@ -96,15 +96,15 @@ fn gen_struct_with_name(gen:&Gen, def: TypeDef, struct_name: &str, cfg: &Cfg) ->
         tokens.combine(&extensions::gen(gen.reader.type_def_type_name(def)));
     }
 
-        for (index, nested_type) in gen.reader.nested_types(def).iter().enumerate() {
-            let nested_name = format!("{}_{}", struct_name, index);
-            tokens.combine(&gen_struct_with_name(gen, *nested_type, &nested_name, &cfg));
-        }
+    for (index, nested_type) in gen.reader.nested_types(def).iter().enumerate() {
+        let nested_name = format!("{}_{}", struct_name, index);
+        tokens.combine(&gen_struct_with_name(gen, *nested_type, &nested_name, &cfg));
+    }
 
     tokens
 }
 
-fn gen_windows_traits(gen:&Gen, def: TypeDef, name: &TokenStream, cfg: &Cfg) -> TokenStream {
+fn gen_windows_traits(gen: &Gen, def: TypeDef, name: &TokenStream, cfg: &Cfg) -> TokenStream {
     if gen.sys {
         quote! {}
     } else {
@@ -148,7 +148,7 @@ fn gen_windows_traits(gen:&Gen, def: TypeDef, name: &TokenStream, cfg: &Cfg) -> 
     }
 }
 
-fn gen_compare_traits(gen:&Gen, def: TypeDef, name: &TokenStream, cfg: &Cfg) -> TokenStream {
+fn gen_compare_traits(gen: &Gen, def: TypeDef, name: &TokenStream, cfg: &Cfg) -> TokenStream {
     let features = gen.cfg_features(cfg);
 
     if gen.sys {
@@ -196,7 +196,7 @@ fn gen_compare_traits(gen:&Gen, def: TypeDef, name: &TokenStream, cfg: &Cfg) -> 
     }
 }
 
-fn gen_debug(gen:&Gen, def: TypeDef, ident: &TokenStream, cfg: &Cfg) -> TokenStream {
+fn gen_debug(gen: &Gen, def: TypeDef, ident: &TokenStream, cfg: &Cfg) -> TokenStream {
     if gen.sys || gen.reader.type_def_has_union(def) || gen.reader.type_def_has_packing(def) {
         quote! {}
     } else {
@@ -231,7 +231,7 @@ fn gen_debug(gen:&Gen, def: TypeDef, ident: &TokenStream, cfg: &Cfg) -> TokenStr
     }
 }
 
-fn gen_copy_clone(gen:&Gen, def: TypeDef, name: &TokenStream, cfg: &Cfg) -> TokenStream {
+fn gen_copy_clone(gen: &Gen, def: TypeDef, name: &TokenStream, cfg: &Cfg) -> TokenStream {
     let features = gen.cfg_features(cfg);
 
     if gen.sys || gen.reader.type_def_is_blittable(def) {
@@ -280,7 +280,7 @@ fn gen_copy_clone(gen:&Gen, def: TypeDef, name: &TokenStream, cfg: &Cfg) -> Toke
     }
 }
 
-fn gen_struct_constants(gen:&Gen, def: TypeDef, struct_name: &TokenStream, cfg: &Cfg) -> TokenStream {
+fn gen_struct_constants(gen: &Gen, def: TypeDef, struct_name: &TokenStream, cfg: &Cfg) -> TokenStream {
     let features = gen.cfg_features(cfg);
 
     let constants = gen.reader.type_def_fields(def).filter_map(|f| {

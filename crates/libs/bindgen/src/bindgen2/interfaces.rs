@@ -31,12 +31,12 @@ fn gen_win_interface(gen: &Gen, def: TypeDef) -> TokenStream {
                 let value = gen.guid(&guid);
                 let guid = gen.type_name(&Type::GUID);
                 return quote! { pub const #ident: #guid = #value; };
-            }    
+            }
         }
     }
 
     let is_exclusive = gen.reader.type_def_is_exclusive(def);
-    let generics :Vec<Type> = gen.reader.type_def_generics(def).collect();
+    let generics: Vec<Type> = gen.reader.type_def_generics(def).collect();
     let phantoms = gen.generic_phantoms(&generics);
     let constraints = gen.generic_constraints(&generics);
     let cfg = gen.reader.type_def_cfg(def, &[]);
@@ -64,13 +64,13 @@ fn gen_win_interface(gen: &Gen, def: TypeDef) -> TokenStream {
             }
         });
 
-    //     tokens.combine(&gen_methods(gen, def, &cfg, gen));
-    //     tokens.combine(&gen_conversions(gen, def, &cfg, gen));
-    //     tokens.combine(&gen_std_traits(gen, def, &cfg, gen));
-    //     tokens.combine(&gen_runtime_trait(gen, def, &cfg, gen));
-    //     tokens.combine(&gen_async(gen, def, &cfg, gen));
-    //     tokens.combine(&gen_iterator(gen, def, &cfg, gen));
-    //     tokens.combine(&gen_agile(gen, def, gen));
+        //     tokens.combine(&gen_methods(gen, def, &cfg, gen));
+        //     tokens.combine(&gen_conversions(gen, def, &cfg, gen));
+        //     tokens.combine(&gen_std_traits(gen, def, &cfg, gen));
+        //     tokens.combine(&gen_runtime_trait(gen, def, &cfg, gen));
+        //     tokens.combine(&gen_async(gen, def, &cfg, gen));
+        //     tokens.combine(&gen_iterator(gen, def, &cfg, gen));
+        //     tokens.combine(&gen_agile(gen, def, gen));
     }
 
     // tokens.combine(&gen_interface_trait(def, &cfg, gen));
@@ -83,17 +83,17 @@ fn gen_win_interface(gen: &Gen, def: TypeDef) -> TokenStream {
 fn gen_methods(gen: &Gen, def: TypeDef, generics: &[Type]) -> TokenStream {
     let mut methods = quote! {};
     // TODO: why do we need to distinguish between public and virtual methods?
-    let mut method_names = MethodNames::new();
-    let mut virtual_names = MethodNames::new();
+    let method_names = &mut MethodNames::new();
+    let virtual_names = &mut MethodNames::new();
 
     if gen.reader.type_def_flags(def).winrt() {
         for method in gen.reader.type_def_methods(def) {
-            //methods.combine(&gen.winrt_method(def, InterfaceKind::Default, method, method_names, virtual_names));
+            methods.combine(&winrt_methods::gen(gen, def, InterfaceKind::Default, method, method_names, virtual_names));
         }
         if !gen.min_inherit {
             for ty in gen.reader.type_def_interfaces(def, generics) {
                 for method in gen.reader.type_def_methods(def) {
-                    //methods.combine(&gen.winrt_method(def, InterfaceKind::NonDefault, method, method_names, virtual_names));
+                    methods.combine(&winrt_methods::gen(gen, def, InterfaceKind::None, method, method_names, virtual_names));
                 }
             }
         }
@@ -106,7 +106,7 @@ fn gen_methods(gen: &Gen, def: TypeDef, generics: &[Type]) -> TokenStream {
                 Type::TypeDef((def, _)) => {
                     let kind = if gen.reader.type_def_type_name(def) == TypeName::IDispatch { InterfaceKind::None } else { InterfaceKind::Default };
                     for method in gen.reader.type_def_methods(def) {
-                        //methods.combine(&gen.com_method(def, kind, method, method_names, virtual_names, bases, gen));
+                        methods.combine(&com_methods::gen(gen, def, kind, method, method_names, virtual_names, bases));
                     }
                 }
                 _ => unimplemented!(),
@@ -114,11 +114,12 @@ fn gen_methods(gen: &Gen, def: TypeDef, generics: &[Type]) -> TokenStream {
 
             bases -= 1;
         }
-        //methods.combine(&gen.com_method(def, InterfaceKind::Default, &mut method_names, &mut virtual_names, 0, gen));
+        for method in gen.reader.type_def_methods(def) {
+            methods.combine(&com_methods::gen(gen, def, InterfaceKind::Default, method, method_names, virtual_names, 0));
+        }
     }
     methods
 }
-
 
 // fn gen_conversions(gen: &Gen, def: TypeDef, cfg: &Cfg) -> TokenStream {
 //     let name = gen_type_ident(def, gen);

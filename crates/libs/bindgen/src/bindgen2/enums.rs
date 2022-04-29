@@ -10,19 +10,21 @@ pub fn gen(gen: &Gen, def: TypeDef) -> TokenStream {
     let doc = gen.cfg_doc(&cfg);
     let features = gen.cfg_features(&cfg);
 
-    let mut fields: Vec<(TokenStream, TokenStream)> = gen.reader.type_def_fields(def)
-    .filter_map(|field| {
-        if gen.reader.field_flags(field).literal() {
-            let field_name = to_ident(gen.reader.field_name(field));
-            let constant = gen.reader.field_constant(field).unwrap();
-            let value = gen.value(&gen.reader.constant_value(constant));
+    let mut fields: Vec<(TokenStream, TokenStream)> = gen
+        .reader
+        .type_def_fields(def)
+        .filter_map(|field| {
+            if gen.reader.field_flags(field).literal() {
+                let field_name = to_ident(gen.reader.field_name(field));
+                let constant = gen.reader.field_constant(field).unwrap();
+                let value = gen.value(&gen.reader.constant_value(constant));
 
-            Some((field_name, value))
-        } else {
-            None
-        }
-    })
-    .collect();
+                Some((field_name, value))
+            } else {
+                None
+            }
+        })
+        .collect();
 
     if gen.min_enum && fields.len() > 100 {
         fields.clear();

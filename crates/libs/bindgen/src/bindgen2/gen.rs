@@ -18,16 +18,16 @@ impl<'a> Gen<'a> {
     pub fn new(reader: &'a Reader) -> Self {
         Self {
             reader,
-            namespace:"",
+            namespace: "",
             sys: false,
             flatten: false,
-            cfg:false,
-            doc:false,
-            min_enum:false,
-            min_inherit:false,
+            cfg: false,
+            doc: false,
+            min_enum: false,
+            min_inherit: false,
             min_xaml: false,
-            windows_extern:false,
-            component:false,
+            windows_extern: false,
+            component: false,
         }
     }
 
@@ -69,7 +69,7 @@ impl<'a> Gen<'a> {
         } else {
             let mut namespace = self.namespace(type_name.namespace);
             let name = to_ident(type_name.name);
-    
+
             if generics.is_empty() || self.sys {
                 namespace.combine(&name);
                 namespace
@@ -79,7 +79,7 @@ impl<'a> Gen<'a> {
                 } else {
                     quote! {}
                 };
-    
+
                 let generics = generics.iter().map(|ty| self.type_name(ty));
                 quote! { #namespace #name #colon_separated<#(#generics),*> }
             }
@@ -95,7 +95,7 @@ impl<'a> Gen<'a> {
             self.type_default_name(ty)
         } else {
             let kind = self.type_name(ty);
-    
+
             if self.reader.type_is_generic(ty) {
                 quote! { <#kind as ::windows::core::RuntimeType>::DefaultType }
             } else if self.reader.type_is_nullable(ty) && !self.sys {
@@ -106,7 +106,7 @@ impl<'a> Gen<'a> {
         }
     }
 
-    pub(crate)fn type_name(&self, ty:&Type) -> TokenStream {
+    pub(crate) fn type_name(&self, ty: &Type) -> TokenStream {
         match ty {
             Type::Void => quote! { ::core::ffi::c_void },
             Type::Bool => quote! { bool },
@@ -341,7 +341,7 @@ impl<'a> Gen<'a> {
             }
         }
         self.reader.type_def_name(def).to_string()
-    }    
+    }
     pub fn value(&self, value: &Value) -> TokenStream {
         match value {
             Value::Bool(value) => quote! { #value },
@@ -361,7 +361,7 @@ impl<'a> Gen<'a> {
                 for u in value.chars() {
                     tokens.push_str(&format!("{}", u.escape_default()));
                 }
-            
+
                 tokens.push('\"');
                 tokens.into()
             }
@@ -388,10 +388,10 @@ impl<'a> Gen<'a> {
             _ => unimplemented!(),
         }
     }
-    
+
     pub fn guid(&self, value: &GUID) -> TokenStream {
         let guid = self.type_name(&Type::GUID);
-    
+
         if self.sys {
             let a = Literal::u32_unsuffixed(value.0);
             let b = Literal::u16_unsuffixed(value.1);
@@ -404,7 +404,7 @@ impl<'a> Gen<'a> {
             let i = Literal::u8_unsuffixed(value.8);
             let j = Literal::u8_unsuffixed(value.9);
             let k = Literal::u8_unsuffixed(value.10);
-    
+
             quote! {
                 #guid { data1:#a, data2:#b, data3:#c, data4:[#d, #e, #f, #g, #h, #i, #j, #k] }
             }
@@ -449,7 +449,7 @@ fn to_feature(name: &str) -> String {
     feature
 }
 
-pub fn cfg_features<'a>(cfg:&'a Cfg, namespace: &'a str) -> Vec<&'a str> {
+pub fn cfg_features<'a>(cfg: &'a Cfg, namespace: &'a str) -> Vec<&'a str> {
     let mut compact = Vec::<&'static str>::new();
     for feature in cfg.types.keys() {
         if !feature.is_empty() && !starts_with(namespace, feature) {

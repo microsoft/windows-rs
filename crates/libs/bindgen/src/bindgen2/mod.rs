@@ -1,18 +1,20 @@
-mod gen;
-mod extensions;
-mod replacements;
+mod com_methods;
 mod enums;
-mod structs;
+mod extensions;
+mod gen;
 mod handles;
 mod interfaces;
 mod method_names;
+mod replacements;
+mod structs;
+mod winrt_methods;
 pub use gen::*;
 use metadata::reader2::*;
-use tokens::*;
 use method_names::*;
 use std::collections::*;
+use tokens::*;
 
-pub fn define(gen:&Gen, name: &str) -> String {
+pub fn define(gen: &Gen, name: &str) -> String {
     let mut tokens = String::new();
     let type_name = TypeName::parse(name);
 
