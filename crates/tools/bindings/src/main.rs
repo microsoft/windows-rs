@@ -69,7 +69,7 @@ fn main() -> std::io::Result<()> {
     
         let reader = &metadata::reader2::Reader::new(&files);
 
-    let mut gen = bindgen::bindgen2::Gen::new(reader);
+    let gen = &mut bindgen::bindgen2::Gen::new(reader);
     gen.namespace = "Windows."; // TODO: why? this seems like a hack
     gen.min_enum = true;
     gen.min_inherit = true;
@@ -78,7 +78,7 @@ fn main() -> std::io::Result<()> {
     let mut tokens = String::new();
 
     for name in types {
-        tokens += &bindgen::bindgen2::define(name, &gen);
+        tokens += &bindgen::bindgen2::define(gen, name);
     }
 
     let path = std::path::Path::new("crates/libs/windows/src/core/bindings.rs");

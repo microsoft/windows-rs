@@ -30,7 +30,7 @@ fn gen_win_interface(gen: &Gen, def: TypeDef) -> TokenStream {
             if let Some(guid) = gen.reader.type_def_guid(def) {
                 let value = gen.guid(&guid);
                 let guid = gen.type_name(&Type::GUID);
-                return quote! { pub const #name: #guid = #value; };
+                return quote! { pub const #ident: #guid = #value; };
             }    
         }
     }
@@ -52,14 +52,14 @@ fn gen_win_interface(gen: &Gen, def: TypeDef) -> TokenStream {
     tokens.combine(&quote! {
         #features
         #[repr(transparent)]
-        pub struct #name(::windows::core::IUnknown, #phantoms) where #constraints;
+        pub struct #ident(::windows::core::IUnknown, #phantoms) where #constraints;
     });
 
     if !is_exclusive {
         let methods = gen_methods(gen, def, &generics);
         tokens.combine(&quote! {
             #features
-            impl<#constraints> #name {
+            impl<#constraints> #ident {
                 #methods
             }
         });
@@ -77,7 +77,7 @@ fn gen_win_interface(gen: &Gen, def: TypeDef) -> TokenStream {
     // tokens.combine(&gen_vtbl(def, &cfg, gen));
     // tokens
 
-    " ".into()
+    tokens
 }
 
 fn gen_methods(gen: &Gen, def: TypeDef, generics: &[Type]) -> TokenStream {
