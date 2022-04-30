@@ -118,7 +118,6 @@ jobs:
     yml.push_str(
         r#"
       if: matrix.version == 'nightly'
-      continue-on-error: true # Temporary until https://github.com/rust-lang/rust/issues/96423 is resolved
 
     - name: Check import libs
       shell: pwsh
