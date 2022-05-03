@@ -66,7 +66,7 @@ fn identity() -> Result<()> {
         }
         {
             let a: IInspectable = Test::new("test").into();
-            assert_eq!(a.GetRuntimeClassName()?, "");
+            assert_eq!(a.GetRuntimeClassName()?, "Windows.Foundation.IStringable");
 
             let b: IStringable = a.cast()?;
             let c: IInspectable = b.into();
@@ -77,7 +77,7 @@ fn identity() -> Result<()> {
             assert_eq!(e.GetRuntimeClassName()?, "Windows.Foundation.IClosable");
 
             let f: IInspectable = e.cast()?;
-            assert_eq!(f.GetRuntimeClassName()?, "");
+            assert_eq!(f.GetRuntimeClassName()?, "Windows.Foundation.IStringable");
         }
         assert_eq!(COUNTER, 0);
         Ok(())

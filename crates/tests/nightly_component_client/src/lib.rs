@@ -10,5 +10,11 @@ fn test() -> Result<()> {
     let class = Class::new()?;
     class.SetProperty(123)?;
     assert_eq!(class.Property()?, 123);
+
+    let inspectable: IInspectable = class.cast()?;
+    assert_eq!(inspectable.GetRuntimeClassName()?, "test_nightly_component.Class");
+
+    let inspectable: IInspectable = class.into();
+    assert_eq!(inspectable.GetRuntimeClassName()?, "test_nightly_component.IClass");
     Ok(())
 }
