@@ -43,9 +43,7 @@ unsafe impl RuntimeType for IInspectable {
     }
 }
 
-impl RuntimeName for IInspectable {
-    const NAME: &'static str = "";
-}
+impl RuntimeName for IInspectable {}
 
 impl core::fmt::Debug for IInspectable {
     fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
