@@ -175,7 +175,6 @@ jobs:
         cargo test --target ${{ matrix.target }} -p test_nightly_vector &&
         cargo test --target ${{ matrix.target }} -p test_nightly_winrt 
       if: matrix.version == 'nightly'
-      continue-on-error: true # Temporary until https://github.com/rust-lang/rust/issues/96423 is resolved
 
     - name: Check import libs
       shell: pwsh
