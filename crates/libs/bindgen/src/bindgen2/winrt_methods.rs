@@ -19,37 +19,37 @@ pub fn gen(gen: &Gen, def: TypeDef, generics: &[Type], kind: InterfaceKind, meth
     cfg.add_feature(interface_name.namespace);
     let doc = gen.cfg_doc(&cfg);
     let features = gen.cfg_features(&cfg);
-    // let args = params.iter().map(gen_winrt_abi_arg);
-    // let params = gen_winrt_params(params, gen);
+    let args = gen_winrt_abi_args(gen, params);
+    let params = gen_winrt_params(gen, params);
 
-    // let return_type_tokens = if let Some(return_type) = &signature.return_type {
-    //     let tokens = gen_element_name(return_type, gen);
-    //     if return_type.is_winrt_array() {
-    //         quote! { ::windows::core::Array<#tokens> }
-    //     } else {
-    //         quote! { #tokens }
-    //     }
-    // } else {
-    //     quote! { () }
-    // };
+    let return_type_tokens = if let Some(return_type) = &signature.return_type {
+        let tokens = gen.type_name(return_type);
+        if gen.reader.type_is_winrt_array(return_type) {
+            quote! { ::windows::core::Array<#tokens> }
+        } else {
+            quote! { #tokens }
+        }
+    } else {
+        quote! { () }
+    };
 
-    // let return_arg = if let Some(return_type) = &signature.return_type {
-    //     if return_type.is_winrt_array() {
-    //         let return_type = gen_element_name(return_type, gen);
-    //         quote! { ::windows::core::Array::<#return_type>::set_abi_len(&mut result__), &mut result__ as *mut _ as _ }
-    //     } else {
-    //         quote! { &mut result__ }
-    //     }
-    // } else {
-    //     quote! {}
-    // };
+    let return_arg = if let Some(return_type) = &signature.return_type {
+        if gen.reader.type_is_winrt_array(return_type) {
+            let return_type = gen.type_name(return_type);
+            quote! { ::windows::core::Array::<#return_type>::set_abi_len(&mut result__), &mut result__ as *mut _ as _ }
+        } else {
+            quote! { &mut result__ }
+        }
+    } else {
+        quote! {}
+    };
 
-    // let composable_args = match kind {
-    //     InterfaceKind::Composable => quote! {
-    //         ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _,
-    //     },
-    //     _ => quote! {},
-    // };
+    let composable_args = match kind {
+        InterfaceKind::Composable => quote! {
+            ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _,
+        },
+        _ => quote! {},
+    };
 
     // let (vcall, vcall_none) = if let Some(return_type) = &signature.return_type {
     //     if return_type.is_winrt_array() {
@@ -141,59 +141,64 @@ pub fn gen(gen: &Gen, def: TypeDef, generics: &[Type], kind: InterfaceKind, meth
     " ".into()
 }
 
-// pub fn gen_winrt_params(params: &[MethodParam], gen: &Gen) -> TokenStream {
-//     let mut result = quote! {};
+pub fn gen_winrt_params(gen: &Gen, params: &[SignatureParam]) -> TokenStream {
+    let mut result = quote! {};
 
-//     for (position, param) in params.iter().enumerate() {
-//         let name = gen_param_name(&param.def);
-//         let kind = gen_element_name(&param.ty, gen);
-//         let default_type = gen_default_type(&param.ty, gen);
+    for (position, param) in params.iter().enumerate() {
+        let name = to_ident(&gen.reader.param_name(param.def).to_lowercase());
+        let kind = gen.type_name(&param.ty);
+        let default_type = gen.type_default_name(&param.ty);
 
-//         if param.def.flags().input() {
-//             if param.ty.is_winrt_array() {
-//                 result.combine(&quote! { #name: &[#default_type], });
-//             } else if param.is_convertible() {
-//                 let kind: TokenStream = format!("Param{}", position).into();
-//                 result.combine(&quote! { #name: #kind, });
-//             } else {
-//                 result.combine(&quote! { #name: #kind, });
-//             }
-//         } else if param.ty.is_winrt_array() {
-//             result.combine(&quote! { #name: &mut [#default_type], });
-//         } else if param.ty.is_winrt_array_ref() {
-//             result.combine(&quote! { #name: &mut ::windows::core::Array<#kind>, });
-//         } else {
-//             result.combine(&quote! { #name: &mut #default_type, });
-//         }
-//     }
+        if gen.reader.param_flags(param.def).input() {
+            if gen.reader.type_is_winrt_array(&param.ty) {
+                result.combine(&quote! { #name: &[#default_type], });
+            } else if gen.reader.signature_param_is_convertible(param) {
+                let kind: TokenStream = format!("Param{}", position).into();
+                result.combine(&quote! { #name: #kind, });
+            } else {
+                result.combine(&quote! { #name: #kind, });
+            }
+        } else if gen.reader.type_is_winrt_array(&param.ty) {
+            result.combine(&quote! { #name: &mut [#default_type], });
+        } else if gen.reader.type_is_winrt_array_ref(&param.ty) {
+            result.combine(&quote! { #name: &mut ::windows::core::Array<#kind>, });
+        } else {
+            result.combine(&quote! { #name: &mut #default_type, });
+        }
+    }
 
-//     result
-// }
+    result
+}
 
-// pub fn gen_winrt_abi_arg(param: &MethodParam) -> TokenStream {
-//     let name = gen_param_name(&param.def);
+pub fn gen_winrt_abi_args(gen: &Gen, params: &[SignatureParam]) -> TokenStream {
+    let mut tokens = TokenStream::new();
+    for param in params {
+        let name = to_ident(&gen.reader.param_name(param.def).to_lowercase());
 
-//     if param.def.flags().input() {
-//         if param.ty.is_winrt_array() {
-//             quote! { #name.len() as u32, ::core::mem::transmute(#name.as_ptr()) }
-//         } else if param.is_convertible() {
-//             if param.ty.is_winrt_const_ref() {
-//                 quote! { &#name.into_param().abi() }
-//             } else {
-//                 quote! { #name.into_param().abi() }
-//             }
-//         } else if param.ty.is_blittable() {
-//             quote! { #name }
-//         } else {
-//             quote! { ::core::mem::transmute_copy(#name) }
-//         }
-//     } else if param.ty.is_winrt_array() {
-//         quote! { #name.len() as u32, ::core::mem::transmute_copy(&#name) }
-//     } else if param.ty.is_winrt_array_ref() {
-//         quote! { #name.set_abi_len(), #name as *mut _ as _ }
-//     } else if param.ty.is_blittable() {
-//         quote! { #name }
-//     } else {
-//         quote! { #name as *mut _ as _ }
-//     }
-// }
+        let param = if gen.reader.param_flags(param.def).input() {
+            if gen.reader.type_is_winrt_array(&param.ty) {
+                quote! { #name.len() as u32, ::core::mem::transmute(#name.as_ptr()) }
+            } else if gen.reader.signature_param_is_convertible(param) {
+                if gen.reader.type_is_winrt_const_ref(&param.ty) {
+                    quote! { &#name.into_param().abi() }
+                } else {
+                    quote! { #name.into_param().abi() }
+                }
+            } else if gen.reader.type_is_blittable(&param.ty) {
+                quote! { #name }
+            } else {
+                quote! { ::core::mem::transmute_copy(#name) }
+            }
+        } else if gen.reader.type_is_winrt_array(&param.ty) {
+            quote! { #name.len() as u32, ::core::mem::transmute_copy(&#name) }
+        } else if gen.reader.type_is_winrt_array_ref(&param.ty) {
+            quote! { #name.set_abi_len(), #name as *mut _ as _ }
+        } else if gen.reader.type_is_blittable(&param.ty)  {
+            quote! { #name }
+        } else {
+            quote! { #name as *mut _ as _ }
+        };
+        tokens.combine(&param);
+    }
+    tokens
+}

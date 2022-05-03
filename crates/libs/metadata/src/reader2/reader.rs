@@ -1026,7 +1026,7 @@ impl<'a> Reader<'a> {
             _ => 4,
         }
     }
-    fn type_is_blittable(&self, ty: &Type) -> bool {
+    pub fn type_is_blittable(&self, ty: &Type) -> bool {
         match ty {
             Type::TypeDef((row, _)) => self.type_def_is_blittable(*row),
             Type::String | Type::IInspectable | Type::IUnknown | Type::GenericParam(_) => false,
