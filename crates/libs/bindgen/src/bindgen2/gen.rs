@@ -476,6 +476,31 @@ impl<'a> Gen<'a> {
             format!("{}::from_u128(0x{:08x?}_{:04x?}_{:04x?}_{:02x?}{:02x?}_{:02x?}{:02x?}{:02x?}{:02x?}{:02x?}{:02x?})", guid.into_string(), value.0, value.1, value.2, value.3, value.4, value.5, value.6, value.7, value.8, value.9, value.10).into()
         }
     }
+    pub fn interface_traits(&self, def: TypeDef, generics: &[Type], ident: &TokenStream, constraints: &TokenStream, phantoms: &TokenStream, features: &TokenStream) -> TokenStream {
+        let name = ident.as_str();
+        quote! {
+            #features
+            impl<#constraints> ::core::clone::Clone for #ident {
+                fn clone(&self) -> Self {
+                    Self(self.0.clone(), #phantoms)
+                }
+            }
+            #features
+            impl<#constraints> ::core::cmp::PartialEq for #ident {
+                fn eq(&self, other: &Self) -> bool {
+                    self.0 == other.0
+                }
+            }
+            #features
+            impl<#constraints> ::core::cmp::Eq for #ident {}
+            #features
+            impl<#constraints> ::core::fmt::Debug for #ident {
+                fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+                    f.debug_tuple(#name).field(&self.0).finish()
+                }
+            }
+        }
+    }
 }
 
 pub fn to_ident(name: &str) -> TokenStream {

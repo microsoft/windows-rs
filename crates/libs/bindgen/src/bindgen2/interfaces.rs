@@ -65,7 +65,7 @@ fn gen_win_interface(gen: &Gen, def: TypeDef) -> TokenStream {
         });
 
         tokens.combine(&gen_conversions(gen, def, &generics, & ident, &constraints, &cfg));
-        //     tokens.combine(&gen_std_traits(gen, def, &cfg, gen));
+        tokens.combine(&gen.interface_traits(def, &generics, &ident, &constraints, &phantoms, &features));
         //     tokens.combine(&gen_runtime_trait(gen, def, &cfg, gen));
         //     tokens.combine(&gen_async(gen, def, &cfg, gen));
         //     tokens.combine(&gen_iterator(gen, def, &cfg, gen));
