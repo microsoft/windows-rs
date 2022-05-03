@@ -64,7 +64,7 @@ fn gen_win_interface(gen: &Gen, def: TypeDef) -> TokenStream {
             }
         });
 
-        //     tokens.combine(&gen_conversions(gen, def, &cfg, gen));
+        tokens.combine(&gen_conversions(gen, def, &generics, & ident, &constraints, &cfg));
         //     tokens.combine(&gen_std_traits(gen, def, &cfg, gen));
         //     tokens.combine(&gen_runtime_trait(gen, def, &cfg, gen));
         //     tokens.combine(&gen_async(gen, def, &cfg, gen));
@@ -122,89 +122,87 @@ fn gen_methods(gen: &Gen, def: TypeDef, generics: &[Type]) -> TokenStream {
     methods
 }
 
-// fn gen_conversions(gen: &Gen, def: TypeDef, cfg: &Cfg) -> TokenStream {
-//     let name = gen_type_ident(def, gen);
-//     let constraints = gen_type_constraints(def, gen);
-//     let mut tokens = quote! {};
+fn gen_conversions(gen: &Gen, def: TypeDef, generics: &[Type], name: &TokenStream, constraints: &TokenStream, cfg: &Cfg) -> TokenStream {
+    let mut tokens = quote! {};
 
-//     for def in def.vtable_types() {
-//         let into = gen_element_name(&def, gen);
-//         let cfg = gen.cfg(&cfg.union(&def.cfg()));
-//         tokens.combine(&quote! {
-//             #cfg
-//             impl<#(#constraints)*> ::core::convert::From<#name> for #into {
-//                 fn from(value: #name) -> Self {
-//                     unsafe { ::core::mem::transmute(value) }
-//                 }
-//             }
-//             #cfg
-//             impl<#(#constraints)*> ::core::convert::From<&#name> for #into {
-//                 fn from(value: &#name) -> Self {
-//                     ::core::convert::From::from(::core::clone::Clone::clone(value))
-//                 }
-//             }
-//             #cfg
-//             impl<'a, #(#constraints)*> ::windows::core::IntoParam<'a, #into> for #name {
-//                 fn into_param(self) -> ::windows::core::Param<'a, #into> {
-//                     ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-//                 }
-//             }
-//             #cfg
-//             impl<'a, #(#constraints)*> ::windows::core::IntoParam<'a, #into> for &'a #name {
-//                 fn into_param(self) -> ::windows::core::Param<'a, #into> {
-//                     ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-//                 }
-//             }
-//         });
-//     }
+    for ty in &gen.reader.type_def_vtables(def) {
+        let into = gen.type_name(ty);
+        let cfg = gen.cfg_features(&cfg.union(&gen.reader.type_cfg(ty)));
+        tokens.combine(&quote! {
+            #cfg
+            impl<#constraints> ::core::convert::From<#name> for #into {
+                fn from(value: #name) -> Self {
+                    unsafe { ::core::mem::transmute(value) }
+                }
+            }
+            #cfg
+            impl<#constraints> ::core::convert::From<&#name> for #into {
+                fn from(value: &#name) -> Self {
+                    ::core::convert::From::from(::core::clone::Clone::clone(value))
+                }
+            }
+            #cfg
+            impl<'a, #constraints> ::windows::core::IntoParam<'a, #into> for #name {
+                fn into_param(self) -> ::windows::core::Param<'a, #into> {
+                    ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+                }
+            }
+            #cfg
+            impl<'a, #constraints> ::windows::core::IntoParam<'a, #into> for &'a #name {
+                fn into_param(self) -> ::windows::core::Param<'a, #into> {
+                    ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+                }
+            }
+        });
+    }
 
-//     if def.is_winrt() {
-//         for def in def.required_interfaces() {
-//             let into = gen_type_name(&def, gen);
-//             let cfg = gen.cfg(&cfg.union(&def.cfg()));
-//             tokens.combine(&quote! {
-//                 #cfg
-//                 impl<#(#constraints)*> ::core::convert::TryFrom<#name> for #into {
-//                     type Error = ::windows::core::Error;
-//                     fn try_from(value: #name) -> ::windows::core::Result<Self> {
-//                         ::core::convert::TryFrom::try_from(&value)
-//                     }
-//                 }
-//                 #cfg
-//                 impl<#(#constraints)*> ::core::convert::TryFrom<&#name> for #into {
-//                     type Error = ::windows::core::Error;
-//                     fn try_from(value: &#name) -> ::windows::core::Result<Self> {
-//                         ::windows::core::Interface::cast(value)
-//                     }
-//                 }
-//                 #cfg
-//                 impl<'a, #(#constraints)*> ::windows::core::IntoParam<'a, #into> for #name {
-//                     fn into_param(self) -> ::windows::core::Param<'a, #into> {
-//                         ::windows::core::IntoParam::into_param(&self)
-//                     }
-//                 }
-//                 #cfg
-//                 impl<'a, #(#constraints)*> ::windows::core::IntoParam<'a, #into> for &#name {
-//                     fn into_param(self) -> ::windows::core::Param<'a, #into> {
-//                         ::core::convert::TryInto::<#into>::try_into(self)
-//                             .map(::windows::core::Param::Owned)
-//                             .unwrap_or(::windows::core::Param::None)
-//                     }
-//                 }
-//             });
-//         }
-//     }
+    if gen.reader.type_def_flags(def).winrt() {
+        for interface in gen.reader.type_def_interfaces(def, generics) {
+            let into = gen.type_name(&interface.ty);
+            let cfg = gen.cfg_features(&cfg.union(&gen.reader.type_cfg(&interface.ty)));
+            tokens.combine(&quote! {
+                #cfg
+                impl<#constraints> ::core::convert::TryFrom<#name> for #into {
+                    type Error = ::windows::core::Error;
+                    fn try_from(value: #name) -> ::windows::core::Result<Self> {
+                        ::core::convert::TryFrom::try_from(&value)
+                    }
+                }
+                #cfg
+                impl<#constraints> ::core::convert::TryFrom<&#name> for #into {
+                    type Error = ::windows::core::Error;
+                    fn try_from(value: &#name) -> ::windows::core::Result<Self> {
+                        ::windows::core::Interface::cast(value)
+                    }
+                }
+                #cfg
+                impl<'a, #constraints> ::windows::core::IntoParam<'a, #into> for #name {
+                    fn into_param(self) -> ::windows::core::Param<'a, #into> {
+                        ::windows::core::IntoParam::into_param(&self)
+                    }
+                }
+                #cfg
+                impl<'a, #constraints> ::windows::core::IntoParam<'a, #into> for &#name {
+                    fn into_param(self) -> ::windows::core::Param<'a, #into> {
+                        ::core::convert::TryInto::<#into>::try_into(self)
+                            .map(::windows::core::Param::Owned)
+                            .unwrap_or(::windows::core::Param::None)
+                    }
+                }
+            });
+        }
+    }
 
-//     tokens
-// }
+    tokens
+}
 
 // fn gen_agile(gen: &Gen, def: TypeDef) -> TokenStream {
 //     if def.type_name() == TypeName::IRestrictedErrorInfo || def.async_kind() != AsyncKind::None {
 //         let name = gen_type_ident(def, gen);
 //         let constraints = gen_type_constraints(def, gen);
 //         quote! {
-//             unsafe impl<#(#constraints)*> ::core::marker::Send for #name {}
-//             unsafe impl<#(#constraints)*> ::core::marker::Sync for #name {}
+//             unsafe impl<#constraints> ::core::marker::Send for #name {}
+//             unsafe impl<#constraints> ::core::marker::Sync for #name {}
 //         }
 //     } else {
 //         TokenStream::new()

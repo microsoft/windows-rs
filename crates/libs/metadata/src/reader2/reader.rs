@@ -922,7 +922,7 @@ impl<'a> Reader<'a> {
             }
         }
     }
-    fn type_cfg(&self, ty:&Type) -> Cfg {
+    pub fn type_cfg(&self, ty:&Type) -> Cfg {
         let mut cfg = Cfg::default();
         self.type_cfg_combine(ty, &mut cfg);
         cfg
