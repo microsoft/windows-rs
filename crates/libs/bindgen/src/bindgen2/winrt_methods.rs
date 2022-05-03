@@ -12,11 +12,11 @@ pub fn gen(gen: &Gen, def: TypeDef, generics: &[Type], kind: InterfaceKind, meth
         (name, name_compose)
     };
 
-    let interface_name = gen.reader.type_def_type_name(def);
+    let interface_name = gen.type_def_name(def, generics);
     let vname = virtual_names.add(gen, method);
     let constraints = gen.param_constraints(params);
     let mut cfg = gen.reader.method_def_cfg(method);
-    cfg.add_feature(interface_name.namespace);
+    cfg.add_feature(gen.reader.type_def_namespace(def));
     let doc = gen.cfg_doc(&cfg);
     let features = gen.cfg_features(&cfg);
     let args = gen_winrt_abi_args(gen, params);
@@ -51,94 +51,91 @@ pub fn gen(gen: &Gen, def: TypeDef, generics: &[Type], kind: InterfaceKind, meth
         _ => quote! {},
     };
 
-    // let (vcall, vcall_none) = if let Some(return_type) = &signature.return_type {
-    //     if return_type.is_winrt_array() {
-    //         (
-    //             quote! {
-    //                 let mut result__: #return_type_tokens = ::core::mem::zeroed();
-    //                 (::windows::core::Interface::vtable(this).#vname)(::core::mem::transmute_copy(this), #(#args,)* #composable_args #return_arg)
-    //                     .and_then(|| result__ )
-    //             },
-    //             quote! {},
-    //         )
-    //     } else {
-    //         let abi_type_name = gen_abi_element_name(return_type, gen);
-    //         let args = quote! { #(#args,)* };
+    let (vcall, vcall_none) = if let Some(return_type) = &signature.return_type {
+        if gen.reader.type_is_winrt_array(return_type) {
+            (
+                quote! {
+                    let mut result__: #return_type_tokens = ::core::mem::zeroed();
+                    (::windows::core::Interface::vtable(this).#vname)(::core::mem::transmute_copy(this), #args #composable_args #return_arg)
+                        .and_then(|| result__ )
+                },
+                quote! {},
+            )
+        } else {
+            let abi_type_name = gen.type_abi_name(return_type);
 
-    //         (
-    //             quote! {
-    //                 let mut result__: #abi_type_name = ::core::mem::zeroed();
-    //                     (::windows::core::Interface::vtable(this).#vname)(::core::mem::transmute_copy(this), #args #composable_args #return_arg)
-    //                         .from_abi::<#return_type_tokens>(result__ )
-    //             },
-    //             quote! {
-    //                 let mut result__: #abi_type_name = ::core::mem::zeroed();
-    //                     (::windows::core::Interface::vtable(this).#vname)(::core::mem::transmute_copy(this), #args ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, #return_arg)
-    //                         .from_abi::<#return_type_tokens>(result__ )
-    //             },
-    //         )
-    //     }
-    // } else {
-    //     (
-    //         quote! {
-    //             (::windows::core::Interface::vtable(this).#vname)(::core::mem::transmute_copy(this), #(#args,)* #composable_args).ok()
-    //         },
-    //         quote! {},
-    //     )
-    // };
+            (
+                quote! {
+                    let mut result__: #abi_type_name = ::core::mem::zeroed();
+                        (::windows::core::Interface::vtable(this).#vname)(::core::mem::transmute_copy(this), #args #composable_args #return_arg)
+                            .from_abi::<#return_type_tokens>(result__ )
+                },
+                quote! {
+                    let mut result__: #abi_type_name = ::core::mem::zeroed();
+                        (::windows::core::Interface::vtable(this).#vname)(::core::mem::transmute_copy(this), #args ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, #return_arg)
+                            .from_abi::<#return_type_tokens>(result__ )
+                },
+            )
+        }
+    } else {
+        (
+            quote! {
+                (::windows::core::Interface::vtable(this).#vname)(::core::mem::transmute_copy(this), #args #composable_args).ok()
+            },
+            quote! {},
+        )
+    };
 
-    // match kind {
-    //     InterfaceKind::Default => quote! {
-    //         #doc
-    //         #features
-    //         pub fn #name<#constraints>(&self, #params) -> ::windows::core::Result<#return_type_tokens> {
-    //             let this = self;
-    //             unsafe {
-    //                 #vcall
-    //             }
-    //         }
-    //     },
-    //     InterfaceKind::NonDefault | InterfaceKind::Base => {
-    //         quote! {
-    //             #doc
-    //             #features
-    //             pub fn #name<#constraints>(&self, #params) -> ::windows::core::Result<#return_type_tokens> {
-    //                 let this = &::windows::core::Interface::cast::<#interface_name>(self)?;
-    //                 unsafe {
-    //                     #vcall
-    //                 }
-    //             }
-    //         }
-    //     }
-    //     InterfaceKind::Static => {
-    //         quote! {
-    //             #doc
-    //             #features
-    //             pub fn #name<#constraints>(#params) -> ::windows::core::Result<#return_type_tokens> {
-    //                 Self::#interface_name(|this| unsafe { #vcall })
-    //             }
-    //         }
-    //     }
-    //     InterfaceKind::Composable => {
-    //         quote! {
-    //             #doc
-    //             #features
-    //             pub fn #name<#constraints>(#params) -> ::windows::core::Result<#return_type_tokens> {
-    //                 Self::#interface_name(|this| unsafe { #vcall_none })
-    //             }
-    //             #doc
-    //             #features
-    //             pub fn #name_compose<#constraints T: ::windows::core::Compose>(#params  compose: T) -> ::windows::core::Result<#return_type_tokens> {
-    //                 Self::#interface_name(|this| unsafe {
-    //                     let (derived__, base__) = ::windows::core::Compose::compose(compose);
-    //                     #vcall
-    //                 })
-    //             }
-    //         }
-    //     }
-    // }
-
-    " ".into()
+    match kind {
+        InterfaceKind::Default => quote! {
+            #doc
+            #features
+            pub fn #name<#constraints>(&self, #params) -> ::windows::core::Result<#return_type_tokens> {
+                let this = self;
+                unsafe {
+                    #vcall
+                }
+            }
+        },
+        InterfaceKind::None | InterfaceKind::Base | InterfaceKind::Overridable => {
+            quote! {
+                #doc
+                #features
+                pub fn #name<#constraints>(&self, #params) -> ::windows::core::Result<#return_type_tokens> {
+                    let this = &::windows::core::Interface::cast::<#interface_name>(self)?;
+                    unsafe {
+                        #vcall
+                    }
+                }
+            }
+        }
+        InterfaceKind::Static => {
+            quote! {
+                #doc
+                #features
+                pub fn #name<#constraints>(#params) -> ::windows::core::Result<#return_type_tokens> {
+                    Self::#interface_name(|this| unsafe { #vcall })
+                }
+            }
+        }
+        InterfaceKind::Composable => {
+            quote! {
+                #doc
+                #features
+                pub fn #name<#constraints>(#params) -> ::windows::core::Result<#return_type_tokens> {
+                    Self::#interface_name(|this| unsafe { #vcall_none })
+                }
+                #doc
+                #features
+                pub fn #name_compose<#constraints T: ::windows::core::Compose>(#params  compose: T) -> ::windows::core::Result<#return_type_tokens> {
+                    Self::#interface_name(|this| unsafe {
+                        let (derived__, base__) = ::windows::core::Compose::compose(compose);
+                        #vcall
+                    })
+                }
+            }
+        }
+    }
 }
 
 pub fn gen_winrt_params(gen: &Gen, params: &[SignatureParam]) -> TokenStream {
