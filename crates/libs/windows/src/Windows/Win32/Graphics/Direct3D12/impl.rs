@@ -1,6 +1,7 @@
 pub trait ID3D12CommandAllocator_Impl: Sized + ID3D12Object_Impl + ID3D12DeviceChild_Impl + ID3D12Pageable_Impl {
     fn Reset(&self) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for ID3D12CommandAllocator {}
 impl ID3D12CommandAllocator_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12CommandAllocator_Impl, const OFFSET: isize>() -> ID3D12CommandAllocator_Vtbl {
         unsafe extern "system" fn Reset<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12CommandAllocator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -17,6 +18,7 @@ impl ID3D12CommandAllocator_Vtbl {
 pub trait ID3D12CommandList_Impl: Sized + ID3D12Object_Impl + ID3D12DeviceChild_Impl {
     fn GetType(&self) -> D3D12_COMMAND_LIST_TYPE;
 }
+impl ::windows::core::RuntimeName for ID3D12CommandList {}
 impl ID3D12CommandList_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12CommandList_Impl, const OFFSET: isize>() -> ID3D12CommandList_Vtbl {
         unsafe extern "system" fn GetType<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12CommandList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> D3D12_COMMAND_LIST_TYPE {
@@ -44,6 +46,8 @@ pub trait ID3D12CommandQueue_Impl: Sized + ID3D12Object_Impl + ID3D12DeviceChild
     fn GetClockCalibration(&self, pgputimestamp: *mut u64, pcputimestamp: *mut u64) -> ::windows::core::Result<()>;
     fn GetDesc(&self) -> D3D12_COMMAND_QUEUE_DESC;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for ID3D12CommandQueue {}
 #[cfg(feature = "Win32_Foundation")]
 impl ID3D12CommandQueue_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12CommandQueue_Impl, const OFFSET: isize>() -> ID3D12CommandQueue_Vtbl {
@@ -128,6 +132,7 @@ impl ID3D12CommandQueue_Vtbl {
     }
 }
 pub trait ID3D12CommandSignature_Impl: Sized + ID3D12Object_Impl + ID3D12DeviceChild_Impl + ID3D12Pageable_Impl {}
+impl ::windows::core::RuntimeName for ID3D12CommandSignature {}
 impl ID3D12CommandSignature_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12CommandSignature_Impl, const OFFSET: isize>() -> ID3D12CommandSignature_Vtbl {
         Self { base__: ID3D12Pageable_Vtbl::new::<Identity, Impl, OFFSET>() }
@@ -139,6 +144,7 @@ impl ID3D12CommandSignature_Vtbl {
 pub trait ID3D12Debug_Impl: Sized {
     fn EnableDebugLayer(&self);
 }
+impl ::windows::core::RuntimeName for ID3D12Debug {}
 impl ID3D12Debug_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12Debug_Impl, const OFFSET: isize>() -> ID3D12Debug_Vtbl {
         unsafe extern "system" fn EnableDebugLayer<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12Debug_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) {
@@ -158,6 +164,8 @@ pub trait ID3D12Debug1_Impl: Sized {
     fn SetEnableGPUBasedValidation(&self, enable: super::super::Foundation::BOOL);
     fn SetEnableSynchronizedCommandQueueValidation(&self, enable: super::super::Foundation::BOOL);
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for ID3D12Debug1 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ID3D12Debug1_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12Debug1_Impl, const OFFSET: isize>() -> ID3D12Debug1_Vtbl {
@@ -190,6 +198,7 @@ impl ID3D12Debug1_Vtbl {
 pub trait ID3D12Debug2_Impl: Sized {
     fn SetGPUBasedValidationFlags(&self, flags: D3D12_GPU_BASED_VALIDATION_FLAGS);
 }
+impl ::windows::core::RuntimeName for ID3D12Debug2 {}
 impl ID3D12Debug2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12Debug2_Impl, const OFFSET: isize>() -> ID3D12Debug2_Vtbl {
         unsafe extern "system" fn SetGPUBasedValidationFlags<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12Debug2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, flags: D3D12_GPU_BASED_VALIDATION_FLAGS) {
@@ -212,6 +221,8 @@ pub trait ID3D12Debug3_Impl: Sized + ID3D12Debug_Impl {
     fn SetEnableSynchronizedCommandQueueValidation(&self, enable: super::super::Foundation::BOOL);
     fn SetGPUBasedValidationFlags(&self, flags: D3D12_GPU_BASED_VALIDATION_FLAGS);
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for ID3D12Debug3 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ID3D12Debug3_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12Debug3_Impl, const OFFSET: isize>() -> ID3D12Debug3_Vtbl {
@@ -246,6 +257,8 @@ pub trait ID3D12Debug4_Impl: Sized + ID3D12Debug_Impl + ID3D12Debug3_Impl {
     fn DisableDebugLayer(&self);
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for ID3D12Debug4 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ID3D12Debug4_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12Debug4_Impl, const OFFSET: isize>() -> ID3D12Debug4_Vtbl {
         unsafe extern "system" fn DisableDebugLayer<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12Debug4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) {
@@ -263,6 +276,8 @@ impl ID3D12Debug4_Vtbl {
 pub trait ID3D12Debug5_Impl: Sized + ID3D12Debug_Impl + ID3D12Debug3_Impl + ID3D12Debug4_Impl {
     fn SetEnableAutoName(&self, enable: super::super::Foundation::BOOL);
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for ID3D12Debug5 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ID3D12Debug5_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12Debug5_Impl, const OFFSET: isize>() -> ID3D12Debug5_Vtbl {
@@ -283,6 +298,8 @@ pub trait ID3D12DebugCommandList_Impl: Sized {
     fn SetFeatureMask(&self, mask: D3D12_DEBUG_FEATURE) -> ::windows::core::Result<()>;
     fn GetFeatureMask(&self) -> D3D12_DEBUG_FEATURE;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for ID3D12DebugCommandList {}
 #[cfg(feature = "Win32_Foundation")]
 impl ID3D12DebugCommandList_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12DebugCommandList_Impl, const OFFSET: isize>() -> ID3D12DebugCommandList_Vtbl {
@@ -319,6 +336,8 @@ pub trait ID3D12DebugCommandList1_Impl: Sized {
     fn GetDebugParameter(&self, r#type: D3D12_DEBUG_COMMAND_LIST_PARAMETER_TYPE, pdata: *mut ::core::ffi::c_void, datasize: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for ID3D12DebugCommandList1 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ID3D12DebugCommandList1_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12DebugCommandList1_Impl, const OFFSET: isize>() -> ID3D12DebugCommandList1_Vtbl {
         unsafe extern "system" fn AssertResourceState<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12DebugCommandList1_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, presource: ::windows::core::RawPtr, subresource: u32, state: u32) -> super::super::Foundation::BOOL {
@@ -353,6 +372,8 @@ pub trait ID3D12DebugCommandList2_Impl: Sized + ID3D12DebugCommandList_Impl {
     fn GetDebugParameter(&self, r#type: D3D12_DEBUG_COMMAND_LIST_PARAMETER_TYPE, pdata: *mut ::core::ffi::c_void, datasize: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for ID3D12DebugCommandList2 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ID3D12DebugCommandList2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12DebugCommandList2_Impl, const OFFSET: isize>() -> ID3D12DebugCommandList2_Vtbl {
         unsafe extern "system" fn SetDebugParameter<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12DebugCommandList2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, r#type: D3D12_DEBUG_COMMAND_LIST_PARAMETER_TYPE, pdata: *const ::core::ffi::c_void, datasize: u32) -> ::windows::core::HRESULT {
@@ -380,6 +401,8 @@ pub trait ID3D12DebugCommandQueue_Impl: Sized {
     fn AssertResourceState(&self, presource: &::core::option::Option<ID3D12Resource>, subresource: u32, state: u32) -> super::super::Foundation::BOOL;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for ID3D12DebugCommandQueue {}
+#[cfg(feature = "Win32_Foundation")]
 impl ID3D12DebugCommandQueue_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12DebugCommandQueue_Impl, const OFFSET: isize>() -> ID3D12DebugCommandQueue_Vtbl {
         unsafe extern "system" fn AssertResourceState<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12DebugCommandQueue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, presource: ::windows::core::RawPtr, subresource: u32, state: u32) -> super::super::Foundation::BOOL {
@@ -398,6 +421,7 @@ pub trait ID3D12DebugDevice_Impl: Sized {
     fn GetFeatureMask(&self) -> D3D12_DEBUG_FEATURE;
     fn ReportLiveDeviceObjects(&self, flags: D3D12_RLDO_FLAGS) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for ID3D12DebugDevice {}
 impl ID3D12DebugDevice_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12DebugDevice_Impl, const OFFSET: isize>() -> ID3D12DebugDevice_Vtbl {
         unsafe extern "system" fn SetFeatureMask<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12DebugDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, mask: D3D12_DEBUG_FEATURE) -> ::windows::core::HRESULT {
@@ -431,6 +455,7 @@ pub trait ID3D12DebugDevice1_Impl: Sized {
     fn GetDebugParameter(&self, r#type: D3D12_DEBUG_DEVICE_PARAMETER_TYPE, pdata: *mut ::core::ffi::c_void, datasize: u32) -> ::windows::core::Result<()>;
     fn ReportLiveDeviceObjects(&self, flags: D3D12_RLDO_FLAGS) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for ID3D12DebugDevice1 {}
 impl ID3D12DebugDevice1_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12DebugDevice1_Impl, const OFFSET: isize>() -> ID3D12DebugDevice1_Vtbl {
         unsafe extern "system" fn SetDebugParameter<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12DebugDevice1_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, r#type: D3D12_DEBUG_DEVICE_PARAMETER_TYPE, pdata: *const ::core::ffi::c_void, datasize: u32) -> ::windows::core::HRESULT {
@@ -463,6 +488,7 @@ pub trait ID3D12DebugDevice2_Impl: Sized + ID3D12DebugDevice_Impl {
     fn SetDebugParameter(&self, r#type: D3D12_DEBUG_DEVICE_PARAMETER_TYPE, pdata: *const ::core::ffi::c_void, datasize: u32) -> ::windows::core::Result<()>;
     fn GetDebugParameter(&self, r#type: D3D12_DEBUG_DEVICE_PARAMETER_TYPE, pdata: *mut ::core::ffi::c_void, datasize: u32) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for ID3D12DebugDevice2 {}
 impl ID3D12DebugDevice2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12DebugDevice2_Impl, const OFFSET: isize>() -> ID3D12DebugDevice2_Vtbl {
         unsafe extern "system" fn SetDebugParameter<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12DebugDevice2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, r#type: D3D12_DEBUG_DEVICE_PARAMETER_TYPE, pdata: *const ::core::ffi::c_void, datasize: u32) -> ::windows::core::HRESULT {
@@ -490,6 +516,7 @@ pub trait ID3D12DescriptorHeap_Impl: Sized + ID3D12Object_Impl + ID3D12DeviceChi
     fn GetCPUDescriptorHandleForHeapStart(&self) -> D3D12_CPU_DESCRIPTOR_HANDLE;
     fn GetGPUDescriptorHandleForHeapStart(&self) -> D3D12_GPU_DESCRIPTOR_HANDLE;
 }
+impl ::windows::core::RuntimeName for ID3D12DescriptorHeap {}
 impl ID3D12DescriptorHeap_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12DescriptorHeap_Impl, const OFFSET: isize>() -> ID3D12DescriptorHeap_Vtbl {
         unsafe extern "system" fn GetDesc<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12DescriptorHeap_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut D3D12_DESCRIPTOR_HEAP_DESC) {
@@ -558,6 +585,8 @@ pub trait ID3D12Device_Impl: Sized + ID3D12Object_Impl {
     fn GetResourceTiling(&self, ptiledresource: &::core::option::Option<ID3D12Resource>, pnumtilesforentireresource: *mut u32, ppackedmipdesc: *mut D3D12_PACKED_MIP_INFO, pstandardtileshapefornonpackedmips: *mut D3D12_TILE_SHAPE, pnumsubresourcetilings: *mut u32, firstsubresourcetilingtoget: u32, psubresourcetilingsfornonpackedmips: *mut D3D12_SUBRESOURCE_TILING);
     fn GetAdapterLuid(&self) -> super::super::Foundation::LUID;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
+impl ::windows::core::RuntimeName for ID3D12Device {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
 impl ID3D12Device_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12Device_Impl, const OFFSET: isize>() -> ID3D12Device_Vtbl {
@@ -810,6 +839,8 @@ pub trait ID3D12Device1_Impl: Sized + ID3D12Object_Impl + ID3D12Device_Impl {
     fn SetResidencyPriority(&self, numobjects: u32, ppobjects: *const ::core::option::Option<ID3D12Pageable>, ppriorities: *const D3D12_RESIDENCY_PRIORITY) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
+impl ::windows::core::RuntimeName for ID3D12Device1 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
 impl ID3D12Device1_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12Device1_Impl, const OFFSET: isize>() -> ID3D12Device1_Vtbl {
         unsafe extern "system" fn CreatePipelineLibrary<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12Device1_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plibraryblob: *const ::core::ffi::c_void, bloblength: usize, riid: *const ::windows::core::GUID, pppipelinelibrary: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -843,6 +874,8 @@ pub trait ID3D12Device2_Impl: Sized + ID3D12Object_Impl + ID3D12Device_Impl + ID
     fn CreatePipelineState(&self, pdesc: *const D3D12_PIPELINE_STATE_STREAM_DESC, riid: *const ::windows::core::GUID, pppipelinestate: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
+impl ::windows::core::RuntimeName for ID3D12Device2 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
 impl ID3D12Device2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12Device2_Impl, const OFFSET: isize>() -> ID3D12Device2_Vtbl {
         unsafe extern "system" fn CreatePipelineState<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12Device2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdesc: *const D3D12_PIPELINE_STATE_STREAM_DESC, riid: *const ::windows::core::GUID, pppipelinestate: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -862,6 +895,8 @@ pub trait ID3D12Device3_Impl: Sized + ID3D12Object_Impl + ID3D12Device_Impl + ID
     fn OpenExistingHeapFromFileMapping(&self, hfilemapping: super::super::Foundation::HANDLE, riid: *const ::windows::core::GUID, ppvheap: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn EnqueueMakeResident(&self, flags: D3D12_RESIDENCY_FLAGS, numobjects: u32, ppobjects: *const ::core::option::Option<ID3D12Pageable>, pfencetosignal: &::core::option::Option<ID3D12Fence>, fencevaluetosignal: u64) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
+impl ::windows::core::RuntimeName for ID3D12Device3 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
 impl ID3D12Device3_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12Device3_Impl, const OFFSET: isize>() -> ID3D12Device3_Vtbl {
@@ -900,6 +935,8 @@ pub trait ID3D12Device4_Impl: Sized + ID3D12Object_Impl + ID3D12Device_Impl + ID
     fn CreateReservedResource1(&self, pdesc: *const D3D12_RESOURCE_DESC, initialstate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, pprotectedsession: &::core::option::Option<ID3D12ProtectedResourceSession>, riid: *const ::windows::core::GUID, ppvresource: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn GetResourceAllocationInfo1(&self, visiblemask: u32, numresourcedescs: u32, presourcedescs: *const D3D12_RESOURCE_DESC, presourceallocationinfo1: *mut D3D12_RESOURCE_ALLOCATION_INFO1) -> D3D12_RESOURCE_ALLOCATION_INFO;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
+impl ::windows::core::RuntimeName for ID3D12Device4 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
 impl ID3D12Device4_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12Device4_Impl, const OFFSET: isize>() -> ID3D12Device4_Vtbl {
@@ -958,6 +995,8 @@ pub trait ID3D12Device5_Impl: Sized + ID3D12Object_Impl + ID3D12Device_Impl + ID
     fn GetRaytracingAccelerationStructurePrebuildInfo(&self, pdesc: *const D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_INPUTS, pinfo: *mut D3D12_RAYTRACING_ACCELERATION_STRUCTURE_PREBUILD_INFO);
     fn CheckDriverMatchingIdentifier(&self, serializeddatatype: D3D12_SERIALIZED_DATA_TYPE, pidentifiertocheck: *const D3D12_SERIALIZED_DATA_DRIVER_MATCHING_IDENTIFIER) -> D3D12_DRIVER_MATCHING_IDENTIFIER_STATUS;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
+impl ::windows::core::RuntimeName for ID3D12Device5 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
 impl ID3D12Device5_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12Device5_Impl, const OFFSET: isize>() -> ID3D12Device5_Vtbl {
@@ -1022,6 +1061,8 @@ pub trait ID3D12Device6_Impl: Sized + ID3D12Object_Impl + ID3D12Device_Impl + ID
     fn SetBackgroundProcessingMode(&self, mode: D3D12_BACKGROUND_PROCESSING_MODE, measurementsaction: D3D12_MEASUREMENTS_ACTION, heventtosignaluponcompletion: super::super::Foundation::HANDLE) -> ::windows::core::Result<super::super::Foundation::BOOL>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
+impl ::windows::core::RuntimeName for ID3D12Device6 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
 impl ID3D12Device6_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12Device6_Impl, const OFFSET: isize>() -> ID3D12Device6_Vtbl {
         unsafe extern "system" fn SetBackgroundProcessingMode<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12Device6_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, mode: D3D12_BACKGROUND_PROCESSING_MODE, measurementsaction: D3D12_MEASUREMENTS_ACTION, heventtosignaluponcompletion: super::super::Foundation::HANDLE, pbfurthermeasurementsdesired: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
@@ -1046,6 +1087,8 @@ pub trait ID3D12Device7_Impl: Sized + ID3D12Object_Impl + ID3D12Device_Impl + ID
     fn AddToStateObject(&self, paddition: *const D3D12_STATE_OBJECT_DESC, pstateobjecttogrowfrom: &::core::option::Option<ID3D12StateObject>, riid: *const ::windows::core::GUID, ppnewstateobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn CreateProtectedResourceSession1(&self, pdesc: *const D3D12_PROTECTED_RESOURCE_SESSION_DESC1, riid: *const ::windows::core::GUID, ppsession: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
+impl ::windows::core::RuntimeName for ID3D12Device7 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
 impl ID3D12Device7_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12Device7_Impl, const OFFSET: isize>() -> ID3D12Device7_Vtbl {
@@ -1077,6 +1120,8 @@ pub trait ID3D12Device8_Impl: Sized + ID3D12Object_Impl + ID3D12Device_Impl + ID
     fn CreateSamplerFeedbackUnorderedAccessView(&self, ptargetedresource: &::core::option::Option<ID3D12Resource>, pfeedbackresource: &::core::option::Option<ID3D12Resource>, destdescriptor: &D3D12_CPU_DESCRIPTOR_HANDLE);
     fn GetCopyableFootprints1(&self, presourcedesc: *const D3D12_RESOURCE_DESC1, firstsubresource: u32, numsubresources: u32, baseoffset: u64, playouts: *mut D3D12_PLACED_SUBRESOURCE_FOOTPRINT, pnumrows: *mut u32, prowsizeinbytes: *mut u64, ptotalbytes: *mut u64);
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
+impl ::windows::core::RuntimeName for ID3D12Device8 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
 impl ID3D12Device8_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12Device8_Impl, const OFFSET: isize>() -> ID3D12Device8_Vtbl {
@@ -1125,6 +1170,8 @@ pub trait ID3D12Device9_Impl: Sized + ID3D12Object_Impl + ID3D12Device_Impl + ID
     fn CreateCommandQueue1(&self, pdesc: *const D3D12_COMMAND_QUEUE_DESC, creatorid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppcommandqueue: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
+impl ::windows::core::RuntimeName for ID3D12Device9 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
 impl ID3D12Device9_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12Device9_Impl, const OFFSET: isize>() -> ID3D12Device9_Vtbl {
         unsafe extern "system" fn CreateShaderCacheSession<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12Device9_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdesc: *const D3D12_SHADER_CACHE_SESSION_DESC, riid: *const ::windows::core::GUID, ppvsession: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -1156,6 +1203,7 @@ impl ID3D12Device9_Vtbl {
 pub trait ID3D12DeviceChild_Impl: Sized + ID3D12Object_Impl {
     fn GetDevice(&self, riid: *const ::windows::core::GUID, ppvdevice: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for ID3D12DeviceChild {}
 impl ID3D12DeviceChild_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12DeviceChild_Impl, const OFFSET: isize>() -> ID3D12DeviceChild_Vtbl {
         unsafe extern "system" fn GetDevice<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12DeviceChild_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppvdevice: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -1173,6 +1221,7 @@ pub trait ID3D12DeviceRemovedExtendedData_Impl: Sized {
     fn GetAutoBreadcrumbsOutput(&self) -> ::windows::core::Result<D3D12_DRED_AUTO_BREADCRUMBS_OUTPUT>;
     fn GetPageFaultAllocationOutput(&self) -> ::windows::core::Result<D3D12_DRED_PAGE_FAULT_OUTPUT>;
 }
+impl ::windows::core::RuntimeName for ID3D12DeviceRemovedExtendedData {}
 impl ID3D12DeviceRemovedExtendedData_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12DeviceRemovedExtendedData_Impl, const OFFSET: isize>() -> ID3D12DeviceRemovedExtendedData_Vtbl {
         unsafe extern "system" fn GetAutoBreadcrumbsOutput<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12DeviceRemovedExtendedData_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, poutput: *mut D3D12_DRED_AUTO_BREADCRUMBS_OUTPUT) -> ::windows::core::HRESULT {
@@ -1211,6 +1260,7 @@ pub trait ID3D12DeviceRemovedExtendedData1_Impl: Sized + ID3D12DeviceRemovedExte
     fn GetAutoBreadcrumbsOutput1(&self) -> ::windows::core::Result<D3D12_DRED_AUTO_BREADCRUMBS_OUTPUT1>;
     fn GetPageFaultAllocationOutput1(&self) -> ::windows::core::Result<D3D12_DRED_PAGE_FAULT_OUTPUT1>;
 }
+impl ::windows::core::RuntimeName for ID3D12DeviceRemovedExtendedData1 {}
 impl ID3D12DeviceRemovedExtendedData1_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12DeviceRemovedExtendedData1_Impl, const OFFSET: isize>() -> ID3D12DeviceRemovedExtendedData1_Vtbl {
         unsafe extern "system" fn GetAutoBreadcrumbsOutput1<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12DeviceRemovedExtendedData1_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, poutput: *mut D3D12_DRED_AUTO_BREADCRUMBS_OUTPUT1) -> ::windows::core::HRESULT {
@@ -1249,6 +1299,7 @@ pub trait ID3D12DeviceRemovedExtendedData2_Impl: Sized + ID3D12DeviceRemovedExte
     fn GetPageFaultAllocationOutput2(&self) -> ::windows::core::Result<D3D12_DRED_PAGE_FAULT_OUTPUT2>;
     fn GetDeviceState(&self) -> D3D12_DRED_DEVICE_STATE;
 }
+impl ::windows::core::RuntimeName for ID3D12DeviceRemovedExtendedData2 {}
 impl ID3D12DeviceRemovedExtendedData2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12DeviceRemovedExtendedData2_Impl, const OFFSET: isize>() -> ID3D12DeviceRemovedExtendedData2_Vtbl {
         unsafe extern "system" fn GetPageFaultAllocationOutput2<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12DeviceRemovedExtendedData2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, poutput: *mut D3D12_DRED_PAGE_FAULT_OUTPUT2) -> ::windows::core::HRESULT {
@@ -1282,6 +1333,7 @@ pub trait ID3D12DeviceRemovedExtendedDataSettings_Impl: Sized {
     fn SetPageFaultEnablement(&self, enablement: D3D12_DRED_ENABLEMENT);
     fn SetWatsonDumpEnablement(&self, enablement: D3D12_DRED_ENABLEMENT);
 }
+impl ::windows::core::RuntimeName for ID3D12DeviceRemovedExtendedDataSettings {}
 impl ID3D12DeviceRemovedExtendedDataSettings_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12DeviceRemovedExtendedDataSettings_Impl, const OFFSET: isize>() -> ID3D12DeviceRemovedExtendedDataSettings_Vtbl {
         unsafe extern "system" fn SetAutoBreadcrumbsEnablement<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12DeviceRemovedExtendedDataSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, enablement: D3D12_DRED_ENABLEMENT) {
@@ -1313,6 +1365,7 @@ impl ID3D12DeviceRemovedExtendedDataSettings_Vtbl {
 pub trait ID3D12DeviceRemovedExtendedDataSettings1_Impl: Sized + ID3D12DeviceRemovedExtendedDataSettings_Impl {
     fn SetBreadcrumbContextEnablement(&self, enablement: D3D12_DRED_ENABLEMENT);
 }
+impl ::windows::core::RuntimeName for ID3D12DeviceRemovedExtendedDataSettings1 {}
 impl ID3D12DeviceRemovedExtendedDataSettings1_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12DeviceRemovedExtendedDataSettings1_Impl, const OFFSET: isize>() -> ID3D12DeviceRemovedExtendedDataSettings1_Vtbl {
         unsafe extern "system" fn SetBreadcrumbContextEnablement<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12DeviceRemovedExtendedDataSettings1_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, enablement: D3D12_DRED_ENABLEMENT) {
@@ -1335,6 +1388,8 @@ pub trait ID3D12Fence_Impl: Sized + ID3D12Object_Impl + ID3D12DeviceChild_Impl +
     fn SetEventOnCompletion(&self, value: u64, hevent: super::super::Foundation::HANDLE) -> ::windows::core::Result<()>;
     fn Signal(&self, value: u64) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for ID3D12Fence {}
 #[cfg(feature = "Win32_Foundation")]
 impl ID3D12Fence_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12Fence_Impl, const OFFSET: isize>() -> ID3D12Fence_Vtbl {
@@ -1369,6 +1424,8 @@ pub trait ID3D12Fence1_Impl: Sized + ID3D12Object_Impl + ID3D12DeviceChild_Impl 
     fn GetCreationFlags(&self) -> D3D12_FENCE_FLAGS;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for ID3D12Fence1 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ID3D12Fence1_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12Fence1_Impl, const OFFSET: isize>() -> ID3D12Fence1_Vtbl {
         unsafe extern "system" fn GetCreationFlags<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12Fence1_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> D3D12_FENCE_FLAGS {
@@ -1386,6 +1443,8 @@ impl ID3D12Fence1_Vtbl {
 pub trait ID3D12FunctionParameterReflection_Impl: Sized {
     fn GetDesc(&self) -> ::windows::core::Result<D3D12_PARAMETER_DESC>;
 }
+#[cfg(feature = "Win32_Graphics_Direct3D")]
+impl ::windows::core::RuntimeName for ID3D12FunctionParameterReflection {}
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 impl ID3D12FunctionParameterReflection_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12FunctionParameterReflection_Impl, const OFFSET: isize>() -> ID3D12FunctionParameterReflection_Vtbl {
@@ -1416,6 +1475,8 @@ pub trait ID3D12FunctionReflection_Impl: Sized {
     fn GetResourceBindingDescByName(&self, name: &::windows::core::PCSTR) -> ::windows::core::Result<D3D12_SHADER_INPUT_BIND_DESC>;
     fn GetFunctionParameter(&self, parameterindex: i32) -> ::core::option::Option<ID3D12FunctionParameterReflection>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
+impl ::windows::core::RuntimeName for ID3D12FunctionReflection {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
 impl ID3D12FunctionReflection_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12FunctionReflection_Impl, const OFFSET: isize>() -> ID3D12FunctionReflection_Vtbl {
@@ -1540,6 +1601,8 @@ pub trait ID3D12GraphicsCommandList_Impl: Sized + ID3D12Object_Impl + ID3D12Devi
     fn EndEvent(&self);
     fn ExecuteIndirect(&self, pcommandsignature: &::core::option::Option<ID3D12CommandSignature>, maxcommandcount: u32, pargumentbuffer: &::core::option::Option<ID3D12Resource>, argumentbufferoffset: u64, pcountbuffer: &::core::option::Option<ID3D12Resource>, countbufferoffset: u64);
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::windows::core::RuntimeName for ID3D12GraphicsCommandList {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ID3D12GraphicsCommandList_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12GraphicsCommandList_Impl, const OFFSET: isize>() -> ID3D12GraphicsCommandList_Vtbl {
@@ -1867,6 +1930,8 @@ pub trait ID3D12GraphicsCommandList1_Impl: Sized + ID3D12Object_Impl + ID3D12Dev
     fn SetViewInstanceMask(&self, mask: u32);
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::windows::core::RuntimeName for ID3D12GraphicsCommandList1 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ID3D12GraphicsCommandList1_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12GraphicsCommandList1_Impl, const OFFSET: isize>() -> ID3D12GraphicsCommandList1_Vtbl {
         unsafe extern "system" fn AtomicCopyBufferUINT<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12GraphicsCommandList1_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdstbuffer: ::windows::core::RawPtr, dstoffset: u64, psrcbuffer: ::windows::core::RawPtr, srcoffset: u64, dependencies: u32, ppdependentresources: *const ::windows::core::RawPtr, pdependentsubresourceranges: *const D3D12_SUBRESOURCE_RANGE_UINT64) {
@@ -1918,6 +1983,8 @@ pub trait ID3D12GraphicsCommandList2_Impl: Sized + ID3D12Object_Impl + ID3D12Dev
     fn WriteBufferImmediate(&self, count: u32, pparams: *const D3D12_WRITEBUFFERIMMEDIATE_PARAMETER, pmodes: *const D3D12_WRITEBUFFERIMMEDIATE_MODE);
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::windows::core::RuntimeName for ID3D12GraphicsCommandList2 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ID3D12GraphicsCommandList2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12GraphicsCommandList2_Impl, const OFFSET: isize>() -> ID3D12GraphicsCommandList2_Vtbl {
         unsafe extern "system" fn WriteBufferImmediate<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12GraphicsCommandList2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, count: u32, pparams: *const D3D12_WRITEBUFFERIMMEDIATE_PARAMETER, pmodes: *const D3D12_WRITEBUFFERIMMEDIATE_MODE) {
@@ -1935,6 +2002,8 @@ impl ID3D12GraphicsCommandList2_Vtbl {
 pub trait ID3D12GraphicsCommandList3_Impl: Sized + ID3D12Object_Impl + ID3D12DeviceChild_Impl + ID3D12CommandList_Impl + ID3D12GraphicsCommandList_Impl + ID3D12GraphicsCommandList1_Impl + ID3D12GraphicsCommandList2_Impl {
     fn SetProtectedResourceSession(&self, pprotectedresourcesession: &::core::option::Option<ID3D12ProtectedResourceSession>);
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::windows::core::RuntimeName for ID3D12GraphicsCommandList3 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ID3D12GraphicsCommandList3_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12GraphicsCommandList3_Impl, const OFFSET: isize>() -> ID3D12GraphicsCommandList3_Vtbl {
@@ -1964,6 +2033,8 @@ pub trait ID3D12GraphicsCommandList4_Impl: Sized + ID3D12Object_Impl + ID3D12Dev
     fn SetPipelineState1(&self, pstateobject: &::core::option::Option<ID3D12StateObject>);
     fn DispatchRays(&self, pdesc: *const D3D12_DISPATCH_RAYS_DESC);
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::windows::core::RuntimeName for ID3D12GraphicsCommandList4 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ID3D12GraphicsCommandList4_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12GraphicsCommandList4_Impl, const OFFSET: isize>() -> ID3D12GraphicsCommandList4_Vtbl {
@@ -2035,6 +2106,8 @@ pub trait ID3D12GraphicsCommandList5_Impl: Sized + ID3D12Object_Impl + ID3D12Dev
     fn RSSetShadingRateImage(&self, shadingrateimage: &::core::option::Option<ID3D12Resource>);
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::windows::core::RuntimeName for ID3D12GraphicsCommandList5 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ID3D12GraphicsCommandList5_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12GraphicsCommandList5_Impl, const OFFSET: isize>() -> ID3D12GraphicsCommandList5_Vtbl {
         unsafe extern "system" fn RSSetShadingRate<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12GraphicsCommandList5_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, baseshadingrate: D3D12_SHADING_RATE, combiners: *const D3D12_SHADING_RATE_COMBINER) {
@@ -2062,6 +2135,8 @@ pub trait ID3D12GraphicsCommandList6_Impl: Sized + ID3D12Object_Impl + ID3D12Dev
     fn DispatchMesh(&self, threadgroupcountx: u32, threadgroupcounty: u32, threadgroupcountz: u32);
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::windows::core::RuntimeName for ID3D12GraphicsCommandList6 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ID3D12GraphicsCommandList6_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12GraphicsCommandList6_Impl, const OFFSET: isize>() -> ID3D12GraphicsCommandList6_Vtbl {
         unsafe extern "system" fn DispatchMesh<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12GraphicsCommandList6_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, threadgroupcountx: u32, threadgroupcounty: u32, threadgroupcountz: u32) {
@@ -2078,6 +2153,7 @@ impl ID3D12GraphicsCommandList6_Vtbl {
 pub trait ID3D12Heap_Impl: Sized + ID3D12Object_Impl + ID3D12DeviceChild_Impl + ID3D12Pageable_Impl {
     fn GetDesc(&self) -> D3D12_HEAP_DESC;
 }
+impl ::windows::core::RuntimeName for ID3D12Heap {}
 impl ID3D12Heap_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12Heap_Impl, const OFFSET: isize>() -> ID3D12Heap_Vtbl {
         unsafe extern "system" fn GetDesc<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12Heap_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut D3D12_HEAP_DESC) {
@@ -2094,6 +2170,7 @@ impl ID3D12Heap_Vtbl {
 pub trait ID3D12Heap1_Impl: Sized + ID3D12Object_Impl + ID3D12DeviceChild_Impl + ID3D12Pageable_Impl + ID3D12Heap_Impl {
     fn GetProtectedResourceSession(&self, riid: *const ::windows::core::GUID, ppprotectedsession: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for ID3D12Heap1 {}
 impl ID3D12Heap1_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12Heap1_Impl, const OFFSET: isize>() -> ID3D12Heap1_Vtbl {
         unsafe extern "system" fn GetProtectedResourceSession<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12Heap1_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppprotectedsession: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -2145,6 +2222,8 @@ pub trait ID3D12InfoQueue_Impl: Sized {
     fn SetMuteDebugOutput(&self, bmute: super::super::Foundation::BOOL);
     fn GetMuteDebugOutput(&self) -> super::super::Foundation::BOOL;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for ID3D12InfoQueue {}
 #[cfg(feature = "Win32_Foundation")]
 impl ID3D12InfoQueue_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12InfoQueue_Impl, const OFFSET: isize>() -> ID3D12InfoQueue_Vtbl {
@@ -2372,6 +2451,8 @@ pub trait ID3D12InfoQueue1_Impl: Sized + ID3D12InfoQueue_Impl {
     fn UnregisterMessageCallback(&self, callbackcookie: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for ID3D12InfoQueue1 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ID3D12InfoQueue1_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12InfoQueue1_Impl, const OFFSET: isize>() -> ID3D12InfoQueue1_Vtbl {
         unsafe extern "system" fn RegisterMessageCallback<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12InfoQueue1_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, callbackfunc: ::windows::core::RawPtr, callbackfilterflags: D3D12_MESSAGE_CALLBACK_FLAGS, pcontext: *const ::core::ffi::c_void, pcallbackcookie: *mut u32) -> ::windows::core::HRESULT {
@@ -2398,6 +2479,7 @@ pub trait ID3D12LibraryReflection_Impl: Sized {
     fn GetDesc(&self) -> ::windows::core::Result<D3D12_LIBRARY_DESC>;
     fn GetFunctionByIndex(&self, functionindex: i32) -> ::core::option::Option<ID3D12FunctionReflection>;
 }
+impl ::windows::core::RuntimeName for ID3D12LibraryReflection {}
 impl ID3D12LibraryReflection_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12LibraryReflection_Impl, const OFFSET: isize>() -> ID3D12LibraryReflection_Vtbl {
         unsafe extern "system" fn GetDesc<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12LibraryReflection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdesc: *mut D3D12_LIBRARY_DESC) -> ::windows::core::HRESULT {
@@ -2429,6 +2511,7 @@ impl ID3D12LibraryReflection_Vtbl {
 pub trait ID3D12LifetimeOwner_Impl: Sized {
     fn LifetimeStateUpdated(&self, newstate: D3D12_LIFETIME_STATE);
 }
+impl ::windows::core::RuntimeName for ID3D12LifetimeOwner {}
 impl ID3D12LifetimeOwner_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12LifetimeOwner_Impl, const OFFSET: isize>() -> ID3D12LifetimeOwner_Vtbl {
         unsafe extern "system" fn LifetimeStateUpdated<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12LifetimeOwner_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, newstate: D3D12_LIFETIME_STATE) {
@@ -2445,6 +2528,7 @@ impl ID3D12LifetimeOwner_Vtbl {
 pub trait ID3D12LifetimeTracker_Impl: Sized + ID3D12Object_Impl + ID3D12DeviceChild_Impl {
     fn DestroyOwnedObject(&self, pobject: &::core::option::Option<ID3D12DeviceChild>) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for ID3D12LifetimeTracker {}
 impl ID3D12LifetimeTracker_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12LifetimeTracker_Impl, const OFFSET: isize>() -> ID3D12LifetimeTracker_Vtbl {
         unsafe extern "system" fn DestroyOwnedObject<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12LifetimeTracker_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pobject: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -2461,6 +2545,7 @@ impl ID3D12LifetimeTracker_Vtbl {
 pub trait ID3D12MetaCommand_Impl: Sized + ID3D12Object_Impl + ID3D12DeviceChild_Impl + ID3D12Pageable_Impl {
     fn GetRequiredParameterResourceSize(&self, stage: D3D12_META_COMMAND_PARAMETER_STAGE, parameterindex: u32) -> u64;
 }
+impl ::windows::core::RuntimeName for ID3D12MetaCommand {}
 impl ID3D12MetaCommand_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12MetaCommand_Impl, const OFFSET: isize>() -> ID3D12MetaCommand_Vtbl {
         unsafe extern "system" fn GetRequiredParameterResourceSize<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12MetaCommand_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, stage: D3D12_META_COMMAND_PARAMETER_STAGE, parameterindex: u32) -> u64 {
@@ -2483,6 +2568,7 @@ pub trait ID3D12Object_Impl: Sized {
     fn SetPrivateDataInterface(&self, guid: *const ::windows::core::GUID, pdata: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
     fn SetName(&self, name: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for ID3D12Object {}
 impl ID3D12Object_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12Object_Impl, const OFFSET: isize>() -> ID3D12Object_Vtbl {
         unsafe extern "system" fn GetPrivateData<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12Object_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -2518,6 +2604,7 @@ impl ID3D12Object_Vtbl {
     }
 }
 pub trait ID3D12Pageable_Impl: Sized + ID3D12Object_Impl + ID3D12DeviceChild_Impl {}
+impl ::windows::core::RuntimeName for ID3D12Pageable {}
 impl ID3D12Pageable_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12Pageable_Impl, const OFFSET: isize>() -> ID3D12Pageable_Vtbl {
         Self { base__: ID3D12DeviceChild_Vtbl::new::<Identity, Impl, OFFSET>() }
@@ -2534,6 +2621,8 @@ pub trait ID3D12PipelineLibrary_Impl: Sized + ID3D12Object_Impl + ID3D12DeviceCh
     fn GetSerializedSize(&self) -> usize;
     fn Serialize(&self, pdata: *mut ::core::ffi::c_void, datasizeinbytes: usize) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::windows::core::RuntimeName for ID3D12PipelineLibrary {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ID3D12PipelineLibrary_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12PipelineLibrary_Impl, const OFFSET: isize>() -> ID3D12PipelineLibrary_Vtbl {
@@ -2580,6 +2669,8 @@ pub trait ID3D12PipelineLibrary1_Impl: Sized + ID3D12Object_Impl + ID3D12DeviceC
     fn LoadPipeline(&self, pname: &::windows::core::PCWSTR, pdesc: *const D3D12_PIPELINE_STATE_STREAM_DESC, riid: *const ::windows::core::GUID, pppipelinestate: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::windows::core::RuntimeName for ID3D12PipelineLibrary1 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ID3D12PipelineLibrary1_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12PipelineLibrary1_Impl, const OFFSET: isize>() -> ID3D12PipelineLibrary1_Vtbl {
         unsafe extern "system" fn LoadPipeline<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12PipelineLibrary1_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pname: ::windows::core::PCWSTR, pdesc: *const D3D12_PIPELINE_STATE_STREAM_DESC, riid: *const ::windows::core::GUID, pppipelinestate: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -2597,6 +2688,8 @@ impl ID3D12PipelineLibrary1_Vtbl {
 pub trait ID3D12PipelineState_Impl: Sized + ID3D12Object_Impl + ID3D12DeviceChild_Impl + ID3D12Pageable_Impl {
     fn GetCachedBlob(&self) -> ::windows::core::Result<super::Direct3D::ID3DBlob>;
 }
+#[cfg(feature = "Win32_Graphics_Direct3D")]
+impl ::windows::core::RuntimeName for ID3D12PipelineState {}
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 impl ID3D12PipelineState_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12PipelineState_Impl, const OFFSET: isize>() -> ID3D12PipelineState_Vtbl {
@@ -2620,6 +2713,7 @@ impl ID3D12PipelineState_Vtbl {
 pub trait ID3D12ProtectedResourceSession_Impl: Sized + ID3D12Object_Impl + ID3D12DeviceChild_Impl + ID3D12ProtectedSession_Impl {
     fn GetDesc(&self) -> D3D12_PROTECTED_RESOURCE_SESSION_DESC;
 }
+impl ::windows::core::RuntimeName for ID3D12ProtectedResourceSession {}
 impl ID3D12ProtectedResourceSession_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12ProtectedResourceSession_Impl, const OFFSET: isize>() -> ID3D12ProtectedResourceSession_Vtbl {
         unsafe extern "system" fn GetDesc<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12ProtectedResourceSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut D3D12_PROTECTED_RESOURCE_SESSION_DESC) {
@@ -2636,6 +2730,7 @@ impl ID3D12ProtectedResourceSession_Vtbl {
 pub trait ID3D12ProtectedResourceSession1_Impl: Sized + ID3D12Object_Impl + ID3D12DeviceChild_Impl + ID3D12ProtectedSession_Impl + ID3D12ProtectedResourceSession_Impl {
     fn GetDesc1(&self) -> D3D12_PROTECTED_RESOURCE_SESSION_DESC1;
 }
+impl ::windows::core::RuntimeName for ID3D12ProtectedResourceSession1 {}
 impl ID3D12ProtectedResourceSession1_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12ProtectedResourceSession1_Impl, const OFFSET: isize>() -> ID3D12ProtectedResourceSession1_Vtbl {
         unsafe extern "system" fn GetDesc1<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12ProtectedResourceSession1_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut D3D12_PROTECTED_RESOURCE_SESSION_DESC1) {
@@ -2653,6 +2748,7 @@ pub trait ID3D12ProtectedSession_Impl: Sized + ID3D12Object_Impl + ID3D12DeviceC
     fn GetStatusFence(&self, riid: *const ::windows::core::GUID, ppfence: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn GetSessionStatus(&self) -> D3D12_PROTECTED_SESSION_STATUS;
 }
+impl ::windows::core::RuntimeName for ID3D12ProtectedSession {}
 impl ID3D12ProtectedSession_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12ProtectedSession_Impl, const OFFSET: isize>() -> ID3D12ProtectedSession_Vtbl {
         unsafe extern "system" fn GetStatusFence<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12ProtectedSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppfence: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -2676,6 +2772,7 @@ impl ID3D12ProtectedSession_Vtbl {
     }
 }
 pub trait ID3D12QueryHeap_Impl: Sized + ID3D12Object_Impl + ID3D12DeviceChild_Impl + ID3D12Pageable_Impl {}
+impl ::windows::core::RuntimeName for ID3D12QueryHeap {}
 impl ID3D12QueryHeap_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12QueryHeap_Impl, const OFFSET: isize>() -> ID3D12QueryHeap_Vtbl {
         Self { base__: ID3D12Pageable_Vtbl::new::<Identity, Impl, OFFSET>() }
@@ -2694,6 +2791,8 @@ pub trait ID3D12Resource_Impl: Sized + ID3D12Object_Impl + ID3D12DeviceChild_Imp
     fn ReadFromSubresource(&self, pdstdata: *mut ::core::ffi::c_void, dstrowpitch: u32, dstdepthpitch: u32, srcsubresource: u32, psrcbox: *const D3D12_BOX) -> ::windows::core::Result<()>;
     fn GetHeapProperties(&self, pheapproperties: *mut D3D12_HEAP_PROPERTIES, pheapflags: *mut D3D12_HEAP_FLAGS) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl ::windows::core::RuntimeName for ID3D12Resource {}
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ID3D12Resource_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12Resource_Impl, const OFFSET: isize>() -> ID3D12Resource_Vtbl {
@@ -2752,6 +2851,8 @@ pub trait ID3D12Resource1_Impl: Sized + ID3D12Object_Impl + ID3D12DeviceChild_Im
     fn GetProtectedResourceSession(&self, riid: *const ::windows::core::GUID, ppprotectedsession: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl ::windows::core::RuntimeName for ID3D12Resource1 {}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ID3D12Resource1_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12Resource1_Impl, const OFFSET: isize>() -> ID3D12Resource1_Vtbl {
         unsafe extern "system" fn GetProtectedResourceSession<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12Resource1_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppprotectedsession: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -2770,6 +2871,8 @@ pub trait ID3D12Resource2_Impl: Sized + ID3D12Object_Impl + ID3D12DeviceChild_Im
     fn GetDesc1(&self) -> D3D12_RESOURCE_DESC1;
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl ::windows::core::RuntimeName for ID3D12Resource2 {}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ID3D12Resource2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12Resource2_Impl, const OFFSET: isize>() -> ID3D12Resource2_Vtbl {
         unsafe extern "system" fn GetDesc1<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12Resource2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut D3D12_RESOURCE_DESC1) {
@@ -2784,6 +2887,7 @@ impl ID3D12Resource2_Vtbl {
     }
 }
 pub trait ID3D12RootSignature_Impl: Sized + ID3D12Object_Impl + ID3D12DeviceChild_Impl {}
+impl ::windows::core::RuntimeName for ID3D12RootSignature {}
 impl ID3D12RootSignature_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12RootSignature_Impl, const OFFSET: isize>() -> ID3D12RootSignature_Vtbl {
         Self { base__: ID3D12DeviceChild_Vtbl::new::<Identity, Impl, OFFSET>() }
@@ -2795,6 +2899,7 @@ impl ID3D12RootSignature_Vtbl {
 pub trait ID3D12RootSignatureDeserializer_Impl: Sized {
     fn GetRootSignatureDesc(&self) -> *mut D3D12_ROOT_SIGNATURE_DESC;
 }
+impl ::windows::core::RuntimeName for ID3D12RootSignatureDeserializer {}
 impl ID3D12RootSignatureDeserializer_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12RootSignatureDeserializer_Impl, const OFFSET: isize>() -> ID3D12RootSignatureDeserializer_Vtbl {
         unsafe extern "system" fn GetRootSignatureDesc<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12RootSignatureDeserializer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> *mut D3D12_ROOT_SIGNATURE_DESC {
@@ -2811,6 +2916,7 @@ impl ID3D12RootSignatureDeserializer_Vtbl {
 pub trait ID3D12SDKConfiguration_Impl: Sized {
     fn SetSDKVersion(&self, sdkversion: u32, sdkpath: &::windows::core::PCSTR) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for ID3D12SDKConfiguration {}
 impl ID3D12SDKConfiguration_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12SDKConfiguration_Impl, const OFFSET: isize>() -> ID3D12SDKConfiguration_Vtbl {
         unsafe extern "system" fn SetSDKVersion<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12SDKConfiguration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sdkversion: u32, sdkpath: ::windows::core::PCSTR) -> ::windows::core::HRESULT {
@@ -2830,6 +2936,7 @@ pub trait ID3D12ShaderCacheSession_Impl: Sized + ID3D12Object_Impl + ID3D12Devic
     fn SetDeleteOnDestroy(&self);
     fn GetDesc(&self) -> D3D12_SHADER_CACHE_SESSION_DESC;
 }
+impl ::windows::core::RuntimeName for ID3D12ShaderCacheSession {}
 impl ID3D12ShaderCacheSession_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12ShaderCacheSession_Impl, const OFFSET: isize>() -> ID3D12ShaderCacheSession_Vtbl {
         unsafe extern "system" fn FindValue<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12ShaderCacheSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pkey: *const ::core::ffi::c_void, keysize: u32, pvalue: *mut ::core::ffi::c_void, pvaluesize: *mut u32) -> ::windows::core::HRESULT {
@@ -2886,6 +2993,8 @@ pub trait ID3D12ShaderReflection_Impl: Sized {
     fn GetThreadGroupSize(&self, psizex: *mut u32, psizey: *mut u32, psizez: *mut u32) -> u32;
     fn GetRequiresFlags(&self) -> u64;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
+impl ::windows::core::RuntimeName for ID3D12ShaderReflection {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
 impl ID3D12ShaderReflection_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12ShaderReflection_Impl, const OFFSET: isize>() -> ID3D12ShaderReflection_Vtbl {
@@ -3060,6 +3169,8 @@ pub trait ID3D12ShaderReflectionConstantBuffer_Impl: Sized {
     fn GetVariableByName(&self, name: &::windows::core::PCSTR) -> ::core::option::Option<ID3D12ShaderReflectionVariable>;
 }
 #[cfg(feature = "Win32_Graphics_Direct3D")]
+impl ::windows::core::RuntimeName for ID3D12ShaderReflectionConstantBuffer {}
+#[cfg(feature = "Win32_Graphics_Direct3D")]
 impl ID3D12ShaderReflectionConstantBuffer_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12ShaderReflectionConstantBuffer_Impl, const OFFSET: isize>() -> ID3D12ShaderReflectionConstantBuffer_Vtbl {
         unsafe extern "system" fn GetDesc<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12ShaderReflectionConstantBuffer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdesc: *mut D3D12_SHADER_BUFFER_DESC) -> ::windows::core::HRESULT {
@@ -3101,6 +3212,8 @@ pub trait ID3D12ShaderReflectionType_Impl: Sized {
     fn IsOfType(&self, ptype: &::core::option::Option<ID3D12ShaderReflectionType>) -> ::windows::core::Result<()>;
     fn ImplementsInterface(&self, pbase: &::core::option::Option<ID3D12ShaderReflectionType>) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Graphics_Direct3D")]
+impl ::windows::core::RuntimeName for ID3D12ShaderReflectionType {}
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 impl ID3D12ShaderReflectionType_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12ShaderReflectionType_Impl, const OFFSET: isize>() -> ID3D12ShaderReflectionType_Vtbl {
@@ -3189,6 +3302,7 @@ pub trait ID3D12ShaderReflectionVariable_Impl: Sized {
     fn GetBuffer(&self) -> ::core::option::Option<ID3D12ShaderReflectionConstantBuffer>;
     fn GetInterfaceSlot(&self, uarrayindex: u32) -> u32;
 }
+impl ::windows::core::RuntimeName for ID3D12ShaderReflectionVariable {}
 impl ID3D12ShaderReflectionVariable_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12ShaderReflectionVariable_Impl, const OFFSET: isize>() -> ID3D12ShaderReflectionVariable_Vtbl {
         unsafe extern "system" fn GetDesc<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12ShaderReflectionVariable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdesc: *mut D3D12_SHADER_VARIABLE_DESC) -> ::windows::core::HRESULT {
@@ -3236,6 +3350,8 @@ pub trait ID3D12SharingContract_Impl: Sized {
     fn EndCapturableWork(&self, guid: *const ::windows::core::GUID);
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for ID3D12SharingContract {}
+#[cfg(feature = "Win32_Foundation")]
 impl ID3D12SharingContract_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12SharingContract_Impl, const OFFSET: isize>() -> ID3D12SharingContract_Vtbl {
         unsafe extern "system" fn Present<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12SharingContract_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, presource: ::windows::core::RawPtr, subresource: u32, window: super::super::Foundation::HWND) {
@@ -3271,6 +3387,7 @@ impl ID3D12SharingContract_Vtbl {
     }
 }
 pub trait ID3D12StateObject_Impl: Sized + ID3D12Object_Impl + ID3D12DeviceChild_Impl + ID3D12Pageable_Impl {}
+impl ::windows::core::RuntimeName for ID3D12StateObject {}
 impl ID3D12StateObject_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12StateObject_Impl, const OFFSET: isize>() -> ID3D12StateObject_Vtbl {
         Self { base__: ID3D12Pageable_Vtbl::new::<Identity, Impl, OFFSET>() }
@@ -3285,6 +3402,7 @@ pub trait ID3D12StateObjectProperties_Impl: Sized {
     fn GetPipelineStackSize(&self) -> u64;
     fn SetPipelineStackSize(&self, pipelinestacksizeinbytes: u64);
 }
+impl ::windows::core::RuntimeName for ID3D12StateObjectProperties {}
 impl ID3D12StateObjectProperties_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12StateObjectProperties_Impl, const OFFSET: isize>() -> ID3D12StateObjectProperties_Vtbl {
         unsafe extern "system" fn GetShaderIdentifier<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12StateObjectProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pexportname: ::windows::core::PCWSTR) -> *mut ::core::ffi::c_void {
@@ -3327,6 +3445,8 @@ pub trait ID3D12SwapChainAssistant_Impl: Sized {
     fn InsertImplicitSync(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for ID3D12SwapChainAssistant {}
+#[cfg(feature = "Win32_Foundation")]
 impl ID3D12SwapChainAssistant_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12SwapChainAssistant_Impl, const OFFSET: isize>() -> ID3D12SwapChainAssistant_Vtbl {
         unsafe extern "system" fn GetLUID<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12SwapChainAssistant_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::LUID) {
@@ -3367,6 +3487,8 @@ pub trait ID3D12Tools_Impl: Sized {
     fn ShaderInstrumentationEnabled(&self) -> super::super::Foundation::BOOL;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for ID3D12Tools {}
+#[cfg(feature = "Win32_Foundation")]
 impl ID3D12Tools_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12Tools_Impl, const OFFSET: isize>() -> ID3D12Tools_Vtbl {
         unsafe extern "system" fn EnableShaderInstrumentation<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12Tools_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, benable: super::super::Foundation::BOOL) {
@@ -3393,6 +3515,7 @@ pub trait ID3D12VersionedRootSignatureDeserializer_Impl: Sized {
     fn GetRootSignatureDescAtVersion(&self, converttoversion: D3D_ROOT_SIGNATURE_VERSION) -> ::windows::core::Result<*mut D3D12_VERSIONED_ROOT_SIGNATURE_DESC>;
     fn GetUnconvertedRootSignatureDesc(&self) -> *mut D3D12_VERSIONED_ROOT_SIGNATURE_DESC;
 }
+impl ::windows::core::RuntimeName for ID3D12VersionedRootSignatureDeserializer {}
 impl ID3D12VersionedRootSignatureDeserializer_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12VersionedRootSignatureDeserializer_Impl, const OFFSET: isize>() -> ID3D12VersionedRootSignatureDeserializer_Vtbl {
         unsafe extern "system" fn GetRootSignatureDescAtVersion<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12VersionedRootSignatureDeserializer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, converttoversion: D3D_ROOT_SIGNATURE_VERSION, ppdesc: *mut *mut D3D12_VERSIONED_ROOT_SIGNATURE_DESC) -> ::windows::core::HRESULT {

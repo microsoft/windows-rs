@@ -3,6 +3,8 @@ pub trait IAccessibleWinSAT_Impl: Sized + super::Com::IDispatch_Impl + super::su
     fn SetAccessiblityData(&self, wsname: &::windows::core::PCWSTR, wsvalue: &::windows::core::PCWSTR, wsdesc: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_UI_Accessibility"))]
+impl ::windows::core::RuntimeName for IAccessibleWinSAT {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_UI_Accessibility"))]
 impl IAccessibleWinSAT_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAccessibleWinSAT_Impl, const OFFSET: isize>() -> IAccessibleWinSAT_Vtbl {
         unsafe extern "system" fn SetAccessiblityData<Identity: ::windows::core::IUnknownImpl, Impl: IAccessibleWinSAT_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wsname: ::windows::core::PCWSTR, wsvalue: ::windows::core::PCWSTR, wsdesc: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
@@ -25,6 +27,8 @@ pub trait IInitiateWinSATAssessment_Impl: Sized {
     fn InitiateFormalAssessment(&self, pcallbacks: &::core::option::Option<IWinSATInitiateEvents>, callerhwnd: super::super::Foundation::HWND) -> ::windows::core::Result<()>;
     fn CancelAssessment(&self) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IInitiateWinSATAssessment {}
 #[cfg(feature = "Win32_Foundation")]
 impl IInitiateWinSATAssessment_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInitiateWinSATAssessment_Impl, const OFFSET: isize>() -> IInitiateWinSATAssessment_Vtbl {
@@ -60,6 +64,8 @@ pub trait IProvideWinSATAssessmentInfo_Impl: Sized + super::Com::IDispatch_Impl 
     fn Title(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn Description(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IProvideWinSATAssessmentInfo {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IProvideWinSATAssessmentInfo_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IProvideWinSATAssessmentInfo_Impl, const OFFSET: isize>() -> IProvideWinSATAssessmentInfo_Vtbl {
@@ -115,6 +121,8 @@ pub trait IProvideWinSATResultsInfo_Impl: Sized + super::Com::IDispatch_Impl {
     fn SystemRating(&self) -> ::windows::core::Result<f32>;
     fn RatingStateDesc(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IProvideWinSATResultsInfo {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IProvideWinSATResultsInfo_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IProvideWinSATResultsInfo_Impl, const OFFSET: isize>() -> IProvideWinSATResultsInfo_Vtbl {
@@ -191,6 +199,8 @@ pub trait IProvideWinSATVisuals_Impl: Sized {
     fn get_Bitmap(&self, bitmapsize: WINSAT_BITMAP_SIZE, state: WINSAT_ASSESSMENT_STATE, rating: f32) -> ::windows::core::Result<super::super::Graphics::Gdi::HBITMAP>;
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
+impl ::windows::core::RuntimeName for IProvideWinSATVisuals {}
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl IProvideWinSATVisuals_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IProvideWinSATVisuals_Impl, const OFFSET: isize>() -> IProvideWinSATVisuals_Vtbl {
         unsafe extern "system" fn get_Bitmap<Identity: ::windows::core::IUnknownImpl, Impl: IProvideWinSATVisuals_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bitmapsize: WINSAT_BITMAP_SIZE, state: WINSAT_ASSESSMENT_STATE, rating: f32, pbitmap: *mut super::super::Graphics::Gdi::HBITMAP) -> ::windows::core::HRESULT {
@@ -215,6 +225,8 @@ pub trait IQueryAllWinSATAssessments_Impl: Sized + super::Com::IDispatch_Impl {
     fn get_AllXML(&self, xpath: &super::super::Foundation::BSTR, namespaces: &super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::Data::Xml::MsXml::IXMLDOMNodeList>;
 }
 #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IQueryAllWinSATAssessments {}
+#[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IQueryAllWinSATAssessments_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IQueryAllWinSATAssessments_Impl, const OFFSET: isize>() -> IQueryAllWinSATAssessments_Vtbl {
         unsafe extern "system" fn get_AllXML<Identity: ::windows::core::IUnknownImpl, Impl: IQueryAllWinSATAssessments_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xpath: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, namespaces: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppdomnodelist: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -237,6 +249,7 @@ impl IQueryAllWinSATAssessments_Vtbl {
 pub trait IQueryOEMWinSATCustomization_Impl: Sized {
     fn GetOEMPrePopulationInfo(&self) -> ::windows::core::Result<WINSAT_OEM_DATA_TYPE>;
 }
+impl ::windows::core::RuntimeName for IQueryOEMWinSATCustomization {}
 impl IQueryOEMWinSATCustomization_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IQueryOEMWinSATCustomization_Impl, const OFFSET: isize>() -> IQueryOEMWinSATCustomization_Vtbl {
         unsafe extern "system" fn GetOEMPrePopulationInfo<Identity: ::windows::core::IUnknownImpl, Impl: IQueryOEMWinSATCustomization_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, state: *mut WINSAT_OEM_DATA_TYPE) -> ::windows::core::HRESULT {
@@ -261,6 +274,8 @@ pub trait IQueryRecentWinSATAssessment_Impl: Sized + super::Com::IDispatch_Impl 
     fn get_XML(&self, xpath: &super::super::Foundation::BSTR, namespaces: &super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::Data::Xml::MsXml::IXMLDOMNodeList>;
     fn Info(&self) -> ::windows::core::Result<IProvideWinSATResultsInfo>;
 }
+#[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IQueryRecentWinSATAssessment {}
 #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IQueryRecentWinSATAssessment_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IQueryRecentWinSATAssessment_Impl, const OFFSET: isize>() -> IQueryRecentWinSATAssessment_Vtbl {
@@ -300,6 +315,7 @@ pub trait IWinSATInitiateEvents_Impl: Sized {
     fn WinSATComplete(&self, hresult: ::windows::core::HRESULT, strdescription: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn WinSATUpdate(&self, ucurrenttick: u32, uticktotal: u32, strcurrentstate: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IWinSATInitiateEvents {}
 impl IWinSATInitiateEvents_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWinSATInitiateEvents_Impl, const OFFSET: isize>() -> IWinSATInitiateEvents_Vtbl {
         unsafe extern "system" fn WinSATComplete<Identity: ::windows::core::IUnknownImpl, Impl: IWinSATInitiateEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hresult: ::windows::core::HRESULT, strdescription: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {

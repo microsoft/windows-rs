@@ -3,6 +3,8 @@ pub trait IPrintDocumentPackageStatusEvent_Impl: Sized + super::super::super::Sy
     fn PackageStatusUpdated(&self, packagestatus: *const PrintDocumentPackageStatus) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IPrintDocumentPackageStatusEvent {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IPrintDocumentPackageStatusEvent_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintDocumentPackageStatusEvent_Impl, const OFFSET: isize>() -> IPrintDocumentPackageStatusEvent_Vtbl {
         unsafe extern "system" fn PackageStatusUpdated<Identity: ::windows::core::IUnknownImpl, Impl: IPrintDocumentPackageStatusEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, packagestatus: *const PrintDocumentPackageStatus) -> ::windows::core::HRESULT {
@@ -24,6 +26,7 @@ pub trait IPrintDocumentPackageTarget_Impl: Sized {
     fn GetPackageTarget(&self, guidtargettype: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppvtarget: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn Cancel(&self) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IPrintDocumentPackageTarget {}
 impl IPrintDocumentPackageTarget_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintDocumentPackageTarget_Impl, const OFFSET: isize>() -> IPrintDocumentPackageTarget_Vtbl {
         unsafe extern "system" fn GetPackageTargetTypes<Identity: ::windows::core::IUnknownImpl, Impl: IPrintDocumentPackageTarget_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, targetcount: *mut u32, targettypes: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
@@ -57,6 +60,8 @@ pub trait IPrintDocumentPackageTargetFactory_Impl: Sized {
     fn CreateDocumentPackageTargetForPrintJob(&self, printername: &::windows::core::PCWSTR, jobname: &::windows::core::PCWSTR, joboutputstream: &::core::option::Option<super::super::super::System::Com::IStream>, jobprintticketstream: &::core::option::Option<super::super::super::System::Com::IStream>) -> ::windows::core::Result<IPrintDocumentPackageTarget>;
 }
 #[cfg(feature = "Win32_System_Com")]
+impl ::windows::core::RuntimeName for IPrintDocumentPackageTargetFactory {}
+#[cfg(feature = "Win32_System_Com")]
 impl IPrintDocumentPackageTargetFactory_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintDocumentPackageTargetFactory_Impl, const OFFSET: isize>() -> IPrintDocumentPackageTargetFactory_Vtbl {
         unsafe extern "system" fn CreateDocumentPackageTargetForPrintJob<Identity: ::windows::core::IUnknownImpl, Impl: IPrintDocumentPackageTargetFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, printername: ::windows::core::PCWSTR, jobname: ::windows::core::PCWSTR, joboutputstream: ::windows::core::RawPtr, jobprintticketstream: ::windows::core::RawPtr, docpackagetarget: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -83,6 +88,7 @@ pub trait IXpsPrintJob_Impl: Sized {
     fn Cancel(&self) -> ::windows::core::Result<()>;
     fn GetJobStatus(&self) -> ::windows::core::Result<XPS_JOB_STATUS>;
 }
+impl ::windows::core::RuntimeName for IXpsPrintJob {}
 impl IXpsPrintJob_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXpsPrintJob_Impl, const OFFSET: isize>() -> IXpsPrintJob_Vtbl {
         unsafe extern "system" fn Cancel<Identity: ::windows::core::IUnknownImpl, Impl: IXpsPrintJob_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -115,6 +121,8 @@ impl IXpsPrintJob_Vtbl {
 pub trait IXpsPrintJobStream_Impl: Sized + super::super::super::System::Com::ISequentialStream_Impl {
     fn Close(&self) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_System_Com")]
+impl ::windows::core::RuntimeName for IXpsPrintJobStream {}
 #[cfg(feature = "Win32_System_Com")]
 impl IXpsPrintJobStream_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXpsPrintJobStream_Impl, const OFFSET: isize>() -> IXpsPrintJobStream_Vtbl {

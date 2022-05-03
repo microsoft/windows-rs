@@ -3,6 +3,8 @@ pub trait IDedupBackupSupport_Impl: Sized {
     fn RestoreFiles(&self, numberoffiles: u32, filefullpaths: *const super::super::Foundation::BSTR, store: &::core::option::Option<IDedupReadFileCallback>, flags: u32, fileresults: *mut ::windows::core::HRESULT) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IDedupBackupSupport {}
+#[cfg(feature = "Win32_Foundation")]
 impl IDedupBackupSupport_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDedupBackupSupport_Impl, const OFFSET: isize>() -> IDedupBackupSupport_Vtbl {
         unsafe extern "system" fn RestoreFiles<Identity: ::windows::core::IUnknownImpl, Impl: IDedupBackupSupport_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, numberoffiles: u32, filefullpaths: *const super::super::Foundation::BSTR, store: ::windows::core::RawPtr, flags: u32, fileresults: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT {
@@ -23,6 +25,8 @@ pub trait IDedupChunkLibrary_Impl: Sized {
     fn SetParameter(&self, dwparamtype: u32, vparamvalue: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn StartChunking(&self, iiditeratorinterfaceid: &::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IDedupChunkLibrary {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IDedupChunkLibrary_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDedupChunkLibrary_Impl, const OFFSET: isize>() -> IDedupChunkLibrary_Vtbl {
@@ -79,6 +83,8 @@ pub trait IDedupDataPort_Impl: Sized {
     fn GetRequestStatus(&self, requestid: &::windows::core::GUID) -> ::windows::core::Result<DedupDataPortRequestStatus>;
     fn GetRequestResults(&self, requestid: &::windows::core::GUID, maxwaitms: u32, pbatchresult: *mut ::windows::core::HRESULT, pbatchcount: *mut u32, pstatus: *mut DedupDataPortRequestStatus, ppitemresults: *mut *mut ::windows::core::HRESULT) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::windows::core::RuntimeName for IDedupDataPort {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IDedupDataPort_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDedupDataPort_Impl, const OFFSET: isize>() -> IDedupDataPort_Vtbl {
@@ -217,6 +223,8 @@ pub trait IDedupDataPortManager_Impl: Sized {
     fn GetVolumeDataPort(&self, options: u32, path: &super::super::Foundation::BSTR) -> ::windows::core::Result<IDedupDataPort>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IDedupDataPortManager {}
+#[cfg(feature = "Win32_Foundation")]
 impl IDedupDataPortManager_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDedupDataPortManager_Impl, const OFFSET: isize>() -> IDedupDataPortManager_Vtbl {
         unsafe extern "system" fn GetConfiguration<Identity: ::windows::core::IUnknownImpl, Impl: IDedupDataPortManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pminchunksize: *mut u32, pmaxchunksize: *mut u32, pchunkingalgorithm: *mut DedupChunkingAlgorithm, phashingalgorithm: *mut DedupHashingAlgorithm, pcompressionalgorithm: *mut DedupCompressionAlgorithm) -> ::windows::core::HRESULT {
@@ -263,6 +271,7 @@ pub trait IDedupIterateChunksHash32_Impl: Sized {
     fn Drain(&self) -> ::windows::core::Result<()>;
     fn Reset(&self) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IDedupIterateChunksHash32 {}
 impl IDedupIterateChunksHash32_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDedupIterateChunksHash32_Impl, const OFFSET: isize>() -> IDedupIterateChunksHash32_Vtbl {
         unsafe extern "system" fn PushBuffer<Identity: ::windows::core::IUnknownImpl, Impl: IDedupIterateChunksHash32_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbuffer: *const u8, ulbufferlength: u32) -> ::windows::core::HRESULT {
@@ -303,6 +312,8 @@ pub trait IDedupReadFileCallback_Impl: Sized {
     fn OrderContainersRestore(&self, numberofcontainers: u32, containerpaths: *const super::super::Foundation::BSTR, readplanentries: *mut u32, readplan: *mut *mut DEDUP_CONTAINER_EXTENT) -> ::windows::core::Result<()>;
     fn PreviewContainerRead(&self, filefullpath: &super::super::Foundation::BSTR, numberofreads: u32, readoffsets: *const DDP_FILE_EXTENT) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IDedupReadFileCallback {}
 #[cfg(feature = "Win32_Foundation")]
 impl IDedupReadFileCallback_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDedupReadFileCallback_Impl, const OFFSET: isize>() -> IDedupReadFileCallback_Vtbl {

@@ -5,6 +5,8 @@ pub trait IPhotoAcquire_Impl: Sized {
     fn EnumResults(&self) -> ::windows::core::Result<super::super::System::Com::IEnumString>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::windows::core::RuntimeName for IPhotoAcquire {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IPhotoAcquire_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhotoAcquire_Impl, const OFFSET: isize>() -> IPhotoAcquire_Vtbl {
         unsafe extern "system" fn CreatePhotoSource<Identity: ::windows::core::IUnknownImpl, Impl: IPhotoAcquire_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszdevice: ::windows::core::PCWSTR, ppphotoacquiresource: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -52,6 +54,8 @@ pub trait IPhotoAcquireDeviceSelectionDialog_Impl: Sized {
     fn DoModal(&self, hwndparent: super::super::Foundation::HWND, dwdeviceflags: u32, pbstrdeviceid: *mut super::super::Foundation::BSTR, pndevicetype: *mut DEVICE_SELECTION_DEVICE_TYPE) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IPhotoAcquireDeviceSelectionDialog {}
+#[cfg(feature = "Win32_Foundation")]
 impl IPhotoAcquireDeviceSelectionDialog_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhotoAcquireDeviceSelectionDialog_Impl, const OFFSET: isize>() -> IPhotoAcquireDeviceSelectionDialog_Vtbl {
         unsafe extern "system" fn SetTitle<Identity: ::windows::core::IUnknownImpl, Impl: IPhotoAcquireDeviceSelectionDialog_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psztitle: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
@@ -92,6 +96,8 @@ pub trait IPhotoAcquireItem_Impl: Sized {
     fn GetSubItemCount(&self) -> ::windows::core::Result<u32>;
     fn GetSubItemAt(&self, nitemindex: u32) -> ::windows::core::Result<IPhotoAcquireItem>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
+impl ::windows::core::RuntimeName for IPhotoAcquireItem {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl IPhotoAcquireItem_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhotoAcquireItem_Impl, const OFFSET: isize>() -> IPhotoAcquireItem_Vtbl {
@@ -208,6 +214,8 @@ pub trait IPhotoAcquireOptionsDialog_Impl: Sized {
     fn SaveData(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IPhotoAcquireOptionsDialog {}
+#[cfg(feature = "Win32_Foundation")]
 impl IPhotoAcquireOptionsDialog_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhotoAcquireOptionsDialog_Impl, const OFFSET: isize>() -> IPhotoAcquireOptionsDialog_Vtbl {
         unsafe extern "system" fn Initialize<Identity: ::windows::core::IUnknownImpl, Impl: IPhotoAcquireOptionsDialog_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszregistryroot: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
@@ -261,6 +269,8 @@ pub trait IPhotoAcquirePlugin_Impl: Sized {
     fn TransferComplete(&self, hr: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
     fn DisplayConfigureDialog(&self, hwndparent: super::super::Foundation::HWND) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_UI_Shell_PropertiesSystem"))]
+impl ::windows::core::RuntimeName for IPhotoAcquirePlugin {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl IPhotoAcquirePlugin_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhotoAcquirePlugin_Impl, const OFFSET: isize>() -> IPhotoAcquirePlugin_Vtbl {
@@ -318,6 +328,8 @@ pub trait IPhotoAcquireProgressCB_Impl: Sized {
     fn ErrorAdvise(&self, hr: ::windows::core::HRESULT, pszerrormessage: &::windows::core::PCWSTR, nmessagetype: ERROR_ADVISE_MESSAGE_TYPE) -> ::windows::core::Result<ERROR_ADVISE_RESULT>;
     fn GetUserInput(&self, riidtype: *const ::windows::core::GUID, punknown: &::core::option::Option<::windows::core::IUnknown>, ppropvarresult: *mut super::super::System::Com::StructuredStorage::PROPVARIANT, ppropvardefault: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+impl ::windows::core::RuntimeName for IPhotoAcquireProgressCB {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 impl IPhotoAcquireProgressCB_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhotoAcquireProgressCB_Impl, const OFFSET: isize>() -> IPhotoAcquireProgressCB_Vtbl {
@@ -478,6 +490,8 @@ pub trait IPhotoAcquireSettings_Impl: Sized {
     fn GetAcquisitionTime(&self) -> ::windows::core::Result<super::super::Foundation::FILETIME>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IPhotoAcquireSettings {}
+#[cfg(feature = "Win32_Foundation")]
 impl IPhotoAcquireSettings_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhotoAcquireSettings_Impl, const OFFSET: isize>() -> IPhotoAcquireSettings_Vtbl {
         unsafe extern "system" fn InitializeFromRegistry<Identity: ::windows::core::IUnknownImpl, Impl: IPhotoAcquireSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszregistrykey: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
@@ -614,6 +628,8 @@ pub trait IPhotoAcquireSource_Impl: Sized {
     fn BindToObject(&self, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+impl ::windows::core::RuntimeName for IPhotoAcquireSource {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl IPhotoAcquireSource_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhotoAcquireSource_Impl, const OFFSET: isize>() -> IPhotoAcquireSource_Vtbl {
         unsafe extern "system" fn GetFriendlyName<Identity: ::windows::core::IUnknownImpl, Impl: IPhotoAcquireSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrfriendlyname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
@@ -707,6 +723,8 @@ pub trait IPhotoProgressActionCB_Impl: Sized {
     fn DoAction(&self, hwndparent: super::super::Foundation::HWND) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IPhotoProgressActionCB {}
+#[cfg(feature = "Win32_Foundation")]
 impl IPhotoProgressActionCB_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhotoProgressActionCB_Impl, const OFFSET: isize>() -> IPhotoProgressActionCB_Vtbl {
         unsafe extern "system" fn DoAction<Identity: ::windows::core::IUnknownImpl, Impl: IPhotoProgressActionCB_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hwndparent: super::super::Foundation::HWND) -> ::windows::core::HRESULT {
@@ -741,6 +759,8 @@ pub trait IPhotoProgressDialog_Impl: Sized {
     fn IsCancelled(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
     fn GetUserInput(&self, riidtype: *const ::windows::core::GUID, punknown: &::core::option::Option<::windows::core::IUnknown>, ppropvarresult: *mut super::super::System::Com::StructuredStorage::PROPVARIANT, ppropvardefault: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_WindowsAndMessaging"))]
+impl ::windows::core::RuntimeName for IPhotoProgressDialog {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_WindowsAndMessaging"))]
 impl IPhotoProgressDialog_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhotoProgressDialog_Impl, const OFFSET: isize>() -> IPhotoProgressDialog_Vtbl {
@@ -891,6 +911,8 @@ pub trait IUserInputString_Impl: Sized {
     fn GetMruEntryAt(&self, nindex: u32) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn GetImage(&self, nsize: u32, phbitmap: *mut super::super::Graphics::Gdi::HBITMAP, phicon: *mut super::super::UI::WindowsAndMessaging::HICON) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+impl ::windows::core::RuntimeName for IUserInputString {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl IUserInputString_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUserInputString_Impl, const OFFSET: isize>() -> IUserInputString_Vtbl {

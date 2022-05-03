@@ -7,6 +7,8 @@ pub trait IITDatabase_Impl: Sized {
     fn GetObjectPersistence(&self, lpwszobject: &::windows::core::PCWSTR, dwobjinstance: u32, ppvpersistence: *mut *mut ::core::ffi::c_void, fstream: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IITDatabase {}
+#[cfg(feature = "Win32_Foundation")]
 impl IITDatabase_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IITDatabase_Impl, const OFFSET: isize>() -> IITDatabase_Vtbl {
         unsafe extern "system" fn Open<Identity: ::windows::core::IUnknownImpl, Impl: IITDatabase_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lpszhost: ::windows::core::PCWSTR, lpszmoniker: ::windows::core::PCWSTR, dwflags: u32) -> ::windows::core::HRESULT {
@@ -68,6 +70,8 @@ pub trait IITPropList_Impl: Sized + super::super::System::Com::IPersist_Impl + s
     fn LoadFromMem(&self, lpvdata: *mut ::core::ffi::c_void, dwbufsize: u32) -> ::windows::core::Result<()>;
     fn SaveToMem(&self, lpvdata: *mut ::core::ffi::c_void, dwbufsize: u32) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::windows::core::RuntimeName for IITPropList {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IITPropList_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IITPropList_Impl, const OFFSET: isize>() -> IITPropList_Vtbl {
@@ -220,6 +224,8 @@ pub trait IITResultSet_Impl: Sized {
     fn GetRowStatus(&self, lrowfirst: i32, crows: i32, lprowstatus: *mut ROWSTATUS) -> ::windows::core::Result<()>;
     fn GetColumnStatus(&self, lpcolstatus: *mut COLUMNSTATUS) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IITResultSet {}
 #[cfg(feature = "Win32_Foundation")]
 impl IITResultSet_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IITResultSet_Impl, const OFFSET: isize>() -> IITResultSet_Vtbl {
@@ -428,6 +434,8 @@ pub trait IITWordWheel_Impl: Sized {
     fn GetDataColumns(&self, prs: &::core::option::Option<IITResultSet>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IITWordWheel {}
+#[cfg(feature = "Win32_Foundation")]
 impl IITWordWheel_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IITWordWheel_Impl, const OFFSET: isize>() -> IITWordWheel_Vtbl {
         unsafe extern "system" fn Open<Identity: ::windows::core::IUnknownImpl, Impl: IITWordWheel_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lpitdb: ::windows::core::RawPtr, lpszmoniker: ::windows::core::PCWSTR, dwflags: WORD_WHEEL_OPEN_FLAGS) -> ::windows::core::HRESULT {
@@ -520,6 +528,7 @@ pub trait IStemSink_Impl: Sized {
     fn PutAltWord(&self, pwcinbuf: &::windows::core::PCWSTR, cwc: u32) -> ::windows::core::Result<()>;
     fn PutWord(&self, pwcinbuf: &::windows::core::PCWSTR, cwc: u32) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IStemSink {}
 impl IStemSink_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStemSink_Impl, const OFFSET: isize>() -> IStemSink_Vtbl {
         unsafe extern "system" fn PutAltWord<Identity: ::windows::core::IUnknownImpl, Impl: IStemSink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwcinbuf: ::windows::core::PCWSTR, cwc: u32) -> ::windows::core::HRESULT {
@@ -550,6 +559,8 @@ pub trait IStemmerConfig_Impl: Sized {
     fn GetControlInfo(&self, pgrfstemflags: *mut u32, pdwreserved: *mut u32) -> ::windows::core::Result<()>;
     fn LoadExternalStemmerData(&self, pstream: &::core::option::Option<super::super::System::Com::IStream>, dwextdatatype: u32) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_System_Com")]
+impl ::windows::core::RuntimeName for IStemmerConfig {}
 #[cfg(feature = "Win32_System_Com")]
 impl IStemmerConfig_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStemmerConfig_Impl, const OFFSET: isize>() -> IStemmerConfig_Vtbl {
@@ -603,6 +614,8 @@ pub trait IWordBreakerConfig_Impl: Sized {
     fn SetWordStemmer(&self, rclsid: *const ::windows::core::GUID, pstemmer: &::core::option::Option<super::super::System::Search::IStemmer>) -> ::windows::core::Result<()>;
     fn GetWordStemmer(&self) -> ::windows::core::Result<super::super::System::Search::IStemmer>;
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Search"))]
+impl ::windows::core::RuntimeName for IWordBreakerConfig {}
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Search"))]
 impl IWordBreakerConfig_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWordBreakerConfig_Impl, const OFFSET: isize>() -> IWordBreakerConfig_Vtbl {

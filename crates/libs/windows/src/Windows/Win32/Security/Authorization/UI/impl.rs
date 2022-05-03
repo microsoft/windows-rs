@@ -3,6 +3,8 @@ pub trait IEffectivePermission_Impl: Sized {
     fn GetEffectivePermission(&self, pguidobjecttype: *const ::windows::core::GUID, pusersid: super::super::super::Foundation::PSID, pszservername: &::windows::core::PCWSTR, psd: super::super::PSECURITY_DESCRIPTOR, ppobjecttypelist: *mut *mut super::super::OBJECT_TYPE_LIST, pcobjecttypelistlength: *mut u32, ppgrantedaccesslist: *mut *mut u32, pcgrantedaccesslistlength: *mut u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IEffectivePermission {}
+#[cfg(feature = "Win32_Foundation")]
 impl IEffectivePermission_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEffectivePermission_Impl, const OFFSET: isize>() -> IEffectivePermission_Vtbl {
         unsafe extern "system" fn GetEffectivePermission<Identity: ::windows::core::IUnknownImpl, Impl: IEffectivePermission_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pguidobjecttype: *const ::windows::core::GUID, pusersid: super::super::super::Foundation::PSID, pszservername: ::windows::core::PCWSTR, psd: super::super::PSECURITY_DESCRIPTOR, ppobjecttypelist: *mut *mut super::super::OBJECT_TYPE_LIST, pcobjecttypelistlength: *mut u32, ppgrantedaccesslist: *mut *mut u32, pcgrantedaccesslistlength: *mut u32) -> ::windows::core::HRESULT {
@@ -36,6 +38,8 @@ pub trait IEffectivePermission2_Impl: Sized {
         peffpermresultlists: *mut EFFPERM_RESULT_LIST,
     ) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IEffectivePermission2 {}
 #[cfg(feature = "Win32_Foundation")]
 impl IEffectivePermission2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEffectivePermission2_Impl, const OFFSET: isize>() -> IEffectivePermission2_Vtbl {
@@ -97,6 +101,8 @@ pub trait ISecurityInformation_Impl: Sized {
     fn PropertySheetPageCallback(&self, hwnd: super::super::super::Foundation::HWND, umsg: super::super::super::UI::Controls::PSPCB_MESSAGE, upage: SI_PAGE_TYPE) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
+impl ::windows::core::RuntimeName for ISecurityInformation {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
 impl ISecurityInformation_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISecurityInformation_Impl, const OFFSET: isize>() -> ISecurityInformation_Vtbl {
         unsafe extern "system" fn GetObjectInformation<Identity: ::windows::core::IUnknownImpl, Impl: ISecurityInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pobjectinfo: *mut SI_OBJECT_INFO) -> ::windows::core::HRESULT {
@@ -155,6 +161,8 @@ pub trait ISecurityInformation2_Impl: Sized {
     fn LookupSids(&self, csids: u32, rgpsids: *mut super::super::super::Foundation::PSID, ppdo: *mut ::core::option::Option<super::super::super::System::Com::IDataObject>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::windows::core::RuntimeName for ISecurityInformation2 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ISecurityInformation2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISecurityInformation2_Impl, const OFFSET: isize>() -> ISecurityInformation2_Vtbl {
         unsafe extern "system" fn IsDaclCanonical<Identity: ::windows::core::IUnknownImpl, Impl: ISecurityInformation2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdacl: *mut super::super::ACL) -> super::super::super::Foundation::BOOL {
@@ -182,6 +190,8 @@ pub trait ISecurityInformation3_Impl: Sized {
     fn GetFullResourceName(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
     fn OpenElevatedEditor(&self, hwnd: super::super::super::Foundation::HWND, upage: SI_PAGE_TYPE) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for ISecurityInformation3 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ISecurityInformation3_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISecurityInformation3_Impl, const OFFSET: isize>() -> ISecurityInformation3_Vtbl {
@@ -216,6 +226,8 @@ pub trait ISecurityInformation4_Impl: Sized {
     fn GetSecondarySecurity(&self, psecurityobjects: *mut *mut SECURITY_OBJECT, psecurityobjectcount: *mut u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for ISecurityInformation4 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ISecurityInformation4_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISecurityInformation4_Impl, const OFFSET: isize>() -> ISecurityInformation4_Vtbl {
         unsafe extern "system" fn GetSecondarySecurity<Identity: ::windows::core::IUnknownImpl, Impl: ISecurityInformation4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psecurityobjects: *mut *mut SECURITY_OBJECT, psecurityobjectcount: *mut u32) -> ::windows::core::HRESULT {
@@ -232,6 +244,7 @@ impl ISecurityInformation4_Vtbl {
 pub trait ISecurityObjectTypeInfo_Impl: Sized {
     fn GetInheritSource(&self, si: u32, pacl: *mut super::super::ACL, ppinheritarray: *mut *mut super::INHERITED_FROMA) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for ISecurityObjectTypeInfo {}
 impl ISecurityObjectTypeInfo_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISecurityObjectTypeInfo_Impl, const OFFSET: isize>() -> ISecurityObjectTypeInfo_Vtbl {
         unsafe extern "system" fn GetInheritSource<Identity: ::windows::core::IUnknownImpl, Impl: ISecurityObjectTypeInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, si: u32, pacl: *mut super::super::ACL, ppinheritarray: *mut *mut super::INHERITED_FROMA) -> ::windows::core::HRESULT {

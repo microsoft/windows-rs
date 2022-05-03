@@ -12,6 +12,7 @@ pub trait ITraceEvent_Impl: Sized {
     fn SetTimeStamp(&self, timestamp: *const i64) -> ::windows::core::Result<()>;
     fn SetProviderId(&self, providerid: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for ITraceEvent {}
 impl ITraceEvent_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITraceEvent_Impl, const OFFSET: isize>() -> ITraceEvent_Vtbl {
         unsafe extern "system" fn Clone<Identity: ::windows::core::IUnknownImpl, Impl: ITraceEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, newevent: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -117,6 +118,7 @@ pub trait ITraceEventCallback_Impl: Sized {
     fn OnFinalizeProcessTrace(&self, relogger: &::core::option::Option<ITraceRelogger>) -> ::windows::core::Result<()>;
     fn OnEvent(&self, event: &::core::option::Option<ITraceEvent>, relogger: &::core::option::Option<ITraceRelogger>) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for ITraceEventCallback {}
 impl ITraceEventCallback_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITraceEventCallback_Impl, const OFFSET: isize>() -> ITraceEventCallback_Vtbl {
         unsafe extern "system" fn OnBeginProcessTrace<Identity: ::windows::core::IUnknownImpl, Impl: ITraceEventCallback_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, headerevent: ::windows::core::RawPtr, relogger: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -157,6 +159,8 @@ pub trait ITraceRelogger_Impl: Sized {
     fn SetCompressionMode(&self, compressionmode: super::super::super::Foundation::BOOLEAN) -> ::windows::core::Result<()>;
     fn Cancel(&self) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for ITraceRelogger {}
 #[cfg(feature = "Win32_Foundation")]
 impl ITraceRelogger_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITraceRelogger_Impl, const OFFSET: isize>() -> ITraceRelogger_Vtbl {

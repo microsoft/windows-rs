@@ -1,6 +1,7 @@
 pub trait IWebApplicationActivation_Impl: Sized {
     fn CancelPendingActivation(&self) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IWebApplicationActivation {}
 impl IWebApplicationActivation_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebApplicationActivation_Impl, const OFFSET: isize>() -> IWebApplicationActivation_Vtbl {
         unsafe extern "system" fn CancelPendingActivation<Identity: ::windows::core::IUnknownImpl, Impl: IWebApplicationActivation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -18,6 +19,8 @@ impl IWebApplicationActivation_Vtbl {
 pub trait IWebApplicationAuthoringMode_Impl: Sized + super::super::super::Com::IServiceProvider_Impl {
     fn AuthoringClientBinary(&self) -> ::windows::core::Result<super::super::super::super::Foundation::BSTR>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::windows::core::RuntimeName for IWebApplicationAuthoringMode {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IWebApplicationAuthoringMode_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebApplicationAuthoringMode_Impl, const OFFSET: isize>() -> IWebApplicationAuthoringMode_Vtbl {
@@ -49,6 +52,8 @@ pub trait IWebApplicationHost_Impl: Sized {
     fn Advise(&self, interfaceid: *const ::windows::core::GUID, callback: &::core::option::Option<::windows::core::IUnknown>, cookie: *mut u32) -> ::windows::core::Result<()>;
     fn Unadvise(&self, cookie: u32) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_Web_MsHtml"))]
+impl ::windows::core::RuntimeName for IWebApplicationHost {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_Web_MsHtml"))]
 impl IWebApplicationHost_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebApplicationHost_Impl, const OFFSET: isize>() -> IWebApplicationHost_Vtbl {
@@ -106,6 +111,8 @@ pub trait IWebApplicationNavigationEvents_Impl: Sized {
     fn DownloadComplete(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_Web_MsHtml"))]
+impl ::windows::core::RuntimeName for IWebApplicationNavigationEvents {}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_Web_MsHtml"))]
 impl IWebApplicationNavigationEvents_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebApplicationNavigationEvents_Impl, const OFFSET: isize>() -> IWebApplicationNavigationEvents_Vtbl {
         unsafe extern "system" fn BeforeNavigate<Identity: ::windows::core::IUnknownImpl, Impl: IWebApplicationNavigationEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, htmlwindow: ::windows::core::RawPtr, url: ::windows::core::PCWSTR, navigationflags: u32, targetframename: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
@@ -158,6 +165,8 @@ pub trait IWebApplicationScriptEvents_Impl: Sized {
     fn ScriptError(&self, htmlwindow: &::core::option::Option<super::super::super::super::Web::MsHtml::IHTMLWindow2>, scripterror: &::core::option::Option<super::IActiveScriptError>, url: &::windows::core::PCWSTR, errorhandled: super::super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_Web_MsHtml"))]
+impl ::windows::core::RuntimeName for IWebApplicationScriptEvents {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_Web_MsHtml"))]
 impl IWebApplicationScriptEvents_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebApplicationScriptEvents_Impl, const OFFSET: isize>() -> IWebApplicationScriptEvents_Vtbl {
         unsafe extern "system" fn BeforeScriptExecute<Identity: ::windows::core::IUnknownImpl, Impl: IWebApplicationScriptEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, htmlwindow: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -183,6 +192,7 @@ impl IWebApplicationScriptEvents_Vtbl {
 pub trait IWebApplicationUIEvents_Impl: Sized {
     fn SecurityProblem(&self, securityproblem: u32, result: *mut ::windows::core::HRESULT) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IWebApplicationUIEvents {}
 impl IWebApplicationUIEvents_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebApplicationUIEvents_Impl, const OFFSET: isize>() -> IWebApplicationUIEvents_Vtbl {
         unsafe extern "system" fn SecurityProblem<Identity: ::windows::core::IUnknownImpl, Impl: IWebApplicationUIEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, securityproblem: u32, result: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT {
@@ -200,6 +210,7 @@ pub trait IWebApplicationUpdateEvents_Impl: Sized {
     fn OnPaint(&self) -> ::windows::core::Result<()>;
     fn OnCssChanged(&self) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IWebApplicationUpdateEvents {}
 impl IWebApplicationUpdateEvents_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWebApplicationUpdateEvents_Impl, const OFFSET: isize>() -> IWebApplicationUpdateEvents_Vtbl {
         unsafe extern "system" fn OnPaint<Identity: ::windows::core::IUnknownImpl, Impl: IWebApplicationUpdateEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {

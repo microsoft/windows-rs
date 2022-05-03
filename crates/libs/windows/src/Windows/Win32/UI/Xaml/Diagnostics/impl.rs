@@ -6,6 +6,8 @@ pub trait IBitmapData_Impl: Sized {
     fn GetSourceBitmapDescription(&self) -> ::windows::core::Result<BitmapDescription>;
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl ::windows::core::RuntimeName for IBitmapData {}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl IBitmapData_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBitmapData_Impl, const OFFSET: isize>() -> IBitmapData_Vtbl {
         unsafe extern "system" fn CopyBytesTo<Identity: ::windows::core::IUnknownImpl, Impl: IBitmapData_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sourceoffsetinbytes: u32, maxbytestocopy: u32, pvbytes: *mut u8, numberofbytescopied: *mut u32) -> ::windows::core::HRESULT {
@@ -73,6 +75,8 @@ pub trait IVisualTreeService_Impl: Sized {
     fn RemoveChild(&self, parent: u64, index: u32) -> ::windows::core::Result<()>;
     fn ClearChildren(&self, parent: u64) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::windows::core::RuntimeName for IVisualTreeService {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IVisualTreeService_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVisualTreeService_Impl, const OFFSET: isize>() -> IVisualTreeService_Vtbl {
@@ -176,6 +180,8 @@ pub trait IVisualTreeService2_Impl: Sized + IVisualTreeService_Impl {
     fn RenderTargetBitmap(&self, handle: u64, options: RenderTargetBitmapOptions, maxpixelwidth: u32, maxpixelheight: u32) -> ::windows::core::Result<IBitmapData>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::windows::core::RuntimeName for IVisualTreeService2 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IVisualTreeService2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVisualTreeService2_Impl, const OFFSET: isize>() -> IVisualTreeService2_Vtbl {
         unsafe extern "system" fn GetPropertyIndex<Identity: ::windows::core::IUnknownImpl, Impl: IVisualTreeService2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, object: u64, propertyname: ::windows::core::PCWSTR, ppropertyindex: *mut u32) -> ::windows::core::HRESULT {
@@ -236,6 +242,8 @@ pub trait IVisualTreeService3_Impl: Sized + IVisualTreeService_Impl + IVisualTre
     fn RemoveDictionaryItem(&self, dictionaryhandle: u64, resourcekey: u64) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::windows::core::RuntimeName for IVisualTreeService3 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IVisualTreeService3_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVisualTreeService3_Impl, const OFFSET: isize>() -> IVisualTreeService3_Vtbl {
         unsafe extern "system" fn ResolveResource<Identity: ::windows::core::IUnknownImpl, Impl: IVisualTreeService3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, resourcecontext: u64, resourcename: ::windows::core::PCWSTR, resourcetype: ResourceType, propertyindex: u32) -> ::windows::core::HRESULT {
@@ -281,6 +289,8 @@ pub trait IVisualTreeServiceCallback_Impl: Sized {
     fn OnVisualTreeChange(&self, relation: &ParentChildRelation, element: &VisualElement, mutationtype: VisualMutationType) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IVisualTreeServiceCallback {}
+#[cfg(feature = "Win32_Foundation")]
 impl IVisualTreeServiceCallback_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVisualTreeServiceCallback_Impl, const OFFSET: isize>() -> IVisualTreeServiceCallback_Vtbl {
         unsafe extern "system" fn OnVisualTreeChange<Identity: ::windows::core::IUnknownImpl, Impl: IVisualTreeServiceCallback_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, relation: ParentChildRelation, element: ::core::mem::ManuallyDrop<VisualElement>, mutationtype: VisualMutationType) -> ::windows::core::HRESULT {
@@ -298,6 +308,8 @@ impl IVisualTreeServiceCallback_Vtbl {
 pub trait IVisualTreeServiceCallback2_Impl: Sized + IVisualTreeServiceCallback_Impl {
     fn OnElementStateChanged(&self, element: u64, elementstate: VisualElementState, context: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IVisualTreeServiceCallback2 {}
 #[cfg(feature = "Win32_Foundation")]
 impl IVisualTreeServiceCallback2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVisualTreeServiceCallback2_Impl, const OFFSET: isize>() -> IVisualTreeServiceCallback2_Vtbl {
@@ -323,6 +335,8 @@ pub trait IXamlDiagnostics_Impl: Sized {
     fn RegisterInstance(&self, pinstance: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<u64>;
     fn GetInitializationData(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IXamlDiagnostics {}
 #[cfg(feature = "Win32_Foundation")]
 impl IXamlDiagnostics_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXamlDiagnostics_Impl, const OFFSET: isize>() -> IXamlDiagnostics_Vtbl {

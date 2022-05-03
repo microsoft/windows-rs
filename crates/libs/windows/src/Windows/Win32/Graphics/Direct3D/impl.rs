@@ -2,6 +2,7 @@ pub trait ID3DBlob_Impl: Sized {
     fn GetBufferPointer(&self) -> *mut ::core::ffi::c_void;
     fn GetBufferSize(&self) -> usize;
 }
+impl ::windows::core::RuntimeName for ID3DBlob {}
 impl ID3DBlob_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3DBlob_Impl, const OFFSET: isize>() -> ID3DBlob_Vtbl {
         unsafe extern "system" fn GetBufferPointer<Identity: ::windows::core::IUnknownImpl, Impl: ID3DBlob_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> *mut ::core::ffi::c_void {
@@ -28,6 +29,7 @@ pub trait ID3DDestructionNotifier_Impl: Sized {
     fn RegisterDestructionCallback(&self, callbackfn: &PFN_DESTRUCTION_CALLBACK, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<u32>;
     fn UnregisterDestructionCallback(&self, callbackid: u32) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for ID3DDestructionNotifier {}
 impl ID3DDestructionNotifier_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3DDestructionNotifier_Impl, const OFFSET: isize>() -> ID3DDestructionNotifier_Vtbl {
         unsafe extern "system" fn RegisterDestructionCallback<Identity: ::windows::core::IUnknownImpl, Impl: ID3DDestructionNotifier_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, callbackfn: ::windows::core::RawPtr, pdata: *const ::core::ffi::c_void, pcallbackid: *mut u32) -> ::windows::core::HRESULT {
@@ -60,6 +62,7 @@ pub trait ID3DInclude_Impl: Sized {
     fn Open(&self, includetype: D3D_INCLUDE_TYPE, pfilename: &::windows::core::PCSTR, pparentdata: *const ::core::ffi::c_void, ppdata: *mut *mut ::core::ffi::c_void, pbytes: *mut u32) -> ::windows::core::Result<()>;
     fn Close(&self, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for ID3DInclude {}
 impl ID3DInclude_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3DInclude_Impl, const OFFSET: isize>() -> ID3DInclude_Vtbl {
         unsafe extern "system" fn Open<Identity: ::windows::core::IUnknownImpl, Impl: ID3DInclude_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, includetype: D3D_INCLUDE_TYPE, pfilename: ::windows::core::PCSTR, pparentdata: *const ::core::ffi::c_void, ppdata: *mut *mut ::core::ffi::c_void, pbytes: *mut u32) -> ::windows::core::HRESULT {

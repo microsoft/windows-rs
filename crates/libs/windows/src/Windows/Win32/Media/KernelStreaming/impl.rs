@@ -2,6 +2,7 @@ pub trait IKsAggregateControl_Impl: Sized {
     fn KsAddAggregate(&self, aggregateclass: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
     fn KsRemoveAggregate(&self, aggregateclass: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IKsAggregateControl {}
 impl IKsAggregateControl_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IKsAggregateControl_Impl, const OFFSET: isize>() -> IKsAggregateControl_Vtbl {
         unsafe extern "system" fn KsAddAggregate<Identity: ::windows::core::IUnknownImpl, Impl: IKsAggregateControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, aggregateclass: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
@@ -29,6 +30,7 @@ pub trait IKsControl_Impl: Sized {
     fn KsMethod(&self, method: *const KSIDENTIFIER, methodlength: u32, methoddata: *mut ::core::ffi::c_void, datalength: u32, bytesreturned: *mut u32) -> ::windows::core::Result<()>;
     fn KsEvent(&self, event: *const KSIDENTIFIER, eventlength: u32, eventdata: *mut ::core::ffi::c_void, datalength: u32, bytesreturned: *mut u32) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IKsControl {}
 impl IKsControl_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IKsControl_Impl, const OFFSET: isize>() -> IKsControl_Vtbl {
         unsafe extern "system" fn KsProperty<Identity: ::windows::core::IUnknownImpl, Impl: IKsControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, property: *const KSIDENTIFIER, propertylength: u32, propertydata: *mut ::core::ffi::c_void, datalength: u32, bytesreturned: *mut u32) -> ::windows::core::HRESULT {
@@ -63,6 +65,8 @@ pub trait IKsFormatSupport_Impl: Sized {
     fn GetDevicePreferredFormat(&self) -> ::windows::core::Result<*mut KSDATAFORMAT>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IKsFormatSupport {}
+#[cfg(feature = "Win32_Foundation")]
 impl IKsFormatSupport_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IKsFormatSupport_Impl, const OFFSET: isize>() -> IKsFormatSupport_Vtbl {
         unsafe extern "system" fn IsFormatSupported<Identity: ::windows::core::IUnknownImpl, Impl: IKsFormatSupport_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pksformat: *mut KSDATAFORMAT, cbformat: u32, pbsupported: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
@@ -94,6 +98,7 @@ impl IKsFormatSupport_Vtbl {
 pub trait IKsJackContainerId_Impl: Sized {
     fn GetJackContainerId(&self) -> ::windows::core::Result<::windows::core::GUID>;
 }
+impl ::windows::core::RuntimeName for IKsJackContainerId {}
 impl IKsJackContainerId_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IKsJackContainerId_Impl, const OFFSET: isize>() -> IKsJackContainerId_Vtbl {
         unsafe extern "system" fn GetJackContainerId<Identity: ::windows::core::IUnknownImpl, Impl: IKsJackContainerId_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pjackcontainerid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
@@ -118,6 +123,8 @@ pub trait IKsJackDescription_Impl: Sized {
     fn GetJackCount(&self) -> ::windows::core::Result<u32>;
     fn GetJackDescription(&self, njack: u32) -> ::windows::core::Result<KSJACK_DESCRIPTION>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IKsJackDescription {}
 #[cfg(feature = "Win32_Foundation")]
 impl IKsJackDescription_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IKsJackDescription_Impl, const OFFSET: isize>() -> IKsJackDescription_Vtbl {
@@ -157,6 +164,7 @@ pub trait IKsJackDescription2_Impl: Sized {
     fn GetJackCount(&self) -> ::windows::core::Result<u32>;
     fn GetJackDescription2(&self, njack: u32) -> ::windows::core::Result<KSJACK_DESCRIPTION2>;
 }
+impl ::windows::core::RuntimeName for IKsJackDescription2 {}
 impl IKsJackDescription2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IKsJackDescription2_Impl, const OFFSET: isize>() -> IKsJackDescription2_Vtbl {
         unsafe extern "system" fn GetJackCount<Identity: ::windows::core::IUnknownImpl, Impl: IKsJackDescription2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcjacks: *mut u32) -> ::windows::core::HRESULT {
@@ -196,6 +204,8 @@ pub trait IKsJackSinkInformation_Impl: Sized {
     fn GetJackSinkInformation(&self) -> ::windows::core::Result<KSJACK_SINK_INFORMATION>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IKsJackSinkInformation {}
+#[cfg(feature = "Win32_Foundation")]
 impl IKsJackSinkInformation_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IKsJackSinkInformation_Impl, const OFFSET: isize>() -> IKsJackSinkInformation_Vtbl {
         unsafe extern "system" fn GetJackSinkInformation<Identity: ::windows::core::IUnknownImpl, Impl: IKsJackSinkInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pjacksinkinformation: *mut KSJACK_SINK_INFORMATION) -> ::windows::core::HRESULT {
@@ -220,6 +230,7 @@ pub trait IKsPropertySet_Impl: Sized {
     fn Get(&self, propset: *const ::windows::core::GUID, id: u32, instancedata: *const ::core::ffi::c_void, instancelength: u32, propertydata: *mut ::core::ffi::c_void, datalength: u32, bytesreturned: *mut u32) -> ::windows::core::Result<()>;
     fn QuerySupported(&self, propset: *const ::windows::core::GUID, id: u32) -> ::windows::core::Result<u32>;
 }
+impl ::windows::core::RuntimeName for IKsPropertySet {}
 impl IKsPropertySet_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IKsPropertySet_Impl, const OFFSET: isize>() -> IKsPropertySet_Vtbl {
         unsafe extern "system" fn Set<Identity: ::windows::core::IUnknownImpl, Impl: IKsPropertySet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propset: *const ::windows::core::GUID, id: u32, instancedata: *const ::core::ffi::c_void, instancelength: u32, propertydata: *const ::core::ffi::c_void, datalength: u32) -> ::windows::core::HRESULT {
@@ -257,6 +268,7 @@ impl IKsPropertySet_Vtbl {
 pub trait IKsTopology_Impl: Sized {
     fn CreateNodeInstance(&self, nodeid: u32, flags: u32, desiredaccess: u32, unkouter: &::core::option::Option<::windows::core::IUnknown>, interfaceid: *const ::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IKsTopology {}
 impl IKsTopology_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IKsTopology_Impl, const OFFSET: isize>() -> IKsTopology_Vtbl {
         unsafe extern "system" fn CreateNodeInstance<Identity: ::windows::core::IUnknownImpl, Impl: IKsTopology_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nodeid: u32, flags: u32, desiredaccess: u32, unkouter: *mut ::core::ffi::c_void, interfaceid: *const ::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {

@@ -46,6 +46,8 @@ pub trait IFeed_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn ItemCount(&self) -> ::windows::core::Result<i32>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IFeed {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IFeed_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFeed_Impl, const OFFSET: isize>() -> IFeed_Vtbl {
         unsafe extern "system" fn Xml<Identity: ::windows::core::IUnknownImpl, Impl: IFeed_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, count: i32, sortproperty: FEEDS_XML_SORT_PROPERTY, sortorder: FEEDS_XML_SORT_ORDER, filterflags: FEEDS_XML_FILTER_FLAGS, includeflags: FEEDS_XML_INCLUDE_FLAGS, xml: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
@@ -516,6 +518,8 @@ pub trait IFeed2_Impl: Sized + super::super::System::Com::IDispatch_Impl + IFeed
     fn ClearCredentials(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IFeed2 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IFeed2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFeed2_Impl, const OFFSET: isize>() -> IFeed2_Vtbl {
         unsafe extern "system" fn GetItemByEffectiveId<Identity: ::windows::core::IUnknownImpl, Impl: IFeed2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, itemeffectiveid: i32, disp: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -602,6 +606,8 @@ pub trait IFeedEnclosure_Impl: Sized + super::super::System::Com::IDispatch_Impl
     fn RemoveFile(&self) -> ::windows::core::Result<()>;
     fn SetFile(&self, downloadurl: &super::super::Foundation::BSTR, downloadfilepath: &super::super::Foundation::BSTR, downloadmimetype: &super::super::Foundation::BSTR, enclosurefilename: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IFeedEnclosure {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IFeedEnclosure_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFeedEnclosure_Impl, const OFFSET: isize>() -> IFeedEnclosure_Vtbl {
@@ -757,6 +763,8 @@ pub trait IFeedEvents_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn FeedItemCountChanged(&self, path: &super::super::Foundation::BSTR, itemcounttype: i32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IFeedEvents {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IFeedEvents_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFeedEvents_Impl, const OFFSET: isize>() -> IFeedEvents_Vtbl {
         unsafe extern "system" fn Error<Identity: ::windows::core::IUnknownImpl, Impl: IFeedEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -836,6 +844,8 @@ pub trait IFeedFolder_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn TotalItemCount(&self) -> ::windows::core::Result<i32>;
     fn GetWatcher(&self, scope: FEEDS_EVENTS_SCOPE, mask: FEEDS_EVENTS_MASK) -> ::windows::core::Result<super::super::System::Com::IDispatch>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IFeedFolder {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IFeedFolder_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFeedFolder_Impl, const OFFSET: isize>() -> IFeedFolder_Vtbl {
@@ -1065,6 +1075,8 @@ pub trait IFeedFolderEvents_Impl: Sized + super::super::System::Com::IDispatch_I
     fn FeedItemCountChanged(&self, path: &super::super::Foundation::BSTR, itemcounttype: i32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IFeedFolderEvents {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IFeedFolderEvents_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFeedFolderEvents_Impl, const OFFSET: isize>() -> IFeedFolderEvents_Vtbl {
         unsafe extern "system" fn Error<Identity: ::windows::core::IUnknownImpl, Impl: IFeedFolderEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -1191,6 +1203,8 @@ pub trait IFeedItem_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn LastDownloadTime(&self) -> ::windows::core::Result<f64>;
     fn Modified(&self) -> ::windows::core::Result<f64>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IFeedItem {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IFeedItem_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFeedItem_Impl, const OFFSET: isize>() -> IFeedItem_Vtbl {
@@ -1399,6 +1413,8 @@ pub trait IFeedItem2_Impl: Sized + super::super::System::Com::IDispatch_Impl + I
     fn EffectiveId(&self) -> ::windows::core::Result<i32>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IFeedItem2 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IFeedItem2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFeedItem2_Impl, const OFFSET: isize>() -> IFeedItem2_Vtbl {
         unsafe extern "system" fn EffectiveId<Identity: ::windows::core::IUnknownImpl, Impl: IFeedItem2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, effectiveid: *mut i32) -> ::windows::core::HRESULT {
@@ -1424,6 +1440,8 @@ pub trait IFeedsEnum_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Item(&self, index: i32) -> ::windows::core::Result<super::super::System::Com::IDispatch>;
     fn _NewEnum(&self) -> ::windows::core::Result<super::super::System::Ole::IEnumVARIANT>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IFeedsEnum {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IFeedsEnum_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFeedsEnum_Impl, const OFFSET: isize>() -> IFeedsEnum_Vtbl {
@@ -1490,6 +1508,8 @@ pub trait IFeedsManager_Impl: Sized + super::super::System::Com::IDispatch_Impl 
     fn Normalize(&self, feedxmlin: &super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn ItemCountLimit(&self) -> ::windows::core::Result<i32>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IFeedsManager {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IFeedsManager_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFeedsManager_Impl, const OFFSET: isize>() -> IFeedsManager_Vtbl {
@@ -1669,6 +1689,8 @@ pub trait IWMPAudioRenderConfig_Impl: Sized {
     fn SetaudioOutputDevice(&self, bstroutputdevice: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IWMPAudioRenderConfig {}
+#[cfg(feature = "Win32_Foundation")]
 impl IWMPAudioRenderConfig_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMPAudioRenderConfig_Impl, const OFFSET: isize>() -> IWMPAudioRenderConfig_Vtbl {
         unsafe extern "system" fn audioOutputDevice<Identity: ::windows::core::IUnknownImpl, Impl: IWMPAudioRenderConfig_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstroutputdevice: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
@@ -1697,6 +1719,8 @@ pub trait IWMPCdrom_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn playlist(&self) -> ::windows::core::Result<IWMPPlaylist>;
     fn eject(&self) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IWMPCdrom {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWMPCdrom_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMPCdrom_Impl, const OFFSET: isize>() -> IWMPCdrom_Vtbl {
@@ -1749,6 +1773,8 @@ pub trait IWMPCdromBurn_Impl: Sized {
     fn stopBurn(&self) -> ::windows::core::Result<()>;
     fn erase(&self) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::windows::core::RuntimeName for IWMPCdromBurn {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IWMPCdromBurn_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMPCdromBurn_Impl, const OFFSET: isize>() -> IWMPCdromBurn_Vtbl {
@@ -1857,6 +1883,8 @@ pub trait IWMPCdromCollection_Impl: Sized + super::super::System::Com::IDispatch
     fn getByDriveSpecifier(&self, bstrdrivespecifier: &super::super::Foundation::BSTR) -> ::windows::core::Result<IWMPCdrom>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IWMPCdromCollection {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWMPCdromCollection_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMPCdromCollection_Impl, const OFFSET: isize>() -> IWMPCdromCollection_Vtbl {
         unsafe extern "system" fn count<Identity: ::windows::core::IUnknownImpl, Impl: IWMPCdromCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plcount: *mut i32) -> ::windows::core::HRESULT {
@@ -1903,6 +1931,7 @@ pub trait IWMPCdromRip_Impl: Sized {
     fn startRip(&self) -> ::windows::core::Result<()>;
     fn stopRip(&self) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IWMPCdromRip {}
 impl IWMPCdromRip_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMPCdromRip_Impl, const OFFSET: isize>() -> IWMPCdromRip_Vtbl {
         unsafe extern "system" fn ripState<Identity: ::windows::core::IUnknownImpl, Impl: IWMPCdromRip_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwmprs: *mut WMPRipState) -> ::windows::core::HRESULT {
@@ -1948,6 +1977,8 @@ pub trait IWMPClosedCaption_Impl: Sized + super::super::System::Com::IDispatch_I
     fn captioningId(&self, pbstrcaptioningid: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn SetcaptioningId(&self, bstrcaptioningid: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IWMPClosedCaption {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWMPClosedCaption_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMPClosedCaption_Impl, const OFFSET: isize>() -> IWMPClosedCaption_Vtbl {
@@ -2016,6 +2047,8 @@ pub trait IWMPClosedCaption2_Impl: Sized + super::super::System::Com::IDispatch_
     fn getSAMIStyleName(&self, nindex: i32, pbstrname: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IWMPClosedCaption2 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWMPClosedCaption2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMPClosedCaption2_Impl, const OFFSET: isize>() -> IWMPClosedCaption2_Vtbl {
         unsafe extern "system" fn SAMILangCount<Identity: ::windows::core::IUnknownImpl, Impl: IWMPClosedCaption2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plcount: *mut i32) -> ::windows::core::HRESULT {
@@ -2065,6 +2098,8 @@ pub trait IWMPContentContainer_Impl: Sized {
     fn GetContentPrice(&self, idxcontent: u32) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn GetContentID(&self, idxcontent: u32) -> ::windows::core::Result<u32>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IWMPContentContainer {}
 #[cfg(feature = "Win32_Foundation")]
 impl IWMPContentContainer_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMPContentContainer_Impl, const OFFSET: isize>() -> IWMPContentContainer_Vtbl {
@@ -2153,6 +2188,7 @@ pub trait IWMPContentContainerList_Impl: Sized {
     fn GetContainerCount(&self) -> ::windows::core::Result<u32>;
     fn GetContainer(&self, idxcontainer: u32) -> ::windows::core::Result<IWMPContentContainer>;
 }
+impl ::windows::core::RuntimeName for IWMPContentContainerList {}
 impl IWMPContentContainerList_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMPContentContainerList_Impl, const OFFSET: isize>() -> IWMPContentContainerList_Vtbl {
         unsafe extern "system" fn GetTransactionType<Identity: ::windows::core::IUnknownImpl, Impl: IWMPContentContainerList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwmptt: *mut WMPTransactionType) -> ::windows::core::HRESULT {
@@ -2225,6 +2261,8 @@ pub trait IWMPContentPartner_Impl: Sized {
     fn CompareContainerListPrices(&self, plistbase: &::core::option::Option<IWMPContentContainerList>, plistcompare: &::core::option::Option<IWMPContentContainerList>) -> ::windows::core::Result<i32>;
     fn VerifyPermission(&self, bstrpermission: &super::super::Foundation::BSTR, pcontext: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IWMPContentPartner {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWMPContentPartner_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMPContentPartner_Impl, const OFFSET: isize>() -> IWMPContentPartner_Vtbl {
@@ -2415,6 +2453,8 @@ pub trait IWMPContentPartnerCallback_Impl: Sized {
     fn VerifyPermissionComplete(&self, bstrpermission: &super::super::Foundation::BSTR, pcontext: *const super::super::System::Com::VARIANT, hrpermission: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IWMPContentPartnerCallback {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWMPContentPartnerCallback_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMPContentPartnerCallback_Impl, const OFFSET: isize>() -> IWMPContentPartnerCallback_Vtbl {
         unsafe extern "system" fn Notify<Identity: ::windows::core::IUnknownImpl, Impl: IWMPContentPartnerCallback_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, r#type: WMPCallbackNotification, pcontext: *const super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
@@ -2522,6 +2562,8 @@ pub trait IWMPControls_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn SetcurrentMarker(&self, lmarker: i32) -> ::windows::core::Result<()>;
     fn playItem(&self, piwmpmedia: &::core::option::Option<IWMPMedia>) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IWMPControls {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWMPControls_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMPControls_Impl, const OFFSET: isize>() -> IWMPControls_Vtbl {
@@ -2640,6 +2682,8 @@ pub trait IWMPControls2_Impl: Sized + super::super::System::Com::IDispatch_Impl 
     fn step(&self, lstep: i32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IWMPControls2 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWMPControls2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMPControls2_Impl, const OFFSET: isize>() -> IWMPControls2_Vtbl {
         unsafe extern "system" fn step<Identity: ::windows::core::IUnknownImpl, Impl: IWMPControls2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lstep: i32) -> ::windows::core::HRESULT {
@@ -2666,6 +2710,8 @@ pub trait IWMPControls3_Impl: Sized + super::super::System::Com::IDispatch_Impl 
     fn currentPositionTimecode(&self, bstrtimecode: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn SetcurrentPositionTimecode(&self, bstrtimecode: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IWMPControls3 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWMPControls3_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMPControls3_Impl, const OFFSET: isize>() -> IWMPControls3_Vtbl {
@@ -2743,6 +2789,8 @@ pub trait IWMPConvert_Impl: Sized {
     fn GetErrorURL(&self, pbstrurl: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IWMPConvert {}
+#[cfg(feature = "Win32_Foundation")]
 impl IWMPConvert_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMPConvert_Impl, const OFFSET: isize>() -> IWMPConvert_Vtbl {
         unsafe extern "system" fn ConvertFile<Identity: ::windows::core::IUnknownImpl, Impl: IWMPConvert_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrinputfile: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrdestinationfolder: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pbstroutputfile: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
@@ -2789,6 +2837,8 @@ pub trait IWMPCore_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn error(&self) -> ::windows::core::Result<IWMPError>;
     fn status(&self, pbstrstatus: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IWMPCore {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWMPCore_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMPCore_Impl, const OFFSET: isize>() -> IWMPCore_Vtbl {
@@ -2991,6 +3041,8 @@ pub trait IWMPCore2_Impl: Sized + super::super::System::Com::IDispatch_Impl + IW
     fn dvd(&self) -> ::windows::core::Result<IWMPDVD>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IWMPCore2 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWMPCore2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMPCore2_Impl, const OFFSET: isize>() -> IWMPCore2_Vtbl {
         unsafe extern "system" fn dvd<Identity: ::windows::core::IUnknownImpl, Impl: IWMPCore2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppdvd: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -3015,6 +3067,8 @@ pub trait IWMPCore3_Impl: Sized + super::super::System::Com::IDispatch_Impl + IW
     fn newPlaylist(&self, bstrname: &super::super::Foundation::BSTR, bstrurl: &super::super::Foundation::BSTR) -> ::windows::core::Result<IWMPPlaylist>;
     fn newMedia(&self, bstrurl: &super::super::Foundation::BSTR) -> ::windows::core::Result<IWMPMedia>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IWMPCore3 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWMPCore3_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMPCore3_Impl, const OFFSET: isize>() -> IWMPCore3_Vtbl {
@@ -3059,6 +3113,8 @@ pub trait IWMPDVD_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn back(&self) -> ::windows::core::Result<()>;
     fn resume(&self) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IWMPDVD {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWMPDVD_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMPDVD_Impl, const OFFSET: isize>() -> IWMPDVD_Vtbl {
@@ -3115,6 +3171,8 @@ pub trait IWMPDownloadCollection_Impl: Sized + super::super::System::Com::IDispa
     fn removeItem(&self, litem: i32) -> ::windows::core::Result<()>;
     fn Clear(&self) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IWMPDownloadCollection {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWMPDownloadCollection_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMPDownloadCollection_Impl, const OFFSET: isize>() -> IWMPDownloadCollection_Vtbl {
@@ -3186,6 +3244,8 @@ pub trait IWMPDownloadItem_Impl: Sized + super::super::System::Com::IDispatch_Im
     fn cancel(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IWMPDownloadItem {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWMPDownloadItem_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMPDownloadItem_Impl, const OFFSET: isize>() -> IWMPDownloadItem_Vtbl {
         unsafe extern "system" fn sourceURL<Identity: ::windows::core::IUnknownImpl, Impl: IWMPDownloadItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrurl: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
@@ -3249,6 +3309,8 @@ pub trait IWMPDownloadItem2_Impl: Sized + super::super::System::Com::IDispatch_I
     fn getItemInfo(&self, bstritemname: &super::super::Foundation::BSTR, pbstrval: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IWMPDownloadItem2 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWMPDownloadItem2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMPDownloadItem2_Impl, const OFFSET: isize>() -> IWMPDownloadItem2_Vtbl {
         unsafe extern "system" fn getItemInfo<Identity: ::windows::core::IUnknownImpl, Impl: IWMPDownloadItem2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstritemname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pbstrval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
@@ -3267,6 +3329,8 @@ pub trait IWMPDownloadManager_Impl: Sized + super::super::System::Com::IDispatch
     fn getDownloadCollection(&self, lcollectionid: i32) -> ::windows::core::Result<IWMPDownloadCollection>;
     fn createDownloadCollection(&self) -> ::windows::core::Result<IWMPDownloadCollection>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IWMPDownloadManager {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWMPDownloadManager_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMPDownloadManager_Impl, const OFFSET: isize>() -> IWMPDownloadManager_Vtbl {
@@ -3316,6 +3380,8 @@ pub trait IWMPEffects_Impl: Sized {
     fn GoFullscreen(&self, ffullscreen: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn RenderFullScreen(&self, plevels: *mut TimedLevel) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::windows::core::RuntimeName for IWMPEffects {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl IWMPEffects_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMPEffects_Impl, const OFFSET: isize>() -> IWMPEffects_Vtbl {
@@ -3403,6 +3469,8 @@ pub trait IWMPEffects2_Impl: Sized + IWMPEffects_Impl {
     fn RenderWindowed(&self, pdata: *mut TimedLevel, frequiredrender: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
+impl ::windows::core::RuntimeName for IWMPEffects2 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
 impl IWMPEffects2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMPEffects2_Impl, const OFFSET: isize>() -> IWMPEffects2_Vtbl {
         unsafe extern "system" fn SetCore<Identity: ::windows::core::IUnknownImpl, Impl: IWMPEffects2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pplayer: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -3457,6 +3525,8 @@ pub trait IWMPError_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn webHelp(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IWMPError {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWMPError_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMPError_Impl, const OFFSET: isize>() -> IWMPError_Vtbl {
         unsafe extern "system" fn clearErrorQueue<Identity: ::windows::core::IUnknownImpl, Impl: IWMPError_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -3506,6 +3576,8 @@ pub trait IWMPErrorItem_Impl: Sized + super::super::System::Com::IDispatch_Impl 
     fn customUrl(&self, pbstrcustomurl: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IWMPErrorItem {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWMPErrorItem_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMPErrorItem_Impl, const OFFSET: isize>() -> IWMPErrorItem_Vtbl {
         unsafe extern "system" fn errorCode<Identity: ::windows::core::IUnknownImpl, Impl: IWMPErrorItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, phr: *mut i32) -> ::windows::core::HRESULT {
@@ -3550,6 +3622,8 @@ impl IWMPErrorItem_Vtbl {
 pub trait IWMPErrorItem2_Impl: Sized + super::super::System::Com::IDispatch_Impl + IWMPErrorItem_Impl {
     fn condition(&self, plcondition: *mut i32) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IWMPErrorItem2 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWMPErrorItem2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMPErrorItem2_Impl, const OFFSET: isize>() -> IWMPErrorItem2_Vtbl {
@@ -3612,6 +3686,8 @@ pub trait IWMPEvents_Impl: Sized {
     fn MouseMove(&self, nbutton: i16, nshiftstate: i16, fx: i32, fy: i32);
     fn MouseUp(&self, nbutton: i16, nshiftstate: i16, fx: i32, fy: i32);
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::windows::core::RuntimeName for IWMPEvents {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IWMPEvents_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMPEvents_Impl, const OFFSET: isize>() -> IWMPEvents_Vtbl {
@@ -3903,6 +3979,8 @@ pub trait IWMPEvents2_Impl: Sized + IWMPEvents_Impl {
     fn CreatePartnershipComplete(&self, pdevice: &::core::option::Option<IWMPSyncDevice>, hrresult: ::windows::core::HRESULT);
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::windows::core::RuntimeName for IWMPEvents2 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IWMPEvents2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMPEvents2_Impl, const OFFSET: isize>() -> IWMPEvents2_Vtbl {
         unsafe extern "system" fn DeviceConnect<Identity: ::windows::core::IUnknownImpl, Impl: IWMPEvents2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdevice: ::windows::core::RawPtr) {
@@ -3963,6 +4041,8 @@ pub trait IWMPEvents3_Impl: Sized + IWMPEvents_Impl + IWMPEvents2_Impl {
     fn MediaCollectionMediaAdded(&self, pdispmedia: &::core::option::Option<super::super::System::Com::IDispatch>);
     fn MediaCollectionMediaRemoved(&self, pdispmedia: &::core::option::Option<super::super::System::Com::IDispatch>);
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::windows::core::RuntimeName for IWMPEvents3 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IWMPEvents3_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMPEvents3_Impl, const OFFSET: isize>() -> IWMPEvents3_Vtbl {
@@ -4045,6 +4125,8 @@ pub trait IWMPEvents4_Impl: Sized + IWMPEvents_Impl + IWMPEvents2_Impl + IWMPEve
     fn DeviceEstimation(&self, pdevice: &::core::option::Option<IWMPSyncDevice>, hrresult: ::windows::core::HRESULT, qwestimatedusedspace: i64, qwestimatedspace: i64);
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::windows::core::RuntimeName for IWMPEvents4 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IWMPEvents4_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMPEvents4_Impl, const OFFSET: isize>() -> IWMPEvents4_Vtbl {
         unsafe extern "system" fn DeviceEstimation<Identity: ::windows::core::IUnknownImpl, Impl: IWMPEvents4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdevice: ::windows::core::RawPtr, hrresult: ::windows::core::HRESULT, qwestimatedusedspace: i64, qwestimatedspace: i64) {
@@ -4072,6 +4154,8 @@ pub trait IWMPFolderMonitorServices_Impl: Sized {
     fn startScan(&self) -> ::windows::core::Result<()>;
     fn stopScan(&self) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IWMPFolderMonitorServices {}
 #[cfg(feature = "Win32_Foundation")]
 impl IWMPFolderMonitorServices_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMPFolderMonitorServices_Impl, const OFFSET: isize>() -> IWMPFolderMonitorServices_Vtbl {
@@ -4154,6 +4238,7 @@ pub trait IWMPGraphCreation_Impl: Sized {
     fn GraphCreationPostRender(&self, pfiltergraph: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
     fn GetGraphCreationFlags(&self, pdwflags: *mut u32) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IWMPGraphCreation {}
 impl IWMPGraphCreation_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMPGraphCreation_Impl, const OFFSET: isize>() -> IWMPGraphCreation_Vtbl {
         unsafe extern "system" fn GraphCreationPreRender<Identity: ::windows::core::IUnknownImpl, Impl: IWMPGraphCreation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfiltergraph: *mut ::core::ffi::c_void, preserved: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -4189,6 +4274,8 @@ pub trait IWMPLibrary_Impl: Sized {
     fn mediaCollection(&self) -> ::windows::core::Result<IWMPMediaCollection>;
     fn isIdentical(&self, piwmplibrary: &::core::option::Option<IWMPLibrary>, pvbool: *mut i16) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::windows::core::RuntimeName for IWMPLibrary {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IWMPLibrary_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMPLibrary_Impl, const OFFSET: isize>() -> IWMPLibrary_Vtbl {
@@ -4235,6 +4322,8 @@ pub trait IWMPLibrary2_Impl: Sized + IWMPLibrary_Impl {
     fn getItemInfo(&self, bstritemname: &super::super::Foundation::BSTR, pbstrval: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::windows::core::RuntimeName for IWMPLibrary2 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IWMPLibrary2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMPLibrary2_Impl, const OFFSET: isize>() -> IWMPLibrary2_Vtbl {
         unsafe extern "system" fn getItemInfo<Identity: ::windows::core::IUnknownImpl, Impl: IWMPLibrary2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstritemname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pbstrval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
@@ -4252,6 +4341,7 @@ pub trait IWMPLibraryServices_Impl: Sized {
     fn getCountByType(&self, wmplt: WMPLibraryType, plcount: *mut i32) -> ::windows::core::Result<()>;
     fn getLibraryByType(&self, wmplt: WMPLibraryType, lindex: i32) -> ::windows::core::Result<IWMPLibrary>;
 }
+impl ::windows::core::RuntimeName for IWMPLibraryServices {}
 impl IWMPLibraryServices_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMPLibraryServices_Impl, const OFFSET: isize>() -> IWMPLibraryServices_Vtbl {
         unsafe extern "system" fn getCountByType<Identity: ::windows::core::IUnknownImpl, Impl: IWMPLibraryServices_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wmplt: WMPLibraryType, plcount: *mut i32) -> ::windows::core::HRESULT {
@@ -4285,6 +4375,7 @@ pub trait IWMPLibrarySharingServices_Impl: Sized {
     fn isLibrarySharingEnabled(&self, pvbenabled: *mut i16) -> ::windows::core::Result<()>;
     fn showLibrarySharing(&self) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IWMPLibrarySharingServices {}
 impl IWMPLibrarySharingServices_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMPLibrarySharingServices_Impl, const OFFSET: isize>() -> IWMPLibrarySharingServices_Vtbl {
         unsafe extern "system" fn isLibraryShared<Identity: ::windows::core::IUnknownImpl, Impl: IWMPLibrarySharingServices_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvbshared: *mut i16) -> ::windows::core::HRESULT {
@@ -4334,6 +4425,8 @@ pub trait IWMPMedia_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn isMemberOf(&self, pplaylist: &::core::option::Option<IWMPPlaylist>, pvarfismemberof: *mut i16) -> ::windows::core::Result<()>;
     fn isReadOnlyItem(&self, bstritemname: &super::super::Foundation::BSTR, pvarfisreadonly: *mut i16) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IWMPMedia {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWMPMedia_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMPMedia_Impl, const OFFSET: isize>() -> IWMPMedia_Vtbl {
@@ -4458,6 +4551,8 @@ pub trait IWMPMedia2_Impl: Sized + super::super::System::Com::IDispatch_Impl + I
     fn error(&self) -> ::windows::core::Result<IWMPErrorItem>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IWMPMedia2 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWMPMedia2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMPMedia2_Impl, const OFFSET: isize>() -> IWMPMedia2_Vtbl {
         unsafe extern "system" fn error<Identity: ::windows::core::IUnknownImpl, Impl: IWMPMedia2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppiwmperroritem: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -4482,6 +4577,8 @@ pub trait IWMPMedia3_Impl: Sized + super::super::System::Com::IDispatch_Impl + I
     fn getAttributeCountByType(&self, bstrtype: &super::super::Foundation::BSTR, bstrlanguage: &super::super::Foundation::BSTR, plcount: *mut i32) -> ::windows::core::Result<()>;
     fn getItemInfoByType(&self, bstrtype: &super::super::Foundation::BSTR, bstrlanguage: &super::super::Foundation::BSTR, lindex: i32, pvarvalue: *mut super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IWMPMedia3 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWMPMedia3_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMPMedia3_Impl, const OFFSET: isize>() -> IWMPMedia3_Vtbl {
@@ -4520,6 +4617,8 @@ pub trait IWMPMediaCollection_Impl: Sized + super::super::System::Com::IDispatch
     fn setDeleted(&self, pitem: &::core::option::Option<IWMPMedia>, varfisdeleted: i16) -> ::windows::core::Result<()>;
     fn isDeleted(&self, pitem: &::core::option::Option<IWMPMedia>, pvarfisdeleted: *mut i16) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IWMPMediaCollection {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWMPMediaCollection_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMPMediaCollection_Impl, const OFFSET: isize>() -> IWMPMediaCollection_Vtbl {
@@ -4659,6 +4758,8 @@ pub trait IWMPMediaCollection2_Impl: Sized + super::super::System::Com::IDispatc
     fn getByAttributeAndMediaType(&self, bstrattribute: &super::super::Foundation::BSTR, bstrvalue: &super::super::Foundation::BSTR, bstrmediatype: &super::super::Foundation::BSTR) -> ::windows::core::Result<IWMPPlaylist>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IWMPMediaCollection2 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWMPMediaCollection2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMPMediaCollection2_Impl, const OFFSET: isize>() -> IWMPMediaCollection2_Vtbl {
         unsafe extern "system" fn createQuery<Identity: ::windows::core::IUnknownImpl, Impl: IWMPMediaCollection2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppquery: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -4721,6 +4822,7 @@ pub trait IWMPMediaPluginRegistrar_Impl: Sized {
     fn WMPRegisterPlayerPlugin(&self, pwszfriendlyname: &::windows::core::PCWSTR, pwszdescription: &::windows::core::PCWSTR, pwszuninstallstring: &::windows::core::PCWSTR, dwpriority: u32, guidplugintype: &::windows::core::GUID, clsid: &::windows::core::GUID, cmediatypes: u32, pmediatypes: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn WMPUnRegisterPlayerPlugin(&self, guidplugintype: &::windows::core::GUID, clsid: &::windows::core::GUID) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IWMPMediaPluginRegistrar {}
 impl IWMPMediaPluginRegistrar_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMPMediaPluginRegistrar_Impl, const OFFSET: isize>() -> IWMPMediaPluginRegistrar_Vtbl {
         unsafe extern "system" fn WMPRegisterPlayerPlugin<Identity: ::windows::core::IUnknownImpl, Impl: IWMPMediaPluginRegistrar_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszfriendlyname: ::windows::core::PCWSTR, pwszdescription: ::windows::core::PCWSTR, pwszuninstallstring: ::windows::core::PCWSTR, dwpriority: u32, guidplugintype: ::windows::core::GUID, clsid: ::windows::core::GUID, cmediatypes: u32, pmediatypes: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -4750,6 +4852,8 @@ pub trait IWMPMetadataPicture_Impl: Sized + super::super::System::Com::IDispatch
     fn description(&self, pbstrdescription: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn URL(&self, pbstrurl: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IWMPMetadataPicture {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWMPMetadataPicture_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMPMetadataPicture_Impl, const OFFSET: isize>() -> IWMPMetadataPicture_Vtbl {
@@ -4790,6 +4894,8 @@ pub trait IWMPMetadataText_Impl: Sized + super::super::System::Com::IDispatch_Im
     fn description(&self, pbstrdescription: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn text(&self, pbstrtext: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IWMPMetadataText {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWMPMetadataText_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMPMetadataText_Impl, const OFFSET: isize>() -> IWMPMetadataText_Vtbl {
@@ -4844,6 +4950,8 @@ pub trait IWMPNetwork_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn encodedFrameRate(&self, plframerate: *mut i32) -> ::windows::core::Result<()>;
     fn framesSkipped(&self, plframes: *mut i32) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IWMPNetwork {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWMPNetwork_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMPNetwork_Impl, const OFFSET: isize>() -> IWMPNetwork_Vtbl {
@@ -5034,6 +5142,8 @@ pub trait IWMPNodeRealEstate_Impl: Sized {
     fn GetFullScreen(&self, pffullscreen: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IWMPNodeRealEstate {}
+#[cfg(feature = "Win32_Foundation")]
 impl IWMPNodeRealEstate_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMPNodeRealEstate_Impl, const OFFSET: isize>() -> IWMPNodeRealEstate_Vtbl {
         unsafe extern "system" fn GetDesiredSize<Identity: ::windows::core::IUnknownImpl, Impl: IWMPNodeRealEstate_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psize: *mut super::super::Foundation::SIZE) -> ::windows::core::HRESULT {
@@ -5092,6 +5202,8 @@ pub trait IWMPNodeRealEstateHost_Impl: Sized {
     fn OnFullScreenTransition(&self, ffullscreen: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IWMPNodeRealEstateHost {}
+#[cfg(feature = "Win32_Foundation")]
 impl IWMPNodeRealEstateHost_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMPNodeRealEstateHost_Impl, const OFFSET: isize>() -> IWMPNodeRealEstateHost_Vtbl {
         unsafe extern "system" fn OnDesiredSizeChange<Identity: ::windows::core::IUnknownImpl, Impl: IWMPNodeRealEstateHost_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psize: *mut super::super::Foundation::SIZE) -> ::windows::core::HRESULT {
@@ -5118,6 +5230,7 @@ pub trait IWMPNodeWindowed_Impl: Sized {
     fn SetOwnerWindow(&self, hwnd: isize) -> ::windows::core::Result<()>;
     fn GetOwnerWindow(&self, phwnd: *mut isize) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IWMPNodeWindowed {}
 impl IWMPNodeWindowed_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMPNodeWindowed_Impl, const OFFSET: isize>() -> IWMPNodeWindowed_Vtbl {
         unsafe extern "system" fn SetOwnerWindow<Identity: ::windows::core::IUnknownImpl, Impl: IWMPNodeWindowed_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hwnd: isize) -> ::windows::core::HRESULT {
@@ -5145,6 +5258,8 @@ pub trait IWMPNodeWindowedHost_Impl: Sized {
     fn OnWindowMessageFromRenderer(&self, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM, plret: *mut super::super::Foundation::LRESULT, pfhandled: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IWMPNodeWindowedHost {}
+#[cfg(feature = "Win32_Foundation")]
 impl IWMPNodeWindowedHost_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMPNodeWindowedHost_Impl, const OFFSET: isize>() -> IWMPNodeWindowedHost_Vtbl {
         unsafe extern "system" fn OnWindowMessageFromRenderer<Identity: ::windows::core::IUnknownImpl, Impl: IWMPNodeWindowedHost_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM, plret: *mut super::super::Foundation::LRESULT, pfhandled: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
@@ -5166,6 +5281,8 @@ pub trait IWMPNodeWindowless_Impl: Sized + IWMPWindowMessageSink_Impl {
     fn OnDraw(&self, hdc: isize, prcdraw: *const super::super::Foundation::RECT) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IWMPNodeWindowless {}
+#[cfg(feature = "Win32_Foundation")]
 impl IWMPNodeWindowless_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMPNodeWindowless_Impl, const OFFSET: isize>() -> IWMPNodeWindowless_Vtbl {
         unsafe extern "system" fn OnDraw<Identity: ::windows::core::IUnknownImpl, Impl: IWMPNodeWindowless_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hdc: isize, prcdraw: *const super::super::Foundation::RECT) -> ::windows::core::HRESULT {
@@ -5183,6 +5300,8 @@ impl IWMPNodeWindowless_Vtbl {
 pub trait IWMPNodeWindowlessHost_Impl: Sized {
     fn InvalidateRect(&self, prc: *const super::super::Foundation::RECT, ferase: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IWMPNodeWindowlessHost {}
 #[cfg(feature = "Win32_Foundation")]
 impl IWMPNodeWindowlessHost_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMPNodeWindowlessHost_Impl, const OFFSET: isize>() -> IWMPNodeWindowlessHost_Vtbl {
@@ -5208,6 +5327,8 @@ pub trait IWMPPlayer_Impl: Sized + super::super::System::Com::IDispatch_Impl + I
     fn SetuiMode(&self, bstrmode: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn uiMode(&self, pbstrmode: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IWMPPlayer {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWMPPlayer_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMPPlayer_Impl, const OFFSET: isize>() -> IWMPPlayer_Vtbl {
@@ -5282,6 +5403,8 @@ pub trait IWMPPlayer2_Impl: Sized + super::super::System::Com::IDispatch_Impl + 
     fn windowlessVideo(&self, pbenabled: *mut i16) -> ::windows::core::Result<()>;
     fn SetwindowlessVideo(&self, benabled: i16) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IWMPPlayer2 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWMPPlayer2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMPPlayer2_Impl, const OFFSET: isize>() -> IWMPPlayer2_Vtbl {
@@ -5380,6 +5503,8 @@ pub trait IWMPPlayer3_Impl: Sized + super::super::System::Com::IDispatch_Impl + 
     fn windowlessVideo(&self, pbenabled: *mut i16) -> ::windows::core::Result<()>;
     fn SetwindowlessVideo(&self, benabled: i16) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IWMPPlayer3 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWMPPlayer3_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMPPlayer3_Impl, const OFFSET: isize>() -> IWMPPlayer3_Vtbl {
@@ -5481,6 +5606,8 @@ pub trait IWMPPlayer4_Impl: Sized + super::super::System::Com::IDispatch_Impl + 
     fn playerApplication(&self) -> ::windows::core::Result<IWMPPlayerApplication>;
     fn openPlayer(&self, bstrurl: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IWMPPlayer4 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWMPPlayer4_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMPPlayer4_Impl, const OFFSET: isize>() -> IWMPPlayer4_Vtbl {
@@ -5596,6 +5723,8 @@ pub trait IWMPPlayerApplication_Impl: Sized + super::super::System::Com::IDispat
     fn hasDisplay(&self, pbhasdisplay: *mut i16) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IWMPPlayerApplication {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWMPPlayerApplication_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMPPlayerApplication_Impl, const OFFSET: isize>() -> IWMPPlayerApplication_Vtbl {
         unsafe extern "system" fn switchToPlayerApplication<Identity: ::windows::core::IUnknownImpl, Impl: IWMPPlayerApplication_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -5637,6 +5766,8 @@ pub trait IWMPPlayerServices_Impl: Sized {
     fn setTaskPaneURL(&self, bstrtaskpane: &super::super::Foundation::BSTR, bstrurl: &super::super::Foundation::BSTR, bstrfriendlyname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IWMPPlayerServices {}
+#[cfg(feature = "Win32_Foundation")]
 impl IWMPPlayerServices_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMPPlayerServices_Impl, const OFFSET: isize>() -> IWMPPlayerServices_Vtbl {
         unsafe extern "system" fn activateUIPlugin<Identity: ::windows::core::IUnknownImpl, Impl: IWMPPlayerServices_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrplugin: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
@@ -5669,6 +5800,8 @@ impl IWMPPlayerServices_Vtbl {
 pub trait IWMPPlayerServices2_Impl: Sized + IWMPPlayerServices_Impl {
     fn setBackgroundProcessingPriority(&self, bstrpriority: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IWMPPlayerServices2 {}
 #[cfg(feature = "Win32_Foundation")]
 impl IWMPPlayerServices2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMPPlayerServices2_Impl, const OFFSET: isize>() -> IWMPPlayerServices2_Vtbl {
@@ -5703,6 +5836,8 @@ pub trait IWMPPlaylist_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn removeItem(&self, piwmpmedia: &::core::option::Option<IWMPMedia>) -> ::windows::core::Result<()>;
     fn moveItem(&self, lindexold: i32, lindexnew: i32) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IWMPPlaylist {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWMPPlaylist_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMPPlaylist_Impl, const OFFSET: isize>() -> IWMPPlaylist_Vtbl {
@@ -5810,6 +5945,8 @@ pub trait IWMPPlaylistArray_Impl: Sized + super::super::System::Com::IDispatch_I
     fn item(&self, lindex: i32) -> ::windows::core::Result<IWMPPlaylist>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IWMPPlaylistArray {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWMPPlaylistArray_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMPPlaylistArray_Impl, const OFFSET: isize>() -> IWMPPlaylistArray_Vtbl {
         unsafe extern "system" fn count<Identity: ::windows::core::IUnknownImpl, Impl: IWMPPlaylistArray_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plcount: *mut i32) -> ::windows::core::HRESULT {
@@ -5848,6 +5985,8 @@ pub trait IWMPPlaylistCollection_Impl: Sized + super::super::System::Com::IDispa
     fn isDeleted(&self, pitem: &::core::option::Option<IWMPPlaylist>, pvarfisdeleted: *mut i16) -> ::windows::core::Result<()>;
     fn importPlaylist(&self, pitem: &::core::option::Option<IWMPPlaylist>) -> ::windows::core::Result<IWMPPlaylist>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IWMPPlaylistCollection {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWMPPlaylistCollection_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMPPlaylistCollection_Impl, const OFFSET: isize>() -> IWMPPlaylistCollection_Vtbl {
@@ -5933,6 +6072,7 @@ pub trait IWMPPlugin_Impl: Sized {
     fn AdviseWMPServices(&self, pwmpservices: &::core::option::Option<IWMPServices>) -> ::windows::core::Result<()>;
     fn UnAdviseWMPServices(&self) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IWMPPlugin {}
 impl IWMPPlugin_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMPPlugin_Impl, const OFFSET: isize>() -> IWMPPlugin_Vtbl {
         unsafe extern "system" fn Init<Identity: ::windows::core::IUnknownImpl, Impl: IWMPPlugin_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwplaybackcontext: usize) -> ::windows::core::HRESULT {
@@ -5985,6 +6125,8 @@ pub trait IWMPPluginEnable_Impl: Sized {
     fn GetEnable(&self, pfenable: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IWMPPluginEnable {}
+#[cfg(feature = "Win32_Foundation")]
 impl IWMPPluginEnable_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMPPluginEnable_Impl, const OFFSET: isize>() -> IWMPPluginEnable_Vtbl {
         unsafe extern "system" fn SetEnable<Identity: ::windows::core::IUnknownImpl, Impl: IWMPPluginEnable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fenable: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
@@ -6017,6 +6159,8 @@ pub trait IWMPPluginUI_Impl: Sized {
     fn SetProperty(&self, pwszname: &::windows::core::PCWSTR, pvarproperty: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn TranslateAccelerator(&self, lpmsg: *mut super::super::UI::WindowsAndMessaging::MSG) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_UI_WindowsAndMessaging"))]
+impl ::windows::core::RuntimeName for IWMPPluginUI {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_UI_WindowsAndMessaging"))]
 impl IWMPPluginUI_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMPPluginUI_Impl, const OFFSET: isize>() -> IWMPPluginUI_Vtbl {
@@ -6076,6 +6220,8 @@ pub trait IWMPQuery_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn beginNextGroup(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IWMPQuery {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWMPQuery_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMPQuery_Impl, const OFFSET: isize>() -> IWMPQuery_Vtbl {
         unsafe extern "system" fn addCondition<Identity: ::windows::core::IUnknownImpl, Impl: IWMPQuery_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrattribute: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstroperator: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrvalue: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
@@ -6105,6 +6251,8 @@ pub trait IWMPRemoteMediaServices_Impl: Sized {
     fn GetScriptableObject(&self, pbstrname: *mut super::super::Foundation::BSTR, ppdispatch: *mut ::core::option::Option<super::super::System::Com::IDispatch>) -> ::windows::core::Result<()>;
     fn GetCustomUIMode(&self, pbstrfile: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::windows::core::RuntimeName for IWMPRemoteMediaServices {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IWMPRemoteMediaServices_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMPRemoteMediaServices_Impl, const OFFSET: isize>() -> IWMPRemoteMediaServices_Vtbl {
@@ -6146,6 +6294,8 @@ pub trait IWMPRenderConfig_Impl: Sized {
     fn inProcOnly(&self, pfinproc: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IWMPRenderConfig {}
+#[cfg(feature = "Win32_Foundation")]
 impl IWMPRenderConfig_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMPRenderConfig_Impl, const OFFSET: isize>() -> IWMPRenderConfig_Vtbl {
         unsafe extern "system" fn SetinProcOnly<Identity: ::windows::core::IUnknownImpl, Impl: IWMPRenderConfig_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, finproc: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
@@ -6172,6 +6322,7 @@ pub trait IWMPServices_Impl: Sized {
     fn GetStreamTime(&self, prt: *mut i64) -> ::windows::core::Result<()>;
     fn GetStreamState(&self, pstate: *mut WMPServices_StreamState) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IWMPServices {}
 impl IWMPServices_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMPServices_Impl, const OFFSET: isize>() -> IWMPServices_Vtbl {
         unsafe extern "system" fn GetStreamTime<Identity: ::windows::core::IUnknownImpl, Impl: IWMPServices_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, prt: *mut i64) -> ::windows::core::HRESULT {
@@ -6220,6 +6371,8 @@ pub trait IWMPSettings_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn enableErrorDialogs(&self, pfenableerrordialogs: *mut i16) -> ::windows::core::Result<()>;
     fn SetenableErrorDialogs(&self, fenableerrordialogs: i16) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IWMPSettings {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWMPSettings_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMPSettings_Impl, const OFFSET: isize>() -> IWMPSettings_Vtbl {
@@ -6376,6 +6529,8 @@ pub trait IWMPSettings2_Impl: Sized + super::super::System::Com::IDispatch_Impl 
     fn requestMediaAccessRights(&self, bstrdesiredaccess: &super::super::Foundation::BSTR, pvbaccepted: *mut i16) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IWMPSettings2 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWMPSettings2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMPSettings2_Impl, const OFFSET: isize>() -> IWMPSettings2_Vtbl {
         unsafe extern "system" fn defaultAudioLanguage<Identity: ::windows::core::IUnknownImpl, Impl: IWMPSettings2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pllangid: *mut i32) -> ::windows::core::HRESULT {
@@ -6409,6 +6564,8 @@ pub trait IWMPSkinManager_Impl: Sized {
     fn SetVisualStyle(&self, bstrpath: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IWMPSkinManager {}
+#[cfg(feature = "Win32_Foundation")]
 impl IWMPSkinManager_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMPSkinManager_Impl, const OFFSET: isize>() -> IWMPSkinManager_Vtbl {
         unsafe extern "system" fn SetVisualStyle<Identity: ::windows::core::IUnknownImpl, Impl: IWMPSkinManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrpath: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
@@ -6427,6 +6584,8 @@ pub trait IWMPStringCollection_Impl: Sized + super::super::System::Com::IDispatc
     fn count(&self, plcount: *mut i32) -> ::windows::core::Result<()>;
     fn item(&self, lindex: i32, pbstrstring: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IWMPStringCollection {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWMPStringCollection_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMPStringCollection_Impl, const OFFSET: isize>() -> IWMPStringCollection_Vtbl {
@@ -6457,6 +6616,8 @@ pub trait IWMPStringCollection2_Impl: Sized + super::super::System::Com::IDispat
     fn getAttributeCountByType(&self, lcollectionindex: i32, bstrtype: &super::super::Foundation::BSTR, bstrlanguage: &super::super::Foundation::BSTR, plcount: *mut i32) -> ::windows::core::Result<()>;
     fn getItemInfoByType(&self, lcollectionindex: i32, bstrtype: &super::super::Foundation::BSTR, bstrlanguage: &super::super::Foundation::BSTR, lattributeindex: i32, pvarvalue: *mut super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IWMPStringCollection2 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWMPStringCollection2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMPStringCollection2_Impl, const OFFSET: isize>() -> IWMPStringCollection2_Vtbl {
@@ -6500,6 +6661,8 @@ pub trait IWMPSubscriptionService_Impl: Sized {
     fn startBackgroundProcessing(&self, hwnd: super::super::Foundation::HWND) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::windows::core::RuntimeName for IWMPSubscriptionService {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IWMPSubscriptionService_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMPSubscriptionService_Impl, const OFFSET: isize>() -> IWMPSubscriptionService_Vtbl {
         unsafe extern "system" fn allowPlay<Identity: ::windows::core::IUnknownImpl, Impl: IWMPSubscriptionService_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hwnd: super::super::Foundation::HWND, pmedia: ::windows::core::RawPtr, pfallowplay: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
@@ -6542,6 +6705,8 @@ pub trait IWMPSubscriptionService2_Impl: Sized + IWMPSubscriptionService_Impl {
     fn prepareForSync(&self, bstrfilename: &super::super::Foundation::BSTR, bstrdevicename: &super::super::Foundation::BSTR, pcb: &::core::option::Option<IWMPSubscriptionServiceCallback>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::windows::core::RuntimeName for IWMPSubscriptionService2 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IWMPSubscriptionService2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMPSubscriptionService2_Impl, const OFFSET: isize>() -> IWMPSubscriptionService2_Vtbl {
         unsafe extern "system" fn stopBackgroundProcessing<Identity: ::windows::core::IUnknownImpl, Impl: IWMPSubscriptionService2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -6579,6 +6744,7 @@ impl IWMPSubscriptionService2_Vtbl {
 pub trait IWMPSubscriptionServiceCallback_Impl: Sized {
     fn onComplete(&self, hrresult: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IWMPSubscriptionServiceCallback {}
 impl IWMPSubscriptionServiceCallback_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMPSubscriptionServiceCallback_Impl, const OFFSET: isize>() -> IWMPSubscriptionServiceCallback_Vtbl {
         unsafe extern "system" fn onComplete<Identity: ::windows::core::IUnknownImpl, Impl: IWMPSubscriptionServiceCallback_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hrresult: ::windows::core::HRESULT) -> ::windows::core::HRESULT {
@@ -6611,6 +6777,8 @@ pub trait IWMPSyncDevice_Impl: Sized {
     fn showSettings(&self) -> ::windows::core::Result<()>;
     fn isIdentical(&self, pdevice: &::core::option::Option<IWMPSyncDevice>, pvbool: *mut i16) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IWMPSyncDevice {}
 #[cfg(feature = "Win32_Foundation")]
 impl IWMPSyncDevice_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMPSyncDevice_Impl, const OFFSET: isize>() -> IWMPSyncDevice_Vtbl {
@@ -6723,6 +6891,8 @@ pub trait IWMPSyncDevice2_Impl: Sized + IWMPSyncDevice_Impl {
     fn setItemInfo(&self, bstritemname: &super::super::Foundation::BSTR, bstrval: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IWMPSyncDevice2 {}
+#[cfg(feature = "Win32_Foundation")]
 impl IWMPSyncDevice2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMPSyncDevice2_Impl, const OFFSET: isize>() -> IWMPSyncDevice2_Vtbl {
         unsafe extern "system" fn setItemInfo<Identity: ::windows::core::IUnknownImpl, Impl: IWMPSyncDevice2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstritemname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrval: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
@@ -6741,6 +6911,8 @@ pub trait IWMPSyncDevice3_Impl: Sized + IWMPSyncDevice_Impl + IWMPSyncDevice2_Im
     fn estimateSyncSize(&self, pnonruleplaylist: &::core::option::Option<IWMPPlaylist>, prulesplaylist: &::core::option::Option<IWMPPlaylist>) -> ::windows::core::Result<()>;
     fn cancelEstimation(&self) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::windows::core::RuntimeName for IWMPSyncDevice3 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IWMPSyncDevice3_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMPSyncDevice3_Impl, const OFFSET: isize>() -> IWMPSyncDevice3_Vtbl {
@@ -6768,6 +6940,7 @@ pub trait IWMPSyncServices_Impl: Sized {
     fn deviceCount(&self, plcount: *mut i32) -> ::windows::core::Result<()>;
     fn getDevice(&self, lindex: i32) -> ::windows::core::Result<IWMPSyncDevice>;
 }
+impl ::windows::core::RuntimeName for IWMPSyncServices {}
 impl IWMPSyncServices_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMPSyncServices_Impl, const OFFSET: isize>() -> IWMPSyncServices_Vtbl {
         unsafe extern "system" fn deviceCount<Identity: ::windows::core::IUnknownImpl, Impl: IWMPSyncServices_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plcount: *mut i32) -> ::windows::core::HRESULT {
@@ -6799,6 +6972,7 @@ impl IWMPSyncServices_Vtbl {
 pub trait IWMPTranscodePolicy_Impl: Sized {
     fn allowTranscode(&self, pvballow: *mut i16) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IWMPTranscodePolicy {}
 impl IWMPTranscodePolicy_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMPTranscodePolicy_Impl, const OFFSET: isize>() -> IWMPTranscodePolicy_Vtbl {
         unsafe extern "system" fn allowTranscode<Identity: ::windows::core::IUnknownImpl, Impl: IWMPTranscodePolicy_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvballow: *mut i16) -> ::windows::core::HRESULT {
@@ -6815,6 +6989,7 @@ impl IWMPTranscodePolicy_Vtbl {
 pub trait IWMPUserEventSink_Impl: Sized {
     fn NotifyUserEvent(&self, eventcode: i32) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IWMPUserEventSink {}
 impl IWMPUserEventSink_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMPUserEventSink_Impl, const OFFSET: isize>() -> IWMPUserEventSink_Vtbl {
         unsafe extern "system" fn NotifyUserEvent<Identity: ::windows::core::IUnknownImpl, Impl: IWMPUserEventSink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventcode: i32) -> ::windows::core::HRESULT {
@@ -6833,6 +7008,8 @@ pub trait IWMPVideoRenderConfig_Impl: Sized {
     fn SetpresenterActivate(&self, pactivate: &::core::option::Option<super::MediaFoundation::IMFActivate>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Media_MediaFoundation")]
+impl ::windows::core::RuntimeName for IWMPVideoRenderConfig {}
+#[cfg(feature = "Win32_Media_MediaFoundation")]
 impl IWMPVideoRenderConfig_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMPVideoRenderConfig_Impl, const OFFSET: isize>() -> IWMPVideoRenderConfig_Vtbl {
         unsafe extern "system" fn SetpresenterActivate<Identity: ::windows::core::IUnknownImpl, Impl: IWMPVideoRenderConfig_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pactivate: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -6850,6 +7027,8 @@ impl IWMPVideoRenderConfig_Vtbl {
 pub trait IWMPWindowMessageSink_Impl: Sized {
     fn OnWindowMessage(&self, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM, plret: *mut super::super::Foundation::LRESULT, pfhandled: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IWMPWindowMessageSink {}
 #[cfg(feature = "Win32_Foundation")]
 impl IWMPWindowMessageSink_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMPWindowMessageSink_Impl, const OFFSET: isize>() -> IWMPWindowMessageSink_Vtbl {
@@ -6911,6 +7090,8 @@ pub trait IXFeed_Impl: Sized {
     fn UnreadItemCount(&self) -> ::windows::core::Result<u32>;
     fn ItemCount(&self) -> ::windows::core::Result<u32>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::windows::core::RuntimeName for IXFeed {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IXFeed_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXFeed_Impl, const OFFSET: isize>() -> IXFeed_Vtbl {
@@ -7364,6 +7545,8 @@ pub trait IXFeed2_Impl: Sized + IXFeed_Impl {
     fn ClearCredentials(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::windows::core::RuntimeName for IXFeed2 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IXFeed2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXFeed2_Impl, const OFFSET: isize>() -> IXFeed2_Vtbl {
         unsafe extern "system" fn GetItemByEffectiveId<Identity: ::windows::core::IUnknownImpl, Impl: IXFeed2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uieffectiveid: u32, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -7443,6 +7626,7 @@ pub trait IXFeedEnclosure_Impl: Sized {
     fn RemoveFile(&self) -> ::windows::core::Result<()>;
     fn SetFile(&self, pszdownloadurl: &::windows::core::PCWSTR, pszdownloadfilepath: &::windows::core::PCWSTR, pszdownloadmimetype: &::windows::core::PCWSTR, pszenclosurefilename: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IXFeedEnclosure {}
 impl IXFeedEnclosure_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXFeedEnclosure_Impl, const OFFSET: isize>() -> IXFeedEnclosure_Vtbl {
         unsafe extern "system" fn Url<Identity: ::windows::core::IUnknownImpl, Impl: IXFeedEnclosure_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszurl: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
@@ -7589,6 +7773,7 @@ pub trait IXFeedEvents_Impl: Sized {
     fn FeedDownloadCompleted(&self, pszpath: &::windows::core::PCWSTR, fde: FEEDS_DOWNLOAD_ERROR) -> ::windows::core::Result<()>;
     fn FeedItemCountChanged(&self, pszpath: &::windows::core::PCWSTR, feicfflags: i32) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IXFeedEvents {}
 impl IXFeedEvents_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXFeedEvents_Impl, const OFFSET: isize>() -> IXFeedEvents_Vtbl {
         unsafe extern "system" fn Error<Identity: ::windows::core::IUnknownImpl, Impl: IXFeedEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -7668,6 +7853,8 @@ pub trait IXFeedFolder_Impl: Sized {
     fn TotalUnreadItemCount(&self) -> ::windows::core::Result<u32>;
     fn TotalItemCount(&self) -> ::windows::core::Result<u32>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IXFeedFolder {}
 #[cfg(feature = "Win32_Foundation")]
 impl IXFeedFolder_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXFeedFolder_Impl, const OFFSET: isize>() -> IXFeedFolder_Vtbl {
@@ -7847,6 +8034,7 @@ pub trait IXFeedFolderEvents_Impl: Sized {
     fn FeedDownloadCompleted(&self, pszpath: &::windows::core::PCWSTR, fde: FEEDS_DOWNLOAD_ERROR) -> ::windows::core::Result<()>;
     fn FeedItemCountChanged(&self, pszpath: &::windows::core::PCWSTR, feicfflags: i32) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IXFeedFolderEvents {}
 impl IXFeedFolderEvents_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXFeedFolderEvents_Impl, const OFFSET: isize>() -> IXFeedFolderEvents_Vtbl {
         unsafe extern "system" fn Error<Identity: ::windows::core::IUnknownImpl, Impl: IXFeedFolderEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -7973,6 +8161,8 @@ pub trait IXFeedItem_Impl: Sized {
     fn LastDownloadTime(&self) -> ::windows::core::Result<super::super::Foundation::SYSTEMTIME>;
     fn Modified(&self) -> ::windows::core::Result<super::super::Foundation::SYSTEMTIME>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::windows::core::RuntimeName for IXFeedItem {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IXFeedItem_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXFeedItem_Impl, const OFFSET: isize>() -> IXFeedItem_Vtbl {
@@ -8169,6 +8359,8 @@ pub trait IXFeedItem2_Impl: Sized + IXFeedItem_Impl {
     fn EffectiveId(&self) -> ::windows::core::Result<u32>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::windows::core::RuntimeName for IXFeedItem2 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IXFeedItem2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXFeedItem2_Impl, const OFFSET: isize>() -> IXFeedItem2_Vtbl {
         unsafe extern "system" fn EffectiveId<Identity: ::windows::core::IUnknownImpl, Impl: IXFeedItem2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, puieffectiveid: *mut u32) -> ::windows::core::HRESULT {
@@ -8192,6 +8384,7 @@ pub trait IXFeedsEnum_Impl: Sized {
     fn Count(&self) -> ::windows::core::Result<u32>;
     fn Item(&self, uiindex: u32, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IXFeedsEnum {}
 impl IXFeedsEnum_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXFeedsEnum_Impl, const OFFSET: isize>() -> IXFeedsEnum_Vtbl {
         unsafe extern "system" fn Count<Identity: ::windows::core::IUnknownImpl, Impl: IXFeedsEnum_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, puicount: *mut u32) -> ::windows::core::HRESULT {
@@ -8235,6 +8428,8 @@ pub trait IXFeedsManager_Impl: Sized {
     fn Normalize(&self, pstreamin: &::core::option::Option<super::super::System::Com::IStream>) -> ::windows::core::Result<super::super::System::Com::IStream>;
     fn ItemCountLimit(&self) -> ::windows::core::Result<u32>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::windows::core::RuntimeName for IXFeedsManager {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IXFeedsManager_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXFeedsManager_Impl, const OFFSET: isize>() -> IXFeedsManager_Vtbl {
@@ -8386,6 +8581,8 @@ impl IXFeedsManager_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait _WMPOCXEvents_Impl: Sized + super::super::System::Com::IDispatch_Impl {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for _WMPOCXEvents {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl _WMPOCXEvents_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: _WMPOCXEvents_Impl, const OFFSET: isize>() -> _WMPOCXEvents_Vtbl {

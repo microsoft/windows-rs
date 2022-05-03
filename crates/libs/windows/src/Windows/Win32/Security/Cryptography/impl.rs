@@ -22,6 +22,8 @@ pub trait ICertSrvSetup_Impl: Sized + super::super::System::Com::IDispatch_Impl 
     fn PostUnInstall(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ICertSrvSetup {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ICertSrvSetup_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICertSrvSetup_Impl, const OFFSET: isize>() -> ICertSrvSetup_Vtbl {
         unsafe extern "system" fn CAErrorId<Identity: ::windows::core::IUnknownImpl, Impl: ICertSrvSetup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows::core::HRESULT {
@@ -234,6 +236,8 @@ pub trait ICertSrvSetupKeyInformation_Impl: Sized + super::super::System::Com::I
     fn SetExistingCACertificate(&self, varval: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ICertSrvSetupKeyInformation {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ICertSrvSetupKeyInformation_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICertSrvSetupKeyInformation_Impl, const OFFSET: isize>() -> ICertSrvSetupKeyInformation_Vtbl {
         unsafe extern "system" fn ProviderName<Identity: ::windows::core::IUnknownImpl, Impl: ICertSrvSetupKeyInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
@@ -360,6 +364,8 @@ pub trait ICertSrvSetupKeyInformationCollection_Impl: Sized + super::super::Syst
     fn Add(&self, pikeyinformation: &::core::option::Option<ICertSrvSetupKeyInformation>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ICertSrvSetupKeyInformationCollection {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ICertSrvSetupKeyInformationCollection_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICertSrvSetupKeyInformationCollection_Impl, const OFFSET: isize>() -> ICertSrvSetupKeyInformationCollection_Vtbl {
         unsafe extern "system" fn _NewEnum<Identity: ::windows::core::IUnknownImpl, Impl: ICertSrvSetupKeyInformationCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -421,6 +427,8 @@ pub trait ICertificateEnrollmentPolicyServerSetup_Impl: Sized + super::super::Sy
     fn Install(&self) -> ::windows::core::Result<()>;
     fn UnInstall(&self, pauthkeybasedrenewal: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ICertificateEnrollmentPolicyServerSetup {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ICertificateEnrollmentPolicyServerSetup_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICertificateEnrollmentPolicyServerSetup_Impl, const OFFSET: isize>() -> ICertificateEnrollmentPolicyServerSetup_Vtbl {
@@ -490,6 +498,8 @@ pub trait ICertificateEnrollmentServerSetup_Impl: Sized + super::super::System::
     fn Install(&self) -> ::windows::core::Result<()>;
     fn UnInstall(&self, pcaconfig: *const super::super::System::Com::VARIANT, pauthentication: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ICertificateEnrollmentServerSetup {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ICertificateEnrollmentServerSetup_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICertificateEnrollmentServerSetup_Impl, const OFFSET: isize>() -> ICertificateEnrollmentServerSetup_Vtbl {
@@ -570,6 +580,8 @@ pub trait IMSCEPSetup_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn PreUnInstall(&self) -> ::windows::core::Result<()>;
     fn PostUnInstall(&self) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IMSCEPSetup {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMSCEPSetup_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMSCEPSetup_Impl, const OFFSET: isize>() -> IMSCEPSetup_Vtbl {

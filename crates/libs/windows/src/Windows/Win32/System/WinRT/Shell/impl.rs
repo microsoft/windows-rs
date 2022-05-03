@@ -3,6 +3,8 @@ pub trait IDDEInitializer_Impl: Sized {
     fn Initialize(&self, fileextensionorprotocol: &::windows::core::PCWSTR, method: CreateProcessMethod, currentdirectory: &::windows::core::PCWSTR, exectarget: &::core::option::Option<super::super::super::UI::Shell::IShellItem>, site: &::core::option::Option<::windows::core::IUnknown>, application: &::windows::core::PCWSTR, targetfile: &::windows::core::PCWSTR, arguments: &::windows::core::PCWSTR, verb: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_UI_Shell")]
+impl ::windows::core::RuntimeName for IDDEInitializer {}
+#[cfg(feature = "Win32_UI_Shell")]
 impl IDDEInitializer_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDDEInitializer_Impl, const OFFSET: isize>() -> IDDEInitializer_Vtbl {
         unsafe extern "system" fn Initialize<Identity: ::windows::core::IUnknownImpl, Impl: IDDEInitializer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fileextensionorprotocol: ::windows::core::PCWSTR, method: CreateProcessMethod, currentdirectory: ::windows::core::PCWSTR, exectarget: ::windows::core::RawPtr, site: *mut ::core::ffi::c_void, application: ::windows::core::PCWSTR, targetfile: ::windows::core::PCWSTR, arguments: ::windows::core::PCWSTR, verb: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {

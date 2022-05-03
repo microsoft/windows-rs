@@ -3,6 +3,8 @@ pub trait ISideShowBulkCapabilities_Impl: Sized + ISideShowCapabilities_Impl {
     fn GetCapabilities(&self, in_keycollection: &::core::option::Option<ISideShowKeyCollection>, inout_pvalues: *mut ::core::option::Option<ISideShowPropVariantCollection>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
+impl ::windows::core::RuntimeName for ISideShowBulkCapabilities {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl ISideShowBulkCapabilities_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISideShowBulkCapabilities_Impl, const OFFSET: isize>() -> ISideShowBulkCapabilities_Vtbl {
         unsafe extern "system" fn GetCapabilities<Identity: ::windows::core::IUnknownImpl, Impl: ISideShowBulkCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, in_keycollection: ::windows::core::RawPtr, inout_pvalues: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -21,6 +23,8 @@ pub trait ISideShowCapabilities_Impl: Sized {
     fn GetCapability(&self, in_keycapability: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, inout_pvalue: *mut super::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
+impl ::windows::core::RuntimeName for ISideShowCapabilities {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl ISideShowCapabilities_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISideShowCapabilities_Impl, const OFFSET: isize>() -> ISideShowCapabilities_Vtbl {
         unsafe extern "system" fn GetCapability<Identity: ::windows::core::IUnknownImpl, Impl: ISideShowCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, in_keycapability: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, inout_pvalue: *mut super::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT {
@@ -38,6 +42,7 @@ pub trait ISideShowCapabilitiesCollection_Impl: Sized {
     fn GetCount(&self) -> ::windows::core::Result<u32>;
     fn GetAt(&self, in_dwindex: u32) -> ::windows::core::Result<ISideShowCapabilities>;
 }
+impl ::windows::core::RuntimeName for ISideShowCapabilitiesCollection {}
 impl ISideShowCapabilitiesCollection_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISideShowCapabilitiesCollection_Impl, const OFFSET: isize>() -> ISideShowCapabilitiesCollection_Vtbl {
         unsafe extern "system" fn GetCount<Identity: ::windows::core::IUnknownImpl, Impl: ISideShowCapabilitiesCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, out_pdwcount: *mut u32) -> ::windows::core::HRESULT {
@@ -78,6 +83,8 @@ pub trait ISideShowContent_Impl: Sized {
     fn ContentId(&self) -> ::windows::core::Result<u32>;
     fn DifferentiateContent(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for ISideShowContent {}
 #[cfg(feature = "Win32_Foundation")]
 impl ISideShowContent_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISideShowContent_Impl, const OFFSET: isize>() -> ISideShowContent_Vtbl {
@@ -126,6 +133,7 @@ pub trait ISideShowContentManager_Impl: Sized {
     fn SetEventSink(&self, in_pievents: &::core::option::Option<ISideShowEvents>) -> ::windows::core::Result<()>;
     fn GetDeviceCapabilities(&self) -> ::windows::core::Result<ISideShowCapabilitiesCollection>;
 }
+impl ::windows::core::RuntimeName for ISideShowContentManager {}
 impl ISideShowContentManager_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISideShowContentManager_Impl, const OFFSET: isize>() -> ISideShowContentManager_Vtbl {
         unsafe extern "system" fn Add<Identity: ::windows::core::IUnknownImpl, Impl: ISideShowContentManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, in_picontent: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -178,6 +186,7 @@ pub trait ISideShowEvents_Impl: Sized {
     fn DeviceAdded(&self, in_pidevice: &::core::option::Option<ISideShowCapabilities>) -> ::windows::core::Result<()>;
     fn DeviceRemoved(&self, in_pidevice: &::core::option::Option<ISideShowCapabilities>) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for ISideShowEvents {}
 impl ISideShowEvents_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISideShowEvents_Impl, const OFFSET: isize>() -> ISideShowEvents_Vtbl {
         unsafe extern "system" fn ContentMissing<Identity: ::windows::core::IUnknownImpl, Impl: ISideShowEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, in_contentid: u32, out_ppicontent: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -226,6 +235,8 @@ pub trait ISideShowKeyCollection_Impl: Sized {
     fn GetCount(&self, pcelems: *const u32) -> ::windows::core::Result<()>;
     fn RemoveAt(&self, dwindex: u32) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+impl ::windows::core::RuntimeName for ISideShowKeyCollection {}
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 impl ISideShowKeyCollection_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISideShowKeyCollection_Impl, const OFFSET: isize>() -> ISideShowKeyCollection_Vtbl {
@@ -280,6 +291,8 @@ pub trait ISideShowNotification_Impl: Sized {
     fn ExpirationTime(&self) -> ::windows::core::Result<super::super::Foundation::SYSTEMTIME>;
     fn SetExpirationTime(&self, in_ptime: *const super::super::Foundation::SYSTEMTIME) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+impl ::windows::core::RuntimeName for ISideShowNotification {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ISideShowNotification_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISideShowNotification_Impl, const OFFSET: isize>() -> ISideShowNotification_Vtbl {
@@ -386,6 +399,7 @@ pub trait ISideShowNotificationManager_Impl: Sized {
     fn Revoke(&self, in_notificationid: u32) -> ::windows::core::Result<()>;
     fn RevokeAll(&self) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for ISideShowNotificationManager {}
 impl ISideShowNotificationManager_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISideShowNotificationManager_Impl, const OFFSET: isize>() -> ISideShowNotificationManager_Vtbl {
         unsafe extern "system" fn Show<Identity: ::windows::core::IUnknownImpl, Impl: ISideShowNotificationManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, in_pinotification: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -422,6 +436,8 @@ pub trait ISideShowPropVariantCollection_Impl: Sized {
     fn GetCount(&self, pcelems: *const u32) -> ::windows::core::Result<()>;
     fn RemoveAt(&self, dwindex: u32) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+impl ::windows::core::RuntimeName for ISideShowPropVariantCollection {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 impl ISideShowPropVariantCollection_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISideShowPropVariantCollection_Impl, const OFFSET: isize>() -> ISideShowPropVariantCollection_Vtbl {
@@ -467,6 +483,7 @@ pub trait ISideShowSession_Impl: Sized {
     fn RegisterContent(&self, in_applicationid: *const ::windows::core::GUID, in_endpointid: *const ::windows::core::GUID) -> ::windows::core::Result<ISideShowContentManager>;
     fn RegisterNotifications(&self, in_applicationid: *const ::windows::core::GUID) -> ::windows::core::Result<ISideShowNotificationManager>;
 }
+impl ::windows::core::RuntimeName for ISideShowSession {}
 impl ISideShowSession_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISideShowSession_Impl, const OFFSET: isize>() -> ISideShowSession_Vtbl {
         unsafe extern "system" fn RegisterContent<Identity: ::windows::core::IUnknownImpl, Impl: ISideShowSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, in_applicationid: *const ::windows::core::GUID, in_endpointid: *const ::windows::core::GUID, out_ppicontent: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {

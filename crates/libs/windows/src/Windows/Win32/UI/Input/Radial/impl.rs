@@ -3,9 +3,7 @@ pub trait IRadialControllerConfigurationInterop_Impl: Sized {
     fn GetForWindow(&self, hwnd: super::super::super::Foundation::HWND, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::RuntimeName for IRadialControllerConfigurationInterop {
-    const NAME: &'static str = "";
-}
+impl ::windows::core::RuntimeName for IRadialControllerConfigurationInterop {}
 #[cfg(feature = "Win32_Foundation")]
 impl IRadialControllerConfigurationInterop_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRadialControllerConfigurationInterop_Impl, const OFFSET: isize>() -> IRadialControllerConfigurationInterop_Vtbl {
@@ -28,9 +26,7 @@ pub trait IRadialControllerIndependentInputSourceInterop_Impl: Sized {
     fn CreateForWindow(&self, hwnd: super::super::super::Foundation::HWND, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::RuntimeName for IRadialControllerIndependentInputSourceInterop {
-    const NAME: &'static str = "";
-}
+impl ::windows::core::RuntimeName for IRadialControllerIndependentInputSourceInterop {}
 #[cfg(feature = "Win32_Foundation")]
 impl IRadialControllerIndependentInputSourceInterop_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRadialControllerIndependentInputSourceInterop_Impl, const OFFSET: isize>() -> IRadialControllerIndependentInputSourceInterop_Vtbl {
@@ -53,9 +49,7 @@ pub trait IRadialControllerInterop_Impl: Sized {
     fn CreateForWindow(&self, hwnd: super::super::super::Foundation::HWND, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::RuntimeName for IRadialControllerInterop {
-    const NAME: &'static str = "";
-}
+impl ::windows::core::RuntimeName for IRadialControllerInterop {}
 #[cfg(feature = "Win32_Foundation")]
 impl IRadialControllerInterop_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRadialControllerInterop_Impl, const OFFSET: isize>() -> IRadialControllerInterop_Vtbl {

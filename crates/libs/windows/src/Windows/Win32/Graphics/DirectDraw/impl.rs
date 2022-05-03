@@ -6,6 +6,8 @@ pub trait IDDVideoPortContainer_Impl: Sized {
     fn QueryVideoPortStatus(&self, param0: u32, param1: *mut DDVIDEOPORTSTATUS) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IDDVideoPortContainer {}
+#[cfg(feature = "Win32_Foundation")]
 impl IDDVideoPortContainer_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDDVideoPortContainer_Impl, const OFFSET: isize>() -> IDDVideoPortContainer_Vtbl {
         unsafe extern "system" fn CreateVideoPort<Identity: ::windows::core::IUnknownImpl, Impl: IDDVideoPortContainer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut DDVIDEOPORTDESC, param2: *mut ::windows::core::RawPtr, param3: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -63,6 +65,8 @@ pub trait IDirectDraw_Impl: Sized {
     fn SetDisplayMode(&self, param0: u32, param1: u32, param2: u32) -> ::windows::core::Result<()>;
     fn WaitForVerticalBlank(&self, param0: u32, param1: super::super::Foundation::HANDLE) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::windows::core::RuntimeName for IDirectDraw {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl IDirectDraw_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirectDraw_Impl, const OFFSET: isize>() -> IDirectDraw_Vtbl {
@@ -230,6 +234,8 @@ pub trait IDirectDraw2_Impl: Sized {
     fn WaitForVerticalBlank(&self, param0: u32, param1: super::super::Foundation::HANDLE) -> ::windows::core::Result<()>;
     fn GetAvailableVidMem(&self, param0: *mut DDSCAPS, param1: *mut u32, param2: *mut u32) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::windows::core::RuntimeName for IDirectDraw2 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl IDirectDraw2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirectDraw2_Impl, const OFFSET: isize>() -> IDirectDraw2_Vtbl {
@@ -407,6 +413,8 @@ pub trait IDirectDraw4_Impl: Sized {
     fn TestCooperativeLevel(&self) -> ::windows::core::Result<()>;
     fn GetDeviceIdentifier(&self, param0: *mut DDDEVICEIDENTIFIER, param1: u32) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::windows::core::RuntimeName for IDirectDraw4 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl IDirectDraw4_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirectDraw4_Impl, const OFFSET: isize>() -> IDirectDraw4_Vtbl {
@@ -617,6 +625,8 @@ pub trait IDirectDraw7_Impl: Sized {
     fn EvaluateMode(&self, param0: u32, param1: *mut u32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::windows::core::RuntimeName for IDirectDraw7 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl IDirectDraw7_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirectDraw7_Impl, const OFFSET: isize>() -> IDirectDraw7_Vtbl {
         unsafe extern "system" fn Compact<Identity: ::windows::core::IUnknownImpl, Impl: IDirectDraw7_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -817,6 +827,8 @@ pub trait IDirectDrawClipper_Impl: Sized {
     fn SetHWnd(&self, param0: u32, param1: super::super::Foundation::HWND) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::windows::core::RuntimeName for IDirectDrawClipper {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl IDirectDrawClipper_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirectDrawClipper_Impl, const OFFSET: isize>() -> IDirectDrawClipper_Vtbl {
         unsafe extern "system" fn GetClipList<Identity: ::windows::core::IUnknownImpl, Impl: IDirectDrawClipper_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, param0: *mut super::super::Foundation::RECT, param1: *mut super::Gdi::RGNDATA, param2: *mut u32) -> ::windows::core::HRESULT {
@@ -867,6 +879,7 @@ pub trait IDirectDrawColorControl_Impl: Sized {
     fn GetColorControls(&self, param0: *mut DDCOLORCONTROL) -> ::windows::core::Result<()>;
     fn SetColorControls(&self, param0: *mut DDCOLORCONTROL) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IDirectDrawColorControl {}
 impl IDirectDrawColorControl_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirectDrawColorControl_Impl, const OFFSET: isize>() -> IDirectDrawColorControl_Vtbl {
         unsafe extern "system" fn GetColorControls<Identity: ::windows::core::IUnknownImpl, Impl: IDirectDrawColorControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, param0: *mut DDCOLORCONTROL) -> ::windows::core::HRESULT {
@@ -893,6 +906,7 @@ pub trait IDirectDrawGammaControl_Impl: Sized {
     fn GetGammaRamp(&self, param0: u32, param1: *mut DDGAMMARAMP) -> ::windows::core::Result<()>;
     fn SetGammaRamp(&self, param0: u32, param1: *mut DDGAMMARAMP) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IDirectDrawGammaControl {}
 impl IDirectDrawGammaControl_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirectDrawGammaControl_Impl, const OFFSET: isize>() -> IDirectDrawGammaControl_Vtbl {
         unsafe extern "system" fn GetGammaRamp<Identity: ::windows::core::IUnknownImpl, Impl: IDirectDrawGammaControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut DDGAMMARAMP) -> ::windows::core::HRESULT {
@@ -920,6 +934,7 @@ pub trait IDirectDrawKernel_Impl: Sized {
     fn GetKernelHandle(&self, param0: *mut usize) -> ::windows::core::Result<()>;
     fn ReleaseKernelHandle(&self) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IDirectDrawKernel {}
 impl IDirectDrawKernel_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirectDrawKernel_Impl, const OFFSET: isize>() -> IDirectDrawKernel_Vtbl {
         unsafe extern "system" fn GetCaps<Identity: ::windows::core::IUnknownImpl, Impl: IDirectDrawKernel_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, param0: *mut DDKERNELCAPS) -> ::windows::core::HRESULT {
@@ -955,6 +970,8 @@ pub trait IDirectDrawPalette_Impl: Sized {
     fn Initialize(&self, param0: &::core::option::Option<IDirectDraw>, param1: u32, param2: *mut super::Gdi::PALETTEENTRY) -> ::windows::core::Result<()>;
     fn SetEntries(&self, param0: u32, param1: u32, param2: u32, param3: *mut super::Gdi::PALETTEENTRY) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl ::windows::core::RuntimeName for IDirectDrawPalette {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl IDirectDrawPalette_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirectDrawPalette_Impl, const OFFSET: isize>() -> IDirectDrawPalette_Vtbl {
@@ -1026,6 +1043,8 @@ pub trait IDirectDrawSurface_Impl: Sized {
     fn UpdateOverlayDisplay(&self, param0: u32) -> ::windows::core::Result<()>;
     fn UpdateOverlayZOrder(&self, param0: u32, param1: &::core::option::Option<IDirectDrawSurface>) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::windows::core::RuntimeName for IDirectDrawSurface {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl IDirectDrawSurface_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirectDrawSurface_Impl, const OFFSET: isize>() -> IDirectDrawSurface_Vtbl {
@@ -1286,6 +1305,8 @@ pub trait IDirectDrawSurface2_Impl: Sized {
     fn PageLock(&self, param0: u32) -> ::windows::core::Result<()>;
     fn PageUnlock(&self, param0: u32) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::windows::core::RuntimeName for IDirectDrawSurface2 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl IDirectDrawSurface2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirectDrawSurface2_Impl, const OFFSET: isize>() -> IDirectDrawSurface2_Vtbl {
@@ -1565,6 +1586,8 @@ pub trait IDirectDrawSurface3_Impl: Sized {
     fn PageUnlock(&self, param0: u32) -> ::windows::core::Result<()>;
     fn SetSurfaceDesc(&self, param0: *mut DDSURFACEDESC, param1: u32) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::windows::core::RuntimeName for IDirectDrawSurface3 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl IDirectDrawSurface3_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirectDrawSurface3_Impl, const OFFSET: isize>() -> IDirectDrawSurface3_Vtbl {
@@ -1855,6 +1878,8 @@ pub trait IDirectDrawSurface4_Impl: Sized {
     fn GetUniquenessValue(&self, param0: *mut u32) -> ::windows::core::Result<()>;
     fn ChangeUniquenessValue(&self) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::windows::core::RuntimeName for IDirectDrawSurface4 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl IDirectDrawSurface4_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirectDrawSurface4_Impl, const OFFSET: isize>() -> IDirectDrawSurface4_Vtbl {
@@ -2180,6 +2205,8 @@ pub trait IDirectDrawSurface7_Impl: Sized {
     fn GetLOD(&self, param0: *mut u32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::windows::core::RuntimeName for IDirectDrawSurface7 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl IDirectDrawSurface7_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirectDrawSurface7_Impl, const OFFSET: isize>() -> IDirectDrawSurface7_Vtbl {
         unsafe extern "system" fn AddAttachedSurface<Identity: ::windows::core::IUnknownImpl, Impl: IDirectDrawSurface7_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, param0: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -2482,6 +2509,7 @@ pub trait IDirectDrawSurfaceKernel_Impl: Sized {
     fn GetKernelHandle(&self, param0: *mut usize) -> ::windows::core::Result<()>;
     fn ReleaseKernelHandle(&self) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IDirectDrawSurfaceKernel {}
 impl IDirectDrawSurfaceKernel_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirectDrawSurfaceKernel_Impl, const OFFSET: isize>() -> IDirectDrawSurfaceKernel_Vtbl {
         unsafe extern "system" fn GetKernelHandle<Identity: ::windows::core::IUnknownImpl, Impl: IDirectDrawSurfaceKernel_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, param0: *mut usize) -> ::windows::core::HRESULT {
@@ -2521,6 +2549,8 @@ pub trait IDirectDrawVideoPort_Impl: Sized {
     fn UpdateVideo(&self, param0: *mut DDVIDEOPORTINFO) -> ::windows::core::Result<()>;
     fn WaitForSync(&self, param0: u32, param1: u32, param2: u32) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IDirectDrawVideoPort {}
 #[cfg(feature = "Win32_Foundation")]
 impl IDirectDrawVideoPort_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirectDrawVideoPort_Impl, const OFFSET: isize>() -> IDirectDrawVideoPort_Vtbl {
@@ -2621,6 +2651,8 @@ pub trait IDirectDrawVideoPortNotify_Impl: Sized {
     fn AcquireNotification(&self, param0: *mut super::super::Foundation::HANDLE, param1: *mut DDVIDEOPORTNOTIFY) -> ::windows::core::Result<()>;
     fn ReleaseNotification(&self, param0: super::super::Foundation::HANDLE) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IDirectDrawVideoPortNotify {}
 #[cfg(feature = "Win32_Foundation")]
 impl IDirectDrawVideoPortNotify_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirectDrawVideoPortNotify_Impl, const OFFSET: isize>() -> IDirectDrawVideoPortNotify_Vtbl {

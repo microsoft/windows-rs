@@ -9,6 +9,8 @@ pub trait IAlternativeName_Impl: Sized + super::super::super::System::Com::IDisp
     fn get_RawData(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IAlternativeName {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IAlternativeName_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAlternativeName_Impl, const OFFSET: isize>() -> IAlternativeName_Vtbl {
         unsafe extern "system" fn InitializeFromString<Identity: ::windows::core::IUnknownImpl, Impl: IAlternativeName_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, r#type: AlternativeNameType, strvalue: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
@@ -95,6 +97,8 @@ pub trait IAlternativeNames_Impl: Sized + super::super::super::System::Com::IDis
     fn Clear(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IAlternativeNames {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IAlternativeNames_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAlternativeNames_Impl, const OFFSET: isize>() -> IAlternativeNames_Vtbl {
         unsafe extern "system" fn get_ItemByIndex<Identity: ::windows::core::IUnknownImpl, Impl: IAlternativeNames_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, pval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -166,6 +170,8 @@ pub trait IBinaryConverter_Impl: Sized + super::super::super::System::Com::IDisp
     fn StringToVariantByteArray(&self, strencoded: &super::super::super::Foundation::BSTR, encoding: EncodingType) -> ::windows::core::Result<super::super::super::System::Com::VARIANT>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IBinaryConverter {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IBinaryConverter_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBinaryConverter_Impl, const OFFSET: isize>() -> IBinaryConverter_Vtbl {
         unsafe extern "system" fn StringToString<Identity: ::windows::core::IUnknownImpl, Impl: IBinaryConverter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strencodedin: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, encodingin: EncodingType, encoding: EncodingType, pstrencoded: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
@@ -217,6 +223,8 @@ pub trait IBinaryConverter2_Impl: Sized + super::super::super::System::Com::IDis
     fn StringArrayToVariantArray(&self, pvarstringarray: *const super::super::super::System::Com::VARIANT) -> ::windows::core::Result<super::super::super::System::Com::VARIANT>;
     fn VariantArrayToStringArray(&self, pvarvariantarray: *const super::super::super::System::Com::VARIANT) -> ::windows::core::Result<super::super::super::System::Com::VARIANT>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IBinaryConverter2 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IBinaryConverter2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBinaryConverter2_Impl, const OFFSET: isize>() -> IBinaryConverter2_Vtbl {
@@ -311,6 +319,8 @@ pub trait ICEnroll_Impl: Sized + super::super::super::System::Com::IDispatch_Imp
     fn HashAlgorithm(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
     fn SetHashAlgorithm(&self, bstr: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ICEnroll {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ICEnroll_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICEnroll_Impl, const OFFSET: isize>() -> ICEnroll_Vtbl {
@@ -836,6 +846,8 @@ pub trait ICEnroll2_Impl: Sized + super::super::super::System::Com::IDispatch_Im
     fn SetEnableT61DNEncoding(&self, fbool: super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ICEnroll2 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ICEnroll2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICEnroll2_Impl, const OFFSET: isize>() -> ICEnroll2_Vtbl {
         unsafe extern "system" fn addCertTypeToRequest<Identity: ::windows::core::IUnknownImpl, Impl: ICEnroll2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, certtype: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
@@ -911,6 +923,8 @@ pub trait ICEnroll3_Impl: Sized + super::super::super::System::Com::IDispatch_Im
     fn SetEnableSMIMECapabilities(&self, fenablesmimecapabilities: super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn EnableSMIMECapabilities(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ICEnroll3 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ICEnroll3_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICEnroll3_Impl, const OFFSET: isize>() -> ICEnroll3_Vtbl {
@@ -1090,6 +1104,8 @@ pub trait ICEnroll4_Impl: Sized + super::super::super::System::Com::IDispatch_Im
     fn SetIncludeSubjectKeyID(&self, finclude: super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn IncludeSubjectKeyID(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ICEnroll4 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ICEnroll4_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICEnroll4_Impl, const OFFSET: isize>() -> ICEnroll4_Vtbl {
@@ -1397,6 +1413,8 @@ pub trait ICertAdmin_Impl: Sized + super::super::super::System::Com::IDispatch_I
     fn ImportCertificate(&self, strconfig: &super::super::super::Foundation::BSTR, strcertificate: &super::super::super::Foundation::BSTR, flags: CERT_IMPORT_FLAGS) -> ::windows::core::Result<i32>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ICertAdmin {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ICertAdmin_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICertAdmin_Impl, const OFFSET: isize>() -> ICertAdmin_Vtbl {
         unsafe extern "system" fn IsValidCertificate<Identity: ::windows::core::IUnknownImpl, Impl: ICertAdmin_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strconfig: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, strserialnumber: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, pdisposition: *mut i32) -> ::windows::core::HRESULT {
@@ -1511,6 +1529,8 @@ pub trait ICertAdmin2_Impl: Sized + super::super::super::System::Com::IDispatch_
     fn GetMyRoles(&self, strconfig: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<CERTADMIN_GET_ROLES_FLAGS>;
     fn DeleteRow(&self, strconfig: &super::super::super::Foundation::BSTR, flags: CERT_DELETE_ROW_FLAGS, date: f64, table: CVRC_TABLE, rowid: i32) -> ::windows::core::Result<i32>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ICertAdmin2 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ICertAdmin2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICertAdmin2_Impl, const OFFSET: isize>() -> ICertAdmin2_Vtbl {
@@ -1638,6 +1658,8 @@ pub trait ICertConfig_Impl: Sized + super::super::super::System::Com::IDispatch_
     fn GetConfig(&self, flags: i32) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ICertConfig {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ICertConfig_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICertConfig_Impl, const OFFSET: isize>() -> ICertConfig_Vtbl {
         unsafe extern "system" fn Reset<Identity: ::windows::core::IUnknownImpl, Impl: ICertConfig_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, pcount: *mut i32) -> ::windows::core::HRESULT {
@@ -1701,6 +1723,8 @@ pub trait ICertConfig2_Impl: Sized + super::super::super::System::Com::IDispatch
     fn SetSharedFolder(&self, strsharedfolder: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ICertConfig2 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ICertConfig2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICertConfig2_Impl, const OFFSET: isize>() -> ICertConfig2_Vtbl {
         unsafe extern "system" fn SetSharedFolder<Identity: ::windows::core::IUnknownImpl, Impl: ICertConfig2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strsharedfolder: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
@@ -1724,6 +1748,8 @@ pub trait ICertEncodeAltName_Impl: Sized + super::super::super::System::Com::IDi
     fn SetNameEntry(&self, nameindex: i32, namechoice: CERT_ALT_NAME, strname: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn Encode(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ICertEncodeAltName {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ICertEncodeAltName_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICertEncodeAltName_Impl, const OFFSET: isize>() -> ICertEncodeAltName_Vtbl {
@@ -1809,6 +1835,8 @@ pub trait ICertEncodeAltName2_Impl: Sized + super::super::super::System::Com::ID
     fn SetNameEntryBlob(&self, nameindex: i32, namechoice: i32, strname: &super::super::super::Foundation::BSTR, encoding: EncodingType) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ICertEncodeAltName2 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ICertEncodeAltName2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICertEncodeAltName2_Impl, const OFFSET: isize>() -> ICertEncodeAltName2_Vtbl {
         unsafe extern "system" fn DecodeBlob<Identity: ::windows::core::IUnknownImpl, Impl: ICertEncodeAltName2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strencodeddata: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, encoding: EncodingType) -> ::windows::core::HRESULT {
@@ -1862,6 +1890,8 @@ pub trait ICertEncodeBitString_Impl: Sized + super::super::super::System::Com::I
     fn GetBitString(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
     fn Encode(&self, bitcount: i32, strbitstring: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ICertEncodeBitString {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ICertEncodeBitString_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICertEncodeBitString_Impl, const OFFSET: isize>() -> ICertEncodeBitString_Vtbl {
@@ -1922,6 +1952,8 @@ pub trait ICertEncodeBitString2_Impl: Sized + super::super::super::System::Com::
     fn GetBitStringBlob(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ICertEncodeBitString2 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ICertEncodeBitString2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICertEncodeBitString2_Impl, const OFFSET: isize>() -> ICertEncodeBitString2_Vtbl {
         unsafe extern "system" fn DecodeBlob<Identity: ::windows::core::IUnknownImpl, Impl: ICertEncodeBitString2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strencodeddata: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, encoding: EncodingType) -> ::windows::core::HRESULT {
@@ -1974,6 +2006,8 @@ pub trait ICertEncodeCRLDistInfo_Impl: Sized + super::super::super::System::Com:
     fn SetNameEntry(&self, distpointindex: i32, nameindex: i32, namechoice: CERT_ALT_NAME, strname: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn Encode(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ICertEncodeCRLDistInfo {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ICertEncodeCRLDistInfo_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICertEncodeCRLDistInfo_Impl, const OFFSET: isize>() -> ICertEncodeCRLDistInfo_Vtbl {
@@ -2075,6 +2109,8 @@ pub trait ICertEncodeCRLDistInfo2_Impl: Sized + super::super::super::System::Com
     fn EncodeBlob(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ICertEncodeCRLDistInfo2 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ICertEncodeCRLDistInfo2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICertEncodeCRLDistInfo2_Impl, const OFFSET: isize>() -> ICertEncodeCRLDistInfo2_Vtbl {
         unsafe extern "system" fn DecodeBlob<Identity: ::windows::core::IUnknownImpl, Impl: ICertEncodeCRLDistInfo2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strencodeddata: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, encoding: EncodingType) -> ::windows::core::HRESULT {
@@ -2112,6 +2148,8 @@ pub trait ICertEncodeDateArray_Impl: Sized + super::super::super::System::Com::I
     fn SetValue(&self, index: i32, value: f64) -> ::windows::core::Result<()>;
     fn Encode(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ICertEncodeDateArray {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ICertEncodeDateArray_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICertEncodeDateArray_Impl, const OFFSET: isize>() -> ICertEncodeDateArray_Vtbl {
@@ -2183,6 +2221,8 @@ pub trait ICertEncodeDateArray2_Impl: Sized + super::super::super::System::Com::
     fn EncodeBlob(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ICertEncodeDateArray2 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ICertEncodeDateArray2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICertEncodeDateArray2_Impl, const OFFSET: isize>() -> ICertEncodeDateArray2_Vtbl {
         unsafe extern "system" fn DecodeBlob<Identity: ::windows::core::IUnknownImpl, Impl: ICertEncodeDateArray2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strencodeddata: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, encoding: EncodingType) -> ::windows::core::HRESULT {
@@ -2220,6 +2260,8 @@ pub trait ICertEncodeLongArray_Impl: Sized + super::super::super::System::Com::I
     fn SetValue(&self, index: i32, value: i32) -> ::windows::core::Result<()>;
     fn Encode(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ICertEncodeLongArray {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ICertEncodeLongArray_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICertEncodeLongArray_Impl, const OFFSET: isize>() -> ICertEncodeLongArray_Vtbl {
@@ -2291,6 +2333,8 @@ pub trait ICertEncodeLongArray2_Impl: Sized + super::super::super::System::Com::
     fn EncodeBlob(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ICertEncodeLongArray2 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ICertEncodeLongArray2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICertEncodeLongArray2_Impl, const OFFSET: isize>() -> ICertEncodeLongArray2_Vtbl {
         unsafe extern "system" fn DecodeBlob<Identity: ::windows::core::IUnknownImpl, Impl: ICertEncodeLongArray2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strencodeddata: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, encoding: EncodingType) -> ::windows::core::HRESULT {
@@ -2329,6 +2373,8 @@ pub trait ICertEncodeStringArray_Impl: Sized + super::super::super::System::Com:
     fn SetValue(&self, index: i32, str: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn Encode(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ICertEncodeStringArray {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ICertEncodeStringArray_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICertEncodeStringArray_Impl, const OFFSET: isize>() -> ICertEncodeStringArray_Vtbl {
@@ -2412,6 +2458,8 @@ pub trait ICertEncodeStringArray2_Impl: Sized + super::super::super::System::Com
     fn EncodeBlob(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ICertEncodeStringArray2 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ICertEncodeStringArray2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICertEncodeStringArray2_Impl, const OFFSET: isize>() -> ICertEncodeStringArray2_Vtbl {
         unsafe extern "system" fn DecodeBlob<Identity: ::windows::core::IUnknownImpl, Impl: ICertEncodeStringArray2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strencodeddata: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, encoding: EncodingType) -> ::windows::core::HRESULT {
@@ -2446,6 +2494,8 @@ pub trait ICertExit_Impl: Sized + super::super::super::System::Com::IDispatch_Im
     fn Notify(&self, exitevent: i32, context: i32) -> ::windows::core::Result<()>;
     fn GetDescription(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ICertExit {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ICertExit_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICertExit_Impl, const OFFSET: isize>() -> ICertExit_Vtbl {
@@ -2492,6 +2542,8 @@ pub trait ICertExit2_Impl: Sized + super::super::super::System::Com::IDispatch_I
     fn GetManageModule(&self) -> ::windows::core::Result<ICertManageModule>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ICertExit2 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ICertExit2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICertExit2_Impl, const OFFSET: isize>() -> ICertExit2_Vtbl {
         unsafe extern "system" fn GetManageModule<Identity: ::windows::core::IUnknownImpl, Impl: ICertExit2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppmanagemodule: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -2515,6 +2567,8 @@ impl ICertExit2_Vtbl {
 pub trait ICertGetConfig_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn GetConfig(&self, flags: CERT_GET_CONFIG_FLAGS) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ICertGetConfig {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ICertGetConfig_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICertGetConfig_Impl, const OFFSET: isize>() -> ICertGetConfig_Vtbl {
@@ -2541,6 +2595,8 @@ pub trait ICertManageModule_Impl: Sized + super::super::super::System::Com::IDis
     fn SetProperty(&self, strconfig: &super::super::super::Foundation::BSTR, strstoragelocation: &super::super::super::Foundation::BSTR, strpropertyname: &super::super::super::Foundation::BSTR, flags: i32, pvarproperty: *const super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn Configure(&self, strconfig: &super::super::super::Foundation::BSTR, strstoragelocation: &super::super::super::Foundation::BSTR, flags: i32) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ICertManageModule {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ICertManageModule_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICertManageModule_Impl, const OFFSET: isize>() -> ICertManageModule_Vtbl {
@@ -2583,6 +2639,8 @@ pub trait ICertPolicy_Impl: Sized + super::super::super::System::Com::IDispatch_
     fn GetDescription(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
     fn ShutDown(&self) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ICertPolicy {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ICertPolicy_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICertPolicy_Impl, const OFFSET: isize>() -> ICertPolicy_Vtbl {
@@ -2635,6 +2693,8 @@ pub trait ICertPolicy2_Impl: Sized + super::super::super::System::Com::IDispatch
     fn GetManageModule(&self) -> ::windows::core::Result<ICertManageModule>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ICertPolicy2 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ICertPolicy2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICertPolicy2_Impl, const OFFSET: isize>() -> ICertPolicy2_Vtbl {
         unsafe extern "system" fn GetManageModule<Identity: ::windows::core::IUnknownImpl, Impl: ICertPolicy2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppmanagemodule: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -2664,6 +2724,8 @@ pub trait ICertProperties_Impl: Sized + super::super::super::System::Com::IDispa
     fn Clear(&self) -> ::windows::core::Result<()>;
     fn InitializeFromCertificate(&self, machinecontext: i16, encoding: EncodingType, strcertificate: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ICertProperties {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ICertProperties_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICertProperties_Impl, const OFFSET: isize>() -> ICertProperties_Vtbl {
@@ -2746,6 +2808,8 @@ pub trait ICertProperty_Impl: Sized + super::super::super::System::Com::IDispatc
     fn SetValueOnCertificate(&self, machinecontext: i16, encoding: EncodingType, strcertificate: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ICertProperty {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ICertProperty_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICertProperty_Impl, const OFFSET: isize>() -> ICertProperty_Vtbl {
         unsafe extern "system" fn InitializeFromCertificate<Identity: ::windows::core::IUnknownImpl, Impl: ICertProperty_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, machinecontext: i16, encoding: EncodingType, strcertificate: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
@@ -2816,6 +2880,8 @@ pub trait ICertPropertyArchived_Impl: Sized + super::super::super::System::Com::
     fn Archived(&self) -> ::windows::core::Result<i16>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ICertPropertyArchived {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ICertPropertyArchived_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICertPropertyArchived_Impl, const OFFSET: isize>() -> ICertPropertyArchived_Vtbl {
         unsafe extern "system" fn Initialize<Identity: ::windows::core::IUnknownImpl, Impl: ICertPropertyArchived_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, archivedvalue: i16) -> ::windows::core::HRESULT {
@@ -2850,6 +2916,8 @@ pub trait ICertPropertyArchivedKeyHash_Impl: Sized + super::super::super::System
     fn get_ArchivedKeyHash(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ICertPropertyArchivedKeyHash {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ICertPropertyArchivedKeyHash_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICertPropertyArchivedKeyHash_Impl, const OFFSET: isize>() -> ICertPropertyArchivedKeyHash_Vtbl {
         unsafe extern "system" fn Initialize<Identity: ::windows::core::IUnknownImpl, Impl: ICertPropertyArchivedKeyHash_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, encoding: EncodingType, strarchivedkeyhashvalue: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
@@ -2883,6 +2951,8 @@ pub trait ICertPropertyAutoEnroll_Impl: Sized + super::super::super::System::Com
     fn Initialize(&self, strtemplatename: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn TemplateName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ICertPropertyAutoEnroll {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ICertPropertyAutoEnroll_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICertPropertyAutoEnroll_Impl, const OFFSET: isize>() -> ICertPropertyAutoEnroll_Vtbl {
@@ -2919,6 +2989,8 @@ pub trait ICertPropertyBackedUp_Impl: Sized + super::super::super::System::Com::
     fn BackedUpValue(&self) -> ::windows::core::Result<i16>;
     fn BackedUpTime(&self) -> ::windows::core::Result<f64>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ICertPropertyBackedUp {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ICertPropertyBackedUp_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICertPropertyBackedUp_Impl, const OFFSET: isize>() -> ICertPropertyBackedUp_Vtbl {
@@ -2972,6 +3044,8 @@ pub trait ICertPropertyDescription_Impl: Sized + super::super::super::System::Co
     fn Description(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ICertPropertyDescription {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ICertPropertyDescription_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICertPropertyDescription_Impl, const OFFSET: isize>() -> ICertPropertyDescription_Vtbl {
         unsafe extern "system" fn Initialize<Identity: ::windows::core::IUnknownImpl, Impl: ICertPropertyDescription_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strdescription: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
@@ -3008,6 +3082,8 @@ pub trait ICertPropertyEnrollment_Impl: Sized + super::super::super::System::Com
     fn CAName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
     fn FriendlyName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ICertPropertyEnrollment {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ICertPropertyEnrollment_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICertPropertyEnrollment_Impl, const OFFSET: isize>() -> ICertPropertyEnrollment_Vtbl {
@@ -3085,6 +3161,8 @@ pub trait ICertPropertyEnrollmentPolicyServer_Impl: Sized + super::super::super:
     fn GetAuthentication(&self) -> ::windows::core::Result<X509EnrollmentAuthFlags>;
     fn GetEnrollmentServerAuthentication(&self) -> ::windows::core::Result<X509EnrollmentAuthFlags>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ICertPropertyEnrollmentPolicyServer {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ICertPropertyEnrollmentPolicyServer_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICertPropertyEnrollmentPolicyServer_Impl, const OFFSET: isize>() -> ICertPropertyEnrollmentPolicyServer_Vtbl {
@@ -3204,6 +3282,8 @@ pub trait ICertPropertyFriendlyName_Impl: Sized + super::super::super::System::C
     fn FriendlyName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ICertPropertyFriendlyName {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ICertPropertyFriendlyName_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICertPropertyFriendlyName_Impl, const OFFSET: isize>() -> ICertPropertyFriendlyName_Vtbl {
         unsafe extern "system" fn Initialize<Identity: ::windows::core::IUnknownImpl, Impl: ICertPropertyFriendlyName_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strfriendlyname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
@@ -3237,6 +3317,8 @@ pub trait ICertPropertyKeyProvInfo_Impl: Sized + super::super::super::System::Co
     fn Initialize(&self, pvalue: &::core::option::Option<IX509PrivateKey>) -> ::windows::core::Result<()>;
     fn PrivateKey(&self) -> ::windows::core::Result<IX509PrivateKey>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ICertPropertyKeyProvInfo {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ICertPropertyKeyProvInfo_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICertPropertyKeyProvInfo_Impl, const OFFSET: isize>() -> ICertPropertyKeyProvInfo_Vtbl {
@@ -3272,6 +3354,8 @@ pub trait ICertPropertyRenewal_Impl: Sized + super::super::super::System::Com::I
     fn InitializeFromCertificateHash(&self, machinecontext: i16, encoding: EncodingType, strcertificate: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn get_Renewal(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ICertPropertyRenewal {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ICertPropertyRenewal_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICertPropertyRenewal_Impl, const OFFSET: isize>() -> ICertPropertyRenewal_Vtbl {
@@ -3314,6 +3398,8 @@ pub trait ICertPropertyRequestOriginator_Impl: Sized + super::super::super::Syst
     fn RequestOriginator(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ICertPropertyRequestOriginator {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ICertPropertyRequestOriginator_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICertPropertyRequestOriginator_Impl, const OFFSET: isize>() -> ICertPropertyRequestOriginator_Vtbl {
         unsafe extern "system" fn Initialize<Identity: ::windows::core::IUnknownImpl, Impl: ICertPropertyRequestOriginator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strrequestoriginator: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
@@ -3354,6 +3440,8 @@ pub trait ICertPropertySHA1Hash_Impl: Sized + super::super::super::System::Com::
     fn get_SHA1Hash(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ICertPropertySHA1Hash {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ICertPropertySHA1Hash_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICertPropertySHA1Hash_Impl, const OFFSET: isize>() -> ICertPropertySHA1Hash_Vtbl {
         unsafe extern "system" fn Initialize<Identity: ::windows::core::IUnknownImpl, Impl: ICertPropertySHA1Hash_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, encoding: EncodingType, strrenewalvalue: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
@@ -3392,6 +3480,8 @@ pub trait ICertRequest_Impl: Sized + super::super::super::System::Com::IDispatch
     fn GetCACertificate(&self, fexchangecertificate: i32, strconfig: &super::super::super::Foundation::BSTR, flags: i32) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
     fn GetCertificate(&self, flags: i32) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ICertRequest {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ICertRequest_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICertRequest_Impl, const OFFSET: isize>() -> ICertRequest_Vtbl {
@@ -3497,6 +3587,8 @@ pub trait ICertRequest2_Impl: Sized + super::super::super::System::Com::IDispatc
     fn GetFullResponseProperty(&self, propid: FULL_RESPONSE_PROPERTY_ID, propindex: i32, proptype: CERT_PROPERTY_TYPE, flags: CERT_REQUEST_OUT_TYPE) -> ::windows::core::Result<super::super::super::System::Com::VARIANT>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ICertRequest2 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ICertRequest2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICertRequest2_Impl, const OFFSET: isize>() -> ICertRequest2_Vtbl {
         unsafe extern "system" fn GetIssuedCertificate<Identity: ::windows::core::IUnknownImpl, Impl: ICertRequest2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strconfig: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, requestid: i32, strserialnumber: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, pdisposition: *mut CR_DISP) -> ::windows::core::HRESULT {
@@ -3587,6 +3679,8 @@ pub trait ICertRequest3_Impl: Sized + super::super::super::System::Com::IDispatc
     fn GetRefreshPolicy(&self) -> ::windows::core::Result<i16>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ICertRequest3 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ICertRequest3_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICertRequest3_Impl, const OFFSET: isize>() -> ICertRequest3_Vtbl {
         unsafe extern "system" fn SetCredential<Identity: ::windows::core::IUnknownImpl, Impl: ICertRequest3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hwnd: i32, authtype: X509EnrollmentAuthFlags, strcredential: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, strpassword: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
@@ -3644,6 +3738,7 @@ pub trait ICertRequestD_Impl: Sized {
     fn GetCACert(&self, fchain: u32, pwszauthority: &::windows::core::PCWSTR) -> ::windows::core::Result<CERTTRANSBLOB>;
     fn Ping(&self, pwszauthority: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for ICertRequestD {}
 impl ICertRequestD_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICertRequestD_Impl, const OFFSET: isize>() -> ICertRequestD_Vtbl {
         unsafe extern "system" fn Request<Identity: ::windows::core::IUnknownImpl, Impl: ICertRequestD_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwflags: u32, pwszauthority: ::windows::core::PCWSTR, pdwrequestid: *mut u32, pdwdisposition: *mut u32, pwszattributes: ::windows::core::PCWSTR, pctbrequest: *const CERTTRANSBLOB, pctbcertchain: *mut CERTTRANSBLOB, pctbencodedcert: *mut CERTTRANSBLOB, pctbdispositionmessage: *mut CERTTRANSBLOB) -> ::windows::core::HRESULT {
@@ -3684,6 +3779,7 @@ pub trait ICertRequestD2_Impl: Sized + ICertRequestD_Impl {
     fn GetCAPropertyInfo(&self, pwszauthority: &::windows::core::PCWSTR, pcproperty: *mut i32, pctbpropinfo: *mut CERTTRANSBLOB) -> ::windows::core::Result<()>;
     fn Ping2(&self, pwszauthority: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for ICertRequestD2 {}
 impl ICertRequestD2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICertRequestD2_Impl, const OFFSET: isize>() -> ICertRequestD2_Vtbl {
         unsafe extern "system" fn Request2<Identity: ::windows::core::IUnknownImpl, Impl: ICertRequestD2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszauthority: ::windows::core::PCWSTR, dwflags: u32, pwszserialnumber: ::windows::core::PCWSTR, pdwrequestid: *mut u32, pdwdisposition: *mut u32, pwszattributes: ::windows::core::PCWSTR, pctbrequest: *const CERTTRANSBLOB, pctbfullresponse: *mut CERTTRANSBLOB, pctbencodedcert: *mut CERTTRANSBLOB, pctbdispositionmessage: *mut CERTTRANSBLOB) -> ::windows::core::HRESULT {
@@ -3739,6 +3835,8 @@ pub trait ICertServerExit_Impl: Sized + super::super::super::System::Com::IDispa
     fn EnumerateAttributes(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
     fn EnumerateAttributesClose(&self) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ICertServerExit {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ICertServerExit_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICertServerExit_Impl, const OFFSET: isize>() -> ICertServerExit_Vtbl {
@@ -3881,6 +3979,8 @@ pub trait ICertServerPolicy_Impl: Sized + super::super::super::System::Com::IDis
     fn EnumerateAttributes(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
     fn EnumerateAttributesClose(&self) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ICertServerPolicy {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ICertServerPolicy_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICertServerPolicy_Impl, const OFFSET: isize>() -> ICertServerPolicy_Vtbl {
@@ -4030,6 +4130,8 @@ pub trait ICertView_Impl: Sized + super::super::super::System::Com::IDispatch_Im
     fn OpenView(&self) -> ::windows::core::Result<IEnumCERTVIEWROW>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ICertView {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ICertView_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICertView_Impl, const OFFSET: isize>() -> ICertView_Vtbl {
         unsafe extern "system" fn OpenConnection<Identity: ::windows::core::IUnknownImpl, Impl: ICertView_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strconfig: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
@@ -4105,6 +4207,8 @@ pub trait ICertView2_Impl: Sized + super::super::super::System::Com::IDispatch_I
     fn SetTable(&self, table: CVRC_TABLE) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ICertView2 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ICertView2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICertView2_Impl, const OFFSET: isize>() -> ICertView2_Vtbl {
         unsafe extern "system" fn SetTable<Identity: ::windows::core::IUnknownImpl, Impl: ICertView2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, table: CVRC_TABLE) -> ::windows::core::HRESULT {
@@ -4124,6 +4228,8 @@ pub trait ICertificateAttestationChallenge_Impl: Sized + super::super::super::Sy
     fn DecryptChallenge(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
     fn RequestID(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ICertificateAttestationChallenge {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ICertificateAttestationChallenge_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICertificateAttestationChallenge_Impl, const OFFSET: isize>() -> ICertificateAttestationChallenge_Vtbl {
@@ -4171,6 +4277,8 @@ pub trait ICertificateAttestationChallenge2_Impl: Sized + super::super::super::S
     fn put_KeyBlob(&self, encoding: EncodingType, value: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ICertificateAttestationChallenge2 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ICertificateAttestationChallenge2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICertificateAttestationChallenge2_Impl, const OFFSET: isize>() -> ICertificateAttestationChallenge2_Vtbl {
         unsafe extern "system" fn SetKeyContainerName<Identity: ::windows::core::IUnknownImpl, Impl: ICertificateAttestationChallenge2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
@@ -4202,6 +4310,8 @@ pub trait ICertificatePolicies_Impl: Sized + super::super::super::System::Com::I
     fn Remove(&self, index: i32) -> ::windows::core::Result<()>;
     fn Clear(&self) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ICertificatePolicies {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ICertificatePolicies_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICertificatePolicies_Impl, const OFFSET: isize>() -> ICertificatePolicies_Vtbl {
@@ -4274,6 +4384,8 @@ pub trait ICertificatePolicy_Impl: Sized + super::super::super::System::Com::IDi
     fn PolicyQualifiers(&self) -> ::windows::core::Result<IPolicyQualifiers>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ICertificatePolicy {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ICertificatePolicy_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICertificatePolicy_Impl, const OFFSET: isize>() -> ICertificatePolicy_Vtbl {
         unsafe extern "system" fn Initialize<Identity: ::windows::core::IUnknownImpl, Impl: ICertificatePolicy_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalue: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -4325,6 +4437,8 @@ pub trait ICertificationAuthorities_Impl: Sized + super::super::super::System::C
     fn ComputeSiteCosts(&self) -> ::windows::core::Result<()>;
     fn get_ItemByName(&self, strname: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<ICertificationAuthority>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ICertificationAuthorities {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ICertificationAuthorities_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICertificationAuthorities_Impl, const OFFSET: isize>() -> ICertificationAuthorities_Vtbl {
@@ -4413,6 +4527,8 @@ pub trait ICertificationAuthority_Impl: Sized + super::super::super::System::Com
     fn get_Property(&self, property: EnrollmentCAProperty) -> ::windows::core::Result<super::super::super::System::Com::VARIANT>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ICertificationAuthority {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ICertificationAuthority_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICertificationAuthority_Impl, const OFFSET: isize>() -> ICertificationAuthority_Vtbl {
         unsafe extern "system" fn get_Property<Identity: ::windows::core::IUnknownImpl, Impl: ICertificationAuthority_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, property: EnrollmentCAProperty, pvalue: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
@@ -4439,6 +4555,8 @@ pub trait ICryptAttribute_Impl: Sized + super::super::super::System::Com::IDispa
     fn ObjectId(&self) -> ::windows::core::Result<IObjectId>;
     fn Values(&self) -> ::windows::core::Result<IX509Attributes>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ICryptAttribute {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ICryptAttribute_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICryptAttribute_Impl, const OFFSET: isize>() -> ICryptAttribute_Vtbl {
@@ -4497,6 +4615,8 @@ pub trait ICryptAttributes_Impl: Sized + super::super::super::System::Com::IDisp
     fn get_IndexByObjectId(&self, pobjectid: &::core::option::Option<IObjectId>) -> ::windows::core::Result<i32>;
     fn AddRange(&self, pvalue: &::core::option::Option<ICryptAttributes>) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ICryptAttributes {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ICryptAttributes_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICryptAttributes_Impl, const OFFSET: isize>() -> ICryptAttributes_Vtbl {
@@ -4593,6 +4713,8 @@ pub trait ICspAlgorithm_Impl: Sized + super::super::super::System::Com::IDispatc
     fn Type(&self) -> ::windows::core::Result<AlgorithmType>;
     fn Operations(&self) -> ::windows::core::Result<AlgorithmOperationFlags>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ICspAlgorithm {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ICspAlgorithm_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICspAlgorithm_Impl, const OFFSET: isize>() -> ICspAlgorithm_Vtbl {
@@ -4736,6 +4858,8 @@ pub trait ICspAlgorithms_Impl: Sized + super::super::super::System::Com::IDispat
     fn get_IndexByObjectId(&self, pobjectid: &::core::option::Option<IObjectId>) -> ::windows::core::Result<i32>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ICspAlgorithms {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ICspAlgorithms_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICspAlgorithms_Impl, const OFFSET: isize>() -> ICspAlgorithms_Vtbl {
         unsafe extern "system" fn get_ItemByIndex<Identity: ::windows::core::IUnknownImpl, Impl: ICspAlgorithms_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, pval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -4844,6 +4968,8 @@ pub trait ICspInformation_Impl: Sized + super::super::super::System::Com::IDispa
     fn LegacyCsp(&self) -> ::windows::core::Result<i16>;
     fn GetCspStatusFromOperations(&self, palgorithm: &::core::option::Option<IObjectId>, operations: AlgorithmOperationFlags) -> ::windows::core::Result<ICspStatus>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ICspInformation {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ICspInformation_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICspInformation_Impl, const OFFSET: isize>() -> ICspInformation_Vtbl {
@@ -5063,6 +5189,8 @@ pub trait ICspInformations_Impl: Sized + super::super::super::System::Com::IDisp
     fn GetHashAlgorithms(&self, pcspinformation: &::core::option::Option<ICspInformation>) -> ::windows::core::Result<IObjectIds>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ICspInformations {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ICspInformations_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICspInformations_Impl, const OFFSET: isize>() -> ICspInformations_Vtbl {
         unsafe extern "system" fn get_ItemByIndex<Identity: ::windows::core::IUnknownImpl, Impl: ICspInformations_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, pval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -5204,6 +5332,8 @@ pub trait ICspStatus_Impl: Sized + super::super::super::System::Com::IDispatch_I
     fn DisplayName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ICspStatus {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ICspStatus_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICspStatus_Impl, const OFFSET: isize>() -> ICspStatus_Vtbl {
         unsafe extern "system" fn Initialize<Identity: ::windows::core::IUnknownImpl, Impl: ICspStatus_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcsp: ::windows::core::RawPtr, palgorithm: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -5299,6 +5429,8 @@ pub trait ICspStatuses_Impl: Sized + super::super::super::System::Com::IDispatch
     fn get_ItemByOperations(&self, strcspname: &super::super::super::Foundation::BSTR, stralgorithmname: &super::super::super::Foundation::BSTR, operations: AlgorithmOperationFlags) -> ::windows::core::Result<ICspStatus>;
     fn get_ItemByProvider(&self, pcspstatus: &::core::option::Option<ICspStatus>) -> ::windows::core::Result<ICspStatus>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ICspStatuses {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ICspStatuses_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICspStatuses_Impl, const OFFSET: isize>() -> ICspStatuses_Vtbl {
@@ -5485,6 +5617,8 @@ pub trait IEnroll_Impl: Sized {
     fn AddAuthenticatedAttributesToPKCS7Request(&self, pattributes: *mut super::CRYPT_ATTRIBUTES) -> ::windows::core::Result<()>;
     fn CreatePKCS7RequestFromRequest(&self, prequest: *mut super::CRYPTOAPI_BLOB, psigningcertcontext: *const super::CERT_CONTEXT, ppkcs7blob: *mut super::CRYPTOAPI_BLOB) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IEnroll {}
 #[cfg(feature = "Win32_Foundation")]
 impl IEnroll_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEnroll_Impl, const OFFSET: isize>() -> IEnroll_Vtbl {
@@ -5938,6 +6072,8 @@ pub trait IEnroll2_Impl: Sized + IEnroll_Impl {
     fn EnableSMIMECapabilities(&self, fenablesmimecapabilities: *mut super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IEnroll2 {}
+#[cfg(feature = "Win32_Foundation")]
 impl IEnroll2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEnroll2_Impl, const OFFSET: isize>() -> IEnroll2_Vtbl {
         unsafe extern "system" fn InstallPKCS7Blob<Identity: ::windows::core::IUnknownImpl, Impl: IEnroll2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pblobpkcs7: *mut super::CRYPTOAPI_BLOB) -> ::windows::core::HRESULT {
@@ -6091,6 +6227,8 @@ pub trait IEnroll4_Impl: Sized + IEnroll_Impl + IEnroll2_Impl {
     fn SetIncludeSubjectKeyID(&self, finclude: super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn IncludeSubjectKeyID(&self, pfinclude: *mut super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IEnroll4 {}
 #[cfg(feature = "Win32_Foundation")]
 impl IEnroll4_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEnroll4_Impl, const OFFSET: isize>() -> IEnroll4_Vtbl {
@@ -6304,6 +6442,8 @@ pub trait IEnumCERTVIEWATTRIBUTE_Impl: Sized + super::super::super::System::Com:
     fn Clone(&self) -> ::windows::core::Result<IEnumCERTVIEWATTRIBUTE>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IEnumCERTVIEWATTRIBUTE {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IEnumCERTVIEWATTRIBUTE_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEnumCERTVIEWATTRIBUTE_Impl, const OFFSET: isize>() -> IEnumCERTVIEWATTRIBUTE_Vtbl {
         unsafe extern "system" fn Next<Identity: ::windows::core::IUnknownImpl, Impl: IEnumCERTVIEWATTRIBUTE_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pindex: *mut i32) -> ::windows::core::HRESULT {
@@ -6369,6 +6509,8 @@ pub trait IEnumCERTVIEWCOLUMN_Impl: Sized + super::super::super::System::Com::ID
     fn Reset(&self) -> ::windows::core::Result<()>;
     fn Clone(&self) -> ::windows::core::Result<IEnumCERTVIEWCOLUMN>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IEnumCERTVIEWCOLUMN {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IEnumCERTVIEWCOLUMN_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEnumCERTVIEWCOLUMN_Impl, const OFFSET: isize>() -> IEnumCERTVIEWCOLUMN_Vtbl {
@@ -6457,6 +6599,8 @@ pub trait IEnumCERTVIEWEXTENSION_Impl: Sized + super::super::super::System::Com:
     fn Clone(&self) -> ::windows::core::Result<IEnumCERTVIEWEXTENSION>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IEnumCERTVIEWEXTENSION {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IEnumCERTVIEWEXTENSION_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEnumCERTVIEWEXTENSION_Impl, const OFFSET: isize>() -> IEnumCERTVIEWEXTENSION_Vtbl {
         unsafe extern "system" fn Next<Identity: ::windows::core::IUnknownImpl, Impl: IEnumCERTVIEWEXTENSION_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pindex: *mut i32) -> ::windows::core::HRESULT {
@@ -6526,6 +6670,8 @@ pub trait IEnumCERTVIEWROW_Impl: Sized + super::super::super::System::Com::IDisp
     fn Clone(&self) -> ::windows::core::Result<IEnumCERTVIEWROW>;
     fn GetMaxIndex(&self, pindex: *mut i32) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IEnumCERTVIEWROW {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IEnumCERTVIEWROW_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEnumCERTVIEWROW_Impl, const OFFSET: isize>() -> IEnumCERTVIEWROW_Vtbl {
@@ -6618,6 +6764,8 @@ pub trait INDESPolicy_Impl: Sized {
     fn Notify(&self, pwszchallenge: &::windows::core::PCWSTR, pwsztransactionid: &::windows::core::PCWSTR, disposition: X509SCEPDisposition, lasthresult: i32, pctbissuedcertencoded: *mut CERTTRANSBLOB) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for INDESPolicy {}
+#[cfg(feature = "Win32_Foundation")]
 impl INDESPolicy_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INDESPolicy_Impl, const OFFSET: isize>() -> INDESPolicy_Vtbl {
         unsafe extern "system" fn Initialize<Identity: ::windows::core::IUnknownImpl, Impl: INDESPolicy_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -6677,6 +6825,8 @@ pub trait IOCSPAdmin_Impl: Sized + super::super::super::System::Com::IDispatch_I
     fn GetSigningCertificates(&self, bstrservername: &super::super::super::Foundation::BSTR, pcacertvar: *const super::super::super::System::Com::VARIANT) -> ::windows::core::Result<super::super::super::System::Com::VARIANT>;
     fn GetHashAlgorithms(&self, bstrservername: &super::super::super::Foundation::BSTR, bstrcaid: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::super::System::Com::VARIANT>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IOCSPAdmin {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IOCSPAdmin_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IOCSPAdmin_Impl, const OFFSET: isize>() -> IOCSPAdmin_Vtbl {
@@ -6811,6 +6961,8 @@ pub trait IOCSPCAConfiguration_Impl: Sized + super::super::super::System::Com::I
     fn CAConfig(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
     fn SetCAConfig(&self, newval: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IOCSPCAConfiguration {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IOCSPCAConfiguration_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IOCSPCAConfiguration_Impl, const OFFSET: isize>() -> IOCSPCAConfiguration_Vtbl {
@@ -7066,6 +7218,8 @@ pub trait IOCSPCAConfigurationCollection_Impl: Sized + super::super::super::Syst
     fn DeleteCAConfiguration(&self, bstridentifier: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IOCSPCAConfigurationCollection {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IOCSPCAConfigurationCollection_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IOCSPCAConfigurationCollection_Impl, const OFFSET: isize>() -> IOCSPCAConfigurationCollection_Vtbl {
         unsafe extern "system" fn _NewEnum<Identity: ::windows::core::IUnknownImpl, Impl: IOCSPCAConfigurationCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -7150,6 +7304,8 @@ pub trait IOCSPProperty_Impl: Sized + super::super::super::System::Com::IDispatc
     fn Modified(&self) -> ::windows::core::Result<i16>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IOCSPProperty {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IOCSPProperty_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IOCSPProperty_Impl, const OFFSET: isize>() -> IOCSPProperty_Vtbl {
         unsafe extern "system" fn Name<Identity: ::windows::core::IUnknownImpl, Impl: IOCSPProperty_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
@@ -7213,6 +7369,8 @@ pub trait IOCSPPropertyCollection_Impl: Sized + super::super::super::System::Com
     fn InitializeFromProperties(&self, pvarproperties: *const super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn GetAllProperties(&self) -> ::windows::core::Result<super::super::super::System::Com::VARIANT>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IOCSPPropertyCollection {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IOCSPPropertyCollection_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IOCSPPropertyCollection_Impl, const OFFSET: isize>() -> IOCSPPropertyCollection_Vtbl {
@@ -7320,6 +7478,8 @@ pub trait IObjectId_Impl: Sized + super::super::super::System::Com::IDispatch_Im
     fn GetAlgorithmName(&self, groupid: ObjectIdGroupId, keyflags: ObjectIdPublicKeyFlags) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IObjectId {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IObjectId_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IObjectId_Impl, const OFFSET: isize>() -> IObjectId_Vtbl {
         unsafe extern "system" fn InitializeFromName<Identity: ::windows::core::IUnknownImpl, Impl: IObjectId_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: CERTENROLL_OBJECTID) -> ::windows::core::HRESULT {
@@ -7413,6 +7573,8 @@ pub trait IObjectIds_Impl: Sized + super::super::super::System::Com::IDispatch_I
     fn AddRange(&self, pvalue: &::core::option::Option<IObjectIds>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IObjectIds {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IObjectIds_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IObjectIds_Impl, const OFFSET: isize>() -> IObjectIds_Vtbl {
         unsafe extern "system" fn get_ItemByIndex<Identity: ::windows::core::IUnknownImpl, Impl: IObjectIds_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, pval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -7492,6 +7654,8 @@ pub trait IPolicyQualifier_Impl: Sized + super::super::super::System::Com::IDisp
     fn get_RawData(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IPolicyQualifier {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IPolicyQualifier_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPolicyQualifier_Impl, const OFFSET: isize>() -> IPolicyQualifier_Vtbl {
         unsafe extern "system" fn InitializeEncode<Identity: ::windows::core::IUnknownImpl, Impl: IPolicyQualifier_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strqualifier: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, r#type: PolicyQualifierType) -> ::windows::core::HRESULT {
@@ -7565,6 +7729,8 @@ pub trait IPolicyQualifiers_Impl: Sized + super::super::super::System::Com::IDis
     fn Remove(&self, index: i32) -> ::windows::core::Result<()>;
     fn Clear(&self) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IPolicyQualifiers {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IPolicyQualifiers_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPolicyQualifiers_Impl, const OFFSET: isize>() -> IPolicyQualifiers_Vtbl {
@@ -7644,6 +7810,8 @@ pub trait ISignerCertificate_Impl: Sized + super::super::super::System::Com::IDi
     fn SetPin(&self, value: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn SignatureInformation(&self) -> ::windows::core::Result<IX509SignatureInformation>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ISignerCertificate {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ISignerCertificate_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISignerCertificate_Impl, const OFFSET: isize>() -> ISignerCertificate_Vtbl {
@@ -7768,6 +7936,8 @@ pub trait ISignerCertificates_Impl: Sized + super::super::super::System::Com::ID
     fn Find(&self, psignercert: &::core::option::Option<ISignerCertificate>) -> ::windows::core::Result<i32>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ISignerCertificates {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ISignerCertificates_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISignerCertificates_Impl, const OFFSET: isize>() -> ISignerCertificates_Vtbl {
         unsafe extern "system" fn get_ItemByIndex<Identity: ::windows::core::IUnknownImpl, Impl: ISignerCertificates_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, pval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -7856,6 +8026,8 @@ pub trait ISmimeCapabilities_Impl: Sized + super::super::super::System::Com::IDi
     fn AddAvailableSmimeCapabilities(&self, machinecontext: i16) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ISmimeCapabilities {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ISmimeCapabilities_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmimeCapabilities_Impl, const OFFSET: isize>() -> ISmimeCapabilities_Vtbl {
         unsafe extern "system" fn get_ItemByIndex<Identity: ::windows::core::IUnknownImpl, Impl: ISmimeCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, pval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -7939,6 +8111,8 @@ pub trait ISmimeCapability_Impl: Sized + super::super::super::System::Com::IDisp
     fn BitCount(&self) -> ::windows::core::Result<i32>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ISmimeCapability {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ISmimeCapability_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmimeCapability_Impl, const OFFSET: isize>() -> ISmimeCapability_Vtbl {
         unsafe extern "system" fn Initialize<Identity: ::windows::core::IUnknownImpl, Impl: ISmimeCapability_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pobjectid: ::windows::core::RawPtr, bitcount: i32) -> ::windows::core::HRESULT {
@@ -7986,6 +8160,8 @@ pub trait IX500DistinguishedName_Impl: Sized + super::super::super::System::Com:
     fn Name(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
     fn get_EncodedName(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IX500DistinguishedName {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IX500DistinguishedName_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IX500DistinguishedName_Impl, const OFFSET: isize>() -> IX500DistinguishedName_Vtbl {
@@ -8040,6 +8216,8 @@ pub trait IX509Attribute_Impl: Sized + super::super::super::System::Com::IDispat
     fn get_RawData(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IX509Attribute {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IX509Attribute_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IX509Attribute_Impl, const OFFSET: isize>() -> IX509Attribute_Vtbl {
         unsafe extern "system" fn Initialize<Identity: ::windows::core::IUnknownImpl, Impl: IX509Attribute_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pobjectid: ::windows::core::RawPtr, encoding: EncodingType, strencodeddata: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
@@ -8088,6 +8266,8 @@ pub trait IX509AttributeArchiveKey_Impl: Sized + super::super::super::System::Co
     fn EncryptionAlgorithm(&self) -> ::windows::core::Result<IObjectId>;
     fn EncryptionStrength(&self) -> ::windows::core::Result<i32>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IX509AttributeArchiveKey {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IX509AttributeArchiveKey_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IX509AttributeArchiveKey_Impl, const OFFSET: isize>() -> IX509AttributeArchiveKey_Vtbl {
@@ -8154,6 +8334,8 @@ pub trait IX509AttributeArchiveKeyHash_Impl: Sized + super::super::super::System
     fn get_EncryptedKeyHashBlob(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IX509AttributeArchiveKeyHash {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IX509AttributeArchiveKeyHash_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IX509AttributeArchiveKeyHash_Impl, const OFFSET: isize>() -> IX509AttributeArchiveKeyHash_Vtbl {
         unsafe extern "system" fn InitializeEncodeFromEncryptedKeyBlob<Identity: ::windows::core::IUnknownImpl, Impl: IX509AttributeArchiveKeyHash_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, encoding: EncodingType, strencryptedkeyblob: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
@@ -8197,6 +8379,8 @@ pub trait IX509AttributeClientId_Impl: Sized + super::super::super::System::Com:
     fn UserSamName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
     fn ProcessName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IX509AttributeClientId {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IX509AttributeClientId_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IX509AttributeClientId_Impl, const OFFSET: isize>() -> IX509AttributeClientId_Vtbl {
@@ -8277,6 +8461,8 @@ pub trait IX509AttributeCspProvider_Impl: Sized + super::super::super::System::C
     fn get_Signature(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IX509AttributeCspProvider {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IX509AttributeCspProvider_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IX509AttributeCspProvider_Impl, const OFFSET: isize>() -> IX509AttributeCspProvider_Vtbl {
         unsafe extern "system" fn InitializeEncode<Identity: ::windows::core::IUnknownImpl, Impl: IX509AttributeCspProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, keyspec: X509KeySpec, strprovidername: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, encoding: EncodingType, strsignature: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
@@ -8342,6 +8528,8 @@ pub trait IX509AttributeExtensions_Impl: Sized + super::super::super::System::Co
     fn X509Extensions(&self) -> ::windows::core::Result<IX509Extensions>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IX509AttributeExtensions {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IX509AttributeExtensions_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IX509AttributeExtensions_Impl, const OFFSET: isize>() -> IX509AttributeExtensions_Vtbl {
         unsafe extern "system" fn InitializeEncode<Identity: ::windows::core::IUnknownImpl, Impl: IX509AttributeExtensions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pextensions: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -8383,6 +8571,8 @@ pub trait IX509AttributeOSVersion_Impl: Sized + super::super::super::System::Com
     fn OSVersion(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IX509AttributeOSVersion {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IX509AttributeOSVersion_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IX509AttributeOSVersion_Impl, const OFFSET: isize>() -> IX509AttributeOSVersion_Vtbl {
         unsafe extern "system" fn InitializeEncode<Identity: ::windows::core::IUnknownImpl, Impl: IX509AttributeOSVersion_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strosversion: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
@@ -8423,6 +8613,8 @@ pub trait IX509AttributeRenewalCertificate_Impl: Sized + super::super::super::Sy
     fn InitializeDecode(&self, encoding: EncodingType, strencodeddata: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn get_RenewalCertificate(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IX509AttributeRenewalCertificate {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IX509AttributeRenewalCertificate_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IX509AttributeRenewalCertificate_Impl, const OFFSET: isize>() -> IX509AttributeRenewalCertificate_Vtbl {
@@ -8467,6 +8659,8 @@ pub trait IX509Attributes_Impl: Sized + super::super::super::System::Com::IDispa
     fn Remove(&self, index: i32) -> ::windows::core::Result<()>;
     fn Clear(&self) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IX509Attributes {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IX509Attributes_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IX509Attributes_Impl, const OFFSET: isize>() -> IX509Attributes_Vtbl {
@@ -8560,6 +8754,8 @@ pub trait IX509CertificateRequest_Impl: Sized + super::super::super::System::Com
     fn SetAlternateSignatureAlgorithm(&self, value: i16) -> ::windows::core::Result<()>;
     fn get_RawData(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IX509CertificateRequest {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IX509CertificateRequest_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IX509CertificateRequest_Impl, const OFFSET: isize>() -> IX509CertificateRequest_Vtbl {
@@ -8814,6 +9010,8 @@ pub trait IX509CertificateRequestCertificate_Impl: Sized + super::super::super::
     fn SetSignerCertificate(&self, pvalue: &::core::option::Option<ISignerCertificate>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IX509CertificateRequestCertificate {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IX509CertificateRequestCertificate_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IX509CertificateRequestCertificate_Impl, const OFFSET: isize>() -> IX509CertificateRequestCertificate_Vtbl {
         unsafe extern "system" fn CheckPublicKeySignature<Identity: ::windows::core::IUnknownImpl, Impl: IX509CertificateRequestCertificate_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppublickey: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -8928,6 +9126,8 @@ pub trait IX509CertificateRequestCertificate2_Impl: Sized + super::super::super:
     fn Template(&self) -> ::windows::core::Result<IX509CertificateTemplate>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IX509CertificateRequestCertificate2 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IX509CertificateRequestCertificate2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IX509CertificateRequestCertificate2_Impl, const OFFSET: isize>() -> IX509CertificateRequestCertificate2_Vtbl {
         unsafe extern "system" fn InitializeFromTemplate<Identity: ::windows::core::IUnknownImpl, Impl: IX509CertificateRequestCertificate2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, context: X509CertificateEnrollmentContext, ppolicyserver: ::windows::core::RawPtr, ptemplate: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -9000,6 +9200,8 @@ pub trait IX509CertificateRequestCmc_Impl: Sized + super::super::super::System::
     fn get_EncryptedKeyHash(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
     fn SignerCertificates(&self) -> ::windows::core::Result<ISignerCertificates>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IX509CertificateRequestCmc {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IX509CertificateRequestCmc_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IX509CertificateRequestCmc_Impl, const OFFSET: isize>() -> IX509CertificateRequestCmc_Vtbl {
@@ -9255,6 +9457,8 @@ pub trait IX509CertificateRequestCmc2_Impl: Sized + super::super::super::System:
     fn CheckCertificateSignature(&self, psignercertificate: &::core::option::Option<ISignerCertificate>, validatecertificatechain: i16) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IX509CertificateRequestCmc2 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IX509CertificateRequestCmc2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IX509CertificateRequestCmc2_Impl, const OFFSET: isize>() -> IX509CertificateRequestCmc2_Vtbl {
         unsafe extern "system" fn InitializeFromTemplate<Identity: ::windows::core::IUnknownImpl, Impl: IX509CertificateRequestCmc2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, context: X509CertificateEnrollmentContext, ppolicyserver: ::windows::core::RawPtr, ptemplate: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -9344,6 +9548,8 @@ pub trait IX509CertificateRequestPkcs10_Impl: Sized + super::super::super::Syste
     fn get_Signature(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
     fn GetCspStatuses(&self, keyspec: X509KeySpec) -> ::windows::core::Result<ICspStatuses>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IX509CertificateRequestPkcs10 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IX509CertificateRequestPkcs10_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IX509CertificateRequestPkcs10_Impl, const OFFSET: isize>() -> IX509CertificateRequestPkcs10_Vtbl {
@@ -9646,6 +9852,8 @@ pub trait IX509CertificateRequestPkcs10V2_Impl: Sized + super::super::super::Sys
     fn Template(&self) -> ::windows::core::Result<IX509CertificateTemplate>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IX509CertificateRequestPkcs10V2 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IX509CertificateRequestPkcs10V2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IX509CertificateRequestPkcs10V2_Impl, const OFFSET: isize>() -> IX509CertificateRequestPkcs10V2_Vtbl {
         unsafe extern "system" fn InitializeFromTemplate<Identity: ::windows::core::IUnknownImpl, Impl: IX509CertificateRequestPkcs10V2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, context: X509CertificateEnrollmentContext, ppolicyserver: ::windows::core::RawPtr, ptemplate: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -9712,6 +9920,8 @@ pub trait IX509CertificateRequestPkcs10V3_Impl: Sized + super::super::super::Sys
     fn SetChallengePassword(&self, value: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn NameValuePairs(&self) -> ::windows::core::Result<IX509NameValuePairs>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IX509CertificateRequestPkcs10V3 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IX509CertificateRequestPkcs10V3_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IX509CertificateRequestPkcs10V3_Impl, const OFFSET: isize>() -> IX509CertificateRequestPkcs10V3_Vtbl {
@@ -9833,6 +10043,8 @@ pub trait IX509CertificateRequestPkcs10V4_Impl: Sized + super::super::super::Sys
     fn SetAttestPrivateKeyPreferred(&self, value: i16) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IX509CertificateRequestPkcs10V4 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IX509CertificateRequestPkcs10V4_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IX509CertificateRequestPkcs10V4_Impl, const OFFSET: isize>() -> IX509CertificateRequestPkcs10V4_Vtbl {
         unsafe extern "system" fn ClaimType<Identity: ::windows::core::IUnknownImpl, Impl: IX509CertificateRequestPkcs10V4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalue: *mut KeyAttestationClaimType) -> ::windows::core::HRESULT {
@@ -9890,6 +10102,8 @@ pub trait IX509CertificateRequestPkcs7_Impl: Sized + super::super::super::System
     fn SignerCertificate(&self) -> ::windows::core::Result<ISignerCertificate>;
     fn SetSignerCertificate(&self, pvalue: &::core::option::Option<ISignerCertificate>) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IX509CertificateRequestPkcs7 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IX509CertificateRequestPkcs7_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IX509CertificateRequestPkcs7_Impl, const OFFSET: isize>() -> IX509CertificateRequestPkcs7_Vtbl {
@@ -9968,6 +10182,8 @@ pub trait IX509CertificateRequestPkcs7V2_Impl: Sized + super::super::super::Syst
     fn Template(&self) -> ::windows::core::Result<IX509CertificateTemplate>;
     fn CheckCertificateSignature(&self, validatecertificatechain: i16) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IX509CertificateRequestPkcs7V2 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IX509CertificateRequestPkcs7V2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IX509CertificateRequestPkcs7V2_Impl, const OFFSET: isize>() -> IX509CertificateRequestPkcs7V2_Vtbl {
@@ -10049,6 +10265,8 @@ pub trait IX509CertificateRevocationList_Impl: Sized + super::super::super::Syst
     fn get_RawDataToBeSigned(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
     fn get_Signature(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IX509CertificateRevocationList {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IX509CertificateRevocationList_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IX509CertificateRevocationList_Impl, const OFFSET: isize>() -> IX509CertificateRevocationList_Vtbl {
@@ -10360,6 +10578,8 @@ pub trait IX509CertificateRevocationListEntries_Impl: Sized + super::super::supe
     fn AddRange(&self, pvalue: &::core::option::Option<IX509CertificateRevocationListEntries>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IX509CertificateRevocationListEntries {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IX509CertificateRevocationListEntries_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IX509CertificateRevocationListEntries_Impl, const OFFSET: isize>() -> IX509CertificateRevocationListEntries_Vtbl {
         unsafe extern "system" fn get_ItemByIndex<Identity: ::windows::core::IUnknownImpl, Impl: IX509CertificateRevocationListEntries_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, pval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -10453,6 +10673,8 @@ pub trait IX509CertificateRevocationListEntry_Impl: Sized + super::super::super:
     fn CriticalExtensions(&self) -> ::windows::core::Result<IObjectIds>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IX509CertificateRevocationListEntry {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IX509CertificateRevocationListEntry_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IX509CertificateRevocationListEntry_Impl, const OFFSET: isize>() -> IX509CertificateRevocationListEntry_Vtbl {
         unsafe extern "system" fn Initialize<Identity: ::windows::core::IUnknownImpl, Impl: IX509CertificateRevocationListEntry_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, encoding: EncodingType, serialnumber: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, revocationdate: f64) -> ::windows::core::HRESULT {
@@ -10540,6 +10762,8 @@ pub trait IX509CertificateTemplate_Impl: Sized + super::super::super::System::Co
     fn get_Property(&self, property: EnrollmentTemplateProperty) -> ::windows::core::Result<super::super::super::System::Com::VARIANT>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IX509CertificateTemplate {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IX509CertificateTemplate_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IX509CertificateTemplate_Impl, const OFFSET: isize>() -> IX509CertificateTemplate_Vtbl {
         unsafe extern "system" fn get_Property<Identity: ::windows::core::IUnknownImpl, Impl: IX509CertificateTemplate_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, property: EnrollmentTemplateProperty, pvalue: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
@@ -10567,6 +10791,8 @@ pub trait IX509CertificateTemplateWritable_Impl: Sized + super::super::super::Sy
     fn put_Property(&self, property: EnrollmentTemplateProperty, value: &super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn Template(&self) -> ::windows::core::Result<IX509CertificateTemplate>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IX509CertificateTemplateWritable {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IX509CertificateTemplateWritable_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IX509CertificateTemplateWritable_Impl, const OFFSET: isize>() -> IX509CertificateTemplateWritable_Vtbl {
@@ -10631,6 +10857,8 @@ pub trait IX509CertificateTemplates_Impl: Sized + super::super::super::System::C
     fn get_ItemByName(&self, bstrname: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<IX509CertificateTemplate>;
     fn get_ItemByOid(&self, poid: &::core::option::Option<IObjectId>) -> ::windows::core::Result<IX509CertificateTemplate>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IX509CertificateTemplates {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IX509CertificateTemplates_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IX509CertificateTemplates_Impl, const OFFSET: isize>() -> IX509CertificateTemplates_Vtbl {
@@ -10734,6 +10962,8 @@ pub trait IX509EndorsementKey_Impl: Sized + super::super::super::System::Com::ID
     fn Open(&self) -> ::windows::core::Result<()>;
     fn Close(&self) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IX509EndorsementKey {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IX509EndorsementKey_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IX509EndorsementKey_Impl, const OFFSET: isize>() -> IX509EndorsementKey_Vtbl {
@@ -10873,6 +11103,8 @@ pub trait IX509Enrollment_Impl: Sized + super::super::super::System::Com::IDispa
     fn RequestId(&self) -> ::windows::core::Result<i32>;
     fn CAConfigString(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IX509Enrollment {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IX509Enrollment_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IX509Enrollment_Impl, const OFFSET: isize>() -> IX509Enrollment_Vtbl {
@@ -11115,6 +11347,8 @@ pub trait IX509Enrollment2_Impl: Sized + super::super::super::System::Com::IDisp
     fn RequestIdString(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IX509Enrollment2 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IX509Enrollment2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IX509Enrollment2_Impl, const OFFSET: isize>() -> IX509Enrollment2_Vtbl {
         unsafe extern "system" fn InitializeFromTemplate<Identity: ::windows::core::IUnknownImpl, Impl: IX509Enrollment2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, context: X509CertificateEnrollmentContext, ppolicyserver: ::windows::core::RawPtr, ptemplate: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -11180,6 +11414,8 @@ pub trait IX509EnrollmentHelper_Impl: Sized + super::super::super::System::Com::
     fn Enroll(&self, strenrollmentpolicyserveruri: &super::super::super::Foundation::BSTR, strtemplatename: &super::super::super::Foundation::BSTR, encoding: EncodingType, enrollflags: WebEnrollmentFlags) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
     fn Initialize(&self, context: X509CertificateEnrollmentContext) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IX509EnrollmentHelper {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IX509EnrollmentHelper_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IX509EnrollmentHelper_Impl, const OFFSET: isize>() -> IX509EnrollmentHelper_Vtbl {
@@ -11248,6 +11484,8 @@ pub trait IX509EnrollmentPolicyServer_Impl: Sized + super::super::super::System:
     fn Cost(&self) -> ::windows::core::Result<u32>;
     fn SetCost(&self, value: u32) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IX509EnrollmentPolicyServer {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IX509EnrollmentPolicyServer_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IX509EnrollmentPolicyServer_Impl, const OFFSET: isize>() -> IX509EnrollmentPolicyServer_Vtbl {
@@ -11527,6 +11765,8 @@ pub trait IX509EnrollmentStatus_Impl: Sized + super::super::super::System::Com::
     fn ErrorText(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IX509EnrollmentStatus {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IX509EnrollmentStatus_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IX509EnrollmentStatus_Impl, const OFFSET: isize>() -> IX509EnrollmentStatus_Vtbl {
         unsafe extern "system" fn AppendText<Identity: ::windows::core::IUnknownImpl, Impl: IX509EnrollmentStatus_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strtext: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
@@ -11650,6 +11890,8 @@ pub trait IX509EnrollmentWebClassFactory_Impl: Sized + super::super::super::Syst
     fn CreateObject(&self, strprogid: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IX509EnrollmentWebClassFactory {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IX509EnrollmentWebClassFactory_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IX509EnrollmentWebClassFactory_Impl, const OFFSET: isize>() -> IX509EnrollmentWebClassFactory_Vtbl {
         unsafe extern "system" fn CreateObject<Identity: ::windows::core::IUnknownImpl, Impl: IX509EnrollmentWebClassFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strprogid: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, ppiunknown: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -11677,6 +11919,8 @@ pub trait IX509Extension_Impl: Sized + super::super::super::System::Com::IDispat
     fn Critical(&self) -> ::windows::core::Result<i16>;
     fn SetCritical(&self, value: i16) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IX509Extension {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IX509Extension_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IX509Extension_Impl, const OFFSET: isize>() -> IX509Extension_Vtbl {
@@ -11743,6 +11987,8 @@ pub trait IX509ExtensionAlternativeNames_Impl: Sized + super::super::super::Syst
     fn AlternativeNames(&self) -> ::windows::core::Result<IAlternativeNames>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IX509ExtensionAlternativeNames {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IX509ExtensionAlternativeNames_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IX509ExtensionAlternativeNames_Impl, const OFFSET: isize>() -> IX509ExtensionAlternativeNames_Vtbl {
         unsafe extern "system" fn InitializeEncode<Identity: ::windows::core::IUnknownImpl, Impl: IX509ExtensionAlternativeNames_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalue: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -11783,6 +12029,8 @@ pub trait IX509ExtensionAuthorityKeyIdentifier_Impl: Sized + super::super::super
     fn InitializeDecode(&self, encoding: EncodingType, strencodeddata: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn get_AuthorityKeyIdentifier(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IX509ExtensionAuthorityKeyIdentifier {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IX509ExtensionAuthorityKeyIdentifier_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IX509ExtensionAuthorityKeyIdentifier_Impl, const OFFSET: isize>() -> IX509ExtensionAuthorityKeyIdentifier_Vtbl {
@@ -11825,6 +12073,8 @@ pub trait IX509ExtensionBasicConstraints_Impl: Sized + super::super::super::Syst
     fn IsCA(&self) -> ::windows::core::Result<i16>;
     fn PathLenConstraint(&self) -> ::windows::core::Result<i32>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IX509ExtensionBasicConstraints {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IX509ExtensionBasicConstraints_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IX509ExtensionBasicConstraints_Impl, const OFFSET: isize>() -> IX509ExtensionBasicConstraints_Vtbl {
@@ -11879,6 +12129,8 @@ pub trait IX509ExtensionCertificatePolicies_Impl: Sized + super::super::super::S
     fn Policies(&self) -> ::windows::core::Result<ICertificatePolicies>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IX509ExtensionCertificatePolicies {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IX509ExtensionCertificatePolicies_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IX509ExtensionCertificatePolicies_Impl, const OFFSET: isize>() -> IX509ExtensionCertificatePolicies_Vtbl {
         unsafe extern "system" fn InitializeEncode<Identity: ::windows::core::IUnknownImpl, Impl: IX509ExtensionCertificatePolicies_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalue: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -11919,6 +12171,8 @@ pub trait IX509ExtensionEnhancedKeyUsage_Impl: Sized + super::super::super::Syst
     fn InitializeDecode(&self, encoding: EncodingType, strencodeddata: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn EnhancedKeyUsage(&self) -> ::windows::core::Result<IObjectIds>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IX509ExtensionEnhancedKeyUsage {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IX509ExtensionEnhancedKeyUsage_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IX509ExtensionEnhancedKeyUsage_Impl, const OFFSET: isize>() -> IX509ExtensionEnhancedKeyUsage_Vtbl {
@@ -11961,6 +12215,8 @@ pub trait IX509ExtensionKeyUsage_Impl: Sized + super::super::super::System::Com:
     fn KeyUsage(&self) -> ::windows::core::Result<X509KeyUsageFlags>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IX509ExtensionKeyUsage {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IX509ExtensionKeyUsage_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IX509ExtensionKeyUsage_Impl, const OFFSET: isize>() -> IX509ExtensionKeyUsage_Vtbl {
         unsafe extern "system" fn InitializeEncode<Identity: ::windows::core::IUnknownImpl, Impl: IX509ExtensionKeyUsage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, usageflags: X509KeyUsageFlags) -> ::windows::core::HRESULT {
@@ -12001,6 +12257,8 @@ pub trait IX509ExtensionMSApplicationPolicies_Impl: Sized + super::super::super:
     fn InitializeDecode(&self, encoding: EncodingType, strencodeddata: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn Policies(&self) -> ::windows::core::Result<ICertificatePolicies>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IX509ExtensionMSApplicationPolicies {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IX509ExtensionMSApplicationPolicies_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IX509ExtensionMSApplicationPolicies_Impl, const OFFSET: isize>() -> IX509ExtensionMSApplicationPolicies_Vtbl {
@@ -12043,6 +12301,8 @@ pub trait IX509ExtensionSmimeCapabilities_Impl: Sized + super::super::super::Sys
     fn SmimeCapabilities(&self) -> ::windows::core::Result<ISmimeCapabilities>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IX509ExtensionSmimeCapabilities {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IX509ExtensionSmimeCapabilities_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IX509ExtensionSmimeCapabilities_Impl, const OFFSET: isize>() -> IX509ExtensionSmimeCapabilities_Vtbl {
         unsafe extern "system" fn InitializeEncode<Identity: ::windows::core::IUnknownImpl, Impl: IX509ExtensionSmimeCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalue: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -12083,6 +12343,8 @@ pub trait IX509ExtensionSubjectKeyIdentifier_Impl: Sized + super::super::super::
     fn InitializeDecode(&self, encoding: EncodingType, strencodeddata: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn get_SubjectKeyIdentifier(&self, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IX509ExtensionSubjectKeyIdentifier {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IX509ExtensionSubjectKeyIdentifier_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IX509ExtensionSubjectKeyIdentifier_Impl, const OFFSET: isize>() -> IX509ExtensionSubjectKeyIdentifier_Vtbl {
@@ -12126,6 +12388,8 @@ pub trait IX509ExtensionTemplate_Impl: Sized + super::super::super::System::Com:
     fn MajorVersion(&self) -> ::windows::core::Result<i32>;
     fn MinorVersion(&self) -> ::windows::core::Result<i32>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IX509ExtensionTemplate {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IX509ExtensionTemplate_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IX509ExtensionTemplate_Impl, const OFFSET: isize>() -> IX509ExtensionTemplate_Vtbl {
@@ -12192,6 +12456,8 @@ pub trait IX509ExtensionTemplateName_Impl: Sized + super::super::super::System::
     fn TemplateName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IX509ExtensionTemplateName {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IX509ExtensionTemplateName_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IX509ExtensionTemplateName_Impl, const OFFSET: isize>() -> IX509ExtensionTemplateName_Vtbl {
         unsafe extern "system" fn InitializeEncode<Identity: ::windows::core::IUnknownImpl, Impl: IX509ExtensionTemplateName_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strtemplatename: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
@@ -12237,6 +12503,8 @@ pub trait IX509Extensions_Impl: Sized + super::super::super::System::Com::IDispa
     fn get_IndexByObjectId(&self, pobjectid: &::core::option::Option<IObjectId>) -> ::windows::core::Result<i32>;
     fn AddRange(&self, pvalue: &::core::option::Option<IX509Extensions>) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IX509Extensions {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IX509Extensions_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IX509Extensions_Impl, const OFFSET: isize>() -> IX509Extensions_Vtbl {
@@ -12325,6 +12593,8 @@ pub trait IX509MachineEnrollmentFactory_Impl: Sized + super::super::super::Syste
     fn CreateObject(&self, strprogid: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<IX509EnrollmentHelper>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IX509MachineEnrollmentFactory {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IX509MachineEnrollmentFactory_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IX509MachineEnrollmentFactory_Impl, const OFFSET: isize>() -> IX509MachineEnrollmentFactory_Vtbl {
         unsafe extern "system" fn CreateObject<Identity: ::windows::core::IUnknownImpl, Impl: IX509MachineEnrollmentFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strprogid: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, ppihelper: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -12350,6 +12620,8 @@ pub trait IX509NameValuePair_Impl: Sized + super::super::super::System::Com::IDi
     fn Value(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
     fn Name(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IX509NameValuePair {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IX509NameValuePair_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IX509NameValuePair_Impl, const OFFSET: isize>() -> IX509NameValuePair_Vtbl {
@@ -12400,6 +12672,8 @@ pub trait IX509NameValuePairs_Impl: Sized + super::super::super::System::Com::ID
     fn Remove(&self, index: i32) -> ::windows::core::Result<()>;
     fn Clear(&self) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IX509NameValuePairs {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IX509NameValuePairs_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IX509NameValuePairs_Impl, const OFFSET: isize>() -> IX509NameValuePairs_Vtbl {
@@ -12475,6 +12749,8 @@ pub trait IX509PolicyServerListManager_Impl: Sized + super::super::super::System
     fn Clear(&self) -> ::windows::core::Result<()>;
     fn Initialize(&self, context: X509CertificateEnrollmentContext, flags: PolicyServerUrlFlags) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IX509PolicyServerListManager {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IX509PolicyServerListManager_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IX509PolicyServerListManager_Impl, const OFFSET: isize>() -> IX509PolicyServerListManager_Vtbl {
@@ -12564,6 +12840,8 @@ pub trait IX509PolicyServerUrl_Impl: Sized + super::super::super::System::Com::I
     fn UpdateRegistry(&self, context: X509CertificateEnrollmentContext) -> ::windows::core::Result<()>;
     fn RemoveFromRegistry(&self, context: X509CertificateEnrollmentContext) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IX509PolicyServerUrl {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IX509PolicyServerUrl_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IX509PolicyServerUrl_Impl, const OFFSET: isize>() -> IX509PolicyServerUrl_Vtbl {
@@ -12762,6 +13040,8 @@ pub trait IX509PrivateKey_Impl: Sized + super::super::super::System::Com::IDispa
     fn Description(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
     fn SetDescription(&self, value: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IX509PrivateKey {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IX509PrivateKey_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IX509PrivateKey_Impl, const OFFSET: isize>() -> IX509PrivateKey_Vtbl {
@@ -13303,6 +13583,8 @@ pub trait IX509PrivateKey2_Impl: Sized + super::super::super::System::Com::IDisp
     fn SetParametersExportType(&self, value: X509KeyParametersExportType) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IX509PrivateKey2 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IX509PrivateKey2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IX509PrivateKey2_Impl, const OFFSET: isize>() -> IX509PrivateKey2_Vtbl {
         unsafe extern "system" fn HardwareKeyUsage<Identity: ::windows::core::IUnknownImpl, Impl: IX509PrivateKey2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalue: *mut X509HardwareKeyUsageFlags) -> ::windows::core::HRESULT {
@@ -13414,6 +13696,8 @@ pub trait IX509PublicKey_Impl: Sized + super::super::super::System::Com::IDispat
     fn ComputeKeyIdentifier(&self, algorithm: KeyIdentifierHashAlgorithm, encoding: EncodingType) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IX509PublicKey {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IX509PublicKey_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IX509PublicKey_Impl, const OFFSET: isize>() -> IX509PublicKey_Vtbl {
         unsafe extern "system" fn Initialize<Identity: ::windows::core::IUnknownImpl, Impl: IX509PublicKey_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pobjectid: ::windows::core::RawPtr, strencodedkey: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, strencodedparameters: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, encoding: EncodingType) -> ::windows::core::HRESULT {
@@ -13521,6 +13805,8 @@ pub trait IX509SCEPEnrollment_Impl: Sized + super::super::super::System::Com::ID
     fn SetSilent(&self, value: i16) -> ::windows::core::Result<()>;
     fn DeleteRequest(&self) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IX509SCEPEnrollment {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IX509SCEPEnrollment_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IX509SCEPEnrollment_Impl, const OFFSET: isize>() -> IX509SCEPEnrollment_Vtbl {
@@ -13752,6 +14038,8 @@ pub trait IX509SCEPEnrollment2_Impl: Sized + super::super::super::System::Com::I
     fn SetActivityId(&self, value: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IX509SCEPEnrollment2 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IX509SCEPEnrollment2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IX509SCEPEnrollment2_Impl, const OFFSET: isize>() -> IX509SCEPEnrollment2_Vtbl {
         unsafe extern "system" fn CreateChallengeAnswerMessage<Identity: ::windows::core::IUnknownImpl, Impl: IX509SCEPEnrollment2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, encoding: EncodingType, pvalue: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
@@ -13837,6 +14125,8 @@ pub trait IX509SCEPEnrollmentHelper_Impl: Sized + super::super::super::System::C
     fn X509SCEPEnrollment(&self) -> ::windows::core::Result<IX509SCEPEnrollment>;
     fn ResultMessageText(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IX509SCEPEnrollmentHelper {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IX509SCEPEnrollmentHelper_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IX509SCEPEnrollmentHelper_Impl, const OFFSET: isize>() -> IX509SCEPEnrollmentHelper_Vtbl {
@@ -13924,6 +14214,8 @@ pub trait IX509SignatureInformation_Impl: Sized + super::super::super::System::C
     fn GetSignatureAlgorithm(&self, pkcs7signature: i16, signaturekey: i16) -> ::windows::core::Result<IObjectId>;
     fn SetDefaultValues(&self) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IX509SignatureInformation {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IX509SignatureInformation_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IX509SignatureInformation_Impl, const OFFSET: isize>() -> IX509SignatureInformation_Vtbl {

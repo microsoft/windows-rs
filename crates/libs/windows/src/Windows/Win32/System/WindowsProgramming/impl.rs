@@ -10,6 +10,8 @@ pub trait ICameraUIControl_Impl: Sized {
     fn RemoveCapturedItem(&self, pszpath: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::windows::core::RuntimeName for ICameraUIControl {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ICameraUIControl_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICameraUIControl_Impl, const OFFSET: isize>() -> ICameraUIControl_Vtbl {
         unsafe extern "system" fn Show<Identity: ::windows::core::IUnknownImpl, Impl: ICameraUIControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwindow: *mut ::core::ffi::c_void, mode: CameraUIControlMode, selectionmode: CameraUIControlLinearSelectionMode, capturemode: CameraUIControlCaptureMode, photoformat: CameraUIControlPhotoFormat, videoformat: CameraUIControlVideoFormat, bhasclosebutton: super::super::Foundation::BOOL, peventcallback: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -99,6 +101,7 @@ pub trait ICameraUIControlEventCallback_Impl: Sized {
     fn OnItemDeleted(&self, pszpath: &::windows::core::PCWSTR);
     fn OnClosed(&self);
 }
+impl ::windows::core::RuntimeName for ICameraUIControlEventCallback {}
 impl ICameraUIControlEventCallback_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICameraUIControlEventCallback_Impl, const OFFSET: isize>() -> ICameraUIControlEventCallback_Vtbl {
         unsafe extern "system" fn OnStartupComplete<Identity: ::windows::core::IUnknownImpl, Impl: ICameraUIControlEventCallback_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) {
@@ -144,6 +147,8 @@ pub trait IClipServiceNotificationHelper_Impl: Sized {
     fn ShowToast(&self, titletext: &super::super::Foundation::BSTR, bodytext: &super::super::Foundation::BSTR, packagename: &super::super::Foundation::BSTR, appid: &super::super::Foundation::BSTR, launchcommand: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IClipServiceNotificationHelper {}
+#[cfg(feature = "Win32_Foundation")]
 impl IClipServiceNotificationHelper_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IClipServiceNotificationHelper_Impl, const OFFSET: isize>() -> IClipServiceNotificationHelper_Vtbl {
         unsafe extern "system" fn ShowToast<Identity: ::windows::core::IUnknownImpl, Impl: IClipServiceNotificationHelper_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, titletext: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bodytext: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, packagename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, appid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, launchcommand: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
@@ -160,6 +165,7 @@ impl IClipServiceNotificationHelper_Vtbl {
 pub trait IContainerActivationHelper_Impl: Sized {
     fn CanActivateClientVM(&self) -> ::windows::core::Result<i16>;
 }
+impl ::windows::core::RuntimeName for IContainerActivationHelper {}
 impl IContainerActivationHelper_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContainerActivationHelper_Impl, const OFFSET: isize>() -> IContainerActivationHelper_Vtbl {
         unsafe extern "system" fn CanActivateClientVM<Identity: ::windows::core::IUnknownImpl, Impl: IContainerActivationHelper_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, isallowed: *mut i16) -> ::windows::core::HRESULT {
@@ -184,6 +190,8 @@ pub trait IDefaultBrowserSyncSettings_Impl: Sized {
     fn IsEnabled(&self) -> super::super::Foundation::BOOL;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IDefaultBrowserSyncSettings {}
+#[cfg(feature = "Win32_Foundation")]
 impl IDefaultBrowserSyncSettings_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDefaultBrowserSyncSettings_Impl, const OFFSET: isize>() -> IDefaultBrowserSyncSettings_Vtbl {
         unsafe extern "system" fn IsEnabled<Identity: ::windows::core::IUnknownImpl, Impl: IDefaultBrowserSyncSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
@@ -200,6 +208,7 @@ impl IDefaultBrowserSyncSettings_Vtbl {
 pub trait IDeleteBrowsingHistory_Impl: Sized {
     fn DeleteBrowsingHistory(&self, dwflags: u32) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IDeleteBrowsingHistory {}
 impl IDeleteBrowsingHistory_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDeleteBrowsingHistory_Impl, const OFFSET: isize>() -> IDeleteBrowsingHistory_Vtbl {
         unsafe extern "system" fn DeleteBrowsingHistory<Identity: ::windows::core::IUnknownImpl, Impl: IDeleteBrowsingHistory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwflags: u32) -> ::windows::core::HRESULT {
@@ -220,6 +229,8 @@ pub trait IEditionUpgradeBroker_Impl: Sized {
     fn ShowProductKeyUI(&self) -> ::windows::core::Result<()>;
     fn CanUpgrade(&self) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IEditionUpgradeBroker {}
 #[cfg(feature = "Win32_Foundation")]
 impl IEditionUpgradeBroker_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEditionUpgradeBroker_Impl, const OFFSET: isize>() -> IEditionUpgradeBroker_Vtbl {
@@ -263,6 +274,8 @@ pub trait IEditionUpgradeHelper_Impl: Sized {
     fn GetOsProductContentId(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
     fn GetGenuineLocalStatus(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IEditionUpgradeHelper {}
 #[cfg(feature = "Win32_Foundation")]
 impl IEditionUpgradeHelper_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEditionUpgradeHelper_Impl, const OFFSET: isize>() -> IEditionUpgradeHelper_Vtbl {
@@ -326,6 +339,8 @@ impl IEditionUpgradeHelper_Vtbl {
 pub trait IWindowsLockModeHelper_Impl: Sized {
     fn GetSMode(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IWindowsLockModeHelper {}
 #[cfg(feature = "Win32_Foundation")]
 impl IWindowsLockModeHelper_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWindowsLockModeHelper_Impl, const OFFSET: isize>() -> IWindowsLockModeHelper_Vtbl {

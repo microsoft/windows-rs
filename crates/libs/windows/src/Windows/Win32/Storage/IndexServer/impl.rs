@@ -7,6 +7,8 @@ pub trait IFilter_Impl: Sized {
     fn BindRegion(&self, origpos: &FILTERREGION, riid: *const ::windows::core::GUID, ppunk: *mut *mut ::core::ffi::c_void) -> i32;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+impl ::windows::core::RuntimeName for IFilter {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 impl IFilter_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFilter_Impl, const OFFSET: isize>() -> IFilter_Vtbl {
         unsafe extern "system" fn Init<Identity: ::windows::core::IUnknownImpl, Impl: IFilter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, grfflags: u32, cattributes: u32, aattributes: *const FULLPROPSPEC, pflags: *mut u32) -> i32 {
@@ -51,6 +53,7 @@ pub trait IPhraseSink_Impl: Sized {
     fn PutSmallPhrase(&self, pwcnoun: &::windows::core::PCWSTR, cwcnoun: u32, pwcmodifier: &::windows::core::PCWSTR, cwcmodifier: u32, ulattachmenttype: u32) -> ::windows::core::Result<()>;
     fn PutPhrase(&self, pwcphrase: &::windows::core::PCWSTR, cwcphrase: u32) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IPhraseSink {}
 impl IPhraseSink_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPhraseSink_Impl, const OFFSET: isize>() -> IPhraseSink_Vtbl {
         unsafe extern "system" fn PutSmallPhrase<Identity: ::windows::core::IUnknownImpl, Impl: IPhraseSink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwcnoun: ::windows::core::PCWSTR, cwcnoun: u32, pwcmodifier: ::windows::core::PCWSTR, cwcmodifier: u32, ulattachmenttype: u32) -> ::windows::core::HRESULT {

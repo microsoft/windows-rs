@@ -3,9 +3,7 @@ pub trait ICoreFrameworkInputViewInterop_Impl: Sized {
     fn GetForWindow(&self, appwindow: super::super::super::Foundation::HWND, riid: *const ::windows::core::GUID, coreframeworkinputview: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::RuntimeName for ICoreFrameworkInputViewInterop {
-    const NAME: &'static str = "";
-}
+impl ::windows::core::RuntimeName for ICoreFrameworkInputViewInterop {}
 #[cfg(feature = "Win32_Foundation")]
 impl ICoreFrameworkInputViewInterop_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoreFrameworkInputViewInterop_Impl, const OFFSET: isize>() -> ICoreFrameworkInputViewInterop_Vtbl {

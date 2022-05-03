@@ -25,6 +25,8 @@ pub trait IXmlReader_Impl: Sized {
     fn IsEOF(&self) -> super::super::super::Foundation::BOOL;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IXmlReader {}
+#[cfg(feature = "Win32_Foundation")]
 impl IXmlReader_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXmlReader_Impl, const OFFSET: isize>() -> IXmlReader_Vtbl {
         unsafe extern "system" fn SetInput<Identity: ::windows::core::IUnknownImpl, Impl: IXmlReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinput: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -212,6 +214,7 @@ impl IXmlReader_Vtbl {
 pub trait IXmlResolver_Impl: Sized {
     fn ResolveUri(&self, pwszbaseuri: &::windows::core::PCWSTR, pwszpublicidentifier: &::windows::core::PCWSTR, pwszsystemidentifier: &::windows::core::PCWSTR) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
+impl ::windows::core::RuntimeName for IXmlResolver {}
 impl IXmlResolver_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXmlResolver_Impl, const OFFSET: isize>() -> IXmlResolver_Vtbl {
         unsafe extern "system" fn ResolveUri<Identity: ::windows::core::IUnknownImpl, Impl: IXmlResolver_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszbaseuri: ::windows::core::PCWSTR, pwszpublicidentifier: ::windows::core::PCWSTR, pwszsystemidentifier: ::windows::core::PCWSTR, ppresolvedinput: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -263,6 +266,8 @@ pub trait IXmlWriter_Impl: Sized {
     fn WriteWhitespace(&self, pwszwhitespace: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn Flush(&self) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IXmlWriter {}
 #[cfg(feature = "Win32_Foundation")]
 impl IXmlWriter_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXmlWriter_Impl, const OFFSET: isize>() -> IXmlWriter_Vtbl {
@@ -485,6 +490,8 @@ pub trait IXmlWriterLite_Impl: Sized {
     fn WriteWhitespace(&self, pwszwhitespace: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn Flush(&self) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IXmlWriterLite {}
 #[cfg(feature = "Win32_Foundation")]
 impl IXmlWriterLite_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXmlWriterLite_Impl, const OFFSET: isize>() -> IXmlWriterLite_Vtbl {

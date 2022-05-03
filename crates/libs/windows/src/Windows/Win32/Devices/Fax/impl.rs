@@ -6,6 +6,8 @@ pub trait IFaxAccount_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn RegisteredEvents(&self) -> ::windows::core::Result<FAX_ACCOUNT_EVENTS_TYPE_ENUM>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IFaxAccount {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IFaxAccount_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFaxAccount_Impl, const OFFSET: isize>() -> IFaxAccount_Vtbl {
         unsafe extern "system" fn AccountName<Identity: ::windows::core::IUnknownImpl, Impl: IFaxAccount_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstraccountname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
@@ -65,6 +67,8 @@ pub trait IFaxAccountFolders_Impl: Sized + super::super::System::Com::IDispatch_
     fn IncomingArchive(&self) -> ::windows::core::Result<IFaxAccountIncomingArchive>;
     fn OutgoingArchive(&self) -> ::windows::core::Result<IFaxAccountOutgoingArchive>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IFaxAccountFolders {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IFaxAccountFolders_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFaxAccountFolders_Impl, const OFFSET: isize>() -> IFaxAccountFolders_Vtbl {
@@ -132,6 +136,8 @@ pub trait IFaxAccountIncomingArchive_Impl: Sized + super::super::System::Com::ID
     fn GetMessages(&self, lprefetchsize: i32) -> ::windows::core::Result<IFaxIncomingMessageIterator>;
     fn GetMessage(&self, bstrmessageid: &super::super::Foundation::BSTR) -> ::windows::core::Result<IFaxIncomingMessage>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IFaxAccountIncomingArchive {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IFaxAccountIncomingArchive_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFaxAccountIncomingArchive_Impl, const OFFSET: isize>() -> IFaxAccountIncomingArchive_Vtbl {
@@ -203,6 +209,8 @@ pub trait IFaxAccountIncomingQueue_Impl: Sized + super::super::System::Com::IDis
     fn GetJob(&self, bstrjobid: &super::super::Foundation::BSTR) -> ::windows::core::Result<IFaxIncomingJob>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IFaxAccountIncomingQueue {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IFaxAccountIncomingQueue_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFaxAccountIncomingQueue_Impl, const OFFSET: isize>() -> IFaxAccountIncomingQueue_Vtbl {
         unsafe extern "system" fn GetJobs<Identity: ::windows::core::IUnknownImpl, Impl: IFaxAccountIncomingQueue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxincomingjobs: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -240,6 +248,8 @@ impl IFaxAccountIncomingQueue_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IFaxAccountNotify_Impl: Sized + super::super::System::Com::IDispatch_Impl {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IFaxAccountNotify {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IFaxAccountNotify_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFaxAccountNotify_Impl, const OFFSET: isize>() -> IFaxAccountNotify_Vtbl {
         Self { base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>() }
@@ -256,6 +266,8 @@ pub trait IFaxAccountOutgoingArchive_Impl: Sized + super::super::System::Com::ID
     fn GetMessages(&self, lprefetchsize: i32) -> ::windows::core::Result<IFaxOutgoingMessageIterator>;
     fn GetMessage(&self, bstrmessageid: &super::super::Foundation::BSTR) -> ::windows::core::Result<IFaxOutgoingMessage>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IFaxAccountOutgoingArchive {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IFaxAccountOutgoingArchive_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFaxAccountOutgoingArchive_Impl, const OFFSET: isize>() -> IFaxAccountOutgoingArchive_Vtbl {
@@ -327,6 +339,8 @@ pub trait IFaxAccountOutgoingQueue_Impl: Sized + super::super::System::Com::IDis
     fn GetJob(&self, bstrjobid: &super::super::Foundation::BSTR) -> ::windows::core::Result<IFaxOutgoingJob>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IFaxAccountOutgoingQueue {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IFaxAccountOutgoingQueue_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFaxAccountOutgoingQueue_Impl, const OFFSET: isize>() -> IFaxAccountOutgoingQueue_Vtbl {
         unsafe extern "system" fn GetJobs<Identity: ::windows::core::IUnknownImpl, Impl: IFaxAccountOutgoingQueue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxoutgoingjobs: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -368,6 +382,8 @@ pub trait IFaxAccountSet_Impl: Sized + super::super::System::Com::IDispatch_Impl
     fn AddAccount(&self, bstraccountname: &super::super::Foundation::BSTR) -> ::windows::core::Result<IFaxAccount>;
     fn RemoveAccount(&self, bstraccountname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IFaxAccountSet {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IFaxAccountSet_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFaxAccountSet_Impl, const OFFSET: isize>() -> IFaxAccountSet_Vtbl {
@@ -428,6 +444,8 @@ pub trait IFaxAccounts_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows::core::Result<i32>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IFaxAccounts {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IFaxAccounts_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFaxAccounts_Impl, const OFFSET: isize>() -> IFaxAccounts_Vtbl {
         unsafe extern "system" fn _NewEnum<Identity: ::windows::core::IUnknownImpl, Impl: IFaxAccounts_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -482,6 +500,8 @@ pub trait IFaxActivity_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn QueuedMessages(&self) -> ::windows::core::Result<i32>;
     fn Refresh(&self) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IFaxActivity {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IFaxActivity_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFaxActivity_Impl, const OFFSET: isize>() -> IFaxActivity_Vtbl {
@@ -558,6 +578,8 @@ pub trait IFaxActivityLogging_Impl: Sized + super::super::System::Com::IDispatch
     fn Refresh(&self) -> ::windows::core::Result<()>;
     fn Save(&self) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IFaxActivityLogging {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IFaxActivityLogging_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFaxActivityLogging_Impl, const OFFSET: isize>() -> IFaxActivityLogging_Vtbl {
@@ -680,6 +702,8 @@ pub trait IFaxConfiguration_Impl: Sized + super::super::System::Com::IDispatch_I
     fn Refresh(&self) -> ::windows::core::Result<()>;
     fn Save(&self) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IFaxConfiguration {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IFaxConfiguration_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFaxConfiguration_Impl, const OFFSET: isize>() -> IFaxConfiguration_Vtbl {
@@ -1099,6 +1123,8 @@ pub trait IFaxDevice_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn AnswerCall(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IFaxDevice {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IFaxDevice_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFaxDevice_Impl, const OFFSET: isize>() -> IFaxDevice_Vtbl {
         unsafe extern "system" fn Id<Identity: ::windows::core::IUnknownImpl, Impl: IFaxDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plid: *mut i32) -> ::windows::core::HRESULT {
@@ -1365,6 +1391,8 @@ pub trait IFaxDeviceIds_Impl: Sized + super::super::System::Com::IDispatch_Impl 
     fn SetOrder(&self, ldeviceid: i32, lneworder: i32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IFaxDeviceIds {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IFaxDeviceIds_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFaxDeviceIds_Impl, const OFFSET: isize>() -> IFaxDeviceIds_Vtbl {
         unsafe extern "system" fn _NewEnum<Identity: ::windows::core::IUnknownImpl, Impl: IFaxDeviceIds_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -1444,6 +1472,8 @@ pub trait IFaxDeviceProvider_Impl: Sized + super::super::System::Com::IDispatch_
     fn InitErrorCode(&self) -> ::windows::core::Result<i32>;
     fn DeviceIds(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IFaxDeviceProvider {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IFaxDeviceProvider_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFaxDeviceProvider_Impl, const OFFSET: isize>() -> IFaxDeviceProvider_Vtbl {
@@ -1606,6 +1636,8 @@ pub trait IFaxDeviceProviders_Impl: Sized + super::super::System::Com::IDispatch
     fn Count(&self) -> ::windows::core::Result<i32>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IFaxDeviceProviders {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IFaxDeviceProviders_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFaxDeviceProviders_Impl, const OFFSET: isize>() -> IFaxDeviceProviders_Vtbl {
         unsafe extern "system" fn _NewEnum<Identity: ::windows::core::IUnknownImpl, Impl: IFaxDeviceProviders_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -1659,6 +1691,8 @@ pub trait IFaxDevices_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows::core::Result<i32>;
     fn get_ItemById(&self, lid: i32) -> ::windows::core::Result<IFaxDevice>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IFaxDevices {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IFaxDevices_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFaxDevices_Impl, const OFFSET: isize>() -> IFaxDevices_Vtbl {
@@ -1755,6 +1789,8 @@ pub trait IFaxDocument_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn AttachFaxToReceipt(&self) -> ::windows::core::Result<i16>;
     fn SetAttachFaxToReceipt(&self, battachfax: i16) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IFaxDocument {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IFaxDocument_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFaxDocument_Impl, const OFFSET: isize>() -> IFaxDocument_Vtbl {
@@ -2093,6 +2129,8 @@ pub trait IFaxDocument2_Impl: Sized + super::super::System::Com::IDispatch_Impl 
     fn ConnectedSubmit2(&self, pfaxserver: &::core::option::Option<IFaxServer>, pvfaxoutgoingjobids: *mut super::super::System::Com::VARIANT, plerrorbodyfile: *mut i32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IFaxDocument2 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IFaxDocument2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFaxDocument2_Impl, const OFFSET: isize>() -> IFaxDocument2_Vtbl {
         unsafe extern "system" fn SubmissionId<Identity: ::windows::core::IUnknownImpl, Impl: IFaxDocument2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrsubmissionid: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
@@ -2158,6 +2196,8 @@ pub trait IFaxEventLogging_Impl: Sized + super::super::System::Com::IDispatch_Im
     fn Refresh(&self) -> ::windows::core::Result<()>;
     fn Save(&self) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IFaxEventLogging {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IFaxEventLogging_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFaxEventLogging_Impl, const OFFSET: isize>() -> IFaxEventLogging_Vtbl {
@@ -2261,6 +2301,8 @@ pub trait IFaxFolders_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn OutgoingArchive(&self) -> ::windows::core::Result<IFaxOutgoingArchive>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IFaxFolders {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IFaxFolders_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFaxFolders_Impl, const OFFSET: isize>() -> IFaxFolders_Vtbl {
         unsafe extern "system" fn OutgoingQueue<Identity: ::windows::core::IUnknownImpl, Impl: IFaxFolders_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxoutgoingqueue: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -2325,6 +2367,8 @@ pub trait IFaxInboundRouting_Impl: Sized + super::super::System::Com::IDispatch_
     fn GetMethods(&self) -> ::windows::core::Result<IFaxInboundRoutingMethods>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IFaxInboundRouting {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IFaxInboundRouting_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFaxInboundRouting_Impl, const OFFSET: isize>() -> IFaxInboundRouting_Vtbl {
         unsafe extern "system" fn GetExtensions<Identity: ::windows::core::IUnknownImpl, Impl: IFaxInboundRouting_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxinboundroutingextensions: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -2373,6 +2417,8 @@ pub trait IFaxInboundRoutingExtension_Impl: Sized + super::super::System::Com::I
     fn InitErrorCode(&self) -> ::windows::core::Result<i32>;
     fn Methods(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IFaxInboundRoutingExtension {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IFaxInboundRoutingExtension_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFaxInboundRoutingExtension_Impl, const OFFSET: isize>() -> IFaxInboundRoutingExtension_Vtbl {
@@ -2523,6 +2569,8 @@ pub trait IFaxInboundRoutingExtensions_Impl: Sized + super::super::System::Com::
     fn Count(&self) -> ::windows::core::Result<i32>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IFaxInboundRoutingExtensions {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IFaxInboundRoutingExtensions_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFaxInboundRoutingExtensions_Impl, const OFFSET: isize>() -> IFaxInboundRoutingExtensions_Vtbl {
         unsafe extern "system" fn _NewEnum<Identity: ::windows::core::IUnknownImpl, Impl: IFaxInboundRoutingExtensions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -2581,6 +2629,8 @@ pub trait IFaxInboundRoutingMethod_Impl: Sized + super::super::System::Com::IDis
     fn Refresh(&self) -> ::windows::core::Result<()>;
     fn Save(&self) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IFaxInboundRoutingMethod {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IFaxInboundRoutingMethod_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFaxInboundRoutingMethod_Impl, const OFFSET: isize>() -> IFaxInboundRoutingMethod_Vtbl {
@@ -2689,6 +2739,8 @@ pub trait IFaxInboundRoutingMethods_Impl: Sized + super::super::System::Com::IDi
     fn Count(&self) -> ::windows::core::Result<i32>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IFaxInboundRoutingMethods {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IFaxInboundRoutingMethods_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFaxInboundRoutingMethods_Impl, const OFFSET: isize>() -> IFaxInboundRoutingMethods_Vtbl {
         unsafe extern "system" fn _NewEnum<Identity: ::windows::core::IUnknownImpl, Impl: IFaxInboundRoutingMethods_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -2756,6 +2808,8 @@ pub trait IFaxIncomingArchive_Impl: Sized + super::super::System::Com::IDispatch
     fn GetMessages(&self, lprefetchsize: i32) -> ::windows::core::Result<IFaxIncomingMessageIterator>;
     fn GetMessage(&self, bstrmessageid: &super::super::Foundation::BSTR) -> ::windows::core::Result<IFaxIncomingMessage>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IFaxIncomingArchive {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IFaxIncomingArchive_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFaxIncomingArchive_Impl, const OFFSET: isize>() -> IFaxIncomingArchive_Vtbl {
@@ -2957,6 +3011,8 @@ pub trait IFaxIncomingJob_Impl: Sized + super::super::System::Com::IDispatch_Imp
     fn Refresh(&self) -> ::windows::core::Result<()>;
     fn CopyTiff(&self, bstrtiffpath: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IFaxIncomingJob {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IFaxIncomingJob_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFaxIncomingJob_Impl, const OFFSET: isize>() -> IFaxIncomingJob_Vtbl {
@@ -3185,6 +3241,8 @@ pub trait IFaxIncomingJobs_Impl: Sized + super::super::System::Com::IDispatch_Im
     fn Count(&self) -> ::windows::core::Result<i32>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IFaxIncomingJobs {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IFaxIncomingJobs_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFaxIncomingJobs_Impl, const OFFSET: isize>() -> IFaxIncomingJobs_Vtbl {
         unsafe extern "system" fn _NewEnum<Identity: ::windows::core::IUnknownImpl, Impl: IFaxIncomingJobs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -3247,6 +3305,8 @@ pub trait IFaxIncomingMessage_Impl: Sized + super::super::System::Com::IDispatch
     fn CopyTiff(&self, bstrtiffpath: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn Delete(&self) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IFaxIncomingMessage {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IFaxIncomingMessage_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFaxIncomingMessage_Impl, const OFFSET: isize>() -> IFaxIncomingMessage_Vtbl {
@@ -3422,6 +3482,8 @@ pub trait IFaxIncomingMessage2_Impl: Sized + super::super::System::Com::IDispatc
     fn Refresh(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IFaxIncomingMessage2 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IFaxIncomingMessage2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFaxIncomingMessage2_Impl, const OFFSET: isize>() -> IFaxIncomingMessage2_Vtbl {
         unsafe extern "system" fn Subject<Identity: ::windows::core::IUnknownImpl, Impl: IFaxIncomingMessage2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrsubject: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
@@ -3580,6 +3642,8 @@ pub trait IFaxIncomingMessageIterator_Impl: Sized + super::super::System::Com::I
     fn MoveNext(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IFaxIncomingMessageIterator {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IFaxIncomingMessageIterator_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFaxIncomingMessageIterator_Impl, const OFFSET: isize>() -> IFaxIncomingMessageIterator_Vtbl {
         unsafe extern "system" fn Message<Identity: ::windows::core::IUnknownImpl, Impl: IFaxIncomingMessageIterator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxincomingmessage: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -3653,6 +3717,8 @@ pub trait IFaxIncomingQueue_Impl: Sized + super::super::System::Com::IDispatch_I
     fn GetJobs(&self) -> ::windows::core::Result<IFaxIncomingJobs>;
     fn GetJob(&self, bstrjobid: &super::super::Foundation::BSTR) -> ::windows::core::Result<IFaxIncomingJob>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IFaxIncomingQueue {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IFaxIncomingQueue_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFaxIncomingQueue_Impl, const OFFSET: isize>() -> IFaxIncomingQueue_Vtbl {
@@ -3738,6 +3804,8 @@ pub trait IFaxJobStatus_Impl: Sized + super::super::System::Com::IDispatch_Impl 
     fn CallerId(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn RoutingInformation(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IFaxJobStatus {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IFaxJobStatus_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFaxJobStatus_Impl, const OFFSET: isize>() -> IFaxJobStatus_Vtbl {
@@ -3959,6 +4027,8 @@ pub trait IFaxLoggingOptions_Impl: Sized + super::super::System::Com::IDispatch_
     fn ActivityLogging(&self) -> ::windows::core::Result<IFaxActivityLogging>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IFaxLoggingOptions {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IFaxLoggingOptions_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFaxLoggingOptions_Impl, const OFFSET: isize>() -> IFaxLoggingOptions_Vtbl {
         unsafe extern "system" fn EventLogging<Identity: ::windows::core::IUnknownImpl, Impl: IFaxLoggingOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxeventlogging: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -3998,6 +4068,8 @@ pub trait IFaxOutboundRouting_Impl: Sized + super::super::System::Com::IDispatch
     fn GetGroups(&self) -> ::windows::core::Result<IFaxOutboundRoutingGroups>;
     fn GetRules(&self) -> ::windows::core::Result<IFaxOutboundRoutingRules>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IFaxOutboundRouting {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IFaxOutboundRouting_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFaxOutboundRouting_Impl, const OFFSET: isize>() -> IFaxOutboundRouting_Vtbl {
@@ -4039,6 +4111,8 @@ pub trait IFaxOutboundRoutingGroup_Impl: Sized + super::super::System::Com::IDis
     fn Status(&self) -> ::windows::core::Result<FAX_GROUP_STATUS_ENUM>;
     fn DeviceIds(&self) -> ::windows::core::Result<IFaxDeviceIds>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IFaxOutboundRoutingGroup {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IFaxOutboundRoutingGroup_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFaxOutboundRoutingGroup_Impl, const OFFSET: isize>() -> IFaxOutboundRoutingGroup_Vtbl {
@@ -4094,6 +4168,8 @@ pub trait IFaxOutboundRoutingGroups_Impl: Sized + super::super::System::Com::IDi
     fn Add(&self, bstrname: &super::super::Foundation::BSTR) -> ::windows::core::Result<IFaxOutboundRoutingGroup>;
     fn Remove(&self, vindex: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IFaxOutboundRoutingGroups {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IFaxOutboundRoutingGroups_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFaxOutboundRoutingGroups_Impl, const OFFSET: isize>() -> IFaxOutboundRoutingGroups_Vtbl {
@@ -4173,6 +4249,8 @@ pub trait IFaxOutboundRoutingRule_Impl: Sized + super::super::System::Com::IDisp
     fn Refresh(&self) -> ::windows::core::Result<()>;
     fn Save(&self) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IFaxOutboundRoutingRule {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IFaxOutboundRoutingRule_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFaxOutboundRoutingRule_Impl, const OFFSET: isize>() -> IFaxOutboundRoutingRule_Vtbl {
@@ -4297,6 +4375,8 @@ pub trait IFaxOutboundRoutingRules_Impl: Sized + super::super::System::Com::IDis
     fn Add(&self, lcountrycode: i32, lareacode: i32, busedevice: i16, bstrgroupname: &super::super::Foundation::BSTR, ldeviceid: i32) -> ::windows::core::Result<IFaxOutboundRoutingRule>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IFaxOutboundRoutingRules {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IFaxOutboundRoutingRules_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFaxOutboundRoutingRules_Impl, const OFFSET: isize>() -> IFaxOutboundRoutingRules_Vtbl {
         unsafe extern "system" fn _NewEnum<Identity: ::windows::core::IUnknownImpl, Impl: IFaxOutboundRoutingRules_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -4400,6 +4480,8 @@ pub trait IFaxOutgoingArchive_Impl: Sized + super::super::System::Com::IDispatch
     fn GetMessages(&self, lprefetchsize: i32) -> ::windows::core::Result<IFaxOutgoingMessageIterator>;
     fn GetMessage(&self, bstrmessageid: &super::super::Foundation::BSTR) -> ::windows::core::Result<IFaxOutgoingMessage>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IFaxOutgoingArchive {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IFaxOutgoingArchive_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFaxOutgoingArchive_Impl, const OFFSET: isize>() -> IFaxOutgoingArchive_Vtbl {
@@ -4613,6 +4695,8 @@ pub trait IFaxOutgoingJob_Impl: Sized + super::super::System::Com::IDispatch_Imp
     fn Refresh(&self) -> ::windows::core::Result<()>;
     fn Cancel(&self) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IFaxOutgoingJob {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IFaxOutgoingJob_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFaxOutgoingJob_Impl, const OFFSET: isize>() -> IFaxOutgoingJob_Vtbl {
@@ -4967,6 +5051,8 @@ pub trait IFaxOutgoingJob2_Impl: Sized + super::super::System::Com::IDispatch_Im
     fn ScheduleType(&self) -> ::windows::core::Result<FAX_SCHEDULE_TYPE_ENUM>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IFaxOutgoingJob2 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IFaxOutgoingJob2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFaxOutgoingJob2_Impl, const OFFSET: isize>() -> IFaxOutgoingJob2_Vtbl {
         unsafe extern "system" fn HasCoverPage<Identity: ::windows::core::IUnknownImpl, Impl: IFaxOutgoingJob2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbhascoverpage: *mut i16) -> ::windows::core::HRESULT {
@@ -5019,6 +5105,8 @@ pub trait IFaxOutgoingJobs_Impl: Sized + super::super::System::Com::IDispatch_Im
     fn get_Item(&self, vindex: &super::super::System::Com::VARIANT) -> ::windows::core::Result<IFaxOutgoingJob>;
     fn Count(&self) -> ::windows::core::Result<i32>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IFaxOutgoingJobs {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IFaxOutgoingJobs_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFaxOutgoingJobs_Impl, const OFFSET: isize>() -> IFaxOutgoingJobs_Vtbl {
@@ -5088,6 +5176,8 @@ pub trait IFaxOutgoingMessage_Impl: Sized + super::super::System::Com::IDispatch
     fn CopyTiff(&self, bstrtiffpath: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn Delete(&self) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IFaxOutgoingMessage {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IFaxOutgoingMessage_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFaxOutgoingMessage_Impl, const OFFSET: isize>() -> IFaxOutgoingMessage_Vtbl {
@@ -5326,6 +5416,8 @@ pub trait IFaxOutgoingMessage2_Impl: Sized + super::super::System::Com::IDispatc
     fn Refresh(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IFaxOutgoingMessage2 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IFaxOutgoingMessage2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFaxOutgoingMessage2_Impl, const OFFSET: isize>() -> IFaxOutgoingMessage2_Vtbl {
         unsafe extern "system" fn HasCoverPage<Identity: ::windows::core::IUnknownImpl, Impl: IFaxOutgoingMessage2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbhascoverpage: *mut i16) -> ::windows::core::HRESULT {
@@ -5411,6 +5503,8 @@ pub trait IFaxOutgoingMessageIterator_Impl: Sized + super::super::System::Com::I
     fn MoveFirst(&self) -> ::windows::core::Result<()>;
     fn MoveNext(&self) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IFaxOutgoingMessageIterator {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IFaxOutgoingMessageIterator_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFaxOutgoingMessageIterator_Impl, const OFFSET: isize>() -> IFaxOutgoingMessageIterator_Vtbl {
@@ -5503,6 +5597,8 @@ pub trait IFaxOutgoingQueue_Impl: Sized + super::super::System::Com::IDispatch_I
     fn GetJobs(&self) -> ::windows::core::Result<IFaxOutgoingJobs>;
     fn GetJob(&self, bstrjobid: &super::super::Foundation::BSTR) -> ::windows::core::Result<IFaxOutgoingJob>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IFaxOutgoingQueue {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IFaxOutgoingQueue_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFaxOutgoingQueue_Impl, const OFFSET: isize>() -> IFaxOutgoingQueue_Vtbl {
@@ -5752,6 +5848,8 @@ pub trait IFaxReceiptOptions_Impl: Sized + super::super::System::Com::IDispatch_
     fn SetUseForInboundRouting(&self, buseforinboundrouting: i16) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IFaxReceiptOptions {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IFaxReceiptOptions_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFaxReceiptOptions_Impl, const OFFSET: isize>() -> IFaxReceiptOptions_Vtbl {
         unsafe extern "system" fn AuthenticationType<Identity: ::windows::core::IUnknownImpl, Impl: IFaxReceiptOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptype: *mut FAX_SMTP_AUTHENTICATION_TYPE_ENUM) -> ::windows::core::HRESULT {
@@ -5926,6 +6024,8 @@ pub trait IFaxRecipient_Impl: Sized + super::super::System::Com::IDispatch_Impl 
     fn SetName(&self, bstrname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IFaxRecipient {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IFaxRecipient_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFaxRecipient_Impl, const OFFSET: isize>() -> IFaxRecipient_Vtbl {
         unsafe extern "system" fn FaxNumber<Identity: ::windows::core::IUnknownImpl, Impl: IFaxRecipient_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrfaxnumber: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
@@ -5980,6 +6080,8 @@ pub trait IFaxRecipients_Impl: Sized + super::super::System::Com::IDispatch_Impl
     fn Add(&self, bstrfaxnumber: &super::super::Foundation::BSTR, bstrrecipientname: &super::super::Foundation::BSTR) -> ::windows::core::Result<IFaxRecipient>;
     fn Remove(&self, lindex: i32) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IFaxRecipients {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IFaxRecipients_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFaxRecipients_Impl, const OFFSET: isize>() -> IFaxRecipients_Vtbl {
@@ -6055,6 +6157,8 @@ pub trait IFaxSecurity_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn InformationType(&self) -> ::windows::core::Result<i32>;
     fn SetInformationType(&self, linformationtype: i32) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IFaxSecurity {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IFaxSecurity_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFaxSecurity_Impl, const OFFSET: isize>() -> IFaxSecurity_Vtbl {
@@ -6136,6 +6240,8 @@ pub trait IFaxSecurity2_Impl: Sized + super::super::System::Com::IDispatch_Impl 
     fn InformationType(&self) -> ::windows::core::Result<i32>;
     fn SetInformationType(&self, linformationtype: i32) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IFaxSecurity2 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IFaxSecurity2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFaxSecurity2_Impl, const OFFSET: isize>() -> IFaxSecurity2_Vtbl {
@@ -6244,6 +6350,8 @@ pub trait IFaxSender_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn LoadDefaultSender(&self) -> ::windows::core::Result<()>;
     fn SaveDefaultSender(&self) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IFaxSender {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IFaxSender_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFaxSender_Impl, const OFFSET: isize>() -> IFaxSender_Vtbl {
@@ -6585,6 +6693,8 @@ pub trait IFaxServer_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn APIVersion(&self) -> ::windows::core::Result<FAX_SERVER_APIVERSION_ENUM>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IFaxServer {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IFaxServer_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFaxServer_Impl, const OFFSET: isize>() -> IFaxServer_Vtbl {
         unsafe extern "system" fn Connect<Identity: ::windows::core::IUnknownImpl, Impl: IFaxServer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrservername: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
@@ -6867,6 +6977,8 @@ pub trait IFaxServer2_Impl: Sized + super::super::System::Com::IDispatch_Impl + 
     fn Security2(&self) -> ::windows::core::Result<IFaxSecurity2>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IFaxServer2 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IFaxServer2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFaxServer2_Impl, const OFFSET: isize>() -> IFaxServer2_Vtbl {
         unsafe extern "system" fn Configuration<Identity: ::windows::core::IUnknownImpl, Impl: IFaxServer2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppfaxconfiguration: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -6928,6 +7040,8 @@ impl IFaxServer2_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IFaxServerNotify_Impl: Sized + super::super::System::Com::IDispatch_Impl {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IFaxServerNotify {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IFaxServerNotify_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFaxServerNotify_Impl, const OFFSET: isize>() -> IFaxServerNotify_Vtbl {
         Self { base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>() }
@@ -6938,6 +7052,8 @@ impl IFaxServerNotify_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IFaxServerNotify2_Impl: Sized + super::super::System::Com::IDispatch_Impl {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IFaxServerNotify2 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IFaxServerNotify2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFaxServerNotify2_Impl, const OFFSET: isize>() -> IFaxServerNotify2_Vtbl {
@@ -6967,6 +7083,8 @@ pub trait IStiDevice_Impl: Sized {
     fn UnSubscribe(&self) -> ::windows::core::Result<()>;
     fn GetLastErrorInfo(&self) -> ::windows::core::Result<_ERROR_INFOW>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+impl ::windows::core::RuntimeName for IStiDevice {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 impl IStiDevice_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStiDevice_Impl, const OFFSET: isize>() -> IStiDevice_Vtbl {
@@ -7113,6 +7231,8 @@ pub trait IStiDeviceControl_Impl: Sized {
     fn WriteToErrorLog(&self, dwmessagetype: u32, pszmessage: &::windows::core::PCWSTR, dwerrorcode: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+impl ::windows::core::RuntimeName for IStiDeviceControl {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 impl IStiDeviceControl_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStiDeviceControl_Impl, const OFFSET: isize>() -> IStiDeviceControl_Vtbl {
         unsafe extern "system" fn Initialize<Identity: ::windows::core::IUnknownImpl, Impl: IStiDeviceControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwdevicetype: u32, dwmode: u32, pwszportname: ::windows::core::PCWSTR, dwflags: u32) -> ::windows::core::HRESULT {
@@ -7208,6 +7328,8 @@ pub trait IStiUSD_Impl: Sized {
     fn GetNotificationData(&self) -> ::windows::core::Result<STINOTIFY>;
     fn GetLastErrorInfo(&self) -> ::windows::core::Result<_ERROR_INFOW>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO", feature = "Win32_System_Registry"))]
+impl ::windows::core::RuntimeName for IStiUSD {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO", feature = "Win32_System_Registry"))]
 impl IStiUSD_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStiUSD_Impl, const OFFSET: isize>() -> IStiUSD_Vtbl {
@@ -7358,6 +7480,8 @@ pub trait IStillImageW_Impl: Sized {
     fn WriteToErrorLog(&self, dwmessagetype: u32, pszmessage: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IStillImageW {}
+#[cfg(feature = "Win32_Foundation")]
 impl IStillImageW_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStillImageW_Impl, const OFFSET: isize>() -> IStillImageW_Vtbl {
         unsafe extern "system" fn Initialize<Identity: ::windows::core::IUnknownImpl, Impl: IStillImageW_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hinst: super::super::Foundation::HINSTANCE, dwversion: u32) -> ::windows::core::HRESULT {
@@ -7479,6 +7603,8 @@ pub trait _IFaxAccountNotify_Impl: Sized + super::super::System::Com::IDispatch_
     fn OnServerShutDown(&self, pfaxserver: &::core::option::Option<IFaxServer2>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for _IFaxAccountNotify {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl _IFaxAccountNotify_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: _IFaxAccountNotify_Impl, const OFFSET: isize>() -> _IFaxAccountNotify_Vtbl {
         unsafe extern "system" fn OnIncomingJobAdded<Identity: ::windows::core::IUnknownImpl, Impl: _IFaxAccountNotify_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxaccount: ::windows::core::RawPtr, bstrjobid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
@@ -7584,6 +7710,8 @@ pub trait _IFaxServerNotify2_Impl: Sized + super::super::System::Com::IDispatch_
     fn OnDeviceStatusChange(&self, pfaxserver: &::core::option::Option<IFaxServer2>, ldeviceid: i32, bpoweredoff: i16, bsending: i16, breceiving: i16, bringing: i16) -> ::windows::core::Result<()>;
     fn OnGeneralServerConfigChanged(&self, pfaxserver: &::core::option::Option<IFaxServer2>) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for _IFaxServerNotify2 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl _IFaxServerNotify2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: _IFaxServerNotify2_Impl, const OFFSET: isize>() -> _IFaxServerNotify2_Vtbl {

@@ -6,6 +6,8 @@ pub trait ICloneViewHelper_Impl: Sized {
     fn Commit(&self, ffinalcall: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for ICloneViewHelper {}
+#[cfg(feature = "Win32_Foundation")]
 impl ICloneViewHelper_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICloneViewHelper_Impl, const OFFSET: isize>() -> ICloneViewHelper_Vtbl {
         unsafe extern "system" fn GetConnectedIDs<Identity: ::windows::core::IUnknownImpl, Impl: ICloneViewHelper_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wszadaptorname: ::windows::core::PCWSTR, pulcount: *mut u32, pulid: *mut u32, ulflags: u32) -> ::windows::core::HRESULT {
@@ -49,6 +51,8 @@ pub trait IViewHelper_Impl: Sized {
     fn SetConfiguration(&self, pistream: &::core::option::Option<super::super::System::Com::IStream>) -> ::windows::core::Result<u32>;
     fn GetProceedOnNewConfiguration(&self) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_System_Com")]
+impl ::windows::core::RuntimeName for IViewHelper {}
 #[cfg(feature = "Win32_System_Com")]
 impl IViewHelper_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IViewHelper_Impl, const OFFSET: isize>() -> IViewHelper_Vtbl {

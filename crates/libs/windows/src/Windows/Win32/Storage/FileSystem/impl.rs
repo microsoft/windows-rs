@@ -23,6 +23,8 @@ pub trait IDiskQuotaControl_Impl: Sized + super::super::System::Com::IConnection
     fn ShutdownNameResolution(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::windows::core::RuntimeName for IDiskQuotaControl {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IDiskQuotaControl_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDiskQuotaControl_Impl, const OFFSET: isize>() -> IDiskQuotaControl_Vtbl {
         unsafe extern "system" fn Initialize<Identity: ::windows::core::IUnknownImpl, Impl: IDiskQuotaControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszpath: ::windows::core::PCWSTR, breadwrite: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
@@ -192,6 +194,7 @@ impl IDiskQuotaControl_Vtbl {
 pub trait IDiskQuotaEvents_Impl: Sized {
     fn OnUserNameChanged(&self, puser: &::core::option::Option<IDiskQuotaUser>) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IDiskQuotaEvents {}
 impl IDiskQuotaEvents_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDiskQuotaEvents_Impl, const OFFSET: isize>() -> IDiskQuotaEvents_Vtbl {
         unsafe extern "system" fn OnUserNameChanged<Identity: ::windows::core::IUnknownImpl, Impl: IDiskQuotaEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, puser: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -223,6 +226,8 @@ pub trait IDiskQuotaUser_Impl: Sized {
     fn Invalidate(&self) -> ::windows::core::Result<()>;
     fn GetAccountStatus(&self, pdwstatus: *mut u32) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IDiskQuotaUser {}
 #[cfg(feature = "Win32_Foundation")]
 impl IDiskQuotaUser_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDiskQuotaUser_Impl, const OFFSET: isize>() -> IDiskQuotaUser_Vtbl {
@@ -330,6 +335,7 @@ pub trait IDiskQuotaUserBatch_Impl: Sized {
     fn RemoveAll(&self) -> ::windows::core::Result<()>;
     fn FlushToDisk(&self) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IDiskQuotaUserBatch {}
 impl IDiskQuotaUserBatch_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDiskQuotaUserBatch_Impl, const OFFSET: isize>() -> IDiskQuotaUserBatch_Vtbl {
         unsafe extern "system" fn Add<Identity: ::windows::core::IUnknownImpl, Impl: IDiskQuotaUserBatch_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, puser: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -370,6 +376,7 @@ pub trait IEnumDiskQuotaUsers_Impl: Sized {
     fn Reset(&self) -> ::windows::core::Result<()>;
     fn Clone(&self) -> ::windows::core::Result<IEnumDiskQuotaUsers>;
 }
+impl ::windows::core::RuntimeName for IEnumDiskQuotaUsers {}
 impl IEnumDiskQuotaUsers_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEnumDiskQuotaUsers_Impl, const OFFSET: isize>() -> IEnumDiskQuotaUsers_Vtbl {
         unsafe extern "system" fn Next<Identity: ::windows::core::IUnknownImpl, Impl: IEnumDiskQuotaUsers_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cusers: u32, rgusers: *mut ::windows::core::RawPtr, pcusersfetched: *mut u32) -> ::windows::core::HRESULT {

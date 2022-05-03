@@ -5,6 +5,7 @@ pub trait IEnumWbemClassObject_Impl: Sized {
     fn Clone(&self) -> ::windows::core::Result<IEnumWbemClassObject>;
     fn Skip(&self, ltimeout: i32, ncount: u32) -> ::windows::core::HRESULT;
 }
+impl ::windows::core::RuntimeName for IEnumWbemClassObject {}
 impl IEnumWbemClassObject_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEnumWbemClassObject_Impl, const OFFSET: isize>() -> IEnumWbemClassObject_Vtbl {
         unsafe extern "system" fn Reset<Identity: ::windows::core::IUnknownImpl, Impl: IEnumWbemClassObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -56,6 +57,7 @@ pub trait IMofCompiler_Impl: Sized {
     fn CompileBuffer(&self, buffsize: i32, pbuffer: *const u8, serverandnamespace: &::windows::core::PCWSTR, user: &::windows::core::PCWSTR, authority: &::windows::core::PCWSTR, password: &::windows::core::PCWSTR, loptionflags: i32, lclassflags: i32, linstanceflags: i32, pinfo: *mut WBEM_COMPILE_STATUS_INFO) -> ::windows::core::Result<()>;
     fn CreateBMOF(&self, textfilename: &::windows::core::PCWSTR, bmoffilename: &::windows::core::PCWSTR, serverandnamespace: &::windows::core::PCWSTR, loptionflags: i32, lclassflags: i32, linstanceflags: i32, pinfo: *mut WBEM_COMPILE_STATUS_INFO) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IMofCompiler {}
 impl IMofCompiler_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMofCompiler_Impl, const OFFSET: isize>() -> IMofCompiler_Vtbl {
         unsafe extern "system" fn CompileFile<Identity: ::windows::core::IUnknownImpl, Impl: IMofCompiler_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, filename: ::windows::core::PCWSTR, serverandnamespace: ::windows::core::PCWSTR, user: ::windows::core::PCWSTR, authority: ::windows::core::PCWSTR, password: ::windows::core::PCWSTR, loptionflags: i32, lclassflags: i32, linstanceflags: i32, pinfo: *mut WBEM_COMPILE_STATUS_INFO) -> ::windows::core::HRESULT {
@@ -127,6 +129,8 @@ pub trait ISWbemDateTime_Impl: Sized + super::Com::IDispatch_Impl {
     fn GetFileTime(&self, bislocal: i16) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn SetFileTime(&self, strfiletime: &super::super::Foundation::BSTR, bislocal: i16) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ISWbemDateTime {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ISWbemDateTime_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISWbemDateTime_Impl, const OFFSET: isize>() -> ISWbemDateTime_Vtbl {
@@ -504,6 +508,8 @@ pub trait ISWbemEventSource_Impl: Sized + super::Com::IDispatch_Impl {
     fn Security_(&self) -> ::windows::core::Result<ISWbemSecurity>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ISWbemEventSource {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ISWbemEventSource_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISWbemEventSource_Impl, const OFFSET: isize>() -> ISWbemEventSource_Vtbl {
         unsafe extern "system" fn NextEvent<Identity: ::windows::core::IUnknownImpl, Impl: ISWbemEventSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, itimeoutms: i32, objwbemobject: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -541,6 +547,8 @@ impl ISWbemEventSource_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ISWbemLastError_Impl: Sized + super::Com::IDispatch_Impl + ISWbemObject_Impl {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ISWbemLastError {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ISWbemLastError_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISWbemLastError_Impl, const OFFSET: isize>() -> ISWbemLastError_Vtbl {
         Self { base__: ISWbemObject_Vtbl::new::<Identity, Impl, OFFSET>() }
@@ -554,6 +562,8 @@ pub trait ISWbemLocator_Impl: Sized + super::Com::IDispatch_Impl {
     fn ConnectServer(&self, strserver: &super::super::Foundation::BSTR, strnamespace: &super::super::Foundation::BSTR, struser: &super::super::Foundation::BSTR, strpassword: &super::super::Foundation::BSTR, strlocale: &super::super::Foundation::BSTR, strauthority: &super::super::Foundation::BSTR, isecurityflags: i32, objwbemnamedvalueset: &::core::option::Option<super::Com::IDispatch>) -> ::windows::core::Result<ISWbemServices>;
     fn Security_(&self) -> ::windows::core::Result<ISWbemSecurity>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ISWbemLocator {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ISWbemLocator_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISWbemLocator_Impl, const OFFSET: isize>() -> ISWbemLocator_Vtbl {
@@ -597,6 +607,8 @@ pub trait ISWbemMethod_Impl: Sized + super::Com::IDispatch_Impl {
     fn OutParameters(&self) -> ::windows::core::Result<ISWbemObject>;
     fn Qualifiers_(&self) -> ::windows::core::Result<ISWbemQualifierSet>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ISWbemMethod {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ISWbemMethod_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISWbemMethod_Impl, const OFFSET: isize>() -> ISWbemMethod_Vtbl {
@@ -675,6 +687,8 @@ pub trait ISWbemMethodSet_Impl: Sized + super::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows::core::Result<i32>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ISWbemMethodSet {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ISWbemMethodSet_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISWbemMethodSet_Impl, const OFFSET: isize>() -> ISWbemMethodSet_Vtbl {
         unsafe extern "system" fn _NewEnum<Identity: ::windows::core::IUnknownImpl, Impl: ISWbemMethodSet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, punk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -728,6 +742,8 @@ pub trait ISWbemNamedValue_Impl: Sized + super::Com::IDispatch_Impl {
     fn Name(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ISWbemNamedValue {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ISWbemNamedValue_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISWbemNamedValue_Impl, const OFFSET: isize>() -> ISWbemNamedValue_Vtbl {
         unsafe extern "system" fn Value<Identity: ::windows::core::IUnknownImpl, Impl: ISWbemNamedValue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varvalue: *mut super::Com::VARIANT) -> ::windows::core::HRESULT {
@@ -778,6 +794,8 @@ pub trait ISWbemNamedValueSet_Impl: Sized + super::Com::IDispatch_Impl {
     fn Clone(&self) -> ::windows::core::Result<ISWbemNamedValueSet>;
     fn DeleteAll(&self) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ISWbemNamedValueSet {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ISWbemNamedValueSet_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISWbemNamedValueSet_Impl, const OFFSET: isize>() -> ISWbemNamedValueSet_Vtbl {
@@ -889,6 +907,8 @@ pub trait ISWbemObject_Impl: Sized + super::Com::IDispatch_Impl {
     fn Path_(&self) -> ::windows::core::Result<ISWbemObjectPath>;
     fn Security_(&self) -> ::windows::core::Result<ISWbemSecurity>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ISWbemObject {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ISWbemObject_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISWbemObject_Impl, const OFFSET: isize>() -> ISWbemObject_Vtbl {
@@ -1189,6 +1209,8 @@ pub trait ISWbemObjectEx_Impl: Sized + super::Com::IDispatch_Impl + ISWbemObject
     fn SetFromText_(&self, bstext: &super::super::Foundation::BSTR, iobjecttextformat: WbemObjectTextFormatEnum, iflags: i32, objwbemnamedvalueset: &::core::option::Option<super::Com::IDispatch>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ISWbemObjectEx {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ISWbemObjectEx_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISWbemObjectEx_Impl, const OFFSET: isize>() -> ISWbemObjectEx_Vtbl {
         unsafe extern "system" fn Refresh_<Identity: ::windows::core::IUnknownImpl, Impl: ISWbemObjectEx_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, iflags: i32, objwbemnamedvalueset: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -1261,6 +1283,8 @@ pub trait ISWbemObjectPath_Impl: Sized + super::Com::IDispatch_Impl {
     fn Authority(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn SetAuthority(&self, strauthority: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ISWbemObjectPath {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ISWbemObjectPath_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISWbemObjectPath_Impl, const OFFSET: isize>() -> ISWbemObjectPath_Vtbl {
@@ -1497,6 +1521,8 @@ pub trait ISWbemObjectSet_Impl: Sized + super::Com::IDispatch_Impl {
     fn ItemIndex(&self, lindex: i32) -> ::windows::core::Result<ISWbemObject>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ISWbemObjectSet {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ISWbemObjectSet_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISWbemObjectSet_Impl, const OFFSET: isize>() -> ISWbemObjectSet_Vtbl {
         unsafe extern "system" fn _NewEnum<Identity: ::windows::core::IUnknownImpl, Impl: ISWbemObjectSet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, punk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -1576,6 +1602,8 @@ pub trait ISWbemPrivilege_Impl: Sized + super::Com::IDispatch_Impl {
     fn Identifier(&self) -> ::windows::core::Result<WbemPrivilegeEnum>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ISWbemPrivilege {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ISWbemPrivilege_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISWbemPrivilege_Impl, const OFFSET: isize>() -> ISWbemPrivilege_Vtbl {
         unsafe extern "system" fn IsEnabled<Identity: ::windows::core::IUnknownImpl, Impl: ISWbemPrivilege_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bisenabled: *mut i16) -> ::windows::core::HRESULT {
@@ -1650,6 +1678,8 @@ pub trait ISWbemPrivilegeSet_Impl: Sized + super::Com::IDispatch_Impl {
     fn DeleteAll(&self) -> ::windows::core::Result<()>;
     fn AddAsString(&self, strprivilege: &super::super::Foundation::BSTR, bisenabled: i16) -> ::windows::core::Result<ISWbemPrivilege>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ISWbemPrivilegeSet {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ISWbemPrivilegeSet_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISWbemPrivilegeSet_Impl, const OFFSET: isize>() -> ISWbemPrivilegeSet_Vtbl {
@@ -1744,6 +1774,8 @@ pub trait ISWbemProperty_Impl: Sized + super::Com::IDispatch_Impl {
     fn Qualifiers_(&self) -> ::windows::core::Result<ISWbemQualifierSet>;
     fn IsArray(&self) -> ::windows::core::Result<i16>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ISWbemProperty {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ISWbemProperty_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISWbemProperty_Impl, const OFFSET: isize>() -> ISWbemProperty_Vtbl {
@@ -1854,6 +1886,8 @@ pub trait ISWbemPropertySet_Impl: Sized + super::Com::IDispatch_Impl {
     fn Remove(&self, strname: &super::super::Foundation::BSTR, iflags: i32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ISWbemPropertySet {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ISWbemPropertySet_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISWbemPropertySet_Impl, const OFFSET: isize>() -> ISWbemPropertySet_Vtbl {
         unsafe extern "system" fn _NewEnum<Identity: ::windows::core::IUnknownImpl, Impl: ISWbemPropertySet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, punk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -1932,6 +1966,8 @@ pub trait ISWbemQualifier_Impl: Sized + super::Com::IDispatch_Impl {
     fn SetIsOverridable(&self, bisoverridable: i16) -> ::windows::core::Result<()>;
     fn IsAmended(&self) -> ::windows::core::Result<i16>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ISWbemQualifier {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ISWbemQualifier_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISWbemQualifier_Impl, const OFFSET: isize>() -> ISWbemQualifier_Vtbl {
@@ -2060,6 +2096,8 @@ pub trait ISWbemQualifierSet_Impl: Sized + super::Com::IDispatch_Impl {
     fn Remove(&self, strname: &super::super::Foundation::BSTR, iflags: i32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ISWbemQualifierSet {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ISWbemQualifierSet_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISWbemQualifierSet_Impl, const OFFSET: isize>() -> ISWbemQualifierSet_Vtbl {
         unsafe extern "system" fn _NewEnum<Identity: ::windows::core::IUnknownImpl, Impl: ISWbemQualifierSet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, punk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -2133,6 +2171,8 @@ pub trait ISWbemRefreshableItem_Impl: Sized + super::Com::IDispatch_Impl {
     fn ObjectSet(&self) -> ::windows::core::Result<ISWbemObjectSet>;
     fn Remove(&self, iflags: i32) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ISWbemRefreshableItem {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ISWbemRefreshableItem_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISWbemRefreshableItem_Impl, const OFFSET: isize>() -> ISWbemRefreshableItem_Vtbl {
@@ -2223,6 +2263,8 @@ pub trait ISWbemRefresher_Impl: Sized + super::Com::IDispatch_Impl {
     fn SetAutoReconnect(&self, bcount: i16) -> ::windows::core::Result<()>;
     fn DeleteAll(&self) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ISWbemRefresher {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ISWbemRefresher_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISWbemRefresher_Impl, const OFFSET: isize>() -> ISWbemRefresher_Vtbl {
@@ -2339,6 +2381,8 @@ pub trait ISWbemSecurity_Impl: Sized + super::Com::IDispatch_Impl {
     fn Privileges(&self) -> ::windows::core::Result<ISWbemPrivilegeSet>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ISWbemSecurity {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ISWbemSecurity_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISWbemSecurity_Impl, const OFFSET: isize>() -> ISWbemSecurity_Vtbl {
         unsafe extern "system" fn ImpersonationLevel<Identity: ::windows::core::IUnknownImpl, Impl: ISWbemSecurity_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, iimpersonationlevel: *mut WbemImpersonationLevelEnum) -> ::windows::core::HRESULT {
@@ -2419,6 +2463,8 @@ pub trait ISWbemServices_Impl: Sized + super::Com::IDispatch_Impl {
     fn ExecMethodAsync(&self, objwbemsink: &::core::option::Option<super::Com::IDispatch>, strobjectpath: &super::super::Foundation::BSTR, strmethodname: &super::super::Foundation::BSTR, objwbeminparameters: &::core::option::Option<super::Com::IDispatch>, iflags: i32, objwbemnamedvalueset: &::core::option::Option<super::Com::IDispatch>, objwbemasynccontext: &::core::option::Option<super::Com::IDispatch>) -> ::windows::core::Result<()>;
     fn Security_(&self) -> ::windows::core::Result<ISWbemSecurity>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ISWbemServices {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ISWbemServices_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISWbemServices_Impl, const OFFSET: isize>() -> ISWbemServices_Vtbl {
@@ -2649,6 +2695,8 @@ pub trait ISWbemServicesEx_Impl: Sized + super::Com::IDispatch_Impl + ISWbemServ
     fn PutAsync(&self, objwbemsink: &::core::option::Option<ISWbemSink>, objwbemobject: &::core::option::Option<ISWbemObjectEx>, iflags: i32, objwbemnamedvalueset: &::core::option::Option<super::Com::IDispatch>, objwbemasynccontext: &::core::option::Option<super::Com::IDispatch>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ISWbemServicesEx {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ISWbemServicesEx_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISWbemServicesEx_Impl, const OFFSET: isize>() -> ISWbemServicesEx_Vtbl {
         unsafe extern "system" fn Put<Identity: ::windows::core::IUnknownImpl, Impl: ISWbemServicesEx_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, objwbemobject: ::windows::core::RawPtr, iflags: i32, objwbemnamedvalueset: ::windows::core::RawPtr, objwbemobjectpath: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -2678,6 +2726,8 @@ pub trait ISWbemSink_Impl: Sized + super::Com::IDispatch_Impl {
     fn Cancel(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ISWbemSink {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ISWbemSink_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISWbemSink_Impl, const OFFSET: isize>() -> ISWbemSink_Vtbl {
         unsafe extern "system" fn Cancel<Identity: ::windows::core::IUnknownImpl, Impl: ISWbemSink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -2694,6 +2744,8 @@ impl ISWbemSink_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ISWbemSinkEvents_Impl: Sized + super::Com::IDispatch_Impl {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ISWbemSinkEvents {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ISWbemSinkEvents_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISWbemSinkEvents_Impl, const OFFSET: isize>() -> ISWbemSinkEvents_Vtbl {
         Self { base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>() }
@@ -2705,6 +2757,7 @@ impl ISWbemSinkEvents_Vtbl {
 pub trait IUnsecuredApartment_Impl: Sized {
     fn CreateObjectStub(&self, pobject: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
+impl ::windows::core::RuntimeName for IUnsecuredApartment {}
 impl IUnsecuredApartment_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUnsecuredApartment_Impl, const OFFSET: isize>() -> IUnsecuredApartment_Vtbl {
         unsafe extern "system" fn CreateObjectStub<Identity: ::windows::core::IUnknownImpl, Impl: IUnsecuredApartment_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pobject: *mut ::core::ffi::c_void, ppstub: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -2730,6 +2783,8 @@ pub trait IWMIExtension_Impl: Sized + super::Com::IDispatch_Impl {
     fn GetWMIObject(&self) -> ::windows::core::Result<ISWbemObject>;
     fn GetWMIServices(&self) -> ::windows::core::Result<ISWbemServices>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IWMIExtension {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWMIExtension_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMIExtension_Impl, const OFFSET: isize>() -> IWMIExtension_Vtbl {
@@ -2780,6 +2835,7 @@ impl IWMIExtension_Vtbl {
 pub trait IWbemAddressResolution_Impl: Sized {
     fn Resolve(&self, wsznamespacepath: &::windows::core::PCWSTR, wszaddresstype: ::windows::core::PWSTR, pdwaddresslength: *mut u32, pabbinaryaddress: *mut *mut u8) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IWbemAddressResolution {}
 impl IWbemAddressResolution_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWbemAddressResolution_Impl, const OFFSET: isize>() -> IWbemAddressResolution_Vtbl {
         unsafe extern "system" fn Resolve<Identity: ::windows::core::IUnknownImpl, Impl: IWbemAddressResolution_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wsznamespacepath: ::windows::core::PCWSTR, wszaddresstype: ::windows::core::PWSTR, pdwaddresslength: *mut u32, pabbinaryaddress: *mut *mut u8) -> ::windows::core::HRESULT {
@@ -2797,6 +2853,7 @@ pub trait IWbemBackupRestore_Impl: Sized {
     fn Backup(&self, strbackuptofile: &::windows::core::PCWSTR, lflags: i32) -> ::windows::core::Result<()>;
     fn Restore(&self, strrestorefromfile: &::windows::core::PCWSTR, lflags: i32) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IWbemBackupRestore {}
 impl IWbemBackupRestore_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWbemBackupRestore_Impl, const OFFSET: isize>() -> IWbemBackupRestore_Vtbl {
         unsafe extern "system" fn Backup<Identity: ::windows::core::IUnknownImpl, Impl: IWbemBackupRestore_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strbackuptofile: ::windows::core::PCWSTR, lflags: i32) -> ::windows::core::HRESULT {
@@ -2823,6 +2880,7 @@ pub trait IWbemBackupRestoreEx_Impl: Sized + IWbemBackupRestore_Impl {
     fn Pause(&self) -> ::windows::core::Result<()>;
     fn Resume(&self) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IWbemBackupRestoreEx {}
 impl IWbemBackupRestoreEx_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWbemBackupRestoreEx_Impl, const OFFSET: isize>() -> IWbemBackupRestoreEx_Vtbl {
         unsafe extern "system" fn Pause<Identity: ::windows::core::IUnknownImpl, Impl: IWbemBackupRestoreEx_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -2852,6 +2910,8 @@ pub trait IWbemCallResult_Impl: Sized {
     fn GetResultServices(&self, ltimeout: i32) -> ::windows::core::Result<IWbemServices>;
     fn GetCallStatus(&self, ltimeout: i32) -> ::windows::core::Result<i32>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IWbemCallResult {}
 #[cfg(feature = "Win32_Foundation")]
 impl IWbemCallResult_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWbemCallResult_Impl, const OFFSET: isize>() -> IWbemCallResult_Vtbl {
@@ -2938,6 +2998,8 @@ pub trait IWbemClassObject_Impl: Sized {
     fn GetMethodQualifierSet(&self, wszmethod: &::windows::core::PCWSTR) -> ::windows::core::Result<IWbemQualifierSet>;
     fn GetMethodOrigin(&self, wszmethodname: &::windows::core::PCWSTR) -> ::windows::core::Result<super::super::Foundation::BSTR>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IWbemClassObject {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWbemClassObject_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWbemClassObject_Impl, const OFFSET: isize>() -> IWbemClassObject_Vtbl {
@@ -3160,6 +3222,8 @@ pub trait IWbemClientConnectionTransport_Impl: Sized {
     fn Cancel(&self, lflags: i32, phandler: &::core::option::Option<IWbemObjectSink>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IWbemClientConnectionTransport {}
+#[cfg(feature = "Win32_Foundation")]
 impl IWbemClientConnectionTransport_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWbemClientConnectionTransport_Impl, const OFFSET: isize>() -> IWbemClientConnectionTransport_Vtbl {
         unsafe extern "system" fn Open<Identity: ::windows::core::IUnknownImpl, Impl: IWbemClientConnectionTransport_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, straddresstype: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, dwbinaryaddresslength: u32, abbinaryaddress: *const u8, strobject: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, struser: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, strpassword: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, strlocale: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, lflags: i32, pctx: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, pinterface: *mut *mut ::core::ffi::c_void, pcallres: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -3195,6 +3259,8 @@ pub trait IWbemClientTransport_Impl: Sized {
     fn ConnectServer(&self, straddresstype: &super::super::Foundation::BSTR, dwbinaryaddresslength: u32, abbinaryaddress: *const u8, strnetworkresource: &super::super::Foundation::BSTR, struser: &super::super::Foundation::BSTR, strpassword: &super::super::Foundation::BSTR, strlocale: &super::super::Foundation::BSTR, lsecurityflags: i32, strauthority: &super::super::Foundation::BSTR, pctx: &::core::option::Option<IWbemContext>) -> ::windows::core::Result<IWbemServices>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IWbemClientTransport {}
+#[cfg(feature = "Win32_Foundation")]
 impl IWbemClientTransport_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWbemClientTransport_Impl, const OFFSET: isize>() -> IWbemClientTransport_Vtbl {
         unsafe extern "system" fn ConnectServer<Identity: ::windows::core::IUnknownImpl, Impl: IWbemClientTransport_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, straddresstype: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, dwbinaryaddresslength: u32, abbinaryaddress: *const u8, strnetworkresource: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, struser: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, strpassword: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, strlocale: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, lsecurityflags: i32, strauthority: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pctx: ::windows::core::RawPtr, ppnamespace: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -3221,6 +3287,7 @@ pub trait IWbemConfigureRefresher_Impl: Sized {
     fn Remove(&self, lid: i32, lflags: i32) -> ::windows::core::Result<()>;
     fn AddEnum(&self, pnamespace: &::core::option::Option<IWbemServices>, wszclassname: &::windows::core::PCWSTR, lflags: i32, pcontext: &::core::option::Option<IWbemContext>, ppenum: *mut ::core::option::Option<IWbemHiPerfEnum>, plid: *mut i32) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IWbemConfigureRefresher {}
 impl IWbemConfigureRefresher_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWbemConfigureRefresher_Impl, const OFFSET: isize>() -> IWbemConfigureRefresher_Vtbl {
         unsafe extern "system" fn AddObjectByPath<Identity: ::windows::core::IUnknownImpl, Impl: IWbemConfigureRefresher_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pnamespace: ::windows::core::RawPtr, wszpath: ::windows::core::PCWSTR, lflags: i32, pcontext: ::windows::core::RawPtr, pprefreshable: *mut ::windows::core::RawPtr, plid: *mut i32) -> ::windows::core::HRESULT {
@@ -3264,6 +3331,7 @@ impl IWbemConfigureRefresher_Vtbl {
 pub trait IWbemConnectorLogin_Impl: Sized {
     fn ConnectorLogin(&self, wsznetworkresource: &::windows::core::PCWSTR, wszpreferredlocale: &::windows::core::PCWSTR, lflags: i32, pctx: &::core::option::Option<IWbemContext>, riid: *const ::windows::core::GUID, pinterface: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IWbemConnectorLogin {}
 impl IWbemConnectorLogin_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWbemConnectorLogin_Impl, const OFFSET: isize>() -> IWbemConnectorLogin_Vtbl {
         unsafe extern "system" fn ConnectorLogin<Identity: ::windows::core::IUnknownImpl, Impl: IWbemConnectorLogin_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wsznetworkresource: ::windows::core::PCWSTR, wszpreferredlocale: ::windows::core::PCWSTR, lflags: i32, pctx: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, pinterface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -3283,6 +3351,7 @@ pub trait IWbemConstructClassObject_Impl: Sized {
     fn SetMethodOrigin(&self, wszmethodname: &::windows::core::PCWSTR, loriginindex: i32) -> ::windows::core::Result<()>;
     fn SetServerNamespace(&self, wszserver: &::windows::core::PCWSTR, wsznamespace: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IWbemConstructClassObject {}
 impl IWbemConstructClassObject_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWbemConstructClassObject_Impl, const OFFSET: isize>() -> IWbemConstructClassObject_Vtbl {
         unsafe extern "system" fn SetInheritanceChain<Identity: ::windows::core::IUnknownImpl, Impl: IWbemConstructClassObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lnumantecedents: i32, awszantecedents: *const ::windows::core::PWSTR) -> ::windows::core::HRESULT {
@@ -3329,6 +3398,8 @@ pub trait IWbemContext_Impl: Sized {
     fn DeleteValue(&self, wszname: &::windows::core::PCWSTR, lflags: i32) -> ::windows::core::Result<()>;
     fn DeleteAll(&self) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IWbemContext {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWbemContext_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWbemContext_Impl, const OFFSET: isize>() -> IWbemContext_Vtbl {
@@ -3416,6 +3487,7 @@ pub trait IWbemDecoupledBasicEventProvider_Impl: Sized + IWbemDecoupledRegistrar
     fn GetSink(&self, a_flags: i32, a_context: &::core::option::Option<IWbemContext>) -> ::windows::core::Result<IWbemObjectSink>;
     fn GetService(&self, a_flags: i32, a_context: &::core::option::Option<IWbemContext>) -> ::windows::core::Result<IWbemServices>;
 }
+impl ::windows::core::RuntimeName for IWbemDecoupledBasicEventProvider {}
 impl IWbemDecoupledBasicEventProvider_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWbemDecoupledBasicEventProvider_Impl, const OFFSET: isize>() -> IWbemDecoupledBasicEventProvider_Vtbl {
         unsafe extern "system" fn GetSink<Identity: ::windows::core::IUnknownImpl, Impl: IWbemDecoupledBasicEventProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, a_flags: i32, a_context: ::windows::core::RawPtr, a_sink: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -3454,6 +3526,7 @@ pub trait IWbemDecoupledRegistrar_Impl: Sized {
     fn Register(&self, a_flags: i32, a_context: &::core::option::Option<IWbemContext>, a_user: &::windows::core::PCWSTR, a_locale: &::windows::core::PCWSTR, a_scope: &::windows::core::PCWSTR, a_registration: &::windows::core::PCWSTR, piunknown: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
     fn UnRegister(&self) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IWbemDecoupledRegistrar {}
 impl IWbemDecoupledRegistrar_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWbemDecoupledRegistrar_Impl, const OFFSET: isize>() -> IWbemDecoupledRegistrar_Vtbl {
         unsafe extern "system" fn Register<Identity: ::windows::core::IUnknownImpl, Impl: IWbemDecoupledRegistrar_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, a_flags: i32, a_context: ::windows::core::RawPtr, a_user: ::windows::core::PCWSTR, a_locale: ::windows::core::PCWSTR, a_scope: ::windows::core::PCWSTR, a_registration: ::windows::core::PCWSTR, piunknown: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -3479,6 +3552,7 @@ impl IWbemDecoupledRegistrar_Vtbl {
 pub trait IWbemEventConsumerProvider_Impl: Sized {
     fn FindConsumer(&self, plogicalconsumer: &::core::option::Option<IWbemClassObject>) -> ::windows::core::Result<IWbemUnboundObjectSink>;
 }
+impl ::windows::core::RuntimeName for IWbemEventConsumerProvider {}
 impl IWbemEventConsumerProvider_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWbemEventConsumerProvider_Impl, const OFFSET: isize>() -> IWbemEventConsumerProvider_Vtbl {
         unsafe extern "system" fn FindConsumer<Identity: ::windows::core::IUnknownImpl, Impl: IWbemEventConsumerProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plogicalconsumer: ::windows::core::RawPtr, ppconsumer: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -3501,6 +3575,7 @@ impl IWbemEventConsumerProvider_Vtbl {
 pub trait IWbemEventProvider_Impl: Sized {
     fn ProvideEvents(&self, psink: &::core::option::Option<IWbemObjectSink>, lflags: i32) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IWbemEventProvider {}
 impl IWbemEventProvider_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWbemEventProvider_Impl, const OFFSET: isize>() -> IWbemEventProvider_Vtbl {
         unsafe extern "system" fn ProvideEvents<Identity: ::windows::core::IUnknownImpl, Impl: IWbemEventProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psink: ::windows::core::RawPtr, lflags: i32) -> ::windows::core::HRESULT {
@@ -3518,6 +3593,7 @@ pub trait IWbemEventProviderQuerySink_Impl: Sized {
     fn NewQuery(&self, dwid: u32, wszquerylanguage: *const u16, wszquery: *const u16) -> ::windows::core::Result<()>;
     fn CancelQuery(&self, dwid: u32) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IWbemEventProviderQuerySink {}
 impl IWbemEventProviderQuerySink_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWbemEventProviderQuerySink_Impl, const OFFSET: isize>() -> IWbemEventProviderQuerySink_Vtbl {
         unsafe extern "system" fn NewQuery<Identity: ::windows::core::IUnknownImpl, Impl: IWbemEventProviderQuerySink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwid: u32, wszquerylanguage: *const u16, wszquery: *const u16) -> ::windows::core::HRESULT {
@@ -3543,6 +3619,7 @@ impl IWbemEventProviderQuerySink_Vtbl {
 pub trait IWbemEventProviderSecurity_Impl: Sized {
     fn AccessCheck(&self, wszquerylanguage: *const u16, wszquery: *const u16, lsidlength: i32, psid: *const u8) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IWbemEventProviderSecurity {}
 impl IWbemEventProviderSecurity_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWbemEventProviderSecurity_Impl, const OFFSET: isize>() -> IWbemEventProviderSecurity_Vtbl {
         unsafe extern "system" fn AccessCheck<Identity: ::windows::core::IUnknownImpl, Impl: IWbemEventProviderSecurity_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wszquerylanguage: *const u16, wszquery: *const u16, lsidlength: i32, psid: *const u8) -> ::windows::core::HRESULT {
@@ -3563,6 +3640,8 @@ pub trait IWbemEventSink_Impl: Sized + IWbemObjectSink_Impl {
     fn GetRestrictedSink(&self, lnumqueries: i32, awszqueries: *const ::windows::core::PWSTR, pcallback: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<IWbemEventSink>;
     fn SetBatchingParameters(&self, lflags: i32, dwmaxbuffersize: u32, dwmaxsendlatency: u32) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IWbemEventSink {}
 #[cfg(feature = "Win32_Foundation")]
 impl IWbemEventSink_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWbemEventSink_Impl, const OFFSET: isize>() -> IWbemEventSink_Vtbl {
@@ -3610,6 +3689,7 @@ pub trait IWbemHiPerfEnum_Impl: Sized {
     fn GetObjects(&self, lflags: i32, unumobjects: u32, apobj: *mut ::core::option::Option<IWbemObjectAccess>, pureturned: *mut u32) -> ::windows::core::Result<()>;
     fn RemoveAll(&self, lflags: i32) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IWbemHiPerfEnum {}
 impl IWbemHiPerfEnum_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWbemHiPerfEnum_Impl, const OFFSET: isize>() -> IWbemHiPerfEnum_Vtbl {
         unsafe extern "system" fn AddObjects<Identity: ::windows::core::IUnknownImpl, Impl: IWbemHiPerfEnum_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lflags: i32, unumobjects: u32, apids: *const i32, apobj: *const ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -3652,6 +3732,7 @@ pub trait IWbemHiPerfProvider_Impl: Sized {
     fn CreateRefreshableEnum(&self, pnamespace: &::core::option::Option<IWbemServices>, wszclass: &::windows::core::PCWSTR, prefresher: &::core::option::Option<IWbemRefresher>, lflags: i32, pcontext: &::core::option::Option<IWbemContext>, phiperfenum: &::core::option::Option<IWbemHiPerfEnum>) -> ::windows::core::Result<i32>;
     fn GetObjects(&self, pnamespace: &::core::option::Option<IWbemServices>, lnumobjects: i32, apobj: *mut ::core::option::Option<IWbemObjectAccess>, lflags: i32, pcontext: &::core::option::Option<IWbemContext>) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IWbemHiPerfProvider {}
 impl IWbemHiPerfProvider_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWbemHiPerfProvider_Impl, const OFFSET: isize>() -> IWbemHiPerfProvider_Vtbl {
         unsafe extern "system" fn QueryInstances<Identity: ::windows::core::IUnknownImpl, Impl: IWbemHiPerfProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pnamespace: ::windows::core::RawPtr, wszclass: ::windows::core::PCWSTR, lflags: i32, pctx: ::windows::core::RawPtr, psink: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -3716,6 +3797,7 @@ pub trait IWbemLevel1Login_Impl: Sized {
     fn WBEMLogin(&self, wszpreferredlocale: &::windows::core::PCWSTR, accesstoken: *const u8, lflags: i32, pctx: &::core::option::Option<IWbemContext>) -> ::windows::core::Result<IWbemServices>;
     fn NTLMLogin(&self, wsznetworkresource: &::windows::core::PCWSTR, wszpreferredlocale: &::windows::core::PCWSTR, lflags: i32, pctx: &::core::option::Option<IWbemContext>) -> ::windows::core::Result<IWbemServices>;
 }
+impl ::windows::core::RuntimeName for IWbemLevel1Login {}
 impl IWbemLevel1Login_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWbemLevel1Login_Impl, const OFFSET: isize>() -> IWbemLevel1Login_Vtbl {
         unsafe extern "system" fn EstablishPosition<Identity: ::windows::core::IUnknownImpl, Impl: IWbemLevel1Login_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wszlocalelist: ::windows::core::PCWSTR, dwnumlocales: u32, reserved: *mut u32) -> ::windows::core::HRESULT {
@@ -3779,6 +3861,8 @@ pub trait IWbemLocator_Impl: Sized {
     fn ConnectServer(&self, strnetworkresource: &super::super::Foundation::BSTR, struser: &super::super::Foundation::BSTR, strpassword: &super::super::Foundation::BSTR, strlocale: &super::super::Foundation::BSTR, lsecurityflags: i32, strauthority: &super::super::Foundation::BSTR, pctx: &::core::option::Option<IWbemContext>) -> ::windows::core::Result<IWbemServices>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IWbemLocator {}
+#[cfg(feature = "Win32_Foundation")]
 impl IWbemLocator_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWbemLocator_Impl, const OFFSET: isize>() -> IWbemLocator_Vtbl {
         unsafe extern "system" fn ConnectServer<Identity: ::windows::core::IUnknownImpl, Impl: IWbemLocator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strnetworkresource: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, struser: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, strpassword: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, strlocale: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, lsecurityflags: i32, strauthority: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pctx: ::windows::core::RawPtr, ppnamespace: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -3811,6 +3895,8 @@ pub trait IWbemObjectAccess_Impl: Sized + IWbemClassObject_Impl {
     fn Lock(&self, lflags: i32) -> ::windows::core::Result<()>;
     fn Unlock(&self, lflags: i32) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IWbemObjectAccess {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWbemObjectAccess_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWbemObjectAccess_Impl, const OFFSET: isize>() -> IWbemObjectAccess_Vtbl {
@@ -3900,6 +3986,8 @@ pub trait IWbemObjectSink_Impl: Sized {
     fn SetStatus(&self, lflags: i32, hresult: ::windows::core::HRESULT, strparam: &super::super::Foundation::BSTR, pobjparam: &::core::option::Option<IWbemClassObject>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IWbemObjectSink {}
+#[cfg(feature = "Win32_Foundation")]
 impl IWbemObjectSink_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWbemObjectSink_Impl, const OFFSET: isize>() -> IWbemObjectSink_Vtbl {
         unsafe extern "system" fn Indicate<Identity: ::windows::core::IUnknownImpl, Impl: IWbemObjectSink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lobjectcount: i32, apobjarray: *const ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -3930,6 +4018,8 @@ pub trait IWbemObjectSinkEx_Impl: Sized + IWbemObjectSink_Impl {
     fn WriteProgress(&self, stractivity: &super::super::Foundation::BSTR, strcurrentoperation: &super::super::Foundation::BSTR, strstatusdescription: &super::super::Foundation::BSTR, upercentcomplete: u32, usecondsremaining: u32) -> ::windows::core::Result<()>;
     fn WriteStreamParameter(&self, strname: &super::super::Foundation::BSTR, vtvalue: *const super::Com::VARIANT, ultype: u32, ulflags: u32) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IWbemObjectSinkEx {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWbemObjectSinkEx_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWbemObjectSinkEx_Impl, const OFFSET: isize>() -> IWbemObjectSinkEx_Vtbl {
@@ -3988,6 +4078,8 @@ pub trait IWbemObjectTextSrc_Impl: Sized {
     fn GetText(&self, lflags: i32, pobj: &::core::option::Option<IWbemClassObject>, uobjtextformat: u32, pctx: &::core::option::Option<IWbemContext>) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn CreateFromText(&self, lflags: i32, strtext: &super::super::Foundation::BSTR, uobjtextformat: u32, pctx: &::core::option::Option<IWbemContext>) -> ::windows::core::Result<IWbemClassObject>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IWbemObjectTextSrc {}
 #[cfg(feature = "Win32_Foundation")]
 impl IWbemObjectTextSrc_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWbemObjectTextSrc_Impl, const OFFSET: isize>() -> IWbemObjectTextSrc_Vtbl {
@@ -4052,6 +4144,8 @@ pub trait IWbemPath_Impl: Sized {
     fn IsLocal(&self, wszmachine: &::windows::core::PCWSTR) -> super::super::Foundation::BOOL;
     fn IsSameClassName(&self, wszclass: &::windows::core::PCWSTR) -> super::super::Foundation::BOOL;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IWbemPath {}
 #[cfg(feature = "Win32_Foundation")]
 impl IWbemPath_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWbemPath_Impl, const OFFSET: isize>() -> IWbemPath_Vtbl {
@@ -4257,6 +4351,8 @@ pub trait IWbemPathKeyList_Impl: Sized {
     fn GetText(&self, lflags: i32, pubufflength: *mut u32, psztext: ::windows::core::PWSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IWbemPathKeyList {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWbemPathKeyList_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWbemPathKeyList_Impl, const OFFSET: isize>() -> IWbemPathKeyList_Vtbl {
         unsafe extern "system" fn GetCount<Identity: ::windows::core::IUnknownImpl, Impl: IWbemPathKeyList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pukeycount: *mut u32) -> ::windows::core::HRESULT {
@@ -4345,6 +4441,8 @@ pub trait IWbemPropertyProvider_Impl: Sized {
     fn PutProperty(&self, lflags: i32, strlocale: &super::super::Foundation::BSTR, strclassmapping: &super::super::Foundation::BSTR, strinstmapping: &super::super::Foundation::BSTR, strpropmapping: &super::super::Foundation::BSTR, pvvalue: *const super::Com::VARIANT) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IWbemPropertyProvider {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWbemPropertyProvider_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWbemPropertyProvider_Impl, const OFFSET: isize>() -> IWbemPropertyProvider_Vtbl {
         unsafe extern "system" fn GetProperty<Identity: ::windows::core::IUnknownImpl, Impl: IWbemPropertyProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lflags: i32, strlocale: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, strclassmapping: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, strinstmapping: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, strpropmapping: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pvvalue: *mut super::Com::VARIANT) -> ::windows::core::HRESULT {
@@ -4376,6 +4474,7 @@ impl IWbemPropertyProvider_Vtbl {
 pub trait IWbemProviderIdentity_Impl: Sized {
     fn SetRegistrationObject(&self, lflags: i32, pprovreg: &::core::option::Option<IWbemClassObject>) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IWbemProviderIdentity {}
 impl IWbemProviderIdentity_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWbemProviderIdentity_Impl, const OFFSET: isize>() -> IWbemProviderIdentity_Vtbl {
         unsafe extern "system" fn SetRegistrationObject<Identity: ::windows::core::IUnknownImpl, Impl: IWbemProviderIdentity_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lflags: i32, pprovreg: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -4392,6 +4491,7 @@ impl IWbemProviderIdentity_Vtbl {
 pub trait IWbemProviderInit_Impl: Sized {
     fn Initialize(&self, wszuser: &::windows::core::PCWSTR, lflags: i32, wsznamespace: &::windows::core::PCWSTR, wszlocale: &::windows::core::PCWSTR, pnamespace: &::core::option::Option<IWbemServices>, pctx: &::core::option::Option<IWbemContext>, pinitsink: &::core::option::Option<IWbemProviderInitSink>) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IWbemProviderInit {}
 impl IWbemProviderInit_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWbemProviderInit_Impl, const OFFSET: isize>() -> IWbemProviderInit_Vtbl {
         unsafe extern "system" fn Initialize<Identity: ::windows::core::IUnknownImpl, Impl: IWbemProviderInit_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wszuser: ::windows::core::PCWSTR, lflags: i32, wsznamespace: ::windows::core::PCWSTR, wszlocale: ::windows::core::PCWSTR, pnamespace: ::windows::core::RawPtr, pctx: ::windows::core::RawPtr, pinitsink: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -4408,6 +4508,7 @@ impl IWbemProviderInit_Vtbl {
 pub trait IWbemProviderInitSink_Impl: Sized {
     fn SetStatus(&self, lstatus: i32, lflags: i32) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IWbemProviderInitSink {}
 impl IWbemProviderInitSink_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWbemProviderInitSink_Impl, const OFFSET: isize>() -> IWbemProviderInitSink_Vtbl {
         unsafe extern "system" fn SetStatus<Identity: ::windows::core::IUnknownImpl, Impl: IWbemProviderInitSink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lstatus: i32, lflags: i32) -> ::windows::core::HRESULT {
@@ -4431,6 +4532,8 @@ pub trait IWbemQualifierSet_Impl: Sized {
     fn Next(&self, lflags: i32, pstrname: *mut super::super::Foundation::BSTR, pval: *mut super::Com::VARIANT, plflavor: *mut i32) -> ::windows::core::Result<()>;
     fn EndEnumeration(&self) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IWbemQualifierSet {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWbemQualifierSet_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWbemQualifierSet_Impl, const OFFSET: isize>() -> IWbemQualifierSet_Vtbl {
@@ -4499,6 +4602,7 @@ pub trait IWbemQuery_Impl: Sized {
     fn FreeMemory(&self, pmem: *const ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn GetQueryInfo(&self, uanalysistype: u32, uinfoid: u32, ubufsize: u32, pdestbuf: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IWbemQuery {}
 impl IWbemQuery_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWbemQuery_Impl, const OFFSET: isize>() -> IWbemQuery_Vtbl {
         unsafe extern "system" fn Empty<Identity: ::windows::core::IUnknownImpl, Impl: IWbemQuery_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -4554,6 +4658,7 @@ impl IWbemQuery_Vtbl {
 pub trait IWbemRefresher_Impl: Sized {
     fn Refresh(&self, lflags: i32) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IWbemRefresher {}
 impl IWbemRefresher_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWbemRefresher_Impl, const OFFSET: isize>() -> IWbemRefresher_Vtbl {
         unsafe extern "system" fn Refresh<Identity: ::windows::core::IUnknownImpl, Impl: IWbemRefresher_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lflags: i32) -> ::windows::core::HRESULT {
@@ -4593,6 +4698,8 @@ pub trait IWbemServices_Impl: Sized {
     fn ExecMethod(&self, strobjectpath: &super::super::Foundation::BSTR, strmethodname: &super::super::Foundation::BSTR, lflags: i32, pctx: &::core::option::Option<IWbemContext>, pinparams: &::core::option::Option<IWbemClassObject>, ppoutparams: *mut ::core::option::Option<IWbemClassObject>, ppcallresult: *mut ::core::option::Option<IWbemCallResult>) -> ::windows::core::Result<()>;
     fn ExecMethodAsync(&self, strobjectpath: &super::super::Foundation::BSTR, strmethodname: &super::super::Foundation::BSTR, lflags: i32, pctx: &::core::option::Option<IWbemContext>, pinparams: &::core::option::Option<IWbemClassObject>, presponsehandler: &::core::option::Option<IWbemObjectSink>) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IWbemServices {}
 #[cfg(feature = "Win32_Foundation")]
 impl IWbemServices_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWbemServices_Impl, const OFFSET: isize>() -> IWbemServices_Vtbl {
@@ -4775,6 +4882,7 @@ impl IWbemServices_Vtbl {
 pub trait IWbemShutdown_Impl: Sized {
     fn Shutdown(&self, ureason: i32, umaxmilliseconds: u32, pctx: &::core::option::Option<IWbemContext>) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IWbemShutdown {}
 impl IWbemShutdown_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWbemShutdown_Impl, const OFFSET: isize>() -> IWbemShutdown_Vtbl {
         unsafe extern "system" fn Shutdown<Identity: ::windows::core::IUnknownImpl, Impl: IWbemShutdown_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ureason: i32, umaxmilliseconds: u32, pctx: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -4793,6 +4901,8 @@ pub trait IWbemStatusCodeText_Impl: Sized {
     fn GetErrorCodeText(&self, hres: ::windows::core::HRESULT, localeid: u32, lflags: i32) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn GetFacilityCodeText(&self, hres: ::windows::core::HRESULT, localeid: u32, lflags: i32) -> ::windows::core::Result<super::super::Foundation::BSTR>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IWbemStatusCodeText {}
 #[cfg(feature = "Win32_Foundation")]
 impl IWbemStatusCodeText_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWbemStatusCodeText_Impl, const OFFSET: isize>() -> IWbemStatusCodeText_Vtbl {
@@ -4831,6 +4941,7 @@ impl IWbemStatusCodeText_Vtbl {
 pub trait IWbemTransport_Impl: Sized {
     fn Initialize(&self) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IWbemTransport {}
 impl IWbemTransport_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWbemTransport_Impl, const OFFSET: isize>() -> IWbemTransport_Vtbl {
         unsafe extern "system" fn Initialize<Identity: ::windows::core::IUnknownImpl, Impl: IWbemTransport_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -4847,6 +4958,7 @@ impl IWbemTransport_Vtbl {
 pub trait IWbemUnboundObjectSink_Impl: Sized {
     fn IndicateToConsumer(&self, plogicalconsumer: &::core::option::Option<IWbemClassObject>, lnumobjects: i32, apobjects: *const ::core::option::Option<IWbemClassObject>) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IWbemUnboundObjectSink {}
 impl IWbemUnboundObjectSink_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWbemUnboundObjectSink_Impl, const OFFSET: isize>() -> IWbemUnboundObjectSink_Vtbl {
         unsafe extern "system" fn IndicateToConsumer<Identity: ::windows::core::IUnknownImpl, Impl: IWbemUnboundObjectSink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plogicalconsumer: ::windows::core::RawPtr, lnumobjects: i32, apobjects: *const ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -4863,6 +4975,7 @@ impl IWbemUnboundObjectSink_Vtbl {
 pub trait IWbemUnsecuredApartment_Impl: Sized + IUnsecuredApartment_Impl {
     fn CreateSinkStub(&self, psink: &::core::option::Option<IWbemObjectSink>, dwflags: u32, wszreserved: &::windows::core::PCWSTR) -> ::windows::core::Result<IWbemObjectSink>;
 }
+impl ::windows::core::RuntimeName for IWbemUnsecuredApartment {}
 impl IWbemUnsecuredApartment_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWbemUnsecuredApartment_Impl, const OFFSET: isize>() -> IWbemUnsecuredApartment_Vtbl {
         unsafe extern "system" fn CreateSinkStub<Identity: ::windows::core::IUnknownImpl, Impl: IWbemUnsecuredApartment_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psink: ::windows::core::RawPtr, dwflags: u32, wszreserved: ::windows::core::PCWSTR, ppstub: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {

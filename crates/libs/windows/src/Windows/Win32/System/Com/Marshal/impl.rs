@@ -6,6 +6,7 @@ pub trait IMarshal_Impl: Sized {
     fn ReleaseMarshalData(&self, pstm: &::core::option::Option<super::IStream>) -> ::windows::core::Result<()>;
     fn DisconnectObject(&self, dwreserved: u32) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IMarshal {}
 impl IMarshal_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMarshal_Impl, const OFFSET: isize>() -> IMarshal_Vtbl {
         unsafe extern "system" fn GetUnmarshalClass<Identity: ::windows::core::IUnknownImpl, Impl: IMarshal_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, pv: *const ::core::ffi::c_void, dwdestcontext: u32, pvdestcontext: *mut ::core::ffi::c_void, mshlflags: u32, pcid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
@@ -53,6 +54,7 @@ impl IMarshal_Vtbl {
     }
 }
 pub trait IMarshal2_Impl: Sized + IMarshal_Impl {}
+impl ::windows::core::RuntimeName for IMarshal2 {}
 impl IMarshal2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMarshal2_Impl, const OFFSET: isize>() -> IMarshal2_Vtbl {
         Self { base__: IMarshal_Vtbl::new::<Identity, Impl, OFFSET>() }
@@ -65,6 +67,8 @@ impl IMarshal2_Vtbl {
 pub trait IMarshalingStream_Impl: Sized + super::ISequentialStream_Impl + super::IStream_Impl {
     fn GetMarshalingContextAttribute(&self, attribute: super::CO_MARSHALING_CONTEXT_ATTRIBUTES) -> ::windows::core::Result<usize>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+impl ::windows::core::RuntimeName for IMarshalingStream {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 impl IMarshalingStream_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMarshalingStream_Impl, const OFFSET: isize>() -> IMarshalingStream_Vtbl {

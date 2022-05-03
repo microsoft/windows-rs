@@ -22,6 +22,8 @@ pub trait IMFDeviceTransform_Impl: Sized {
     fn FlushOutputStream(&self, dwstreamindex: u32, dwflags: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Media_MediaFoundation")]
+impl ::windows::core::RuntimeName for IMFDeviceTransform {}
+#[cfg(feature = "Win32_Media_MediaFoundation")]
 impl IMFDeviceTransform_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFDeviceTransform_Impl, const OFFSET: isize>() -> IMFDeviceTransform_Vtbl {
         unsafe extern "system" fn InitializeTransform<Identity: ::windows::core::IUnknownImpl, Impl: IMFDeviceTransform_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pattributes: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -204,6 +206,8 @@ impl IMFDeviceTransform_Vtbl {
 pub trait IMFDeviceTransformCallback_Impl: Sized {
     fn OnBufferSent(&self, pcallbackattributes: &::core::option::Option<super::MediaFoundation::IMFAttributes>, pinid: u32) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Media_MediaFoundation")]
+impl ::windows::core::RuntimeName for IMFDeviceTransformCallback {}
 #[cfg(feature = "Win32_Media_MediaFoundation")]
 impl IMFDeviceTransformCallback_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFDeviceTransformCallback_Impl, const OFFSET: isize>() -> IMFDeviceTransformCallback_Vtbl {

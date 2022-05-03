@@ -5,6 +5,8 @@ pub trait IItemEnumerator_Impl: Sized {
     fn Reset(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IItemEnumerator {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IItemEnumerator_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IItemEnumerator_Impl, const OFFSET: isize>() -> IItemEnumerator_Vtbl {
         unsafe extern "system" fn Current<Identity: ::windows::core::IUnknownImpl, Impl: IItemEnumerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, item: *mut super::Com::VARIANT) -> ::windows::core::HRESULT {
@@ -55,6 +57,8 @@ pub trait ISettingsContext_Impl: Sized {
     fn GetStoredSettings(&self, pidentity: &::core::option::Option<ISettingsIdentity>, ppaddedsettings: *mut ::core::option::Option<IItemEnumerator>, ppmodifiedsettings: *mut ::core::option::Option<IItemEnumerator>, ppdeletedsettings: *mut ::core::option::Option<IItemEnumerator>) -> ::windows::core::Result<()>;
     fn RevertSetting(&self, pidentity: &::core::option::Option<ISettingsIdentity>, pwzsetting: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_System_Com")]
+impl ::windows::core::RuntimeName for ISettingsContext {}
 #[cfg(feature = "Win32_System_Com")]
 impl ISettingsContext_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISettingsContext_Impl, const OFFSET: isize>() -> ISettingsContext_Vtbl {
@@ -139,6 +143,8 @@ pub trait ISettingsEngine_Impl: Sized {
     fn ApplySettingsContext(&self, settingscontext: &::core::option::Option<ISettingsContext>, pppwzidentities: *mut *mut ::windows::core::PWSTR, pcidentities: *mut usize) -> ::windows::core::Result<()>;
     fn GetSettingsContext(&self) -> ::windows::core::Result<ISettingsContext>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ISettingsEngine {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ISettingsEngine_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISettingsEngine_Impl, const OFFSET: isize>() -> ISettingsEngine_Vtbl {
@@ -314,6 +320,8 @@ pub trait ISettingsIdentity_Impl: Sized {
     fn SetFlags(&self, flags: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for ISettingsIdentity {}
+#[cfg(feature = "Win32_Foundation")]
 impl ISettingsIdentity_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISettingsIdentity_Impl, const OFFSET: isize>() -> ISettingsIdentity_Vtbl {
         unsafe extern "system" fn GetAttribute<Identity: ::windows::core::IUnknownImpl, Impl: ISettingsIdentity_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, reserved: *const ::core::ffi::c_void, name: ::windows::core::PCWSTR, value: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
@@ -385,6 +393,8 @@ pub trait ISettingsItem_Impl: Sized {
     fn GetRestriction(&self, restrictionfacet: WcmRestrictionFacets) -> ::windows::core::Result<super::Com::VARIANT>;
     fn GetKeyValue(&self) -> ::windows::core::Result<super::Com::VARIANT>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ISettingsItem {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ISettingsItem_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISettingsItem_Impl, const OFFSET: isize>() -> ISettingsItem_Vtbl {
@@ -635,6 +645,8 @@ pub trait ISettingsNamespace_Impl: Sized {
     fn GetAttribute(&self, name: &::windows::core::PCWSTR) -> ::windows::core::Result<super::Com::VARIANT>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ISettingsNamespace {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ISettingsNamespace_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISettingsNamespace_Impl, const OFFSET: isize>() -> ISettingsNamespace_Vtbl {
         unsafe extern "system" fn GetIdentity<Identity: ::windows::core::IUnknownImpl, Impl: ISettingsNamespace_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, settingsid: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -732,6 +744,8 @@ pub trait ISettingsResult_Impl: Sized {
     fn GetColumn(&self) -> ::windows::core::Result<u32>;
     fn GetSource(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for ISettingsResult {}
 #[cfg(feature = "Win32_Foundation")]
 impl ISettingsResult_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISettingsResult_Impl, const OFFSET: isize>() -> ISettingsResult_Vtbl {
@@ -839,6 +853,8 @@ pub trait ITargetInfo_Impl: Sized {
     fn SetSchemaHiveMountName(&self, pwzmountname: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn GetSchemaHiveMountName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for ITargetInfo {}
 #[cfg(feature = "Win32_Foundation")]
 impl ITargetInfo_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITargetInfo_Impl, const OFFSET: isize>() -> ITargetInfo_Vtbl {

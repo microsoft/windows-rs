@@ -2,6 +2,7 @@ pub trait IUPnPAddressFamilyControl_Impl: Sized {
     fn SetAddressFamily(&self, dwflags: i32) -> ::windows::core::Result<()>;
     fn GetAddressFamily(&self) -> ::windows::core::Result<i32>;
 }
+impl ::windows::core::RuntimeName for IUPnPAddressFamilyControl {}
 impl IUPnPAddressFamilyControl_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUPnPAddressFamilyControl_Impl, const OFFSET: isize>() -> IUPnPAddressFamilyControl_Vtbl {
         unsafe extern "system" fn SetAddressFamily<Identity: ::windows::core::IUnknownImpl, Impl: IUPnPAddressFamilyControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwflags: i32) -> ::windows::core::HRESULT {
@@ -33,6 +34,7 @@ impl IUPnPAddressFamilyControl_Vtbl {
 pub trait IUPnPAsyncResult_Impl: Sized {
     fn AsyncOperationComplete(&self, ullrequestid: u64) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IUPnPAsyncResult {}
 impl IUPnPAsyncResult_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUPnPAsyncResult_Impl, const OFFSET: isize>() -> IUPnPAsyncResult_Vtbl {
         unsafe extern "system" fn AsyncOperationComplete<Identity: ::windows::core::IUnknownImpl, Impl: IUPnPAsyncResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ullrequestid: u64) -> ::windows::core::HRESULT {
@@ -56,6 +58,8 @@ pub trait IUPnPDescriptionDocument_Impl: Sized + super::super::super::System::Co
     fn RootDevice(&self) -> ::windows::core::Result<IUPnPDevice>;
     fn DeviceByUDN(&self, bstrudn: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<IUPnPDevice>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IUPnPDescriptionDocument {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IUPnPDescriptionDocument_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUPnPDescriptionDocument_Impl, const OFFSET: isize>() -> IUPnPDescriptionDocument_Vtbl {
@@ -136,6 +140,7 @@ impl IUPnPDescriptionDocument_Vtbl {
 pub trait IUPnPDescriptionDocumentCallback_Impl: Sized {
     fn LoadComplete(&self, hrloadresult: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IUPnPDescriptionDocumentCallback {}
 impl IUPnPDescriptionDocumentCallback_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUPnPDescriptionDocumentCallback_Impl, const OFFSET: isize>() -> IUPnPDescriptionDocumentCallback_Vtbl {
         unsafe extern "system" fn LoadComplete<Identity: ::windows::core::IUnknownImpl, Impl: IUPnPDescriptionDocumentCallback_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hrloadresult: ::windows::core::HRESULT) -> ::windows::core::HRESULT {
@@ -171,6 +176,8 @@ pub trait IUPnPDevice_Impl: Sized + super::super::super::System::Com::IDispatch_
     fn IconURL(&self, bstrencodingformat: &super::super::super::Foundation::BSTR, lsizex: i32, lsizey: i32, lbitdepth: i32) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
     fn Services(&self) -> ::windows::core::Result<IUPnPServices>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IUPnPDevice {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IUPnPDevice_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUPnPDevice_Impl, const OFFSET: isize>() -> IUPnPDevice_Vtbl {
@@ -416,6 +423,8 @@ pub trait IUPnPDeviceControl_Impl: Sized {
     fn GetServiceObject(&self, bstrudn: &super::super::super::Foundation::BSTR, bstrserviceid: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::super::System::Com::IDispatch>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::windows::core::RuntimeName for IUPnPDeviceControl {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IUPnPDeviceControl_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUPnPDeviceControl_Impl, const OFFSET: isize>() -> IUPnPDeviceControl_Vtbl {
         unsafe extern "system" fn Initialize<Identity: ::windows::core::IUnknownImpl, Impl: IUPnPDeviceControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrxmldesc: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, bstrdeviceidentifier: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, bstrinitstring: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
@@ -449,6 +458,8 @@ pub trait IUPnPDeviceControlHttpHeaders_Impl: Sized {
     fn GetAdditionalResponseHeaders(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IUPnPDeviceControlHttpHeaders {}
+#[cfg(feature = "Win32_Foundation")]
 impl IUPnPDeviceControlHttpHeaders_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUPnPDeviceControlHttpHeaders_Impl, const OFFSET: isize>() -> IUPnPDeviceControlHttpHeaders_Vtbl {
         unsafe extern "system" fn GetAdditionalResponseHeaders<Identity: ::windows::core::IUnknownImpl, Impl: IUPnPDeviceControlHttpHeaders_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrhttpresponseheaders: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
@@ -476,6 +487,8 @@ pub trait IUPnPDeviceDocumentAccess_Impl: Sized {
     fn GetDocumentURL(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IUPnPDeviceDocumentAccess {}
+#[cfg(feature = "Win32_Foundation")]
 impl IUPnPDeviceDocumentAccess_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUPnPDeviceDocumentAccess_Impl, const OFFSET: isize>() -> IUPnPDeviceDocumentAccess_Vtbl {
         unsafe extern "system" fn GetDocumentURL<Identity: ::windows::core::IUnknownImpl, Impl: IUPnPDeviceDocumentAccess_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrdocument: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
@@ -499,6 +512,8 @@ impl IUPnPDeviceDocumentAccess_Vtbl {
 pub trait IUPnPDeviceDocumentAccessEx_Impl: Sized {
     fn GetDocument(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IUPnPDeviceDocumentAccessEx {}
 #[cfg(feature = "Win32_Foundation")]
 impl IUPnPDeviceDocumentAccessEx_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUPnPDeviceDocumentAccessEx_Impl, const OFFSET: isize>() -> IUPnPDeviceDocumentAccessEx_Vtbl {
@@ -527,6 +542,8 @@ pub trait IUPnPDeviceFinder_Impl: Sized + super::super::super::System::Com::IDis
     fn CancelAsyncFind(&self, lfinddata: i32) -> ::windows::core::Result<()>;
     fn FindByUDN(&self, bstrudn: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<IUPnPDevice>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IUPnPDeviceFinder {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IUPnPDeviceFinder_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUPnPDeviceFinder_Impl, const OFFSET: isize>() -> IUPnPDeviceFinder_Vtbl {
@@ -591,6 +608,8 @@ pub trait IUPnPDeviceFinderAddCallbackWithInterface_Impl: Sized {
     fn DeviceAddedWithInterface(&self, lfinddata: i32, pdevice: &::core::option::Option<IUPnPDevice>, pguidinterface: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
+impl ::windows::core::RuntimeName for IUPnPDeviceFinderAddCallbackWithInterface {}
+#[cfg(feature = "Win32_System_Com")]
 impl IUPnPDeviceFinderAddCallbackWithInterface_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUPnPDeviceFinderAddCallbackWithInterface_Impl, const OFFSET: isize>() -> IUPnPDeviceFinderAddCallbackWithInterface_Vtbl {
         unsafe extern "system" fn DeviceAddedWithInterface<Identity: ::windows::core::IUnknownImpl, Impl: IUPnPDeviceFinderAddCallbackWithInterface_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lfinddata: i32, pdevice: ::windows::core::RawPtr, pguidinterface: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
@@ -610,6 +629,8 @@ pub trait IUPnPDeviceFinderCallback_Impl: Sized {
     fn DeviceRemoved(&self, lfinddata: i32, bstrudn: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn SearchComplete(&self, lfinddata: i32) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::windows::core::RuntimeName for IUPnPDeviceFinderCallback {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IUPnPDeviceFinderCallback_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUPnPDeviceFinderCallback_Impl, const OFFSET: isize>() -> IUPnPDeviceFinderCallback_Vtbl {
@@ -645,6 +666,8 @@ pub trait IUPnPDeviceProvider_Impl: Sized {
     fn Stop(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IUPnPDeviceProvider {}
+#[cfg(feature = "Win32_Foundation")]
 impl IUPnPDeviceProvider_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUPnPDeviceProvider_Impl, const OFFSET: isize>() -> IUPnPDeviceProvider_Vtbl {
         unsafe extern "system" fn Start<Identity: ::windows::core::IUnknownImpl, Impl: IUPnPDeviceProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrinitstring: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
@@ -669,6 +692,8 @@ pub trait IUPnPDevices_Impl: Sized + super::super::super::System::Com::IDispatch
     fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
     fn get_Item(&self, bstrudn: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<IUPnPDevice>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IUPnPDevices {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IUPnPDevices_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUPnPDevices_Impl, const OFFSET: isize>() -> IUPnPDevices_Vtbl {
@@ -722,6 +747,8 @@ pub trait IUPnPEventSink_Impl: Sized {
     fn OnStateChangedSafe(&self, varsadispidchanges: &super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IUPnPEventSink {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IUPnPEventSink_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUPnPEventSink_Impl, const OFFSET: isize>() -> IUPnPEventSink_Vtbl {
         unsafe extern "system" fn OnStateChanged<Identity: ::windows::core::IUnknownImpl, Impl: IUPnPEventSink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cchanges: u32, rgdispidchanges: *const i32) -> ::windows::core::HRESULT {
@@ -748,6 +775,7 @@ pub trait IUPnPEventSource_Impl: Sized {
     fn Advise(&self, pessubscriber: &::core::option::Option<IUPnPEventSink>) -> ::windows::core::Result<()>;
     fn Unadvise(&self, pessubscriber: &::core::option::Option<IUPnPEventSink>) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IUPnPEventSource {}
 impl IUPnPEventSource_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUPnPEventSource_Impl, const OFFSET: isize>() -> IUPnPEventSource_Vtbl {
         unsafe extern "system" fn Advise<Identity: ::windows::core::IUnknownImpl, Impl: IUPnPEventSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pessubscriber: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -775,6 +803,8 @@ pub trait IUPnPHttpHeaderControl_Impl: Sized {
     fn AddRequestHeaders(&self, bstrhttpheaders: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IUPnPHttpHeaderControl {}
+#[cfg(feature = "Win32_Foundation")]
 impl IUPnPHttpHeaderControl_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUPnPHttpHeaderControl_Impl, const OFFSET: isize>() -> IUPnPHttpHeaderControl_Vtbl {
         unsafe extern "system" fn AddRequestHeaders<Identity: ::windows::core::IUnknownImpl, Impl: IUPnPHttpHeaderControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrhttpheaders: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
@@ -797,6 +827,8 @@ pub trait IUPnPRegistrar_Impl: Sized {
     fn UnregisterDevice(&self, bstrdeviceidentifier: &super::super::super::Foundation::BSTR, fpermanent: super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn UnregisterDeviceProvider(&self, bstrprovidername: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IUPnPRegistrar {}
 #[cfg(feature = "Win32_Foundation")]
 impl IUPnPRegistrar_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUPnPRegistrar_Impl, const OFFSET: isize>() -> IUPnPRegistrar_Vtbl {
@@ -869,6 +901,8 @@ pub trait IUPnPRemoteEndpointInfo_Impl: Sized {
     fn GetGuidValue(&self, bstrvaluename: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<::windows::core::GUID>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IUPnPRemoteEndpointInfo {}
+#[cfg(feature = "Win32_Foundation")]
 impl IUPnPRemoteEndpointInfo_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUPnPRemoteEndpointInfo_Impl, const OFFSET: isize>() -> IUPnPRemoteEndpointInfo_Vtbl {
         unsafe extern "system" fn GetDwordValue<Identity: ::windows::core::IUnknownImpl, Impl: IUPnPRemoteEndpointInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrvaluename: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, pdwvalue: *mut u32) -> ::windows::core::HRESULT {
@@ -921,6 +955,8 @@ pub trait IUPnPReregistrar_Impl: Sized {
     fn ReregisterRunningDevice(&self, bstrdeviceidentifier: &super::super::super::Foundation::BSTR, bstrxmldesc: &super::super::super::Foundation::BSTR, punkdevicecontrol: &::core::option::Option<::windows::core::IUnknown>, bstrinitstring: &super::super::super::Foundation::BSTR, bstrresourcepath: &super::super::super::Foundation::BSTR, nlifetime: i32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IUPnPReregistrar {}
+#[cfg(feature = "Win32_Foundation")]
 impl IUPnPReregistrar_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUPnPReregistrar_Impl, const OFFSET: isize>() -> IUPnPReregistrar_Vtbl {
         unsafe extern "system" fn ReregisterDevice<Identity: ::windows::core::IUnknownImpl, Impl: IUPnPReregistrar_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrdeviceidentifier: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, bstrxmldesc: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, bstrprogiddevicecontrolclass: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, bstrinitstring: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, bstrcontainerid: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, bstrresourcepath: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, nlifetime: i32) -> ::windows::core::HRESULT {
@@ -952,6 +988,8 @@ pub trait IUPnPService_Impl: Sized + super::super::super::System::Com::IDispatch
     fn Id(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
     fn LastTransportStatus(&self) -> ::windows::core::Result<i32>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IUPnPService {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IUPnPService_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUPnPService_Impl, const OFFSET: isize>() -> IUPnPService_Vtbl {
@@ -1035,6 +1073,8 @@ pub trait IUPnPServiceAsync_Impl: Sized {
     fn EndSCPDDownload(&self, ullrequestid: u64) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
     fn CancelAsyncOperation(&self, ullrequestid: u64) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IUPnPServiceAsync {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IUPnPServiceAsync_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUPnPServiceAsync_Impl, const OFFSET: isize>() -> IUPnPServiceAsync_Vtbl {
@@ -1136,6 +1176,8 @@ pub trait IUPnPServiceCallback_Impl: Sized {
     fn ServiceInstanceDied(&self, pus: &::core::option::Option<IUPnPService>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IUPnPServiceCallback {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IUPnPServiceCallback_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUPnPServiceCallback_Impl, const OFFSET: isize>() -> IUPnPServiceCallback_Vtbl {
         unsafe extern "system" fn StateVariableChanged<Identity: ::windows::core::IUnknownImpl, Impl: IUPnPServiceCallback_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pus: ::windows::core::RawPtr, pcwszstatevarname: ::windows::core::PCWSTR, vavalue: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
@@ -1163,6 +1205,8 @@ pub trait IUPnPServiceDocumentAccess_Impl: Sized {
     fn GetDocumentURL(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
     fn GetDocument(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IUPnPServiceDocumentAccess {}
 #[cfg(feature = "Win32_Foundation")]
 impl IUPnPServiceDocumentAccess_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUPnPServiceDocumentAccess_Impl, const OFFSET: isize>() -> IUPnPServiceDocumentAccess_Vtbl {
@@ -1201,6 +1245,7 @@ impl IUPnPServiceDocumentAccess_Vtbl {
 pub trait IUPnPServiceEnumProperty_Impl: Sized {
     fn SetServiceEnumProperty(&self, dwmask: u32) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IUPnPServiceEnumProperty {}
 impl IUPnPServiceEnumProperty_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUPnPServiceEnumProperty_Impl, const OFFSET: isize>() -> IUPnPServiceEnumProperty_Vtbl {
         unsafe extern "system" fn SetServiceEnumProperty<Identity: ::windows::core::IUnknownImpl, Impl: IUPnPServiceEnumProperty_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwmask: u32) -> ::windows::core::HRESULT {
@@ -1220,6 +1265,8 @@ pub trait IUPnPServices_Impl: Sized + super::super::super::System::Com::IDispatc
     fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
     fn get_Item(&self, bstrserviceid: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<IUPnPService>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IUPnPServices {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IUPnPServices_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUPnPServices_Impl, const OFFSET: isize>() -> IUPnPServices_Vtbl {
