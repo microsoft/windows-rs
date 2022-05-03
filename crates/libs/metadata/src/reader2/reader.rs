@@ -307,7 +307,7 @@ impl<'a> Reader<'a> {
         self.row_str(row.0, 3)
     }
     pub fn method_def_params(&self, row: MethodDef) -> impl Iterator<Item = Param> {
-        self.row_list(row.0, TABLE_PARAM, 4).map(Param)
+        self.row_list(row.0, TABLE_PARAM, 5).map(Param)
     }
     pub fn method_def_attributes(&self, row: MethodDef) -> impl Iterator<Item = Attribute> {
         self.row_attributes(row.0, HasAttribute::MethodDef(row))
@@ -370,7 +370,7 @@ impl<'a> Reader<'a> {
                 None
             } else {
                 let ty = self.type_from_blob(&mut blob, None, generics).expect("Parameter type not found");
-                let ty = if self.param_flags(param).output() { type_to_const(ty) } else { ty };
+                let ty = if !self.param_flags(param).output() { type_to_const(ty) } else { ty };
                 let array_info = self.param_array_info(param);
                 Some(SignatureParam{ def: param, ty, array_info })
             }
@@ -410,7 +410,7 @@ impl<'a> Reader<'a> {
 
         Signature{ def:row, params, return_type }
     }
-    fn method_def_cfg(&self, row:MethodDef) -> Cfg {
+    pub fn method_def_cfg(&self, row:MethodDef) -> Cfg {
         let mut cfg = Cfg::default();
         self.method_def_cfg_combine(row, &mut cfg);
         cfg

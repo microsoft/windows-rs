@@ -159,6 +159,9 @@ pub struct Cfg<'a> {
 
 // TODO: get rid of this
 impl<'a> Cfg<'a> {
+    pub fn add_feature(&mut self, feature: &'a str) {
+        self.types.entry(feature).or_default();
+    }
     pub fn union(&self, other: &Self) -> Self {
         let mut union = Self::default();
         self.types.keys().for_each(|feature| {union.types.entry(feature).or_default();});

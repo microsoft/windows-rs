@@ -1,30 +1,26 @@
 use super::*;
 
 pub fn gen(gen: &Gen, def: TypeDef, generics: &[Type], kind: InterfaceKind, method: MethodDef, method_names: &mut MethodNames, virtual_names: &mut MethodNames) -> TokenStream {
-     //let signature = gen.reader.method_def_signature(method, generics);
-    // let params = if kind == InterfaceKind::Composable { &signature.params[..signature.params.len() - 2] } else { &signature.params };
+    let signature = gen.reader.method_def_signature(method, generics);
+    let params = if kind == InterfaceKind::Composable { &signature.params[..signature.params.len() - 2] } else { &signature.params };
 
-    // let (name, name_compose) = if kind == InterfaceKind::Composable && signature.params.len() == 2 {
-    //     ("new".into(), "compose".into())
-    // } else {
-    //     let name = method_names.add(gen, method);
-    //     let name_compose = name.join("_compose");
-    //     (name, name_compose)
-    // };
+    let (name, name_compose) = if kind == InterfaceKind::Composable && signature.params.len() == 2 {
+        ("new".into(), "compose".into())
+    } else {
+        let name = method_names.add(gen, method);
+        let name_compose = name.join("_compose");
+        (name, name_compose)
+    };
 
-    // let vname = virtual_names.add(gen, method);
-    // let constraints = gen.param_constraints(params);
-
-
-
-
-    // let mut cfg = method.cfg();
-    // cfg.add_feature(def.namespace());
-    // let doc = gen.doc(&cfg);
-    // let features = gen.cfg(&cfg);
+    let interface_name = gen.reader.type_def_type_name(def);
+    let vname = virtual_names.add(gen, method);
+    let constraints = gen.param_constraints(params);
+    let mut cfg = gen.reader.method_def_cfg(method);
+    cfg.add_feature(interface_name.namespace);
+    let doc = gen.cfg_doc(&cfg);
+    let features = gen.cfg_features(&cfg);
     // let args = params.iter().map(gen_winrt_abi_arg);
     // let params = gen_winrt_params(params, gen);
-    // let interface_name = gen_type_name(def, gen);
 
     // let return_type_tokens = if let Some(return_type) = &signature.return_type {
     //     let tokens = gen_element_name(return_type, gen);
