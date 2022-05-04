@@ -3,6 +3,8 @@ pub trait IIsolatedEnvironmentInterop_Impl: Sized {
     fn GetHostHwndInterop(&self, containerhwnd: super::super::super::Foundation::HWND) -> ::windows::core::Result<super::super::super::Foundation::HWND>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IIsolatedEnvironmentInterop {}
+#[cfg(feature = "Win32_Foundation")]
 impl IIsolatedEnvironmentInterop_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IIsolatedEnvironmentInterop_Impl, const OFFSET: isize>() -> IIsolatedEnvironmentInterop_Vtbl {
         unsafe extern "system" fn GetHostHwndInterop<Identity: ::windows::core::IUnknownImpl, Impl: IIsolatedEnvironmentInterop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, containerhwnd: super::super::super::Foundation::HWND, hosthwnd: *mut super::super::super::Foundation::HWND) -> ::windows::core::HRESULT {

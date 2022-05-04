@@ -4,6 +4,7 @@ pub trait IVssAdmin_Impl: Sized {
     fn QueryProviders(&self) -> ::windows::core::Result<IVssEnumObject>;
     fn AbortAllSnapshotsInProgress(&self) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IVssAdmin {}
 impl IVssAdmin_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVssAdmin_Impl, const OFFSET: isize>() -> IVssAdmin_Vtbl {
         unsafe extern "system" fn RegisterProvider<Identity: ::windows::core::IUnknownImpl, Impl: IVssAdmin_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pproviderid: ::windows::core::GUID, classid: ::windows::core::GUID, pwszprovidername: *const u16, eprovidertype: VSS_PROVIDER_TYPE, pwszproviderversion: *const u16, providerversionid: ::windows::core::GUID) -> ::windows::core::HRESULT {
@@ -49,6 +50,7 @@ pub trait IVssAdminEx_Impl: Sized + IVssAdmin_Impl {
     fn GetProviderContext(&self, providerid: &::windows::core::GUID) -> ::windows::core::Result<i32>;
     fn SetProviderContext(&self, providerid: &::windows::core::GUID, lcontext: i32) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IVssAdminEx {}
 impl IVssAdminEx_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVssAdminEx_Impl, const OFFSET: isize>() -> IVssAdminEx_Vtbl {
         unsafe extern "system" fn GetProviderCapability<Identity: ::windows::core::IUnknownImpl, Impl: IVssAdminEx_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pproviderid: ::windows::core::GUID, plloriginalcapabilitymask: *mut u64) -> ::windows::core::HRESULT {
@@ -94,6 +96,7 @@ pub trait IVssAsync_Impl: Sized {
     fn Wait(&self, dwmilliseconds: u32) -> ::windows::core::Result<()>;
     fn QueryStatus(&self, phrresult: *mut ::windows::core::HRESULT, preserved: *mut i32) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IVssAsync {}
 impl IVssAsync_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVssAsync_Impl, const OFFSET: isize>() -> IVssAsync_Vtbl {
         unsafe extern "system" fn Cancel<Identity: ::windows::core::IUnknownImpl, Impl: IVssAsync_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -163,6 +166,8 @@ pub trait IVssComponent_Impl: Sized {
     fn GetDifferencedFilesCount(&self, pcdifferencedfiles: *mut u32) -> ::windows::core::Result<()>;
     fn GetDifferencedFile(&self, idifferencedfile: u32, pbstrpath: *mut super::super::Foundation::BSTR, pbstrfilespec: *mut super::super::Foundation::BSTR, pbrecursive: *mut super::super::Foundation::BOOL, pbstrlsnstring: *mut super::super::Foundation::BSTR, pftlastmodifytime: *mut super::super::Foundation::FILETIME) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IVssComponent {}
 #[cfg(feature = "Win32_Foundation")]
 impl IVssComponent_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVssComponent_Impl, const OFFSET: isize>() -> IVssComponent_Vtbl {
@@ -425,6 +430,8 @@ pub trait IVssComponentEx_Impl: Sized + IVssComponent_Impl {
     fn GetRestoreName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IVssComponentEx {}
+#[cfg(feature = "Win32_Foundation")]
 impl IVssComponentEx_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVssComponentEx_Impl, const OFFSET: isize>() -> IVssComponentEx_Vtbl {
         unsafe extern "system" fn SetPrepareForBackupFailureMsg<Identity: ::windows::core::IUnknownImpl, Impl: IVssComponentEx_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wszfailuremsg: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
@@ -507,6 +514,8 @@ pub trait IVssComponentEx2_Impl: Sized + IVssComponent_Impl + IVssComponentEx_Im
     fn GetFailure(&self, phr: *mut ::windows::core::HRESULT, phrapplication: *mut ::windows::core::HRESULT, pbstrapplicationmessage: *mut super::super::Foundation::BSTR, pdwreserved: *mut u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IVssComponentEx2 {}
+#[cfg(feature = "Win32_Foundation")]
 impl IVssComponentEx2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVssComponentEx2_Impl, const OFFSET: isize>() -> IVssComponentEx2_Vtbl {
         unsafe extern "system" fn SetFailure<Identity: ::windows::core::IUnknownImpl, Impl: IVssComponentEx2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hr: ::windows::core::HRESULT, hrapplication: ::windows::core::HRESULT, wszapplicationmessage: ::windows::core::PCWSTR, dwreserved: u32) -> ::windows::core::HRESULT {
@@ -539,6 +548,8 @@ pub trait IVssCreateExpressWriterMetadata_Impl: Sized {
     fn SetBackupSchema(&self, dwschemamask: u32) -> ::windows::core::Result<()>;
     fn SaveAsXML(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IVssCreateExpressWriterMetadata {}
 #[cfg(feature = "Win32_Foundation")]
 impl IVssCreateExpressWriterMetadata_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVssCreateExpressWriterMetadata_Impl, const OFFSET: isize>() -> IVssCreateExpressWriterMetadata_Vtbl {
@@ -615,6 +626,8 @@ pub trait IVssCreateWriterMetadata_Impl: Sized {
     fn GetDocument(&self) -> ::windows::core::Result<super::super::Data::Xml::MsXml::IXMLDOMDocument>;
     fn SaveAsXML(&self, pbstrxml: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::windows::core::RuntimeName for IVssCreateWriterMetadata {}
 #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IVssCreateWriterMetadata_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVssCreateWriterMetadata_Impl, const OFFSET: isize>() -> IVssCreateWriterMetadata_Vtbl {
@@ -713,6 +726,7 @@ pub trait IVssDifferentialSoftwareSnapshotMgmt_Impl: Sized {
     fn QueryDiffAreasOnVolume(&self, pwszvolumename: *const u16) -> ::windows::core::Result<IVssEnumMgmtObject>;
     fn QueryDiffAreasForSnapshot(&self, snapshotid: &::windows::core::GUID) -> ::windows::core::Result<IVssEnumMgmtObject>;
 }
+impl ::windows::core::RuntimeName for IVssDifferentialSoftwareSnapshotMgmt {}
 impl IVssDifferentialSoftwareSnapshotMgmt_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVssDifferentialSoftwareSnapshotMgmt_Impl, const OFFSET: isize>() -> IVssDifferentialSoftwareSnapshotMgmt_Vtbl {
         unsafe extern "system" fn AddDiffArea<Identity: ::windows::core::IUnknownImpl, Impl: IVssDifferentialSoftwareSnapshotMgmt_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszvolumename: *const u16, pwszdiffareavolumename: *const u16, llmaximumdiffspace: i64) -> ::windows::core::HRESULT {
@@ -791,6 +805,8 @@ pub trait IVssDifferentialSoftwareSnapshotMgmt2_Impl: Sized + IVssDifferentialSo
     fn SetSnapshotPriority(&self, idsnapshot: &::windows::core::GUID, priority: u8) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IVssDifferentialSoftwareSnapshotMgmt2 {}
+#[cfg(feature = "Win32_Foundation")]
 impl IVssDifferentialSoftwareSnapshotMgmt2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVssDifferentialSoftwareSnapshotMgmt2_Impl, const OFFSET: isize>() -> IVssDifferentialSoftwareSnapshotMgmt2_Vtbl {
         unsafe extern "system" fn ChangeDiffAreaMaximumSizeEx<Identity: ::windows::core::IUnknownImpl, Impl: IVssDifferentialSoftwareSnapshotMgmt2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszvolumename: *const u16, pwszdiffareavolumename: *const u16, llmaximumdiffspace: i64, bvolatile: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
@@ -839,6 +855,8 @@ pub trait IVssDifferentialSoftwareSnapshotMgmt3_Impl: Sized + IVssDifferentialSo
     fn DeleteUnusedDiffAreas(&self, pwszdiffareavolumename: *const u16) -> ::windows::core::Result<()>;
     fn QuerySnapshotDeltaBitmap(&self, idsnapshotolder: &::windows::core::GUID, idsnapshotyounger: &::windows::core::GUID, pcblocksizeperbit: *mut u32, pcbitmaplength: *mut u32, ppbbitmap: *mut *mut u8) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IVssDifferentialSoftwareSnapshotMgmt3 {}
 #[cfg(feature = "Win32_Foundation")]
 impl IVssDifferentialSoftwareSnapshotMgmt3_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVssDifferentialSoftwareSnapshotMgmt3_Impl, const OFFSET: isize>() -> IVssDifferentialSoftwareSnapshotMgmt3_Vtbl {
@@ -892,6 +910,7 @@ pub trait IVssEnumMgmtObject_Impl: Sized {
     fn Reset(&self) -> ::windows::core::Result<()>;
     fn Clone(&self, ppenum: *mut ::core::option::Option<IVssEnumMgmtObject>) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IVssEnumMgmtObject {}
 impl IVssEnumMgmtObject_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVssEnumMgmtObject_Impl, const OFFSET: isize>() -> IVssEnumMgmtObject_Vtbl {
         unsafe extern "system" fn Next<Identity: ::windows::core::IUnknownImpl, Impl: IVssEnumMgmtObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, celt: u32, rgelt: *mut VSS_MGMT_OBJECT_PROP, pceltfetched: *mut u32) -> ::windows::core::HRESULT {
@@ -932,6 +951,7 @@ pub trait IVssEnumObject_Impl: Sized {
     fn Reset(&self) -> ::windows::core::Result<()>;
     fn Clone(&self, ppenum: *mut ::core::option::Option<IVssEnumObject>) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IVssEnumObject {}
 impl IVssEnumObject_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVssEnumObject_Impl, const OFFSET: isize>() -> IVssEnumObject_Vtbl {
         unsafe extern "system" fn Next<Identity: ::windows::core::IUnknownImpl, Impl: IVssEnumObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, celt: u32, rgelt: *mut VSS_OBJECT_PROP, pceltfetched: *mut u32) -> ::windows::core::HRESULT {
@@ -972,6 +992,7 @@ pub trait IVssExpressWriter_Impl: Sized {
     fn Register(&self) -> ::windows::core::Result<()>;
     fn Unregister(&self, writerid: &::windows::core::GUID) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IVssExpressWriter {}
 impl IVssExpressWriter_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVssExpressWriter_Impl, const OFFSET: isize>() -> IVssExpressWriter_Vtbl {
         unsafe extern "system" fn CreateMetadata<Identity: ::windows::core::IUnknownImpl, Impl: IVssExpressWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, writerid: ::windows::core::GUID, writername: ::windows::core::PCWSTR, usagetype: VSS_USAGE_TYPE, versionmajor: u32, versionminor: u32, reserved: u32, ppmetadata: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -1023,6 +1044,8 @@ pub trait IVssFileShareSnapshotProvider_Impl: Sized {
     fn IsPathSnapshotted(&self, pwszsharepath: *const u16, pbsnapshotspresent: *mut super::super::Foundation::BOOL, plsnapshotcompatibility: *mut i32) -> ::windows::core::Result<()>;
     fn SetSnapshotProperty(&self, snapshotid: &::windows::core::GUID, esnapshotpropertyid: VSS_SNAPSHOT_PROPERTY_ID, vproperty: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IVssFileShareSnapshotProvider {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IVssFileShareSnapshotProvider_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVssFileShareSnapshotProvider_Impl, const OFFSET: isize>() -> IVssFileShareSnapshotProvider_Vtbl {
@@ -1110,6 +1133,8 @@ pub trait IVssHardwareSnapshotProvider_Impl: Sized {
     fn OnLunEmpty(&self, wszdevicename: *const u16, pinformation: *const super::VirtualDiskService::VDS_LUN_INFORMATION) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_VirtualDiskService"))]
+impl ::windows::core::RuntimeName for IVssHardwareSnapshotProvider {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_VirtualDiskService"))]
 impl IVssHardwareSnapshotProvider_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVssHardwareSnapshotProvider_Impl, const OFFSET: isize>() -> IVssHardwareSnapshotProvider_Vtbl {
         unsafe extern "system" fn AreLunsSupported<Identity: ::windows::core::IUnknownImpl, Impl: IVssHardwareSnapshotProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lluncount: i32, lcontext: i32, rgwszdevices: *const *const u16, pluninformation: *mut super::VirtualDiskService::VDS_LUN_INFORMATION, pbissupported: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
@@ -1163,6 +1188,8 @@ pub trait IVssHardwareSnapshotProviderEx_Impl: Sized + IVssHardwareSnapshotProvi
     fn ResyncLuns(&self, psourceluns: *const super::VirtualDiskService::VDS_LUN_INFORMATION, ptargetluns: *const super::VirtualDiskService::VDS_LUN_INFORMATION, dwcount: u32) -> ::windows::core::Result<IVssAsync>;
     fn OnReuseLuns(&self, psnapshotluns: *const super::VirtualDiskService::VDS_LUN_INFORMATION, poriginalluns: *const super::VirtualDiskService::VDS_LUN_INFORMATION, dwcount: u32) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_VirtualDiskService"))]
+impl ::windows::core::RuntimeName for IVssHardwareSnapshotProviderEx {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_VirtualDiskService"))]
 impl IVssHardwareSnapshotProviderEx_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVssHardwareSnapshotProviderEx_Impl, const OFFSET: isize>() -> IVssHardwareSnapshotProviderEx_Vtbl {
@@ -1219,6 +1246,7 @@ pub trait IVssProviderCreateSnapshotSet_Impl: Sized {
     fn PostFinalCommitSnapshots(&self, snapshotsetid: &::windows::core::GUID) -> ::windows::core::Result<()>;
     fn AbortSnapshots(&self, snapshotsetid: &::windows::core::GUID) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IVssProviderCreateSnapshotSet {}
 impl IVssProviderCreateSnapshotSet_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVssProviderCreateSnapshotSet_Impl, const OFFSET: isize>() -> IVssProviderCreateSnapshotSet_Vtbl {
         unsafe extern "system" fn EndPrepareSnapshots<Identity: ::windows::core::IUnknownImpl, Impl: IVssProviderCreateSnapshotSet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, snapshotsetid: ::windows::core::GUID) -> ::windows::core::HRESULT {
@@ -1277,6 +1305,8 @@ pub trait IVssProviderNotifications_Impl: Sized {
     fn OnUnload(&self, bforceunload: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IVssProviderNotifications {}
+#[cfg(feature = "Win32_Foundation")]
 impl IVssProviderNotifications_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVssProviderNotifications_Impl, const OFFSET: isize>() -> IVssProviderNotifications_Vtbl {
         unsafe extern "system" fn OnLoad<Identity: ::windows::core::IUnknownImpl, Impl: IVssProviderNotifications_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcallback: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -1304,6 +1334,7 @@ pub trait IVssSnapshotMgmt_Impl: Sized {
     fn QueryVolumesSupportedForSnapshots(&self, providerid: &::windows::core::GUID, lcontext: i32) -> ::windows::core::Result<IVssEnumMgmtObject>;
     fn QuerySnapshotsByVolume(&self, pwszvolumename: *const u16, providerid: &::windows::core::GUID) -> ::windows::core::Result<IVssEnumObject>;
 }
+impl ::windows::core::RuntimeName for IVssSnapshotMgmt {}
 impl IVssSnapshotMgmt_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVssSnapshotMgmt_Impl, const OFFSET: isize>() -> IVssSnapshotMgmt_Vtbl {
         unsafe extern "system" fn GetProviderMgmtInterface<Identity: ::windows::core::IUnknownImpl, Impl: IVssSnapshotMgmt_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, providerid: ::windows::core::GUID, interfaceid: *const ::windows::core::GUID, ppitf: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -1353,6 +1384,7 @@ impl IVssSnapshotMgmt_Vtbl {
 pub trait IVssSnapshotMgmt2_Impl: Sized {
     fn GetMinDiffAreaSize(&self) -> ::windows::core::Result<i64>;
 }
+impl ::windows::core::RuntimeName for IVssSnapshotMgmt2 {}
 impl IVssSnapshotMgmt2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVssSnapshotMgmt2_Impl, const OFFSET: isize>() -> IVssSnapshotMgmt2_Vtbl {
         unsafe extern "system" fn GetMinDiffAreaSize<Identity: ::windows::core::IUnknownImpl, Impl: IVssSnapshotMgmt2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pllmindiffareasize: *mut i64) -> ::windows::core::HRESULT {
@@ -1385,6 +1417,8 @@ pub trait IVssSoftwareSnapshotProvider_Impl: Sized {
     fn RevertToSnapshot(&self, snapshotid: &::windows::core::GUID) -> ::windows::core::Result<()>;
     fn QueryRevertStatus(&self, pwszvolume: *const u16) -> ::windows::core::Result<IVssAsync>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IVssSoftwareSnapshotProvider {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IVssSoftwareSnapshotProvider_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVssSoftwareSnapshotProvider_Impl, const OFFSET: isize>() -> IVssSoftwareSnapshotProvider_Vtbl {
@@ -1487,6 +1521,8 @@ pub trait IVssWMDependency_Impl: Sized {
     fn GetComponentName(&self, pbstrcomponentname: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IVssWMDependency {}
+#[cfg(feature = "Win32_Foundation")]
 impl IVssWMDependency_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVssWMDependency_Impl, const OFFSET: isize>() -> IVssWMDependency_Vtbl {
         unsafe extern "system" fn GetWriterId<Identity: ::windows::core::IUnknownImpl, Impl: IVssWMDependency_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwriterid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
@@ -1523,6 +1559,8 @@ pub trait IVssWMFiledesc_Impl: Sized {
     fn GetAlternateLocation(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn GetBackupTypeMask(&self) -> ::windows::core::Result<u32>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IVssWMFiledesc {}
 #[cfg(feature = "Win32_Foundation")]
 impl IVssWMFiledesc_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVssWMFiledesc_Impl, const OFFSET: isize>() -> IVssWMFiledesc_Vtbl {
@@ -1599,6 +1637,7 @@ pub trait IVssWriterComponents_Impl: Sized {
     fn GetWriterInfo(&self, pidinstance: *mut ::windows::core::GUID, pidwriter: *mut ::windows::core::GUID) -> ::windows::core::Result<()>;
     fn GetComponent(&self, icomponent: u32) -> ::windows::core::Result<IVssComponent>;
 }
+impl ::windows::core::RuntimeName for IVssWriterComponents {}
 impl IVssWriterComponents_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVssWriterComponents_Impl, const OFFSET: isize>() -> IVssWriterComponents_Vtbl {
         unsafe extern "system" fn GetComponentCount<Identity: ::windows::core::IUnknownImpl, Impl: IVssWriterComponents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pccomponents: *mut u32) -> ::windows::core::HRESULT {
@@ -1656,6 +1695,7 @@ pub trait IVssWriterImpl_Impl: Sized {
     fn GetSessionId(&self) -> ::windows::core::Result<::windows::core::GUID>;
     fn IsWriterShuttingDown(&self) -> bool;
 }
+impl ::windows::core::RuntimeName for IVssWriterImpl {}
 impl IVssWriterImpl_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVssWriterImpl_Impl, const OFFSET: isize>() -> IVssWriterImpl_Vtbl {
         unsafe extern "system" fn Initialize<Identity: ::windows::core::IUnknownImpl, Impl: IVssWriterImpl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, writerid: ::windows::core::GUID, wszwritername: ::windows::core::PCWSTR, wszwriterinstancename: ::windows::core::PCWSTR, dwmajorversion: u32, dwminorversion: u32, ut: VSS_USAGE_TYPE, st: VSS_SOURCE_TYPE, nlevel: VSS_APPLICATION_LEVEL, dwtimeout: u32, aws: VSS_ALTERNATE_WRITER_STATE, biothrottlingonly: u8) -> ::windows::core::HRESULT {

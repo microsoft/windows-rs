@@ -6,6 +6,8 @@ pub trait IReferenceClock_Impl: Sized {
     fn Unadvise(&self, dwadvisecookie: usize) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IReferenceClock {}
+#[cfg(feature = "Win32_Foundation")]
 impl IReferenceClock_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IReferenceClock_Impl, const OFFSET: isize>() -> IReferenceClock_Vtbl {
         unsafe extern "system" fn GetTime<Identity: ::windows::core::IUnknownImpl, Impl: IReferenceClock_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptime: *mut i64) -> ::windows::core::HRESULT {
@@ -61,6 +63,8 @@ impl IReferenceClock_Vtbl {
 #[cfg(feature = "Win32_Foundation")]
 pub trait IReferenceClock2_Impl: Sized + IReferenceClock_Impl {}
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IReferenceClock2 {}
+#[cfg(feature = "Win32_Foundation")]
 impl IReferenceClock2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IReferenceClock2_Impl, const OFFSET: isize>() -> IReferenceClock2_Vtbl {
         Self { base__: IReferenceClock_Vtbl::new::<Identity, Impl, OFFSET>() }
@@ -73,6 +77,7 @@ pub trait IReferenceClockTimerControl_Impl: Sized {
     fn SetDefaultTimerResolution(&self, timerresolution: i64) -> ::windows::core::Result<()>;
     fn GetDefaultTimerResolution(&self) -> ::windows::core::Result<i64>;
 }
+impl ::windows::core::RuntimeName for IReferenceClockTimerControl {}
 impl IReferenceClockTimerControl_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IReferenceClockTimerControl_Impl, const OFFSET: isize>() -> IReferenceClockTimerControl_Vtbl {
         unsafe extern "system" fn SetDefaultTimerResolution<Identity: ::windows::core::IUnknownImpl, Impl: IReferenceClockTimerControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, timerresolution: i64) -> ::windows::core::HRESULT {

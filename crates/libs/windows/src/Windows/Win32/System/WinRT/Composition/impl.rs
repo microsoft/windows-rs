@@ -3,9 +3,7 @@ pub trait ICompositionCapabilitiesInteropFactory_Impl: Sized {
     fn GetForWindow(&self, hwnd: super::super::super::Foundation::HWND) -> ::windows::core::Result<super::super::super::super::UI::Composition::CompositionCapabilities>;
 }
 #[cfg(all(feature = "UI_Composition", feature = "Win32_Foundation"))]
-impl ::windows::core::RuntimeName for ICompositionCapabilitiesInteropFactory {
-    const NAME: &'static str = "";
-}
+impl ::windows::core::RuntimeName for ICompositionCapabilitiesInteropFactory {}
 #[cfg(all(feature = "UI_Composition", feature = "Win32_Foundation"))]
 impl ICompositionCapabilitiesInteropFactory_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionCapabilitiesInteropFactory_Impl, const OFFSET: isize>() -> ICompositionCapabilitiesInteropFactory_Vtbl {
@@ -38,6 +36,8 @@ pub trait ICompositionDrawingSurfaceInterop_Impl: Sized {
     fn ResumeDraw(&self) -> ::windows::core::Result<()>;
     fn SuspendDraw(&self) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for ICompositionDrawingSurfaceInterop {}
 #[cfg(feature = "Win32_Foundation")]
 impl ICompositionDrawingSurfaceInterop_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionDrawingSurfaceInterop_Impl, const OFFSET: isize>() -> ICompositionDrawingSurfaceInterop_Vtbl {
@@ -90,6 +90,8 @@ pub trait ICompositionDrawingSurfaceInterop2_Impl: Sized + ICompositionDrawingSu
     fn CopySurface(&self, destinationresource: &::core::option::Option<::windows::core::IUnknown>, destinationoffsetx: i32, destinationoffsety: i32, sourcerectangle: *const super::super::super::Foundation::RECT) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for ICompositionDrawingSurfaceInterop2 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ICompositionDrawingSurfaceInterop2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionDrawingSurfaceInterop2_Impl, const OFFSET: isize>() -> ICompositionDrawingSurfaceInterop2_Vtbl {
         unsafe extern "system" fn CopySurface<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionDrawingSurfaceInterop2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, destinationresource: *mut ::core::ffi::c_void, destinationoffsetx: i32, destinationoffsety: i32, sourcerectangle: *const super::super::super::Foundation::RECT) -> ::windows::core::HRESULT {
@@ -107,6 +109,7 @@ pub trait ICompositionGraphicsDeviceInterop_Impl: Sized {
     fn GetRenderingDevice(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
     fn SetRenderingDevice(&self, value: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for ICompositionGraphicsDeviceInterop {}
 impl ICompositionGraphicsDeviceInterop_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionGraphicsDeviceInterop_Impl, const OFFSET: isize>() -> ICompositionGraphicsDeviceInterop_Vtbl {
         unsafe extern "system" fn GetRenderingDevice<Identity: ::windows::core::IUnknownImpl, Impl: ICompositionGraphicsDeviceInterop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -140,6 +143,8 @@ pub trait ICompositorDesktopInterop_Impl: Sized {
     fn CreateDesktopWindowTarget(&self, hwndtarget: super::super::super::Foundation::HWND, istopmost: super::super::super::Foundation::BOOL) -> ::windows::core::Result<super::super::super::super::UI::Composition::Desktop::DesktopWindowTarget>;
     fn EnsureOnThread(&self, threadid: u32) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "UI_Composition_Desktop", feature = "Win32_Foundation"))]
+impl ::windows::core::RuntimeName for ICompositorDesktopInterop {}
 #[cfg(all(feature = "UI_Composition_Desktop", feature = "Win32_Foundation"))]
 impl ICompositorDesktopInterop_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositorDesktopInterop_Impl, const OFFSET: isize>() -> ICompositorDesktopInterop_Vtbl {
@@ -175,6 +180,8 @@ pub trait ICompositorInterop_Impl: Sized {
     fn CreateCompositionSurfaceForSwapChain(&self, swapchain: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<super::super::super::super::UI::Composition::ICompositionSurface>;
     fn CreateGraphicsDevice(&self, renderingdevice: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<super::super::super::super::UI::Composition::CompositionGraphicsDevice>;
 }
+#[cfg(all(feature = "UI_Composition", feature = "Win32_Foundation"))]
+impl ::windows::core::RuntimeName for ICompositorInterop {}
 #[cfg(all(feature = "UI_Composition", feature = "Win32_Foundation"))]
 impl ICompositorInterop_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICompositorInterop_Impl, const OFFSET: isize>() -> ICompositorInterop_Vtbl {
@@ -227,6 +234,8 @@ pub trait IDesktopWindowTargetInterop_Impl: Sized {
     fn Hwnd(&self) -> ::windows::core::Result<super::super::super::Foundation::HWND>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IDesktopWindowTargetInterop {}
+#[cfg(feature = "Win32_Foundation")]
 impl IDesktopWindowTargetInterop_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDesktopWindowTargetInterop_Impl, const OFFSET: isize>() -> IDesktopWindowTargetInterop_Vtbl {
         unsafe extern "system" fn Hwnd<Identity: ::windows::core::IUnknownImpl, Impl: IDesktopWindowTargetInterop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut super::super::super::Foundation::HWND) -> ::windows::core::HRESULT {
@@ -249,6 +258,7 @@ impl IDesktopWindowTargetInterop_Vtbl {
 pub trait ISwapChainInterop_Impl: Sized {
     fn SetSwapChain(&self, swapchain: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for ISwapChainInterop {}
 impl ISwapChainInterop_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISwapChainInterop_Impl, const OFFSET: isize>() -> ISwapChainInterop_Vtbl {
         unsafe extern "system" fn SetSwapChain<Identity: ::windows::core::IUnknownImpl, Impl: ISwapChainInterop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, swapchain: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -266,6 +276,8 @@ impl ISwapChainInterop_Vtbl {
 pub trait IVisualInteractionSourceInterop_Impl: Sized {
     fn TryRedirectForManipulation(&self, pointerinfo: *const super::super::super::UI::Input::Pointer::POINTER_INFO) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Input_Pointer", feature = "Win32_UI_WindowsAndMessaging"))]
+impl ::windows::core::RuntimeName for IVisualInteractionSourceInterop {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Input_Pointer", feature = "Win32_UI_WindowsAndMessaging"))]
 impl IVisualInteractionSourceInterop_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVisualInteractionSourceInterop_Impl, const OFFSET: isize>() -> IVisualInteractionSourceInterop_Vtbl {

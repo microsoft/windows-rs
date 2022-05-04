@@ -4,6 +4,8 @@ pub trait ITpmVirtualSmartCardManager_Impl: Sized {
     fn DestroyVirtualSmartCard(&self, pszinstanceid: &::windows::core::PCWSTR, pstatuscallback: &::core::option::Option<ITpmVirtualSmartCardManagerStatusCallback>) -> ::windows::core::Result<super::super::Foundation::BOOL>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for ITpmVirtualSmartCardManager {}
+#[cfg(feature = "Win32_Foundation")]
 impl ITpmVirtualSmartCardManager_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITpmVirtualSmartCardManager_Impl, const OFFSET: isize>() -> ITpmVirtualSmartCardManager_Vtbl {
         unsafe extern "system" fn CreateVirtualSmartCard<Identity: ::windows::core::IUnknownImpl, Impl: ITpmVirtualSmartCardManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszfriendlyname: ::windows::core::PCWSTR, badminalgid: u8, pbadminkey: *const u8, cbadminkey: u32, pbadminkcv: *const u8, cbadminkcv: u32, pbpuk: *const u8, cbpuk: u32, pbpin: *const u8, cbpin: u32, fgenerate: super::super::Foundation::BOOL, pstatuscallback: ::windows::core::RawPtr, ppszinstanceid: *mut ::windows::core::PWSTR, pfneedreboot: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
@@ -54,6 +56,8 @@ pub trait ITpmVirtualSmartCardManager2_Impl: Sized + ITpmVirtualSmartCardManager
     fn CreateVirtualSmartCardWithPinPolicy(&self, pszfriendlyname: &::windows::core::PCWSTR, badminalgid: u8, pbadminkey: *const u8, cbadminkey: u32, pbadminkcv: *const u8, cbadminkcv: u32, pbpuk: *const u8, cbpuk: u32, pbpin: *const u8, cbpin: u32, pbpinpolicy: *const u8, cbpinpolicy: u32, fgenerate: super::super::Foundation::BOOL, pstatuscallback: &::core::option::Option<ITpmVirtualSmartCardManagerStatusCallback>, ppszinstanceid: *mut ::windows::core::PWSTR, pfneedreboot: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for ITpmVirtualSmartCardManager2 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ITpmVirtualSmartCardManager2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITpmVirtualSmartCardManager2_Impl, const OFFSET: isize>() -> ITpmVirtualSmartCardManager2_Vtbl {
         unsafe extern "system" fn CreateVirtualSmartCardWithPinPolicy<Identity: ::windows::core::IUnknownImpl, Impl: ITpmVirtualSmartCardManager2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszfriendlyname: ::windows::core::PCWSTR, badminalgid: u8, pbadminkey: *const u8, cbadminkey: u32, pbadminkcv: *const u8, cbadminkcv: u32, pbpuk: *const u8, cbpuk: u32, pbpin: *const u8, cbpin: u32, pbpinpolicy: *const u8, cbpinpolicy: u32, fgenerate: super::super::Foundation::BOOL, pstatuscallback: ::windows::core::RawPtr, ppszinstanceid: *mut ::windows::core::PWSTR, pfneedreboot: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
@@ -93,6 +97,8 @@ impl ITpmVirtualSmartCardManager2_Vtbl {
 pub trait ITpmVirtualSmartCardManager3_Impl: Sized + ITpmVirtualSmartCardManager_Impl + ITpmVirtualSmartCardManager2_Impl {
     fn CreateVirtualSmartCardWithAttestation(&self, pszfriendlyname: &::windows::core::PCWSTR, badminalgid: u8, pbadminkey: *const u8, cbadminkey: u32, pbadminkcv: *const u8, cbadminkcv: u32, pbpuk: *const u8, cbpuk: u32, pbpin: *const u8, cbpin: u32, pbpinpolicy: *const u8, cbpinpolicy: u32, attestationtype: TPMVSC_ATTESTATION_TYPE, fgenerate: super::super::Foundation::BOOL, pstatuscallback: &::core::option::Option<ITpmVirtualSmartCardManagerStatusCallback>) -> ::windows::core::Result<::windows::core::PWSTR>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for ITpmVirtualSmartCardManager3 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ITpmVirtualSmartCardManager3_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITpmVirtualSmartCardManager3_Impl, const OFFSET: isize>() -> ITpmVirtualSmartCardManager3_Vtbl {
@@ -136,6 +142,7 @@ pub trait ITpmVirtualSmartCardManagerStatusCallback_Impl: Sized {
     fn ReportProgress(&self, status: TPMVSCMGR_STATUS) -> ::windows::core::Result<()>;
     fn ReportError(&self, error: TPMVSCMGR_ERROR) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for ITpmVirtualSmartCardManagerStatusCallback {}
 impl ITpmVirtualSmartCardManagerStatusCallback_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITpmVirtualSmartCardManagerStatusCallback_Impl, const OFFSET: isize>() -> ITpmVirtualSmartCardManagerStatusCallback_Vtbl {
         unsafe extern "system" fn ReportProgress<Identity: ::windows::core::IUnknownImpl, Impl: ITpmVirtualSmartCardManagerStatusCallback_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, status: TPMVSCMGR_STATUS) -> ::windows::core::HRESULT {

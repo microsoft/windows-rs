@@ -9,6 +9,8 @@ pub trait ISensLogon_Impl: Sized + super::Com::IDispatch_Impl {
     fn StopScreenSaver(&self, bstrusername: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ISensLogon {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ISensLogon_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISensLogon_Impl, const OFFSET: isize>() -> ISensLogon_Vtbl {
         unsafe extern "system" fn Logon<Identity: ::windows::core::IUnknownImpl, Impl: ISensLogon_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrusername: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
@@ -70,6 +72,8 @@ pub trait ISensLogon2_Impl: Sized + super::Com::IDispatch_Impl {
     fn PostShell(&self, bstrusername: &super::super::Foundation::BSTR, dwsessionid: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ISensLogon2 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ISensLogon2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISensLogon2_Impl, const OFFSET: isize>() -> ISensLogon2_Vtbl {
         unsafe extern "system" fn Logon<Identity: ::windows::core::IUnknownImpl, Impl: ISensLogon2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrusername: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, dwsessionid: u32) -> ::windows::core::HRESULT {
@@ -119,6 +123,8 @@ pub trait ISensNetwork_Impl: Sized + super::Com::IDispatch_Impl {
     fn DestinationReachableNoQOCInfo(&self, bstrdestination: &super::super::Foundation::BSTR, bstrconnection: &super::super::Foundation::BSTR, ultype: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ISensNetwork {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ISensNetwork_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISensNetwork_Impl, const OFFSET: isize>() -> ISensNetwork_Vtbl {
         unsafe extern "system" fn ConnectionMade<Identity: ::windows::core::IUnknownImpl, Impl: ISensNetwork_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrconnection: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ultype: u32, lpqocinfo: *const SENS_QOCINFO) -> ::windows::core::HRESULT {
@@ -165,6 +171,8 @@ pub trait ISensOnNow_Impl: Sized + super::Com::IDispatch_Impl {
     fn OnBatteryPower(&self, dwbatterylifepercent: u32) -> ::windows::core::Result<()>;
     fn BatteryLow(&self, dwbatterylifepercent: u32) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ISensOnNow {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ISensOnNow_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISensOnNow_Impl, const OFFSET: isize>() -> ISensOnNow_Vtbl {

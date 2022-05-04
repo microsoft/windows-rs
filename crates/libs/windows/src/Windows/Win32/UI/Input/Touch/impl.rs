@@ -51,6 +51,8 @@ pub trait IInertiaProcessor_Impl: Sized {
     fn CompleteTime(&self, timestamp: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IInertiaProcessor {}
+#[cfg(feature = "Win32_Foundation")]
 impl IInertiaProcessor_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInertiaProcessor_Impl, const OFFSET: isize>() -> IInertiaProcessor_Vtbl {
         unsafe extern "system" fn InitialOriginX<Identity: ::windows::core::IUnknownImpl, Impl: IInertiaProcessor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, x: *mut f32) -> ::windows::core::HRESULT {
@@ -522,6 +524,7 @@ pub trait IManipulationProcessor_Impl: Sized {
     fn MinimumScaleRotateRadius(&self) -> ::windows::core::Result<f32>;
     fn SetMinimumScaleRotateRadius(&self, minradius: f32) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IManipulationProcessor {}
 impl IManipulationProcessor_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IManipulationProcessor_Impl, const OFFSET: isize>() -> IManipulationProcessor_Vtbl {
         unsafe extern "system" fn SupportedManipulations<Identity: ::windows::core::IUnknownImpl, Impl: IManipulationProcessor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, manipulations: *mut MANIPULATION_PROCESSOR_MANIPULATIONS) -> ::windows::core::HRESULT {
@@ -717,6 +720,7 @@ pub trait _IManipulationEvents_Impl: Sized {
     fn ManipulationDelta(&self, x: f32, y: f32, translationdeltax: f32, translationdeltay: f32, scaledelta: f32, expansiondelta: f32, rotationdelta: f32, cumulativetranslationx: f32, cumulativetranslationy: f32, cumulativescale: f32, cumulativeexpansion: f32, cumulativerotation: f32) -> ::windows::core::Result<()>;
     fn ManipulationCompleted(&self, x: f32, y: f32, cumulativetranslationx: f32, cumulativetranslationy: f32, cumulativescale: f32, cumulativeexpansion: f32, cumulativerotation: f32) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for _IManipulationEvents {}
 impl _IManipulationEvents_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: _IManipulationEvents_Impl, const OFFSET: isize>() -> _IManipulationEvents_Vtbl {
         unsafe extern "system" fn ManipulationStarted<Identity: ::windows::core::IUnknownImpl, Impl: _IManipulationEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, x: f32, y: f32) -> ::windows::core::HRESULT {

@@ -4,6 +4,7 @@ pub trait IEnumVdsObject_Impl: Sized {
     fn Reset(&self) -> ::windows::core::Result<()>;
     fn Clone(&self) -> ::windows::core::Result<IEnumVdsObject>;
 }
+impl ::windows::core::RuntimeName for IEnumVdsObject {}
 impl IEnumVdsObject_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEnumVdsObject_Impl, const OFFSET: isize>() -> IEnumVdsObject_Vtbl {
         unsafe extern "system" fn Next<Identity: ::windows::core::IUnknownImpl, Impl: IEnumVdsObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, celt: u32, ppobjectarray: *mut *mut ::core::ffi::c_void, pcfetched: *mut u32) -> ::windows::core::HRESULT {
@@ -48,6 +49,7 @@ pub trait IVdsAdmin_Impl: Sized {
     fn RegisterProvider(&self, providerid: &::windows::core::GUID, providerclsid: &::windows::core::GUID, pwszname: &::windows::core::PCWSTR, r#type: VDS_PROVIDER_TYPE, pwszmachinename: &::windows::core::PCWSTR, pwszversion: &::windows::core::PCWSTR, guidversionid: &::windows::core::GUID) -> ::windows::core::Result<()>;
     fn UnregisterProvider(&self, providerid: &::windows::core::GUID) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IVdsAdmin {}
 impl IVdsAdmin_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVdsAdmin_Impl, const OFFSET: isize>() -> IVdsAdmin_Vtbl {
         unsafe extern "system" fn RegisterProvider<Identity: ::windows::core::IUnknownImpl, Impl: IVdsAdmin_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, providerid: ::windows::core::GUID, providerclsid: ::windows::core::GUID, pwszname: ::windows::core::PCWSTR, r#type: VDS_PROVIDER_TYPE, pwszmachinename: ::windows::core::PCWSTR, pwszversion: ::windows::core::PCWSTR, guidversionid: ::windows::core::GUID) -> ::windows::core::HRESULT {
@@ -73,6 +75,7 @@ impl IVdsAdmin_Vtbl {
 pub trait IVdsAdviseSink_Impl: Sized {
     fn OnNotify(&self, lnumberofnotifications: i32, pnotificationarray: *const VDS_NOTIFICATION) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IVdsAdviseSink {}
 impl IVdsAdviseSink_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVdsAdviseSink_Impl, const OFFSET: isize>() -> IVdsAdviseSink_Vtbl {
         unsafe extern "system" fn OnNotify<Identity: ::windows::core::IUnknownImpl, Impl: IVdsAdviseSink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lnumberofnotifications: i32, pnotificationarray: *const VDS_NOTIFICATION) -> ::windows::core::HRESULT {
@@ -91,6 +94,7 @@ pub trait IVdsAsync_Impl: Sized {
     fn Wait(&self, phrresult: *mut ::windows::core::HRESULT, pasyncout: *mut VDS_ASYNC_OUTPUT) -> ::windows::core::Result<()>;
     fn QueryStatus(&self, phrresult: *mut ::windows::core::HRESULT, pulpercentcompleted: *mut u32) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IVdsAsync {}
 impl IVdsAsync_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVdsAsync_Impl, const OFFSET: isize>() -> IVdsAsync_Vtbl {
         unsafe extern "system" fn Cancel<Identity: ::windows::core::IUnknownImpl, Impl: IVdsAsync_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -129,6 +133,7 @@ pub trait IVdsController_Impl: Sized {
     fn QueryAssociatedLuns(&self) -> ::windows::core::Result<IEnumVdsObject>;
     fn SetStatus(&self, status: VDS_CONTROLLER_STATUS) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IVdsController {}
 impl IVdsController_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVdsController_Impl, const OFFSET: isize>() -> IVdsController_Vtbl {
         unsafe extern "system" fn GetProperties<Identity: ::windows::core::IUnknownImpl, Impl: IVdsController_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcontrollerprop: *mut VDS_CONTROLLER_PROP) -> ::windows::core::HRESULT {
@@ -214,6 +219,7 @@ impl IVdsController_Vtbl {
 pub trait IVdsControllerControllerPort_Impl: Sized {
     fn QueryControllerPorts(&self) -> ::windows::core::Result<IEnumVdsObject>;
 }
+impl ::windows::core::RuntimeName for IVdsControllerControllerPort {}
 impl IVdsControllerControllerPort_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVdsControllerControllerPort_Impl, const OFFSET: isize>() -> IVdsControllerControllerPort_Vtbl {
         unsafe extern "system" fn QueryControllerPorts<Identity: ::windows::core::IUnknownImpl, Impl: IVdsControllerControllerPort_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -240,6 +246,7 @@ pub trait IVdsControllerPort_Impl: Sized {
     fn Reset(&self) -> ::windows::core::Result<()>;
     fn SetStatus(&self, status: VDS_PORT_STATUS) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IVdsControllerPort {}
 impl IVdsControllerPort_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVdsControllerPort_Impl, const OFFSET: isize>() -> IVdsControllerPort_Vtbl {
         unsafe extern "system" fn GetProperties<Identity: ::windows::core::IUnknownImpl, Impl: IVdsControllerPort_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pportprop: *mut VDS_PORT_PROP) -> ::windows::core::HRESULT {
@@ -308,6 +315,8 @@ pub trait IVdsDrive_Impl: Sized {
     fn SetStatus(&self, status: VDS_DRIVE_STATUS) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IVdsDrive {}
+#[cfg(feature = "Win32_Foundation")]
 impl IVdsDrive_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVdsDrive_Impl, const OFFSET: isize>() -> IVdsDrive_Vtbl {
         unsafe extern "system" fn GetProperties<Identity: ::windows::core::IUnknownImpl, Impl: IVdsDrive_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdriveprop: *mut VDS_DRIVE_PROP) -> ::windows::core::HRESULT {
@@ -369,6 +378,7 @@ impl IVdsDrive_Vtbl {
 pub trait IVdsDrive2_Impl: Sized {
     fn GetProperties2(&self) -> ::windows::core::Result<VDS_DRIVE_PROP2>;
 }
+impl ::windows::core::RuntimeName for IVdsDrive2 {}
 impl IVdsDrive2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVdsDrive2_Impl, const OFFSET: isize>() -> IVdsDrive2_Vtbl {
         unsafe extern "system" fn GetProperties2<Identity: ::windows::core::IUnknownImpl, Impl: IVdsDrive2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdriveprop2: *mut VDS_DRIVE_PROP2) -> ::windows::core::HRESULT {
@@ -393,6 +403,7 @@ pub trait IVdsHwProvider_Impl: Sized {
     fn Reenumerate(&self) -> ::windows::core::Result<()>;
     fn Refresh(&self) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IVdsHwProvider {}
 impl IVdsHwProvider_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVdsHwProvider_Impl, const OFFSET: isize>() -> IVdsHwProvider_Vtbl {
         unsafe extern "system" fn QuerySubSystems<Identity: ::windows::core::IUnknownImpl, Impl: IVdsHwProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -432,6 +443,8 @@ pub trait IVdsHwProviderPrivate_Impl: Sized {
     fn QueryIfCreatedLun(&self, pwszdevicepath: &::windows::core::PCWSTR, pvdsluninformation: *const VDS_LUN_INFORMATION) -> ::windows::core::Result<::windows::core::GUID>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IVdsHwProviderPrivate {}
+#[cfg(feature = "Win32_Foundation")]
 impl IVdsHwProviderPrivate_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVdsHwProviderPrivate_Impl, const OFFSET: isize>() -> IVdsHwProviderPrivate_Vtbl {
         unsafe extern "system" fn QueryIfCreatedLun<Identity: ::windows::core::IUnknownImpl, Impl: IVdsHwProviderPrivate_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszdevicepath: ::windows::core::PCWSTR, pvdsluninformation: *const VDS_LUN_INFORMATION, plunid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
@@ -454,6 +467,7 @@ impl IVdsHwProviderPrivate_Vtbl {
 pub trait IVdsHwProviderPrivateMpio_Impl: Sized {
     fn SetAllPathStatusesFromHbaPort(&self, hbaportprop: &VDS_HBAPORT_PROP, status: VDS_PATH_STATUS) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IVdsHwProviderPrivateMpio {}
 impl IVdsHwProviderPrivateMpio_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVdsHwProviderPrivateMpio_Impl, const OFFSET: isize>() -> IVdsHwProviderPrivateMpio_Vtbl {
         unsafe extern "system" fn SetAllPathStatusesFromHbaPort<Identity: ::windows::core::IUnknownImpl, Impl: IVdsHwProviderPrivateMpio_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hbaportprop: VDS_HBAPORT_PROP, status: VDS_PATH_STATUS) -> ::windows::core::HRESULT {
@@ -476,6 +490,8 @@ pub trait IVdsHwProviderStoragePools_Impl: Sized {
     fn CreateLunInStoragePool(&self, r#type: VDS_LUN_TYPE, ullsizeinbytes: u64, storagepoolid: &::windows::core::GUID, pwszunmaskinglist: &::windows::core::PCWSTR, phints2: *const VDS_HINTS2) -> ::windows::core::Result<IVdsAsync>;
     fn QueryMaxLunCreateSizeInStoragePool(&self, r#type: VDS_LUN_TYPE, storagepoolid: &::windows::core::GUID, phints2: *const VDS_HINTS2) -> ::windows::core::Result<u64>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IVdsHwProviderStoragePools {}
 #[cfg(feature = "Win32_Foundation")]
 impl IVdsHwProviderStoragePools_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVdsHwProviderStoragePools_Impl, const OFFSET: isize>() -> IVdsHwProviderStoragePools_Vtbl {
@@ -526,6 +542,7 @@ impl IVdsHwProviderStoragePools_Vtbl {
 pub trait IVdsHwProviderType_Impl: Sized {
     fn GetProviderType(&self) -> ::windows::core::Result<VDS_HWPROVIDER_TYPE>;
 }
+impl ::windows::core::RuntimeName for IVdsHwProviderType {}
 impl IVdsHwProviderType_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVdsHwProviderType_Impl, const OFFSET: isize>() -> IVdsHwProviderType_Vtbl {
         unsafe extern "system" fn GetProviderType<Identity: ::windows::core::IUnknownImpl, Impl: IVdsHwProviderType_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptype: *mut VDS_HWPROVIDER_TYPE) -> ::windows::core::HRESULT {
@@ -548,6 +565,7 @@ impl IVdsHwProviderType_Vtbl {
 pub trait IVdsHwProviderType2_Impl: Sized {
     fn GetProviderType2(&self) -> ::windows::core::Result<VDS_HWPROVIDER_TYPE>;
 }
+impl ::windows::core::RuntimeName for IVdsHwProviderType2 {}
 impl IVdsHwProviderType2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVdsHwProviderType2_Impl, const OFFSET: isize>() -> IVdsHwProviderType2_Vtbl {
         unsafe extern "system" fn GetProviderType2<Identity: ::windows::core::IUnknownImpl, Impl: IVdsHwProviderType2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptype: *mut VDS_HWPROVIDER_TYPE) -> ::windows::core::HRESULT {
@@ -576,6 +594,7 @@ pub trait IVdsIscsiPortal_Impl: Sized {
     fn GetIpsecSecurity(&self, pinitiatorportaladdress: *const VDS_IPADDRESS) -> ::windows::core::Result<u64>;
     fn SetIpsecSecurity(&self, pinitiatorportaladdress: *const VDS_IPADDRESS, ullsecurityflags: u64, pipseckey: *const VDS_ISCSI_IPSEC_KEY) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IVdsIscsiPortal {}
 impl IVdsIscsiPortal_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVdsIscsiPortal_Impl, const OFFSET: isize>() -> IVdsIscsiPortal_Vtbl {
         unsafe extern "system" fn GetProperties<Identity: ::windows::core::IUnknownImpl, Impl: IVdsIscsiPortal_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pportalprop: *mut VDS_ISCSI_PORTAL_PROP) -> ::windows::core::HRESULT {
@@ -660,6 +679,7 @@ pub trait IVdsIscsiPortalGroup_Impl: Sized {
     fn RemovePortal(&self, portalid: &::windows::core::GUID) -> ::windows::core::Result<IVdsAsync>;
     fn Delete(&self) -> ::windows::core::Result<IVdsAsync>;
 }
+impl ::windows::core::RuntimeName for IVdsIscsiPortalGroup {}
 impl IVdsIscsiPortalGroup_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVdsIscsiPortalGroup_Impl, const OFFSET: isize>() -> IVdsIscsiPortalGroup_Vtbl {
         unsafe extern "system" fn GetProperties<Identity: ::windows::core::IUnknownImpl, Impl: IVdsIscsiPortalGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pportalgroupprop: *mut VDS_ISCSI_PORTALGROUP_PROP) -> ::windows::core::HRESULT {
@@ -755,6 +775,8 @@ pub trait IVdsIscsiTarget_Impl: Sized {
     fn RememberInitiatorSharedSecret(&self, pwszinitiatorname: &::windows::core::PCWSTR, pinitiatorsharedsecret: *const VDS_ISCSI_SHARED_SECRET) -> ::windows::core::Result<()>;
     fn GetConnectedInitiators(&self, pppwszinitiatorlist: *mut *mut ::windows::core::PWSTR, plnumberofinitiators: *mut i32) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IVdsIscsiTarget {}
 #[cfg(feature = "Win32_Foundation")]
 impl IVdsIscsiTarget_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVdsIscsiTarget_Impl, const OFFSET: isize>() -> IVdsIscsiTarget_Vtbl {
@@ -882,6 +904,8 @@ pub trait IVdsLun_Impl: Sized {
     fn SetStatus(&self, status: VDS_LUN_STATUS) -> ::windows::core::Result<()>;
     fn QueryMaxLunExtendSize(&self, pdriveidarray: *const ::windows::core::GUID, lnumberofdrives: i32) -> ::windows::core::Result<u64>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IVdsLun {}
 #[cfg(feature = "Win32_Foundation")]
 impl IVdsLun_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVdsLun_Impl, const OFFSET: isize>() -> IVdsLun_Vtbl {
@@ -1073,6 +1097,8 @@ pub trait IVdsLun2_Impl: Sized {
     fn ApplyHints2(&self, phints2: *const VDS_HINTS2) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IVdsLun2 {}
+#[cfg(feature = "Win32_Foundation")]
 impl IVdsLun2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVdsLun2_Impl, const OFFSET: isize>() -> IVdsLun2_Vtbl {
         unsafe extern "system" fn QueryHints2<Identity: ::windows::core::IUnknownImpl, Impl: IVdsLun2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, phints2: *mut VDS_HINTS2) -> ::windows::core::HRESULT {
@@ -1105,6 +1131,7 @@ pub trait IVdsLunControllerPorts_Impl: Sized {
     fn AssociateControllerPorts(&self, pactivecontrollerportidarray: *const ::windows::core::GUID, lnumberofactivecontrollerports: i32, pinactivecontrollerportidarray: *const ::windows::core::GUID, lnumberofinactivecontrollerports: i32) -> ::windows::core::Result<()>;
     fn QueryActiveControllerPorts(&self) -> ::windows::core::Result<IEnumVdsObject>;
 }
+impl ::windows::core::RuntimeName for IVdsLunControllerPorts {}
 impl IVdsLunControllerPorts_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVdsLunControllerPorts_Impl, const OFFSET: isize>() -> IVdsLunControllerPorts_Vtbl {
         unsafe extern "system" fn AssociateControllerPorts<Identity: ::windows::core::IUnknownImpl, Impl: IVdsLunControllerPorts_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pactivecontrollerportidarray: *const ::windows::core::GUID, lnumberofactivecontrollerports: i32, pinactivecontrollerportidarray: *const ::windows::core::GUID, lnumberofinactivecontrollerports: i32) -> ::windows::core::HRESULT {
@@ -1137,6 +1164,7 @@ pub trait IVdsLunIscsi_Impl: Sized {
     fn AssociateTargets(&self, ptargetidarray: *const ::windows::core::GUID, lnumberoftargets: i32) -> ::windows::core::Result<()>;
     fn QueryAssociatedTargets(&self) -> ::windows::core::Result<IEnumVdsObject>;
 }
+impl ::windows::core::RuntimeName for IVdsLunIscsi {}
 impl IVdsLunIscsi_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVdsLunIscsi_Impl, const OFFSET: isize>() -> IVdsLunIscsi_Vtbl {
         unsafe extern "system" fn AssociateTargets<Identity: ::windows::core::IUnknownImpl, Impl: IVdsLunIscsi_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptargetidarray: *const ::windows::core::GUID, lnumberoftargets: i32) -> ::windows::core::HRESULT {
@@ -1172,6 +1200,8 @@ pub trait IVdsLunMpio_Impl: Sized {
     fn SetLoadBalancePolicy(&self, policy: VDS_LOADBALANCE_POLICY_ENUM, ppaths: *const VDS_PATH_POLICY, lnumberofpaths: i32) -> ::windows::core::Result<()>;
     fn GetSupportedLbPolicies(&self) -> ::windows::core::Result<u32>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IVdsLunMpio {}
 #[cfg(feature = "Win32_Foundation")]
 impl IVdsLunMpio_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVdsLunMpio_Impl, const OFFSET: isize>() -> IVdsLunMpio_Vtbl {
@@ -1216,6 +1246,7 @@ impl IVdsLunMpio_Vtbl {
 pub trait IVdsLunNaming_Impl: Sized {
     fn SetFriendlyName(&self, pwszfriendlyname: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IVdsLunNaming {}
 impl IVdsLunNaming_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVdsLunNaming_Impl, const OFFSET: isize>() -> IVdsLunNaming_Vtbl {
         unsafe extern "system" fn SetFriendlyName<Identity: ::windows::core::IUnknownImpl, Impl: IVdsLunNaming_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszfriendlyname: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
@@ -1232,6 +1263,7 @@ impl IVdsLunNaming_Vtbl {
 pub trait IVdsLunNumber_Impl: Sized {
     fn GetLunNumber(&self) -> ::windows::core::Result<u32>;
 }
+impl ::windows::core::RuntimeName for IVdsLunNumber {}
 impl IVdsLunNumber_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVdsLunNumber_Impl, const OFFSET: isize>() -> IVdsLunNumber_Vtbl {
         unsafe extern "system" fn GetLunNumber<Identity: ::windows::core::IUnknownImpl, Impl: IVdsLunNumber_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pullunnumber: *mut u32) -> ::windows::core::HRESULT {
@@ -1259,6 +1291,8 @@ pub trait IVdsLunPlex_Impl: Sized {
     fn QueryHints(&self) -> ::windows::core::Result<VDS_HINTS>;
     fn ApplyHints(&self, phints: *const VDS_HINTS) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IVdsLunPlex {}
 #[cfg(feature = "Win32_Foundation")]
 impl IVdsLunPlex_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVdsLunPlex_Impl, const OFFSET: isize>() -> IVdsLunPlex_Vtbl {
@@ -1323,6 +1357,7 @@ pub trait IVdsMaintenance_Impl: Sized {
     fn StopMaintenance(&self, operation: VDS_MAINTENANCE_OPERATION) -> ::windows::core::Result<()>;
     fn PulseMaintenance(&self, operation: VDS_MAINTENANCE_OPERATION, ulcount: u32) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IVdsMaintenance {}
 impl IVdsMaintenance_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVdsMaintenance_Impl, const OFFSET: isize>() -> IVdsMaintenance_Vtbl {
         unsafe extern "system" fn StartMaintenance<Identity: ::windows::core::IUnknownImpl, Impl: IVdsMaintenance_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, operation: VDS_MAINTENANCE_OPERATION) -> ::windows::core::HRESULT {
@@ -1354,6 +1389,7 @@ impl IVdsMaintenance_Vtbl {
 pub trait IVdsProvider_Impl: Sized {
     fn GetProperties(&self) -> ::windows::core::Result<VDS_PROVIDER_PROP>;
 }
+impl ::windows::core::RuntimeName for IVdsProvider {}
 impl IVdsProvider_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVdsProvider_Impl, const OFFSET: isize>() -> IVdsProvider_Vtbl {
         unsafe extern "system" fn GetProperties<Identity: ::windows::core::IUnknownImpl, Impl: IVdsProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pproviderprop: *mut VDS_PROVIDER_PROP) -> ::windows::core::HRESULT {
@@ -1379,6 +1415,8 @@ pub trait IVdsProviderPrivate_Impl: Sized {
     fn OnLoad(&self, pwszmachinename: &::windows::core::PCWSTR, pcallbackobject: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
     fn OnUnload(&self, bforceunload: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IVdsProviderPrivate {}
 #[cfg(feature = "Win32_Foundation")]
 impl IVdsProviderPrivate_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVdsProviderPrivate_Impl, const OFFSET: isize>() -> IVdsProviderPrivate_Vtbl {
@@ -1417,6 +1455,7 @@ impl IVdsProviderPrivate_Vtbl {
 pub trait IVdsProviderSupport_Impl: Sized {
     fn GetVersionSupport(&self) -> ::windows::core::Result<u32>;
 }
+impl ::windows::core::RuntimeName for IVdsProviderSupport {}
 impl IVdsProviderSupport_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVdsProviderSupport_Impl, const OFFSET: isize>() -> IVdsProviderSupport_Vtbl {
         unsafe extern "system" fn GetVersionSupport<Identity: ::windows::core::IUnknownImpl, Impl: IVdsProviderSupport_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ulversionsupport: *mut u32) -> ::windows::core::HRESULT {
@@ -1445,6 +1484,8 @@ pub trait IVdsStoragePool_Impl: Sized {
     fn QueryAllocatedLuns(&self) -> ::windows::core::Result<IEnumVdsObject>;
     fn QueryAllocatedStoragePools(&self) -> ::windows::core::Result<IEnumVdsObject>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IVdsStoragePool {}
 #[cfg(feature = "Win32_Foundation")]
 impl IVdsStoragePool_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVdsStoragePool_Impl, const OFFSET: isize>() -> IVdsStoragePool_Vtbl {
@@ -1537,6 +1578,8 @@ pub trait IVdsSubSystem_Impl: Sized {
     fn SetStatus(&self, status: VDS_SUB_SYSTEM_STATUS) -> ::windows::core::Result<()>;
     fn QueryMaxLunCreateSize(&self, r#type: VDS_LUN_TYPE, pdriveidarray: *const ::windows::core::GUID, lnumberofdrives: i32, phints: *const VDS_HINTS) -> ::windows::core::Result<u64>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IVdsSubSystem {}
 #[cfg(feature = "Win32_Foundation")]
 impl IVdsSubSystem_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVdsSubSystem_Impl, const OFFSET: isize>() -> IVdsSubSystem_Vtbl {
@@ -1676,6 +1719,8 @@ pub trait IVdsSubSystem2_Impl: Sized {
     fn QueryMaxLunCreateSize2(&self, r#type: VDS_LUN_TYPE, pdriveidarray: *const ::windows::core::GUID, lnumberofdrives: i32, phints2: *const VDS_HINTS2) -> ::windows::core::Result<u64>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IVdsSubSystem2 {}
+#[cfg(feature = "Win32_Foundation")]
 impl IVdsSubSystem2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVdsSubSystem2_Impl, const OFFSET: isize>() -> IVdsSubSystem2_Vtbl {
         unsafe extern "system" fn GetProperties2<Identity: ::windows::core::IUnknownImpl, Impl: IVdsSubSystem2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psubsystemprop2: *mut VDS_SUB_SYSTEM_PROP2) -> ::windows::core::HRESULT {
@@ -1737,6 +1782,7 @@ impl IVdsSubSystem2_Vtbl {
 pub trait IVdsSubSystemInterconnect_Impl: Sized {
     fn GetSupportedInterconnects(&self) -> ::windows::core::Result<u32>;
 }
+impl ::windows::core::RuntimeName for IVdsSubSystemInterconnect {}
 impl IVdsSubSystemInterconnect_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVdsSubSystemInterconnect_Impl, const OFFSET: isize>() -> IVdsSubSystemInterconnect_Vtbl {
         unsafe extern "system" fn GetSupportedInterconnects<Identity: ::windows::core::IUnknownImpl, Impl: IVdsSubSystemInterconnect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pulsupportedinterconnectsflag: *mut u32) -> ::windows::core::HRESULT {
@@ -1762,6 +1808,7 @@ pub trait IVdsSubSystemIscsi_Impl: Sized {
     fn CreateTarget(&self, pwsziscsiname: &::windows::core::PCWSTR, pwszfriendlyname: &::windows::core::PCWSTR) -> ::windows::core::Result<IVdsAsync>;
     fn SetIpsecGroupPresharedKey(&self, pipseckey: *const VDS_ISCSI_IPSEC_KEY) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IVdsSubSystemIscsi {}
 impl IVdsSubSystemIscsi_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVdsSubSystemIscsi_Impl, const OFFSET: isize>() -> IVdsSubSystemIscsi_Vtbl {
         unsafe extern "system" fn QueryTargets<Identity: ::windows::core::IUnknownImpl, Impl: IVdsSubSystemIscsi_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -1817,6 +1864,7 @@ impl IVdsSubSystemIscsi_Vtbl {
 pub trait IVdsSubSystemNaming_Impl: Sized {
     fn SetFriendlyName(&self, pwszfriendlyname: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IVdsSubSystemNaming {}
 impl IVdsSubSystemNaming_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVdsSubSystemNaming_Impl, const OFFSET: isize>() -> IVdsSubSystemNaming_Vtbl {
         unsafe extern "system" fn SetFriendlyName<Identity: ::windows::core::IUnknownImpl, Impl: IVdsSubSystemNaming_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszfriendlyname: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {

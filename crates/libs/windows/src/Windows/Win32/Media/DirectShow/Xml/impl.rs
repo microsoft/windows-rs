@@ -5,6 +5,8 @@ pub trait IXMLGraphBuilder_Impl: Sized {
     fn BuildFromXMLFile(&self, pgraph: &::core::option::Option<super::IGraphBuilder>, wszfilename: &::windows::core::PCWSTR, wszbaseurl: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::windows::core::RuntimeName for IXMLGraphBuilder {}
+#[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IXMLGraphBuilder_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXMLGraphBuilder_Impl, const OFFSET: isize>() -> IXMLGraphBuilder_Vtbl {
         unsafe extern "system" fn BuildFromXML<Identity: ::windows::core::IUnknownImpl, Impl: IXMLGraphBuilder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pgraph: ::windows::core::RawPtr, pxml: ::windows::core::RawPtr) -> ::windows::core::HRESULT {

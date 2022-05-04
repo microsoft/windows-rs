@@ -3,6 +3,7 @@ pub trait IDirectWriterLock_Impl: Sized {
     fn ReleaseWriteAccess(&self) -> ::windows::core::Result<()>;
     fn HaveWriteAccess(&self) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IDirectWriterLock {}
 impl IDirectWriterLock_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirectWriterLock_Impl, const OFFSET: isize>() -> IDirectWriterLock_Vtbl {
         unsafe extern "system" fn WaitForWriteAccess<Identity: ::windows::core::IUnknownImpl, Impl: IDirectWriterLock_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwtimeout: u32) -> ::windows::core::HRESULT {
@@ -38,6 +39,8 @@ pub trait IEnumSTATPROPSETSTG_Impl: Sized {
     fn Reset(&self) -> ::windows::core::Result<()>;
     fn Clone(&self) -> ::windows::core::Result<IEnumSTATPROPSETSTG>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IEnumSTATPROPSETSTG {}
 #[cfg(feature = "Win32_Foundation")]
 impl IEnumSTATPROPSETSTG_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEnumSTATPROPSETSTG_Impl, const OFFSET: isize>() -> IEnumSTATPROPSETSTG_Vtbl {
@@ -85,6 +88,7 @@ pub trait IEnumSTATPROPSTG_Impl: Sized {
     fn Reset(&self) -> ::windows::core::Result<()>;
     fn Clone(&self) -> ::windows::core::Result<IEnumSTATPROPSTG>;
 }
+impl ::windows::core::RuntimeName for IEnumSTATPROPSTG {}
 impl IEnumSTATPROPSTG_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEnumSTATPROPSTG_Impl, const OFFSET: isize>() -> IEnumSTATPROPSTG_Vtbl {
         unsafe extern "system" fn Next<Identity: ::windows::core::IUnknownImpl, Impl: IEnumSTATPROPSTG_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, celt: u32, rgelt: *mut STATPROPSTG, pceltfetched: *mut u32) -> ::windows::core::HRESULT {
@@ -133,6 +137,8 @@ pub trait IEnumSTATSTG_Impl: Sized {
     fn Clone(&self) -> ::windows::core::Result<IEnumSTATSTG>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IEnumSTATSTG {}
+#[cfg(feature = "Win32_Foundation")]
 impl IEnumSTATSTG_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEnumSTATSTG_Impl, const OFFSET: isize>() -> IEnumSTATSTG_Vtbl {
         unsafe extern "system" fn Next<Identity: ::windows::core::IUnknownImpl, Impl: IEnumSTATSTG_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, celt: u32, rgelt: *mut super::STATSTG, pceltfetched: *mut u32) -> ::windows::core::HRESULT {
@@ -180,6 +186,8 @@ pub trait IFillLockBytes_Impl: Sized {
     fn SetFillSize(&self, ulsize: u64) -> ::windows::core::Result<()>;
     fn Terminate(&self, bcanceled: super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IFillLockBytes {}
 #[cfg(feature = "Win32_Foundation")]
 impl IFillLockBytes_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFillLockBytes_Impl, const OFFSET: isize>() -> IFillLockBytes_Vtbl {
@@ -234,6 +242,7 @@ pub trait ILayoutStorage_Impl: Sized {
     fn ReLayoutDocfile(&self, pwcsnewdfname: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn ReLayoutDocfileOnILockBytes(&self, pilockbytes: &::core::option::Option<ILockBytes>) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for ILayoutStorage {}
 impl ILayoutStorage_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILayoutStorage_Impl, const OFFSET: isize>() -> ILayoutStorage_Vtbl {
         unsafe extern "system" fn LayoutScript<Identity: ::windows::core::IUnknownImpl, Impl: ILayoutStorage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pstoragelayout: *const super::StorageLayout, nentries: u32, glfinterleavedflag: u32) -> ::windows::core::HRESULT {
@@ -284,6 +293,8 @@ pub trait ILockBytes_Impl: Sized {
     fn UnlockRegion(&self, liboffset: u64, cb: u64, dwlocktype: u32) -> ::windows::core::Result<()>;
     fn Stat(&self, pstatstg: *mut super::STATSTG, grfstatflag: u32) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for ILockBytes {}
 #[cfg(feature = "Win32_Foundation")]
 impl ILockBytes_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILockBytes_Impl, const OFFSET: isize>() -> ILockBytes_Vtbl {
@@ -353,6 +364,8 @@ pub trait IPersistStorage_Impl: Sized + super::IPersist_Impl {
     fn HandsOffStorage(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IPersistStorage {}
+#[cfg(feature = "Win32_Foundation")]
 impl IPersistStorage_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPersistStorage_Impl, const OFFSET: isize>() -> IPersistStorage_Vtbl {
         unsafe extern "system" fn IsDirty<Identity: ::windows::core::IUnknownImpl, Impl: IPersistStorage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -405,6 +418,8 @@ pub trait IPropertyBag_Impl: Sized {
     fn Write(&self, pszpropname: &::windows::core::PCWSTR, pvar: *const super::VARIANT) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IPropertyBag {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
 impl IPropertyBag_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPropertyBag_Impl, const OFFSET: isize>() -> IPropertyBag_Vtbl {
         unsafe extern "system" fn Read<Identity: ::windows::core::IUnknownImpl, Impl: IPropertyBag_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszpropname: ::windows::core::PCWSTR, pvar: *mut super::VARIANT, perrorlog: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -431,6 +446,8 @@ pub trait IPropertyBag2_Impl: Sized {
     fn GetPropertyInfo(&self, iproperty: u32, cproperties: u32, ppropbag: *mut PROPBAG2, pcproperties: *mut u32) -> ::windows::core::Result<()>;
     fn LoadObject(&self, pstrname: &::windows::core::PCWSTR, dwhint: u32, punkobject: &::core::option::Option<::windows::core::IUnknown>, perrlog: &::core::option::Option<super::IErrorLog>) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IPropertyBag2 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
 impl IPropertyBag2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPropertyBag2_Impl, const OFFSET: isize>() -> IPropertyBag2_Vtbl {
@@ -484,6 +501,7 @@ pub trait IPropertySetStorage_Impl: Sized {
     fn Delete(&self, rfmtid: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
     fn Enum(&self) -> ::windows::core::Result<IEnumSTATPROPSETSTG>;
 }
+impl ::windows::core::RuntimeName for IPropertySetStorage {}
 impl IPropertySetStorage_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPropertySetStorage_Impl, const OFFSET: isize>() -> IPropertySetStorage_Vtbl {
         unsafe extern "system" fn Create<Identity: ::windows::core::IUnknownImpl, Impl: IPropertySetStorage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rfmtid: *const ::windows::core::GUID, pclsid: *const ::windows::core::GUID, grfflags: u32, grfmode: u32, ppprstg: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -551,6 +569,8 @@ pub trait IPropertyStorage_Impl: Sized {
     fn SetClass(&self, clsid: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
     fn Stat(&self) -> ::windows::core::Result<STATPROPSETSTG>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IPropertyStorage {}
 #[cfg(feature = "Win32_Foundation")]
 impl IPropertyStorage_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPropertyStorage_Impl, const OFFSET: isize>() -> IPropertyStorage_Vtbl {
@@ -649,6 +669,7 @@ impl IPropertyStorage_Vtbl {
 pub trait IRootStorage_Impl: Sized {
     fn SwitchToFile(&self, pszfile: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IRootStorage {}
 impl IRootStorage_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRootStorage_Impl, const OFFSET: isize>() -> IRootStorage_Vtbl {
         unsafe extern "system" fn SwitchToFile<Identity: ::windows::core::IUnknownImpl, Impl: IRootStorage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszfile: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
@@ -680,6 +701,8 @@ pub trait IStorage_Impl: Sized {
     fn SetStateBits(&self, grfstatebits: u32, grfmask: u32) -> ::windows::core::Result<()>;
     fn Stat(&self, pstatstg: *mut super::STATSTG, grfstatflag: u32) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IStorage {}
 #[cfg(feature = "Win32_Foundation")]
 impl IStorage_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStorage_Impl, const OFFSET: isize>() -> IStorage_Vtbl {

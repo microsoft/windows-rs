@@ -3,6 +3,8 @@ pub trait IWaaSAssessor_Impl: Sized {
     fn GetOSUpdateAssessment(&self) -> ::windows::core::Result<OSUpdateAssessment>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IWaaSAssessor {}
+#[cfg(feature = "Win32_Foundation")]
 impl IWaaSAssessor_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWaaSAssessor_Impl, const OFFSET: isize>() -> IWaaSAssessor_Vtbl {
         unsafe extern "system" fn GetOSUpdateAssessment<Identity: ::windows::core::IUnknownImpl, Impl: IWaaSAssessor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result: *mut OSUpdateAssessment) -> ::windows::core::HRESULT {

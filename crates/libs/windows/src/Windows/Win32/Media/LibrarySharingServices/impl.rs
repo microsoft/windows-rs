@@ -6,6 +6,8 @@ pub trait IWindowsMediaLibrarySharingDevice_Impl: Sized + super::super::System::
     fn Properties(&self) -> ::windows::core::Result<IWindowsMediaLibrarySharingDeviceProperties>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IWindowsMediaLibrarySharingDevice {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWindowsMediaLibrarySharingDevice_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWindowsMediaLibrarySharingDevice_Impl, const OFFSET: isize>() -> IWindowsMediaLibrarySharingDevice_Vtbl {
         unsafe extern "system" fn DeviceID<Identity: ::windows::core::IUnknownImpl, Impl: IWindowsMediaLibrarySharingDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deviceid: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
@@ -65,6 +67,8 @@ pub trait IWindowsMediaLibrarySharingDeviceProperties_Impl: Sized + super::super
     fn GetProperty(&self, name: &super::super::Foundation::BSTR) -> ::windows::core::Result<IWindowsMediaLibrarySharingDeviceProperty>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IWindowsMediaLibrarySharingDeviceProperties {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWindowsMediaLibrarySharingDeviceProperties_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWindowsMediaLibrarySharingDeviceProperties_Impl, const OFFSET: isize>() -> IWindowsMediaLibrarySharingDeviceProperties_Vtbl {
         unsafe extern "system" fn get_Item<Identity: ::windows::core::IUnknownImpl, Impl: IWindowsMediaLibrarySharingDeviceProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, property: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -117,6 +121,8 @@ pub trait IWindowsMediaLibrarySharingDeviceProperty_Impl: Sized + super::super::
     fn Value(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IWindowsMediaLibrarySharingDeviceProperty {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWindowsMediaLibrarySharingDeviceProperty_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWindowsMediaLibrarySharingDeviceProperty_Impl, const OFFSET: isize>() -> IWindowsMediaLibrarySharingDeviceProperty_Vtbl {
         unsafe extern "system" fn Name<Identity: ::windows::core::IUnknownImpl, Impl: IWindowsMediaLibrarySharingDeviceProperty_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
@@ -157,6 +163,8 @@ pub trait IWindowsMediaLibrarySharingDevices_Impl: Sized + super::super::System:
     fn Count(&self) -> ::windows::core::Result<i32>;
     fn GetDevice(&self, deviceid: &super::super::Foundation::BSTR) -> ::windows::core::Result<IWindowsMediaLibrarySharingDevice>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IWindowsMediaLibrarySharingDevices {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWindowsMediaLibrarySharingDevices_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWindowsMediaLibrarySharingDevices_Impl, const OFFSET: isize>() -> IWindowsMediaLibrarySharingDevices_Vtbl {
@@ -226,6 +234,8 @@ pub trait IWindowsMediaLibrarySharingServices_Impl: Sized + super::super::System
     fn getAllDevices(&self) -> ::windows::core::Result<IWindowsMediaLibrarySharingDevices>;
     fn customSettingsApplied(&self) -> ::windows::core::Result<i16>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IWindowsMediaLibrarySharingServices {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWindowsMediaLibrarySharingServices_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWindowsMediaLibrarySharingServices_Impl, const OFFSET: isize>() -> IWindowsMediaLibrarySharingServices_Vtbl {

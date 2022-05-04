@@ -3,6 +3,8 @@ pub trait INetDiagExtensibleHelper_Impl: Sized {
     fn ResolveAttributes(&self, celt: u32, rgkeyattributes: *const HELPER_ATTRIBUTE, pcelt: *mut u32, prgmatchvalues: *mut *mut HELPER_ATTRIBUTE) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for INetDiagExtensibleHelper {}
+#[cfg(feature = "Win32_Foundation")]
 impl INetDiagExtensibleHelper_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INetDiagExtensibleHelper_Impl, const OFFSET: isize>() -> INetDiagExtensibleHelper_Vtbl {
         unsafe extern "system" fn ResolveAttributes<Identity: ::windows::core::IUnknownImpl, Impl: INetDiagExtensibleHelper_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, celt: u32, rgkeyattributes: *const HELPER_ATTRIBUTE, pcelt: *mut u32, prgmatchvalues: *mut *mut HELPER_ATTRIBUTE) -> ::windows::core::HRESULT {
@@ -37,6 +39,8 @@ pub trait INetDiagHelper_Impl: Sized {
     fn Cancel(&self) -> ::windows::core::Result<()>;
     fn Cleanup(&self) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for INetDiagHelper {}
 #[cfg(feature = "Win32_Foundation")]
 impl INetDiagHelper_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INetDiagHelper_Impl, const OFFSET: isize>() -> INetDiagHelper_Vtbl {
@@ -181,6 +185,8 @@ pub trait INetDiagHelperEx_Impl: Sized {
     fn ReproduceFailure(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for INetDiagHelperEx {}
+#[cfg(feature = "Win32_Foundation")]
 impl INetDiagHelperEx_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INetDiagHelperEx_Impl, const OFFSET: isize>() -> INetDiagHelperEx_Vtbl {
         unsafe extern "system" fn ReconfirmLowHealth<Identity: ::windows::core::IUnknownImpl, Impl: INetDiagHelperEx_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, celt: u32, presults: *const HypothesisResult, ppwszupdateddescription: *mut ::windows::core::PWSTR, pupdatedstatus: *mut DIAGNOSIS_STATUS) -> ::windows::core::HRESULT {
@@ -212,6 +218,7 @@ impl INetDiagHelperEx_Vtbl {
 pub trait INetDiagHelperInfo_Impl: Sized {
     fn GetAttributeInfo(&self, pcelt: *mut u32, pprgattributeinfos: *mut *mut HelperAttributeInfo) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for INetDiagHelperInfo {}
 impl INetDiagHelperInfo_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INetDiagHelperInfo_Impl, const OFFSET: isize>() -> INetDiagHelperInfo_Vtbl {
         unsafe extern "system" fn GetAttributeInfo<Identity: ::windows::core::IUnknownImpl, Impl: INetDiagHelperInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcelt: *mut u32, pprgattributeinfos: *mut *mut HelperAttributeInfo) -> ::windows::core::HRESULT {
@@ -228,6 +235,7 @@ impl INetDiagHelperInfo_Vtbl {
 pub trait INetDiagHelperUtilFactory_Impl: Sized {
     fn CreateUtilityInstance(&self, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for INetDiagHelperUtilFactory {}
 impl INetDiagHelperUtilFactory_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INetDiagHelperUtilFactory_Impl, const OFFSET: isize>() -> INetDiagHelperUtilFactory_Vtbl {
         unsafe extern "system" fn CreateUtilityInstance<Identity: ::windows::core::IUnknownImpl, Impl: INetDiagHelperUtilFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {

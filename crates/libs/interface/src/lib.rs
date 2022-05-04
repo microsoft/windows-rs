@@ -85,6 +85,7 @@ impl Interface {
                 type Vtable = #vtable_name;
                 const IID: ::windows::core::GUID = #guid;
             }
+            impl ::windows::core::RuntimeName for #name {}
 
             #com_trait
             #vtable

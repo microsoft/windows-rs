@@ -6,6 +6,8 @@ pub trait IAccClientDocMgr_Impl: Sized {
     fn GetFocused(&self, riid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::windows::core::RuntimeName for IAccClientDocMgr {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IAccClientDocMgr_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAccClientDocMgr_Impl, const OFFSET: isize>() -> IAccClientDocMgr_Vtbl {
         unsafe extern "system" fn GetDocuments<Identity: ::windows::core::IUnknownImpl, Impl: IAccClientDocMgr_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, enumunknown: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -73,6 +75,8 @@ pub trait IAccDictionary_Impl: Sized {
     fn ConvertValueToString(&self, term: *const ::windows::core::GUID, lcid: u32, varvalue: &super::super::System::Com::VARIANT, pbstrresult: *mut super::super::Foundation::BSTR, plcid: *mut u32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IAccDictionary {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IAccDictionary_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAccDictionary_Impl, const OFFSET: isize>() -> IAccDictionary_Vtbl {
         unsafe extern "system" fn GetLocalizedString<Identity: ::windows::core::IUnknownImpl, Impl: IAccDictionary_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, term: *const ::windows::core::GUID, lcid: u32, presult: *mut super::super::Foundation::BSTR, plcid: *mut u32) -> ::windows::core::HRESULT {
@@ -136,6 +140,7 @@ pub trait IAccServerDocMgr_Impl: Sized {
     fn RevokeDocument(&self, punk: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
     fn OnDocumentFocus(&self, punk: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IAccServerDocMgr {}
 impl IAccServerDocMgr_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAccServerDocMgr_Impl, const OFFSET: isize>() -> IAccServerDocMgr_Vtbl {
         unsafe extern "system" fn NewDocument<Identity: ::windows::core::IUnknownImpl, Impl: IAccServerDocMgr_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, punk: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -174,6 +179,8 @@ pub trait IAccStore_Impl: Sized {
     fn OnDocumentFocus(&self, punk: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
     fn GetFocused(&self, riid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::windows::core::RuntimeName for IAccStore {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IAccStore_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAccStore_Impl, const OFFSET: isize>() -> IAccStore_Vtbl {
@@ -265,6 +272,8 @@ pub trait IAnchor_Impl: Sized {
     fn ClearChangeHistory(&self) -> ::windows::core::Result<()>;
     fn Clone(&self) -> ::windows::core::Result<IAnchor>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IAnchor {}
 #[cfg(feature = "Win32_Foundation")]
 impl IAnchor_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAnchor_Impl, const OFFSET: isize>() -> IAnchor_Vtbl {
@@ -381,6 +390,7 @@ impl IAnchor_Vtbl {
 pub trait IClonableWrapper_Impl: Sized {
     fn CloneNewWrapper(&self, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IClonableWrapper {}
 impl IClonableWrapper_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IClonableWrapper_Impl, const OFFSET: isize>() -> IClonableWrapper_Vtbl {
         unsafe extern "system" fn CloneNewWrapper<Identity: ::windows::core::IUnknownImpl, Impl: IClonableWrapper_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -398,6 +408,8 @@ impl IClonableWrapper_Vtbl {
 pub trait ICoCreateLocally_Impl: Sized {
     fn CoCreateLocally(&self, rclsid: *const ::windows::core::GUID, dwclscontext: u32, riid: *const ::windows::core::GUID, punk: *mut ::core::option::Option<::windows::core::IUnknown>, riidparam: *const ::windows::core::GUID, punkparam: &::core::option::Option<::windows::core::IUnknown>, varparam: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ICoCreateLocally {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ICoCreateLocally_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoCreateLocally_Impl, const OFFSET: isize>() -> ICoCreateLocally_Vtbl {
@@ -417,6 +429,8 @@ pub trait ICoCreatedLocally_Impl: Sized {
     fn LocalInit(&self, punklocalobject: &::core::option::Option<::windows::core::IUnknown>, riidparam: *const ::windows::core::GUID, punkparam: &::core::option::Option<::windows::core::IUnknown>, varparam: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ICoCreatedLocally {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ICoCreatedLocally_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICoCreatedLocally_Impl, const OFFSET: isize>() -> ICoCreatedLocally_Vtbl {
         unsafe extern "system" fn LocalInit<Identity: ::windows::core::IUnknownImpl, Impl: ICoCreatedLocally_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, punklocalobject: *mut ::core::ffi::c_void, riidparam: *const ::windows::core::GUID, punkparam: *mut ::core::ffi::c_void, varparam: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
@@ -434,6 +448,7 @@ pub trait IDocWrap_Impl: Sized {
     fn SetDoc(&self, riid: *const ::windows::core::GUID, punk: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
     fn GetWrappedDoc(&self, riid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
+impl ::windows::core::RuntimeName for IDocWrap {}
 impl IDocWrap_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDocWrap_Impl, const OFFSET: isize>() -> IDocWrap_Vtbl {
         unsafe extern "system" fn SetDoc<Identity: ::windows::core::IUnknownImpl, Impl: IDocWrap_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, punk: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -468,6 +483,7 @@ pub trait IEnumITfCompositionView_Impl: Sized {
     fn Reset(&self) -> ::windows::core::Result<()>;
     fn Skip(&self, ulcount: u32) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IEnumITfCompositionView {}
 impl IEnumITfCompositionView_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEnumITfCompositionView_Impl, const OFFSET: isize>() -> IEnumITfCompositionView_Vtbl {
         unsafe extern "system" fn Clone<Identity: ::windows::core::IUnknownImpl, Impl: IEnumITfCompositionView_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -514,6 +530,7 @@ pub trait IEnumSpeechCommands_Impl: Sized {
     fn Reset(&self) -> ::windows::core::Result<()>;
     fn Skip(&self, ulcount: u32) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IEnumSpeechCommands {}
 impl IEnumSpeechCommands_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEnumSpeechCommands_Impl, const OFFSET: isize>() -> IEnumSpeechCommands_Vtbl {
         unsafe extern "system" fn Clone<Identity: ::windows::core::IUnknownImpl, Impl: IEnumSpeechCommands_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -560,6 +577,7 @@ pub trait IEnumTfCandidates_Impl: Sized {
     fn Reset(&self) -> ::windows::core::Result<()>;
     fn Skip(&self, ulcount: u32) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IEnumTfCandidates {}
 impl IEnumTfCandidates_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEnumTfCandidates_Impl, const OFFSET: isize>() -> IEnumTfCandidates_Vtbl {
         unsafe extern "system" fn Clone<Identity: ::windows::core::IUnknownImpl, Impl: IEnumTfCandidates_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -606,6 +624,7 @@ pub trait IEnumTfContextViews_Impl: Sized {
     fn Reset(&self) -> ::windows::core::Result<()>;
     fn Skip(&self, ulcount: u32) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IEnumTfContextViews {}
 impl IEnumTfContextViews_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEnumTfContextViews_Impl, const OFFSET: isize>() -> IEnumTfContextViews_Vtbl {
         unsafe extern "system" fn Clone<Identity: ::windows::core::IUnknownImpl, Impl: IEnumTfContextViews_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -652,6 +671,7 @@ pub trait IEnumTfContexts_Impl: Sized {
     fn Reset(&self) -> ::windows::core::Result<()>;
     fn Skip(&self, ulcount: u32) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IEnumTfContexts {}
 impl IEnumTfContexts_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEnumTfContexts_Impl, const OFFSET: isize>() -> IEnumTfContexts_Vtbl {
         unsafe extern "system" fn Clone<Identity: ::windows::core::IUnknownImpl, Impl: IEnumTfContexts_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -698,6 +718,7 @@ pub trait IEnumTfDisplayAttributeInfo_Impl: Sized {
     fn Reset(&self) -> ::windows::core::Result<()>;
     fn Skip(&self, ulcount: u32) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IEnumTfDisplayAttributeInfo {}
 impl IEnumTfDisplayAttributeInfo_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEnumTfDisplayAttributeInfo_Impl, const OFFSET: isize>() -> IEnumTfDisplayAttributeInfo_Vtbl {
         unsafe extern "system" fn Clone<Identity: ::windows::core::IUnknownImpl, Impl: IEnumTfDisplayAttributeInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -744,6 +765,7 @@ pub trait IEnumTfDocumentMgrs_Impl: Sized {
     fn Reset(&self) -> ::windows::core::Result<()>;
     fn Skip(&self, ulcount: u32) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IEnumTfDocumentMgrs {}
 impl IEnumTfDocumentMgrs_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEnumTfDocumentMgrs_Impl, const OFFSET: isize>() -> IEnumTfDocumentMgrs_Vtbl {
         unsafe extern "system" fn Clone<Identity: ::windows::core::IUnknownImpl, Impl: IEnumTfDocumentMgrs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -790,6 +812,7 @@ pub trait IEnumTfFunctionProviders_Impl: Sized {
     fn Reset(&self) -> ::windows::core::Result<()>;
     fn Skip(&self, ulcount: u32) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IEnumTfFunctionProviders {}
 impl IEnumTfFunctionProviders_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEnumTfFunctionProviders_Impl, const OFFSET: isize>() -> IEnumTfFunctionProviders_Vtbl {
         unsafe extern "system" fn Clone<Identity: ::windows::core::IUnknownImpl, Impl: IEnumTfFunctionProviders_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -836,6 +859,7 @@ pub trait IEnumTfInputProcessorProfiles_Impl: Sized {
     fn Reset(&self) -> ::windows::core::Result<()>;
     fn Skip(&self, ulcount: u32) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IEnumTfInputProcessorProfiles {}
 impl IEnumTfInputProcessorProfiles_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEnumTfInputProcessorProfiles_Impl, const OFFSET: isize>() -> IEnumTfInputProcessorProfiles_Vtbl {
         unsafe extern "system" fn Clone<Identity: ::windows::core::IUnknownImpl, Impl: IEnumTfInputProcessorProfiles_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -882,6 +906,7 @@ pub trait IEnumTfLangBarItems_Impl: Sized {
     fn Reset(&self) -> ::windows::core::Result<()>;
     fn Skip(&self, ulcount: u32) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IEnumTfLangBarItems {}
 impl IEnumTfLangBarItems_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEnumTfLangBarItems_Impl, const OFFSET: isize>() -> IEnumTfLangBarItems_Vtbl {
         unsafe extern "system" fn Clone<Identity: ::windows::core::IUnknownImpl, Impl: IEnumTfLangBarItems_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -929,6 +954,8 @@ pub trait IEnumTfLanguageProfiles_Impl: Sized {
     fn Reset(&self) -> ::windows::core::Result<()>;
     fn Skip(&self, ulcount: u32) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IEnumTfLanguageProfiles {}
 #[cfg(feature = "Win32_Foundation")]
 impl IEnumTfLanguageProfiles_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEnumTfLanguageProfiles_Impl, const OFFSET: isize>() -> IEnumTfLanguageProfiles_Vtbl {
@@ -978,6 +1005,8 @@ pub trait IEnumTfLatticeElements_Impl: Sized {
     fn Skip(&self, ulcount: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IEnumTfLatticeElements {}
+#[cfg(feature = "Win32_Foundation")]
 impl IEnumTfLatticeElements_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEnumTfLatticeElements_Impl, const OFFSET: isize>() -> IEnumTfLatticeElements_Vtbl {
         unsafe extern "system" fn Clone<Identity: ::windows::core::IUnknownImpl, Impl: IEnumTfLatticeElements_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -1024,6 +1053,7 @@ pub trait IEnumTfProperties_Impl: Sized {
     fn Reset(&self) -> ::windows::core::Result<()>;
     fn Skip(&self, ulcount: u32) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IEnumTfProperties {}
 impl IEnumTfProperties_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEnumTfProperties_Impl, const OFFSET: isize>() -> IEnumTfProperties_Vtbl {
         unsafe extern "system" fn Clone<Identity: ::windows::core::IUnknownImpl, Impl: IEnumTfProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -1072,6 +1102,8 @@ pub trait IEnumTfPropertyValue_Impl: Sized {
     fn Skip(&self, ulcount: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IEnumTfPropertyValue {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IEnumTfPropertyValue_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEnumTfPropertyValue_Impl, const OFFSET: isize>() -> IEnumTfPropertyValue_Vtbl {
         unsafe extern "system" fn Clone<Identity: ::windows::core::IUnknownImpl, Impl: IEnumTfPropertyValue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -1118,6 +1150,7 @@ pub trait IEnumTfRanges_Impl: Sized {
     fn Reset(&self) -> ::windows::core::Result<()>;
     fn Skip(&self, ulcount: u32) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IEnumTfRanges {}
 impl IEnumTfRanges_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEnumTfRanges_Impl, const OFFSET: isize>() -> IEnumTfRanges_Vtbl {
         unsafe extern "system" fn Clone<Identity: ::windows::core::IUnknownImpl, Impl: IEnumTfRanges_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -1164,6 +1197,7 @@ pub trait IEnumTfUIElements_Impl: Sized {
     fn Reset(&self) -> ::windows::core::Result<()>;
     fn Skip(&self, ulcount: u32) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IEnumTfUIElements {}
 impl IEnumTfUIElements_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEnumTfUIElements_Impl, const OFFSET: isize>() -> IEnumTfUIElements_Vtbl {
         unsafe extern "system" fn Clone<Identity: ::windows::core::IUnknownImpl, Impl: IEnumTfUIElements_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -1207,6 +1241,7 @@ impl IEnumTfUIElements_Vtbl {
 pub trait IInternalDocWrap_Impl: Sized {
     fn NotifyRevoke(&self) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IInternalDocWrap {}
 impl IInternalDocWrap_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInternalDocWrap_Impl, const OFFSET: isize>() -> IInternalDocWrap_Vtbl {
         unsafe extern "system" fn NotifyRevoke<Identity: ::windows::core::IUnknownImpl, Impl: IInternalDocWrap_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -1224,6 +1259,7 @@ pub trait ISpeechCommandProvider_Impl: Sized {
     fn EnumSpeechCommands(&self, langid: u16) -> ::windows::core::Result<IEnumSpeechCommands>;
     fn ProcessCommand(&self, pszcommand: &::windows::core::PCWSTR, cch: u32, langid: u16) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for ISpeechCommandProvider {}
 impl ISpeechCommandProvider_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpeechCommandProvider_Impl, const OFFSET: isize>() -> ISpeechCommandProvider_Vtbl {
         unsafe extern "system" fn EnumSpeechCommands<Identity: ::windows::core::IUnknownImpl, Impl: ISpeechCommandProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, langid: u16, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -1281,6 +1317,8 @@ pub trait ITextStoreACP_Impl: Sized {
     fn GetScreenExt(&self, vcview: u32) -> ::windows::core::Result<super::super::Foundation::RECT>;
     fn GetWnd(&self, vcview: u32) -> ::windows::core::Result<super::super::Foundation::HWND>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ITextStoreACP {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITextStoreACP_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITextStoreACP_Impl, const OFFSET: isize>() -> ITextStoreACP_Vtbl {
@@ -1549,6 +1587,8 @@ pub trait ITextStoreACP2_Impl: Sized {
     fn GetScreenExt(&self, vcview: u32) -> ::windows::core::Result<super::super::Foundation::RECT>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ITextStoreACP2 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITextStoreACP2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITextStoreACP2_Impl, const OFFSET: isize>() -> ITextStoreACP2_Vtbl {
         unsafe extern "system" fn AdviseSink<Identity: ::windows::core::IUnknownImpl, Impl: ITextStoreACP2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, punk: *mut ::core::ffi::c_void, dwmask: u32) -> ::windows::core::HRESULT {
@@ -1780,6 +1820,8 @@ pub trait ITextStoreACPEx_Impl: Sized {
     fn ScrollToRect(&self, acpstart: i32, acpend: i32, rc: &super::super::Foundation::RECT, dwposition: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for ITextStoreACPEx {}
+#[cfg(feature = "Win32_Foundation")]
 impl ITextStoreACPEx_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITextStoreACPEx_Impl, const OFFSET: isize>() -> ITextStoreACPEx_Vtbl {
         unsafe extern "system" fn ScrollToRect<Identity: ::windows::core::IUnknownImpl, Impl: ITextStoreACPEx_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, acpstart: i32, acpend: i32, rc: super::super::Foundation::RECT, dwposition: u32) -> ::windows::core::HRESULT {
@@ -1800,6 +1842,8 @@ pub trait ITextStoreACPServices_Impl: Sized {
     fn ForceLoadProperty(&self, pprop: &::core::option::Option<ITfProperty>) -> ::windows::core::Result<()>;
     fn CreateRange(&self, acpstart: i32, acpend: i32) -> ::windows::core::Result<ITfRangeACP>;
 }
+#[cfg(feature = "Win32_System_Com")]
+impl ::windows::core::RuntimeName for ITextStoreACPServices {}
 #[cfg(feature = "Win32_System_Com")]
 impl ITextStoreACPServices_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITextStoreACPServices_Impl, const OFFSET: isize>() -> ITextStoreACPServices_Vtbl {
@@ -1851,6 +1895,7 @@ pub trait ITextStoreACPSink_Impl: Sized {
     fn OnStartEditTransaction(&self) -> ::windows::core::Result<()>;
     fn OnEndEditTransaction(&self) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for ITextStoreACPSink {}
 impl ITextStoreACPSink_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITextStoreACPSink_Impl, const OFFSET: isize>() -> ITextStoreACPSink_Vtbl {
         unsafe extern "system" fn OnTextChange<Identity: ::windows::core::IUnknownImpl, Impl: ITextStoreACPSink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwflags: TEXT_STORE_TEXT_CHANGE_FLAGS, pchange: *const TS_TEXTCHANGE) -> ::windows::core::HRESULT {
@@ -1912,6 +1957,7 @@ impl ITextStoreACPSink_Vtbl {
 pub trait ITextStoreACPSinkEx_Impl: Sized + ITextStoreACPSink_Impl {
     fn OnDisconnect(&self) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for ITextStoreACPSinkEx {}
 impl ITextStoreACPSinkEx_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITextStoreACPSinkEx_Impl, const OFFSET: isize>() -> ITextStoreACPSinkEx_Vtbl {
         unsafe extern "system" fn OnDisconnect<Identity: ::windows::core::IUnknownImpl, Impl: ITextStoreACPSinkEx_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -1955,6 +2001,8 @@ pub trait ITextStoreAnchor_Impl: Sized {
     fn InsertTextAtSelection(&self, dwflags: u32, pchtext: &::windows::core::PCWSTR, cch: u32, ppastart: *mut ::core::option::Option<IAnchor>, ppaend: *mut ::core::option::Option<IAnchor>) -> ::windows::core::Result<()>;
     fn InsertEmbeddedAtSelection(&self, dwflags: u32, pdataobject: &::core::option::Option<super::super::System::Com::IDataObject>, ppastart: *mut ::core::option::Option<IAnchor>, ppaend: *mut ::core::option::Option<IAnchor>) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ITextStoreAnchor {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITextStoreAnchor_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITextStoreAnchor_Impl, const OFFSET: isize>() -> ITextStoreAnchor_Vtbl {
@@ -2199,6 +2247,8 @@ pub trait ITextStoreAnchorEx_Impl: Sized {
     fn ScrollToRect(&self, pstart: &::core::option::Option<IAnchor>, pend: &::core::option::Option<IAnchor>, rc: &super::super::Foundation::RECT, dwposition: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for ITextStoreAnchorEx {}
+#[cfg(feature = "Win32_Foundation")]
 impl ITextStoreAnchorEx_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITextStoreAnchorEx_Impl, const OFFSET: isize>() -> ITextStoreAnchorEx_Vtbl {
         unsafe extern "system" fn ScrollToRect<Identity: ::windows::core::IUnknownImpl, Impl: ITextStoreAnchorEx_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pstart: ::windows::core::RawPtr, pend: ::windows::core::RawPtr, rc: super::super::Foundation::RECT, dwposition: u32) -> ::windows::core::HRESULT {
@@ -2222,6 +2272,7 @@ pub trait ITextStoreAnchorSink_Impl: Sized {
     fn OnStartEditTransaction(&self) -> ::windows::core::Result<()>;
     fn OnEndEditTransaction(&self) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for ITextStoreAnchorSink {}
 impl ITextStoreAnchorSink_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITextStoreAnchorSink_Impl, const OFFSET: isize>() -> ITextStoreAnchorSink_Vtbl {
         unsafe extern "system" fn OnTextChange<Identity: ::windows::core::IUnknownImpl, Impl: ITextStoreAnchorSink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwflags: TEXT_STORE_CHANGE_FLAGS, pastart: ::windows::core::RawPtr, paend: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -2283,6 +2334,7 @@ impl ITextStoreAnchorSink_Vtbl {
 pub trait ITextStoreSinkAnchorEx_Impl: Sized + ITextStoreAnchorSink_Impl {
     fn OnDisconnect(&self) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for ITextStoreSinkAnchorEx {}
 impl ITextStoreSinkAnchorEx_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITextStoreSinkAnchorEx_Impl, const OFFSET: isize>() -> ITextStoreSinkAnchorEx_Vtbl {
         unsafe extern "system" fn OnDisconnect<Identity: ::windows::core::IUnknownImpl, Impl: ITextStoreSinkAnchorEx_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -2300,6 +2352,8 @@ impl ITextStoreSinkAnchorEx_Vtbl {
 pub trait ITfActiveLanguageProfileNotifySink_Impl: Sized {
     fn OnActivated(&self, clsid: *const ::windows::core::GUID, guidprofile: *const ::windows::core::GUID, factivated: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for ITfActiveLanguageProfileNotifySink {}
 #[cfg(feature = "Win32_Foundation")]
 impl ITfActiveLanguageProfileNotifySink_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITfActiveLanguageProfileNotifySink_Impl, const OFFSET: isize>() -> ITfActiveLanguageProfileNotifySink_Vtbl {
@@ -2320,6 +2374,7 @@ pub trait ITfCandidateList_Impl: Sized {
     fn GetCandidateNum(&self) -> ::windows::core::Result<u32>;
     fn SetResult(&self, nindex: u32, imcr: TfCandidateResult) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for ITfCandidateList {}
 impl ITfCandidateList_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITfCandidateList_Impl, const OFFSET: isize>() -> ITfCandidateList_Vtbl {
         unsafe extern "system" fn EnumCandidates<Identity: ::windows::core::IUnknownImpl, Impl: ITfCandidateList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -2383,6 +2438,8 @@ pub trait ITfCandidateListUIElement_Impl: Sized + ITfUIElement_Impl {
     fn SetPageIndex(&self, pindex: *const u32, upagecnt: u32) -> ::windows::core::Result<()>;
     fn GetCurrentPage(&self) -> ::windows::core::Result<u32>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for ITfCandidateListUIElement {}
 #[cfg(feature = "Win32_Foundation")]
 impl ITfCandidateListUIElement_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITfCandidateListUIElement_Impl, const OFFSET: isize>() -> ITfCandidateListUIElement_Vtbl {
@@ -2485,6 +2542,8 @@ pub trait ITfCandidateListUIElementBehavior_Impl: Sized + ITfUIElement_Impl + IT
     fn Abort(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for ITfCandidateListUIElementBehavior {}
+#[cfg(feature = "Win32_Foundation")]
 impl ITfCandidateListUIElementBehavior_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITfCandidateListUIElementBehavior_Impl, const OFFSET: isize>() -> ITfCandidateListUIElementBehavior_Vtbl {
         unsafe extern "system" fn SetSelection<Identity: ::windows::core::IUnknownImpl, Impl: ITfCandidateListUIElementBehavior_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nindex: u32) -> ::windows::core::HRESULT {
@@ -2518,6 +2577,8 @@ pub trait ITfCandidateString_Impl: Sized {
     fn GetString(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn GetIndex(&self) -> ::windows::core::Result<u32>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for ITfCandidateString {}
 #[cfg(feature = "Win32_Foundation")]
 impl ITfCandidateString_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITfCandidateString_Impl, const OFFSET: isize>() -> ITfCandidateString_Vtbl {
@@ -2570,6 +2631,8 @@ pub trait ITfCategoryMgr_Impl: Sized {
     fn GetGUID(&self, guidatom: u32) -> ::windows::core::Result<::windows::core::GUID>;
     fn IsEqualTfGuidAtom(&self, guidatom: u32, rguid: *const ::windows::core::GUID) -> ::windows::core::Result<super::super::Foundation::BOOL>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::windows::core::RuntimeName for ITfCategoryMgr {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ITfCategoryMgr_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITfCategoryMgr_Impl, const OFFSET: isize>() -> ITfCategoryMgr_Vtbl {
@@ -2711,6 +2774,7 @@ pub trait ITfCleanupContextDurationSink_Impl: Sized {
     fn OnStartCleanupContext(&self) -> ::windows::core::Result<()>;
     fn OnEndCleanupContext(&self) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for ITfCleanupContextDurationSink {}
 impl ITfCleanupContextDurationSink_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITfCleanupContextDurationSink_Impl, const OFFSET: isize>() -> ITfCleanupContextDurationSink_Vtbl {
         unsafe extern "system" fn OnStartCleanupContext<Identity: ::windows::core::IUnknownImpl, Impl: ITfCleanupContextDurationSink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -2736,6 +2800,7 @@ impl ITfCleanupContextDurationSink_Vtbl {
 pub trait ITfCleanupContextSink_Impl: Sized {
     fn OnCleanupContext(&self, ecwrite: u32, pic: &::core::option::Option<ITfContext>) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for ITfCleanupContextSink {}
 impl ITfCleanupContextSink_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITfCleanupContextSink_Impl, const OFFSET: isize>() -> ITfCleanupContextSink_Vtbl {
         unsafe extern "system" fn OnCleanupContext<Identity: ::windows::core::IUnknownImpl, Impl: ITfCleanupContextSink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ecwrite: u32, pic: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -2752,6 +2817,7 @@ impl ITfCleanupContextSink_Vtbl {
 pub trait ITfClientId_Impl: Sized {
     fn GetClientId(&self, rclsid: *const ::windows::core::GUID) -> ::windows::core::Result<u32>;
 }
+impl ::windows::core::RuntimeName for ITfClientId {}
 impl ITfClientId_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITfClientId_Impl, const OFFSET: isize>() -> ITfClientId_Vtbl {
         unsafe extern "system" fn GetClientId<Identity: ::windows::core::IUnknownImpl, Impl: ITfClientId_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rclsid: *const ::windows::core::GUID, ptid: *mut u32) -> ::windows::core::HRESULT {
@@ -2776,6 +2842,8 @@ pub trait ITfCompartment_Impl: Sized {
     fn SetValue(&self, tid: u32, pvarvalue: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn GetValue(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ITfCompartment {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITfCompartment_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITfCompartment_Impl, const OFFSET: isize>() -> ITfCompartment_Vtbl {
@@ -2808,6 +2876,7 @@ impl ITfCompartment_Vtbl {
 pub trait ITfCompartmentEventSink_Impl: Sized {
     fn OnChange(&self, rguid: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for ITfCompartmentEventSink {}
 impl ITfCompartmentEventSink_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITfCompartmentEventSink_Impl, const OFFSET: isize>() -> ITfCompartmentEventSink_Vtbl {
         unsafe extern "system" fn OnChange<Identity: ::windows::core::IUnknownImpl, Impl: ITfCompartmentEventSink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rguid: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
@@ -2827,6 +2896,8 @@ pub trait ITfCompartmentMgr_Impl: Sized {
     fn ClearCompartment(&self, tid: u32, rguid: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
     fn EnumCompartments(&self) -> ::windows::core::Result<super::super::System::Com::IEnumGUID>;
 }
+#[cfg(feature = "Win32_System_Com")]
+impl ::windows::core::RuntimeName for ITfCompartmentMgr {}
 #[cfg(feature = "Win32_System_Com")]
 impl ITfCompartmentMgr_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITfCompartmentMgr_Impl, const OFFSET: isize>() -> ITfCompartmentMgr_Vtbl {
@@ -2874,6 +2945,7 @@ pub trait ITfComposition_Impl: Sized {
     fn ShiftEnd(&self, ecwrite: u32, pnewend: &::core::option::Option<ITfRange>) -> ::windows::core::Result<()>;
     fn EndComposition(&self, ecwrite: u32) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for ITfComposition {}
 impl ITfComposition_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITfComposition_Impl, const OFFSET: isize>() -> ITfComposition_Vtbl {
         unsafe extern "system" fn GetRange<Identity: ::windows::core::IUnknownImpl, Impl: ITfComposition_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pprange: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -2917,6 +2989,7 @@ impl ITfComposition_Vtbl {
 pub trait ITfCompositionSink_Impl: Sized {
     fn OnCompositionTerminated(&self, ecwrite: u32, pcomposition: &::core::option::Option<ITfComposition>) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for ITfCompositionSink {}
 impl ITfCompositionSink_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITfCompositionSink_Impl, const OFFSET: isize>() -> ITfCompositionSink_Vtbl {
         unsafe extern "system" fn OnCompositionTerminated<Identity: ::windows::core::IUnknownImpl, Impl: ITfCompositionSink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ecwrite: u32, pcomposition: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -2934,6 +3007,7 @@ pub trait ITfCompositionView_Impl: Sized {
     fn GetOwnerClsid(&self) -> ::windows::core::Result<::windows::core::GUID>;
     fn GetRange(&self) -> ::windows::core::Result<ITfRange>;
 }
+impl ::windows::core::RuntimeName for ITfCompositionView {}
 impl ITfCompositionView_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITfCompositionView_Impl, const OFFSET: isize>() -> ITfCompositionView_Vtbl {
         unsafe extern "system" fn GetOwnerClsid<Identity: ::windows::core::IUnknownImpl, Impl: ITfCompositionView_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pclsid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
@@ -2972,6 +3046,7 @@ pub trait ITfConfigureSystemKeystrokeFeed_Impl: Sized {
     fn DisableSystemKeystrokeFeed(&self) -> ::windows::core::Result<()>;
     fn EnableSystemKeystrokeFeed(&self) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for ITfConfigureSystemKeystrokeFeed {}
 impl ITfConfigureSystemKeystrokeFeed_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITfConfigureSystemKeystrokeFeed_Impl, const OFFSET: isize>() -> ITfConfigureSystemKeystrokeFeed_Vtbl {
         unsafe extern "system" fn DisableSystemKeystrokeFeed<Identity: ::windows::core::IUnknownImpl, Impl: ITfConfigureSystemKeystrokeFeed_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -3012,6 +3087,8 @@ pub trait ITfContext_Impl: Sized {
     fn GetDocumentMgr(&self) -> ::windows::core::Result<ITfDocumentMgr>;
     fn CreateRangeBackup(&self, ec: u32, prange: &::core::option::Option<ITfRange>) -> ::windows::core::Result<ITfRangeBackup>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for ITfContext {}
 #[cfg(feature = "Win32_Foundation")]
 impl ITfContext_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITfContext_Impl, const OFFSET: isize>() -> ITfContext_Vtbl {
@@ -3197,6 +3274,7 @@ pub trait ITfContextComposition_Impl: Sized {
     fn FindComposition(&self, ecread: u32, ptestrange: &::core::option::Option<ITfRange>) -> ::windows::core::Result<IEnumITfCompositionView>;
     fn TakeOwnership(&self, ecwrite: u32, pcomposition: &::core::option::Option<ITfCompositionView>, psink: &::core::option::Option<ITfCompositionSink>) -> ::windows::core::Result<ITfComposition>;
 }
+impl ::windows::core::RuntimeName for ITfContextComposition {}
 impl ITfContextComposition_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITfContextComposition_Impl, const OFFSET: isize>() -> ITfContextComposition_Vtbl {
         unsafe extern "system" fn StartComposition<Identity: ::windows::core::IUnknownImpl, Impl: ITfContextComposition_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ecwrite: u32, pcompositionrange: ::windows::core::RawPtr, psink: ::windows::core::RawPtr, ppcomposition: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -3262,6 +3340,8 @@ pub trait ITfContextKeyEventSink_Impl: Sized {
     fn OnTestKeyDown(&self, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> ::windows::core::Result<super::super::Foundation::BOOL>;
     fn OnTestKeyUp(&self, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> ::windows::core::Result<super::super::Foundation::BOOL>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for ITfContextKeyEventSink {}
 #[cfg(feature = "Win32_Foundation")]
 impl ITfContextKeyEventSink_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITfContextKeyEventSink_Impl, const OFFSET: isize>() -> ITfContextKeyEventSink_Vtbl {
@@ -3330,6 +3410,8 @@ pub trait ITfContextOwner_Impl: Sized {
     fn GetWnd(&self) -> ::windows::core::Result<super::super::Foundation::HWND>;
     fn GetAttribute(&self, rguidattribute: *const ::windows::core::GUID) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ITfContextOwner {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITfContextOwner_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITfContextOwner_Impl, const OFFSET: isize>() -> ITfContextOwner_Vtbl {
@@ -3410,6 +3492,7 @@ impl ITfContextOwner_Vtbl {
 pub trait ITfContextOwnerCompositionServices_Impl: Sized + ITfContextComposition_Impl {
     fn TerminateComposition(&self, pcomposition: &::core::option::Option<ITfCompositionView>) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for ITfContextOwnerCompositionServices {}
 impl ITfContextOwnerCompositionServices_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITfContextOwnerCompositionServices_Impl, const OFFSET: isize>() -> ITfContextOwnerCompositionServices_Vtbl {
         unsafe extern "system" fn TerminateComposition<Identity: ::windows::core::IUnknownImpl, Impl: ITfContextOwnerCompositionServices_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcomposition: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -3429,6 +3512,8 @@ pub trait ITfContextOwnerCompositionSink_Impl: Sized {
     fn OnUpdateComposition(&self, pcomposition: &::core::option::Option<ITfCompositionView>, prangenew: &::core::option::Option<ITfRange>) -> ::windows::core::Result<()>;
     fn OnEndComposition(&self, pcomposition: &::core::option::Option<ITfCompositionView>) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for ITfContextOwnerCompositionSink {}
 #[cfg(feature = "Win32_Foundation")]
 impl ITfContextOwnerCompositionSink_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITfContextOwnerCompositionSink_Impl, const OFFSET: isize>() -> ITfContextOwnerCompositionSink_Vtbl {
@@ -3474,6 +3559,8 @@ pub trait ITfContextOwnerServices_Impl: Sized {
     fn ForceLoadProperty(&self, pprop: &::core::option::Option<ITfProperty>) -> ::windows::core::Result<()>;
     fn CreateRange(&self, acpstart: i32, acpend: i32) -> ::windows::core::Result<ITfRangeACP>;
 }
+#[cfg(feature = "Win32_System_Com")]
+impl ::windows::core::RuntimeName for ITfContextOwnerServices {}
 #[cfg(feature = "Win32_System_Com")]
 impl ITfContextOwnerServices_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITfContextOwnerServices_Impl, const OFFSET: isize>() -> ITfContextOwnerServices_Vtbl {
@@ -3541,6 +3628,8 @@ pub trait ITfContextView_Impl: Sized {
     fn GetWnd(&self) -> ::windows::core::Result<super::super::Foundation::HWND>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for ITfContextView {}
+#[cfg(feature = "Win32_Foundation")]
 impl ITfContextView_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITfContextView_Impl, const OFFSET: isize>() -> ITfContextView_Vtbl {
         unsafe extern "system" fn GetRangeFromPoint<Identity: ::windows::core::IUnknownImpl, Impl: ITfContextView_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ec: u32, ppt: *const super::super::Foundation::POINT, dwflags: u32, pprange: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -3599,6 +3688,8 @@ pub trait ITfCreatePropertyStore_Impl: Sized {
     fn CreatePropertyStore(&self, guidprop: *const ::windows::core::GUID, prange: &::core::option::Option<ITfRange>, cb: u32, pstream: &::core::option::Option<super::super::System::Com::IStream>) -> ::windows::core::Result<ITfPropertyStore>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::windows::core::RuntimeName for ITfCreatePropertyStore {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ITfCreatePropertyStore_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITfCreatePropertyStore_Impl, const OFFSET: isize>() -> ITfCreatePropertyStore_Vtbl {
         unsafe extern "system" fn IsStoreSerializable<Identity: ::windows::core::IUnknownImpl, Impl: ITfCreatePropertyStore_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guidprop: *const ::windows::core::GUID, prange: ::windows::core::RawPtr, ppropstore: ::windows::core::RawPtr, pfserializable: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
@@ -3641,6 +3732,8 @@ pub trait ITfDisplayAttributeInfo_Impl: Sized {
     fn SetAttributeInfo(&self, pda: *const TF_DISPLAYATTRIBUTE) -> ::windows::core::Result<()>;
     fn Reset(&self) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for ITfDisplayAttributeInfo {}
 #[cfg(feature = "Win32_Foundation")]
 impl ITfDisplayAttributeInfo_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITfDisplayAttributeInfo_Impl, const OFFSET: isize>() -> ITfDisplayAttributeInfo_Vtbl {
@@ -3705,6 +3798,7 @@ pub trait ITfDisplayAttributeMgr_Impl: Sized {
     fn EnumDisplayAttributeInfo(&self) -> ::windows::core::Result<IEnumTfDisplayAttributeInfo>;
     fn GetDisplayAttributeInfo(&self, guid: *const ::windows::core::GUID, ppinfo: *mut ::core::option::Option<ITfDisplayAttributeInfo>, pclsidowner: *mut ::windows::core::GUID) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for ITfDisplayAttributeMgr {}
 impl ITfDisplayAttributeMgr_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITfDisplayAttributeMgr_Impl, const OFFSET: isize>() -> ITfDisplayAttributeMgr_Vtbl {
         unsafe extern "system" fn OnUpdateInfo<Identity: ::windows::core::IUnknownImpl, Impl: ITfDisplayAttributeMgr_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -3742,6 +3836,7 @@ impl ITfDisplayAttributeMgr_Vtbl {
 pub trait ITfDisplayAttributeNotifySink_Impl: Sized {
     fn OnUpdateInfo(&self) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for ITfDisplayAttributeNotifySink {}
 impl ITfDisplayAttributeNotifySink_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITfDisplayAttributeNotifySink_Impl, const OFFSET: isize>() -> ITfDisplayAttributeNotifySink_Vtbl {
         unsafe extern "system" fn OnUpdateInfo<Identity: ::windows::core::IUnknownImpl, Impl: ITfDisplayAttributeNotifySink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -3759,6 +3854,7 @@ pub trait ITfDisplayAttributeProvider_Impl: Sized {
     fn EnumDisplayAttributeInfo(&self) -> ::windows::core::Result<IEnumTfDisplayAttributeInfo>;
     fn GetDisplayAttributeInfo(&self, guid: *const ::windows::core::GUID) -> ::windows::core::Result<ITfDisplayAttributeInfo>;
 }
+impl ::windows::core::RuntimeName for ITfDisplayAttributeProvider {}
 impl ITfDisplayAttributeProvider_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITfDisplayAttributeProvider_Impl, const OFFSET: isize>() -> ITfDisplayAttributeProvider_Vtbl {
         unsafe extern "system" fn EnumDisplayAttributeInfo<Identity: ::windows::core::IUnknownImpl, Impl: ITfDisplayAttributeProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -3801,6 +3897,7 @@ pub trait ITfDocumentMgr_Impl: Sized {
     fn GetBase(&self) -> ::windows::core::Result<ITfContext>;
     fn EnumContexts(&self) -> ::windows::core::Result<IEnumTfContexts>;
 }
+impl ::windows::core::RuntimeName for ITfDocumentMgr {}
 impl ITfDocumentMgr_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITfDocumentMgr_Impl, const OFFSET: isize>() -> ITfDocumentMgr_Vtbl {
         unsafe extern "system" fn CreateContext<Identity: ::windows::core::IUnknownImpl, Impl: ITfDocumentMgr_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, tidowner: u32, dwflags: u32, punk: *mut ::core::ffi::c_void, ppic: *mut ::windows::core::RawPtr, pectextstore: *mut u32) -> ::windows::core::HRESULT {
@@ -3871,6 +3968,8 @@ pub trait ITfEditRecord_Impl: Sized {
     fn GetTextAndPropertyUpdates(&self, dwflags: GET_TEXT_AND_PROPERTY_UPDATES_FLAGS, prgproperties: *const *const ::windows::core::GUID, cproperties: u32) -> ::windows::core::Result<IEnumTfRanges>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for ITfEditRecord {}
+#[cfg(feature = "Win32_Foundation")]
 impl ITfEditRecord_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITfEditRecord_Impl, const OFFSET: isize>() -> ITfEditRecord_Vtbl {
         unsafe extern "system" fn GetSelectionStatus<Identity: ::windows::core::IUnknownImpl, Impl: ITfEditRecord_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfchanged: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
@@ -3908,6 +4007,7 @@ impl ITfEditRecord_Vtbl {
 pub trait ITfEditSession_Impl: Sized {
     fn DoEditSession(&self, ec: u32) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for ITfEditSession {}
 impl ITfEditSession_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITfEditSession_Impl, const OFFSET: isize>() -> ITfEditSession_Vtbl {
         unsafe extern "system" fn DoEditSession<Identity: ::windows::core::IUnknownImpl, Impl: ITfEditSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ec: u32) -> ::windows::core::HRESULT {
@@ -3925,6 +4025,7 @@ pub trait ITfEditTransactionSink_Impl: Sized {
     fn OnStartEditTransaction(&self, pic: &::core::option::Option<ITfContext>) -> ::windows::core::Result<()>;
     fn OnEndEditTransaction(&self, pic: &::core::option::Option<ITfContext>) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for ITfEditTransactionSink {}
 impl ITfEditTransactionSink_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITfEditTransactionSink_Impl, const OFFSET: isize>() -> ITfEditTransactionSink_Vtbl {
         unsafe extern "system" fn OnStartEditTransaction<Identity: ::windows::core::IUnknownImpl, Impl: ITfEditTransactionSink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pic: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -3953,6 +4054,8 @@ pub trait ITfFnAdviseText_Impl: Sized + ITfFunction_Impl {
     fn OnLatticeUpdate(&self, prange: &::core::option::Option<ITfRange>, plattice: &::core::option::Option<ITfLMLattice>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for ITfFnAdviseText {}
+#[cfg(feature = "Win32_Foundation")]
 impl ITfFnAdviseText_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITfFnAdviseText_Impl, const OFFSET: isize>() -> ITfFnAdviseText_Vtbl {
         unsafe extern "system" fn OnTextUpdate<Identity: ::windows::core::IUnknownImpl, Impl: ITfFnAdviseText_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, prange: ::windows::core::RawPtr, pchtext: ::windows::core::PCWSTR, cch: i32) -> ::windows::core::HRESULT {
@@ -3978,6 +4081,7 @@ impl ITfFnAdviseText_Vtbl {
 pub trait ITfFnBalloon_Impl: Sized {
     fn UpdateBalloon(&self, style: TfLBBalloonStyle, pch: &::windows::core::PCWSTR, cch: u32) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for ITfFnBalloon {}
 impl ITfFnBalloon_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITfFnBalloon_Impl, const OFFSET: isize>() -> ITfFnBalloon_Vtbl {
         unsafe extern "system" fn UpdateBalloon<Identity: ::windows::core::IUnknownImpl, Impl: ITfFnBalloon_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, style: TfLBBalloonStyle, pch: ::windows::core::PCWSTR, cch: u32) -> ::windows::core::HRESULT {
@@ -3995,6 +4099,8 @@ impl ITfFnBalloon_Vtbl {
 pub trait ITfFnConfigure_Impl: Sized + ITfFunction_Impl {
     fn Show(&self, hwndparent: super::super::Foundation::HWND, langid: u16, rguidprofile: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for ITfFnConfigure {}
 #[cfg(feature = "Win32_Foundation")]
 impl ITfFnConfigure_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITfFnConfigure_Impl, const OFFSET: isize>() -> ITfFnConfigure_Vtbl {
@@ -4014,6 +4120,8 @@ pub trait ITfFnConfigureRegisterEudc_Impl: Sized + ITfFunction_Impl {
     fn Show(&self, hwndparent: super::super::Foundation::HWND, langid: u16, rguidprofile: *const ::windows::core::GUID, bstrregistered: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for ITfFnConfigureRegisterEudc {}
+#[cfg(feature = "Win32_Foundation")]
 impl ITfFnConfigureRegisterEudc_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITfFnConfigureRegisterEudc_Impl, const OFFSET: isize>() -> ITfFnConfigureRegisterEudc_Vtbl {
         unsafe extern "system" fn Show<Identity: ::windows::core::IUnknownImpl, Impl: ITfFnConfigureRegisterEudc_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hwndparent: super::super::Foundation::HWND, langid: u16, rguidprofile: *const ::windows::core::GUID, bstrregistered: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
@@ -4031,6 +4139,8 @@ impl ITfFnConfigureRegisterEudc_Vtbl {
 pub trait ITfFnConfigureRegisterWord_Impl: Sized + ITfFunction_Impl {
     fn Show(&self, hwndparent: super::super::Foundation::HWND, langid: u16, rguidprofile: *const ::windows::core::GUID, bstrregistered: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for ITfFnConfigureRegisterWord {}
 #[cfg(feature = "Win32_Foundation")]
 impl ITfFnConfigureRegisterWord_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITfFnConfigureRegisterWord_Impl, const OFFSET: isize>() -> ITfFnConfigureRegisterWord_Vtbl {
@@ -4050,6 +4160,8 @@ pub trait ITfFnCustomSpeechCommand_Impl: Sized + ITfFunction_Impl {
     fn SetSpeechCommandProvider(&self, pspcmdprovider: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for ITfFnCustomSpeechCommand {}
+#[cfg(feature = "Win32_Foundation")]
 impl ITfFnCustomSpeechCommand_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITfFnCustomSpeechCommand_Impl, const OFFSET: isize>() -> ITfFnCustomSpeechCommand_Vtbl {
         unsafe extern "system" fn SetSpeechCommandProvider<Identity: ::windows::core::IUnknownImpl, Impl: ITfFnCustomSpeechCommand_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pspcmdprovider: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -4067,6 +4179,8 @@ impl ITfFnCustomSpeechCommand_Vtbl {
 pub trait ITfFnGetLinguisticAlternates_Impl: Sized + ITfFunction_Impl {
     fn GetAlternates(&self, prange: &::core::option::Option<ITfRange>) -> ::windows::core::Result<ITfCandidateList>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for ITfFnGetLinguisticAlternates {}
 #[cfg(feature = "Win32_Foundation")]
 impl ITfFnGetLinguisticAlternates_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITfFnGetLinguisticAlternates_Impl, const OFFSET: isize>() -> ITfFnGetLinguisticAlternates_Vtbl {
@@ -4092,6 +4206,8 @@ pub trait ITfFnGetPreferredTouchKeyboardLayout_Impl: Sized + ITfFunction_Impl {
     fn GetLayout(&self, ptkblayouttype: *mut TKBLayoutType, pwpreferredlayoutid: *const u16) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for ITfFnGetPreferredTouchKeyboardLayout {}
+#[cfg(feature = "Win32_Foundation")]
 impl ITfFnGetPreferredTouchKeyboardLayout_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITfFnGetPreferredTouchKeyboardLayout_Impl, const OFFSET: isize>() -> ITfFnGetPreferredTouchKeyboardLayout_Vtbl {
         unsafe extern "system" fn GetLayout<Identity: ::windows::core::IUnknownImpl, Impl: ITfFnGetPreferredTouchKeyboardLayout_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptkblayouttype: *mut TKBLayoutType, pwpreferredlayoutid: *const u16) -> ::windows::core::HRESULT {
@@ -4109,6 +4225,8 @@ impl ITfFnGetPreferredTouchKeyboardLayout_Vtbl {
 pub trait ITfFnGetSAPIObject_Impl: Sized + ITfFunction_Impl {
     fn Get(&self, sobj: TfSapiObject) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for ITfFnGetSAPIObject {}
 #[cfg(feature = "Win32_Foundation")]
 impl ITfFnGetSAPIObject_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITfFnGetSAPIObject_Impl, const OFFSET: isize>() -> ITfFnGetSAPIObject_Vtbl {
@@ -4134,6 +4252,8 @@ pub trait ITfFnLMInternal_Impl: Sized + ITfFunction_Impl + ITfFnLMProcessor_Impl
     fn ProcessLattice(&self, prange: &::core::option::Option<ITfRange>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for ITfFnLMInternal {}
+#[cfg(feature = "Win32_Foundation")]
 impl ITfFnLMInternal_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITfFnLMInternal_Impl, const OFFSET: isize>() -> ITfFnLMInternal_Vtbl {
         unsafe extern "system" fn ProcessLattice<Identity: ::windows::core::IUnknownImpl, Impl: ITfFnLMInternal_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, prange: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -4157,6 +4277,8 @@ pub trait ITfFnLMProcessor_Impl: Sized + ITfFunction_Impl {
     fn InvokeKey(&self, fup: super::super::Foundation::BOOL, vkey: super::super::Foundation::WPARAM, lparamkeydata: super::super::Foundation::LPARAM) -> ::windows::core::Result<()>;
     fn InvokeFunc(&self, pic: &::core::option::Option<ITfContext>, refguidfunc: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for ITfFnLMProcessor {}
 #[cfg(feature = "Win32_Foundation")]
 impl ITfFnLMProcessor_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITfFnLMProcessor_Impl, const OFFSET: isize>() -> ITfFnLMProcessor_Vtbl {
@@ -4234,6 +4356,8 @@ pub trait ITfFnLangProfileUtil_Impl: Sized + ITfFunction_Impl {
     fn IsProfileAvailableForLang(&self, langid: u16) -> ::windows::core::Result<super::super::Foundation::BOOL>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for ITfFnLangProfileUtil {}
+#[cfg(feature = "Win32_Foundation")]
 impl ITfFnLangProfileUtil_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITfFnLangProfileUtil_Impl, const OFFSET: isize>() -> ITfFnLangProfileUtil_Vtbl {
         unsafe extern "system" fn RegisterActiveProfiles<Identity: ::windows::core::IUnknownImpl, Impl: ITfFnLangProfileUtil_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -4268,6 +4392,8 @@ pub trait ITfFnPlayBack_Impl: Sized + ITfFunction_Impl {
     fn Play(&self, prange: &::core::option::Option<ITfRange>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for ITfFnPlayBack {}
+#[cfg(feature = "Win32_Foundation")]
 impl ITfFnPlayBack_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITfFnPlayBack_Impl, const OFFSET: isize>() -> ITfFnPlayBack_Vtbl {
         unsafe extern "system" fn QueryRange<Identity: ::windows::core::IUnknownImpl, Impl: ITfFnPlayBack_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, prange: ::windows::core::RawPtr, ppnewrange: *mut ::windows::core::RawPtr, pfplayable: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
@@ -4295,6 +4421,8 @@ pub trait ITfFnPropertyUIStatus_Impl: Sized + ITfFunction_Impl {
     fn GetStatus(&self, refguidprop: *const ::windows::core::GUID) -> ::windows::core::Result<u32>;
     fn SetStatus(&self, refguidprop: *const ::windows::core::GUID, dw: u32) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for ITfFnPropertyUIStatus {}
 #[cfg(feature = "Win32_Foundation")]
 impl ITfFnPropertyUIStatus_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITfFnPropertyUIStatus_Impl, const OFFSET: isize>() -> ITfFnPropertyUIStatus_Vtbl {
@@ -4330,6 +4458,8 @@ pub trait ITfFnReconversion_Impl: Sized + ITfFunction_Impl {
     fn GetReconversion(&self, prange: &::core::option::Option<ITfRange>) -> ::windows::core::Result<ITfCandidateList>;
     fn Reconvert(&self, prange: &::core::option::Option<ITfRange>) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for ITfFnReconversion {}
 #[cfg(feature = "Win32_Foundation")]
 impl ITfFnReconversion_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITfFnReconversion_Impl, const OFFSET: isize>() -> ITfFnReconversion_Vtbl {
@@ -4371,6 +4501,8 @@ pub trait ITfFnSearchCandidateProvider_Impl: Sized + ITfFunction_Impl {
     fn SetResult(&self, bstrquery: &super::super::Foundation::BSTR, bstrapplicationid: &super::super::Foundation::BSTR, bstrresult: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for ITfFnSearchCandidateProvider {}
+#[cfg(feature = "Win32_Foundation")]
 impl ITfFnSearchCandidateProvider_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITfFnSearchCandidateProvider_Impl, const OFFSET: isize>() -> ITfFnSearchCandidateProvider_Vtbl {
         unsafe extern "system" fn GetSearchCandidates<Identity: ::windows::core::IUnknownImpl, Impl: ITfFnSearchCandidateProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrquery: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrapplicationid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pplist: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -4404,6 +4536,8 @@ pub trait ITfFnShowHelp_Impl: Sized + ITfFunction_Impl {
     fn Show(&self, hwndparent: super::super::Foundation::HWND) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for ITfFnShowHelp {}
+#[cfg(feature = "Win32_Foundation")]
 impl ITfFnShowHelp_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITfFnShowHelp_Impl, const OFFSET: isize>() -> ITfFnShowHelp_Vtbl {
         unsafe extern "system" fn Show<Identity: ::windows::core::IUnknownImpl, Impl: ITfFnShowHelp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hwndparent: super::super::Foundation::HWND) -> ::windows::core::HRESULT {
@@ -4421,6 +4555,8 @@ impl ITfFnShowHelp_Vtbl {
 pub trait ITfFunction_Impl: Sized {
     fn GetDisplayName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for ITfFunction {}
 #[cfg(feature = "Win32_Foundation")]
 impl ITfFunction_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITfFunction_Impl, const OFFSET: isize>() -> ITfFunction_Vtbl {
@@ -4447,6 +4583,8 @@ pub trait ITfFunctionProvider_Impl: Sized {
     fn GetDescription(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn GetFunction(&self, rguid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for ITfFunctionProvider {}
 #[cfg(feature = "Win32_Foundation")]
 impl ITfFunctionProvider_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITfFunctionProvider_Impl, const OFFSET: isize>() -> ITfFunctionProvider_Vtbl {
@@ -4497,6 +4635,7 @@ impl ITfFunctionProvider_Vtbl {
 pub trait ITfInputProcessorProfileActivationSink_Impl: Sized {
     fn OnActivated(&self, dwprofiletype: u32, langid: u16, clsid: *const ::windows::core::GUID, catid: *const ::windows::core::GUID, guidprofile: *const ::windows::core::GUID, hkl: HKL, dwflags: u32) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for ITfInputProcessorProfileActivationSink {}
 impl ITfInputProcessorProfileActivationSink_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITfInputProcessorProfileActivationSink_Impl, const OFFSET: isize>() -> ITfInputProcessorProfileActivationSink_Vtbl {
         unsafe extern "system" fn OnActivated<Identity: ::windows::core::IUnknownImpl, Impl: ITfInputProcessorProfileActivationSink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwprofiletype: u32, langid: u16, clsid: *const ::windows::core::GUID, catid: *const ::windows::core::GUID, guidprofile: *const ::windows::core::GUID, hkl: HKL, dwflags: u32) -> ::windows::core::HRESULT {
@@ -4521,6 +4660,8 @@ pub trait ITfInputProcessorProfileMgr_Impl: Sized {
     fn UnregisterProfile(&self, rclsid: *const ::windows::core::GUID, langid: u16, guidprofile: *const ::windows::core::GUID, dwflags: u32) -> ::windows::core::Result<()>;
     fn GetActiveProfile(&self, catid: *const ::windows::core::GUID) -> ::windows::core::Result<TF_INPUTPROCESSORPROFILE>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for ITfInputProcessorProfileMgr {}
 #[cfg(feature = "Win32_Foundation")]
 impl ITfInputProcessorProfileMgr_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITfInputProcessorProfileMgr_Impl, const OFFSET: isize>() -> ITfInputProcessorProfileMgr_Vtbl {
@@ -4616,6 +4757,7 @@ impl ITfInputProcessorProfileMgr_Vtbl {
 pub trait ITfInputProcessorProfileSubstituteLayout_Impl: Sized {
     fn GetSubstituteKeyboardLayout(&self, rclsid: *const ::windows::core::GUID, langid: u16, guidprofile: *const ::windows::core::GUID) -> ::windows::core::Result<HKL>;
 }
+impl ::windows::core::RuntimeName for ITfInputProcessorProfileSubstituteLayout {}
 impl ITfInputProcessorProfileSubstituteLayout_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITfInputProcessorProfileSubstituteLayout_Impl, const OFFSET: isize>() -> ITfInputProcessorProfileSubstituteLayout_Vtbl {
         unsafe extern "system" fn GetSubstituteKeyboardLayout<Identity: ::windows::core::IUnknownImpl, Impl: ITfInputProcessorProfileSubstituteLayout_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rclsid: *const ::windows::core::GUID, langid: u16, guidprofile: *const ::windows::core::GUID, phkl: *mut HKL) -> ::windows::core::HRESULT {
@@ -4659,6 +4801,8 @@ pub trait ITfInputProcessorProfiles_Impl: Sized {
     fn EnableLanguageProfileByDefault(&self, rclsid: *const ::windows::core::GUID, langid: u16, guidprofile: *const ::windows::core::GUID, fenable: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn SubstituteKeyboardLayout(&self, rclsid: *const ::windows::core::GUID, langid: u16, guidprofile: *const ::windows::core::GUID, hkl: HKL) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::windows::core::RuntimeName for ITfInputProcessorProfiles {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ITfInputProcessorProfiles_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITfInputProcessorProfiles_Impl, const OFFSET: isize>() -> ITfInputProcessorProfiles_Vtbl {
@@ -4813,6 +4957,8 @@ pub trait ITfInputProcessorProfilesEx_Impl: Sized + ITfInputProcessorProfiles_Im
     fn SetLanguageProfileDisplayName(&self, rclsid: *const ::windows::core::GUID, langid: u16, guidprofile: *const ::windows::core::GUID, pchfile: &::windows::core::PCWSTR, cchfile: u32, uresid: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::windows::core::RuntimeName for ITfInputProcessorProfilesEx {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ITfInputProcessorProfilesEx_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITfInputProcessorProfilesEx_Impl, const OFFSET: isize>() -> ITfInputProcessorProfilesEx_Vtbl {
         unsafe extern "system" fn SetLanguageProfileDisplayName<Identity: ::windows::core::IUnknownImpl, Impl: ITfInputProcessorProfilesEx_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rclsid: *const ::windows::core::GUID, langid: u16, guidprofile: *const ::windows::core::GUID, pchfile: ::windows::core::PCWSTR, cchfile: u32, uresid: u32) -> ::windows::core::HRESULT {
@@ -4837,6 +4983,8 @@ pub trait ITfInputScope_Impl: Sized {
     fn GetSRGS(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn GetXML(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for ITfInputScope {}
 #[cfg(feature = "Win32_Foundation")]
 impl ITfInputScope_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITfInputScope_Impl, const OFFSET: isize>() -> ITfInputScope_Vtbl {
@@ -4901,6 +5049,8 @@ pub trait ITfInputScope2_Impl: Sized + ITfInputScope_Impl {
     fn EnumWordList(&self) -> ::windows::core::Result<super::super::System::Com::IEnumString>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::windows::core::RuntimeName for ITfInputScope2 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ITfInputScope2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITfInputScope2_Impl, const OFFSET: isize>() -> ITfInputScope2_Vtbl {
         unsafe extern "system" fn EnumWordList<Identity: ::windows::core::IUnknownImpl, Impl: ITfInputScope2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenumstring: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -4925,6 +5075,8 @@ pub trait ITfInsertAtSelection_Impl: Sized {
     fn InsertTextAtSelection(&self, ec: u32, dwflags: INSERT_TEXT_AT_SELECTION_FLAGS, pchtext: &::windows::core::PCWSTR, cch: i32) -> ::windows::core::Result<ITfRange>;
     fn InsertEmbeddedAtSelection(&self, ec: u32, dwflags: u32, pdataobject: &::core::option::Option<super::super::System::Com::IDataObject>) -> ::windows::core::Result<ITfRange>;
 }
+#[cfg(feature = "Win32_System_Com")]
+impl ::windows::core::RuntimeName for ITfInsertAtSelection {}
 #[cfg(feature = "Win32_System_Com")]
 impl ITfInsertAtSelection_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITfInsertAtSelection_Impl, const OFFSET: isize>() -> ITfInsertAtSelection_Vtbl {
@@ -4968,6 +5120,8 @@ pub trait ITfIntegratableCandidateListUIElement_Impl: Sized {
     fn ShowCandidateNumbers(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
     fn FinalizeExactCompositionString(&self) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for ITfIntegratableCandidateListUIElement {}
 #[cfg(feature = "Win32_Foundation")]
 impl ITfIntegratableCandidateListUIElement_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITfIntegratableCandidateListUIElement_Impl, const OFFSET: isize>() -> ITfIntegratableCandidateListUIElement_Vtbl {
@@ -5036,6 +5190,8 @@ pub trait ITfKeyEventSink_Impl: Sized {
     fn OnKeyUp(&self, pic: &::core::option::Option<ITfContext>, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> ::windows::core::Result<super::super::Foundation::BOOL>;
     fn OnPreservedKey(&self, pic: &::core::option::Option<ITfContext>, rguid: *const ::windows::core::GUID) -> ::windows::core::Result<super::super::Foundation::BOOL>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for ITfKeyEventSink {}
 #[cfg(feature = "Win32_Foundation")]
 impl ITfKeyEventSink_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITfKeyEventSink_Impl, const OFFSET: isize>() -> ITfKeyEventSink_Vtbl {
@@ -5119,6 +5275,8 @@ pub trait ITfKeyTraceEventSink_Impl: Sized {
     fn OnKeyTraceUp(&self, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for ITfKeyTraceEventSink {}
+#[cfg(feature = "Win32_Foundation")]
 impl ITfKeyTraceEventSink_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITfKeyTraceEventSink_Impl, const OFFSET: isize>() -> ITfKeyTraceEventSink_Vtbl {
         unsafe extern "system" fn OnKeyTraceDown<Identity: ::windows::core::IUnknownImpl, Impl: ITfKeyTraceEventSink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> ::windows::core::HRESULT {
@@ -5158,6 +5316,8 @@ pub trait ITfKeystrokeMgr_Impl: Sized {
     fn GetPreservedKeyDescription(&self, rguid: *const ::windows::core::GUID) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn SimulatePreservedKey(&self, pic: &::core::option::Option<ITfContext>, rguid: *const ::windows::core::GUID) -> ::windows::core::Result<super::super::Foundation::BOOL>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for ITfKeystrokeMgr {}
 #[cfg(feature = "Win32_Foundation")]
 impl ITfKeystrokeMgr_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITfKeystrokeMgr_Impl, const OFFSET: isize>() -> ITfKeystrokeMgr_Vtbl {
@@ -5313,6 +5473,8 @@ pub trait ITfLMLattice_Impl: Sized {
     fn EnumLatticeElements(&self, dwframestart: u32, rguidtype: *const ::windows::core::GUID) -> ::windows::core::Result<IEnumTfLatticeElements>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for ITfLMLattice {}
+#[cfg(feature = "Win32_Foundation")]
 impl ITfLMLattice_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITfLMLattice_Impl, const OFFSET: isize>() -> ITfLMLattice_Vtbl {
         unsafe extern "system" fn QueryType<Identity: ::windows::core::IUnknownImpl, Impl: ITfLMLattice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rguidtype: *const ::windows::core::GUID, pfsupported: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
@@ -5356,6 +5518,8 @@ pub trait ITfLangBarEventSink_Impl: Sized {
     fn ShowFloating(&self, dwflags: u32) -> ::windows::core::Result<()>;
     fn GetItemFloatingRect(&self, dwthreadid: u32, rguid: *const ::windows::core::GUID) -> ::windows::core::Result<super::super::Foundation::RECT>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for ITfLangBarEventSink {}
 #[cfg(feature = "Win32_Foundation")]
 impl ITfLangBarEventSink_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITfLangBarEventSink_Impl, const OFFSET: isize>() -> ITfLangBarEventSink_Vtbl {
@@ -5417,6 +5581,8 @@ pub trait ITfLangBarItem_Impl: Sized {
     fn GetTooltipString(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for ITfLangBarItem {}
+#[cfg(feature = "Win32_Foundation")]
 impl ITfLangBarItem_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITfLangBarItem_Impl, const OFFSET: isize>() -> ITfLangBarItem_Vtbl {
         unsafe extern "system" fn GetInfo<Identity: ::windows::core::IUnknownImpl, Impl: ITfLangBarItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *mut TF_LANGBARITEMINFO) -> ::windows::core::HRESULT {
@@ -5476,6 +5642,8 @@ pub trait ITfLangBarItemBalloon_Impl: Sized + ITfLangBarItem_Impl {
     fn GetBalloonInfo(&self) -> ::windows::core::Result<TF_LBBALLOONINFO>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for ITfLangBarItemBalloon {}
+#[cfg(feature = "Win32_Foundation")]
 impl ITfLangBarItemBalloon_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITfLangBarItemBalloon_Impl, const OFFSET: isize>() -> ITfLangBarItemBalloon_Vtbl {
         unsafe extern "system" fn OnClick<Identity: ::windows::core::IUnknownImpl, Impl: ITfLangBarItemBalloon_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, click: TfLBIClick, pt: super::super::Foundation::POINT, prcarea: *const super::super::Foundation::RECT) -> ::windows::core::HRESULT {
@@ -5523,6 +5691,8 @@ pub trait ITfLangBarItemBitmap_Impl: Sized + ITfLangBarItem_Impl {
     fn DrawBitmap(&self, bmwidth: i32, bmheight: i32, dwflags: u32, phbmp: *mut super::super::Graphics::Gdi::HBITMAP, phbmpmask: *mut super::super::Graphics::Gdi::HBITMAP) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::windows::core::RuntimeName for ITfLangBarItemBitmap {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ITfLangBarItemBitmap_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITfLangBarItemBitmap_Impl, const OFFSET: isize>() -> ITfLangBarItemBitmap_Vtbl {
         unsafe extern "system" fn OnClick<Identity: ::windows::core::IUnknownImpl, Impl: ITfLangBarItemBitmap_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, click: TfLBIClick, pt: super::super::Foundation::POINT, prcarea: *const super::super::Foundation::RECT) -> ::windows::core::HRESULT {
@@ -5566,6 +5736,8 @@ pub trait ITfLangBarItemBitmapButton_Impl: Sized + ITfLangBarItem_Impl {
     fn DrawBitmap(&self, bmwidth: i32, bmheight: i32, dwflags: u32, phbmp: *mut super::super::Graphics::Gdi::HBITMAP, phbmpmask: *mut super::super::Graphics::Gdi::HBITMAP) -> ::windows::core::Result<()>;
     fn GetText(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::windows::core::RuntimeName for ITfLangBarItemBitmapButton {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ITfLangBarItemBitmapButton_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITfLangBarItemBitmapButton_Impl, const OFFSET: isize>() -> ITfLangBarItemBitmapButton_Vtbl {
@@ -5634,6 +5806,8 @@ pub trait ITfLangBarItemButton_Impl: Sized + ITfLangBarItem_Impl {
     fn GetText(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+impl ::windows::core::RuntimeName for ITfLangBarItemButton {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ITfLangBarItemButton_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITfLangBarItemButton_Impl, const OFFSET: isize>() -> ITfLangBarItemButton_Vtbl {
         unsafe extern "system" fn OnClick<Identity: ::windows::core::IUnknownImpl, Impl: ITfLangBarItemButton_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, click: TfLBIClick, pt: super::super::Foundation::POINT, prcarea: *const super::super::Foundation::RECT) -> ::windows::core::HRESULT {
@@ -5701,6 +5875,8 @@ pub trait ITfLangBarItemMgr_Impl: Sized {
     fn AdviseItemsSink(&self, ulcount: u32, ppunk: *const ::core::option::Option<ITfLangBarItemSink>, pguiditem: *const ::windows::core::GUID, pdwcookie: *mut u32) -> ::windows::core::Result<()>;
     fn UnadviseItemsSink(&self, ulcount: u32, pdwcookie: *const u32) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for ITfLangBarItemMgr {}
 #[cfg(feature = "Win32_Foundation")]
 impl ITfLangBarItemMgr_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITfLangBarItemMgr_Impl, const OFFSET: isize>() -> ITfLangBarItemMgr_Vtbl {
@@ -5811,6 +5987,7 @@ impl ITfLangBarItemMgr_Vtbl {
 pub trait ITfLangBarItemSink_Impl: Sized {
     fn OnUpdate(&self, dwflags: u32) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for ITfLangBarItemSink {}
 impl ITfLangBarItemSink_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITfLangBarItemSink_Impl, const OFFSET: isize>() -> ITfLangBarItemSink_Vtbl {
         unsafe extern "system" fn OnUpdate<Identity: ::windows::core::IUnknownImpl, Impl: ITfLangBarItemSink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwflags: u32) -> ::windows::core::HRESULT {
@@ -5836,6 +6013,8 @@ pub trait ITfLangBarMgr_Impl: Sized {
     fn ShowFloating(&self, dwflags: u32) -> ::windows::core::Result<()>;
     fn GetShowFloatingStatus(&self) -> ::windows::core::Result<u32>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for ITfLangBarMgr {}
 #[cfg(feature = "Win32_Foundation")]
 impl ITfLangBarMgr_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITfLangBarMgr_Impl, const OFFSET: isize>() -> ITfLangBarMgr_Vtbl {
@@ -5919,6 +6098,8 @@ pub trait ITfLanguageProfileNotifySink_Impl: Sized {
     fn OnLanguageChanged(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for ITfLanguageProfileNotifySink {}
+#[cfg(feature = "Win32_Foundation")]
 impl ITfLanguageProfileNotifySink_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITfLanguageProfileNotifySink_Impl, const OFFSET: isize>() -> ITfLanguageProfileNotifySink_Vtbl {
         unsafe extern "system" fn OnLanguageChange<Identity: ::windows::core::IUnknownImpl, Impl: ITfLanguageProfileNotifySink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, langid: u16, pfaccept: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
@@ -5951,6 +6132,7 @@ pub trait ITfMSAAControl_Impl: Sized {
     fn SystemEnableMSAA(&self) -> ::windows::core::Result<()>;
     fn SystemDisableMSAA(&self) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for ITfMSAAControl {}
 impl ITfMSAAControl_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITfMSAAControl_Impl, const OFFSET: isize>() -> ITfMSAAControl_Vtbl {
         unsafe extern "system" fn SystemEnableMSAA<Identity: ::windows::core::IUnknownImpl, Impl: ITfMSAAControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -5978,6 +6160,8 @@ pub trait ITfMenu_Impl: Sized {
     fn AddMenuItem(&self, uid: u32, dwflags: u32, hbmp: super::super::Graphics::Gdi::HBITMAP, hbmpmask: super::super::Graphics::Gdi::HBITMAP, pch: &::windows::core::PCWSTR, cch: u32, ppmenu: *mut ::core::option::Option<ITfMenu>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
+impl ::windows::core::RuntimeName for ITfMenu {}
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl ITfMenu_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITfMenu_Impl, const OFFSET: isize>() -> ITfMenu_Vtbl {
         unsafe extern "system" fn AddMenuItem<Identity: ::windows::core::IUnknownImpl, Impl: ITfMenu_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uid: u32, dwflags: u32, hbmp: super::super::Graphics::Gdi::HBITMAP, hbmpmask: super::super::Graphics::Gdi::HBITMAP, pch: ::windows::core::PCWSTR, cch: u32, ppmenu: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -5998,6 +6182,8 @@ pub trait ITfMessagePump_Impl: Sized {
     fn PeekMessageW(&self, pmsg: *mut super::WindowsAndMessaging::MSG, hwnd: super::super::Foundation::HWND, wmsgfiltermin: u32, wmsgfiltermax: u32, wremovemsg: u32, pfresult: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn GetMessageW(&self, pmsg: *mut super::WindowsAndMessaging::MSG, hwnd: super::super::Foundation::HWND, wmsgfiltermin: u32, wmsgfiltermax: u32, pfresult: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+impl ::windows::core::RuntimeName for ITfMessagePump {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ITfMessagePump_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITfMessagePump_Impl, const OFFSET: isize>() -> ITfMessagePump_Vtbl {
@@ -6038,6 +6224,8 @@ pub trait ITfMouseSink_Impl: Sized {
     fn OnMouseEvent(&self, uedge: u32, uquadrant: u32, dwbtnstatus: u32) -> ::windows::core::Result<super::super::Foundation::BOOL>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for ITfMouseSink {}
+#[cfg(feature = "Win32_Foundation")]
 impl ITfMouseSink_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITfMouseSink_Impl, const OFFSET: isize>() -> ITfMouseSink_Vtbl {
         unsafe extern "system" fn OnMouseEvent<Identity: ::windows::core::IUnknownImpl, Impl: ITfMouseSink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uedge: u32, uquadrant: u32, dwbtnstatus: u32, pfeaten: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
@@ -6061,6 +6249,7 @@ pub trait ITfMouseTracker_Impl: Sized {
     fn AdviseMouseSink(&self, range: &::core::option::Option<ITfRange>, psink: &::core::option::Option<ITfMouseSink>) -> ::windows::core::Result<u32>;
     fn UnadviseMouseSink(&self, dwcookie: u32) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for ITfMouseTracker {}
 impl ITfMouseTracker_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITfMouseTracker_Impl, const OFFSET: isize>() -> ITfMouseTracker_Vtbl {
         unsafe extern "system" fn AdviseMouseSink<Identity: ::windows::core::IUnknownImpl, Impl: ITfMouseTracker_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, range: ::windows::core::RawPtr, psink: ::windows::core::RawPtr, pdwcookie: *mut u32) -> ::windows::core::HRESULT {
@@ -6093,6 +6282,7 @@ pub trait ITfMouseTrackerACP_Impl: Sized {
     fn AdviseMouseSink(&self, range: &::core::option::Option<ITfRangeACP>, psink: &::core::option::Option<ITfMouseSink>) -> ::windows::core::Result<u32>;
     fn UnadviseMouseSink(&self, dwcookie: u32) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for ITfMouseTrackerACP {}
 impl ITfMouseTrackerACP_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITfMouseTrackerACP_Impl, const OFFSET: isize>() -> ITfMouseTrackerACP_Vtbl {
         unsafe extern "system" fn AdviseMouseSink<Identity: ::windows::core::IUnknownImpl, Impl: ITfMouseTrackerACP_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, range: ::windows::core::RawPtr, psink: ::windows::core::RawPtr, pdwcookie: *mut u32) -> ::windows::core::HRESULT {
@@ -6126,6 +6316,8 @@ pub trait ITfPersistentPropertyLoaderACP_Impl: Sized {
     fn LoadProperty(&self, phdr: *const TF_PERSISTENT_PROPERTY_HEADER_ACP) -> ::windows::core::Result<super::super::System::Com::IStream>;
 }
 #[cfg(feature = "Win32_System_Com")]
+impl ::windows::core::RuntimeName for ITfPersistentPropertyLoaderACP {}
+#[cfg(feature = "Win32_System_Com")]
 impl ITfPersistentPropertyLoaderACP_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITfPersistentPropertyLoaderACP_Impl, const OFFSET: isize>() -> ITfPersistentPropertyLoaderACP_Vtbl {
         unsafe extern "system" fn LoadProperty<Identity: ::windows::core::IUnknownImpl, Impl: ITfPersistentPropertyLoaderACP_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, phdr: *const TF_PERSISTENT_PROPERTY_HEADER_ACP, ppstream: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -6148,6 +6340,7 @@ impl ITfPersistentPropertyLoaderACP_Vtbl {
 pub trait ITfPreservedKeyNotifySink_Impl: Sized {
     fn OnUpdated(&self, pprekey: *const TF_PRESERVEDKEY) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for ITfPreservedKeyNotifySink {}
 impl ITfPreservedKeyNotifySink_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITfPreservedKeyNotifySink_Impl, const OFFSET: isize>() -> ITfPreservedKeyNotifySink_Vtbl {
         unsafe extern "system" fn OnUpdated<Identity: ::windows::core::IUnknownImpl, Impl: ITfPreservedKeyNotifySink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pprekey: *const TF_PRESERVEDKEY) -> ::windows::core::HRESULT {
@@ -6168,6 +6361,8 @@ pub trait ITfProperty_Impl: Sized + ITfReadOnlyProperty_Impl {
     fn SetValue(&self, ec: u32, prange: &::core::option::Option<ITfRange>, pvarvalue: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn Clear(&self, ec: u32, prange: &::core::option::Option<ITfRange>) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ITfProperty {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITfProperty_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITfProperty_Impl, const OFFSET: isize>() -> ITfProperty_Vtbl {
@@ -6215,6 +6410,8 @@ pub trait ITfPropertyStore_Impl: Sized {
     fn GetPropertyRangeCreator(&self) -> ::windows::core::Result<::windows::core::GUID>;
     fn Serialize(&self, pstream: &::core::option::Option<super::super::System::Com::IStream>) -> ::windows::core::Result<u32>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ITfPropertyStore {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITfPropertyStore_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITfPropertyStore_Impl, const OFFSET: isize>() -> ITfPropertyStore_Vtbl {
@@ -6339,6 +6536,8 @@ pub trait ITfQueryEmbedded_Impl: Sized {
     fn QueryInsertEmbedded(&self, pguidservice: *const ::windows::core::GUID, pformatetc: *const super::super::System::Com::FORMATETC) -> ::windows::core::Result<super::super::Foundation::BOOL>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::windows::core::RuntimeName for ITfQueryEmbedded {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ITfQueryEmbedded_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITfQueryEmbedded_Impl, const OFFSET: isize>() -> ITfQueryEmbedded_Vtbl {
         unsafe extern "system" fn QueryInsertEmbedded<Identity: ::windows::core::IUnknownImpl, Impl: ITfQueryEmbedded_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pguidservice: *const ::windows::core::GUID, pformatetc: *const super::super::System::Com::FORMATETC, pfinsertable: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
@@ -6383,6 +6582,8 @@ pub trait ITfRange_Impl: Sized {
     fn Clone(&self) -> ::windows::core::Result<ITfRange>;
     fn GetContext(&self) -> ::windows::core::Result<ITfContext>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::windows::core::RuntimeName for ITfRange {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ITfRange_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITfRange_Impl, const OFFSET: isize>() -> ITfRange_Vtbl {
@@ -6604,6 +6805,8 @@ pub trait ITfRangeACP_Impl: Sized + ITfRange_Impl {
     fn SetExtent(&self, acpanchor: i32, cch: i32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::windows::core::RuntimeName for ITfRangeACP {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ITfRangeACP_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITfRangeACP_Impl, const OFFSET: isize>() -> ITfRangeACP_Vtbl {
         unsafe extern "system" fn GetExtent<Identity: ::windows::core::IUnknownImpl, Impl: ITfRangeACP_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pacpanchor: *mut i32, pcch: *mut i32) -> ::windows::core::HRESULT {
@@ -6629,6 +6832,7 @@ impl ITfRangeACP_Vtbl {
 pub trait ITfRangeBackup_Impl: Sized {
     fn Restore(&self, ec: u32, prange: &::core::option::Option<ITfRange>) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for ITfRangeBackup {}
 impl ITfRangeBackup_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITfRangeBackup_Impl, const OFFSET: isize>() -> ITfRangeBackup_Vtbl {
         unsafe extern "system" fn Restore<Identity: ::windows::core::IUnknownImpl, Impl: ITfRangeBackup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ec: u32, prange: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -6649,6 +6853,8 @@ pub trait ITfReadOnlyProperty_Impl: Sized {
     fn GetValue(&self, ec: u32, prange: &::core::option::Option<ITfRange>) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
     fn GetContext(&self) -> ::windows::core::Result<ITfContext>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ITfReadOnlyProperty {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITfReadOnlyProperty_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITfReadOnlyProperty_Impl, const OFFSET: isize>() -> ITfReadOnlyProperty_Vtbl {
@@ -6711,6 +6917,8 @@ pub trait ITfReadingInformationUIElement_Impl: Sized + ITfUIElement_Impl {
     fn GetErrorIndex(&self) -> ::windows::core::Result<u32>;
     fn IsVerticalOrderPreferred(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for ITfReadingInformationUIElement {}
 #[cfg(feature = "Win32_Foundation")]
 impl ITfReadingInformationUIElement_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITfReadingInformationUIElement_Impl, const OFFSET: isize>() -> ITfReadingInformationUIElement_Vtbl {
@@ -6797,6 +7005,7 @@ impl ITfReadingInformationUIElement_Vtbl {
 pub trait ITfReverseConversion_Impl: Sized {
     fn DoReverseConversion(&self, lpstr: &::windows::core::PCWSTR) -> ::windows::core::Result<ITfReverseConversionList>;
 }
+impl ::windows::core::RuntimeName for ITfReverseConversion {}
 impl ITfReverseConversion_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITfReverseConversion_Impl, const OFFSET: isize>() -> ITfReverseConversion_Vtbl {
         unsafe extern "system" fn DoReverseConversion<Identity: ::windows::core::IUnknownImpl, Impl: ITfReverseConversion_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lpstr: ::windows::core::PCWSTR, pplist: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -6821,6 +7030,8 @@ pub trait ITfReverseConversionList_Impl: Sized {
     fn GetLength(&self) -> ::windows::core::Result<u32>;
     fn GetString(&self, uindex: u32) -> ::windows::core::Result<super::super::Foundation::BSTR>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for ITfReverseConversionList {}
 #[cfg(feature = "Win32_Foundation")]
 impl ITfReverseConversionList_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITfReverseConversionList_Impl, const OFFSET: isize>() -> ITfReverseConversionList_Vtbl {
@@ -6859,6 +7070,7 @@ impl ITfReverseConversionList_Vtbl {
 pub trait ITfReverseConversionMgr_Impl: Sized {
     fn GetReverseConversion(&self, langid: u16, guidprofile: *const ::windows::core::GUID, dwflag: u32) -> ::windows::core::Result<ITfReverseConversion>;
 }
+impl ::windows::core::RuntimeName for ITfReverseConversionMgr {}
 impl ITfReverseConversionMgr_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITfReverseConversionMgr_Impl, const OFFSET: isize>() -> ITfReverseConversionMgr_Vtbl {
         unsafe extern "system" fn GetReverseConversion<Identity: ::windows::core::IUnknownImpl, Impl: ITfReverseConversionMgr_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, langid: u16, guidprofile: *const ::windows::core::GUID, dwflag: u32, ppreverseconversion: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -6882,6 +7094,7 @@ pub trait ITfSource_Impl: Sized {
     fn AdviseSink(&self, riid: *const ::windows::core::GUID, punk: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<u32>;
     fn UnadviseSink(&self, dwcookie: u32) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for ITfSource {}
 impl ITfSource_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITfSource_Impl, const OFFSET: isize>() -> ITfSource_Vtbl {
         unsafe extern "system" fn AdviseSink<Identity: ::windows::core::IUnknownImpl, Impl: ITfSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, punk: *mut ::core::ffi::c_void, pdwcookie: *mut u32) -> ::windows::core::HRESULT {
@@ -6914,6 +7127,7 @@ pub trait ITfSourceSingle_Impl: Sized {
     fn AdviseSingleSink(&self, tid: u32, riid: *const ::windows::core::GUID, punk: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
     fn UnadviseSingleSink(&self, tid: u32, riid: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for ITfSourceSingle {}
 impl ITfSourceSingle_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITfSourceSingle_Impl, const OFFSET: isize>() -> ITfSourceSingle_Vtbl {
         unsafe extern "system" fn AdviseSingleSink<Identity: ::windows::core::IUnknownImpl, Impl: ITfSourceSingle_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, tid: u32, riid: *const ::windows::core::GUID, punk: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -6942,6 +7156,8 @@ pub trait ITfSpeechUIServer_Impl: Sized {
     fn ShowUI(&self, fshow: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn UpdateBalloon(&self, style: TfLBBalloonStyle, pch: &::windows::core::PCWSTR, cch: u32) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for ITfSpeechUIServer {}
 #[cfg(feature = "Win32_Foundation")]
 impl ITfSpeechUIServer_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITfSpeechUIServer_Impl, const OFFSET: isize>() -> ITfSpeechUIServer_Vtbl {
@@ -6974,6 +7190,7 @@ impl ITfSpeechUIServer_Vtbl {
 pub trait ITfStatusSink_Impl: Sized {
     fn OnStatusChange(&self, pic: &::core::option::Option<ITfContext>, dwflags: u32) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for ITfStatusSink {}
 impl ITfStatusSink_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITfStatusSink_Impl, const OFFSET: isize>() -> ITfStatusSink_Vtbl {
         unsafe extern "system" fn OnStatusChange<Identity: ::windows::core::IUnknownImpl, Impl: ITfStatusSink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pic: ::windows::core::RawPtr, dwflags: u32) -> ::windows::core::HRESULT {
@@ -6991,6 +7208,7 @@ pub trait ITfSystemDeviceTypeLangBarItem_Impl: Sized {
     fn SetIconMode(&self, dwflags: LANG_BAR_ITEM_ICON_MODE_FLAGS) -> ::windows::core::Result<()>;
     fn GetIconMode(&self) -> ::windows::core::Result<u32>;
 }
+impl ::windows::core::RuntimeName for ITfSystemDeviceTypeLangBarItem {}
 impl ITfSystemDeviceTypeLangBarItem_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITfSystemDeviceTypeLangBarItem_Impl, const OFFSET: isize>() -> ITfSystemDeviceTypeLangBarItem_Vtbl {
         unsafe extern "system" fn SetIconMode<Identity: ::windows::core::IUnknownImpl, Impl: ITfSystemDeviceTypeLangBarItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwflags: LANG_BAR_ITEM_ICON_MODE_FLAGS) -> ::windows::core::HRESULT {
@@ -7025,6 +7243,8 @@ pub trait ITfSystemLangBarItem_Impl: Sized {
     fn SetTooltipString(&self, pchtooltip: &::windows::core::PCWSTR, cch: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+impl ::windows::core::RuntimeName for ITfSystemLangBarItem {}
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl ITfSystemLangBarItem_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITfSystemLangBarItem_Impl, const OFFSET: isize>() -> ITfSystemLangBarItem_Vtbl {
         unsafe extern "system" fn SetIcon<Identity: ::windows::core::IUnknownImpl, Impl: ITfSystemLangBarItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hicon: super::WindowsAndMessaging::HICON) -> ::windows::core::HRESULT {
@@ -7051,6 +7271,7 @@ pub trait ITfSystemLangBarItemSink_Impl: Sized {
     fn InitMenu(&self, pmenu: &::core::option::Option<ITfMenu>) -> ::windows::core::Result<()>;
     fn OnMenuSelect(&self, wid: u32) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for ITfSystemLangBarItemSink {}
 impl ITfSystemLangBarItemSink_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITfSystemLangBarItemSink_Impl, const OFFSET: isize>() -> ITfSystemLangBarItemSink_Vtbl {
         unsafe extern "system" fn InitMenu<Identity: ::windows::core::IUnknownImpl, Impl: ITfSystemLangBarItemSink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pmenu: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -7078,6 +7299,8 @@ pub trait ITfSystemLangBarItemText_Impl: Sized {
     fn SetItemText(&self, pch: &::windows::core::PCWSTR, cch: u32) -> ::windows::core::Result<()>;
     fn GetItemText(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for ITfSystemLangBarItemText {}
 #[cfg(feature = "Win32_Foundation")]
 impl ITfSystemLangBarItemText_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITfSystemLangBarItemText_Impl, const OFFSET: isize>() -> ITfSystemLangBarItemText_Vtbl {
@@ -7110,6 +7333,7 @@ impl ITfSystemLangBarItemText_Vtbl {
 pub trait ITfTextEditSink_Impl: Sized {
     fn OnEndEdit(&self, pic: &::core::option::Option<ITfContext>, ecreadonly: u32, peditrecord: &::core::option::Option<ITfEditRecord>) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for ITfTextEditSink {}
 impl ITfTextEditSink_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITfTextEditSink_Impl, const OFFSET: isize>() -> ITfTextEditSink_Vtbl {
         unsafe extern "system" fn OnEndEdit<Identity: ::windows::core::IUnknownImpl, Impl: ITfTextEditSink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pic: ::windows::core::RawPtr, ecreadonly: u32, peditrecord: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -7127,6 +7351,7 @@ pub trait ITfTextInputProcessor_Impl: Sized {
     fn Activate(&self, ptim: &::core::option::Option<ITfThreadMgr>, tid: u32) -> ::windows::core::Result<()>;
     fn Deactivate(&self) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for ITfTextInputProcessor {}
 impl ITfTextInputProcessor_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITfTextInputProcessor_Impl, const OFFSET: isize>() -> ITfTextInputProcessor_Vtbl {
         unsafe extern "system" fn Activate<Identity: ::windows::core::IUnknownImpl, Impl: ITfTextInputProcessor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptim: ::windows::core::RawPtr, tid: u32) -> ::windows::core::HRESULT {
@@ -7152,6 +7377,7 @@ impl ITfTextInputProcessor_Vtbl {
 pub trait ITfTextInputProcessorEx_Impl: Sized + ITfTextInputProcessor_Impl {
     fn ActivateEx(&self, ptim: &::core::option::Option<ITfThreadMgr>, tid: u32, dwflags: u32) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for ITfTextInputProcessorEx {}
 impl ITfTextInputProcessorEx_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITfTextInputProcessorEx_Impl, const OFFSET: isize>() -> ITfTextInputProcessorEx_Vtbl {
         unsafe extern "system" fn ActivateEx<Identity: ::windows::core::IUnknownImpl, Impl: ITfTextInputProcessorEx_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptim: ::windows::core::RawPtr, tid: u32, dwflags: u32) -> ::windows::core::HRESULT {
@@ -7168,6 +7394,7 @@ impl ITfTextInputProcessorEx_Vtbl {
 pub trait ITfTextLayoutSink_Impl: Sized {
     fn OnLayoutChange(&self, pic: &::core::option::Option<ITfContext>, lcode: TfLayoutCode, pview: &::core::option::Option<ITfContextView>) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for ITfTextLayoutSink {}
 impl ITfTextLayoutSink_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITfTextLayoutSink_Impl, const OFFSET: isize>() -> ITfTextLayoutSink_Vtbl {
         unsafe extern "system" fn OnLayoutChange<Identity: ::windows::core::IUnknownImpl, Impl: ITfTextLayoutSink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pic: ::windows::core::RawPtr, lcode: TfLayoutCode, pview: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -7185,6 +7412,7 @@ pub trait ITfThreadFocusSink_Impl: Sized {
     fn OnSetThreadFocus(&self) -> ::windows::core::Result<()>;
     fn OnKillThreadFocus(&self) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for ITfThreadFocusSink {}
 impl ITfThreadFocusSink_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITfThreadFocusSink_Impl, const OFFSET: isize>() -> ITfThreadFocusSink_Vtbl {
         unsafe extern "system" fn OnSetThreadFocus<Identity: ::windows::core::IUnknownImpl, Impl: ITfThreadFocusSink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -7221,6 +7449,8 @@ pub trait ITfThreadMgr_Impl: Sized {
     fn EnumFunctionProviders(&self) -> ::windows::core::Result<IEnumTfFunctionProviders>;
     fn GetGlobalCompartment(&self) -> ::windows::core::Result<ITfCompartmentMgr>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for ITfThreadMgr {}
 #[cfg(feature = "Win32_Foundation")]
 impl ITfThreadMgr_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITfThreadMgr_Impl, const OFFSET: isize>() -> ITfThreadMgr_Vtbl {
@@ -7369,6 +7599,8 @@ pub trait ITfThreadMgr2_Impl: Sized {
     fn SuspendKeystrokeHandling(&self) -> ::windows::core::Result<()>;
     fn ResumeKeystrokeHandling(&self) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for ITfThreadMgr2 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ITfThreadMgr2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITfThreadMgr2_Impl, const OFFSET: isize>() -> ITfThreadMgr2_Vtbl {
@@ -7525,6 +7757,7 @@ pub trait ITfThreadMgrEventSink_Impl: Sized {
     fn OnPushContext(&self, pic: &::core::option::Option<ITfContext>) -> ::windows::core::Result<()>;
     fn OnPopContext(&self, pic: &::core::option::Option<ITfContext>) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for ITfThreadMgrEventSink {}
 impl ITfThreadMgrEventSink_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITfThreadMgrEventSink_Impl, const OFFSET: isize>() -> ITfThreadMgrEventSink_Vtbl {
         unsafe extern "system" fn OnInitDocumentMgr<Identity: ::windows::core::IUnknownImpl, Impl: ITfThreadMgrEventSink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdim: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -7571,6 +7804,8 @@ pub trait ITfThreadMgrEx_Impl: Sized + ITfThreadMgr_Impl {
     fn GetActiveFlags(&self) -> ::windows::core::Result<u32>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for ITfThreadMgrEx {}
+#[cfg(feature = "Win32_Foundation")]
 impl ITfThreadMgrEx_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITfThreadMgrEx_Impl, const OFFSET: isize>() -> ITfThreadMgrEx_Vtbl {
         unsafe extern "system" fn ActivateEx<Identity: ::windows::core::IUnknownImpl, Impl: ITfThreadMgrEx_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptid: *mut u32, dwflags: u32) -> ::windows::core::HRESULT {
@@ -7604,6 +7839,8 @@ pub trait ITfToolTipUIElement_Impl: Sized + ITfUIElement_Impl {
     fn GetString(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for ITfToolTipUIElement {}
+#[cfg(feature = "Win32_Foundation")]
 impl ITfToolTipUIElement_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITfToolTipUIElement_Impl, const OFFSET: isize>() -> ITfToolTipUIElement_Vtbl {
         unsafe extern "system" fn GetString<Identity: ::windows::core::IUnknownImpl, Impl: ITfToolTipUIElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pstr: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
@@ -7627,6 +7864,8 @@ impl ITfToolTipUIElement_Vtbl {
 pub trait ITfTransitoryExtensionSink_Impl: Sized {
     fn OnTransitoryExtensionUpdated(&self, pic: &::core::option::Option<ITfContext>, ecreadonly: u32, presultrange: &::core::option::Option<ITfRange>, pcompositionrange: &::core::option::Option<ITfRange>) -> ::windows::core::Result<super::super::Foundation::BOOL>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for ITfTransitoryExtensionSink {}
 #[cfg(feature = "Win32_Foundation")]
 impl ITfTransitoryExtensionSink_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITfTransitoryExtensionSink_Impl, const OFFSET: isize>() -> ITfTransitoryExtensionSink_Vtbl {
@@ -7655,6 +7894,8 @@ pub trait ITfTransitoryExtensionUIElement_Impl: Sized + ITfUIElement_Impl {
     fn GetDocumentMgr(&self) -> ::windows::core::Result<ITfDocumentMgr>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for ITfTransitoryExtensionUIElement {}
+#[cfg(feature = "Win32_Foundation")]
 impl ITfTransitoryExtensionUIElement_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITfTransitoryExtensionUIElement_Impl, const OFFSET: isize>() -> ITfTransitoryExtensionUIElement_Vtbl {
         unsafe extern "system" fn GetDocumentMgr<Identity: ::windows::core::IUnknownImpl, Impl: ITfTransitoryExtensionUIElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppdim: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -7681,6 +7922,8 @@ pub trait ITfUIElement_Impl: Sized {
     fn Show(&self, bshow: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn IsShown(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for ITfUIElement {}
 #[cfg(feature = "Win32_Foundation")]
 impl ITfUIElement_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITfUIElement_Impl, const OFFSET: isize>() -> ITfUIElement_Vtbl {
@@ -7743,6 +7986,8 @@ pub trait ITfUIElementMgr_Impl: Sized {
     fn EnumUIElements(&self) -> ::windows::core::Result<IEnumTfUIElements>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for ITfUIElementMgr {}
+#[cfg(feature = "Win32_Foundation")]
 impl ITfUIElementMgr_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITfUIElementMgr_Impl, const OFFSET: isize>() -> ITfUIElementMgr_Vtbl {
         unsafe extern "system" fn BeginUIElement<Identity: ::windows::core::IUnknownImpl, Impl: ITfUIElementMgr_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pelement: ::windows::core::RawPtr, pbshow: *mut super::super::Foundation::BOOL, pdwuielementid: *mut u32) -> ::windows::core::HRESULT {
@@ -7802,6 +8047,8 @@ pub trait ITfUIElementSink_Impl: Sized {
     fn EndUIElement(&self, dwuielementid: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for ITfUIElementSink {}
+#[cfg(feature = "Win32_Foundation")]
 impl ITfUIElementSink_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITfUIElementSink_Impl, const OFFSET: isize>() -> ITfUIElementSink_Vtbl {
         unsafe extern "system" fn BeginUIElement<Identity: ::windows::core::IUnknownImpl, Impl: ITfUIElementSink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwuielementid: u32, pbshow: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
@@ -7839,6 +8086,8 @@ pub trait IUIManagerEventSink_Impl: Sized {
     fn OnWindowClosing(&self) -> ::windows::core::Result<()>;
     fn OnWindowClosed(&self) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IUIManagerEventSink {}
 #[cfg(feature = "Win32_Foundation")]
 impl IUIManagerEventSink_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIManagerEventSink_Impl, const OFFSET: isize>() -> IUIManagerEventSink_Vtbl {
@@ -7894,6 +8143,8 @@ pub trait IVersionInfo_Impl: Sized {
     fn GetComponentDescription(&self, ulsub: u32) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn GetInstanceDescription(&self, ulsub: u32) -> ::windows::core::Result<super::super::Foundation::BSTR>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IVersionInfo {}
 #[cfg(feature = "Win32_Foundation")]
 impl IVersionInfo_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVersionInfo_Impl, const OFFSET: isize>() -> IVersionInfo_Vtbl {

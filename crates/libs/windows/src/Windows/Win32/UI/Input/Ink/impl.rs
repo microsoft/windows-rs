@@ -1,6 +1,7 @@
 pub trait IInkCommitRequestHandler_Impl: Sized {
     fn OnCommitRequested(&self) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IInkCommitRequestHandler {}
 impl IInkCommitRequestHandler_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInkCommitRequestHandler_Impl, const OFFSET: isize>() -> IInkCommitRequestHandler_Vtbl {
         unsafe extern "system" fn OnCommitRequested<Identity: ::windows::core::IUnknownImpl, Impl: IInkCommitRequestHandler_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -19,6 +20,8 @@ pub trait IInkD2DRenderer_Impl: Sized {
     fn Draw(&self, pd2d1devicecontext: &::core::option::Option<::windows::core::IUnknown>, pinkstrokeiterable: &::core::option::Option<::windows::core::IUnknown>, fhighcontrast: super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IInkD2DRenderer {}
+#[cfg(feature = "Win32_Foundation")]
 impl IInkD2DRenderer_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInkD2DRenderer_Impl, const OFFSET: isize>() -> IInkD2DRenderer_Vtbl {
         unsafe extern "system" fn Draw<Identity: ::windows::core::IUnknownImpl, Impl: IInkD2DRenderer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pd2d1devicecontext: *mut ::core::ffi::c_void, pinkstrokeiterable: *mut ::core::ffi::c_void, fhighcontrast: super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
@@ -35,6 +38,7 @@ impl IInkD2DRenderer_Vtbl {
 pub trait IInkD2DRenderer2_Impl: Sized {
     fn Draw(&self, pd2d1devicecontext: &::core::option::Option<::windows::core::IUnknown>, pinkstrokeiterable: &::core::option::Option<::windows::core::IUnknown>, highcontrastadjustment: INK_HIGH_CONTRAST_ADJUSTMENT) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IInkD2DRenderer2 {}
 impl IInkD2DRenderer2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInkD2DRenderer2_Impl, const OFFSET: isize>() -> IInkD2DRenderer2_Vtbl {
         unsafe extern "system" fn Draw<Identity: ::windows::core::IUnknownImpl, Impl: IInkD2DRenderer2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pd2d1devicecontext: *mut ::core::ffi::c_void, pinkstrokeiterable: *mut ::core::ffi::c_void, highcontrastadjustment: INK_HIGH_CONTRAST_ADJUSTMENT) -> ::windows::core::HRESULT {
@@ -53,6 +57,7 @@ pub trait IInkDesktopHost_Impl: Sized {
     fn CreateInkPresenter(&self, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn CreateAndInitializeInkPresenter(&self, rootvisual: &::core::option::Option<::windows::core::IUnknown>, width: f32, height: f32, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IInkDesktopHost {}
 impl IInkDesktopHost_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInkDesktopHost_Impl, const OFFSET: isize>() -> IInkDesktopHost_Vtbl {
         unsafe extern "system" fn QueueWorkItem<Identity: ::windows::core::IUnknownImpl, Impl: IInkDesktopHost_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, workitem: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -84,6 +89,7 @@ impl IInkDesktopHost_Vtbl {
 pub trait IInkHostWorkItem_Impl: Sized {
     fn Invoke(&self) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IInkHostWorkItem {}
 impl IInkHostWorkItem_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInkHostWorkItem_Impl, const OFFSET: isize>() -> IInkHostWorkItem_Vtbl {
         unsafe extern "system" fn Invoke<Identity: ::windows::core::IUnknownImpl, Impl: IInkHostWorkItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -104,6 +110,7 @@ pub trait IInkPresenterDesktop_Impl: Sized {
     fn SetSize(&self, width: f32, height: f32) -> ::windows::core::Result<()>;
     fn OnHighContrastChanged(&self) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IInkPresenterDesktop {}
 impl IInkPresenterDesktop_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInkPresenterDesktop_Impl, const OFFSET: isize>() -> IInkPresenterDesktop_Vtbl {
         unsafe extern "system" fn SetRootVisual<Identity: ::windows::core::IUnknownImpl, Impl: IInkPresenterDesktop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rootvisual: *mut ::core::ffi::c_void, device: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {

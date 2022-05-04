@@ -4,6 +4,8 @@ pub trait AsyncIFtpAuthenticationProvider_Impl: Sized {
     fn Finish_AuthenticateUser(&self, ppszcanonicalusername: *mut ::windows::core::PWSTR, pfauthenticated: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for AsyncIFtpAuthenticationProvider {}
+#[cfg(feature = "Win32_Foundation")]
 impl AsyncIFtpAuthenticationProvider_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: AsyncIFtpAuthenticationProvider_Impl, const OFFSET: isize>() -> AsyncIFtpAuthenticationProvider_Vtbl {
         unsafe extern "system" fn Begin_AuthenticateUser<Identity: ::windows::core::IUnknownImpl, Impl: AsyncIFtpAuthenticationProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszsessionid: ::windows::core::PCWSTR, pszsitename: ::windows::core::PCWSTR, pszusername: ::windows::core::PCWSTR, pszpassword: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
@@ -30,6 +32,7 @@ pub trait AsyncIFtpAuthorizationProvider_Impl: Sized {
     fn Begin_GetUserAccessPermission(&self, pszsessionid: &::windows::core::PCWSTR, pszsitename: &::windows::core::PCWSTR, pszvirtualpath: &::windows::core::PCWSTR, pszusername: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn Finish_GetUserAccessPermission(&self) -> ::windows::core::Result<FTP_ACCESS>;
 }
+impl ::windows::core::RuntimeName for AsyncIFtpAuthorizationProvider {}
 impl AsyncIFtpAuthorizationProvider_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: AsyncIFtpAuthorizationProvider_Impl, const OFFSET: isize>() -> AsyncIFtpAuthorizationProvider_Vtbl {
         unsafe extern "system" fn Begin_GetUserAccessPermission<Identity: ::windows::core::IUnknownImpl, Impl: AsyncIFtpAuthorizationProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszsessionid: ::windows::core::PCWSTR, pszsitename: ::windows::core::PCWSTR, pszvirtualpath: ::windows::core::PCWSTR, pszusername: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
@@ -62,6 +65,7 @@ pub trait AsyncIFtpHomeDirectoryProvider_Impl: Sized {
     fn Begin_GetUserHomeDirectoryData(&self, pszsessionid: &::windows::core::PCWSTR, pszsitename: &::windows::core::PCWSTR, pszusername: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn Finish_GetUserHomeDirectoryData(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
 }
+impl ::windows::core::RuntimeName for AsyncIFtpHomeDirectoryProvider {}
 impl AsyncIFtpHomeDirectoryProvider_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: AsyncIFtpHomeDirectoryProvider_Impl, const OFFSET: isize>() -> AsyncIFtpHomeDirectoryProvider_Vtbl {
         unsafe extern "system" fn Begin_GetUserHomeDirectoryData<Identity: ::windows::core::IUnknownImpl, Impl: AsyncIFtpHomeDirectoryProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszsessionid: ::windows::core::PCWSTR, pszsitename: ::windows::core::PCWSTR, pszusername: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
@@ -94,6 +98,7 @@ pub trait AsyncIFtpLogProvider_Impl: Sized {
     fn Begin_Log(&self, ploggingparameters: *const LOGGING_PARAMETERS) -> ::windows::core::Result<()>;
     fn Finish_Log(&self) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for AsyncIFtpLogProvider {}
 impl AsyncIFtpLogProvider_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: AsyncIFtpLogProvider_Impl, const OFFSET: isize>() -> AsyncIFtpLogProvider_Vtbl {
         unsafe extern "system" fn Begin_Log<Identity: ::windows::core::IUnknownImpl, Impl: AsyncIFtpLogProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ploggingparameters: *const LOGGING_PARAMETERS) -> ::windows::core::HRESULT {
@@ -121,6 +126,8 @@ pub trait AsyncIFtpPostprocessProvider_Impl: Sized {
     fn Begin_HandlePostprocess(&self, ppostprocessparameters: *const POST_PROCESS_PARAMETERS) -> ::windows::core::Result<()>;
     fn Finish_HandlePostprocess(&self) -> ::windows::core::Result<FTP_PROCESS_STATUS>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for AsyncIFtpPostprocessProvider {}
 #[cfg(feature = "Win32_Foundation")]
 impl AsyncIFtpPostprocessProvider_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: AsyncIFtpPostprocessProvider_Impl, const OFFSET: isize>() -> AsyncIFtpPostprocessProvider_Vtbl {
@@ -156,6 +163,8 @@ pub trait AsyncIFtpPreprocessProvider_Impl: Sized {
     fn Finish_HandlePreprocess(&self) -> ::windows::core::Result<FTP_PROCESS_STATUS>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for AsyncIFtpPreprocessProvider {}
+#[cfg(feature = "Win32_Foundation")]
 impl AsyncIFtpPreprocessProvider_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: AsyncIFtpPreprocessProvider_Impl, const OFFSET: isize>() -> AsyncIFtpPreprocessProvider_Vtbl {
         unsafe extern "system" fn Begin_HandlePreprocess<Identity: ::windows::core::IUnknownImpl, Impl: AsyncIFtpPreprocessProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppreprocessparameters: *const PRE_PROCESS_PARAMETERS) -> ::windows::core::HRESULT {
@@ -189,6 +198,8 @@ pub trait AsyncIFtpRoleProvider_Impl: Sized {
     fn Begin_IsUserInRole(&self, pszsessionid: &::windows::core::PCWSTR, pszsitename: &::windows::core::PCWSTR, pszusername: &::windows::core::PCWSTR, pszrole: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn Finish_IsUserInRole(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for AsyncIFtpRoleProvider {}
 #[cfg(feature = "Win32_Foundation")]
 impl AsyncIFtpRoleProvider_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: AsyncIFtpRoleProvider_Impl, const OFFSET: isize>() -> AsyncIFtpRoleProvider_Vtbl {
@@ -224,6 +235,7 @@ pub trait AsyncIMSAdminBaseSinkW_Impl: Sized {
     fn Begin_ShutdownNotify(&self) -> ::windows::core::Result<()>;
     fn Finish_ShutdownNotify(&self) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for AsyncIMSAdminBaseSinkW {}
 impl AsyncIMSAdminBaseSinkW_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: AsyncIMSAdminBaseSinkW_Impl, const OFFSET: isize>() -> AsyncIMSAdminBaseSinkW_Vtbl {
         unsafe extern "system" fn Begin_SinkNotify<Identity: ::windows::core::IUnknownImpl, Impl: AsyncIMSAdminBaseSinkW_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwmdnumelements: u32, pcochangelist: *const MD_CHANGE_OBJECT_W) -> ::windows::core::HRESULT {
@@ -263,6 +275,7 @@ pub trait IADMEXT_Impl: Sized {
     fn EnumDcomCLSIDs(&self, pclsiddcom: *mut ::windows::core::GUID, dwenumindex: u32) -> ::windows::core::Result<()>;
     fn Terminate(&self) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IADMEXT {}
 impl IADMEXT_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IADMEXT_Impl, const OFFSET: isize>() -> IADMEXT_Vtbl {
         unsafe extern "system" fn Initialize<Identity: ::windows::core::IUnknownImpl, Impl: IADMEXT_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -296,6 +309,8 @@ pub trait IFtpAuthenticationProvider_Impl: Sized {
     fn AuthenticateUser(&self, pszsessionid: &::windows::core::PCWSTR, pszsitename: &::windows::core::PCWSTR, pszusername: &::windows::core::PCWSTR, pszpassword: &::windows::core::PCWSTR, ppszcanonicalusername: *mut ::windows::core::PWSTR, pfauthenticated: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IFtpAuthenticationProvider {}
+#[cfg(feature = "Win32_Foundation")]
 impl IFtpAuthenticationProvider_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFtpAuthenticationProvider_Impl, const OFFSET: isize>() -> IFtpAuthenticationProvider_Vtbl {
         unsafe extern "system" fn AuthenticateUser<Identity: ::windows::core::IUnknownImpl, Impl: IFtpAuthenticationProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszsessionid: ::windows::core::PCWSTR, pszsitename: ::windows::core::PCWSTR, pszusername: ::windows::core::PCWSTR, pszpassword: ::windows::core::PCWSTR, ppszcanonicalusername: *mut ::windows::core::PWSTR, pfauthenticated: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
@@ -312,6 +327,7 @@ impl IFtpAuthenticationProvider_Vtbl {
 pub trait IFtpAuthorizationProvider_Impl: Sized {
     fn GetUserAccessPermission(&self, pszsessionid: &::windows::core::PCWSTR, pszsitename: &::windows::core::PCWSTR, pszvirtualpath: &::windows::core::PCWSTR, pszusername: &::windows::core::PCWSTR) -> ::windows::core::Result<FTP_ACCESS>;
 }
+impl ::windows::core::RuntimeName for IFtpAuthorizationProvider {}
 impl IFtpAuthorizationProvider_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFtpAuthorizationProvider_Impl, const OFFSET: isize>() -> IFtpAuthorizationProvider_Vtbl {
         unsafe extern "system" fn GetUserAccessPermission<Identity: ::windows::core::IUnknownImpl, Impl: IFtpAuthorizationProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszsessionid: ::windows::core::PCWSTR, pszsitename: ::windows::core::PCWSTR, pszvirtualpath: ::windows::core::PCWSTR, pszusername: ::windows::core::PCWSTR, pftpaccess: *mut FTP_ACCESS) -> ::windows::core::HRESULT {
@@ -334,6 +350,7 @@ impl IFtpAuthorizationProvider_Vtbl {
 pub trait IFtpHomeDirectoryProvider_Impl: Sized {
     fn GetUserHomeDirectoryData(&self, pszsessionid: &::windows::core::PCWSTR, pszsitename: &::windows::core::PCWSTR, pszusername: &::windows::core::PCWSTR) -> ::windows::core::Result<::windows::core::PWSTR>;
 }
+impl ::windows::core::RuntimeName for IFtpHomeDirectoryProvider {}
 impl IFtpHomeDirectoryProvider_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFtpHomeDirectoryProvider_Impl, const OFFSET: isize>() -> IFtpHomeDirectoryProvider_Vtbl {
         unsafe extern "system" fn GetUserHomeDirectoryData<Identity: ::windows::core::IUnknownImpl, Impl: IFtpHomeDirectoryProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszsessionid: ::windows::core::PCWSTR, pszsitename: ::windows::core::PCWSTR, pszusername: ::windows::core::PCWSTR, ppszhomedirectorydata: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
@@ -356,6 +373,7 @@ impl IFtpHomeDirectoryProvider_Vtbl {
 pub trait IFtpLogProvider_Impl: Sized {
     fn Log(&self, ploggingparameters: *const LOGGING_PARAMETERS) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IFtpLogProvider {}
 impl IFtpLogProvider_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFtpLogProvider_Impl, const OFFSET: isize>() -> IFtpLogProvider_Vtbl {
         unsafe extern "system" fn Log<Identity: ::windows::core::IUnknownImpl, Impl: IFtpLogProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ploggingparameters: *const LOGGING_PARAMETERS) -> ::windows::core::HRESULT {
@@ -373,6 +391,8 @@ impl IFtpLogProvider_Vtbl {
 pub trait IFtpPostprocessProvider_Impl: Sized {
     fn HandlePostprocess(&self, ppostprocessparameters: *const POST_PROCESS_PARAMETERS) -> ::windows::core::Result<FTP_PROCESS_STATUS>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IFtpPostprocessProvider {}
 #[cfg(feature = "Win32_Foundation")]
 impl IFtpPostprocessProvider_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFtpPostprocessProvider_Impl, const OFFSET: isize>() -> IFtpPostprocessProvider_Vtbl {
@@ -398,6 +418,8 @@ pub trait IFtpPreprocessProvider_Impl: Sized {
     fn HandlePreprocess(&self, ppreprocessparameters: *const PRE_PROCESS_PARAMETERS) -> ::windows::core::Result<FTP_PROCESS_STATUS>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IFtpPreprocessProvider {}
+#[cfg(feature = "Win32_Foundation")]
 impl IFtpPreprocessProvider_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFtpPreprocessProvider_Impl, const OFFSET: isize>() -> IFtpPreprocessProvider_Vtbl {
         unsafe extern "system" fn HandlePreprocess<Identity: ::windows::core::IUnknownImpl, Impl: IFtpPreprocessProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppreprocessparameters: *const PRE_PROCESS_PARAMETERS, pftpprocessstatus: *mut FTP_PROCESS_STATUS) -> ::windows::core::HRESULT {
@@ -422,6 +444,8 @@ pub trait IFtpProviderConstruct_Impl: Sized {
     fn Construct(&self, configurationentries: *const super::Com::SAFEARRAY) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
+impl ::windows::core::RuntimeName for IFtpProviderConstruct {}
+#[cfg(feature = "Win32_System_Com")]
 impl IFtpProviderConstruct_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFtpProviderConstruct_Impl, const OFFSET: isize>() -> IFtpProviderConstruct_Vtbl {
         unsafe extern "system" fn Construct<Identity: ::windows::core::IUnknownImpl, Impl: IFtpProviderConstruct_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, configurationentries: *const super::Com::SAFEARRAY) -> ::windows::core::HRESULT {
@@ -439,6 +463,8 @@ impl IFtpProviderConstruct_Vtbl {
 pub trait IFtpRoleProvider_Impl: Sized {
     fn IsUserInRole(&self, pszsessionid: &::windows::core::PCWSTR, pszsitename: &::windows::core::PCWSTR, pszusername: &::windows::core::PCWSTR, pszrole: &::windows::core::PCWSTR) -> ::windows::core::Result<super::super::Foundation::BOOL>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IFtpRoleProvider {}
 #[cfg(feature = "Win32_Foundation")]
 impl IFtpRoleProvider_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFtpRoleProvider_Impl, const OFFSET: isize>() -> IFtpRoleProvider_Vtbl {
@@ -468,6 +494,8 @@ pub trait IMSAdminBase2W_Impl: Sized + IMSAdminBaseW_Impl {
     fn RestoreHistory(&self, pszmdhistorylocation: &::windows::core::PCWSTR, dwmdmajorversion: u32, dwmdminorversion: u32, dwmdflags: u32) -> ::windows::core::Result<()>;
     fn EnumHistory(&self, pszmdhistorylocation: &::windows::core::PWSTR, pdwmdmajorversion: *mut u32, pdwmdminorversion: *mut u32, pftmdhistorytime: *mut super::super::Foundation::FILETIME, dwmdenumindex: u32) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IMSAdminBase2W {}
 #[cfg(feature = "Win32_Foundation")]
 impl IMSAdminBase2W_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMSAdminBase2W_Impl, const OFFSET: isize>() -> IMSAdminBase2W_Vtbl {
@@ -520,6 +548,8 @@ pub trait IMSAdminBase3W_Impl: Sized + IMSAdminBaseW_Impl + IMSAdminBase2W_Impl 
     fn GetChildPaths(&self, hmdhandle: u32, pszmdpath: &::windows::core::PCWSTR, cchmdbuffersize: u32, pszbuffer: &::windows::core::PWSTR, pcchmdrequiredbuffersize: *mut u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IMSAdminBase3W {}
+#[cfg(feature = "Win32_Foundation")]
 impl IMSAdminBase3W_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMSAdminBase3W_Impl, const OFFSET: isize>() -> IMSAdminBase3W_Vtbl {
         unsafe extern "system" fn GetChildPaths<Identity: ::windows::core::IUnknownImpl, Impl: IMSAdminBase3W_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hmdhandle: u32, pszmdpath: ::windows::core::PCWSTR, cchmdbuffersize: u32, pszbuffer: ::windows::core::PWSTR, pcchmdrequiredbuffersize: *mut u32) -> ::windows::core::HRESULT {
@@ -537,6 +567,7 @@ pub trait IMSAdminBaseSinkW_Impl: Sized {
     fn SinkNotify(&self, dwmdnumelements: u32, pcochangelist: *const MD_CHANGE_OBJECT_W) -> ::windows::core::Result<()>;
     fn ShutdownNotify(&self) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IMSAdminBaseSinkW {}
 impl IMSAdminBaseSinkW_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMSAdminBaseSinkW_Impl, const OFFSET: isize>() -> IMSAdminBaseSinkW_Vtbl {
         unsafe extern "system" fn SinkNotify<Identity: ::windows::core::IUnknownImpl, Impl: IMSAdminBaseSinkW_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwmdnumelements: u32, pcochangelist: *const MD_CHANGE_OBJECT_W) -> ::windows::core::HRESULT {
@@ -593,6 +624,8 @@ pub trait IMSAdminBaseW_Impl: Sized {
     fn UnmarshalInterface(&self) -> ::windows::core::Result<IMSAdminBaseW>;
     fn GetServerGuid(&self) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IMSAdminBaseW {}
 #[cfg(feature = "Win32_Foundation")]
 impl IMSAdminBaseW_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMSAdminBaseW_Impl, const OFFSET: isize>() -> IMSAdminBaseW_Vtbl {
@@ -823,6 +856,7 @@ impl IMSAdminBaseW_Vtbl {
 pub trait IMSImpExpHelpW_Impl: Sized {
     fn EnumeratePathsInFile(&self, pszfilename: &::windows::core::PCWSTR, pszkeytype: &::windows::core::PCWSTR, dwmdbuffersize: u32, pszbuffer: &::windows::core::PWSTR, pdwmdrequiredbuffersize: *mut u32) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IMSImpExpHelpW {}
 impl IMSImpExpHelpW_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMSImpExpHelpW_Impl, const OFFSET: isize>() -> IMSImpExpHelpW_Vtbl {
         unsafe extern "system" fn EnumeratePathsInFile<Identity: ::windows::core::IUnknownImpl, Impl: IMSImpExpHelpW_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszfilename: ::windows::core::PCWSTR, pszkeytype: ::windows::core::PCWSTR, dwmdbuffersize: u32, pszbuffer: ::windows::core::PWSTR, pdwmdrequiredbuffersize: *mut u32) -> ::windows::core::HRESULT {

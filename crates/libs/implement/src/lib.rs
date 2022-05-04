@@ -14,6 +14,12 @@ pub fn implement(attributes: proc_macro::TokenStream, original_type: proc_macro:
         #(#generics: ::windows::core::RuntimeType + 'static,)*
     };
 
+    let identity_type = if let Some(first) = attributes.implement.get(0) {
+        first.to_ident()
+    } else {
+        quote! { ::windows::core::IInspectable }
+    };
+
     let original_type2 = original_type.clone();
     let original_ident = TokenStream(syn::parse_macro_input!(original_type2 as syn::ItemStruct).ident.to_string());
     let impl_ident = original_ident.join("_Impl");
@@ -75,7 +81,7 @@ pub fn implement(attributes: proc_macro::TokenStream, original_type: proc_macro:
         }
         impl <#constraints> #impl_ident::<#(#generics,)*> {
             const VTABLES: (#(#vtbl_idents2,)*) = (#(#vtable_news,)*);
-            const IDENTITY: ::windows::core::IInspectableVtbl = ::windows::core::IInspectableVtbl::new::<Self, ::windows::core::IInspectable, -1>();
+            const IDENTITY: ::windows::core::IInspectableVtbl = ::windows::core::IInspectableVtbl::new::<Self, #identity_type, -1>();
             fn new(this: #original_ident::<#(#generics,)*>) -> Self {
                 Self {
                     base: ::core::option::Option::None,

@@ -4,6 +4,8 @@ pub trait IGeometrySource2DInterop_Impl: Sized {
     fn TryGetGeometryUsingFactory(&self, factory: &::core::option::Option<super::super::super::super::Graphics::Direct2D::ID2D1Factory>) -> ::windows::core::Result<super::super::super::super::Graphics::Direct2D::ID2D1Geometry>;
 }
 #[cfg(feature = "Win32_Graphics_Direct2D")]
+impl ::windows::core::RuntimeName for IGeometrySource2DInterop {}
+#[cfg(feature = "Win32_Graphics_Direct2D")]
 impl IGeometrySource2DInterop_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGeometrySource2DInterop_Impl, const OFFSET: isize>() -> IGeometrySource2DInterop_Vtbl {
         unsafe extern "system" fn GetGeometry<Identity: ::windows::core::IUnknownImpl, Impl: IGeometrySource2DInterop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -47,6 +49,8 @@ pub trait IGraphicsEffectD2D1Interop_Impl: Sized {
     fn GetSource(&self, index: u32) -> ::windows::core::Result<super::super::super::super::super::Graphics::Effects::IGraphicsEffectSource>;
     fn GetSourceCount(&self) -> ::windows::core::Result<u32>;
 }
+#[cfg(all(feature = "Foundation", feature = "Graphics_Effects"))]
+impl ::windows::core::RuntimeName for IGraphicsEffectD2D1Interop {}
 #[cfg(all(feature = "Foundation", feature = "Graphics_Effects"))]
 impl IGraphicsEffectD2D1Interop_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGraphicsEffectD2D1Interop_Impl, const OFFSET: isize>() -> IGraphicsEffectD2D1Interop_Vtbl {

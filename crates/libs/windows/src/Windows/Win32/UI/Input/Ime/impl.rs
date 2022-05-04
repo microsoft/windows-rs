@@ -19,6 +19,8 @@ pub trait IActiveIME_Impl: Sized {
     fn GetLangId(&self) -> ::windows::core::Result<u16>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_UI_TextServices"))]
+impl ::windows::core::RuntimeName for IActiveIME {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_UI_TextServices"))]
 impl IActiveIME_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IActiveIME_Impl, const OFFSET: isize>() -> IActiveIME_Vtbl {
         unsafe extern "system" fn Inquire<Identity: ::windows::core::IUnknownImpl, Impl: IActiveIME_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwsysteminfoflags: u32, pimeinfo: *mut IMEINFO, szwndclass: ::windows::core::PWSTR, pdwprivate: *mut u32) -> ::windows::core::HRESULT {
@@ -155,6 +157,8 @@ pub trait IActiveIME2_Impl: Sized + IActiveIME_Impl {
     fn Unsleep(&self, fdead: super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_UI_TextServices"))]
+impl ::windows::core::RuntimeName for IActiveIME2 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_UI_TextServices"))]
 impl IActiveIME2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IActiveIME2_Impl, const OFFSET: isize>() -> IActiveIME2_Vtbl {
         unsafe extern "system" fn Sleep<Identity: ::windows::core::IUnknownImpl, Impl: IActiveIME2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -244,6 +248,8 @@ pub trait IActiveIMMApp_Impl: Sized {
     fn GetImeMenuItemsW(&self, himc: super::super::super::Globalization::HIMC, dwflags: u32, dwtype: u32, pimeparentmenu: *const IMEMENUITEMINFOW, pimemenu: *mut IMEMENUITEMINFOW, dwsize: u32, pdwresult: *mut u32) -> ::windows::core::Result<()>;
     fn EnumInputContext(&self, idthread: u32) -> ::windows::core::Result<IEnumInputContext>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_TextServices"))]
+impl ::windows::core::RuntimeName for IActiveIMMApp {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_TextServices"))]
 impl IActiveIMMApp_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IActiveIMMApp_Impl, const OFFSET: isize>() -> IActiveIMMApp_Vtbl {
@@ -868,6 +874,8 @@ pub trait IActiveIMMIME_Impl: Sized {
     fn SendIMCW(&self, hwnd: super::super::super::Foundation::HWND, umsg: u32, wparam: super::super::super::Foundation::WPARAM, lparam: super::super::super::Foundation::LPARAM) -> ::windows::core::Result<super::super::super::Foundation::LRESULT>;
     fn IsSleeping(&self) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_TextServices"))]
+impl ::windows::core::RuntimeName for IActiveIMMIME {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_TextServices"))]
 impl IActiveIMMIME_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IActiveIMMIME_Impl, const OFFSET: isize>() -> IActiveIMMIME_Vtbl {
@@ -1590,6 +1598,8 @@ pub trait IActiveIMMMessagePumpOwner_Impl: Sized {
     fn Resume(&self, dwcookie: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+impl ::windows::core::RuntimeName for IActiveIMMMessagePumpOwner {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl IActiveIMMMessagePumpOwner_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IActiveIMMMessagePumpOwner_Impl, const OFFSET: isize>() -> IActiveIMMMessagePumpOwner_Vtbl {
         unsafe extern "system" fn Start<Identity: ::windows::core::IUnknownImpl, Impl: IActiveIMMMessagePumpOwner_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -1640,6 +1650,7 @@ pub trait IActiveIMMRegistrar_Impl: Sized {
     fn RegisterIME(&self, rclsid: *const ::windows::core::GUID, lgid: u16, psziconfile: &::windows::core::PCWSTR, pszdesc: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn UnregisterIME(&self, rclsid: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IActiveIMMRegistrar {}
 impl IActiveIMMRegistrar_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IActiveIMMRegistrar_Impl, const OFFSET: isize>() -> IActiveIMMRegistrar_Vtbl {
         unsafe extern "system" fn RegisterIME<Identity: ::windows::core::IUnknownImpl, Impl: IActiveIMMRegistrar_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rclsid: *const ::windows::core::GUID, lgid: u16, psziconfile: ::windows::core::PCWSTR, pszdesc: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
@@ -1669,6 +1680,8 @@ pub trait IEnumInputContext_Impl: Sized {
     fn Reset(&self) -> ::windows::core::Result<()>;
     fn Skip(&self, ulcount: u32) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Globalization")]
+impl ::windows::core::RuntimeName for IEnumInputContext {}
 #[cfg(feature = "Win32_Globalization")]
 impl IEnumInputContext_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEnumInputContext_Impl, const OFFSET: isize>() -> IEnumInputContext_Vtbl {
@@ -1716,6 +1729,7 @@ pub trait IEnumRegisterWordA_Impl: Sized {
     fn Reset(&self) -> ::windows::core::Result<()>;
     fn Skip(&self, ulcount: u32) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IEnumRegisterWordA {}
 impl IEnumRegisterWordA_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEnumRegisterWordA_Impl, const OFFSET: isize>() -> IEnumRegisterWordA_Vtbl {
         unsafe extern "system" fn Clone<Identity: ::windows::core::IUnknownImpl, Impl: IEnumRegisterWordA_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -1762,6 +1776,7 @@ pub trait IEnumRegisterWordW_Impl: Sized {
     fn Reset(&self) -> ::windows::core::Result<()>;
     fn Skip(&self, ulcount: u32) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IEnumRegisterWordW {}
 impl IEnumRegisterWordW_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEnumRegisterWordW_Impl, const OFFSET: isize>() -> IEnumRegisterWordW_Vtbl {
         unsafe extern "system" fn Clone<Identity: ::windows::core::IUnknownImpl, Impl: IEnumRegisterWordW_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -1805,6 +1820,8 @@ impl IEnumRegisterWordW_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IFEClassFactory_Impl: Sized + super::super::super::System::Com::IClassFactory_Impl {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::windows::core::RuntimeName for IFEClassFactory {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IFEClassFactory_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFEClassFactory_Impl, const OFFSET: isize>() -> IFEClassFactory_Vtbl {
         Self { base__: super::super::super::System::Com::IClassFactory_Vtbl::new::<Identity, Impl, OFFSET>() }
@@ -1820,6 +1837,8 @@ pub trait IFECommon_Impl: Sized {
     fn InvokeWordRegDialog(&self, pimedlg: *mut IMEDLG) -> ::windows::core::Result<()>;
     fn InvokeDictToolDialog(&self, pimedlg: *mut IMEDLG) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IFECommon {}
 #[cfg(feature = "Win32_Foundation")]
 impl IFECommon_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFECommon_Impl, const OFFSET: isize>() -> IFECommon_Vtbl {
@@ -1875,6 +1894,8 @@ pub trait IFEDictionary_Impl: Sized {
     fn ConvertFromOldMSIME(&self, pchdic: &::windows::core::PCSTR, pfnlog: &PFNLOG, reg: IMEREG) -> ::windows::core::Result<()>;
     fn ConvertFromUserToSys(&self) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IFEDictionary {}
 #[cfg(feature = "Win32_Foundation")]
 impl IFEDictionary_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFEDictionary_Impl, const OFFSET: isize>() -> IFEDictionary_Vtbl {
@@ -1998,6 +2019,8 @@ pub trait IFELanguage_Impl: Sized {
     fn GetConversion(&self, string: &super::super::super::Foundation::BSTR, start: i32, length: i32, result: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IFELanguage {}
+#[cfg(feature = "Win32_Foundation")]
 impl IFELanguage_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFELanguage_Impl, const OFFSET: isize>() -> IFELanguage_Vtbl {
         unsafe extern "system" fn Open<Identity: ::windows::core::IUnknownImpl, Impl: IFELanguage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -2049,6 +2072,8 @@ pub trait IImePad_Impl: Sized {
     fn Request(&self, piimepadapplet: &::core::option::Option<IImePadApplet>, reqid: IME_PAD_REQUEST_FLAGS, wparam: super::super::super::Foundation::WPARAM, lparam: super::super::super::Foundation::LPARAM) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IImePad {}
+#[cfg(feature = "Win32_Foundation")]
 impl IImePad_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IImePad_Impl, const OFFSET: isize>() -> IImePad_Vtbl {
         unsafe extern "system" fn Request<Identity: ::windows::core::IUnknownImpl, Impl: IImePad_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, piimepadapplet: ::windows::core::RawPtr, reqid: IME_PAD_REQUEST_FLAGS, wparam: super::super::super::Foundation::WPARAM, lparam: super::super::super::Foundation::LPARAM) -> ::windows::core::HRESULT {
@@ -2070,6 +2095,8 @@ pub trait IImePadApplet_Impl: Sized {
     fn CreateUI(&self, hwndparent: super::super::super::Foundation::HWND, lpimeappletui: *mut IMEAPPLETUI) -> ::windows::core::Result<()>;
     fn Notify(&self, lpimepad: &::core::option::Option<::windows::core::IUnknown>, notify: i32, wparam: super::super::super::Foundation::WPARAM, lparam: super::super::super::Foundation::LPARAM) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+impl ::windows::core::RuntimeName for IImePadApplet {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl IImePadApplet_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IImePadApplet_Impl, const OFFSET: isize>() -> IImePadApplet_Vtbl {
@@ -2117,6 +2144,8 @@ pub trait IImePlugInDictDictionaryList_Impl: Sized {
     fn DeleteDictionary(&self, bstrdictionaryguid: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::windows::core::RuntimeName for IImePlugInDictDictionaryList {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IImePlugInDictDictionaryList_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IImePlugInDictDictionaryList_Impl, const OFFSET: isize>() -> IImePlugInDictDictionaryList_Vtbl {
         unsafe extern "system" fn GetDictionariesInUse<Identity: ::windows::core::IUnknownImpl, Impl: IImePlugInDictDictionaryList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, prgdictionaryguid: *mut *mut super::super::super::System::Com::SAFEARRAY, prgdatecreated: *mut *mut super::super::super::System::Com::SAFEARRAY, prgfencrypted: *mut *mut super::super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT {
@@ -2142,6 +2171,7 @@ impl IImePlugInDictDictionaryList_Vtbl {
 pub trait IImeSpecifyApplets_Impl: Sized {
     fn GetAppletIIDList(&self, refiid: *const ::windows::core::GUID, lpiidlist: *mut APPLETIDLIST) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IImeSpecifyApplets {}
 impl IImeSpecifyApplets_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IImeSpecifyApplets_Impl, const OFFSET: isize>() -> IImeSpecifyApplets_Vtbl {
         unsafe extern "system" fn GetAppletIIDList<Identity: ::windows::core::IUnknownImpl, Impl: IImeSpecifyApplets_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, refiid: *const ::windows::core::GUID, lpiidlist: *mut APPLETIDLIST) -> ::windows::core::HRESULT {

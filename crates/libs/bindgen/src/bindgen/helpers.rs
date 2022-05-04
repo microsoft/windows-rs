@@ -310,15 +310,11 @@ pub fn gen_runtime_name(def: &TypeDef, cfg: &Cfg, gen: &Gen) -> TokenStream {
                 const NAME: &'static str = #runtime_name;
             }
         }
-    } else if def.vtable_types().iter().any(|e| e == &Type::IInspectable) {
+    } else {
         quote! {
             #cfg
-            impl ::windows::core::RuntimeName for #name {
-                const NAME: &'static str = "";
-            }
+            impl ::windows::core::RuntimeName for #name {}
         }
-    } else {
-        quote! {}
     }
 }
 

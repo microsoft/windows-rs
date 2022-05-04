@@ -2,6 +2,7 @@ pub trait IObjectArray_Impl: Sized {
     fn GetCount(&self) -> ::windows::core::Result<u32>;
     fn GetAt(&self, uiindex: u32, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IObjectArray {}
 impl IObjectArray_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IObjectArray_Impl, const OFFSET: isize>() -> IObjectArray_Vtbl {
         unsafe extern "system" fn GetCount<Identity: ::windows::core::IUnknownImpl, Impl: IObjectArray_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcobjects: *mut u32) -> ::windows::core::HRESULT {
@@ -36,6 +37,7 @@ pub trait IObjectCollection_Impl: Sized + IObjectArray_Impl {
     fn RemoveObjectAt(&self, uiindex: u32) -> ::windows::core::Result<()>;
     fn Clear(&self) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IObjectCollection {}
 impl IObjectCollection_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IObjectCollection_Impl, const OFFSET: isize>() -> IObjectCollection_Vtbl {
         unsafe extern "system" fn AddObject<Identity: ::windows::core::IUnknownImpl, Impl: IObjectCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, punk: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {

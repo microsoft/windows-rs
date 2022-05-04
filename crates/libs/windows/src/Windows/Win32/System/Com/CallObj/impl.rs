@@ -21,6 +21,8 @@ pub trait ICallFrame_Impl: Sized {
     fn Invoke(&self, pvreceiver: *const ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ICallFrame {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
 impl ICallFrame_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICallFrame_Impl, const OFFSET: isize>() -> ICallFrame_Vtbl {
         unsafe extern "system" fn GetInfo<Identity: ::windows::core::IUnknownImpl, Impl: ICallFrame_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *mut CALLFRAMEINFO) -> ::windows::core::HRESULT {
@@ -184,6 +186,7 @@ impl ICallFrame_Vtbl {
 pub trait ICallFrameEvents_Impl: Sized {
     fn OnCall(&self, pframe: &::core::option::Option<ICallFrame>) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for ICallFrameEvents {}
 impl ICallFrameEvents_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICallFrameEvents_Impl, const OFFSET: isize>() -> ICallFrameEvents_Vtbl {
         unsafe extern "system" fn OnCall<Identity: ::windows::core::IUnknownImpl, Impl: ICallFrameEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pframe: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -201,6 +204,8 @@ impl ICallFrameEvents_Vtbl {
 pub trait ICallFrameWalker_Impl: Sized {
     fn OnWalkInterface(&self, iid: *const ::windows::core::GUID, ppvinterface: *const *const ::core::ffi::c_void, fin: super::super::super::Foundation::BOOL, fout: super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for ICallFrameWalker {}
 #[cfg(feature = "Win32_Foundation")]
 impl ICallFrameWalker_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICallFrameWalker_Impl, const OFFSET: isize>() -> ICallFrameWalker_Vtbl {
@@ -222,6 +227,8 @@ pub trait ICallIndirect_Impl: Sized {
     fn GetStackSize(&self, imethod: u32) -> ::windows::core::Result<u32>;
     fn GetIID(&self, piid: *mut ::windows::core::GUID, pfderivesfromidispatch: *mut super::super::super::Foundation::BOOL, pcmethod: *mut u32, pwszinterface: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for ICallIndirect {}
 #[cfg(feature = "Win32_Foundation")]
 impl ICallIndirect_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICallIndirect_Impl, const OFFSET: isize>() -> ICallIndirect_Vtbl {
@@ -269,6 +276,8 @@ pub trait ICallInterceptor_Impl: Sized + ICallIndirect_Impl {
     fn GetRegisteredSink(&self) -> ::windows::core::Result<ICallFrameEvents>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for ICallInterceptor {}
+#[cfg(feature = "Win32_Foundation")]
 impl ICallInterceptor_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICallInterceptor_Impl, const OFFSET: isize>() -> ICallInterceptor_Vtbl {
         unsafe extern "system" fn RegisterSink<Identity: ::windows::core::IUnknownImpl, Impl: ICallInterceptor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psink: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -303,6 +312,8 @@ pub trait ICallUnmarshal_Impl: Sized {
     fn ReleaseMarshalData(&self, imethod: u32, pbuffer: *const ::core::ffi::c_void, cbbuffer: u32, ibfirstrelease: u32, datarep: u32, pcontext: *const CALLFRAME_MARSHALCONTEXT) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for ICallUnmarshal {}
+#[cfg(feature = "Win32_Foundation")]
 impl ICallUnmarshal_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICallUnmarshal_Impl, const OFFSET: isize>() -> ICallUnmarshal_Vtbl {
         unsafe extern "system" fn Unmarshal<Identity: ::windows::core::IUnknownImpl, Impl: ICallUnmarshal_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, imethod: u32, pbuffer: *const ::core::ffi::c_void, cbbuffer: u32, fforcebuffercopy: super::super::super::Foundation::BOOL, datarep: u32, pcontext: *const CALLFRAME_MARSHALCONTEXT, pcbunmarshalled: *mut u32, ppframe: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -329,6 +340,7 @@ pub trait IInterfaceRelated_Impl: Sized {
     fn SetIID(&self, iid: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
     fn GetIID(&self) -> ::windows::core::Result<::windows::core::GUID>;
 }
+impl ::windows::core::RuntimeName for IInterfaceRelated {}
 impl IInterfaceRelated_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInterfaceRelated_Impl, const OFFSET: isize>() -> IInterfaceRelated_Vtbl {
         unsafe extern "system" fn SetIID<Identity: ::windows::core::IUnknownImpl, Impl: IInterfaceRelated_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, iid: *const ::windows::core::GUID) -> ::windows::core::HRESULT {

@@ -1,6 +1,7 @@
 pub trait IAdvancedMediaCapture_Impl: Sized {
     fn GetAdvancedMediaCaptureSettings(&self) -> ::windows::core::Result<IAdvancedMediaCaptureSettings>;
 }
+impl ::windows::core::RuntimeName for IAdvancedMediaCapture {}
 impl IAdvancedMediaCapture_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAdvancedMediaCapture_Impl, const OFFSET: isize>() -> IAdvancedMediaCapture_Vtbl {
         unsafe extern "system" fn GetAdvancedMediaCaptureSettings<Identity: ::windows::core::IUnknownImpl, Impl: IAdvancedMediaCapture_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -26,6 +27,7 @@ impl IAdvancedMediaCapture_Vtbl {
 pub trait IAdvancedMediaCaptureInitializationSettings_Impl: Sized {
     fn SetDirectxDeviceManager(&self, value: &::core::option::Option<IMFDXGIDeviceManager>) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IAdvancedMediaCaptureInitializationSettings {}
 impl IAdvancedMediaCaptureInitializationSettings_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAdvancedMediaCaptureInitializationSettings_Impl, const OFFSET: isize>() -> IAdvancedMediaCaptureInitializationSettings_Vtbl {
         unsafe extern "system" fn SetDirectxDeviceManager<Identity: ::windows::core::IUnknownImpl, Impl: IAdvancedMediaCaptureInitializationSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -42,6 +44,7 @@ impl IAdvancedMediaCaptureInitializationSettings_Vtbl {
 pub trait IAdvancedMediaCaptureSettings_Impl: Sized {
     fn GetDirectxDeviceManager(&self) -> ::windows::core::Result<IMFDXGIDeviceManager>;
 }
+impl ::windows::core::RuntimeName for IAdvancedMediaCaptureSettings {}
 impl IAdvancedMediaCaptureSettings_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAdvancedMediaCaptureSettings_Impl, const OFFSET: isize>() -> IAdvancedMediaCaptureSettings_Vtbl {
         unsafe extern "system" fn GetDirectxDeviceManager<Identity: ::windows::core::IUnknownImpl, Impl: IAdvancedMediaCaptureSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -64,6 +67,7 @@ impl IAdvancedMediaCaptureSettings_Vtbl {
 pub trait IAudioSourceProvider_Impl: Sized {
     fn ProvideInput(&self, dwsamplecount: u32, pdwchannelcount: *mut u32, pinterleavedaudiodata: *mut f32) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IAudioSourceProvider {}
 impl IAudioSourceProvider_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAudioSourceProvider_Impl, const OFFSET: isize>() -> IAudioSourceProvider_Vtbl {
         unsafe extern "system" fn ProvideInput<Identity: ::windows::core::IUnknownImpl, Impl: IAudioSourceProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwsamplecount: u32, pdwchannelcount: *mut u32, pinterleavedaudiodata: *mut f32) -> ::windows::core::HRESULT {
@@ -81,6 +85,7 @@ pub trait IClusterDetector_Impl: Sized {
     fn Initialize(&self, wbaseentrylevel: u16, wclusterentrylevel: u16) -> ::windows::core::Result<()>;
     fn Detect(&self, dwmaxnumclusters: u32, fminclusterduration: f32, fmaxclusterduration: f32, psrctoc: &::core::option::Option<IToc>) -> ::windows::core::Result<IToc>;
 }
+impl ::windows::core::RuntimeName for IClusterDetector {}
 impl IClusterDetector_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IClusterDetector_Impl, const OFFSET: isize>() -> IClusterDetector_Vtbl {
         unsafe extern "system" fn Initialize<Identity: ::windows::core::IUnknownImpl, Impl: IClusterDetector_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wbaseentrylevel: u16, wclusterentrylevel: u16) -> ::windows::core::HRESULT {
@@ -127,6 +132,8 @@ pub trait ICodecAPI_Impl: Sized {
     fn SetAllSettings(&self, __midl__icodecapi0001: &::core::option::Option<super::super::System::Com::IStream>) -> ::windows::core::Result<()>;
     fn SetAllSettingsWithNotify(&self, __midl__icodecapi0002: &::core::option::Option<super::super::System::Com::IStream>, changedparam: *mut *mut ::windows::core::GUID, changedparamcount: *mut u32) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ICodecAPI {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ICodecAPI_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICodecAPI_Impl, const OFFSET: isize>() -> ICodecAPI_Vtbl {
@@ -258,6 +265,8 @@ pub trait ID3D12VideoDecodeCommandList_Impl: Sized + super::super::Graphics::Dir
     fn WriteBufferImmediate(&self, count: u32, pparams: *const super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_PARAMETER, pmodes: *const super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_MODE);
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::windows::core::RuntimeName for ID3D12VideoDecodeCommandList {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ID3D12VideoDecodeCommandList_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12VideoDecodeCommandList_Impl, const OFFSET: isize>() -> ID3D12VideoDecodeCommandList_Vtbl {
         unsafe extern "system" fn Close<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12VideoDecodeCommandList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -357,6 +366,8 @@ pub trait ID3D12VideoDecodeCommandList1_Impl: Sized + super::super::Graphics::Di
     fn DecodeFrame1(&self, pdecoder: &::core::option::Option<ID3D12VideoDecoder>, poutputarguments: *const D3D12_VIDEO_DECODE_OUTPUT_STREAM_ARGUMENTS1, pinputarguments: *const D3D12_VIDEO_DECODE_INPUT_STREAM_ARGUMENTS);
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::windows::core::RuntimeName for ID3D12VideoDecodeCommandList1 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ID3D12VideoDecodeCommandList1_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12VideoDecodeCommandList1_Impl, const OFFSET: isize>() -> ID3D12VideoDecodeCommandList1_Vtbl {
         unsafe extern "system" fn DecodeFrame1<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12VideoDecodeCommandList1_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdecoder: ::windows::core::RawPtr, poutputarguments: *const D3D12_VIDEO_DECODE_OUTPUT_STREAM_ARGUMENTS1, pinputarguments: *const D3D12_VIDEO_DECODE_INPUT_STREAM_ARGUMENTS) {
@@ -376,6 +387,8 @@ pub trait ID3D12VideoDecodeCommandList2_Impl: Sized + super::super::Graphics::Di
     fn InitializeExtensionCommand(&self, pextensioncommand: &::core::option::Option<ID3D12VideoExtensionCommand>, pinitializationparameters: *const ::core::ffi::c_void, initializationparameterssizeinbytes: usize);
     fn ExecuteExtensionCommand(&self, pextensioncommand: &::core::option::Option<ID3D12VideoExtensionCommand>, pexecutionparameters: *const ::core::ffi::c_void, executionparameterssizeinbytes: usize);
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::windows::core::RuntimeName for ID3D12VideoDecodeCommandList2 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ID3D12VideoDecodeCommandList2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12VideoDecodeCommandList2_Impl, const OFFSET: isize>() -> ID3D12VideoDecodeCommandList2_Vtbl {
@@ -410,6 +423,8 @@ pub trait ID3D12VideoDecoder_Impl: Sized + super::super::Graphics::Direct3D12::I
     fn GetDesc(&self) -> D3D12_VIDEO_DECODER_DESC;
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
+impl ::windows::core::RuntimeName for ID3D12VideoDecoder {}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ID3D12VideoDecoder_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12VideoDecoder_Impl, const OFFSET: isize>() -> ID3D12VideoDecoder_Vtbl {
         unsafe extern "system" fn GetDesc<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12VideoDecoder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut D3D12_VIDEO_DECODER_DESC) {
@@ -427,6 +442,8 @@ impl ID3D12VideoDecoder_Vtbl {
 pub trait ID3D12VideoDecoder1_Impl: Sized + super::super::Graphics::Direct3D12::ID3D12Object_Impl + super::super::Graphics::Direct3D12::ID3D12DeviceChild_Impl + super::super::Graphics::Direct3D12::ID3D12Pageable_Impl + ID3D12VideoDecoder_Impl {
     fn GetProtectedResourceSession(&self, riid: *const ::windows::core::GUID, ppprotectedsession: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+impl ::windows::core::RuntimeName for ID3D12VideoDecoder1 {}
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ID3D12VideoDecoder1_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12VideoDecoder1_Impl, const OFFSET: isize>() -> ID3D12VideoDecoder1_Vtbl {
@@ -449,6 +466,8 @@ pub trait ID3D12VideoDecoderHeap_Impl: Sized + super::super::Graphics::Direct3D1
     fn GetDesc(&self) -> D3D12_VIDEO_DECODER_HEAP_DESC;
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::windows::core::RuntimeName for ID3D12VideoDecoderHeap {}
+#[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ID3D12VideoDecoderHeap_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12VideoDecoderHeap_Impl, const OFFSET: isize>() -> ID3D12VideoDecoderHeap_Vtbl {
         unsafe extern "system" fn GetDesc<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12VideoDecoderHeap_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut D3D12_VIDEO_DECODER_HEAP_DESC) {
@@ -466,6 +485,8 @@ impl ID3D12VideoDecoderHeap_Vtbl {
 pub trait ID3D12VideoDecoderHeap1_Impl: Sized + super::super::Graphics::Direct3D12::ID3D12Object_Impl + super::super::Graphics::Direct3D12::ID3D12DeviceChild_Impl + super::super::Graphics::Direct3D12::ID3D12Pageable_Impl + ID3D12VideoDecoderHeap_Impl {
     fn GetProtectedResourceSession(&self, riid: *const ::windows::core::GUID, ppprotectedsession: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::windows::core::RuntimeName for ID3D12VideoDecoderHeap1 {}
 #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ID3D12VideoDecoderHeap1_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12VideoDecoderHeap1_Impl, const OFFSET: isize>() -> ID3D12VideoDecoderHeap1_Vtbl {
@@ -490,6 +511,8 @@ pub trait ID3D12VideoDevice_Impl: Sized {
     fn CreateVideoDecoderHeap(&self, pvideodecoderheapdesc: *const D3D12_VIDEO_DECODER_HEAP_DESC, riid: *const ::windows::core::GUID, ppvideodecoderheap: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn CreateVideoProcessor(&self, nodemask: u32, poutputstreamdesc: *const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC, numinputstreamdescs: u32, pinputstreamdescs: *const D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC, riid: *const ::windows::core::GUID, ppvideoprocessor: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::windows::core::RuntimeName for ID3D12VideoDevice {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ID3D12VideoDevice_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12VideoDevice_Impl, const OFFSET: isize>() -> ID3D12VideoDevice_Vtbl {
@@ -531,6 +554,8 @@ pub trait ID3D12VideoDevice1_Impl: Sized + ID3D12VideoDevice_Impl {
     fn CreateVideoMotionVectorHeap(&self, pdesc: *const D3D12_VIDEO_MOTION_VECTOR_HEAP_DESC, pprotectedresourcesession: &::core::option::Option<super::super::Graphics::Direct3D12::ID3D12ProtectedResourceSession>, riid: *const ::windows::core::GUID, ppvideomotionvectorheap: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::windows::core::RuntimeName for ID3D12VideoDevice1 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ID3D12VideoDevice1_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12VideoDevice1_Impl, const OFFSET: isize>() -> ID3D12VideoDevice1_Vtbl {
         unsafe extern "system" fn CreateVideoMotionEstimator<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12VideoDevice1_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdesc: *const D3D12_VIDEO_MOTION_ESTIMATOR_DESC, pprotectedresourcesession: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, ppvideomotionestimator: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -561,6 +586,8 @@ pub trait ID3D12VideoDevice2_Impl: Sized + ID3D12VideoDevice_Impl + ID3D12VideoD
     fn CreateVideoExtensionCommand(&self, pdesc: *const D3D12_VIDEO_EXTENSION_COMMAND_DESC, pcreationparameters: *const ::core::ffi::c_void, creationparametersdatasizeinbytes: usize, pprotectedresourcesession: &::core::option::Option<super::super::Graphics::Direct3D12::ID3D12ProtectedResourceSession>, riid: *const ::windows::core::GUID, ppvideoextensioncommand: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn ExecuteExtensionCommand(&self, pextensioncommand: &::core::option::Option<ID3D12VideoExtensionCommand>, pexecutionparameters: *const ::core::ffi::c_void, executionparameterssizeinbytes: usize, poutputdata: *mut ::core::ffi::c_void, outputdatasizeinbytes: usize) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::windows::core::RuntimeName for ID3D12VideoDevice2 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ID3D12VideoDevice2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12VideoDevice2_Impl, const OFFSET: isize>() -> ID3D12VideoDevice2_Vtbl {
@@ -608,6 +635,8 @@ pub trait ID3D12VideoDevice3_Impl: Sized + ID3D12VideoDevice_Impl + ID3D12VideoD
     fn CreateVideoEncoderHeap(&self, pdesc: *const D3D12_VIDEO_ENCODER_HEAP_DESC, riid: *const ::windows::core::GUID, ppvideoencoderheap: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::windows::core::RuntimeName for ID3D12VideoDevice3 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ID3D12VideoDevice3_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12VideoDevice3_Impl, const OFFSET: isize>() -> ID3D12VideoDevice3_Vtbl {
         unsafe extern "system" fn CreateVideoEncoder<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12VideoDevice3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdesc: *const D3D12_VIDEO_ENCODER_DESC, riid: *const ::windows::core::GUID, ppvideoencoder: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -649,6 +678,8 @@ pub trait ID3D12VideoEncodeCommandList_Impl: Sized + super::super::Graphics::Dir
     fn WriteBufferImmediate(&self, count: u32, pparams: *const super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_PARAMETER, pmodes: *const super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_MODE);
     fn SetProtectedResourceSession(&self, pprotectedresourcesession: &::core::option::Option<super::super::Graphics::Direct3D12::ID3D12ProtectedResourceSession>);
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
+impl ::windows::core::RuntimeName for ID3D12VideoEncodeCommandList {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
 impl ID3D12VideoEncodeCommandList_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12VideoEncodeCommandList_Impl, const OFFSET: isize>() -> ID3D12VideoEncodeCommandList_Vtbl {
@@ -762,6 +793,8 @@ pub trait ID3D12VideoEncodeCommandList1_Impl: Sized + super::super::Graphics::Di
     fn ExecuteExtensionCommand(&self, pextensioncommand: &::core::option::Option<ID3D12VideoExtensionCommand>, pexecutionparameters: *const ::core::ffi::c_void, executionparameterssizeinbytes: usize);
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
+impl ::windows::core::RuntimeName for ID3D12VideoEncodeCommandList1 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
 impl ID3D12VideoEncodeCommandList1_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12VideoEncodeCommandList1_Impl, const OFFSET: isize>() -> ID3D12VideoEncodeCommandList1_Vtbl {
         unsafe extern "system" fn InitializeExtensionCommand<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12VideoEncodeCommandList1_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pextensioncommand: ::windows::core::RawPtr, pinitializationparameters: *const ::core::ffi::c_void, initializationparameterssizeinbytes: usize) {
@@ -789,6 +822,8 @@ pub trait ID3D12VideoEncodeCommandList2_Impl: Sized + super::super::Graphics::Di
     fn EncodeFrame(&self, pencoder: &::core::option::Option<ID3D12VideoEncoder>, pheap: &::core::option::Option<ID3D12VideoEncoderHeap>, pinputarguments: *const D3D12_VIDEO_ENCODER_ENCODEFRAME_INPUT_ARGUMENTS, poutputarguments: *const D3D12_VIDEO_ENCODER_ENCODEFRAME_OUTPUT_ARGUMENTS);
     fn ResolveEncoderOutputMetadata(&self, pinputarguments: *const D3D12_VIDEO_ENCODER_RESOLVE_METADATA_INPUT_ARGUMENTS, poutputarguments: *const D3D12_VIDEO_ENCODER_RESOLVE_METADATA_OUTPUT_ARGUMENTS);
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::windows::core::RuntimeName for ID3D12VideoEncodeCommandList2 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ID3D12VideoEncodeCommandList2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12VideoEncodeCommandList2_Impl, const OFFSET: isize>() -> ID3D12VideoEncodeCommandList2_Vtbl {
@@ -822,6 +857,8 @@ pub trait ID3D12VideoEncoder_Impl: Sized + super::super::Graphics::Direct3D12::I
     fn GetInputFormat(&self) -> super::super::Graphics::Dxgi::Common::DXGI_FORMAT;
     fn GetMaxMotionEstimationPrecision(&self) -> D3D12_VIDEO_ENCODER_MOTION_ESTIMATION_PRECISION_MODE;
 }
+#[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::windows::core::RuntimeName for ID3D12VideoEncoder {}
 #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ID3D12VideoEncoder_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12VideoEncoder_Impl, const OFFSET: isize>() -> ID3D12VideoEncoder_Vtbl {
@@ -886,6 +923,8 @@ pub trait ID3D12VideoEncoderHeap_Impl: Sized + super::super::Graphics::Direct3D1
     fn GetResolutionList(&self, resolutionslistcount: u32, presolutionlist: *mut D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_DESC) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
+impl ::windows::core::RuntimeName for ID3D12VideoEncoderHeap {}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ID3D12VideoEncoderHeap_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12VideoEncoderHeap_Impl, const OFFSET: isize>() -> ID3D12VideoEncoderHeap_Vtbl {
         unsafe extern "system" fn GetNodeMask<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12VideoEncoderHeap_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> u32 {
@@ -944,6 +983,8 @@ pub trait ID3D12VideoExtensionCommand_Impl: Sized + super::super::Graphics::Dire
     fn GetProtectedResourceSession(&self, riid: *const ::windows::core::GUID, ppprotectedsession: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
+impl ::windows::core::RuntimeName for ID3D12VideoExtensionCommand {}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ID3D12VideoExtensionCommand_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12VideoExtensionCommand_Impl, const OFFSET: isize>() -> ID3D12VideoExtensionCommand_Vtbl {
         unsafe extern "system" fn GetDesc<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12VideoExtensionCommand_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut D3D12_VIDEO_EXTENSION_COMMAND_DESC) {
@@ -972,6 +1013,8 @@ pub trait ID3D12VideoMotionEstimator_Impl: Sized + super::super::Graphics::Direc
     fn GetProtectedResourceSession(&self, riid: *const ::windows::core::GUID, ppprotectedsession: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::windows::core::RuntimeName for ID3D12VideoMotionEstimator {}
+#[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ID3D12VideoMotionEstimator_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12VideoMotionEstimator_Impl, const OFFSET: isize>() -> ID3D12VideoMotionEstimator_Vtbl {
         unsafe extern "system" fn GetDesc<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12VideoMotionEstimator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut D3D12_VIDEO_MOTION_ESTIMATOR_DESC) {
@@ -999,6 +1042,8 @@ pub trait ID3D12VideoMotionVectorHeap_Impl: Sized + super::super::Graphics::Dire
     fn GetDesc(&self) -> D3D12_VIDEO_MOTION_VECTOR_HEAP_DESC;
     fn GetProtectedResourceSession(&self, riid: *const ::windows::core::GUID, ppprotectedsession: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::windows::core::RuntimeName for ID3D12VideoMotionVectorHeap {}
 #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ID3D12VideoMotionVectorHeap_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12VideoMotionVectorHeap_Impl, const OFFSET: isize>() -> ID3D12VideoMotionVectorHeap_Vtbl {
@@ -1039,6 +1084,8 @@ pub trait ID3D12VideoProcessCommandList_Impl: Sized + super::super::Graphics::Di
     fn ProcessFrames(&self, pvideoprocessor: &::core::option::Option<ID3D12VideoProcessor>, poutputarguments: *const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_ARGUMENTS, numinputstreams: u32, pinputarguments: *const D3D12_VIDEO_PROCESS_INPUT_STREAM_ARGUMENTS);
     fn WriteBufferImmediate(&self, count: u32, pparams: *const super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_PARAMETER, pmodes: *const super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_MODE);
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
+impl ::windows::core::RuntimeName for ID3D12VideoProcessCommandList {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
 impl ID3D12VideoProcessCommandList_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12VideoProcessCommandList_Impl, const OFFSET: isize>() -> ID3D12VideoProcessCommandList_Vtbl {
@@ -1139,6 +1186,8 @@ pub trait ID3D12VideoProcessCommandList1_Impl: Sized + super::super::Graphics::D
     fn ProcessFrames1(&self, pvideoprocessor: &::core::option::Option<ID3D12VideoProcessor>, poutputarguments: *const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_ARGUMENTS, numinputstreams: u32, pinputarguments: *const D3D12_VIDEO_PROCESS_INPUT_STREAM_ARGUMENTS1);
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
+impl ::windows::core::RuntimeName for ID3D12VideoProcessCommandList1 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
 impl ID3D12VideoProcessCommandList1_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12VideoProcessCommandList1_Impl, const OFFSET: isize>() -> ID3D12VideoProcessCommandList1_Vtbl {
         unsafe extern "system" fn ProcessFrames1<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12VideoProcessCommandList1_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvideoprocessor: ::windows::core::RawPtr, poutputarguments: *const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_ARGUMENTS, numinputstreams: u32, pinputarguments: *const D3D12_VIDEO_PROCESS_INPUT_STREAM_ARGUMENTS1) {
@@ -1158,6 +1207,8 @@ pub trait ID3D12VideoProcessCommandList2_Impl: Sized + super::super::Graphics::D
     fn InitializeExtensionCommand(&self, pextensioncommand: &::core::option::Option<ID3D12VideoExtensionCommand>, pinitializationparameters: *const ::core::ffi::c_void, initializationparameterssizeinbytes: usize);
     fn ExecuteExtensionCommand(&self, pextensioncommand: &::core::option::Option<ID3D12VideoExtensionCommand>, pexecutionparameters: *const ::core::ffi::c_void, executionparameterssizeinbytes: usize);
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
+impl ::windows::core::RuntimeName for ID3D12VideoProcessCommandList2 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
 impl ID3D12VideoProcessCommandList2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12VideoProcessCommandList2_Impl, const OFFSET: isize>() -> ID3D12VideoProcessCommandList2_Vtbl {
@@ -1194,6 +1245,8 @@ pub trait ID3D12VideoProcessor_Impl: Sized + super::super::Graphics::Direct3D12:
     fn GetInputStreamDescs(&self, numinputstreamdescs: u32, pinputstreamdescs: *mut D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC) -> ::windows::core::Result<()>;
     fn GetOutputStreamDesc(&self) -> D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::windows::core::RuntimeName for ID3D12VideoProcessor {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ID3D12VideoProcessor_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12VideoProcessor_Impl, const OFFSET: isize>() -> ID3D12VideoProcessor_Vtbl {
@@ -1234,6 +1287,8 @@ pub trait ID3D12VideoProcessor1_Impl: Sized + super::super::Graphics::Direct3D12
     fn GetProtectedResourceSession(&self, riid: *const ::windows::core::GUID, ppprotectedsession: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::windows::core::RuntimeName for ID3D12VideoProcessor1 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ID3D12VideoProcessor1_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12VideoProcessor1_Impl, const OFFSET: isize>() -> ID3D12VideoProcessor1_Vtbl {
         unsafe extern "system" fn GetProtectedResourceSession<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12VideoProcessor1_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppprotectedsession: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -1261,6 +1316,8 @@ pub trait IDXVAHD_Device_Impl: Sized {
     fn GetVideoProcessorFilterRange(&self, filter: DXVAHD_FILTER) -> ::windows::core::Result<DXVAHD_FILTER_RANGE_DATA>;
     fn CreateVideoProcessor(&self, pvpguid: *const ::windows::core::GUID) -> ::windows::core::Result<IDXVAHD_VideoProcessor>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
+impl ::windows::core::RuntimeName for IDXVAHD_Device {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
 impl IDXVAHD_Device_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDXVAHD_Device_Impl, const OFFSET: isize>() -> IDXVAHD_Device_Vtbl {
@@ -1347,6 +1404,8 @@ pub trait IDXVAHD_VideoProcessor_Impl: Sized {
     fn VideoProcessBltHD(&self, poutputsurface: &::core::option::Option<super::super::Graphics::Direct3D9::IDirect3DSurface9>, outputframe: u32, streamcount: u32, pstreams: *const DXVAHD_STREAM_DATA) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
+impl ::windows::core::RuntimeName for IDXVAHD_VideoProcessor {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
 impl IDXVAHD_VideoProcessor_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDXVAHD_VideoProcessor_Impl, const OFFSET: isize>() -> IDXVAHD_VideoProcessor_Vtbl {
         unsafe extern "system" fn SetVideoProcessBltState<Identity: ::windows::core::IUnknownImpl, Impl: IDXVAHD_VideoProcessor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, state: DXVAHD_BLT_STATE, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -1392,6 +1451,8 @@ pub trait IDirect3D9ExOverlayExtension_Impl: Sized {
     fn CheckDeviceOverlayType(&self, adapter: u32, devtype: super::super::Graphics::Direct3D9::D3DDEVTYPE, overlaywidth: u32, overlayheight: u32, overlayformat: super::super::Graphics::Direct3D9::D3DFORMAT, pdisplaymode: *mut super::super::Graphics::Direct3D9::D3DDISPLAYMODEEX, displayrotation: super::super::Graphics::Direct3D9::D3DDISPLAYROTATION, poverlaycaps: *mut D3DOVERLAYCAPS) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl ::windows::core::RuntimeName for IDirect3D9ExOverlayExtension {}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl IDirect3D9ExOverlayExtension_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirect3D9ExOverlayExtension_Impl, const OFFSET: isize>() -> IDirect3D9ExOverlayExtension_Vtbl {
         unsafe extern "system" fn CheckDeviceOverlayType<Identity: ::windows::core::IUnknownImpl, Impl: IDirect3D9ExOverlayExtension_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, adapter: u32, devtype: super::super::Graphics::Direct3D9::D3DDEVTYPE, overlaywidth: u32, overlayheight: u32, overlayformat: super::super::Graphics::Direct3D9::D3DFORMAT, pdisplaymode: *mut super::super::Graphics::Direct3D9::D3DDISPLAYMODEEX, displayrotation: super::super::Graphics::Direct3D9::D3DDISPLAYROTATION, poverlaycaps: *mut D3DOVERLAYCAPS) -> ::windows::core::HRESULT {
@@ -1413,6 +1474,8 @@ pub trait IDirect3DAuthenticatedChannel9_Impl: Sized {
     fn Query(&self, inputsize: u32, pinput: *const ::core::ffi::c_void, outputsize: u32, poutput: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn Configure(&self, inputsize: u32, pinput: *const ::core::ffi::c_void, poutput: *mut super::super::Graphics::Direct3D9::D3DAUTHENTICATEDCHANNEL_CONFIGURE_OUTPUT) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
+impl ::windows::core::RuntimeName for IDirect3DAuthenticatedChannel9 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
 impl IDirect3DAuthenticatedChannel9_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirect3DAuthenticatedChannel9_Impl, const OFFSET: isize>() -> IDirect3DAuthenticatedChannel9_Vtbl {
@@ -1466,6 +1529,8 @@ pub trait IDirect3DCryptoSession9_Impl: Sized {
     fn FinishSessionKeyRefresh(&self) -> ::windows::core::Result<()>;
     fn GetEncryptionBltKey(&self, preadbackkey: *mut ::core::ffi::c_void, keysize: u32) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl ::windows::core::RuntimeName for IDirect3DCryptoSession9 {}
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl IDirect3DCryptoSession9_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirect3DCryptoSession9_Impl, const OFFSET: isize>() -> IDirect3DCryptoSession9_Vtbl {
@@ -1538,6 +1603,8 @@ pub trait IDirect3DDevice9Video_Impl: Sized {
     fn CreateCryptoSession(&self, pcryptotype: *const ::windows::core::GUID, pdecodeprofile: *const ::windows::core::GUID, ppcryptosession: *mut ::core::option::Option<IDirect3DCryptoSession9>, pcryptohandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
+impl ::windows::core::RuntimeName for IDirect3DDevice9Video {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
 impl IDirect3DDevice9Video_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirect3DDevice9Video_Impl, const OFFSET: isize>() -> IDirect3DDevice9Video_Vtbl {
         unsafe extern "system" fn GetContentProtectionCaps<Identity: ::windows::core::IUnknownImpl, Impl: IDirect3DDevice9Video_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcryptotype: *const ::windows::core::GUID, pdecodeprofile: *const ::windows::core::GUID, pcaps: *mut D3DCONTENTPROTECTIONCAPS) -> ::windows::core::HRESULT {
@@ -1576,6 +1643,8 @@ pub trait IDirect3DDeviceManager9_Impl: Sized {
     fn UnlockDevice(&self, hdevice: super::super::Foundation::HANDLE, fsavestate: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn GetVideoService(&self, hdevice: super::super::Foundation::HANDLE, riid: *const ::windows::core::GUID, ppservice: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
+impl ::windows::core::RuntimeName for IDirect3DDeviceManager9 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
 impl IDirect3DDeviceManager9_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirect3DDeviceManager9_Impl, const OFFSET: isize>() -> IDirect3DDeviceManager9_Vtbl {
@@ -1640,6 +1709,8 @@ pub trait IDirectXVideoAccelerationService_Impl: Sized {
     fn CreateSurface(&self, width: u32, height: u32, backbuffers: u32, format: super::super::Graphics::Direct3D9::D3DFORMAT, pool: super::super::Graphics::Direct3D9::D3DPOOL, usage: u32, dxvatype: DXVA2_VideoRenderTargetType, ppsurface: *mut ::core::option::Option<super::super::Graphics::Direct3D9::IDirect3DSurface9>, psharedhandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
+impl ::windows::core::RuntimeName for IDirectXVideoAccelerationService {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
 impl IDirectXVideoAccelerationService_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirectXVideoAccelerationService_Impl, const OFFSET: isize>() -> IDirectXVideoAccelerationService_Vtbl {
         unsafe extern "system" fn CreateSurface<Identity: ::windows::core::IUnknownImpl, Impl: IDirectXVideoAccelerationService_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, width: u32, height: u32, backbuffers: u32, format: super::super::Graphics::Direct3D9::D3DFORMAT, pool: super::super::Graphics::Direct3D9::D3DPOOL, usage: u32, dxvatype: DXVA2_VideoRenderTargetType, ppsurface: *mut ::windows::core::RawPtr, psharedhandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::HRESULT {
@@ -1663,6 +1734,8 @@ pub trait IDirectXVideoDecoder_Impl: Sized {
     fn EndFrame(&self, phandlecomplete: *mut super::super::Foundation::HANDLE) -> ::windows::core::Result<()>;
     fn Execute(&self, pexecuteparams: *const DXVA2_DecodeExecuteParams) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
+impl ::windows::core::RuntimeName for IDirectXVideoDecoder {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
 impl IDirectXVideoDecoder_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirectXVideoDecoder_Impl, const OFFSET: isize>() -> IDirectXVideoDecoder_Vtbl {
@@ -1730,6 +1803,8 @@ pub trait IDirectXVideoDecoderService_Impl: Sized + IDirectXVideoAccelerationSer
     fn CreateVideoDecoder(&self, guid: *const ::windows::core::GUID, pvideodesc: *const DXVA2_VideoDesc, pconfig: *const DXVA2_ConfigPictureDecode, ppdecoderrendertargets: *const ::core::option::Option<super::super::Graphics::Direct3D9::IDirect3DSurface9>, numrendertargets: u32) -> ::windows::core::Result<IDirectXVideoDecoder>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
+impl ::windows::core::RuntimeName for IDirectXVideoDecoderService {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
 impl IDirectXVideoDecoderService_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirectXVideoDecoderService_Impl, const OFFSET: isize>() -> IDirectXVideoDecoderService_Vtbl {
         unsafe extern "system" fn GetDecoderDeviceGuids<Identity: ::windows::core::IUnknownImpl, Impl: IDirectXVideoDecoderService_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcount: *mut u32, pguids: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
@@ -1774,6 +1849,7 @@ pub trait IDirectXVideoMemoryConfiguration_Impl: Sized {
     fn GetAvailableSurfaceTypeByIndex(&self, dwtypeindex: u32) -> ::windows::core::Result<DXVA2_SurfaceType>;
     fn SetSurfaceType(&self, dwtype: DXVA2_SurfaceType) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IDirectXVideoMemoryConfiguration {}
 impl IDirectXVideoMemoryConfiguration_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirectXVideoMemoryConfiguration_Impl, const OFFSET: isize>() -> IDirectXVideoMemoryConfiguration_Vtbl {
         unsafe extern "system" fn GetAvailableSurfaceTypeByIndex<Identity: ::windows::core::IUnknownImpl, Impl: IDirectXVideoMemoryConfiguration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwtypeindex: u32, pdwtype: *mut DXVA2_SurfaceType) -> ::windows::core::HRESULT {
@@ -1811,6 +1887,8 @@ pub trait IDirectXVideoProcessor_Impl: Sized {
     fn GetFilterPropertyRange(&self, filtersetting: u32) -> ::windows::core::Result<DXVA2_ValueRange>;
     fn VideoProcessBlt(&self, prendertarget: &::core::option::Option<super::super::Graphics::Direct3D9::IDirect3DSurface9>, pbltparams: *const DXVA2_VideoProcessBltParams, psamples: *const DXVA2_VideoSample, numsamples: u32, phandlecomplete: *mut super::super::Foundation::HANDLE) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
+impl ::windows::core::RuntimeName for IDirectXVideoProcessor {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
 impl IDirectXVideoProcessor_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirectXVideoProcessor_Impl, const OFFSET: isize>() -> IDirectXVideoProcessor_Vtbl {
@@ -1893,6 +1971,8 @@ pub trait IDirectXVideoProcessorService_Impl: Sized + IDirectXVideoAccelerationS
     fn GetFilterPropertyRange(&self, videoprocdeviceguid: *const ::windows::core::GUID, pvideodesc: *const DXVA2_VideoDesc, rendertargetformat: super::super::Graphics::Direct3D9::D3DFORMAT, filtersetting: u32) -> ::windows::core::Result<DXVA2_ValueRange>;
     fn CreateVideoProcessor(&self, videoprocdeviceguid: *const ::windows::core::GUID, pvideodesc: *const DXVA2_VideoDesc, rendertargetformat: super::super::Graphics::Direct3D9::D3DFORMAT, maxnumsubstreams: u32) -> ::windows::core::Result<IDirectXVideoProcessor>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
+impl ::windows::core::RuntimeName for IDirectXVideoProcessorService {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
 impl IDirectXVideoProcessorService_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirectXVideoProcessorService_Impl, const OFFSET: isize>() -> IDirectXVideoProcessorService_Vtbl {
@@ -1980,6 +2060,7 @@ pub trait IEVRFilterConfig_Impl: Sized {
     fn SetNumberOfStreams(&self, dwmaxstreams: u32) -> ::windows::core::Result<()>;
     fn GetNumberOfStreams(&self) -> ::windows::core::Result<u32>;
 }
+impl ::windows::core::RuntimeName for IEVRFilterConfig {}
 impl IEVRFilterConfig_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEVRFilterConfig_Impl, const OFFSET: isize>() -> IEVRFilterConfig_Vtbl {
         unsafe extern "system" fn SetNumberOfStreams<Identity: ::windows::core::IUnknownImpl, Impl: IEVRFilterConfig_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwmaxstreams: u32) -> ::windows::core::HRESULT {
@@ -2012,6 +2093,7 @@ pub trait IEVRFilterConfigEx_Impl: Sized + IEVRFilterConfig_Impl {
     fn SetConfigPrefs(&self, dwconfigflags: u32) -> ::windows::core::Result<()>;
     fn GetConfigPrefs(&self) -> ::windows::core::Result<u32>;
 }
+impl ::windows::core::RuntimeName for IEVRFilterConfigEx {}
 impl IEVRFilterConfigEx_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEVRFilterConfigEx_Impl, const OFFSET: isize>() -> IEVRFilterConfigEx_Vtbl {
         unsafe extern "system" fn SetConfigPrefs<Identity: ::windows::core::IUnknownImpl, Impl: IEVRFilterConfigEx_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwconfigflags: u32) -> ::windows::core::HRESULT {
@@ -2047,6 +2129,8 @@ pub trait IEVRTrustedVideoPlugin_Impl: Sized {
     fn SetConstriction(&self, dwkpix: u32) -> ::windows::core::Result<()>;
     fn DisableImageExport(&self, bdisable: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IEVRTrustedVideoPlugin {}
 #[cfg(feature = "Win32_Foundation")]
 impl IEVRTrustedVideoPlugin_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEVRTrustedVideoPlugin_Impl, const OFFSET: isize>() -> IEVRTrustedVideoPlugin_Vtbl {
@@ -2100,6 +2184,8 @@ pub trait IEVRVideoStreamControl_Impl: Sized {
     fn GetStreamActiveState(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IEVRVideoStreamControl {}
+#[cfg(feature = "Win32_Foundation")]
 impl IEVRVideoStreamControl_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEVRVideoStreamControl_Impl, const OFFSET: isize>() -> IEVRVideoStreamControl_Vtbl {
         unsafe extern "system" fn SetStreamActiveState<Identity: ::windows::core::IUnknownImpl, Impl: IEVRVideoStreamControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, factive: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
@@ -2133,6 +2219,7 @@ pub trait IFileClient_Impl: Sized {
     fn Write(&self, pfio: &::core::option::Option<IFileIo>) -> ::windows::core::Result<()>;
     fn Read(&self, pfio: &::core::option::Option<IFileIo>) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IFileClient {}
 impl IFileClient_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFileClient_Impl, const OFFSET: isize>() -> IFileClient_Vtbl {
         unsafe extern "system" fn GetObjectDiskSize<Identity: ::windows::core::IUnknownImpl, Impl: IFileClient_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pqwsize: *mut u64) -> ::windows::core::HRESULT {
@@ -2174,6 +2261,8 @@ pub trait IFileIo_Impl: Sized {
     fn Seek(&self, eseekorigin: SEEK_ORIGIN, qwseekoffset: u64, dwseekflags: u32, pqwcurrentposition: *mut u64) -> ::windows::core::Result<()>;
     fn Close(&self) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IFileIo {}
 #[cfg(feature = "Win32_Foundation")]
 impl IFileIo_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFileIo_Impl, const OFFSET: isize>() -> IFileIo_Vtbl {
@@ -2256,6 +2345,8 @@ pub trait IMF2DBuffer_Impl: Sized {
     fn ContiguousCopyFrom(&self, pbsrcbuffer: *const u8, cbsrcbuffer: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IMF2DBuffer {}
+#[cfg(feature = "Win32_Foundation")]
 impl IMF2DBuffer_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMF2DBuffer_Impl, const OFFSET: isize>() -> IMF2DBuffer_Vtbl {
         unsafe extern "system" fn Lock2D<Identity: ::windows::core::IUnknownImpl, Impl: IMF2DBuffer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppbscanline0: *mut *mut u8, plpitch: *mut i32) -> ::windows::core::HRESULT {
@@ -2326,6 +2417,8 @@ pub trait IMF2DBuffer2_Impl: Sized + IMF2DBuffer_Impl {
     fn Copy2DTo(&self, pdestbuffer: &::core::option::Option<IMF2DBuffer2>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IMF2DBuffer2 {}
+#[cfg(feature = "Win32_Foundation")]
 impl IMF2DBuffer2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMF2DBuffer2_Impl, const OFFSET: isize>() -> IMF2DBuffer2_Vtbl {
         unsafe extern "system" fn Lock2DSize<Identity: ::windows::core::IUnknownImpl, Impl: IMF2DBuffer2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lockflags: MF2DBuffer_LockFlags, ppbscanline0: *mut *mut u8, plpitch: *mut i32, ppbbufferstart: *mut *mut u8, pcbbufferlength: *mut u32) -> ::windows::core::HRESULT {
@@ -2358,6 +2451,8 @@ pub trait IMFASFContentInfo_Impl: Sized {
     fn GeneratePresentationDescriptor(&self) -> ::windows::core::Result<IMFPresentationDescriptor>;
     fn GetEncodingConfigurationPropertyStore(&self, wstreamnumber: u16) -> ::windows::core::Result<super::super::UI::Shell::PropertiesSystem::IPropertyStore>;
 }
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+impl ::windows::core::RuntimeName for IMFASFContentInfo {}
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 impl IMFASFContentInfo_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFASFContentInfo_Impl, const OFFSET: isize>() -> IMFASFContentInfo_Vtbl {
@@ -2457,6 +2552,8 @@ pub trait IMFASFIndexer_Impl: Sized {
     fn GetIndexWriteSpace(&self) -> ::windows::core::Result<u64>;
     fn GetCompletedIndex(&self, piindexbuffer: &::core::option::Option<IMFMediaBuffer>, cboffsetwithinindex: u64) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+impl ::windows::core::RuntimeName for IMFASFIndexer {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 impl IMFASFIndexer_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFASFIndexer_Impl, const OFFSET: isize>() -> IMFASFIndexer_Vtbl {
@@ -2581,6 +2678,7 @@ pub trait IMFASFMultiplexer_Impl: Sized {
     fn GetStatistics(&self, wstreamnumber: u16) -> ::windows::core::Result<ASF_MUX_STATISTICS>;
     fn SetSyncTolerance(&self, mssynctolerance: u32) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IMFASFMultiplexer {}
 impl IMFASFMultiplexer_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFASFMultiplexer_Impl, const OFFSET: isize>() -> IMFASFMultiplexer_Vtbl {
         unsafe extern "system" fn Initialize<Identity: ::windows::core::IUnknownImpl, Impl: IMFASFMultiplexer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, picontentinfo: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -2668,6 +2766,7 @@ pub trait IMFASFMutualExclusion_Impl: Sized {
     fn AddRecord(&self) -> ::windows::core::Result<u32>;
     fn Clone(&self) -> ::windows::core::Result<IMFASFMutualExclusion>;
 }
+impl ::windows::core::RuntimeName for IMFASFMutualExclusion {}
 impl IMFASFMutualExclusion_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFASFMutualExclusion_Impl, const OFFSET: isize>() -> IMFASFMutualExclusion_Vtbl {
         unsafe extern "system" fn GetType<Identity: ::windows::core::IUnknownImpl, Impl: IMFASFMutualExclusion_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pguidtype: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
@@ -2775,6 +2874,8 @@ pub trait IMFASFProfile_Impl: Sized + IMFAttributes_Impl {
     fn CreateStreamPrioritization(&self) -> ::windows::core::Result<IMFASFStreamPrioritization>;
     fn Clone(&self) -> ::windows::core::Result<IMFASFProfile>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+impl ::windows::core::RuntimeName for IMFASFProfile {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 impl IMFASFProfile_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFASFProfile_Impl, const OFFSET: isize>() -> IMFASFProfile_Vtbl {
@@ -2947,6 +3048,7 @@ pub trait IMFASFSplitter_Impl: Sized {
     fn Flush(&self) -> ::windows::core::Result<()>;
     fn GetLastSendTime(&self) -> ::windows::core::Result<u32>;
 }
+impl ::windows::core::RuntimeName for IMFASFSplitter {}
 impl IMFASFSplitter_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFASFSplitter_Impl, const OFFSET: isize>() -> IMFASFSplitter_Vtbl {
         unsafe extern "system" fn Initialize<Identity: ::windows::core::IUnknownImpl, Impl: IMFASFSplitter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, picontentinfo: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -3036,6 +3138,8 @@ pub trait IMFASFStreamConfig_Impl: Sized + IMFAttributes_Impl {
     fn RemoveAllPayloadExtensions(&self) -> ::windows::core::Result<()>;
     fn Clone(&self) -> ::windows::core::Result<IMFASFStreamConfig>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+impl ::windows::core::RuntimeName for IMFASFStreamConfig {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 impl IMFASFStreamConfig_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFASFStreamConfig_Impl, const OFFSET: isize>() -> IMFASFStreamConfig_Vtbl {
@@ -3138,6 +3242,7 @@ pub trait IMFASFStreamPrioritization_Impl: Sized {
     fn RemoveStream(&self, dwstreamindex: u32) -> ::windows::core::Result<()>;
     fn Clone(&self) -> ::windows::core::Result<IMFASFStreamPrioritization>;
 }
+impl ::windows::core::RuntimeName for IMFASFStreamPrioritization {}
 impl IMFASFStreamPrioritization_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFASFStreamPrioritization_Impl, const OFFSET: isize>() -> IMFASFStreamPrioritization_Vtbl {
         unsafe extern "system" fn GetStreamCount<Identity: ::windows::core::IUnknownImpl, Impl: IMFASFStreamPrioritization_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwstreamcount: *mut u32) -> ::windows::core::HRESULT {
@@ -3206,6 +3311,7 @@ pub trait IMFASFStreamSelector_Impl: Sized {
     fn BitrateToStepNumber(&self, dwbitrate: u32) -> ::windows::core::Result<u32>;
     fn SetStreamSelectorFlags(&self, dwstreamselectorflags: u32) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IMFASFStreamSelector {}
 impl IMFASFStreamSelector_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFASFStreamSelector_Impl, const OFFSET: isize>() -> IMFASFStreamSelector_Vtbl {
         unsafe extern "system" fn GetStreamCount<Identity: ::windows::core::IUnknownImpl, Impl: IMFASFStreamSelector_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcstreams: *mut u32) -> ::windows::core::HRESULT {
@@ -3367,6 +3473,8 @@ pub trait IMFActivate_Impl: Sized + IMFAttributes_Impl {
     fn DetachObject(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+impl ::windows::core::RuntimeName for IMFActivate {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 impl IMFActivate_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFActivate_Impl, const OFFSET: isize>() -> IMFActivate_Vtbl {
         unsafe extern "system" fn ActivateObject<Identity: ::windows::core::IUnknownImpl, Impl: IMFActivate_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -3399,6 +3507,7 @@ pub trait IMFAsyncCallback_Impl: Sized {
     fn GetParameters(&self, pdwflags: *mut u32, pdwqueue: *mut u32) -> ::windows::core::Result<()>;
     fn Invoke(&self, pasyncresult: &::core::option::Option<IMFAsyncResult>) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IMFAsyncCallback {}
 impl IMFAsyncCallback_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFAsyncCallback_Impl, const OFFSET: isize>() -> IMFAsyncCallback_Vtbl {
         unsafe extern "system" fn GetParameters<Identity: ::windows::core::IUnknownImpl, Impl: IMFAsyncCallback_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwflags: *mut u32, pdwqueue: *mut u32) -> ::windows::core::HRESULT {
@@ -3425,6 +3534,7 @@ pub trait IMFAsyncCallbackLogging_Impl: Sized + IMFAsyncCallback_Impl {
     fn GetObjectPointer(&self) -> *mut ::core::ffi::c_void;
     fn GetObjectTag(&self) -> u32;
 }
+impl ::windows::core::RuntimeName for IMFAsyncCallbackLogging {}
 impl IMFAsyncCallbackLogging_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFAsyncCallbackLogging_Impl, const OFFSET: isize>() -> IMFAsyncCallbackLogging_Vtbl {
         unsafe extern "system" fn GetObjectPointer<Identity: ::windows::core::IUnknownImpl, Impl: IMFAsyncCallbackLogging_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> *mut ::core::ffi::c_void {
@@ -3454,6 +3564,7 @@ pub trait IMFAsyncResult_Impl: Sized {
     fn GetObject(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
     fn GetStateNoAddRef(&self) -> ::core::option::Option<::windows::core::IUnknown>;
 }
+impl ::windows::core::RuntimeName for IMFAsyncResult {}
 impl IMFAsyncResult_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFAsyncResult_Impl, const OFFSET: isize>() -> IMFAsyncResult_Vtbl {
         unsafe extern "system" fn GetState<Identity: ::windows::core::IUnknownImpl, Impl: IMFAsyncResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppunkstate: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -3539,6 +3650,8 @@ pub trait IMFAttributes_Impl: Sized {
     fn GetItemByIndex(&self, unindex: u32, pguidkey: *mut ::windows::core::GUID, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()>;
     fn CopyAllItems(&self, pdest: &::core::option::Option<IMFAttributes>) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+impl ::windows::core::RuntimeName for IMFAttributes {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 impl IMFAttributes_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFAttributes_Impl, const OFFSET: isize>() -> IMFAttributes_Vtbl {
@@ -3795,6 +3908,8 @@ pub trait IMFAudioMediaType_Impl: Sized + IMFAttributes_Impl + IMFMediaType_Impl
     fn GetAudioFormat(&self) -> *mut super::Audio::WAVEFORMATEX;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio", feature = "Win32_System_Com_StructuredStorage"))]
+impl ::windows::core::RuntimeName for IMFAudioMediaType {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio", feature = "Win32_System_Com_StructuredStorage"))]
 impl IMFAudioMediaType_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFAudioMediaType_Impl, const OFFSET: isize>() -> IMFAudioMediaType_Vtbl {
         unsafe extern "system" fn GetAudioFormat<Identity: ::windows::core::IUnknownImpl, Impl: IMFAudioMediaType_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> *mut super::Audio::WAVEFORMATEX {
@@ -3816,6 +3931,7 @@ pub trait IMFAudioPolicy_Impl: Sized {
     fn SetIconPath(&self, pszpath: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn GetIconPath(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
 }
+impl ::windows::core::RuntimeName for IMFAudioPolicy {}
 impl IMFAudioPolicy_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFAudioPolicy_Impl, const OFFSET: isize>() -> IMFAudioPolicy_Vtbl {
         unsafe extern "system" fn SetGroupingParam<Identity: ::windows::core::IUnknownImpl, Impl: IMFAudioPolicy_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rguidclass: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
@@ -3887,6 +4003,7 @@ pub trait IMFAudioStreamVolume_Impl: Sized {
     fn SetAllVolumes(&self, dwcount: u32, pfvolumes: *const f32) -> ::windows::core::Result<()>;
     fn GetAllVolumes(&self, dwcount: u32, pfvolumes: *mut f32) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IMFAudioStreamVolume {}
 impl IMFAudioStreamVolume_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFAudioStreamVolume_Impl, const OFFSET: isize>() -> IMFAudioStreamVolume_Vtbl {
         unsafe extern "system" fn GetChannelCount<Identity: ::windows::core::IUnknownImpl, Impl: IMFAudioStreamVolume_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwcount: *mut u32) -> ::windows::core::HRESULT {
@@ -3943,6 +4060,7 @@ pub trait IMFBufferListNotify_Impl: Sized {
     fn OnAddSourceBuffer(&self);
     fn OnRemoveSourceBuffer(&self);
 }
+impl ::windows::core::RuntimeName for IMFBufferListNotify {}
 impl IMFBufferListNotify_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFBufferListNotify_Impl, const OFFSET: isize>() -> IMFBufferListNotify_Vtbl {
         unsafe extern "system" fn OnAddSourceBuffer<Identity: ::windows::core::IUnknownImpl, Impl: IMFBufferListNotify_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) {
@@ -3983,6 +4101,8 @@ pub trait IMFByteStream_Impl: Sized {
     fn Flush(&self) -> ::windows::core::Result<()>;
     fn Close(&self) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IMFByteStream {}
 #[cfg(feature = "Win32_Foundation")]
 impl IMFByteStream_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFByteStream_Impl, const OFFSET: isize>() -> IMFByteStream_Vtbl {
@@ -4139,6 +4259,8 @@ pub trait IMFByteStreamBuffering_Impl: Sized {
     fn StopBuffering(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IMFByteStreamBuffering {}
+#[cfg(feature = "Win32_Foundation")]
 impl IMFByteStreamBuffering_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFByteStreamBuffering_Impl, const OFFSET: isize>() -> IMFByteStreamBuffering_Vtbl {
         unsafe extern "system" fn SetBufferingParams<Identity: ::windows::core::IUnknownImpl, Impl: IMFByteStreamBuffering_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pparams: *const MFBYTESTREAM_BUFFERING_PARAMS) -> ::windows::core::HRESULT {
@@ -4170,6 +4292,7 @@ impl IMFByteStreamBuffering_Vtbl {
 pub trait IMFByteStreamCacheControl_Impl: Sized {
     fn StopBackgroundTransfer(&self) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IMFByteStreamCacheControl {}
 impl IMFByteStreamCacheControl_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFByteStreamCacheControl_Impl, const OFFSET: isize>() -> IMFByteStreamCacheControl_Vtbl {
         unsafe extern "system" fn StopBackgroundTransfer<Identity: ::windows::core::IUnknownImpl, Impl: IMFByteStreamCacheControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -4189,6 +4312,8 @@ pub trait IMFByteStreamCacheControl2_Impl: Sized + IMFByteStreamCacheControl_Imp
     fn SetCacheLimit(&self, qwbytes: u64) -> ::windows::core::Result<()>;
     fn IsBackgroundTransferActive(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IMFByteStreamCacheControl2 {}
 #[cfg(feature = "Win32_Foundation")]
 impl IMFByteStreamCacheControl2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFByteStreamCacheControl2_Impl, const OFFSET: isize>() -> IMFByteStreamCacheControl2_Vtbl {
@@ -4231,6 +4356,8 @@ pub trait IMFByteStreamHandler_Impl: Sized {
     fn CancelObjectCreation(&self, piunknowncancelcookie: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
     fn GetMaxNumberOfBytesRequiredForResolution(&self) -> ::windows::core::Result<u64>;
 }
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+impl ::windows::core::RuntimeName for IMFByteStreamHandler {}
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 impl IMFByteStreamHandler_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFByteStreamHandler_Impl, const OFFSET: isize>() -> IMFByteStreamHandler_Vtbl {
@@ -4275,6 +4402,7 @@ impl IMFByteStreamHandler_Vtbl {
 pub trait IMFByteStreamProxyClassFactory_Impl: Sized {
     fn CreateByteStreamProxy(&self, pbytestream: &::core::option::Option<IMFByteStream>, pattributes: &::core::option::Option<IMFAttributes>, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IMFByteStreamProxyClassFactory {}
 impl IMFByteStreamProxyClassFactory_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFByteStreamProxyClassFactory_Impl, const OFFSET: isize>() -> IMFByteStreamProxyClassFactory_Vtbl {
         unsafe extern "system" fn CreateByteStreamProxy<Identity: ::windows::core::IUnknownImpl, Impl: IMFByteStreamProxyClassFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbytestream: ::windows::core::RawPtr, pattributes: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -4294,6 +4422,8 @@ pub trait IMFByteStreamTimeSeek_Impl: Sized {
     fn TimeSeek(&self, qwtimeposition: u64) -> ::windows::core::Result<()>;
     fn GetTimeSeekResult(&self, pqwstarttime: *mut u64, pqwstoptime: *mut u64, pqwduration: *mut u64) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IMFByteStreamTimeSeek {}
 #[cfg(feature = "Win32_Foundation")]
 impl IMFByteStreamTimeSeek_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFByteStreamTimeSeek_Impl, const OFFSET: isize>() -> IMFByteStreamTimeSeek_Vtbl {
@@ -4334,6 +4464,7 @@ pub trait IMFCameraOcclusionStateMonitor_Impl: Sized {
     fn Stop(&self) -> ::windows::core::Result<()>;
     fn GetSupportedStates(&self) -> u32;
 }
+impl ::windows::core::RuntimeName for IMFCameraOcclusionStateMonitor {}
 impl IMFCameraOcclusionStateMonitor_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFCameraOcclusionStateMonitor_Impl, const OFFSET: isize>() -> IMFCameraOcclusionStateMonitor_Vtbl {
         unsafe extern "system" fn Start<Identity: ::windows::core::IUnknownImpl, Impl: IMFCameraOcclusionStateMonitor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -4365,6 +4496,7 @@ impl IMFCameraOcclusionStateMonitor_Vtbl {
 pub trait IMFCameraOcclusionStateReport_Impl: Sized {
     fn GetOcclusionState(&self) -> ::windows::core::Result<u32>;
 }
+impl ::windows::core::RuntimeName for IMFCameraOcclusionStateReport {}
 impl IMFCameraOcclusionStateReport_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFCameraOcclusionStateReport_Impl, const OFFSET: isize>() -> IMFCameraOcclusionStateReport_Vtbl {
         unsafe extern "system" fn GetOcclusionState<Identity: ::windows::core::IUnknownImpl, Impl: IMFCameraOcclusionStateReport_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, occlusionstate: *mut u32) -> ::windows::core::HRESULT {
@@ -4387,6 +4519,7 @@ impl IMFCameraOcclusionStateReport_Vtbl {
 pub trait IMFCameraOcclusionStateReportCallback_Impl: Sized {
     fn OnOcclusionStateReport(&self, occlusionstatereport: &::core::option::Option<IMFCameraOcclusionStateReport>) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IMFCameraOcclusionStateReportCallback {}
 impl IMFCameraOcclusionStateReportCallback_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFCameraOcclusionStateReportCallback_Impl, const OFFSET: isize>() -> IMFCameraOcclusionStateReportCallback_Vtbl {
         unsafe extern "system" fn OnOcclusionStateReport<Identity: ::windows::core::IUnknownImpl, Impl: IMFCameraOcclusionStateReportCallback_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, occlusionstatereport: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -4404,6 +4537,7 @@ pub trait IMFCameraSyncObject_Impl: Sized {
     fn WaitOnSignal(&self, timeoutinms: u32) -> ::windows::core::Result<()>;
     fn Shutdown(&self);
 }
+impl ::windows::core::RuntimeName for IMFCameraSyncObject {}
 impl IMFCameraSyncObject_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFCameraSyncObject_Impl, const OFFSET: isize>() -> IMFCameraSyncObject_Vtbl {
         unsafe extern "system" fn WaitOnSignal<Identity: ::windows::core::IUnknownImpl, Impl: IMFCameraSyncObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, timeoutinms: u32) -> ::windows::core::HRESULT {
@@ -4437,6 +4571,8 @@ pub trait IMFCaptureEngine_Impl: Sized {
     fn GetSink(&self, mfcaptureenginesinktype: MF_CAPTURE_ENGINE_SINK_TYPE) -> ::windows::core::Result<IMFCaptureSink>;
     fn GetSource(&self) -> ::windows::core::Result<IMFCaptureSource>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IMFCaptureEngine {}
 #[cfg(feature = "Win32_Foundation")]
 impl IMFCaptureEngine_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFCaptureEngine_Impl, const OFFSET: isize>() -> IMFCaptureEngine_Vtbl {
@@ -4511,6 +4647,7 @@ impl IMFCaptureEngine_Vtbl {
 pub trait IMFCaptureEngineClassFactory_Impl: Sized {
     fn CreateInstance(&self, clsid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IMFCaptureEngineClassFactory {}
 impl IMFCaptureEngineClassFactory_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFCaptureEngineClassFactory_Impl, const OFFSET: isize>() -> IMFCaptureEngineClassFactory_Vtbl {
         unsafe extern "system" fn CreateInstance<Identity: ::windows::core::IUnknownImpl, Impl: IMFCaptureEngineClassFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, clsid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -4527,6 +4664,7 @@ impl IMFCaptureEngineClassFactory_Vtbl {
 pub trait IMFCaptureEngineOnEventCallback_Impl: Sized {
     fn OnEvent(&self, pevent: &::core::option::Option<IMFMediaEvent>) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IMFCaptureEngineOnEventCallback {}
 impl IMFCaptureEngineOnEventCallback_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFCaptureEngineOnEventCallback_Impl, const OFFSET: isize>() -> IMFCaptureEngineOnEventCallback_Vtbl {
         unsafe extern "system" fn OnEvent<Identity: ::windows::core::IUnknownImpl, Impl: IMFCaptureEngineOnEventCallback_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pevent: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -4543,6 +4681,7 @@ impl IMFCaptureEngineOnEventCallback_Vtbl {
 pub trait IMFCaptureEngineOnSampleCallback_Impl: Sized {
     fn OnSample(&self, psample: &::core::option::Option<IMFSample>) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IMFCaptureEngineOnSampleCallback {}
 impl IMFCaptureEngineOnSampleCallback_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFCaptureEngineOnSampleCallback_Impl, const OFFSET: isize>() -> IMFCaptureEngineOnSampleCallback_Vtbl {
         unsafe extern "system" fn OnSample<Identity: ::windows::core::IUnknownImpl, Impl: IMFCaptureEngineOnSampleCallback_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psample: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -4559,6 +4698,7 @@ impl IMFCaptureEngineOnSampleCallback_Vtbl {
 pub trait IMFCaptureEngineOnSampleCallback2_Impl: Sized + IMFCaptureEngineOnSampleCallback_Impl {
     fn OnSynchronizedEvent(&self, pevent: &::core::option::Option<IMFMediaEvent>) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IMFCaptureEngineOnSampleCallback2 {}
 impl IMFCaptureEngineOnSampleCallback2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFCaptureEngineOnSampleCallback2_Impl, const OFFSET: isize>() -> IMFCaptureEngineOnSampleCallback2_Vtbl {
         unsafe extern "system" fn OnSynchronizedEvent<Identity: ::windows::core::IUnknownImpl, Impl: IMFCaptureEngineOnSampleCallback2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pevent: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -4580,6 +4720,7 @@ pub trait IMFCapturePhotoConfirmation_Impl: Sized {
     fn SetPixelFormat(&self, subtype: &::windows::core::GUID) -> ::windows::core::Result<()>;
     fn GetPixelFormat(&self) -> ::windows::core::Result<::windows::core::GUID>;
 }
+impl ::windows::core::RuntimeName for IMFCapturePhotoConfirmation {}
 impl IMFCapturePhotoConfirmation_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFCapturePhotoConfirmation_Impl, const OFFSET: isize>() -> IMFCapturePhotoConfirmation_Vtbl {
         unsafe extern "system" fn SetPhotoConfirmationCallback<Identity: ::windows::core::IUnknownImpl, Impl: IMFCapturePhotoConfirmation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pnotificationcallback: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -4619,6 +4760,7 @@ pub trait IMFCapturePhotoSink_Impl: Sized + IMFCaptureSink_Impl {
     fn SetSampleCallback(&self, pcallback: &::core::option::Option<IMFCaptureEngineOnSampleCallback>) -> ::windows::core::Result<()>;
     fn SetOutputByteStream(&self, pbytestream: &::core::option::Option<IMFByteStream>) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IMFCapturePhotoSink {}
 impl IMFCapturePhotoSink_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFCapturePhotoSink_Impl, const OFFSET: isize>() -> IMFCapturePhotoSink_Vtbl {
         unsafe extern "system" fn SetOutputFileName<Identity: ::windows::core::IUnknownImpl, Impl: IMFCapturePhotoSink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, filename: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
@@ -4659,6 +4801,8 @@ pub trait IMFCapturePreviewSink_Impl: Sized + IMFCaptureSink_Impl {
     fn SetRotation(&self, dwstreamindex: u32, dwrotationvalue: u32) -> ::windows::core::Result<()>;
     fn SetCustomSink(&self, pmediasink: &::core::option::Option<IMFMediaSink>) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IMFCapturePreviewSink {}
 #[cfg(feature = "Win32_Foundation")]
 impl IMFCapturePreviewSink_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFCapturePreviewSink_Impl, const OFFSET: isize>() -> IMFCapturePreviewSink_Vtbl {
@@ -4744,6 +4888,7 @@ pub trait IMFCaptureRecordSink_Impl: Sized + IMFCaptureSink_Impl {
     fn GetRotation(&self, dwstreamindex: u32) -> ::windows::core::Result<u32>;
     fn SetRotation(&self, dwstreamindex: u32, dwrotationvalue: u32) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IMFCaptureRecordSink {}
 impl IMFCaptureRecordSink_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFCaptureRecordSink_Impl, const OFFSET: isize>() -> IMFCaptureRecordSink_Vtbl {
         unsafe extern "system" fn SetOutputByteStream<Identity: ::windows::core::IUnknownImpl, Impl: IMFCaptureRecordSink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbytestream: ::windows::core::RawPtr, guidcontainertype: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
@@ -4803,6 +4948,7 @@ pub trait IMFCaptureSink_Impl: Sized {
     fn Prepare(&self) -> ::windows::core::Result<()>;
     fn RemoveAllStreams(&self) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IMFCaptureSink {}
 impl IMFCaptureSink_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFCaptureSink_Impl, const OFFSET: isize>() -> IMFCaptureSink_Vtbl {
         unsafe extern "system" fn GetOutputMediaType<Identity: ::windows::core::IUnknownImpl, Impl: IMFCaptureSink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwsinkstreamindex: u32, ppmediatype: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -4864,6 +5010,7 @@ impl IMFCaptureSink_Vtbl {
 pub trait IMFCaptureSink2_Impl: Sized + IMFCaptureSink_Impl {
     fn SetOutputMediaType(&self, dwstreamindex: u32, pmediatype: &::core::option::Option<IMFMediaType>, pencodingattributes: &::core::option::Option<IMFAttributes>) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IMFCaptureSink2 {}
 impl IMFCaptureSink2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFCaptureSink2_Impl, const OFFSET: isize>() -> IMFCaptureSink2_Vtbl {
         unsafe extern "system" fn SetOutputMediaType<Identity: ::windows::core::IUnknownImpl, Impl: IMFCaptureSink2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwstreamindex: u32, pmediatype: ::windows::core::RawPtr, pencodingattributes: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -4894,6 +5041,8 @@ pub trait IMFCaptureSource_Impl: Sized {
     fn SetMirrorState(&self, dwstreamindex: u32, fmirrorstate: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn GetStreamIndexFromFriendlyName(&self, uifriendlyname: u32) -> ::windows::core::Result<u32>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IMFCaptureSource {}
 #[cfg(feature = "Win32_Foundation")]
 impl IMFCaptureSource_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFCaptureSource_Impl, const OFFSET: isize>() -> IMFCaptureSource_Vtbl {
@@ -5047,6 +5196,7 @@ pub trait IMFCdmSuspendNotify_Impl: Sized {
     fn Begin(&self) -> ::windows::core::Result<()>;
     fn End(&self) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IMFCdmSuspendNotify {}
 impl IMFCdmSuspendNotify_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFCdmSuspendNotify_Impl, const OFFSET: isize>() -> IMFCdmSuspendNotify_Vtbl {
         unsafe extern "system" fn Begin<Identity: ::windows::core::IUnknownImpl, Impl: IMFCdmSuspendNotify_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -5072,6 +5222,7 @@ pub trait IMFClock_Impl: Sized {
     fn GetState(&self, dwreserved: u32) -> ::windows::core::Result<MFCLOCK_STATE>;
     fn GetProperties(&self) -> ::windows::core::Result<MFCLOCK_PROPERTIES>;
 }
+impl ::windows::core::RuntimeName for IMFClock {}
 impl IMFClock_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFClock_Impl, const OFFSET: isize>() -> IMFClock_Vtbl {
         unsafe extern "system" fn GetClockCharacteristics<Identity: ::windows::core::IUnknownImpl, Impl: IMFClock_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwcharacteristics: *mut u32) -> ::windows::core::HRESULT {
@@ -5140,6 +5291,7 @@ pub trait IMFClockConsumer_Impl: Sized {
     fn SetPresentationClock(&self, ppresentationclock: &::core::option::Option<IMFPresentationClock>) -> ::windows::core::Result<()>;
     fn GetPresentationClock(&self) -> ::windows::core::Result<IMFPresentationClock>;
 }
+impl ::windows::core::RuntimeName for IMFClockConsumer {}
 impl IMFClockConsumer_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFClockConsumer_Impl, const OFFSET: isize>() -> IMFClockConsumer_Vtbl {
         unsafe extern "system" fn SetPresentationClock<Identity: ::windows::core::IUnknownImpl, Impl: IMFClockConsumer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppresentationclock: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -5175,6 +5327,7 @@ pub trait IMFClockStateSink_Impl: Sized {
     fn OnClockRestart(&self, hnssystemtime: i64) -> ::windows::core::Result<()>;
     fn OnClockSetRate(&self, hnssystemtime: i64, flrate: f32) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IMFClockStateSink {}
 impl IMFClockStateSink_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFClockStateSink_Impl, const OFFSET: isize>() -> IMFClockStateSink_Vtbl {
         unsafe extern "system" fn OnClockStart<Identity: ::windows::core::IUnknownImpl, Impl: IMFClockStateSink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hnssystemtime: i64, llclockstartoffset: i64) -> ::windows::core::HRESULT {
@@ -5223,6 +5376,7 @@ pub trait IMFCollection_Impl: Sized {
     fn InsertElementAt(&self, dwindex: u32, punknown: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
     fn RemoveAllElements(&self) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IMFCollection {}
 impl IMFCollection_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFCollection_Impl, const OFFSET: isize>() -> IMFCollection_Vtbl {
         unsafe extern "system" fn GetElementCount<Identity: ::windows::core::IUnknownImpl, Impl: IMFCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcelements: *mut u32) -> ::windows::core::HRESULT {
@@ -5296,6 +5450,7 @@ pub trait IMFContentDecryptionModule_Impl: Sized {
     fn CreateTrustedInput(&self, contentinitdata: *const u8, contentinitdatasize: u32) -> ::windows::core::Result<IMFTrustedInput>;
     fn GetProtectionSystemIds(&self, systemids: *mut *mut ::windows::core::GUID, count: *mut u32) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IMFContentDecryptionModule {}
 impl IMFContentDecryptionModule_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFContentDecryptionModule_Impl, const OFFSET: isize>() -> IMFContentDecryptionModule_Vtbl {
         unsafe extern "system" fn SetContentEnabler<Identity: ::windows::core::IUnknownImpl, Impl: IMFContentDecryptionModule_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, contentenabler: ::windows::core::RawPtr, result: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -5373,6 +5528,8 @@ pub trait IMFContentDecryptionModuleAccess_Impl: Sized {
     fn GetKeySystem(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+impl ::windows::core::RuntimeName for IMFContentDecryptionModuleAccess {}
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 impl IMFContentDecryptionModuleAccess_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFContentDecryptionModuleAccess_Impl, const OFFSET: isize>() -> IMFContentDecryptionModuleAccess_Vtbl {
         unsafe extern "system" fn CreateContentDecryptionModule<Identity: ::windows::core::IUnknownImpl, Impl: IMFContentDecryptionModuleAccess_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, contentdecryptionmoduleproperties: ::windows::core::RawPtr, contentdecryptionmodule: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -5425,6 +5582,8 @@ pub trait IMFContentDecryptionModuleFactory_Impl: Sized {
     fn CreateContentDecryptionModuleAccess(&self, keysystem: &::windows::core::PCWSTR, configurations: *const ::core::option::Option<super::super::UI::Shell::PropertiesSystem::IPropertyStore>, numconfigurations: u32) -> ::windows::core::Result<IMFContentDecryptionModuleAccess>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
+impl ::windows::core::RuntimeName for IMFContentDecryptionModuleFactory {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl IMFContentDecryptionModuleFactory_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFContentDecryptionModuleFactory_Impl, const OFFSET: isize>() -> IMFContentDecryptionModuleFactory_Vtbl {
         unsafe extern "system" fn IsTypeSupported<Identity: ::windows::core::IUnknownImpl, Impl: IMFContentDecryptionModuleFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, keysystem: ::windows::core::PCWSTR, contenttype: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL {
@@ -5464,6 +5623,8 @@ pub trait IMFContentDecryptionModuleSession_Impl: Sized {
     fn Close(&self) -> ::windows::core::Result<()>;
     fn Remove(&self) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IMFContentDecryptionModuleSession {}
 #[cfg(feature = "Win32_Foundation")]
 impl IMFContentDecryptionModuleSession_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFContentDecryptionModuleSession_Impl, const OFFSET: isize>() -> IMFContentDecryptionModuleSession_Vtbl {
@@ -5545,6 +5706,7 @@ pub trait IMFContentDecryptionModuleSessionCallbacks_Impl: Sized {
     fn KeyMessage(&self, messagetype: MF_MEDIAKEYSESSION_MESSAGETYPE, message: *const u8, messagesize: u32, destinationurl: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn KeyStatusChanged(&self) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IMFContentDecryptionModuleSessionCallbacks {}
 impl IMFContentDecryptionModuleSessionCallbacks_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFContentDecryptionModuleSessionCallbacks_Impl, const OFFSET: isize>() -> IMFContentDecryptionModuleSessionCallbacks_Vtbl {
         unsafe extern "system" fn KeyMessage<Identity: ::windows::core::IUnknownImpl, Impl: IMFContentDecryptionModuleSessionCallbacks_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, messagetype: MF_MEDIAKEYSESSION_MESSAGETYPE, message: *const u8, messagesize: u32, destinationurl: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
@@ -5570,6 +5732,7 @@ impl IMFContentDecryptionModuleSessionCallbacks_Vtbl {
 pub trait IMFContentDecryptorContext_Impl: Sized {
     fn InitializeHardwareKey(&self, inputprivatedatabytecount: u32, inputprivatedata: *const ::core::ffi::c_void) -> ::windows::core::Result<u64>;
 }
+impl ::windows::core::RuntimeName for IMFContentDecryptorContext {}
 impl IMFContentDecryptorContext_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFContentDecryptorContext_Impl, const OFFSET: isize>() -> IMFContentDecryptorContext_Vtbl {
         unsafe extern "system" fn InitializeHardwareKey<Identity: ::windows::core::IUnknownImpl, Impl: IMFContentDecryptorContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, inputprivatedatabytecount: u32, inputprivatedata: *const ::core::ffi::c_void, outputprivatedata: *mut u64) -> ::windows::core::HRESULT {
@@ -5599,6 +5762,8 @@ pub trait IMFContentEnabler_Impl: Sized {
     fn MonitorEnable(&self) -> ::windows::core::Result<()>;
     fn Cancel(&self) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IMFContentEnabler {}
 #[cfg(feature = "Win32_Foundation")]
 impl IMFContentEnabler_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFContentEnabler_Impl, const OFFSET: isize>() -> IMFContentEnabler_Vtbl {
@@ -5668,6 +5833,7 @@ pub trait IMFContentProtectionDevice_Impl: Sized {
     fn InvokeFunction(&self, functionid: u32, inputbufferbytecount: u32, inputbuffer: *const u8, outputbufferbytecount: *mut u32, outputbuffer: *mut u8) -> ::windows::core::Result<()>;
     fn GetPrivateDataByteCount(&self, privateinputbytecount: *mut u32, privateoutputbytecount: *mut u32) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IMFContentProtectionDevice {}
 impl IMFContentProtectionDevice_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFContentProtectionDevice_Impl, const OFFSET: isize>() -> IMFContentProtectionDevice_Vtbl {
         unsafe extern "system" fn InvokeFunction<Identity: ::windows::core::IUnknownImpl, Impl: IMFContentProtectionDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, functionid: u32, inputbufferbytecount: u32, inputbuffer: *const u8, outputbufferbytecount: *mut u32, outputbuffer: *mut u8) -> ::windows::core::HRESULT {
@@ -5694,6 +5860,7 @@ pub trait IMFContentProtectionManager_Impl: Sized {
     fn BeginEnableContent(&self, penableractivate: &::core::option::Option<IMFActivate>, ptopo: &::core::option::Option<IMFTopology>, pcallback: &::core::option::Option<IMFAsyncCallback>, punkstate: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
     fn EndEnableContent(&self, presult: &::core::option::Option<IMFAsyncResult>) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IMFContentProtectionManager {}
 impl IMFContentProtectionManager_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFContentProtectionManager_Impl, const OFFSET: isize>() -> IMFContentProtectionManager_Vtbl {
         unsafe extern "system" fn BeginEnableContent<Identity: ::windows::core::IUnknownImpl, Impl: IMFContentProtectionManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, penableractivate: ::windows::core::RawPtr, ptopo: ::windows::core::RawPtr, pcallback: ::windows::core::RawPtr, punkstate: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -5721,6 +5888,8 @@ pub trait IMFD3D12SynchronizationObject_Impl: Sized {
     fn SignalEventOnFinalResourceRelease(&self, hevent: super::super::Foundation::HANDLE) -> ::windows::core::Result<()>;
     fn Reset(&self) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IMFD3D12SynchronizationObject {}
 #[cfg(feature = "Win32_Foundation")]
 impl IMFD3D12SynchronizationObject_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFD3D12SynchronizationObject_Impl, const OFFSET: isize>() -> IMFD3D12SynchronizationObject_Vtbl {
@@ -5751,6 +5920,8 @@ pub trait IMFD3D12SynchronizationObjectCommands_Impl: Sized {
     fn SignalEventOnResourceReady(&self, hevent: super::super::Foundation::HANDLE) -> ::windows::core::Result<()>;
     fn EnqueueResourceRelease(&self, pconsumercommandqueue: &::core::option::Option<super::super::Graphics::Direct3D12::ID3D12CommandQueue>) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
+impl ::windows::core::RuntimeName for IMFD3D12SynchronizationObjectCommands {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
 impl IMFD3D12SynchronizationObjectCommands_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFD3D12SynchronizationObjectCommands_Impl, const OFFSET: isize>() -> IMFD3D12SynchronizationObjectCommands_Vtbl {
@@ -5791,6 +5962,8 @@ pub trait IMFDLNASinkInit_Impl: Sized {
     fn Initialize(&self, pbytestream: &::core::option::Option<IMFByteStream>, fpal: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IMFDLNASinkInit {}
+#[cfg(feature = "Win32_Foundation")]
 impl IMFDLNASinkInit_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFDLNASinkInit_Impl, const OFFSET: isize>() -> IMFDLNASinkInit_Vtbl {
         unsafe extern "system" fn Initialize<Identity: ::windows::core::IUnknownImpl, Impl: IMFDLNASinkInit_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbytestream: ::windows::core::RawPtr, fpal: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
@@ -5809,6 +5982,8 @@ pub trait IMFDRMNetHelper_Impl: Sized {
     fn ProcessLicenseRequest(&self, plicenserequest: *const u8, cblicenserequest: u32, pplicenseresponse: *mut *mut u8, pcblicenseresponse: *mut u32, pbstrkid: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn GetChainedLicenseResponse(&self, pplicenseresponse: *mut *mut u8, pcblicenseresponse: *mut u32) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IMFDRMNetHelper {}
 #[cfg(feature = "Win32_Foundation")]
 impl IMFDRMNetHelper_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFDRMNetHelper_Impl, const OFFSET: isize>() -> IMFDRMNetHelper_Vtbl {
@@ -5838,6 +6013,7 @@ pub trait IMFDXGIBuffer_Impl: Sized {
     fn GetUnknown(&self, guid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn SetUnknown(&self, guid: *const ::windows::core::GUID, punkdata: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IMFDXGIBuffer {}
 impl IMFDXGIBuffer_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFDXGIBuffer_Impl, const OFFSET: isize>() -> IMFDXGIBuffer_Vtbl {
         unsafe extern "system" fn GetResource<Identity: ::windows::core::IUnknownImpl, Impl: IMFDXGIBuffer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -5888,6 +6064,8 @@ pub trait IMFDXGIDeviceManager_Impl: Sized {
     fn TestDevice(&self, hdevice: super::super::Foundation::HANDLE) -> ::windows::core::Result<()>;
     fn UnlockDevice(&self, hdevice: super::super::Foundation::HANDLE, fsavestate: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IMFDXGIDeviceManager {}
 #[cfg(feature = "Win32_Foundation")]
 impl IMFDXGIDeviceManager_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFDXGIDeviceManager_Impl, const OFFSET: isize>() -> IMFDXGIDeviceManager_Vtbl {
@@ -5950,6 +6128,7 @@ impl IMFDXGIDeviceManager_Vtbl {
 pub trait IMFDXGIDeviceManagerSource_Impl: Sized {
     fn GetManager(&self) -> ::windows::core::Result<IMFDXGIDeviceManager>;
 }
+impl ::windows::core::RuntimeName for IMFDXGIDeviceManagerSource {}
 impl IMFDXGIDeviceManagerSource_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFDXGIDeviceManagerSource_Impl, const OFFSET: isize>() -> IMFDXGIDeviceManagerSource_Vtbl {
         unsafe extern "system" fn GetManager<Identity: ::windows::core::IUnknownImpl, Impl: IMFDXGIDeviceManagerSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppmanager: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -5974,6 +6153,7 @@ pub trait IMFDesiredSample_Impl: Sized {
     fn SetDesiredSampleTimeAndDuration(&self, hnssampletime: i64, hnssampleduration: i64);
     fn Clear(&self);
 }
+impl ::windows::core::RuntimeName for IMFDesiredSample {}
 impl IMFDesiredSample_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFDesiredSample_Impl, const OFFSET: isize>() -> IMFDesiredSample_Vtbl {
         unsafe extern "system" fn GetDesiredSampleTimeAndDuration<Identity: ::windows::core::IUnknownImpl, Impl: IMFDesiredSample_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, phnssampletime: *mut i64, phnssampleduration: *mut i64) -> ::windows::core::HRESULT {
@@ -6010,6 +6190,7 @@ pub trait IMFExtendedCameraControl_Impl: Sized {
     fn UnlockPayload(&self) -> ::windows::core::Result<()>;
     fn CommitSettings(&self) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IMFExtendedCameraControl {}
 impl IMFExtendedCameraControl_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFExtendedCameraControl_Impl, const OFFSET: isize>() -> IMFExtendedCameraControl_Vtbl {
         unsafe extern "system" fn GetCapabilities<Identity: ::windows::core::IUnknownImpl, Impl: IMFExtendedCameraControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> u64 {
@@ -6059,6 +6240,7 @@ impl IMFExtendedCameraControl_Vtbl {
 pub trait IMFExtendedCameraController_Impl: Sized {
     fn GetExtendedCameraControl(&self, dwstreamindex: u32, ulpropertyid: u32) -> ::windows::core::Result<IMFExtendedCameraControl>;
 }
+impl ::windows::core::RuntimeName for IMFExtendedCameraController {}
 impl IMFExtendedCameraController_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFExtendedCameraController_Impl, const OFFSET: isize>() -> IMFExtendedCameraController_Vtbl {
         unsafe extern "system" fn GetExtendedCameraControl<Identity: ::windows::core::IUnknownImpl, Impl: IMFExtendedCameraController_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwstreamindex: u32, ulpropertyid: u32, ppcontrol: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -6083,6 +6265,7 @@ pub trait IMFExtendedCameraIntrinsicModel_Impl: Sized {
     fn SetModel(&self, pintrinsicmodel: *const MFExtendedCameraIntrinsic_IntrinsicModel) -> ::windows::core::Result<()>;
     fn GetDistortionModelType(&self) -> ::windows::core::Result<MFCameraIntrinsic_DistortionModelType>;
 }
+impl ::windows::core::RuntimeName for IMFExtendedCameraIntrinsicModel {}
 impl IMFExtendedCameraIntrinsicModel_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFExtendedCameraIntrinsicModel_Impl, const OFFSET: isize>() -> IMFExtendedCameraIntrinsicModel_Vtbl {
         unsafe extern "system" fn GetModel<Identity: ::windows::core::IUnknownImpl, Impl: IMFExtendedCameraIntrinsicModel_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pintrinsicmodel: *mut MFExtendedCameraIntrinsic_IntrinsicModel) -> ::windows::core::HRESULT {
@@ -6131,6 +6314,7 @@ pub trait IMFExtendedCameraIntrinsics_Impl: Sized {
     fn GetIntrinsicModelByIndex(&self, dwindex: u32) -> ::windows::core::Result<IMFExtendedCameraIntrinsicModel>;
     fn AddIntrinsicModel(&self, pintrinsicmodel: &::core::option::Option<IMFExtendedCameraIntrinsicModel>) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IMFExtendedCameraIntrinsics {}
 impl IMFExtendedCameraIntrinsics_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFExtendedCameraIntrinsics_Impl, const OFFSET: isize>() -> IMFExtendedCameraIntrinsics_Vtbl {
         unsafe extern "system" fn InitializeFromBuffer<Identity: ::windows::core::IUnknownImpl, Impl: IMFExtendedCameraIntrinsics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbbuffer: *const u8, dwbuffersize: u32) -> ::windows::core::HRESULT {
@@ -6199,6 +6383,7 @@ pub trait IMFExtendedCameraIntrinsicsDistortionModel6KT_Impl: Sized {
     fn GetDistortionModel(&self) -> ::windows::core::Result<MFCameraIntrinsic_DistortionModel6KT>;
     fn SetDistortionModel(&self, pdistortionmodel: *const MFCameraIntrinsic_DistortionModel6KT) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IMFExtendedCameraIntrinsicsDistortionModel6KT {}
 impl IMFExtendedCameraIntrinsicsDistortionModel6KT_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFExtendedCameraIntrinsicsDistortionModel6KT_Impl, const OFFSET: isize>() -> IMFExtendedCameraIntrinsicsDistortionModel6KT_Vtbl {
         unsafe extern "system" fn GetDistortionModel<Identity: ::windows::core::IUnknownImpl, Impl: IMFExtendedCameraIntrinsicsDistortionModel6KT_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdistortionmodel: *mut MFCameraIntrinsic_DistortionModel6KT) -> ::windows::core::HRESULT {
@@ -6231,6 +6416,7 @@ pub trait IMFExtendedCameraIntrinsicsDistortionModelArcTan_Impl: Sized {
     fn GetDistortionModel(&self) -> ::windows::core::Result<MFCameraIntrinsic_DistortionModelArcTan>;
     fn SetDistortionModel(&self, pdistortionmodel: *const MFCameraIntrinsic_DistortionModelArcTan) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IMFExtendedCameraIntrinsicsDistortionModelArcTan {}
 impl IMFExtendedCameraIntrinsicsDistortionModelArcTan_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFExtendedCameraIntrinsicsDistortionModelArcTan_Impl, const OFFSET: isize>() -> IMFExtendedCameraIntrinsicsDistortionModelArcTan_Vtbl {
         unsafe extern "system" fn GetDistortionModel<Identity: ::windows::core::IUnknownImpl, Impl: IMFExtendedCameraIntrinsicsDistortionModelArcTan_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdistortionmodel: *mut MFCameraIntrinsic_DistortionModelArcTan) -> ::windows::core::HRESULT {
@@ -6264,6 +6450,8 @@ pub trait IMFExtendedDRMTypeSupport_Impl: Sized {
     fn IsTypeSupportedEx(&self, r#type: &super::super::Foundation::BSTR, keysystem: &super::super::Foundation::BSTR) -> ::windows::core::Result<MF_MEDIA_ENGINE_CANPLAY>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IMFExtendedDRMTypeSupport {}
+#[cfg(feature = "Win32_Foundation")]
 impl IMFExtendedDRMTypeSupport_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFExtendedDRMTypeSupport_Impl, const OFFSET: isize>() -> IMFExtendedDRMTypeSupport_Vtbl {
         unsafe extern "system" fn IsTypeSupportedEx<Identity: ::windows::core::IUnknownImpl, Impl: IMFExtendedDRMTypeSupport_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, r#type: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, keysystem: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, panswer: *mut MF_MEDIA_ENGINE_CANPLAY) -> ::windows::core::HRESULT {
@@ -6286,6 +6474,7 @@ impl IMFExtendedDRMTypeSupport_Vtbl {
 pub trait IMFFieldOfUseMFTUnlock_Impl: Sized {
     fn Unlock(&self, punkmft: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IMFFieldOfUseMFTUnlock {}
 impl IMFFieldOfUseMFTUnlock_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFFieldOfUseMFTUnlock_Impl, const OFFSET: isize>() -> IMFFieldOfUseMFTUnlock_Vtbl {
         unsafe extern "system" fn Unlock<Identity: ::windows::core::IUnknownImpl, Impl: IMFFieldOfUseMFTUnlock_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, punkmft: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -6303,6 +6492,7 @@ pub trait IMFFinalizableMediaSink_Impl: Sized + IMFMediaSink_Impl {
     fn BeginFinalize(&self, pcallback: &::core::option::Option<IMFAsyncCallback>, punkstate: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
     fn EndFinalize(&self, presult: &::core::option::Option<IMFAsyncResult>) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IMFFinalizableMediaSink {}
 impl IMFFinalizableMediaSink_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFFinalizableMediaSink_Impl, const OFFSET: isize>() -> IMFFinalizableMediaSink_Vtbl {
         unsafe extern "system" fn BeginFinalize<Identity: ::windows::core::IUnknownImpl, Impl: IMFFinalizableMediaSink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcallback: ::windows::core::RawPtr, punkstate: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -6328,6 +6518,7 @@ impl IMFFinalizableMediaSink_Vtbl {
 pub trait IMFGetService_Impl: Sized {
     fn GetService(&self, guidservice: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IMFGetService {}
 impl IMFGetService_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFGetService_Impl, const OFFSET: isize>() -> IMFGetService_Vtbl {
         unsafe extern "system" fn GetService<Identity: ::windows::core::IUnknownImpl, Impl: IMFGetService_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guidservice: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -6346,6 +6537,8 @@ pub trait IMFHDCPStatus_Impl: Sized {
     fn Query(&self, pstatus: *mut MF_HDCP_STATUS, pfstatus: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn Set(&self, status: MF_HDCP_STATUS) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IMFHDCPStatus {}
 #[cfg(feature = "Win32_Foundation")]
 impl IMFHDCPStatus_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFHDCPStatus_Impl, const OFFSET: isize>() -> IMFHDCPStatus_Vtbl {
@@ -6384,6 +6577,8 @@ pub trait IMFHttpDownloadRequest_Impl: Sized {
     fn GetRangeEndOffset(&self) -> ::windows::core::Result<u64>;
     fn Close(&self) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IMFHttpDownloadRequest {}
 #[cfg(feature = "Win32_Foundation")]
 impl IMFHttpDownloadRequest_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFHttpDownloadRequest_Impl, const OFFSET: isize>() -> IMFHttpDownloadRequest_Vtbl {
@@ -6540,6 +6735,8 @@ pub trait IMFHttpDownloadSession_Impl: Sized {
     fn Close(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IMFHttpDownloadSession {}
+#[cfg(feature = "Win32_Foundation")]
 impl IMFHttpDownloadSession_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFHttpDownloadSession_Impl, const OFFSET: isize>() -> IMFHttpDownloadSession_Vtbl {
         unsafe extern "system" fn SetServer<Identity: ::windows::core::IUnknownImpl, Impl: IMFHttpDownloadSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, szservername: ::windows::core::PCWSTR, nport: u32) -> ::windows::core::HRESULT {
@@ -6577,6 +6774,7 @@ impl IMFHttpDownloadSession_Vtbl {
 pub trait IMFHttpDownloadSessionProvider_Impl: Sized {
     fn CreateHttpDownloadSession(&self, wszscheme: &::windows::core::PCWSTR) -> ::windows::core::Result<IMFHttpDownloadSession>;
 }
+impl ::windows::core::RuntimeName for IMFHttpDownloadSessionProvider {}
 impl IMFHttpDownloadSessionProvider_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFHttpDownloadSessionProvider_Impl, const OFFSET: isize>() -> IMFHttpDownloadSessionProvider_Vtbl {
         unsafe extern "system" fn CreateHttpDownloadSession<Identity: ::windows::core::IUnknownImpl, Impl: IMFHttpDownloadSessionProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wszscheme: ::windows::core::PCWSTR, ppdownloadsession: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -6602,6 +6800,8 @@ pub trait IMFImageSharingEngine_Impl: Sized {
     fn GetDevice(&self) -> ::windows::core::Result<DEVICE_INFO>;
     fn Shutdown(&self) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IMFImageSharingEngine {}
 #[cfg(feature = "Win32_Foundation")]
 impl IMFImageSharingEngine_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFImageSharingEngine_Impl, const OFFSET: isize>() -> IMFImageSharingEngine_Vtbl {
@@ -6642,6 +6842,8 @@ pub trait IMFImageSharingEngineClassFactory_Impl: Sized {
     fn CreateInstanceFromUDN(&self, puniquedevicename: &super::super::Foundation::BSTR) -> ::windows::core::Result<IMFImageSharingEngine>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IMFImageSharingEngineClassFactory {}
+#[cfg(feature = "Win32_Foundation")]
 impl IMFImageSharingEngineClassFactory_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFImageSharingEngineClassFactory_Impl, const OFFSET: isize>() -> IMFImageSharingEngineClassFactory_Vtbl {
         unsafe extern "system" fn CreateInstanceFromUDN<Identity: ::windows::core::IUnknownImpl, Impl: IMFImageSharingEngineClassFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, puniquedevicename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppengine: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -6669,6 +6871,7 @@ pub trait IMFInputTrustAuthority_Impl: Sized {
     fn UpdateAccess(&self, pparam: *const MFINPUTTRUSTAUTHORITY_ACCESS_PARAMS) -> ::windows::core::Result<()>;
     fn Reset(&self) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IMFInputTrustAuthority {}
 impl IMFInputTrustAuthority_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFInputTrustAuthority_Impl, const OFFSET: isize>() -> IMFInputTrustAuthority_Vtbl {
         unsafe extern "system" fn GetDecrypter<Identity: ::windows::core::IUnknownImpl, Impl: IMFInputTrustAuthority_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -6730,6 +6933,7 @@ impl IMFInputTrustAuthority_Vtbl {
 pub trait IMFLocalMFTRegistration_Impl: Sized {
     fn RegisterMFTs(&self, pmfts: *const MFT_REGISTRATION_INFO, cmfts: u32) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IMFLocalMFTRegistration {}
 impl IMFLocalMFTRegistration_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFLocalMFTRegistration_Impl, const OFFSET: isize>() -> IMFLocalMFTRegistration_Vtbl {
         unsafe extern "system" fn RegisterMFTs<Identity: ::windows::core::IUnknownImpl, Impl: IMFLocalMFTRegistration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pmfts: *const MFT_REGISTRATION_INFO, cmfts: u32) -> ::windows::core::HRESULT {
@@ -6750,6 +6954,7 @@ pub trait IMFMediaBuffer_Impl: Sized {
     fn SetCurrentLength(&self, cbcurrentlength: u32) -> ::windows::core::Result<()>;
     fn GetMaxLength(&self) -> ::windows::core::Result<u32>;
 }
+impl ::windows::core::RuntimeName for IMFMediaBuffer {}
 impl IMFMediaBuffer_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFMediaBuffer_Impl, const OFFSET: isize>() -> IMFMediaBuffer_Vtbl {
         unsafe extern "system" fn Lock<Identity: ::windows::core::IUnknownImpl, Impl: IMFMediaBuffer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppbbuffer: *mut *mut u8, pcbmaxlength: *mut u32, pcbcurrentlength: *mut u32) -> ::windows::core::HRESULT {
@@ -6847,6 +7052,8 @@ pub trait IMFMediaEngine_Impl: Sized {
     fn TransferVideoFrame(&self, pdstsurf: &::core::option::Option<::windows::core::IUnknown>, psrc: *const MFVideoNormalizedRect, pdst: *const super::super::Foundation::RECT, pborderclr: *const MFARGB) -> ::windows::core::Result<()>;
     fn OnVideoStreamTick(&self) -> ::windows::core::Result<i64>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IMFMediaEngine {}
 #[cfg(feature = "Win32_Foundation")]
 impl IMFMediaEngine_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFMediaEngine_Impl, const OFFSET: isize>() -> IMFMediaEngine_Vtbl {
@@ -7156,6 +7363,7 @@ pub trait IMFMediaEngineAudioEndpointId_Impl: Sized {
     fn SetAudioEndpointId(&self, pszendpointid: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn GetAudioEndpointId(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
 }
+impl ::windows::core::RuntimeName for IMFMediaEngineAudioEndpointId {}
 impl IMFMediaEngineAudioEndpointId_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFMediaEngineAudioEndpointId_Impl, const OFFSET: isize>() -> IMFMediaEngineAudioEndpointId_Vtbl {
         unsafe extern "system" fn SetAudioEndpointId<Identity: ::windows::core::IUnknownImpl, Impl: IMFMediaEngineAudioEndpointId_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszendpointid: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
@@ -7189,6 +7397,7 @@ pub trait IMFMediaEngineClassFactory_Impl: Sized {
     fn CreateTimeRange(&self) -> ::windows::core::Result<IMFMediaTimeRange>;
     fn CreateError(&self) -> ::windows::core::Result<IMFMediaError>;
 }
+impl ::windows::core::RuntimeName for IMFMediaEngineClassFactory {}
 impl IMFMediaEngineClassFactory_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFMediaEngineClassFactory_Impl, const OFFSET: isize>() -> IMFMediaEngineClassFactory_Vtbl {
         unsafe extern "system" fn CreateInstance<Identity: ::windows::core::IUnknownImpl, Impl: IMFMediaEngineClassFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwflags: u32, pattr: ::windows::core::RawPtr, ppplayer: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -7240,6 +7449,8 @@ pub trait IMFMediaEngineClassFactory2_Impl: Sized {
     fn CreateMediaKeys2(&self, keysystem: &super::super::Foundation::BSTR, defaultcdmstorepath: &super::super::Foundation::BSTR, inprivatecdmstorepath: &super::super::Foundation::BSTR) -> ::windows::core::Result<IMFMediaKeys>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IMFMediaEngineClassFactory2 {}
+#[cfg(feature = "Win32_Foundation")]
 impl IMFMediaEngineClassFactory2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFMediaEngineClassFactory2_Impl, const OFFSET: isize>() -> IMFMediaEngineClassFactory2_Vtbl {
         unsafe extern "system" fn CreateMediaKeys2<Identity: ::windows::core::IUnknownImpl, Impl: IMFMediaEngineClassFactory2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, keysystem: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, defaultcdmstorepath: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, inprivatecdmstorepath: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppkeys: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -7263,6 +7474,8 @@ impl IMFMediaEngineClassFactory2_Vtbl {
 pub trait IMFMediaEngineClassFactory3_Impl: Sized {
     fn CreateMediaKeySystemAccess(&self, keysystem: &super::super::Foundation::BSTR, ppsupportedconfigurationsarray: *const ::core::option::Option<super::super::UI::Shell::PropertiesSystem::IPropertyStore>, usize: u32) -> ::windows::core::Result<IMFMediaKeySystemAccess>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
+impl ::windows::core::RuntimeName for IMFMediaEngineClassFactory3 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl IMFMediaEngineClassFactory3_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFMediaEngineClassFactory3_Impl, const OFFSET: isize>() -> IMFMediaEngineClassFactory3_Vtbl {
@@ -7289,6 +7502,7 @@ impl IMFMediaEngineClassFactory3_Vtbl {
 pub trait IMFMediaEngineClassFactory4_Impl: Sized {
     fn CreateContentDecryptionModuleFactory(&self, keysystem: &::windows::core::PCWSTR, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IMFMediaEngineClassFactory4 {}
 impl IMFMediaEngineClassFactory4_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFMediaEngineClassFactory4_Impl, const OFFSET: isize>() -> IMFMediaEngineClassFactory4_Vtbl {
         unsafe extern "system" fn CreateContentDecryptionModuleFactory<Identity: ::windows::core::IUnknownImpl, Impl: IMFMediaEngineClassFactory4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, keysystem: ::windows::core::PCWSTR, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -7311,6 +7525,8 @@ pub trait IMFMediaEngineClassFactoryEx_Impl: Sized + IMFMediaEngineClassFactory_
     fn CreateMediaKeys(&self, keysystem: &super::super::Foundation::BSTR, cdmstorepath: &super::super::Foundation::BSTR) -> ::windows::core::Result<IMFMediaKeys>;
     fn IsTypeSupported(&self, r#type: &super::super::Foundation::BSTR, keysystem: &super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::Foundation::BOOL>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IMFMediaEngineClassFactoryEx {}
 #[cfg(feature = "Win32_Foundation")]
 impl IMFMediaEngineClassFactoryEx_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFMediaEngineClassFactoryEx_Impl, const OFFSET: isize>() -> IMFMediaEngineClassFactoryEx_Vtbl {
@@ -7362,6 +7578,7 @@ pub trait IMFMediaEngineEME_Impl: Sized {
     fn Keys(&self) -> ::windows::core::Result<IMFMediaKeys>;
     fn SetMediaKeys(&self, keys: &::core::option::Option<IMFMediaKeys>) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IMFMediaEngineEME {}
 impl IMFMediaEngineEME_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFMediaEngineEME_Impl, const OFFSET: isize>() -> IMFMediaEngineEME_Vtbl {
         unsafe extern "system" fn Keys<Identity: ::windows::core::IUnknownImpl, Impl: IMFMediaEngineEME_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, keys: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -7395,6 +7612,8 @@ pub trait IMFMediaEngineEMENotify_Impl: Sized {
     fn Encrypted(&self, pbinitdata: *const u8, cb: u32, bstrinitdatatype: &super::super::Foundation::BSTR);
     fn WaitingForKey(&self);
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IMFMediaEngineEMENotify {}
 #[cfg(feature = "Win32_Foundation")]
 impl IMFMediaEngineEMENotify_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFMediaEngineEMENotify_Impl, const OFFSET: isize>() -> IMFMediaEngineEMENotify_Vtbl {
@@ -7458,6 +7677,8 @@ pub trait IMFMediaEngineEx_Impl: Sized + IMFMediaEngine_Impl {
     fn SetCurrentTimeEx(&self, seektime: f64, seekmode: MF_MEDIA_ENGINE_SEEK_MODE) -> ::windows::core::Result<()>;
     fn EnableTimeUpdateTimer(&self, fenabletimer: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+impl ::windows::core::RuntimeName for IMFMediaEngineEx {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 impl IMFMediaEngineEx_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFMediaEngineEx_Impl, const OFFSET: isize>() -> IMFMediaEngineEx_Vtbl {
@@ -7783,6 +8004,8 @@ pub trait IMFMediaEngineExtension_Impl: Sized {
     fn EndCreateObject(&self, presult: &::core::option::Option<IMFAsyncResult>) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IMFMediaEngineExtension {}
+#[cfg(feature = "Win32_Foundation")]
 impl IMFMediaEngineExtension_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFMediaEngineExtension_Impl, const OFFSET: isize>() -> IMFMediaEngineExtension_Vtbl {
         unsafe extern "system" fn CanPlayType<Identity: ::windows::core::IUnknownImpl, Impl: IMFMediaEngineExtension_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, audioonly: super::super::Foundation::BOOL, mimetype: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, panswer: *mut MF_MEDIA_ENGINE_CANPLAY) -> ::windows::core::HRESULT {
@@ -7832,6 +8055,7 @@ impl IMFMediaEngineExtension_Vtbl {
 pub trait IMFMediaEngineNeedKeyNotify_Impl: Sized {
     fn NeedKey(&self, initdata: *const u8, cb: u32);
 }
+impl ::windows::core::RuntimeName for IMFMediaEngineNeedKeyNotify {}
 impl IMFMediaEngineNeedKeyNotify_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFMediaEngineNeedKeyNotify_Impl, const OFFSET: isize>() -> IMFMediaEngineNeedKeyNotify_Vtbl {
         unsafe extern "system" fn NeedKey<Identity: ::windows::core::IUnknownImpl, Impl: IMFMediaEngineNeedKeyNotify_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, initdata: *const u8, cb: u32) {
@@ -7848,6 +8072,7 @@ impl IMFMediaEngineNeedKeyNotify_Vtbl {
 pub trait IMFMediaEngineNotify_Impl: Sized {
     fn EventNotify(&self, event: u32, param1: usize, param2: u32) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IMFMediaEngineNotify {}
 impl IMFMediaEngineNotify_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFMediaEngineNotify_Impl, const OFFSET: isize>() -> IMFMediaEngineNotify_Vtbl {
         unsafe extern "system" fn EventNotify<Identity: ::windows::core::IUnknownImpl, Impl: IMFMediaEngineNotify_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, event: u32, param1: usize, param2: u32) -> ::windows::core::HRESULT {
@@ -7865,6 +8090,8 @@ impl IMFMediaEngineNotify_Vtbl {
 pub trait IMFMediaEngineOPMInfo_Impl: Sized {
     fn GetOPMInfo(&self, pstatus: *mut MF_MEDIA_ENGINE_OPM_STATUS, pconstricted: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IMFMediaEngineOPMInfo {}
 #[cfg(feature = "Win32_Foundation")]
 impl IMFMediaEngineOPMInfo_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFMediaEngineOPMInfo_Impl, const OFFSET: isize>() -> IMFMediaEngineOPMInfo_Vtbl {
@@ -7888,6 +8115,8 @@ pub trait IMFMediaEngineProtectedContent_Impl: Sized {
     fn SetContentProtectionManager(&self, pcpm: &::core::option::Option<IMFContentProtectionManager>) -> ::windows::core::Result<()>;
     fn SetApplicationCertificate(&self, pbblob: *const u8, cbblob: u32) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IMFMediaEngineProtectedContent {}
 #[cfg(feature = "Win32_Foundation")]
 impl IMFMediaEngineProtectedContent_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFMediaEngineProtectedContent_Impl, const OFFSET: isize>() -> IMFMediaEngineProtectedContent_Vtbl {
@@ -7956,6 +8185,8 @@ pub trait IMFMediaEngineSrcElements_Impl: Sized {
     fn AddElement(&self, purl: &super::super::Foundation::BSTR, ptype: &super::super::Foundation::BSTR, pmedia: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn RemoveAllElements(&self) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IMFMediaEngineSrcElements {}
 #[cfg(feature = "Win32_Foundation")]
 impl IMFMediaEngineSrcElements_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFMediaEngineSrcElements_Impl, const OFFSET: isize>() -> IMFMediaEngineSrcElements_Vtbl {
@@ -8027,6 +8258,8 @@ pub trait IMFMediaEngineSrcElementsEx_Impl: Sized + IMFMediaEngineSrcElements_Im
     fn GetKeySystem(&self, index: u32) -> ::windows::core::Result<super::super::Foundation::BSTR>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IMFMediaEngineSrcElementsEx {}
+#[cfg(feature = "Win32_Foundation")]
 impl IMFMediaEngineSrcElementsEx_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFMediaEngineSrcElementsEx_Impl, const OFFSET: isize>() -> IMFMediaEngineSrcElementsEx_Vtbl {
         unsafe extern "system" fn AddElementEx<Identity: ::windows::core::IUnknownImpl, Impl: IMFMediaEngineSrcElementsEx_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, purl: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ptype: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pmedia: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, keysystem: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
@@ -8061,6 +8294,8 @@ pub trait IMFMediaEngineSupportsSourceTransfer_Impl: Sized {
     fn DetachMediaSource(&self, ppbytestream: *mut ::core::option::Option<IMFByteStream>, ppmediasource: *mut ::core::option::Option<IMFMediaSource>, ppmse: *mut ::core::option::Option<IMFMediaSourceExtension>) -> ::windows::core::Result<()>;
     fn AttachMediaSource(&self, pbytestream: &::core::option::Option<IMFByteStream>, pmediasource: &::core::option::Option<IMFMediaSource>, pmse: &::core::option::Option<IMFMediaSourceExtension>) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IMFMediaEngineSupportsSourceTransfer {}
 #[cfg(feature = "Win32_Foundation")]
 impl IMFMediaEngineSupportsSourceTransfer_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFMediaEngineSupportsSourceTransfer_Impl, const OFFSET: isize>() -> IMFMediaEngineSupportsSourceTransfer_Vtbl {
@@ -8099,6 +8334,7 @@ impl IMFMediaEngineSupportsSourceTransfer_Vtbl {
 pub trait IMFMediaEngineTransferSource_Impl: Sized {
     fn TransferSourceToMediaEngine(&self, destination: &::core::option::Option<IMFMediaEngine>) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IMFMediaEngineTransferSource {}
 impl IMFMediaEngineTransferSource_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFMediaEngineTransferSource_Impl, const OFFSET: isize>() -> IMFMediaEngineTransferSource_Vtbl {
         unsafe extern "system" fn TransferSourceToMediaEngine<Identity: ::windows::core::IUnknownImpl, Impl: IMFMediaEngineTransferSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, destination: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -8121,6 +8357,8 @@ pub trait IMFMediaEngineWebSupport_Impl: Sized {
     fn ConnectWebAudio(&self, dwsamplerate: u32) -> ::windows::core::Result<IAudioSourceProvider>;
     fn DisconnectWebAudio(&self) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IMFMediaEngineWebSupport {}
 #[cfg(feature = "Win32_Foundation")]
 impl IMFMediaEngineWebSupport_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFMediaEngineWebSupport_Impl, const OFFSET: isize>() -> IMFMediaEngineWebSupport_Vtbl {
@@ -8162,6 +8400,7 @@ pub trait IMFMediaError_Impl: Sized {
     fn SetErrorCode(&self, error: MF_MEDIA_ENGINE_ERR) -> ::windows::core::Result<()>;
     fn SetExtendedErrorCode(&self, error: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IMFMediaError {}
 impl IMFMediaError_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFMediaError_Impl, const OFFSET: isize>() -> IMFMediaError_Vtbl {
         unsafe extern "system" fn GetErrorCode<Identity: ::windows::core::IUnknownImpl, Impl: IMFMediaError_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> u16 {
@@ -8203,6 +8442,8 @@ pub trait IMFMediaEvent_Impl: Sized + IMFAttributes_Impl {
     fn GetStatus(&self) -> ::windows::core::Result<::windows::core::HRESULT>;
     fn GetValue(&self) -> ::windows::core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+impl ::windows::core::RuntimeName for IMFMediaEvent {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 impl IMFMediaEvent_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFMediaEvent_Impl, const OFFSET: isize>() -> IMFMediaEvent_Vtbl {
@@ -8270,6 +8511,8 @@ pub trait IMFMediaEventGenerator_Impl: Sized {
     fn QueueEvent(&self, met: u32, guidextendedtype: *const ::windows::core::GUID, hrstatus: ::windows::core::HRESULT, pvvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+impl ::windows::core::RuntimeName for IMFMediaEventGenerator {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 impl IMFMediaEventGenerator_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFMediaEventGenerator_Impl, const OFFSET: isize>() -> IMFMediaEventGenerator_Vtbl {
         unsafe extern "system" fn GetEvent<Identity: ::windows::core::IUnknownImpl, Impl: IMFMediaEventGenerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwflags: MEDIA_EVENT_GENERATOR_GET_EVENT_FLAGS, ppevent: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -8326,6 +8569,8 @@ pub trait IMFMediaEventQueue_Impl: Sized {
     fn QueueEventParamUnk(&self, met: u32, guidextendedtype: *const ::windows::core::GUID, hrstatus: ::windows::core::HRESULT, punk: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
     fn Shutdown(&self) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+impl ::windows::core::RuntimeName for IMFMediaEventQueue {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 impl IMFMediaEventQueue_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFMediaEventQueue_Impl, const OFFSET: isize>() -> IMFMediaEventQueue_Vtbl {
@@ -8400,6 +8645,8 @@ pub trait IMFMediaKeySession_Impl: Sized {
     fn Close(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IMFMediaKeySession {}
+#[cfg(feature = "Win32_Foundation")]
 impl IMFMediaKeySession_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFMediaKeySession_Impl, const OFFSET: isize>() -> IMFMediaKeySession_Vtbl {
         unsafe extern "system" fn GetError<Identity: ::windows::core::IUnknownImpl, Impl: IMFMediaKeySession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, code: *mut u16, systemcode: *mut u32) -> ::windows::core::HRESULT {
@@ -8461,6 +8708,8 @@ pub trait IMFMediaKeySession2_Impl: Sized + IMFMediaKeySession_Impl {
     fn Remove(&self) -> ::windows::core::Result<()>;
     fn Shutdown(&self) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IMFMediaKeySession2 {}
 #[cfg(feature = "Win32_Foundation")]
 impl IMFMediaKeySession2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFMediaKeySession2_Impl, const OFFSET: isize>() -> IMFMediaKeySession2_Vtbl {
@@ -8527,6 +8776,8 @@ pub trait IMFMediaKeySessionNotify_Impl: Sized {
     fn KeyError(&self, code: u16, systemcode: u32);
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IMFMediaKeySessionNotify {}
+#[cfg(feature = "Win32_Foundation")]
 impl IMFMediaKeySessionNotify_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFMediaKeySessionNotify_Impl, const OFFSET: isize>() -> IMFMediaKeySessionNotify_Vtbl {
         unsafe extern "system" fn KeyMessage<Identity: ::windows::core::IUnknownImpl, Impl: IMFMediaKeySessionNotify_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, destinationurl: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, message: *const u8, cb: u32) {
@@ -8561,6 +8812,8 @@ pub trait IMFMediaKeySessionNotify2_Impl: Sized + IMFMediaKeySessionNotify_Impl 
     fn KeyStatusChange(&self);
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IMFMediaKeySessionNotify2 {}
+#[cfg(feature = "Win32_Foundation")]
 impl IMFMediaKeySessionNotify2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFMediaKeySessionNotify2_Impl, const OFFSET: isize>() -> IMFMediaKeySessionNotify2_Vtbl {
         unsafe extern "system" fn KeyMessage2<Identity: ::windows::core::IUnknownImpl, Impl: IMFMediaKeySessionNotify2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, emessagetype: MF_MEDIAKEYSESSION_MESSAGETYPE, destinationurl: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pbmessage: *const u8, cbmessage: u32) {
@@ -8589,6 +8842,8 @@ pub trait IMFMediaKeySystemAccess_Impl: Sized {
     fn SupportedConfiguration(&self) -> ::windows::core::Result<super::super::UI::Shell::PropertiesSystem::IPropertyStore>;
     fn KeySystem(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
+impl ::windows::core::RuntimeName for IMFMediaKeySystemAccess {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl IMFMediaKeySystemAccess_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFMediaKeySystemAccess_Impl, const OFFSET: isize>() -> IMFMediaKeySystemAccess_Vtbl {
@@ -8643,6 +8898,8 @@ pub trait IMFMediaKeys_Impl: Sized {
     fn Shutdown(&self) -> ::windows::core::Result<()>;
     fn GetSuspendNotify(&self) -> ::windows::core::Result<IMFCdmSuspendNotify>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IMFMediaKeys {}
 #[cfg(feature = "Win32_Foundation")]
 impl IMFMediaKeys_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFMediaKeys_Impl, const OFFSET: isize>() -> IMFMediaKeys_Vtbl {
@@ -8703,6 +8960,8 @@ pub trait IMFMediaKeys2_Impl: Sized + IMFMediaKeys_Impl {
     fn GetDOMException(&self, systemcode: ::windows::core::HRESULT) -> ::windows::core::Result<::windows::core::HRESULT>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IMFMediaKeys2 {}
+#[cfg(feature = "Win32_Foundation")]
 impl IMFMediaKeys2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFMediaKeys2_Impl, const OFFSET: isize>() -> IMFMediaKeys2_Vtbl {
         unsafe extern "system" fn CreateSession2<Identity: ::windows::core::IUnknownImpl, Impl: IMFMediaKeys2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, esessiontype: MF_MEDIAKEYSESSION_TYPE, pmfmediakeysessionnotify2: ::windows::core::RawPtr, ppsession: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -8756,6 +9015,8 @@ pub trait IMFMediaSession_Impl: Sized + IMFMediaEventGenerator_Impl {
     fn GetSessionCapabilities(&self) -> ::windows::core::Result<u32>;
     fn GetFullTopology(&self, dwgetfulltopologyflags: u32, topoid: u64) -> ::windows::core::Result<IMFTopology>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+impl ::windows::core::RuntimeName for IMFMediaSession {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 impl IMFMediaSession_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFMediaSession_Impl, const OFFSET: isize>() -> IMFMediaSession_Vtbl {
@@ -8850,6 +9111,8 @@ pub trait IMFMediaSharingEngine_Impl: Sized + IMFMediaEngine_Impl {
     fn GetDevice(&self) -> ::windows::core::Result<DEVICE_INFO>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IMFMediaSharingEngine {}
+#[cfg(feature = "Win32_Foundation")]
 impl IMFMediaSharingEngine_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFMediaSharingEngine_Impl, const OFFSET: isize>() -> IMFMediaSharingEngine_Vtbl {
         unsafe extern "system" fn GetDevice<Identity: ::windows::core::IUnknownImpl, Impl: IMFMediaSharingEngine_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdevice: *mut DEVICE_INFO) -> ::windows::core::HRESULT {
@@ -8872,6 +9135,7 @@ impl IMFMediaSharingEngine_Vtbl {
 pub trait IMFMediaSharingEngineClassFactory_Impl: Sized {
     fn CreateInstance(&self, dwflags: u32, pattr: &::core::option::Option<IMFAttributes>) -> ::windows::core::Result<IMFMediaSharingEngine>;
 }
+impl ::windows::core::RuntimeName for IMFMediaSharingEngineClassFactory {}
 impl IMFMediaSharingEngineClassFactory_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFMediaSharingEngineClassFactory_Impl, const OFFSET: isize>() -> IMFMediaSharingEngineClassFactory_Vtbl {
         unsafe extern "system" fn CreateInstance<Identity: ::windows::core::IUnknownImpl, Impl: IMFMediaSharingEngineClassFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwflags: u32, pattr: ::windows::core::RawPtr, ppengine: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -8902,6 +9166,7 @@ pub trait IMFMediaSink_Impl: Sized {
     fn GetPresentationClock(&self) -> ::windows::core::Result<IMFPresentationClock>;
     fn Shutdown(&self) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IMFMediaSink {}
 impl IMFMediaSink_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFMediaSink_Impl, const OFFSET: isize>() -> IMFMediaSink_Vtbl {
         unsafe extern "system" fn GetCharacteristics<Identity: ::windows::core::IUnknownImpl, Impl: IMFMediaSink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwcharacteristics: *mut u32) -> ::windows::core::HRESULT {
@@ -9005,6 +9270,7 @@ impl IMFMediaSink_Vtbl {
 pub trait IMFMediaSinkPreroll_Impl: Sized {
     fn NotifyPreroll(&self, hnsupcomingstarttime: i64) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IMFMediaSinkPreroll {}
 impl IMFMediaSinkPreroll_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFMediaSinkPreroll_Impl, const OFFSET: isize>() -> IMFMediaSinkPreroll_Vtbl {
         unsafe extern "system" fn NotifyPreroll<Identity: ::windows::core::IUnknownImpl, Impl: IMFMediaSinkPreroll_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hnsupcomingstarttime: i64) -> ::windows::core::HRESULT {
@@ -9027,6 +9293,8 @@ pub trait IMFMediaSource_Impl: Sized + IMFMediaEventGenerator_Impl {
     fn Pause(&self) -> ::windows::core::Result<()>;
     fn Shutdown(&self) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+impl ::windows::core::RuntimeName for IMFMediaSource {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 impl IMFMediaSource_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFMediaSource_Impl, const OFFSET: isize>() -> IMFMediaSource_Vtbl {
@@ -9091,6 +9359,8 @@ pub trait IMFMediaSource2_Impl: Sized + IMFMediaEventGenerator_Impl + IMFMediaSo
     fn SetMediaType(&self, dwstreamid: u32, pmediatype: &::core::option::Option<IMFMediaType>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+impl ::windows::core::RuntimeName for IMFMediaSource2 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 impl IMFMediaSource2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFMediaSource2_Impl, const OFFSET: isize>() -> IMFMediaSource2_Vtbl {
         unsafe extern "system" fn SetMediaType<Identity: ::windows::core::IUnknownImpl, Impl: IMFMediaSource2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwstreamid: u32, pmediatype: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -9110,6 +9380,8 @@ pub trait IMFMediaSourceEx_Impl: Sized + IMFMediaEventGenerator_Impl + IMFMediaS
     fn GetStreamAttributes(&self, dwstreamidentifier: u32) -> ::windows::core::Result<IMFAttributes>;
     fn SetD3DManager(&self, pmanager: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+impl ::windows::core::RuntimeName for IMFMediaSourceEx {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 impl IMFMediaSourceEx_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFMediaSourceEx_Impl, const OFFSET: isize>() -> IMFMediaSourceEx_Vtbl {
@@ -9164,6 +9436,8 @@ pub trait IMFMediaSourceExtension_Impl: Sized {
     fn IsTypeSupported(&self, r#type: &super::super::Foundation::BSTR) -> super::super::Foundation::BOOL;
     fn GetSourceBuffer(&self, dwstreamindex: u32) -> ::core::option::Option<IMFSourceBuffer>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IMFMediaSourceExtension {}
 #[cfg(feature = "Win32_Foundation")]
 impl IMFMediaSourceExtension_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFMediaSourceExtension_Impl, const OFFSET: isize>() -> IMFMediaSourceExtension_Vtbl {
@@ -9245,6 +9519,7 @@ pub trait IMFMediaSourceExtensionLiveSeekableRange_Impl: Sized {
     fn SetLiveSeekableRange(&self, start: f64, end: f64) -> ::windows::core::Result<()>;
     fn ClearLiveSeekableRange(&self) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IMFMediaSourceExtensionLiveSeekableRange {}
 impl IMFMediaSourceExtensionLiveSeekableRange_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFMediaSourceExtensionLiveSeekableRange_Impl, const OFFSET: isize>() -> IMFMediaSourceExtensionLiveSeekableRange_Vtbl {
         unsafe extern "system" fn SetLiveSeekableRange<Identity: ::windows::core::IUnknownImpl, Impl: IMFMediaSourceExtensionLiveSeekableRange_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, start: f64, end: f64) -> ::windows::core::HRESULT {
@@ -9272,6 +9547,7 @@ pub trait IMFMediaSourceExtensionNotify_Impl: Sized {
     fn OnSourceEnded(&self);
     fn OnSourceClose(&self);
 }
+impl ::windows::core::RuntimeName for IMFMediaSourceExtensionNotify {}
 impl IMFMediaSourceExtensionNotify_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFMediaSourceExtensionNotify_Impl, const OFFSET: isize>() -> IMFMediaSourceExtensionNotify_Vtbl {
         unsafe extern "system" fn OnSourceOpen<Identity: ::windows::core::IUnknownImpl, Impl: IMFMediaSourceExtensionNotify_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) {
@@ -9303,6 +9579,7 @@ impl IMFMediaSourceExtensionNotify_Vtbl {
 pub trait IMFMediaSourcePresentationProvider_Impl: Sized {
     fn ForceEndOfPresentation(&self, ppresentationdescriptor: &::core::option::Option<IMFPresentationDescriptor>) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IMFMediaSourcePresentationProvider {}
 impl IMFMediaSourcePresentationProvider_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFMediaSourcePresentationProvider_Impl, const OFFSET: isize>() -> IMFMediaSourcePresentationProvider_Vtbl {
         unsafe extern "system" fn ForceEndOfPresentation<Identity: ::windows::core::IUnknownImpl, Impl: IMFMediaSourcePresentationProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppresentationdescriptor: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -9319,6 +9596,7 @@ impl IMFMediaSourcePresentationProvider_Vtbl {
 pub trait IMFMediaSourceTopologyProvider_Impl: Sized {
     fn GetMediaSourceTopology(&self, ppresentationdescriptor: &::core::option::Option<IMFPresentationDescriptor>) -> ::windows::core::Result<IMFTopology>;
 }
+impl ::windows::core::RuntimeName for IMFMediaSourceTopologyProvider {}
 impl IMFMediaSourceTopologyProvider_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFMediaSourceTopologyProvider_Impl, const OFFSET: isize>() -> IMFMediaSourceTopologyProvider_Vtbl {
         unsafe extern "system" fn GetMediaSourceTopology<Identity: ::windows::core::IUnknownImpl, Impl: IMFMediaSourceTopologyProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppresentationdescriptor: ::windows::core::RawPtr, pptopology: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -9344,6 +9622,8 @@ pub trait IMFMediaStream_Impl: Sized + IMFMediaEventGenerator_Impl {
     fn GetStreamDescriptor(&self) -> ::windows::core::Result<IMFStreamDescriptor>;
     fn RequestSample(&self, ptoken: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+impl ::windows::core::RuntimeName for IMFMediaStream {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 impl IMFMediaStream_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFMediaStream_Impl, const OFFSET: isize>() -> IMFMediaStream_Vtbl {
@@ -9391,6 +9671,8 @@ pub trait IMFMediaStream2_Impl: Sized + IMFMediaEventGenerator_Impl + IMFMediaSt
     fn GetStreamState(&self) -> ::windows::core::Result<MF_STREAM_STATE>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+impl ::windows::core::RuntimeName for IMFMediaStream2 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 impl IMFMediaStream2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFMediaStream2_Impl, const OFFSET: isize>() -> IMFMediaStream2_Vtbl {
         unsafe extern "system" fn SetStreamState<Identity: ::windows::core::IUnknownImpl, Impl: IMFMediaStream2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: MF_STREAM_STATE) -> ::windows::core::HRESULT {
@@ -9422,6 +9704,7 @@ impl IMFMediaStream2_Vtbl {
 pub trait IMFMediaStreamSourceSampleRequest_Impl: Sized {
     fn SetSample(&self, value: &::core::option::Option<IMFSample>) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IMFMediaStreamSourceSampleRequest {}
 impl IMFMediaStreamSourceSampleRequest_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFMediaStreamSourceSampleRequest_Impl, const OFFSET: isize>() -> IMFMediaStreamSourceSampleRequest_Vtbl {
         unsafe extern "system" fn SetSample<Identity: ::windows::core::IUnknownImpl, Impl: IMFMediaStreamSourceSampleRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -9444,6 +9727,8 @@ pub trait IMFMediaTimeRange_Impl: Sized {
     fn AddRange(&self, starttime: f64, endtime: f64) -> ::windows::core::Result<()>;
     fn Clear(&self) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IMFMediaTimeRange {}
 #[cfg(feature = "Win32_Foundation")]
 impl IMFMediaTimeRange_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFMediaTimeRange_Impl, const OFFSET: isize>() -> IMFMediaTimeRange_Vtbl {
@@ -9512,6 +9797,8 @@ pub trait IMFMediaType_Impl: Sized + IMFAttributes_Impl {
     fn FreeRepresentation(&self, guidrepresentation: &::windows::core::GUID, pvrepresentation: *const ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+impl ::windows::core::RuntimeName for IMFMediaType {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 impl IMFMediaType_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFMediaType_Impl, const OFFSET: isize>() -> IMFMediaType_Vtbl {
         unsafe extern "system" fn GetMajorType<Identity: ::windows::core::IUnknownImpl, Impl: IMFMediaType_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pguidmajortype: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
@@ -9578,6 +9865,7 @@ pub trait IMFMediaTypeHandler_Impl: Sized {
     fn GetCurrentMediaType(&self) -> ::windows::core::Result<IMFMediaType>;
     fn GetMajorType(&self) -> ::windows::core::Result<::windows::core::GUID>;
 }
+impl ::windows::core::RuntimeName for IMFMediaTypeHandler {}
 impl IMFMediaTypeHandler_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFMediaTypeHandler_Impl, const OFFSET: isize>() -> IMFMediaTypeHandler_Vtbl {
         unsafe extern "system" fn IsMediaTypeSupported<Identity: ::windows::core::IUnknownImpl, Impl: IMFMediaTypeHandler_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pmediatype: ::windows::core::RawPtr, ppmediatype: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -9665,6 +9953,8 @@ pub trait IMFMetadata_Impl: Sized {
     fn GetAllPropertyNames(&self) -> ::windows::core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+impl ::windows::core::RuntimeName for IMFMetadata {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 impl IMFMetadata_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFMetadata_Impl, const OFFSET: isize>() -> IMFMetadata_Vtbl {
         unsafe extern "system" fn SetLanguage<Identity: ::windows::core::IUnknownImpl, Impl: IMFMetadata_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszrfc1766: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
@@ -9744,6 +10034,7 @@ impl IMFMetadata_Vtbl {
 pub trait IMFMetadataProvider_Impl: Sized {
     fn GetMFMetadata(&self, ppresentationdescriptor: &::core::option::Option<IMFPresentationDescriptor>, dwstreamidentifier: u32, dwflags: u32) -> ::windows::core::Result<IMFMetadata>;
 }
+impl ::windows::core::RuntimeName for IMFMetadataProvider {}
 impl IMFMetadataProvider_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFMetadataProvider_Impl, const OFFSET: isize>() -> IMFMetadataProvider_Vtbl {
         unsafe extern "system" fn GetMFMetadata<Identity: ::windows::core::IUnknownImpl, Impl: IMFMetadataProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppresentationdescriptor: ::windows::core::RawPtr, dwstreamidentifier: u32, dwflags: u32, ppmfmetadata: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -9767,6 +10058,7 @@ pub trait IMFMuxStreamAttributesManager_Impl: Sized {
     fn GetStreamCount(&self) -> ::windows::core::Result<u32>;
     fn GetAttributes(&self, dwmuxstreamindex: u32) -> ::windows::core::Result<IMFAttributes>;
 }
+impl ::windows::core::RuntimeName for IMFMuxStreamAttributesManager {}
 impl IMFMuxStreamAttributesManager_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFMuxStreamAttributesManager_Impl, const OFFSET: isize>() -> IMFMuxStreamAttributesManager_Vtbl {
         unsafe extern "system" fn GetStreamCount<Identity: ::windows::core::IUnknownImpl, Impl: IMFMuxStreamAttributesManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwmuxstreamcount: *mut u32) -> ::windows::core::HRESULT {
@@ -9809,6 +10101,7 @@ pub trait IMFMuxStreamMediaTypeManager_Impl: Sized {
     fn RemoveStreamConfiguration(&self, ullstreammask: u64) -> ::windows::core::Result<()>;
     fn GetStreamConfiguration(&self, ulindex: u32) -> ::windows::core::Result<u64>;
 }
+impl ::windows::core::RuntimeName for IMFMuxStreamMediaTypeManager {}
 impl IMFMuxStreamMediaTypeManager_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFMuxStreamMediaTypeManager_Impl, const OFFSET: isize>() -> IMFMuxStreamMediaTypeManager_Vtbl {
         unsafe extern "system" fn GetStreamCount<Identity: ::windows::core::IUnknownImpl, Impl: IMFMuxStreamMediaTypeManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwmuxstreamcount: *mut u32) -> ::windows::core::HRESULT {
@@ -9884,6 +10177,7 @@ pub trait IMFMuxStreamSampleManager_Impl: Sized {
     fn GetSample(&self, dwmuxstreamindex: u32) -> ::windows::core::Result<IMFSample>;
     fn GetStreamConfiguration(&self) -> u64;
 }
+impl ::windows::core::RuntimeName for IMFMuxStreamSampleManager {}
 impl IMFMuxStreamSampleManager_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFMuxStreamSampleManager_Impl, const OFFSET: isize>() -> IMFMuxStreamSampleManager_Vtbl {
         unsafe extern "system" fn GetStreamCount<Identity: ::windows::core::IUnknownImpl, Impl: IMFMuxStreamSampleManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwmuxstreamcount: *mut u32) -> ::windows::core::HRESULT {
@@ -9932,6 +10226,8 @@ pub trait IMFNetCredential_Impl: Sized {
     fn GetPassword(&self, pbdata: *mut u8, pcbdata: *mut u32, fencryptdata: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn LoggedOnUser(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IMFNetCredential {}
 #[cfg(feature = "Win32_Foundation")]
 impl IMFNetCredential_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFNetCredential_Impl, const OFFSET: isize>() -> IMFNetCredential_Vtbl {
@@ -9986,6 +10282,8 @@ pub trait IMFNetCredentialCache_Impl: Sized {
     fn SetUserOptions(&self, pcred: &::core::option::Option<IMFNetCredential>, dwoptionsflags: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IMFNetCredentialCache {}
+#[cfg(feature = "Win32_Foundation")]
 impl IMFNetCredentialCache_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFNetCredentialCache_Impl, const OFFSET: isize>() -> IMFNetCredentialCache_Vtbl {
         unsafe extern "system" fn GetCredential<Identity: ::windows::core::IUnknownImpl, Impl: IMFNetCredentialCache_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszurl: ::windows::core::PCWSTR, pszrealm: ::windows::core::PCWSTR, dwauthenticationflags: u32, ppcred: *mut ::windows::core::RawPtr, pdwrequirementsflags: *mut u32) -> ::windows::core::HRESULT {
@@ -10020,6 +10318,8 @@ pub trait IMFNetCredentialManager_Impl: Sized {
     fn EndGetCredentials(&self, presult: &::core::option::Option<IMFAsyncResult>) -> ::windows::core::Result<IMFNetCredential>;
     fn SetGood(&self, pcred: &::core::option::Option<IMFNetCredential>, fgood: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IMFNetCredentialManager {}
 #[cfg(feature = "Win32_Foundation")]
 impl IMFNetCredentialManager_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFNetCredentialManager_Impl, const OFFSET: isize>() -> IMFNetCredentialManager_Vtbl {
@@ -10061,6 +10361,8 @@ pub trait IMFNetCrossOriginSupport_Impl: Sized {
     fn GetSourceOrigin(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
     fn IsSameOrigin(&self, wszurl: &::windows::core::PCWSTR) -> ::windows::core::Result<super::super::Foundation::BOOL>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IMFNetCrossOriginSupport {}
 #[cfg(feature = "Win32_Foundation")]
 impl IMFNetCrossOriginSupport_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFNetCrossOriginSupport_Impl, const OFFSET: isize>() -> IMFNetCrossOriginSupport_Vtbl {
@@ -10117,6 +10419,8 @@ pub trait IMFNetProxyLocator_Impl: Sized {
     fn Clone(&self) -> ::windows::core::Result<IMFNetProxyLocator>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IMFNetProxyLocator {}
+#[cfg(feature = "Win32_Foundation")]
 impl IMFNetProxyLocator_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFNetProxyLocator_Impl, const OFFSET: isize>() -> IMFNetProxyLocator_Vtbl {
         unsafe extern "system" fn FindFirstProxy<Identity: ::windows::core::IUnknownImpl, Impl: IMFNetProxyLocator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszhost: ::windows::core::PCWSTR, pszurl: ::windows::core::PCWSTR, freserved: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
@@ -10166,6 +10470,7 @@ impl IMFNetProxyLocator_Vtbl {
 pub trait IMFNetProxyLocatorFactory_Impl: Sized {
     fn CreateProxyLocator(&self, pszprotocol: &::windows::core::PCWSTR) -> ::windows::core::Result<IMFNetProxyLocator>;
 }
+impl ::windows::core::RuntimeName for IMFNetProxyLocatorFactory {}
 impl IMFNetProxyLocatorFactory_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFNetProxyLocatorFactory_Impl, const OFFSET: isize>() -> IMFNetProxyLocatorFactory_Vtbl {
         unsafe extern "system" fn CreateProxyLocator<Identity: ::windows::core::IUnknownImpl, Impl: IMFNetProxyLocatorFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszprotocol: ::windows::core::PCWSTR, ppproxylocator: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -10189,6 +10494,7 @@ pub trait IMFNetResourceFilter_Impl: Sized {
     fn OnRedirect(&self, pszurl: &::windows::core::PCWSTR) -> ::windows::core::Result<i16>;
     fn OnSendingRequest(&self, pszurl: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IMFNetResourceFilter {}
 impl IMFNetResourceFilter_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFNetResourceFilter_Impl, const OFFSET: isize>() -> IMFNetResourceFilter_Vtbl {
         unsafe extern "system" fn OnRedirect<Identity: ::windows::core::IUnknownImpl, Impl: IMFNetResourceFilter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszurl: ::windows::core::PCWSTR, pvbcancel: *mut i16) -> ::windows::core::HRESULT {
@@ -10222,6 +10528,7 @@ pub trait IMFNetSchemeHandlerConfig_Impl: Sized {
     fn GetSupportedProtocolType(&self, nprotocolindex: u32) -> ::windows::core::Result<MFNETSOURCE_PROTOCOL_TYPE>;
     fn ResetProtocolRolloverSettings(&self) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IMFNetSchemeHandlerConfig {}
 impl IMFNetSchemeHandlerConfig_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFNetSchemeHandlerConfig_Impl, const OFFSET: isize>() -> IMFNetSchemeHandlerConfig_Vtbl {
         unsafe extern "system" fn GetNumberOfSupportedProtocols<Identity: ::windows::core::IUnknownImpl, Impl: IMFNetSchemeHandlerConfig_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcprotocols: *mut u32) -> ::windows::core::HRESULT {
@@ -10266,6 +10573,7 @@ pub trait IMFObjectReferenceStream_Impl: Sized {
     fn SaveReference(&self, riid: *const ::windows::core::GUID, punk: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
     fn LoadReference(&self, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IMFObjectReferenceStream {}
 impl IMFObjectReferenceStream_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFObjectReferenceStream_Impl, const OFFSET: isize>() -> IMFObjectReferenceStream_Vtbl {
         unsafe extern "system" fn SaveReference<Identity: ::windows::core::IUnknownImpl, Impl: IMFObjectReferenceStream_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, punk: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -10294,6 +10602,8 @@ pub trait IMFOutputPolicy_Impl: Sized + IMFAttributes_Impl {
     fn GetOriginatorID(&self) -> ::windows::core::Result<::windows::core::GUID>;
     fn GetMinimumGRLVersion(&self) -> ::windows::core::Result<u32>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+impl ::windows::core::RuntimeName for IMFOutputPolicy {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 impl IMFOutputPolicy_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFOutputPolicy_Impl, const OFFSET: isize>() -> IMFOutputPolicy_Vtbl {
@@ -10348,6 +10658,8 @@ pub trait IMFOutputSchema_Impl: Sized + IMFAttributes_Impl {
     fn GetOriginatorID(&self) -> ::windows::core::Result<::windows::core::GUID>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+impl ::windows::core::RuntimeName for IMFOutputSchema {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 impl IMFOutputSchema_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFOutputSchema_Impl, const OFFSET: isize>() -> IMFOutputSchema_Vtbl {
         unsafe extern "system" fn GetSchemaType<Identity: ::windows::core::IUnknownImpl, Impl: IMFOutputSchema_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pguidschematype: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
@@ -10398,6 +10710,7 @@ pub trait IMFOutputTrustAuthority_Impl: Sized {
     fn GetAction(&self) -> ::windows::core::Result<MFPOLICYMANAGER_ACTION>;
     fn SetPolicy(&self, pppolicy: *const ::core::option::Option<IMFOutputPolicy>, npolicy: u32, ppbticket: *mut *mut u8, pcbticket: *mut u32) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IMFOutputTrustAuthority {}
 impl IMFOutputTrustAuthority_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFOutputTrustAuthority_Impl, const OFFSET: isize>() -> IMFOutputTrustAuthority_Vtbl {
         unsafe extern "system" fn GetAction<Identity: ::windows::core::IUnknownImpl, Impl: IMFOutputTrustAuthority_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, paction: *mut MFPOLICYMANAGER_ACTION) -> ::windows::core::HRESULT {
@@ -10429,6 +10742,7 @@ impl IMFOutputTrustAuthority_Vtbl {
 pub trait IMFPMPClient_Impl: Sized {
     fn SetPMPHost(&self, ppmphost: &::core::option::Option<IMFPMPHost>) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IMFPMPClient {}
 impl IMFPMPClient_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFPMPClient_Impl, const OFFSET: isize>() -> IMFPMPClient_Vtbl {
         unsafe extern "system" fn SetPMPHost<Identity: ::windows::core::IUnknownImpl, Impl: IMFPMPClient_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppmphost: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -10445,6 +10759,7 @@ impl IMFPMPClient_Vtbl {
 pub trait IMFPMPClientApp_Impl: Sized {
     fn SetPMPHost(&self, ppmphost: &::core::option::Option<IMFPMPHostApp>) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IMFPMPClientApp {}
 impl IMFPMPClientApp_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFPMPClientApp_Impl, const OFFSET: isize>() -> IMFPMPClientApp_Vtbl {
         unsafe extern "system" fn SetPMPHost<Identity: ::windows::core::IUnknownImpl, Impl: IMFPMPClientApp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppmphost: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -10464,6 +10779,8 @@ pub trait IMFPMPHost_Impl: Sized {
     fn UnlockProcess(&self) -> ::windows::core::Result<()>;
     fn CreateObjectByCLSID(&self, clsid: *const ::windows::core::GUID, pstream: &::core::option::Option<super::super::System::Com::IStream>, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_System_Com")]
+impl ::windows::core::RuntimeName for IMFPMPHost {}
 #[cfg(feature = "Win32_System_Com")]
 impl IMFPMPHost_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFPMPHost_Impl, const OFFSET: isize>() -> IMFPMPHost_Vtbl {
@@ -10500,6 +10817,8 @@ pub trait IMFPMPHostApp_Impl: Sized {
     fn ActivateClassById(&self, id: &::windows::core::PCWSTR, pstream: &::core::option::Option<super::super::System::Com::IStream>, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
+impl ::windows::core::RuntimeName for IMFPMPHostApp {}
+#[cfg(feature = "Win32_System_Com")]
 impl IMFPMPHostApp_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFPMPHostApp_Impl, const OFFSET: isize>() -> IMFPMPHostApp_Vtbl {
         unsafe extern "system" fn LockProcess<Identity: ::windows::core::IUnknownImpl, Impl: IMFPMPHostApp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -10533,6 +10852,7 @@ pub trait IMFPMPServer_Impl: Sized {
     fn UnlockProcess(&self) -> ::windows::core::Result<()>;
     fn CreateObjectByCLSID(&self, clsid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IMFPMPServer {}
 impl IMFPMPServer_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFPMPServer_Impl, const OFFSET: isize>() -> IMFPMPServer_Vtbl {
         unsafe extern "system" fn LockProcess<Identity: ::windows::core::IUnknownImpl, Impl: IMFPMPServer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -10583,6 +10903,8 @@ pub trait IMFPMediaItem_Impl: Sized {
     fn SetStreamSink(&self, dwstreamindex: u32, pmediasink: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
     fn GetMetadata(&self) -> ::windows::core::Result<super::super::UI::Shell::PropertiesSystem::IPropertyStore>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
+impl ::windows::core::RuntimeName for IMFPMediaItem {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl IMFPMediaItem_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFPMediaItem_Impl, const OFFSET: isize>() -> IMFPMediaItem_Vtbl {
@@ -10819,6 +11141,8 @@ pub trait IMFPMediaPlayer_Impl: Sized {
     fn RemoveAllEffects(&self) -> ::windows::core::Result<()>;
     fn Shutdown(&self) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+impl ::windows::core::RuntimeName for IMFPMediaPlayer {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 impl IMFPMediaPlayer_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFPMediaPlayer_Impl, const OFFSET: isize>() -> IMFPMediaPlayer_Vtbl {
@@ -11135,6 +11459,8 @@ pub trait IMFPMediaPlayerCallback_Impl: Sized {
     fn OnMediaPlayerEvent(&self, peventheader: *const MFP_EVENT_HEADER);
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+impl ::windows::core::RuntimeName for IMFPMediaPlayerCallback {}
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 impl IMFPMediaPlayerCallback_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFPMediaPlayerCallback_Impl, const OFFSET: isize>() -> IMFPMediaPlayerCallback_Vtbl {
         unsafe extern "system" fn OnMediaPlayerEvent<Identity: ::windows::core::IUnknownImpl, Impl: IMFPMediaPlayerCallback_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, peventheader: *const MFP_EVENT_HEADER) {
@@ -11157,6 +11483,8 @@ pub trait IMFPluginControl_Impl: Sized {
     fn GetDisabledByIndex(&self, plugintype: u32, index: u32) -> ::windows::core::Result<::windows::core::GUID>;
     fn SetDisabled(&self, plugintype: u32, clsid: *const ::windows::core::GUID, disabled: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IMFPluginControl {}
 #[cfg(feature = "Win32_Foundation")]
 impl IMFPluginControl_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFPluginControl_Impl, const OFFSET: isize>() -> IMFPluginControl_Vtbl {
@@ -11221,6 +11549,8 @@ pub trait IMFPluginControl2_Impl: Sized + IMFPluginControl_Impl {
     fn SetPolicy(&self, policy: MF_PLUGIN_CONTROL_POLICY) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IMFPluginControl2 {}
+#[cfg(feature = "Win32_Foundation")]
 impl IMFPluginControl2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFPluginControl2_Impl, const OFFSET: isize>() -> IMFPluginControl2_Vtbl {
         unsafe extern "system" fn SetPolicy<Identity: ::windows::core::IUnknownImpl, Impl: IMFPluginControl2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, policy: MF_PLUGIN_CONTROL_POLICY) -> ::windows::core::HRESULT {
@@ -11244,6 +11574,7 @@ pub trait IMFPresentationClock_Impl: Sized + IMFClock_Impl {
     fn Stop(&self) -> ::windows::core::Result<()>;
     fn Pause(&self) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IMFPresentationClock {}
 impl IMFPresentationClock_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFPresentationClock_Impl, const OFFSET: isize>() -> IMFPresentationClock_Vtbl {
         unsafe extern "system" fn SetTimeSource<Identity: ::windows::core::IUnknownImpl, Impl: IMFPresentationClock_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptimesource: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -11323,6 +11654,8 @@ pub trait IMFPresentationDescriptor_Impl: Sized + IMFAttributes_Impl {
     fn Clone(&self) -> ::windows::core::Result<IMFPresentationDescriptor>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+impl ::windows::core::RuntimeName for IMFPresentationDescriptor {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 impl IMFPresentationDescriptor_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFPresentationDescriptor_Impl, const OFFSET: isize>() -> IMFPresentationDescriptor_Vtbl {
         unsafe extern "system" fn GetStreamDescriptorCount<Identity: ::windows::core::IUnknownImpl, Impl: IMFPresentationDescriptor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwdescriptorcount: *mut u32) -> ::windows::core::HRESULT {
@@ -11378,6 +11711,7 @@ impl IMFPresentationDescriptor_Vtbl {
 pub trait IMFPresentationTimeSource_Impl: Sized + IMFClock_Impl {
     fn GetUnderlyingClock(&self) -> ::windows::core::Result<IMFClock>;
 }
+impl ::windows::core::RuntimeName for IMFPresentationTimeSource {}
 impl IMFPresentationTimeSource_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFPresentationTimeSource_Impl, const OFFSET: isize>() -> IMFPresentationTimeSource_Vtbl {
         unsafe extern "system" fn GetUnderlyingClock<Identity: ::windows::core::IUnknownImpl, Impl: IMFPresentationTimeSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppclock: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -11401,6 +11735,7 @@ pub trait IMFProtectedEnvironmentAccess_Impl: Sized {
     fn Call(&self, inputlength: u32, input: *const u8, outputlength: u32) -> ::windows::core::Result<u8>;
     fn ReadGRL(&self, outputlength: *mut u32, output: *mut *mut u8) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IMFProtectedEnvironmentAccess {}
 impl IMFProtectedEnvironmentAccess_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFProtectedEnvironmentAccess_Impl, const OFFSET: isize>() -> IMFProtectedEnvironmentAccess_Vtbl {
         unsafe extern "system" fn Call<Identity: ::windows::core::IUnknownImpl, Impl: IMFProtectedEnvironmentAccess_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, inputlength: u32, input: *const u8, outputlength: u32, output: *mut u8) -> ::windows::core::HRESULT {
@@ -11436,6 +11771,7 @@ pub trait IMFQualityAdvise_Impl: Sized {
     fn GetQualityLevel(&self) -> ::windows::core::Result<MF_QUALITY_LEVEL>;
     fn DropTime(&self, hnsamounttodrop: i64) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IMFQualityAdvise {}
 impl IMFQualityAdvise_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFQualityAdvise_Impl, const OFFSET: isize>() -> IMFQualityAdvise_Vtbl {
         unsafe extern "system" fn SetDropMode<Identity: ::windows::core::IUnknownImpl, Impl: IMFQualityAdvise_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, edropmode: MF_QUALITY_DROP_MODE) -> ::windows::core::HRESULT {
@@ -11491,6 +11827,7 @@ impl IMFQualityAdvise_Vtbl {
 pub trait IMFQualityAdvise2_Impl: Sized + IMFQualityAdvise_Impl {
     fn NotifyQualityEvent(&self, pevent: &::core::option::Option<IMFMediaEvent>) -> ::windows::core::Result<u32>;
 }
+impl ::windows::core::RuntimeName for IMFQualityAdvise2 {}
 impl IMFQualityAdvise2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFQualityAdvise2_Impl, const OFFSET: isize>() -> IMFQualityAdvise2_Vtbl {
         unsafe extern "system" fn NotifyQualityEvent<Identity: ::windows::core::IUnknownImpl, Impl: IMFQualityAdvise2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pevent: ::windows::core::RawPtr, pdwflags: *mut u32) -> ::windows::core::HRESULT {
@@ -11514,6 +11851,7 @@ pub trait IMFQualityAdviseLimits_Impl: Sized {
     fn GetMaximumDropMode(&self) -> ::windows::core::Result<MF_QUALITY_DROP_MODE>;
     fn GetMinimumQualityLevel(&self) -> ::windows::core::Result<MF_QUALITY_LEVEL>;
 }
+impl ::windows::core::RuntimeName for IMFQualityAdviseLimits {}
 impl IMFQualityAdviseLimits_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFQualityAdviseLimits_Impl, const OFFSET: isize>() -> IMFQualityAdviseLimits_Vtbl {
         unsafe extern "system" fn GetMaximumDropMode<Identity: ::windows::core::IUnknownImpl, Impl: IMFQualityAdviseLimits_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pedropmode: *mut MF_QUALITY_DROP_MODE) -> ::windows::core::HRESULT {
@@ -11556,6 +11894,7 @@ pub trait IMFQualityManager_Impl: Sized {
     fn NotifyQualityEvent(&self, pobject: &::core::option::Option<::windows::core::IUnknown>, pevent: &::core::option::Option<IMFMediaEvent>) -> ::windows::core::Result<()>;
     fn Shutdown(&self) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IMFQualityManager {}
 impl IMFQualityManager_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFQualityManager_Impl, const OFFSET: isize>() -> IMFQualityManager_Vtbl {
         unsafe extern "system" fn NotifyTopology<Identity: ::windows::core::IUnknownImpl, Impl: IMFQualityManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptopology: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -11608,6 +11947,8 @@ pub trait IMFRateControl_Impl: Sized {
     fn GetRate(&self, pfthin: *mut super::super::Foundation::BOOL, pflrate: *mut f32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IMFRateControl {}
+#[cfg(feature = "Win32_Foundation")]
 impl IMFRateControl_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFRateControl_Impl, const OFFSET: isize>() -> IMFRateControl_Vtbl {
         unsafe extern "system" fn SetRate<Identity: ::windows::core::IUnknownImpl, Impl: IMFRateControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fthin: super::super::Foundation::BOOL, flrate: f32) -> ::windows::core::HRESULT {
@@ -11636,6 +11977,8 @@ pub trait IMFRateSupport_Impl: Sized {
     fn GetFastestRate(&self, edirection: MFRATE_DIRECTION, fthin: super::super::Foundation::BOOL) -> ::windows::core::Result<f32>;
     fn IsRateSupported(&self, fthin: super::super::Foundation::BOOL, flrate: f32, pflnearestsupportedrate: *mut f32) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IMFRateSupport {}
 #[cfg(feature = "Win32_Foundation")]
 impl IMFRateSupport_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFRateSupport_Impl, const OFFSET: isize>() -> IMFRateSupport_Vtbl {
@@ -11681,6 +12024,7 @@ pub trait IMFReadWriteClassFactory_Impl: Sized {
     fn CreateInstanceFromURL(&self, clsid: *const ::windows::core::GUID, pwszurl: &::windows::core::PCWSTR, pattributes: &::core::option::Option<IMFAttributes>, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn CreateInstanceFromObject(&self, clsid: *const ::windows::core::GUID, punkobject: &::core::option::Option<::windows::core::IUnknown>, pattributes: &::core::option::Option<IMFAttributes>, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IMFReadWriteClassFactory {}
 impl IMFReadWriteClassFactory_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFReadWriteClassFactory_Impl, const OFFSET: isize>() -> IMFReadWriteClassFactory_Vtbl {
         unsafe extern "system" fn CreateInstanceFromURL<Identity: ::windows::core::IUnknownImpl, Impl: IMFReadWriteClassFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, clsid: *const ::windows::core::GUID, pwszurl: ::windows::core::PCWSTR, pattributes: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -11708,6 +12052,7 @@ pub trait IMFRealTimeClient_Impl: Sized {
     fn UnregisterThreads(&self) -> ::windows::core::Result<()>;
     fn SetWorkQueue(&self, dwworkqueueid: u32) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IMFRealTimeClient {}
 impl IMFRealTimeClient_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFRealTimeClient_Impl, const OFFSET: isize>() -> IMFRealTimeClient_Vtbl {
         unsafe extern "system" fn RegisterThreads<Identity: ::windows::core::IUnknownImpl, Impl: IMFRealTimeClient_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwtaskindex: u32, wszclass: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
@@ -11741,6 +12086,7 @@ pub trait IMFRealTimeClientEx_Impl: Sized {
     fn UnregisterThreads(&self) -> ::windows::core::Result<()>;
     fn SetWorkQueueEx(&self, dwmultithreadedworkqueueid: u32, lworkitembasepriority: i32) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IMFRealTimeClientEx {}
 impl IMFRealTimeClientEx_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFRealTimeClientEx_Impl, const OFFSET: isize>() -> IMFRealTimeClientEx_Vtbl {
         unsafe extern "system" fn RegisterThreadsEx<Identity: ::windows::core::IUnknownImpl, Impl: IMFRealTimeClientEx_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwtaskindex: *mut u32, wszclassname: ::windows::core::PCWSTR, lbasepriority: i32) -> ::windows::core::HRESULT {
@@ -11772,6 +12118,7 @@ impl IMFRealTimeClientEx_Vtbl {
 pub trait IMFRelativePanelReport_Impl: Sized {
     fn GetRelativePanel(&self) -> ::windows::core::Result<u32>;
 }
+impl ::windows::core::RuntimeName for IMFRelativePanelReport {}
 impl IMFRelativePanelReport_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFRelativePanelReport_Impl, const OFFSET: isize>() -> IMFRelativePanelReport_Vtbl {
         unsafe extern "system" fn GetRelativePanel<Identity: ::windows::core::IUnknownImpl, Impl: IMFRelativePanelReport_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, panel: *mut u32) -> ::windows::core::HRESULT {
@@ -11796,6 +12143,7 @@ pub trait IMFRelativePanelWatcher_Impl: Sized + IMFShutdown_Impl {
     fn EndGetReport(&self, presult: &::core::option::Option<IMFAsyncResult>) -> ::windows::core::Result<IMFRelativePanelReport>;
     fn GetReport(&self) -> ::windows::core::Result<IMFRelativePanelReport>;
 }
+impl ::windows::core::RuntimeName for IMFRelativePanelWatcher {}
 impl IMFRelativePanelWatcher_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFRelativePanelWatcher_Impl, const OFFSET: isize>() -> IMFRelativePanelWatcher_Vtbl {
         unsafe extern "system" fn BeginGetReport<Identity: ::windows::core::IUnknownImpl, Impl: IMFRelativePanelWatcher_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcallback: ::windows::core::RawPtr, pstate: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -11839,6 +12187,7 @@ impl IMFRelativePanelWatcher_Vtbl {
 pub trait IMFRemoteAsyncCallback_Impl: Sized {
     fn Invoke(&self, hr: ::windows::core::HRESULT, premoteresult: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IMFRemoteAsyncCallback {}
 impl IMFRemoteAsyncCallback_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFRemoteAsyncCallback_Impl, const OFFSET: isize>() -> IMFRemoteAsyncCallback_Vtbl {
         unsafe extern "system" fn Invoke<Identity: ::windows::core::IUnknownImpl, Impl: IMFRemoteAsyncCallback_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hr: ::windows::core::HRESULT, premoteresult: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -11855,6 +12204,7 @@ impl IMFRemoteAsyncCallback_Vtbl {
 pub trait IMFRemoteDesktopPlugin_Impl: Sized {
     fn UpdateTopology(&self, ptopology: &::core::option::Option<IMFTopology>) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IMFRemoteDesktopPlugin {}
 impl IMFRemoteDesktopPlugin_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFRemoteDesktopPlugin_Impl, const OFFSET: isize>() -> IMFRemoteDesktopPlugin_Vtbl {
         unsafe extern "system" fn UpdateTopology<Identity: ::windows::core::IUnknownImpl, Impl: IMFRemoteDesktopPlugin_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptopology: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -11872,6 +12222,7 @@ pub trait IMFRemoteProxy_Impl: Sized {
     fn GetRemoteObject(&self, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn GetRemoteHost(&self, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IMFRemoteProxy {}
 impl IMFRemoteProxy_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFRemoteProxy_Impl, const OFFSET: isize>() -> IMFRemoteProxy_Vtbl {
         unsafe extern "system" fn GetRemoteObject<Identity: ::windows::core::IUnknownImpl, Impl: IMFRemoteProxy_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -11901,6 +12252,8 @@ pub trait IMFSAMIStyle_Impl: Sized {
     fn SetSelectedStyle(&self, pwszstyle: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn GetSelectedStyle(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+impl ::windows::core::RuntimeName for IMFSAMIStyle {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 impl IMFSAMIStyle_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFSAMIStyle_Impl, const OFFSET: isize>() -> IMFSAMIStyle_Vtbl {
@@ -11962,6 +12315,8 @@ pub trait IMFSSLCertificateManager_Impl: Sized {
     fn GetCertificatePolicy(&self, pszurl: &::windows::core::PCWSTR, pfoverrideautomaticcheck: *mut super::super::Foundation::BOOL, pfclientcertificateavailable: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn OnServerCertificate(&self, pszurl: &::windows::core::PCWSTR, pbdata: *const u8, cbdata: u32) -> ::windows::core::Result<super::super::Foundation::BOOL>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IMFSSLCertificateManager {}
 #[cfg(feature = "Win32_Foundation")]
 impl IMFSSLCertificateManager_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFSSLCertificateManager_Impl, const OFFSET: isize>() -> IMFSSLCertificateManager_Vtbl {
@@ -12026,6 +12381,8 @@ pub trait IMFSample_Impl: Sized + IMFAttributes_Impl {
     fn GetTotalLength(&self) -> ::windows::core::Result<u32>;
     fn CopyToBuffer(&self, pbuffer: &::core::option::Option<IMFMediaBuffer>) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+impl ::windows::core::RuntimeName for IMFSample {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 impl IMFSample_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFSample_Impl, const OFFSET: isize>() -> IMFSample_Vtbl {
@@ -12167,6 +12524,7 @@ pub trait IMFSampleAllocatorControl_Impl: Sized {
     fn SetDefaultAllocator(&self, dwoutputstreamid: u32, pallocator: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
     fn GetAllocatorUsage(&self, dwoutputstreamid: u32, pdwinputstreamid: *mut u32, peusage: *mut MFSampleAllocatorUsage) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IMFSampleAllocatorControl {}
 impl IMFSampleAllocatorControl_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFSampleAllocatorControl_Impl, const OFFSET: isize>() -> IMFSampleAllocatorControl_Vtbl {
         unsafe extern "system" fn SetDefaultAllocator<Identity: ::windows::core::IUnknownImpl, Impl: IMFSampleAllocatorControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwoutputstreamid: u32, pallocator: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -12194,6 +12552,7 @@ pub trait IMFSampleGrabberSinkCallback_Impl: Sized + IMFClockStateSink_Impl {
     fn OnProcessSample(&self, guidmajormediatype: *const ::windows::core::GUID, dwsampleflags: u32, llsampletime: i64, llsampleduration: i64, psamplebuffer: *const u8, dwsamplesize: u32) -> ::windows::core::Result<()>;
     fn OnShutdown(&self) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IMFSampleGrabberSinkCallback {}
 impl IMFSampleGrabberSinkCallback_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFSampleGrabberSinkCallback_Impl, const OFFSET: isize>() -> IMFSampleGrabberSinkCallback_Vtbl {
         unsafe extern "system" fn OnSetPresentationClock<Identity: ::windows::core::IUnknownImpl, Impl: IMFSampleGrabberSinkCallback_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppresentationclock: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -12225,6 +12584,7 @@ impl IMFSampleGrabberSinkCallback_Vtbl {
 pub trait IMFSampleGrabberSinkCallback2_Impl: Sized + IMFClockStateSink_Impl + IMFSampleGrabberSinkCallback_Impl {
     fn OnProcessSampleEx(&self, guidmajormediatype: *const ::windows::core::GUID, dwsampleflags: u32, llsampletime: i64, llsampleduration: i64, psamplebuffer: *const u8, dwsamplesize: u32, pattributes: &::core::option::Option<IMFAttributes>) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IMFSampleGrabberSinkCallback2 {}
 impl IMFSampleGrabberSinkCallback2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFSampleGrabberSinkCallback2_Impl, const OFFSET: isize>() -> IMFSampleGrabberSinkCallback2_Vtbl {
         unsafe extern "system" fn OnProcessSampleEx<Identity: ::windows::core::IUnknownImpl, Impl: IMFSampleGrabberSinkCallback2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guidmajormediatype: *const ::windows::core::GUID, dwsampleflags: u32, llsampletime: i64, llsampleduration: i64, psamplebuffer: *const u8, dwsamplesize: u32, pattributes: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -12243,6 +12603,7 @@ pub trait IMFSampleOutputStream_Impl: Sized {
     fn EndWriteSample(&self, presult: &::core::option::Option<IMFAsyncResult>) -> ::windows::core::Result<()>;
     fn Close(&self) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IMFSampleOutputStream {}
 impl IMFSampleOutputStream_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFSampleOutputStream_Impl, const OFFSET: isize>() -> IMFSampleOutputStream_Vtbl {
         unsafe extern "system" fn BeginWriteSample<Identity: ::windows::core::IUnknownImpl, Impl: IMFSampleOutputStream_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psample: ::windows::core::RawPtr, pcallback: ::windows::core::RawPtr, punkstate: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -12278,6 +12639,7 @@ pub trait IMFSampleProtection_Impl: Sized {
     fn InitOutputProtection(&self, dwversion: u32, dwoutputid: u32, pbcert: *const u8, cbcert: u32, ppbseed: *mut *mut u8, pcbseed: *mut u32) -> ::windows::core::Result<()>;
     fn InitInputProtection(&self, dwversion: u32, dwinputid: u32, pbseed: *const u8, cbseed: u32) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IMFSampleProtection {}
 impl IMFSampleProtection_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFSampleProtection_Impl, const OFFSET: isize>() -> IMFSampleProtection_Vtbl {
         unsafe extern "system" fn GetInputProtectionVersion<Identity: ::windows::core::IUnknownImpl, Impl: IMFSampleProtection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwversion: *mut u32) -> ::windows::core::HRESULT {
@@ -12336,6 +12698,7 @@ pub trait IMFSaveJob_Impl: Sized {
     fn CancelSave(&self) -> ::windows::core::Result<()>;
     fn GetProgress(&self) -> ::windows::core::Result<u32>;
 }
+impl ::windows::core::RuntimeName for IMFSaveJob {}
 impl IMFSaveJob_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFSaveJob_Impl, const OFFSET: isize>() -> IMFSaveJob_Vtbl {
         unsafe extern "system" fn BeginSave<Identity: ::windows::core::IUnknownImpl, Impl: IMFSaveJob_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pstream: ::windows::core::RawPtr, pcallback: ::windows::core::RawPtr, pstate: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -12383,6 +12746,8 @@ pub trait IMFSchemeHandler_Impl: Sized {
     fn CancelObjectCreation(&self, piunknowncancelcookie: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+impl ::windows::core::RuntimeName for IMFSchemeHandler {}
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 impl IMFSchemeHandler_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFSchemeHandler_Impl, const OFFSET: isize>() -> IMFSchemeHandler_Vtbl {
         unsafe extern "system" fn BeginCreateObject<Identity: ::windows::core::IUnknownImpl, Impl: IMFSchemeHandler_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszurl: ::windows::core::PCWSTR, dwflags: u32, pprops: ::windows::core::RawPtr, ppiunknowncancelcookie: *mut *mut ::core::ffi::c_void, pcallback: ::windows::core::RawPtr, punkstate: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -12414,6 +12779,7 @@ impl IMFSchemeHandler_Vtbl {
 pub trait IMFSecureBuffer_Impl: Sized {
     fn GetIdentifier(&self) -> ::windows::core::Result<::windows::core::GUID>;
 }
+impl ::windows::core::RuntimeName for IMFSecureBuffer {}
 impl IMFSecureBuffer_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFSecureBuffer_Impl, const OFFSET: isize>() -> IMFSecureBuffer_Vtbl {
         unsafe extern "system" fn GetIdentifier<Identity: ::windows::core::IUnknownImpl, Impl: IMFSecureBuffer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pguididentifier: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
@@ -12437,6 +12803,7 @@ pub trait IMFSecureChannel_Impl: Sized {
     fn GetCertificate(&self, ppcert: *mut *mut u8, pcbcert: *mut u32) -> ::windows::core::Result<()>;
     fn SetupSession(&self, pbencryptedsessionkey: *const u8, cbsessionkey: u32) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IMFSecureChannel {}
 impl IMFSecureChannel_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFSecureChannel_Impl, const OFFSET: isize>() -> IMFSecureChannel_Vtbl {
         unsafe extern "system" fn GetCertificate<Identity: ::windows::core::IUnknownImpl, Impl: IMFSecureChannel_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppcert: *mut *mut u8, pcbcert: *mut u32) -> ::windows::core::HRESULT {
@@ -12464,6 +12831,8 @@ pub trait IMFSeekInfo_Impl: Sized {
     fn GetNearestKeyFrames(&self, pguidtimeformat: *const ::windows::core::GUID, pvarstartposition: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pvarpreviouskeyframe: *mut super::super::System::Com::StructuredStorage::PROPVARIANT, pvarnextkeyframe: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+impl ::windows::core::RuntimeName for IMFSeekInfo {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 impl IMFSeekInfo_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFSeekInfo_Impl, const OFFSET: isize>() -> IMFSeekInfo_Vtbl {
         unsafe extern "system" fn GetNearestKeyFrames<Identity: ::windows::core::IUnknownImpl, Impl: IMFSeekInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pguidtimeformat: *const ::windows::core::GUID, pvarstartposition: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pvarpreviouskeyframe: *mut super::super::System::Com::StructuredStorage::PROPVARIANT, pvarnextkeyframe: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT {
@@ -12482,6 +12851,7 @@ pub trait IMFSensorActivitiesReport_Impl: Sized {
     fn GetActivityReport(&self, index: u32) -> ::windows::core::Result<IMFSensorActivityReport>;
     fn GetActivityReportByDeviceName(&self, symbolicname: &::windows::core::PCWSTR) -> ::windows::core::Result<IMFSensorActivityReport>;
 }
+impl ::windows::core::RuntimeName for IMFSensorActivitiesReport {}
 impl IMFSensorActivitiesReport_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFSensorActivitiesReport_Impl, const OFFSET: isize>() -> IMFSensorActivitiesReport_Vtbl {
         unsafe extern "system" fn GetCount<Identity: ::windows::core::IUnknownImpl, Impl: IMFSensorActivitiesReport_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pccount: *mut u32) -> ::windows::core::HRESULT {
@@ -12531,6 +12901,7 @@ impl IMFSensorActivitiesReport_Vtbl {
 pub trait IMFSensorActivitiesReportCallback_Impl: Sized {
     fn OnActivitiesReport(&self, sensoractivitiesreport: &::core::option::Option<IMFSensorActivitiesReport>) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IMFSensorActivitiesReportCallback {}
 impl IMFSensorActivitiesReportCallback_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFSensorActivitiesReportCallback_Impl, const OFFSET: isize>() -> IMFSensorActivitiesReportCallback_Vtbl {
         unsafe extern "system" fn OnActivitiesReport<Identity: ::windows::core::IUnknownImpl, Impl: IMFSensorActivitiesReportCallback_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sensoractivitiesreport: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -12548,6 +12919,7 @@ pub trait IMFSensorActivityMonitor_Impl: Sized {
     fn Start(&self) -> ::windows::core::Result<()>;
     fn Stop(&self) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IMFSensorActivityMonitor {}
 impl IMFSensorActivityMonitor_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFSensorActivityMonitor_Impl, const OFFSET: isize>() -> IMFSensorActivityMonitor_Vtbl {
         unsafe extern "system" fn Start<Identity: ::windows::core::IUnknownImpl, Impl: IMFSensorActivityMonitor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -12572,6 +12944,7 @@ pub trait IMFSensorActivityReport_Impl: Sized {
     fn GetProcessCount(&self) -> ::windows::core::Result<u32>;
     fn GetProcessActivity(&self, index: u32) -> ::windows::core::Result<IMFSensorProcessActivity>;
 }
+impl ::windows::core::RuntimeName for IMFSensorActivityReport {}
 impl IMFSensorActivityReport_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFSensorActivityReport_Impl, const OFFSET: isize>() -> IMFSensorActivityReport_Vtbl {
         unsafe extern "system" fn GetFriendlyName<Identity: ::windows::core::IUnknownImpl, Impl: IMFSensorActivityReport_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, friendlyname: ::windows::core::PWSTR, cchfriendlyname: u32, pcchwritten: *mut u32) -> ::windows::core::HRESULT {
@@ -12629,6 +13002,7 @@ pub trait IMFSensorDevice_Impl: Sized {
     fn SetSensorDeviceMode(&self, emode: MFSensorDeviceMode) -> ::windows::core::Result<()>;
     fn GetSensorDeviceMode(&self) -> ::windows::core::Result<MFSensorDeviceMode>;
 }
+impl ::windows::core::RuntimeName for IMFSensorDevice {}
 impl IMFSensorDevice_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFSensorDevice_Impl, const OFFSET: isize>() -> IMFSensorDevice_Vtbl {
         unsafe extern "system" fn GetDeviceId<Identity: ::windows::core::IUnknownImpl, Impl: IMFSensorDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdeviceid: *mut u64) -> ::windows::core::HRESULT {
@@ -12745,6 +13119,7 @@ pub trait IMFSensorGroup_Impl: Sized {
     fn GetDefaultSensorDeviceIndex(&self) -> ::windows::core::Result<u32>;
     fn CreateMediaSource(&self) -> ::windows::core::Result<IMFMediaSource>;
 }
+impl ::windows::core::RuntimeName for IMFSensorGroup {}
 impl IMFSensorGroup_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFSensorGroup_Impl, const OFFSET: isize>() -> IMFSensorGroup_Vtbl {
         unsafe extern "system" fn GetSymbolicLink<Identity: ::windows::core::IUnknownImpl, Impl: IMFSensorGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, symboliclink: ::windows::core::PWSTR, cchsymboliclink: i32, pcchwritten: *mut i32) -> ::windows::core::HRESULT {
@@ -12847,6 +13222,8 @@ pub trait IMFSensorProcessActivity_Impl: Sized {
     fn GetReportTime(&self) -> ::windows::core::Result<super::super::Foundation::FILETIME>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IMFSensorProcessActivity {}
+#[cfg(feature = "Win32_Foundation")]
 impl IMFSensorProcessActivity_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFSensorProcessActivity_Impl, const OFFSET: isize>() -> IMFSensorProcessActivity_Vtbl {
         unsafe extern "system" fn GetProcessId<Identity: ::windows::core::IUnknownImpl, Impl: IMFSensorProcessActivity_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppid: *mut u32) -> ::windows::core::HRESULT {
@@ -12913,6 +13290,8 @@ pub trait IMFSensorProfile_Impl: Sized {
     fn AddBlockedControl(&self, wzblockedcontrol: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IMFSensorProfile {}
+#[cfg(feature = "Win32_Foundation")]
 impl IMFSensorProfile_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFSensorProfile_Impl, const OFFSET: isize>() -> IMFSensorProfile_Vtbl {
         unsafe extern "system" fn GetProfileId<Identity: ::windows::core::IUnknownImpl, Impl: IMFSensorProfile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pid: *mut SENSORPROFILEID) -> ::windows::core::HRESULT {
@@ -12967,6 +13346,7 @@ pub trait IMFSensorProfileCollection_Impl: Sized {
     fn RemoveProfileByIndex(&self, index: u32);
     fn RemoveProfile(&self, profileid: *const SENSORPROFILEID);
 }
+impl ::windows::core::RuntimeName for IMFSensorProfileCollection {}
 impl IMFSensorProfileCollection_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFSensorProfileCollection_Impl, const OFFSET: isize>() -> IMFSensorProfileCollection_Vtbl {
         unsafe extern "system" fn GetProfileCount<Identity: ::windows::core::IUnknownImpl, Impl: IMFSensorProfileCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> u32 {
@@ -13032,6 +13412,8 @@ pub trait IMFSensorStream_Impl: Sized + IMFAttributes_Impl {
     fn CloneSensorStream(&self) -> ::windows::core::Result<IMFSensorStream>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+impl ::windows::core::RuntimeName for IMFSensorStream {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 impl IMFSensorStream_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFSensorStream_Impl, const OFFSET: isize>() -> IMFSensorStream_Vtbl {
         unsafe extern "system" fn GetMediaTypeCount<Identity: ::windows::core::IUnknownImpl, Impl: IMFSensorStream_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwcount: *mut u32) -> ::windows::core::HRESULT {
@@ -13086,6 +13468,8 @@ pub trait IMFSensorTransformFactory_Impl: Sized {
     fn GetTransformInformation(&self, transformindex: u32, pguidtransformid: *mut ::windows::core::GUID, ppattributes: *mut ::core::option::Option<IMFAttributes>, ppstreaminformation: *mut ::core::option::Option<IMFCollection>) -> ::windows::core::Result<()>;
     fn CreateTransform(&self, guidsensortransformid: *const ::windows::core::GUID, pattributes: &::core::option::Option<IMFAttributes>) -> ::windows::core::Result<super::Streaming::IMFDeviceTransform>;
 }
+#[cfg(feature = "Win32_Media_Streaming")]
+impl ::windows::core::RuntimeName for IMFSensorTransformFactory {}
 #[cfg(feature = "Win32_Media_Streaming")]
 impl IMFSensorTransformFactory_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFSensorTransformFactory_Impl, const OFFSET: isize>() -> IMFSensorTransformFactory_Vtbl {
@@ -13152,6 +13536,7 @@ pub trait IMFSequencerSource_Impl: Sized {
     fn UpdateTopology(&self, dwid: u32, ptopology: &::core::option::Option<IMFTopology>) -> ::windows::core::Result<()>;
     fn UpdateTopologyFlags(&self, dwid: u32, dwflags: u32) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IMFSequencerSource {}
 impl IMFSequencerSource_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFSequencerSource_Impl, const OFFSET: isize>() -> IMFSequencerSource_Vtbl {
         unsafe extern "system" fn AppendTopology<Identity: ::windows::core::IUnknownImpl, Impl: IMFSequencerSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptopology: ::windows::core::RawPtr, dwflags: u32, pdwid: *mut u32) -> ::windows::core::HRESULT {
@@ -13201,6 +13586,7 @@ impl IMFSequencerSource_Vtbl {
 pub trait IMFSharingEngineClassFactory_Impl: Sized {
     fn CreateInstance(&self, dwflags: u32, pattr: &::core::option::Option<IMFAttributes>) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
+impl ::windows::core::RuntimeName for IMFSharingEngineClassFactory {}
 impl IMFSharingEngineClassFactory_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFSharingEngineClassFactory_Impl, const OFFSET: isize>() -> IMFSharingEngineClassFactory_Vtbl {
         unsafe extern "system" fn CreateInstance<Identity: ::windows::core::IUnknownImpl, Impl: IMFSharingEngineClassFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwflags: u32, pattr: ::windows::core::RawPtr, ppengine: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -13224,6 +13610,7 @@ pub trait IMFShutdown_Impl: Sized {
     fn Shutdown(&self) -> ::windows::core::Result<()>;
     fn GetShutdownStatus(&self) -> ::windows::core::Result<MFSHUTDOWN_STATUS>;
 }
+impl ::windows::core::RuntimeName for IMFShutdown {}
 impl IMFShutdown_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFShutdown_Impl, const OFFSET: isize>() -> IMFShutdown_Vtbl {
         unsafe extern "system" fn Shutdown<Identity: ::windows::core::IUnknownImpl, Impl: IMFShutdown_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -13255,6 +13642,7 @@ impl IMFShutdown_Vtbl {
 pub trait IMFSignedLibrary_Impl: Sized {
     fn GetProcedureAddress(&self, name: &::windows::core::PCSTR, address: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IMFSignedLibrary {}
 impl IMFSignedLibrary_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFSignedLibrary_Impl, const OFFSET: isize>() -> IMFSignedLibrary_Vtbl {
         unsafe extern "system" fn GetProcedureAddress<Identity: ::windows::core::IUnknownImpl, Impl: IMFSignedLibrary_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::windows::core::PCSTR, address: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -13275,6 +13663,8 @@ pub trait IMFSimpleAudioVolume_Impl: Sized {
     fn SetMute(&self, bmute: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn GetMute(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IMFSimpleAudioVolume {}
 #[cfg(feature = "Win32_Foundation")]
 impl IMFSimpleAudioVolume_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFSimpleAudioVolume_Impl, const OFFSET: isize>() -> IMFSimpleAudioVolume_Vtbl {
@@ -13335,6 +13725,7 @@ pub trait IMFSinkWriter_Impl: Sized {
     fn GetServiceForStream(&self, dwstreamindex: u32, guidservice: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn GetStatistics(&self, dwstreamindex: u32) -> ::windows::core::Result<MF_SINK_WRITER_STATISTICS>;
 }
+impl ::windows::core::RuntimeName for IMFSinkWriter {}
 impl IMFSinkWriter_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFSinkWriter_Impl, const OFFSET: isize>() -> IMFSinkWriter_Vtbl {
         unsafe extern "system" fn AddStream<Identity: ::windows::core::IUnknownImpl, Impl: IMFSinkWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptargetmediatype: ::windows::core::RawPtr, pdwstreamindex: *mut u32) -> ::windows::core::HRESULT {
@@ -13427,6 +13818,7 @@ pub trait IMFSinkWriterCallback_Impl: Sized {
     fn OnFinalize(&self, hrstatus: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
     fn OnMarker(&self, dwstreamindex: u32, pvcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IMFSinkWriterCallback {}
 impl IMFSinkWriterCallback_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFSinkWriterCallback_Impl, const OFFSET: isize>() -> IMFSinkWriterCallback_Vtbl {
         unsafe extern "system" fn OnFinalize<Identity: ::windows::core::IUnknownImpl, Impl: IMFSinkWriterCallback_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hrstatus: ::windows::core::HRESULT) -> ::windows::core::HRESULT {
@@ -13453,6 +13845,7 @@ pub trait IMFSinkWriterCallback2_Impl: Sized + IMFSinkWriterCallback_Impl {
     fn OnTransformChange(&self) -> ::windows::core::Result<()>;
     fn OnStreamError(&self, dwstreamindex: u32, hrstatus: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IMFSinkWriterCallback2 {}
 impl IMFSinkWriterCallback2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFSinkWriterCallback2_Impl, const OFFSET: isize>() -> IMFSinkWriterCallback2_Vtbl {
         unsafe extern "system" fn OnTransformChange<Identity: ::windows::core::IUnknownImpl, Impl: IMFSinkWriterCallback2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -13479,6 +13872,7 @@ pub trait IMFSinkWriterEncoderConfig_Impl: Sized {
     fn SetTargetMediaType(&self, dwstreamindex: u32, ptargetmediatype: &::core::option::Option<IMFMediaType>, pencodingparameters: &::core::option::Option<IMFAttributes>) -> ::windows::core::Result<()>;
     fn PlaceEncodingParameters(&self, dwstreamindex: u32, pencodingparameters: &::core::option::Option<IMFAttributes>) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IMFSinkWriterEncoderConfig {}
 impl IMFSinkWriterEncoderConfig_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFSinkWriterEncoderConfig_Impl, const OFFSET: isize>() -> IMFSinkWriterEncoderConfig_Vtbl {
         unsafe extern "system" fn SetTargetMediaType<Identity: ::windows::core::IUnknownImpl, Impl: IMFSinkWriterEncoderConfig_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwstreamindex: u32, ptargetmediatype: ::windows::core::RawPtr, pencodingparameters: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -13504,6 +13898,7 @@ impl IMFSinkWriterEncoderConfig_Vtbl {
 pub trait IMFSinkWriterEx_Impl: Sized + IMFSinkWriter_Impl {
     fn GetTransformForStream(&self, dwstreamindex: u32, dwtransformindex: u32, pguidcategory: *mut ::windows::core::GUID, pptransform: *mut ::core::option::Option<IMFTransform>) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IMFSinkWriterEx {}
 impl IMFSinkWriterEx_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFSinkWriterEx_Impl, const OFFSET: isize>() -> IMFSinkWriterEx_Vtbl {
         unsafe extern "system" fn GetTransformForStream<Identity: ::windows::core::IUnknownImpl, Impl: IMFSinkWriterEx_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwstreamindex: u32, dwtransformindex: u32, pguidcategory: *mut ::windows::core::GUID, pptransform: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -13532,6 +13927,8 @@ pub trait IMFSourceBuffer_Impl: Sized {
     fn Abort(&self) -> ::windows::core::Result<()>;
     fn Remove(&self, start: f64, end: f64) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IMFSourceBuffer {}
 #[cfg(feature = "Win32_Foundation")]
 impl IMFSourceBuffer_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFSourceBuffer_Impl, const OFFSET: isize>() -> IMFSourceBuffer_Vtbl {
@@ -13625,6 +14022,7 @@ pub trait IMFSourceBufferAppendMode_Impl: Sized {
     fn GetAppendMode(&self) -> MF_MSE_APPEND_MODE;
     fn SetAppendMode(&self, mode: MF_MSE_APPEND_MODE) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IMFSourceBufferAppendMode {}
 impl IMFSourceBufferAppendMode_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFSourceBufferAppendMode_Impl, const OFFSET: isize>() -> IMFSourceBufferAppendMode_Vtbl {
         unsafe extern "system" fn GetAppendMode<Identity: ::windows::core::IUnknownImpl, Impl: IMFSourceBufferAppendMode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> MF_MSE_APPEND_MODE {
@@ -13651,6 +14049,7 @@ pub trait IMFSourceBufferList_Impl: Sized {
     fn GetLength(&self) -> u32;
     fn GetSourceBuffer(&self, index: u32) -> ::core::option::Option<IMFSourceBuffer>;
 }
+impl ::windows::core::RuntimeName for IMFSourceBufferList {}
 impl IMFSourceBufferList_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFSourceBufferList_Impl, const OFFSET: isize>() -> IMFSourceBufferList_Vtbl {
         unsafe extern "system" fn GetLength<Identity: ::windows::core::IUnknownImpl, Impl: IMFSourceBufferList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> u32 {
@@ -13680,6 +14079,7 @@ pub trait IMFSourceBufferNotify_Impl: Sized {
     fn OnUpdate(&self);
     fn OnUpdateEnd(&self);
 }
+impl ::windows::core::RuntimeName for IMFSourceBufferNotify {}
 impl IMFSourceBufferNotify_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFSourceBufferNotify_Impl, const OFFSET: isize>() -> IMFSourceBufferNotify_Vtbl {
         unsafe extern "system" fn OnUpdateStart<Identity: ::windows::core::IUnknownImpl, Impl: IMFSourceBufferNotify_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) {
@@ -13723,6 +14123,7 @@ impl IMFSourceBufferNotify_Vtbl {
 pub trait IMFSourceOpenMonitor_Impl: Sized {
     fn OnSourceEvent(&self, pevent: &::core::option::Option<IMFMediaEvent>) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IMFSourceOpenMonitor {}
 impl IMFSourceOpenMonitor_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFSourceOpenMonitor_Impl, const OFFSET: isize>() -> IMFSourceOpenMonitor_Vtbl {
         unsafe extern "system" fn OnSourceEvent<Identity: ::windows::core::IUnknownImpl, Impl: IMFSourceOpenMonitor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pevent: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -13749,6 +14150,8 @@ pub trait IMFSourceReader_Impl: Sized {
     fn GetServiceForStream(&self, dwstreamindex: u32, guidservice: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn GetPresentationAttribute(&self, dwstreamindex: u32, guidattribute: *const ::windows::core::GUID) -> ::windows::core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+impl ::windows::core::RuntimeName for IMFSourceReader {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 impl IMFSourceReader_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFSourceReader_Impl, const OFFSET: isize>() -> IMFSourceReader_Vtbl {
@@ -13849,6 +14252,7 @@ pub trait IMFSourceReaderCallback_Impl: Sized {
     fn OnFlush(&self, dwstreamindex: u32) -> ::windows::core::Result<()>;
     fn OnEvent(&self, dwstreamindex: u32, pevent: &::core::option::Option<IMFMediaEvent>) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IMFSourceReaderCallback {}
 impl IMFSourceReaderCallback_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFSourceReaderCallback_Impl, const OFFSET: isize>() -> IMFSourceReaderCallback_Vtbl {
         unsafe extern "system" fn OnReadSample<Identity: ::windows::core::IUnknownImpl, Impl: IMFSourceReaderCallback_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hrstatus: ::windows::core::HRESULT, dwstreamindex: u32, dwstreamflags: u32, lltimestamp: i64, psample: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -13881,6 +14285,7 @@ pub trait IMFSourceReaderCallback2_Impl: Sized + IMFSourceReaderCallback_Impl {
     fn OnTransformChange(&self) -> ::windows::core::Result<()>;
     fn OnStreamError(&self, dwstreamindex: u32, hrstatus: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IMFSourceReaderCallback2 {}
 impl IMFSourceReaderCallback2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFSourceReaderCallback2_Impl, const OFFSET: isize>() -> IMFSourceReaderCallback2_Vtbl {
         unsafe extern "system" fn OnTransformChange<Identity: ::windows::core::IUnknownImpl, Impl: IMFSourceReaderCallback2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -13910,6 +14315,8 @@ pub trait IMFSourceReaderEx_Impl: Sized + IMFSourceReader_Impl {
     fn RemoveAllTransformsForStream(&self, dwstreamindex: u32) -> ::windows::core::Result<()>;
     fn GetTransformForStream(&self, dwstreamindex: u32, dwtransformindex: u32, pguidcategory: *mut ::windows::core::GUID, pptransform: *mut ::core::option::Option<IMFTransform>) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+impl ::windows::core::RuntimeName for IMFSourceReaderEx {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 impl IMFSourceReaderEx_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFSourceReaderEx_Impl, const OFFSET: isize>() -> IMFSourceReaderEx_Vtbl {
@@ -13961,6 +14368,8 @@ pub trait IMFSourceResolver_Impl: Sized {
     fn EndCreateObjectFromByteStream(&self, presult: &::core::option::Option<IMFAsyncResult>, pobjecttype: *mut MF_OBJECT_TYPE, ppobject: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
     fn CancelObjectCreation(&self, piunknowncancelcookie: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+impl ::windows::core::RuntimeName for IMFSourceResolver {}
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 impl IMFSourceResolver_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFSourceResolver_Impl, const OFFSET: isize>() -> IMFSourceResolver_Vtbl {
@@ -14022,6 +14431,8 @@ pub trait IMFSpatialAudioObjectBuffer_Impl: Sized + IMFMediaBuffer_Impl {
     fn GetType(&self) -> ::windows::core::Result<super::Audio::AudioObjectType>;
     fn GetMetadataItems(&self) -> ::windows::core::Result<super::Audio::ISpatialAudioMetadataItems>;
 }
+#[cfg(feature = "Win32_Media_Audio")]
+impl ::windows::core::RuntimeName for IMFSpatialAudioObjectBuffer {}
 #[cfg(feature = "Win32_Media_Audio")]
 impl IMFSpatialAudioObjectBuffer_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFSpatialAudioObjectBuffer_Impl, const OFFSET: isize>() -> IMFSpatialAudioObjectBuffer_Vtbl {
@@ -14088,6 +14499,8 @@ pub trait IMFSpatialAudioSample_Impl: Sized + IMFAttributes_Impl + IMFSample_Imp
     fn GetSpatialAudioObjectByIndex(&self, dwindex: u32) -> ::windows::core::Result<IMFSpatialAudioObjectBuffer>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+impl ::windows::core::RuntimeName for IMFSpatialAudioSample {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 impl IMFSpatialAudioSample_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFSpatialAudioSample_Impl, const OFFSET: isize>() -> IMFSpatialAudioSample_Vtbl {
         unsafe extern "system" fn GetObjectCount<Identity: ::windows::core::IUnknownImpl, Impl: IMFSpatialAudioSample_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwobjectcount: *mut u32) -> ::windows::core::HRESULT {
@@ -14134,6 +14547,8 @@ pub trait IMFStreamDescriptor_Impl: Sized + IMFAttributes_Impl {
     fn GetMediaTypeHandler(&self) -> ::windows::core::Result<IMFMediaTypeHandler>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+impl ::windows::core::RuntimeName for IMFStreamDescriptor {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 impl IMFStreamDescriptor_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFStreamDescriptor_Impl, const OFFSET: isize>() -> IMFStreamDescriptor_Vtbl {
         unsafe extern "system" fn GetStreamIdentifier<Identity: ::windows::core::IUnknownImpl, Impl: IMFStreamDescriptor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwstreamidentifier: *mut u32) -> ::windows::core::HRESULT {
@@ -14177,6 +14592,8 @@ pub trait IMFStreamSink_Impl: Sized + IMFMediaEventGenerator_Impl {
     fn PlaceMarker(&self, emarkertype: MFSTREAMSINK_MARKER_TYPE, pvarmarkervalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pvarcontextvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()>;
     fn Flush(&self) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+impl ::windows::core::RuntimeName for IMFStreamSink {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 impl IMFStreamSink_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFStreamSink_Impl, const OFFSET: isize>() -> IMFStreamSink_Vtbl {
@@ -14247,6 +14664,8 @@ pub trait IMFStreamingSinkConfig_Impl: Sized {
     fn StartStreaming(&self, fseekoffsetisbyteoffset: super::super::Foundation::BOOL, qwseekoffset: u64) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IMFStreamingSinkConfig {}
+#[cfg(feature = "Win32_Foundation")]
 impl IMFStreamingSinkConfig_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFStreamingSinkConfig_Impl, const OFFSET: isize>() -> IMFStreamingSinkConfig_Vtbl {
         unsafe extern "system" fn StartStreaming<Identity: ::windows::core::IUnknownImpl, Impl: IMFStreamingSinkConfig_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fseekoffsetisbyteoffset: super::super::Foundation::BOOL, qwseekoffset: u64) -> ::windows::core::HRESULT {
@@ -14264,6 +14683,7 @@ pub trait IMFSystemId_Impl: Sized {
     fn GetData(&self, size: *mut u32, data: *mut *mut u8) -> ::windows::core::Result<()>;
     fn Setup(&self, stage: u32, cbin: u32, pbin: *const u8, pcbout: *mut u32, ppbout: *mut *mut u8) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IMFSystemId {}
 impl IMFSystemId_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFSystemId_Impl, const OFFSET: isize>() -> IMFSystemId_Vtbl {
         unsafe extern "system" fn GetData<Identity: ::windows::core::IUnknownImpl, Impl: IMFSystemId_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, size: *mut u32, data: *mut *mut u8) -> ::windows::core::HRESULT {
@@ -14293,6 +14713,8 @@ pub trait IMFTimecodeTranslate_Impl: Sized {
     fn BeginConvertHNSToTimecode(&self, hnstime: i64, pcallback: &::core::option::Option<IMFAsyncCallback>, punkstate: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
     fn EndConvertHNSToTimecode(&self, presult: &::core::option::Option<IMFAsyncResult>) -> ::windows::core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+impl ::windows::core::RuntimeName for IMFTimecodeTranslate {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 impl IMFTimecodeTranslate_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFTimecodeTranslate_Impl, const OFFSET: isize>() -> IMFTimecodeTranslate_Vtbl {
@@ -14357,6 +14779,8 @@ pub trait IMFTimedText_Impl: Sized {
     fn SetInBandEnabled(&self, enabled: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn IsInBandEnabled(&self) -> super::super::Foundation::BOOL;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IMFTimedText {}
 #[cfg(feature = "Win32_Foundation")]
 impl IMFTimedText_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFTimedText_Impl, const OFFSET: isize>() -> IMFTimedText_Vtbl {
@@ -14503,6 +14927,7 @@ impl IMFTimedText_Vtbl {
 pub trait IMFTimedTextBinary_Impl: Sized {
     fn GetData(&self, data: *mut *mut u8, length: *mut u32) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IMFTimedTextBinary {}
 impl IMFTimedTextBinary_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFTimedTextBinary_Impl, const OFFSET: isize>() -> IMFTimedTextBinary_Vtbl {
         unsafe extern "system" fn GetData<Identity: ::windows::core::IUnknownImpl, Impl: IMFTimedTextBinary_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, data: *mut *mut u8, length: *mut u32) -> ::windows::core::HRESULT {
@@ -14521,6 +14946,7 @@ pub trait IMFTimedTextBouten_Impl: Sized {
     fn GetBoutenColor(&self) -> ::windows::core::Result<MFARGB>;
     fn GetBoutenPosition(&self) -> ::windows::core::Result<MF_TIMED_TEXT_BOUTEN_POSITION>;
 }
+impl ::windows::core::RuntimeName for IMFTimedTextBouten {}
 impl IMFTimedTextBouten_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFTimedTextBouten_Impl, const OFFSET: isize>() -> IMFTimedTextBouten_Vtbl {
         unsafe extern "system" fn GetBoutenType<Identity: ::windows::core::IUnknownImpl, Impl: IMFTimedTextBouten_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut MF_TIMED_TEXT_BOUTEN_TYPE) -> ::windows::core::HRESULT {
@@ -14580,6 +15006,7 @@ pub trait IMFTimedTextCue_Impl: Sized {
     fn GetLineCount(&self) -> u32;
     fn GetLine(&self, index: u32) -> ::windows::core::Result<IMFTimedTextFormattedText>;
 }
+impl ::windows::core::RuntimeName for IMFTimedTextCue {}
 impl IMFTimedTextCue_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFTimedTextCue_Impl, const OFFSET: isize>() -> IMFTimedTextCue_Vtbl {
         unsafe extern "system" fn GetId<Identity: ::windows::core::IUnknownImpl, Impl: IMFTimedTextCue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> u32 {
@@ -14695,6 +15122,7 @@ pub trait IMFTimedTextCueList_Impl: Sized {
     fn AddDataCue(&self, start: f64, duration: f64, data: *const u8, datasize: u32) -> ::windows::core::Result<IMFTimedTextCue>;
     fn RemoveCue(&self, cue: &::core::option::Option<IMFTimedTextCue>) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IMFTimedTextCueList {}
 impl IMFTimedTextCueList_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFTimedTextCueList_Impl, const OFFSET: isize>() -> IMFTimedTextCueList_Vtbl {
         unsafe extern "system" fn GetLength<Identity: ::windows::core::IUnknownImpl, Impl: IMFTimedTextCueList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> u32 {
@@ -14782,6 +15210,7 @@ pub trait IMFTimedTextFormattedText_Impl: Sized {
     fn GetSubformattingCount(&self) -> u32;
     fn GetSubformatting(&self, index: u32, firstchar: *mut u32, charlength: *mut u32, style: *mut ::core::option::Option<IMFTimedTextStyle>) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IMFTimedTextFormattedText {}
 impl IMFTimedTextFormattedText_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFTimedTextFormattedText_Impl, const OFFSET: isize>() -> IMFTimedTextFormattedText_Vtbl {
         unsafe extern "system" fn GetText<Identity: ::windows::core::IUnknownImpl, Impl: IMFTimedTextFormattedText_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, text: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
@@ -14826,6 +15255,8 @@ pub trait IMFTimedTextNotify_Impl: Sized {
     fn Cue(&self, cueevent: MF_TIMED_TEXT_CUE_EVENT, currenttime: f64, cue: &::core::option::Option<IMFTimedTextCue>);
     fn Reset(&self);
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IMFTimedTextNotify {}
 #[cfg(feature = "Win32_Foundation")]
 impl IMFTimedTextNotify_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFTimedTextNotify_Impl, const OFFSET: isize>() -> IMFTimedTextNotify_Vtbl {
@@ -14894,6 +15325,8 @@ pub trait IMFTimedTextRegion_Impl: Sized {
     fn GetZIndex(&self) -> ::windows::core::Result<i32>;
     fn GetScrollMode(&self) -> ::windows::core::Result<MF_TIMED_TEXT_SCROLL_MODE>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IMFTimedTextRegion {}
 #[cfg(feature = "Win32_Foundation")]
 impl IMFTimedTextRegion_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFTimedTextRegion_Impl, const OFFSET: isize>() -> IMFTimedTextRegion_Vtbl {
@@ -15031,6 +15464,7 @@ pub trait IMFTimedTextRuby_Impl: Sized {
     fn GetRubyAlign(&self) -> ::windows::core::Result<MF_TIMED_TEXT_RUBY_ALIGN>;
     fn GetRubyReserve(&self) -> ::windows::core::Result<MF_TIMED_TEXT_RUBY_RESERVE>;
 }
+impl ::windows::core::RuntimeName for IMFTimedTextRuby {}
 impl IMFTimedTextRuby_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFTimedTextRuby_Impl, const OFFSET: isize>() -> IMFTimedTextRuby_Vtbl {
         unsafe extern "system" fn GetRubyText<Identity: ::windows::core::IUnknownImpl, Impl: IMFTimedTextRuby_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rubytext: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
@@ -15105,6 +15539,8 @@ pub trait IMFTimedTextStyle_Impl: Sized {
     fn GetTextDecoration(&self) -> ::windows::core::Result<u32>;
     fn GetTextOutline(&self, color: *mut MFARGB, thickness: *mut f64, blurradius: *mut f64, unittype: *mut MF_TIMED_TEXT_UNIT_TYPE) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IMFTimedTextStyle {}
 #[cfg(feature = "Win32_Foundation")]
 impl IMFTimedTextStyle_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFTimedTextStyle_Impl, const OFFSET: isize>() -> IMFTimedTextStyle_Vtbl {
@@ -15262,6 +15698,8 @@ pub trait IMFTimedTextStyle2_Impl: Sized {
     fn GetFontAngleInDegrees(&self) -> ::windows::core::Result<f64>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IMFTimedTextStyle2 {}
+#[cfg(feature = "Win32_Foundation")]
 impl IMFTimedTextStyle2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFTimedTextStyle2_Impl, const OFFSET: isize>() -> IMFTimedTextStyle2_Vtbl {
         unsafe extern "system" fn GetRuby<Identity: ::windows::core::IUnknownImpl, Impl: IMFTimedTextStyle2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ruby: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -15336,6 +15774,8 @@ pub trait IMFTimedTextTrack_Impl: Sized {
     fn GetReadyState(&self) -> MF_TIMED_TEXT_TRACK_READY_STATE;
     fn GetCueList(&self) -> ::windows::core::Result<IMFTimedTextCueList>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IMFTimedTextTrack {}
 #[cfg(feature = "Win32_Foundation")]
 impl IMFTimedTextTrack_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFTimedTextTrack_Impl, const OFFSET: isize>() -> IMFTimedTextTrack_Vtbl {
@@ -15460,6 +15900,7 @@ pub trait IMFTimedTextTrackList_Impl: Sized {
     fn GetTrack(&self, index: u32) -> ::windows::core::Result<IMFTimedTextTrack>;
     fn GetTrackById(&self, trackid: u32) -> ::windows::core::Result<IMFTimedTextTrack>;
 }
+impl ::windows::core::RuntimeName for IMFTimedTextTrackList {}
 impl IMFTimedTextTrackList_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFTimedTextTrackList_Impl, const OFFSET: isize>() -> IMFTimedTextTrackList_Vtbl {
         unsafe extern "system" fn GetLength<Identity: ::windows::core::IUnknownImpl, Impl: IMFTimedTextTrackList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> u32 {
@@ -15504,6 +15945,7 @@ pub trait IMFTimer_Impl: Sized {
     fn SetTimer(&self, dwflags: u32, llclocktime: i64, pcallback: &::core::option::Option<IMFAsyncCallback>, punkstate: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<::windows::core::IUnknown>;
     fn CancelTimer(&self, punkkey: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IMFTimer {}
 impl IMFTimer_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFTimer_Impl, const OFFSET: isize>() -> IMFTimer_Vtbl {
         unsafe extern "system" fn SetTimer<Identity: ::windows::core::IUnknownImpl, Impl: IMFTimer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwflags: u32, llclocktime: i64, pcallback: ::windows::core::RawPtr, punkstate: *mut ::core::ffi::c_void, ppunkkey: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -15535,6 +15977,7 @@ impl IMFTimer_Vtbl {
 pub trait IMFTopoLoader_Impl: Sized {
     fn Load(&self, pinputtopo: &::core::option::Option<IMFTopology>, ppoutputtopo: *mut ::core::option::Option<IMFTopology>, pcurrenttopo: &::core::option::Option<IMFTopology>) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IMFTopoLoader {}
 impl IMFTopoLoader_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFTopoLoader_Impl, const OFFSET: isize>() -> IMFTopoLoader_Vtbl {
         unsafe extern "system" fn Load<Identity: ::windows::core::IUnknownImpl, Impl: IMFTopoLoader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinputtopo: ::windows::core::RawPtr, ppoutputtopo: *mut ::windows::core::RawPtr, pcurrenttopo: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -15561,6 +16004,8 @@ pub trait IMFTopology_Impl: Sized + IMFAttributes_Impl {
     fn GetSourceNodeCollection(&self) -> ::windows::core::Result<IMFCollection>;
     fn GetOutputNodeCollection(&self) -> ::windows::core::Result<IMFCollection>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+impl ::windows::core::RuntimeName for IMFTopology {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 impl IMFTopology_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFTopology_Impl, const OFFSET: isize>() -> IMFTopology_Vtbl {
@@ -15687,6 +16132,8 @@ pub trait IMFTopologyNode_Impl: Sized + IMFAttributes_Impl {
     fn GetInputPrefType(&self, dwinputindex: u32) -> ::windows::core::Result<IMFMediaType>;
     fn CloneFrom(&self, pnode: &::core::option::Option<IMFTopologyNode>) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+impl ::windows::core::RuntimeName for IMFTopologyNode {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 impl IMFTopologyNode_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFTopologyNode_Impl, const OFFSET: isize>() -> IMFTopologyNode_Vtbl {
@@ -15839,6 +16286,7 @@ impl IMFTopologyNode_Vtbl {
 pub trait IMFTopologyNodeAttributeEditor_Impl: Sized {
     fn UpdateNodeAttributes(&self, topoid: u64, cupdates: u32, pupdates: *const MFTOPONODE_ATTRIBUTE_UPDATE) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IMFTopologyNodeAttributeEditor {}
 impl IMFTopologyNodeAttributeEditor_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFTopologyNodeAttributeEditor_Impl, const OFFSET: isize>() -> IMFTopologyNodeAttributeEditor_Vtbl {
         unsafe extern "system" fn UpdateNodeAttributes<Identity: ::windows::core::IUnknownImpl, Impl: IMFTopologyNodeAttributeEditor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, topoid: u64, cupdates: u32, pupdates: *const MFTOPONODE_ATTRIBUTE_UPDATE) -> ::windows::core::HRESULT {
@@ -15855,6 +16303,7 @@ impl IMFTopologyNodeAttributeEditor_Vtbl {
 pub trait IMFTopologyServiceLookup_Impl: Sized {
     fn LookupService(&self, r#type: MF_SERVICE_LOOKUP_TYPE, dwindex: u32, guidservice: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppvobjects: *mut *mut ::core::ffi::c_void, pnobjects: *mut u32) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IMFTopologyServiceLookup {}
 impl IMFTopologyServiceLookup_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFTopologyServiceLookup_Impl, const OFFSET: isize>() -> IMFTopologyServiceLookup_Vtbl {
         unsafe extern "system" fn LookupService<Identity: ::windows::core::IUnknownImpl, Impl: IMFTopologyServiceLookup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, r#type: MF_SERVICE_LOOKUP_TYPE, dwindex: u32, guidservice: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppvobjects: *mut *mut ::core::ffi::c_void, pnobjects: *mut u32) -> ::windows::core::HRESULT {
@@ -15872,6 +16321,7 @@ pub trait IMFTopologyServiceLookupClient_Impl: Sized {
     fn InitServicePointers(&self, plookup: &::core::option::Option<IMFTopologyServiceLookup>) -> ::windows::core::Result<()>;
     fn ReleaseServicePointers(&self) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IMFTopologyServiceLookupClient {}
 impl IMFTopologyServiceLookupClient_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFTopologyServiceLookupClient_Impl, const OFFSET: isize>() -> IMFTopologyServiceLookupClient_Vtbl {
         unsafe extern "system" fn InitServicePointers<Identity: ::windows::core::IUnknownImpl, Impl: IMFTopologyServiceLookupClient_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plookup: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -15897,6 +16347,7 @@ impl IMFTopologyServiceLookupClient_Vtbl {
 pub trait IMFTrackedSample_Impl: Sized {
     fn SetAllocator(&self, psampleallocator: &::core::option::Option<IMFAsyncCallback>, punkstate: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IMFTrackedSample {}
 impl IMFTrackedSample_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFTrackedSample_Impl, const OFFSET: isize>() -> IMFTrackedSample_Vtbl {
         unsafe extern "system" fn SetAllocator<Identity: ::windows::core::IUnknownImpl, Impl: IMFTrackedSample_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psampleallocator: ::windows::core::RawPtr, punkstate: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -15918,6 +16369,7 @@ pub trait IMFTranscodeProfile_Impl: Sized {
     fn SetContainerAttributes(&self, pattrs: &::core::option::Option<IMFAttributes>) -> ::windows::core::Result<()>;
     fn GetContainerAttributes(&self) -> ::windows::core::Result<IMFAttributes>;
 }
+impl ::windows::core::RuntimeName for IMFTranscodeProfile {}
 impl IMFTranscodeProfile_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFTranscodeProfile_Impl, const OFFSET: isize>() -> IMFTranscodeProfile_Vtbl {
         unsafe extern "system" fn SetAudioAttributes<Identity: ::windows::core::IUnknownImpl, Impl: IMFTranscodeProfile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pattrs: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -15988,6 +16440,7 @@ pub trait IMFTranscodeSinkInfoProvider_Impl: Sized {
     fn SetProfile(&self, pprofile: &::core::option::Option<IMFTranscodeProfile>) -> ::windows::core::Result<()>;
     fn GetSinkInfo(&self) -> ::windows::core::Result<MF_TRANSCODE_SINK_INFO>;
 }
+impl ::windows::core::RuntimeName for IMFTranscodeSinkInfoProvider {}
 impl IMFTranscodeSinkInfoProvider_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFTranscodeSinkInfoProvider_Impl, const OFFSET: isize>() -> IMFTranscodeSinkInfoProvider_Vtbl {
         unsafe extern "system" fn SetOutputFile<Identity: ::windows::core::IUnknownImpl, Impl: IMFTranscodeSinkInfoProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszfilename: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
@@ -16053,6 +16506,7 @@ pub trait IMFTransform_Impl: Sized {
     fn ProcessInput(&self, dwinputstreamid: u32, psample: &::core::option::Option<IMFSample>, dwflags: u32) -> ::windows::core::Result<()>;
     fn ProcessOutput(&self, dwflags: u32, coutputbuffercount: u32, poutputsamples: *mut MFT_OUTPUT_DATA_BUFFER, pdwstatus: *mut u32) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IMFTransform {}
 impl IMFTransform_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFTransform_Impl, const OFFSET: isize>() -> IMFTransform_Vtbl {
         unsafe extern "system" fn GetStreamLimits<Identity: ::windows::core::IUnknownImpl, Impl: IMFTransform_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwinputminimum: *mut u32, pdwinputmaximum: *mut u32, pdwoutputminimum: *mut u32, pdwoutputmaximum: *mut u32) -> ::windows::core::HRESULT {
@@ -16270,6 +16724,7 @@ impl IMFTransform_Vtbl {
 pub trait IMFTrustedInput_Impl: Sized {
     fn GetInputTrustAuthority(&self, dwstreamid: u32, riid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
+impl ::windows::core::RuntimeName for IMFTrustedInput {}
 impl IMFTrustedInput_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFTrustedInput_Impl, const OFFSET: isize>() -> IMFTrustedInput_Vtbl {
         unsafe extern "system" fn GetInputTrustAuthority<Identity: ::windows::core::IUnknownImpl, Impl: IMFTrustedInput_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwstreamid: u32, riid: *const ::windows::core::GUID, ppunkobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -16295,6 +16750,8 @@ pub trait IMFTrustedOutput_Impl: Sized {
     fn GetOutputTrustAuthorityByIndex(&self, dwindex: u32) -> ::windows::core::Result<IMFOutputTrustAuthority>;
     fn IsFinal(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IMFTrustedOutput {}
 #[cfg(feature = "Win32_Foundation")]
 impl IMFTrustedOutput_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFTrustedOutput_Impl, const OFFSET: isize>() -> IMFTrustedOutput_Vtbl {
@@ -16345,6 +16802,7 @@ impl IMFTrustedOutput_Vtbl {
 pub trait IMFVideoCaptureSampleAllocator_Impl: Sized + IMFVideoSampleAllocator_Impl {
     fn InitializeCaptureSampleAllocator(&self, cbsamplesize: u32, cbcapturemetadatasize: u32, cbalignment: u32, cminimumsamples: u32, pattributes: &::core::option::Option<IMFAttributes>, pmediatype: &::core::option::Option<IMFMediaType>) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IMFVideoCaptureSampleAllocator {}
 impl IMFVideoCaptureSampleAllocator_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFVideoCaptureSampleAllocator_Impl, const OFFSET: isize>() -> IMFVideoCaptureSampleAllocator_Vtbl {
         unsafe extern "system" fn InitializeCaptureSampleAllocator<Identity: ::windows::core::IUnknownImpl, Impl: IMFVideoCaptureSampleAllocator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cbsamplesize: u32, cbcapturemetadatasize: u32, cbalignment: u32, cminimumsamples: u32, pattributes: ::windows::core::RawPtr, pmediatype: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -16364,6 +16822,7 @@ impl IMFVideoCaptureSampleAllocator_Vtbl {
 pub trait IMFVideoDeviceID_Impl: Sized {
     fn GetDeviceID(&self) -> ::windows::core::Result<::windows::core::GUID>;
 }
+impl ::windows::core::RuntimeName for IMFVideoDeviceID {}
 impl IMFVideoDeviceID_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFVideoDeviceID_Impl, const OFFSET: isize>() -> IMFVideoDeviceID_Vtbl {
         unsafe extern "system" fn GetDeviceID<Identity: ::windows::core::IUnknownImpl, Impl: IMFVideoDeviceID_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdeviceid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
@@ -16402,6 +16861,8 @@ pub trait IMFVideoDisplayControl_Impl: Sized {
     fn SetFullscreen(&self, ffullscreen: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn GetFullscreen(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::windows::core::RuntimeName for IMFVideoDisplayControl {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl IMFVideoDisplayControl_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFVideoDisplayControl_Impl, const OFFSET: isize>() -> IMFVideoDisplayControl_Vtbl {
@@ -16545,6 +17006,8 @@ pub trait IMFVideoMediaType_Impl: Sized + IMFAttributes_Impl + IMFMediaType_Impl
     fn GetVideoRepresentation(&self, guidrepresentation: &::windows::core::GUID, ppvrepresentation: *mut *mut ::core::ffi::c_void, lstride: i32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+impl ::windows::core::RuntimeName for IMFVideoMediaType {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 impl IMFVideoMediaType_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFVideoMediaType_Impl, const OFFSET: isize>() -> IMFVideoMediaType_Vtbl {
         unsafe extern "system" fn GetVideoFormat<Identity: ::windows::core::IUnknownImpl, Impl: IMFVideoMediaType_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> *mut MFVIDEOFORMAT {
@@ -16574,6 +17037,8 @@ pub trait IMFVideoMixerBitmap_Impl: Sized {
     fn UpdateAlphaBitmapParameters(&self, pbmpparms: *const MFVideoAlphaBitmapParams) -> ::windows::core::Result<()>;
     fn GetAlphaBitmapParameters(&self) -> ::windows::core::Result<MFVideoAlphaBitmapParams>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_Gdi"))]
+impl ::windows::core::RuntimeName for IMFVideoMixerBitmap {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_Gdi"))]
 impl IMFVideoMixerBitmap_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFVideoMixerBitmap_Impl, const OFFSET: isize>() -> IMFVideoMixerBitmap_Vtbl {
@@ -16621,6 +17086,7 @@ pub trait IMFVideoMixerControl_Impl: Sized {
     fn SetStreamOutputRect(&self, dwstreamid: u32, pnrcoutput: *const MFVideoNormalizedRect) -> ::windows::core::Result<()>;
     fn GetStreamOutputRect(&self, dwstreamid: u32) -> ::windows::core::Result<MFVideoNormalizedRect>;
 }
+impl ::windows::core::RuntimeName for IMFVideoMixerControl {}
 impl IMFVideoMixerControl_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFVideoMixerControl_Impl, const OFFSET: isize>() -> IMFVideoMixerControl_Vtbl {
         unsafe extern "system" fn SetStreamZOrder<Identity: ::windows::core::IUnknownImpl, Impl: IMFVideoMixerControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwstreamid: u32, dwz: u32) -> ::windows::core::HRESULT {
@@ -16671,6 +17137,7 @@ pub trait IMFVideoMixerControl2_Impl: Sized + IMFVideoMixerControl_Impl {
     fn SetMixingPrefs(&self, dwmixflags: u32) -> ::windows::core::Result<()>;
     fn GetMixingPrefs(&self) -> ::windows::core::Result<u32>;
 }
+impl ::windows::core::RuntimeName for IMFVideoMixerControl2 {}
 impl IMFVideoMixerControl2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFVideoMixerControl2_Impl, const OFFSET: isize>() -> IMFVideoMixerControl2_Vtbl {
         unsafe extern "system" fn SetMixingPrefs<Identity: ::windows::core::IUnknownImpl, Impl: IMFVideoMixerControl2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwmixflags: u32) -> ::windows::core::HRESULT {
@@ -16702,6 +17169,7 @@ impl IMFVideoMixerControl2_Vtbl {
 pub trait IMFVideoPositionMapper_Impl: Sized {
     fn MapOutputCoordinateToInputStream(&self, xout: f32, yout: f32, dwoutputstreamindex: u32, dwinputstreamindex: u32, pxin: *mut f32, pyin: *mut f32) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IMFVideoPositionMapper {}
 impl IMFVideoPositionMapper_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFVideoPositionMapper_Impl, const OFFSET: isize>() -> IMFVideoPositionMapper_Vtbl {
         unsafe extern "system" fn MapOutputCoordinateToInputStream<Identity: ::windows::core::IUnknownImpl, Impl: IMFVideoPositionMapper_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xout: f32, yout: f32, dwoutputstreamindex: u32, dwinputstreamindex: u32, pxin: *mut f32, pyin: *mut f32) -> ::windows::core::HRESULT {
@@ -16722,6 +17190,7 @@ pub trait IMFVideoPresenter_Impl: Sized + IMFClockStateSink_Impl {
     fn ProcessMessage(&self, emessage: MFVP_MESSAGE_TYPE, ulparam: usize) -> ::windows::core::Result<()>;
     fn GetCurrentMediaType(&self) -> ::windows::core::Result<IMFVideoMediaType>;
 }
+impl ::windows::core::RuntimeName for IMFVideoPresenter {}
 impl IMFVideoPresenter_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFVideoPresenter_Impl, const OFFSET: isize>() -> IMFVideoPresenter_Vtbl {
         unsafe extern "system" fn ProcessMessage<Identity: ::windows::core::IUnknownImpl, Impl: IMFVideoPresenter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, emessage: MFVP_MESSAGE_TYPE, ulparam: usize) -> ::windows::core::HRESULT {
@@ -16765,6 +17234,8 @@ pub trait IMFVideoProcessor_Impl: Sized {
     fn GetBackgroundColor(&self) -> ::windows::core::Result<u32>;
     fn SetBackgroundColor(&self, clrbkg: u32) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl ::windows::core::RuntimeName for IMFVideoProcessor {}
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl IMFVideoProcessor_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFVideoProcessor_Impl, const OFFSET: isize>() -> IMFVideoProcessor_Vtbl {
@@ -16900,6 +17371,8 @@ pub trait IMFVideoProcessorControl_Impl: Sized {
     fn SetConstrictionSize(&self, pconstrictionsize: *const super::super::Foundation::SIZE) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IMFVideoProcessorControl {}
+#[cfg(feature = "Win32_Foundation")]
 impl IMFVideoProcessorControl_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFVideoProcessorControl_Impl, const OFFSET: isize>() -> IMFVideoProcessorControl_Vtbl {
         unsafe extern "system" fn SetBorderColor<Identity: ::windows::core::IUnknownImpl, Impl: IMFVideoProcessorControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbordercolor: *const MFARGB) -> ::windows::core::HRESULT {
@@ -16953,6 +17426,8 @@ pub trait IMFVideoProcessorControl2_Impl: Sized + IMFVideoProcessorControl_Impl 
     fn GetSupportedHardwareEffects(&self) -> ::windows::core::Result<u32>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IMFVideoProcessorControl2 {}
+#[cfg(feature = "Win32_Foundation")]
 impl IMFVideoProcessorControl2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFVideoProcessorControl2_Impl, const OFFSET: isize>() -> IMFVideoProcessorControl2_Vtbl {
         unsafe extern "system" fn SetRotationOverride<Identity: ::windows::core::IUnknownImpl, Impl: IMFVideoProcessorControl2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uirotation: u32) -> ::windows::core::HRESULT {
@@ -16994,6 +17469,8 @@ pub trait IMFVideoProcessorControl3_Impl: Sized + IMFVideoProcessorControl_Impl 
     fn SetSphericalVideoProperties(&self, x: f32, y: f32, z: f32, w: f32, fieldofview: f32) -> ::windows::core::Result<()>;
     fn SetOutputDevice(&self, poutputdevice: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IMFVideoProcessorControl3 {}
 #[cfg(feature = "Win32_Foundation")]
 impl IMFVideoProcessorControl3_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFVideoProcessorControl3_Impl, const OFFSET: isize>() -> IMFVideoProcessorControl3_Vtbl {
@@ -17038,6 +17515,7 @@ impl IMFVideoProcessorControl3_Vtbl {
 pub trait IMFVideoRenderer_Impl: Sized {
     fn InitializeRenderer(&self, pvideomixer: &::core::option::Option<IMFTransform>, pvideopresenter: &::core::option::Option<IMFVideoPresenter>) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IMFVideoRenderer {}
 impl IMFVideoRenderer_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFVideoRenderer_Impl, const OFFSET: isize>() -> IMFVideoRenderer_Vtbl {
         unsafe extern "system" fn InitializeRenderer<Identity: ::windows::core::IUnknownImpl, Impl: IMFVideoRenderer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvideomixer: ::windows::core::RawPtr, pvideopresenter: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -17054,6 +17532,7 @@ impl IMFVideoRenderer_Vtbl {
 pub trait IMFVideoRendererEffectControl_Impl: Sized {
     fn OnAppServiceConnectionEstablished(&self, pappserviceconnection: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IMFVideoRendererEffectControl {}
 impl IMFVideoRendererEffectControl_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFVideoRendererEffectControl_Impl, const OFFSET: isize>() -> IMFVideoRendererEffectControl_Vtbl {
         unsafe extern "system" fn OnAppServiceConnectionEstablished<Identity: ::windows::core::IUnknownImpl, Impl: IMFVideoRendererEffectControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pappserviceconnection: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -17076,6 +17555,7 @@ pub trait IMFVideoSampleAllocator_Impl: Sized {
     fn InitializeSampleAllocator(&self, crequestedframes: u32, pmediatype: &::core::option::Option<IMFMediaType>) -> ::windows::core::Result<()>;
     fn AllocateSample(&self) -> ::windows::core::Result<IMFSample>;
 }
+impl ::windows::core::RuntimeName for IMFVideoSampleAllocator {}
 impl IMFVideoSampleAllocator_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFVideoSampleAllocator_Impl, const OFFSET: isize>() -> IMFVideoSampleAllocator_Vtbl {
         unsafe extern "system" fn SetDirectXManager<Identity: ::windows::core::IUnknownImpl, Impl: IMFVideoSampleAllocator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pmanager: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -17120,6 +17600,7 @@ pub trait IMFVideoSampleAllocatorCallback_Impl: Sized {
     fn SetCallback(&self, pnotify: &::core::option::Option<IMFVideoSampleAllocatorNotify>) -> ::windows::core::Result<()>;
     fn GetFreeSampleCount(&self) -> ::windows::core::Result<i32>;
 }
+impl ::windows::core::RuntimeName for IMFVideoSampleAllocatorCallback {}
 impl IMFVideoSampleAllocatorCallback_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFVideoSampleAllocatorCallback_Impl, const OFFSET: isize>() -> IMFVideoSampleAllocatorCallback_Vtbl {
         unsafe extern "system" fn SetCallback<Identity: ::windows::core::IUnknownImpl, Impl: IMFVideoSampleAllocatorCallback_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pnotify: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -17151,6 +17632,7 @@ impl IMFVideoSampleAllocatorCallback_Vtbl {
 pub trait IMFVideoSampleAllocatorEx_Impl: Sized + IMFVideoSampleAllocator_Impl {
     fn InitializeSampleAllocatorEx(&self, cinitialsamples: u32, cmaximumsamples: u32, pattributes: &::core::option::Option<IMFAttributes>, pmediatype: &::core::option::Option<IMFMediaType>) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IMFVideoSampleAllocatorEx {}
 impl IMFVideoSampleAllocatorEx_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFVideoSampleAllocatorEx_Impl, const OFFSET: isize>() -> IMFVideoSampleAllocatorEx_Vtbl {
         unsafe extern "system" fn InitializeSampleAllocatorEx<Identity: ::windows::core::IUnknownImpl, Impl: IMFVideoSampleAllocatorEx_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cinitialsamples: u32, cmaximumsamples: u32, pattributes: ::windows::core::RawPtr, pmediatype: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -17170,6 +17652,7 @@ impl IMFVideoSampleAllocatorEx_Vtbl {
 pub trait IMFVideoSampleAllocatorNotify_Impl: Sized {
     fn NotifyRelease(&self) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IMFVideoSampleAllocatorNotify {}
 impl IMFVideoSampleAllocatorNotify_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFVideoSampleAllocatorNotify_Impl, const OFFSET: isize>() -> IMFVideoSampleAllocatorNotify_Vtbl {
         unsafe extern "system" fn NotifyRelease<Identity: ::windows::core::IUnknownImpl, Impl: IMFVideoSampleAllocatorNotify_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -17186,6 +17669,7 @@ impl IMFVideoSampleAllocatorNotify_Vtbl {
 pub trait IMFVideoSampleAllocatorNotifyEx_Impl: Sized + IMFVideoSampleAllocatorNotify_Impl {
     fn NotifyPrune(&self, __midl__imfvideosampleallocatornotifyex0000: &::core::option::Option<IMFSample>) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IMFVideoSampleAllocatorNotifyEx {}
 impl IMFVideoSampleAllocatorNotifyEx_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFVideoSampleAllocatorNotifyEx_Impl, const OFFSET: isize>() -> IMFVideoSampleAllocatorNotifyEx_Vtbl {
         unsafe extern "system" fn NotifyPrune<Identity: ::windows::core::IUnknownImpl, Impl: IMFVideoSampleAllocatorNotifyEx_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, __midl__imfvideosampleallocatornotifyex0000: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -17213,6 +17697,8 @@ pub trait IMFVirtualCamera_Impl: Sized + IMFAttributes_Impl {
     fn CreateSyncSemaphore(&self, kseventset: *const ::windows::core::GUID, kseventid: u32, kseventflags: u32, semaphorehandle: super::super::Foundation::HANDLE, semaphoreadjustment: i32) -> ::windows::core::Result<IMFCameraSyncObject>;
     fn Shutdown(&self) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+impl ::windows::core::RuntimeName for IMFVirtualCamera {}
 #[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 impl IMFVirtualCamera_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFVirtualCamera_Impl, const OFFSET: isize>() -> IMFVirtualCamera_Vtbl {
@@ -17322,6 +17808,7 @@ pub trait IMFWorkQueueServices_Impl: Sized {
     fn GetPlaftormWorkQueueMMCSSClass(&self, dwplatformworkqueueid: u32, pwszclass: ::windows::core::PWSTR, pcchclass: *mut u32) -> ::windows::core::Result<()>;
     fn GetPlatformWorkQueueMMCSSTaskId(&self, dwplatformworkqueueid: u32) -> ::windows::core::Result<u32>;
 }
+impl ::windows::core::RuntimeName for IMFWorkQueueServices {}
 impl IMFWorkQueueServices_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFWorkQueueServices_Impl, const OFFSET: isize>() -> IMFWorkQueueServices_Vtbl {
         unsafe extern "system" fn BeginRegisterTopologyWorkQueuesWithMMCSS<Identity: ::windows::core::IUnknownImpl, Impl: IMFWorkQueueServices_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcallback: ::windows::core::RawPtr, pstate: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -17427,6 +17914,7 @@ pub trait IMFWorkQueueServicesEx_Impl: Sized + IMFWorkQueueServices_Impl {
     fn BeginRegisterPlatformWorkQueueWithMMCSSEx(&self, dwplatformworkqueue: u32, wszclass: &::windows::core::PCWSTR, dwtaskid: u32, lpriority: i32, pcallback: &::core::option::Option<IMFAsyncCallback>, pstate: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
     fn GetPlatformWorkQueueMMCSSPriority(&self, dwplatformworkqueueid: u32) -> ::windows::core::Result<i32>;
 }
+impl ::windows::core::RuntimeName for IMFWorkQueueServicesEx {}
 impl IMFWorkQueueServicesEx_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMFWorkQueueServicesEx_Impl, const OFFSET: isize>() -> IMFWorkQueueServicesEx_Vtbl {
         unsafe extern "system" fn GetTopologyWorkQueueMMCSSPriority<Identity: ::windows::core::IUnknownImpl, Impl: IMFWorkQueueServicesEx_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwtopologyworkqueueid: u32, plpriority: *mut i32) -> ::windows::core::HRESULT {
@@ -17474,6 +17962,7 @@ pub trait IOPMVideoOutput_Impl: Sized {
     fn COPPCompatibleGetInformation(&self, pparameters: *const OPM_COPP_COMPATIBLE_GET_INFO_PARAMETERS) -> ::windows::core::Result<OPM_REQUESTED_INFORMATION>;
     fn Configure(&self, pparameters: *const OPM_CONFIGURE_PARAMETERS, uladditionalparameterssize: u32, pbadditionalparameters: *const u8) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IOPMVideoOutput {}
 impl IOPMVideoOutput_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IOPMVideoOutput_Impl, const OFFSET: isize>() -> IOPMVideoOutput_Vtbl {
         unsafe extern "system" fn StartInitialization<Identity: ::windows::core::IUnknownImpl, Impl: IOPMVideoOutput_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, prnrandomnumber: *mut OPM_RANDOM_NUMBER, ppbcertificate: *mut *mut u8, pulcertificatelength: *mut u32) -> ::windows::core::HRESULT {
@@ -17530,6 +18019,7 @@ pub trait IPlayToControl_Impl: Sized {
     fn Connect(&self, pfactory: &::core::option::Option<IMFSharingEngineClassFactory>) -> ::windows::core::Result<()>;
     fn Disconnect(&self) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IPlayToControl {}
 impl IPlayToControl_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPlayToControl_Impl, const OFFSET: isize>() -> IPlayToControl_Vtbl {
         unsafe extern "system" fn Connect<Identity: ::windows::core::IUnknownImpl, Impl: IPlayToControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfactory: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -17555,6 +18045,7 @@ impl IPlayToControl_Vtbl {
 pub trait IPlayToControlWithCapabilities_Impl: Sized + IPlayToControl_Impl {
     fn GetCapabilities(&self) -> ::windows::core::Result<PLAYTO_SOURCE_CREATEFLAGS>;
 }
+impl ::windows::core::RuntimeName for IPlayToControlWithCapabilities {}
 impl IPlayToControlWithCapabilities_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPlayToControlWithCapabilities_Impl, const OFFSET: isize>() -> IPlayToControlWithCapabilities_Vtbl {
         unsafe extern "system" fn GetCapabilities<Identity: ::windows::core::IUnknownImpl, Impl: IPlayToControlWithCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcapabilities: *mut PLAYTO_SOURCE_CREATEFLAGS) -> ::windows::core::HRESULT {
@@ -17577,6 +18068,7 @@ impl IPlayToControlWithCapabilities_Vtbl {
 pub trait IPlayToSourceClassFactory_Impl: Sized {
     fn CreateInstance(&self, dwflags: u32, pcontrol: &::core::option::Option<IPlayToControl>) -> ::windows::core::Result<::windows::core::IInspectable>;
 }
+impl ::windows::core::RuntimeName for IPlayToSourceClassFactory {}
 impl IPlayToSourceClassFactory_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPlayToSourceClassFactory_Impl, const OFFSET: isize>() -> IPlayToSourceClassFactory_Vtbl {
         unsafe extern "system" fn CreateInstance<Identity: ::windows::core::IUnknownImpl, Impl: IPlayToSourceClassFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwflags: u32, pcontrol: ::windows::core::RawPtr, ppsource: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -17609,6 +18101,7 @@ pub trait IToc_Impl: Sized {
     fn AddEntryListByIndex(&self, wentrylistindex: u16, pentrylist: &::core::option::Option<ITocEntryList>) -> ::windows::core::Result<()>;
     fn RemoveEntryListByIndex(&self, wentrylistindex: u16) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IToc {}
 impl IToc_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IToc_Impl, const OFFSET: isize>() -> IToc_Vtbl {
         unsafe extern "system" fn SetDescriptor<Identity: ::windows::core::IUnknownImpl, Impl: IToc_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdescriptor: *mut TOC_DESCRIPTOR) -> ::windows::core::HRESULT {
@@ -17698,6 +18191,7 @@ pub trait ITocCollection_Impl: Sized {
     fn AddEntryByIndex(&self, dwentryindex: u32, ptoc: &::core::option::Option<IToc>) -> ::windows::core::Result<()>;
     fn RemoveEntryByIndex(&self, dwentryindex: u32) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for ITocCollection {}
 impl ITocCollection_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITocCollection_Impl, const OFFSET: isize>() -> ITocCollection_Vtbl {
         unsafe extern "system" fn GetEntryCount<Identity: ::windows::core::IUnknownImpl, Impl: ITocCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwentrycount: *mut u32) -> ::windows::core::HRESULT {
@@ -17754,6 +18248,7 @@ pub trait ITocEntry_Impl: Sized {
     fn SetDescriptionData(&self, dwdescriptiondatasize: u32, pbtdescriptiondata: *mut u8, pguidtype: *mut ::windows::core::GUID) -> ::windows::core::Result<()>;
     fn GetDescriptionData(&self, pdwdescriptiondatasize: *mut u32, pbtdescriptiondata: *mut u8, pguidtype: *mut ::windows::core::GUID) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for ITocEntry {}
 impl ITocEntry_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITocEntry_Impl, const OFFSET: isize>() -> ITocEntry_Vtbl {
         unsafe extern "system" fn SetTitle<Identity: ::windows::core::IUnknownImpl, Impl: ITocEntry_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwsztitle: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
@@ -17819,6 +18314,7 @@ pub trait ITocEntryList_Impl: Sized {
     fn AddEntryByIndex(&self, dwentryindex: u32, pentry: &::core::option::Option<ITocEntry>) -> ::windows::core::Result<()>;
     fn RemoveEntryByIndex(&self, dwentryindex: u32) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for ITocEntryList {}
 impl ITocEntryList_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITocEntryList_Impl, const OFFSET: isize>() -> ITocEntryList_Vtbl {
         unsafe extern "system" fn GetEntryCount<Identity: ::windows::core::IUnknownImpl, Impl: ITocEntryList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwentrycount: *mut u32) -> ::windows::core::HRESULT {
@@ -17875,6 +18371,7 @@ pub trait ITocParser_Impl: Sized {
     fn RemoveTocByType(&self, enumtocpostype: TOC_POS_TYPE, guidtoctype: &::windows::core::GUID) -> ::windows::core::Result<()>;
     fn Commit(&self) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for ITocParser {}
 impl ITocParser_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITocParser_Impl, const OFFSET: isize>() -> ITocParser_Vtbl {
         unsafe extern "system" fn Init<Identity: ::windows::core::IUnknownImpl, Impl: ITocParser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszfilename: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
@@ -17948,6 +18445,7 @@ impl ITocParser_Vtbl {
 pub trait IValidateBinding_Impl: Sized {
     fn GetIdentifier(&self, guidlicensorid: &::windows::core::GUID, pbephemeron: *const u8, cbephemeron: u32, ppbblobvalidationid: *mut *mut u8, pcbblobsize: *mut u32) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IValidateBinding {}
 impl IValidateBinding_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IValidateBinding_Impl, const OFFSET: isize>() -> IValidateBinding_Vtbl {
         unsafe extern "system" fn GetIdentifier<Identity: ::windows::core::IUnknownImpl, Impl: IValidateBinding_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guidlicensorid: ::windows::core::GUID, pbephemeron: *const u8, cbephemeron: u32, ppbblobvalidationid: *mut *mut u8, pcbblobsize: *mut u32) -> ::windows::core::HRESULT {
@@ -17967,6 +18465,7 @@ pub trait IWMCodecLeakyBucket_Impl: Sized {
     fn SetBufferFullnessBits(&self, ulbufferfullness: u32) -> ::windows::core::Result<()>;
     fn GetBufferFullnessBits(&self, pulbufferfullness: *mut u32) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IWMCodecLeakyBucket {}
 impl IWMCodecLeakyBucket_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMCodecLeakyBucket_Impl, const OFFSET: isize>() -> IWMCodecLeakyBucket_Vtbl {
         unsafe extern "system" fn SetBufferSizeBits<Identity: ::windows::core::IUnknownImpl, Impl: IWMCodecLeakyBucket_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ulbuffersize: u32) -> ::windows::core::HRESULT {
@@ -18004,6 +18503,7 @@ impl IWMCodecLeakyBucket_Vtbl {
 pub trait IWMCodecOutputTimestamp_Impl: Sized {
     fn GetNextOutputTime(&self, prttime: *mut i64) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IWMCodecOutputTimestamp {}
 impl IWMCodecOutputTimestamp_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMCodecOutputTimestamp_Impl, const OFFSET: isize>() -> IWMCodecOutputTimestamp_Vtbl {
         unsafe extern "system" fn GetNextOutputTime<Identity: ::windows::core::IUnknownImpl, Impl: IWMCodecOutputTimestamp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, prttime: *mut i64) -> ::windows::core::HRESULT {
@@ -18022,6 +18522,8 @@ pub trait IWMCodecPrivateData_Impl: Sized {
     fn SetPartialOutputType(&self, pmt: *mut super::DxMediaObjects::DMO_MEDIA_TYPE) -> ::windows::core::Result<()>;
     fn GetPrivateData(&self, pbdata: *mut u8, pcbdata: *mut u32) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_DxMediaObjects"))]
+impl ::windows::core::RuntimeName for IWMCodecPrivateData {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_DxMediaObjects"))]
 impl IWMCodecPrivateData_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMCodecPrivateData_Impl, const OFFSET: isize>() -> IWMCodecPrivateData_Vtbl {
@@ -18051,6 +18553,8 @@ pub trait IWMCodecProps_Impl: Sized {
     fn GetCodecProp(&self, dwformat: u32, pszname: &::windows::core::PCWSTR, ptype: *mut WMT_PROP_DATATYPE, pvalue: *mut u8, pdwsize: *mut u32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_DxMediaObjects"))]
+impl ::windows::core::RuntimeName for IWMCodecProps {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_DxMediaObjects"))]
 impl IWMCodecProps_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMCodecProps_Impl, const OFFSET: isize>() -> IWMCodecProps_Vtbl {
         unsafe extern "system" fn GetFormatProp<Identity: ::windows::core::IUnknownImpl, Impl: IWMCodecProps_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pmt: *mut super::DxMediaObjects::DMO_MEDIA_TYPE, pszname: ::windows::core::PCWSTR, ptype: *mut WMT_PROP_DATATYPE, pvalue: *mut u8, pdwsize: *mut u32) -> ::windows::core::HRESULT {
@@ -18079,6 +18583,8 @@ pub trait IWMCodecStrings_Impl: Sized {
     fn GetDescription(&self, pmt: *mut super::DxMediaObjects::DMO_MEDIA_TYPE, cchlength: u32, szdescription: ::windows::core::PWSTR, pcchlength: *mut u32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_DxMediaObjects"))]
+impl ::windows::core::RuntimeName for IWMCodecStrings {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_DxMediaObjects"))]
 impl IWMCodecStrings_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMCodecStrings_Impl, const OFFSET: isize>() -> IWMCodecStrings_Vtbl {
         unsafe extern "system" fn GetName<Identity: ::windows::core::IUnknownImpl, Impl: IWMCodecStrings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pmt: *mut super::DxMediaObjects::DMO_MEDIA_TYPE, cchlength: u32, szname: ::windows::core::PWSTR, pcchlength: *mut u32) -> ::windows::core::HRESULT {
@@ -18105,6 +18611,7 @@ pub trait IWMColorConvProps_Impl: Sized {
     fn SetMode(&self, lmode: i32) -> ::windows::core::Result<()>;
     fn SetFullCroppingParam(&self, lsrccropleft: i32, lsrccroptop: i32, ldstcropleft: i32, ldstcroptop: i32, lcropwidth: i32, lcropheight: i32) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IWMColorConvProps {}
 impl IWMColorConvProps_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMColorConvProps_Impl, const OFFSET: isize>() -> IWMColorConvProps_Vtbl {
         unsafe extern "system" fn SetMode<Identity: ::windows::core::IUnknownImpl, Impl: IWMColorConvProps_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lmode: i32) -> ::windows::core::HRESULT {
@@ -18130,6 +18637,7 @@ impl IWMColorConvProps_Vtbl {
 pub trait IWMColorLegalizerProps_Impl: Sized {
     fn SetColorLegalizerQuality(&self, lquality: i32) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IWMColorLegalizerProps {}
 impl IWMColorLegalizerProps_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMColorLegalizerProps_Impl, const OFFSET: isize>() -> IWMColorLegalizerProps_Vtbl {
         unsafe extern "system" fn SetColorLegalizerQuality<Identity: ::windows::core::IUnknownImpl, Impl: IWMColorLegalizerProps_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lquality: i32) -> ::windows::core::HRESULT {
@@ -18150,6 +18658,8 @@ pub trait IWMFrameInterpProps_Impl: Sized {
     fn SetFrameInterpEnabled(&self, bfienabled: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn SetComplexityLevel(&self, icomplexity: i32) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IWMFrameInterpProps {}
 #[cfg(feature = "Win32_Foundation")]
 impl IWMFrameInterpProps_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMFrameInterpProps_Impl, const OFFSET: isize>() -> IWMFrameInterpProps_Vtbl {
@@ -18190,6 +18700,7 @@ pub trait IWMInterlaceProps_Impl: Sized {
     fn SetInitInverseTeleCinePattern(&self, iinitpattern: i32) -> ::windows::core::Result<()>;
     fn SetLastFrame(&self) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IWMInterlaceProps {}
 impl IWMInterlaceProps_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMInterlaceProps_Impl, const OFFSET: isize>() -> IWMInterlaceProps_Vtbl {
         unsafe extern "system" fn SetProcessType<Identity: ::windows::core::IUnknownImpl, Impl: IWMInterlaceProps_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, iprocesstype: i32) -> ::windows::core::HRESULT {
@@ -18222,6 +18733,7 @@ pub trait IWMResamplerProps_Impl: Sized {
     fn SetHalfFilterLength(&self, lhalffilterlen: i32) -> ::windows::core::Result<()>;
     fn SetUserChannelMtx(&self, userchannelmtx: *mut f32) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IWMResamplerProps {}
 impl IWMResamplerProps_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMResamplerProps_Impl, const OFFSET: isize>() -> IWMResamplerProps_Vtbl {
         unsafe extern "system" fn SetHalfFilterLength<Identity: ::windows::core::IUnknownImpl, Impl: IWMResamplerProps_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lhalffilterlen: i32) -> ::windows::core::HRESULT {
@@ -18251,6 +18763,7 @@ pub trait IWMResizerProps_Impl: Sized {
     fn SetFullCropRegion(&self, lcliporixsrc: i32, lcliporiysrc: i32, lclipwidthsrc: i32, lclipheightsrc: i32, lcliporixdst: i32, lcliporiydst: i32, lclipwidthdst: i32, lclipheightdst: i32) -> ::windows::core::Result<()>;
     fn GetFullCropRegion(&self, lcliporixsrc: *mut i32, lcliporiysrc: *mut i32, lclipwidthsrc: *mut i32, lclipheightsrc: *mut i32, lcliporixdst: *mut i32, lcliporiydst: *mut i32, lclipwidthdst: *mut i32, lclipheightdst: *mut i32) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IWMResizerProps {}
 impl IWMResizerProps_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMResizerProps_Impl, const OFFSET: isize>() -> IWMResizerProps_Vtbl {
         unsafe extern "system" fn SetResizerQuality<Identity: ::windows::core::IUnknownImpl, Impl: IWMResizerProps_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lquality: i32) -> ::windows::core::HRESULT {
@@ -18296,6 +18809,8 @@ pub trait IWMSampleExtensionSupport_Impl: Sized {
     fn SetUseSampleExtensions(&self, fuseextensions: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IWMSampleExtensionSupport {}
+#[cfg(feature = "Win32_Foundation")]
 impl IWMSampleExtensionSupport_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMSampleExtensionSupport_Impl, const OFFSET: isize>() -> IWMSampleExtensionSupport_Vtbl {
         unsafe extern "system" fn SetUseSampleExtensions<Identity: ::windows::core::IUnknownImpl, Impl: IWMSampleExtensionSupport_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fuseextensions: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
@@ -18312,6 +18827,7 @@ impl IWMSampleExtensionSupport_Vtbl {
 pub trait IWMValidate_Impl: Sized {
     fn SetIdentifier(&self, guidvalidationid: &::windows::core::GUID) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IWMValidate {}
 impl IWMValidate_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMValidate_Impl, const OFFSET: isize>() -> IWMValidate_Vtbl {
         unsafe extern "system" fn SetIdentifier<Identity: ::windows::core::IUnknownImpl, Impl: IWMValidate_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guidvalidationid: ::windows::core::GUID) -> ::windows::core::HRESULT {
@@ -18329,6 +18845,7 @@ pub trait IWMVideoDecoderHurryup_Impl: Sized {
     fn SetHurryup(&self, lhurryup: i32) -> ::windows::core::Result<()>;
     fn GetHurryup(&self, plhurryup: *mut i32) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IWMVideoDecoderHurryup {}
 impl IWMVideoDecoderHurryup_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMVideoDecoderHurryup_Impl, const OFFSET: isize>() -> IWMVideoDecoderHurryup_Vtbl {
         unsafe extern "system" fn SetHurryup<Identity: ::windows::core::IUnknownImpl, Impl: IWMVideoDecoderHurryup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lhurryup: i32) -> ::windows::core::HRESULT {
@@ -18357,6 +18874,8 @@ pub trait IWMVideoDecoderReconBuffer_Impl: Sized {
     fn GetReconstructedVideoFrame(&self, pbuf: &::core::option::Option<super::DxMediaObjects::IMediaBuffer>) -> ::windows::core::Result<()>;
     fn SetReconstructedVideoFrame(&self, pbuf: &::core::option::Option<super::DxMediaObjects::IMediaBuffer>) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Media_DxMediaObjects")]
+impl ::windows::core::RuntimeName for IWMVideoDecoderReconBuffer {}
 #[cfg(feature = "Win32_Media_DxMediaObjects")]
 impl IWMVideoDecoderReconBuffer_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMVideoDecoderReconBuffer_Impl, const OFFSET: isize>() -> IWMVideoDecoderReconBuffer_Vtbl {
@@ -18389,6 +18908,7 @@ impl IWMVideoDecoderReconBuffer_Vtbl {
 pub trait IWMVideoForceKeyFrame_Impl: Sized {
     fn SetKeyFrame(&self) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IWMVideoForceKeyFrame {}
 impl IWMVideoForceKeyFrame_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMVideoForceKeyFrame_Impl, const OFFSET: isize>() -> IWMVideoForceKeyFrame_Vtbl {
         unsafe extern "system" fn SetKeyFrame<Identity: ::windows::core::IUnknownImpl, Impl: IWMVideoForceKeyFrame_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -18403,6 +18923,7 @@ impl IWMVideoForceKeyFrame_Vtbl {
     }
 }
 pub trait MFASYNCRESULT_Impl: Sized + IMFAsyncResult_Impl {}
+impl ::windows::core::RuntimeName for MFASYNCRESULT {}
 impl MFASYNCRESULT_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: MFASYNCRESULT_Impl, const OFFSET: isize>() -> MFASYNCRESULT_Vtbl {
         Self { base__: IMFAsyncResult_Vtbl::new::<Identity, Impl, OFFSET>() }

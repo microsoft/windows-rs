@@ -1,6 +1,7 @@
 pub trait IAccIdentity_Impl: Sized {
     fn GetIdentityString(&self, dwidchild: u32, ppidstring: *mut *mut u8, pdwidstringlen: *mut u32) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IAccIdentity {}
 impl IAccIdentity_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAccIdentity_Impl, const OFFSET: isize>() -> IAccIdentity_Vtbl {
         unsafe extern "system" fn GetIdentityString<Identity: ::windows::core::IUnknownImpl, Impl: IAccIdentity_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwidchild: u32, ppidstring: *mut *mut u8, pdwidstringlen: *mut u32) -> ::windows::core::HRESULT {
@@ -18,6 +19,8 @@ impl IAccIdentity_Vtbl {
 pub trait IAccPropServer_Impl: Sized {
     fn GetPropValue(&self, pidstring: *const u8, dwidstringlen: u32, idprop: &::windows::core::GUID, pvarvalue: *mut super::super::System::Com::VARIANT, pfhasprop: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IAccPropServer {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IAccPropServer_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAccPropServer_Impl, const OFFSET: isize>() -> IAccPropServer_Vtbl {
@@ -50,6 +53,8 @@ pub trait IAccPropServices_Impl: Sized {
     fn ComposeHmenuIdentityString(&self, hmenu: super::WindowsAndMessaging::HMENU, idchild: u32, ppidstring: *mut *mut u8, pdwidstringlen: *mut u32) -> ::windows::core::Result<()>;
     fn DecomposeHmenuIdentityString(&self, pidstring: *const u8, dwidstringlen: u32, phmenu: *mut super::WindowsAndMessaging::HMENU, pidchild: *mut u32) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_UI_WindowsAndMessaging"))]
+impl ::windows::core::RuntimeName for IAccPropServices {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_UI_WindowsAndMessaging"))]
 impl IAccPropServices_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAccPropServices_Impl, const OFFSET: isize>() -> IAccPropServices_Vtbl {
@@ -175,6 +180,8 @@ pub trait IAccessible_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn put_accName(&self, varchild: &super::super::System::Com::VARIANT, szname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn put_accValue(&self, varchild: &super::super::System::Com::VARIANT, szvalue: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IAccessible {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IAccessible_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAccessible_Impl, const OFFSET: isize>() -> IAccessible_Vtbl {
@@ -410,6 +417,8 @@ pub trait IAccessibleEx_Impl: Sized {
     fn ConvertReturnedElement(&self, pin: &::core::option::Option<IRawElementProviderSimple>) -> ::windows::core::Result<IAccessibleEx>;
 }
 #[cfg(feature = "Win32_System_Com")]
+impl ::windows::core::RuntimeName for IAccessibleEx {}
+#[cfg(feature = "Win32_System_Com")]
 impl IAccessibleEx_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAccessibleEx_Impl, const OFFSET: isize>() -> IAccessibleEx_Vtbl {
         unsafe extern "system" fn GetObjectForChild<Identity: ::windows::core::IUnknownImpl, Impl: IAccessibleEx_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, idchild: i32, pretval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -467,6 +476,8 @@ pub trait IAccessibleHandler_Impl: Sized {
     fn AccessibleObjectFromID(&self, hwnd: i32, lobjectid: i32) -> ::windows::core::Result<IAccessible>;
 }
 #[cfg(feature = "Win32_System_Com")]
+impl ::windows::core::RuntimeName for IAccessibleHandler {}
+#[cfg(feature = "Win32_System_Com")]
 impl IAccessibleHandler_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAccessibleHandler_Impl, const OFFSET: isize>() -> IAccessibleHandler_Vtbl {
         unsafe extern "system" fn AccessibleObjectFromID<Identity: ::windows::core::IUnknownImpl, Impl: IAccessibleHandler_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hwnd: i32, lobjectid: i32, piaccessible: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -491,6 +502,8 @@ pub trait IAccessibleHostingElementProviders_Impl: Sized {
     fn GetEmbeddedFragmentRoots(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
     fn GetObjectIdForProvider(&self, pprovider: &::core::option::Option<IRawElementProviderSimple>) -> ::windows::core::Result<i32>;
 }
+#[cfg(feature = "Win32_System_Com")]
+impl ::windows::core::RuntimeName for IAccessibleHostingElementProviders {}
 #[cfg(feature = "Win32_System_Com")]
 impl IAccessibleHostingElementProviders_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAccessibleHostingElementProviders_Impl, const OFFSET: isize>() -> IAccessibleHostingElementProviders_Vtbl {
@@ -533,6 +546,8 @@ pub trait IAccessibleWindowlessSite_Impl: Sized {
     fn QueryObjectIdRanges(&self, prangesowner: &::core::option::Option<IAccessibleHandler>) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
     fn GetParentAccessible(&self) -> ::windows::core::Result<IAccessible>;
 }
+#[cfg(feature = "Win32_System_Com")]
+impl ::windows::core::RuntimeName for IAccessibleWindowlessSite {}
 #[cfg(feature = "Win32_System_Com")]
 impl IAccessibleWindowlessSite_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAccessibleWindowlessSite_Impl, const OFFSET: isize>() -> IAccessibleWindowlessSite_Vtbl {
@@ -594,6 +609,8 @@ pub trait IAnnotationProvider_Impl: Sized {
     fn DateTime(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn Target(&self) -> ::windows::core::Result<IRawElementProviderSimple>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IAnnotationProvider {}
 #[cfg(feature = "Win32_Foundation")]
 impl IAnnotationProvider_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAnnotationProvider_Impl, const OFFSET: isize>() -> IAnnotationProvider_Vtbl {
@@ -668,6 +685,7 @@ impl IAnnotationProvider_Vtbl {
 pub trait ICustomNavigationProvider_Impl: Sized {
     fn Navigate(&self, direction: NavigateDirection) -> ::windows::core::Result<IRawElementProviderSimple>;
 }
+impl ::windows::core::RuntimeName for ICustomNavigationProvider {}
 impl ICustomNavigationProvider_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICustomNavigationProvider_Impl, const OFFSET: isize>() -> ICustomNavigationProvider_Vtbl {
         unsafe extern "system" fn Navigate<Identity: ::windows::core::IUnknownImpl, Impl: ICustomNavigationProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, direction: NavigateDirection, pretval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -691,6 +709,7 @@ pub trait IDockProvider_Impl: Sized {
     fn SetDockPosition(&self, dockposition: DockPosition) -> ::windows::core::Result<()>;
     fn DockPosition(&self) -> ::windows::core::Result<DockPosition>;
 }
+impl ::windows::core::RuntimeName for IDockProvider {}
 impl IDockProvider_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDockProvider_Impl, const OFFSET: isize>() -> IDockProvider_Vtbl {
         unsafe extern "system" fn SetDockPosition<Identity: ::windows::core::IUnknownImpl, Impl: IDockProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dockposition: DockPosition) -> ::windows::core::HRESULT {
@@ -726,6 +745,8 @@ pub trait IDragProvider_Impl: Sized {
     fn DropEffects(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
     fn GetGrabbedItems(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::windows::core::RuntimeName for IDragProvider {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IDragProvider_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDragProvider_Impl, const OFFSET: isize>() -> IDragProvider_Vtbl {
@@ -791,6 +812,8 @@ pub trait IDropTargetProvider_Impl: Sized {
     fn DropTargetEffects(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::windows::core::RuntimeName for IDropTargetProvider {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IDropTargetProvider_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDropTargetProvider_Impl, const OFFSET: isize>() -> IDropTargetProvider_Vtbl {
         unsafe extern "system" fn DropTargetEffect<Identity: ::windows::core::IUnknownImpl, Impl: IDropTargetProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
@@ -830,6 +853,7 @@ pub trait IExpandCollapseProvider_Impl: Sized {
     fn Collapse(&self) -> ::windows::core::Result<()>;
     fn ExpandCollapseState(&self) -> ::windows::core::Result<ExpandCollapseState>;
 }
+impl ::windows::core::RuntimeName for IExpandCollapseProvider {}
 impl IExpandCollapseProvider_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IExpandCollapseProvider_Impl, const OFFSET: isize>() -> IExpandCollapseProvider_Vtbl {
         unsafe extern "system" fn Expand<Identity: ::windows::core::IUnknownImpl, Impl: IExpandCollapseProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -871,6 +895,7 @@ pub trait IGridItemProvider_Impl: Sized {
     fn ColumnSpan(&self) -> ::windows::core::Result<i32>;
     fn ContainingGrid(&self) -> ::windows::core::Result<IRawElementProviderSimple>;
 }
+impl ::windows::core::RuntimeName for IGridItemProvider {}
 impl IGridItemProvider_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGridItemProvider_Impl, const OFFSET: isize>() -> IGridItemProvider_Vtbl {
         unsafe extern "system" fn Row<Identity: ::windows::core::IUnknownImpl, Impl: IGridItemProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut i32) -> ::windows::core::HRESULT {
@@ -946,6 +971,7 @@ pub trait IGridProvider_Impl: Sized {
     fn RowCount(&self) -> ::windows::core::Result<i32>;
     fn ColumnCount(&self) -> ::windows::core::Result<i32>;
 }
+impl ::windows::core::RuntimeName for IGridProvider {}
 impl IGridProvider_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGridProvider_Impl, const OFFSET: isize>() -> IGridProvider_Vtbl {
         unsafe extern "system" fn GetItem<Identity: ::windows::core::IUnknownImpl, Impl: IGridProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, row: i32, column: i32, pretval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -995,6 +1021,7 @@ impl IGridProvider_Vtbl {
 pub trait IInvokeProvider_Impl: Sized {
     fn Invoke(&self) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IInvokeProvider {}
 impl IInvokeProvider_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInvokeProvider_Impl, const OFFSET: isize>() -> IInvokeProvider_Vtbl {
         unsafe extern "system" fn Invoke<Identity: ::windows::core::IUnknownImpl, Impl: IInvokeProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -1012,6 +1039,8 @@ impl IInvokeProvider_Vtbl {
 pub trait IItemContainerProvider_Impl: Sized {
     fn FindItemByProperty(&self, pstartafter: &::core::option::Option<IRawElementProviderSimple>, propertyid: i32, value: &super::super::System::Com::VARIANT) -> ::windows::core::Result<IRawElementProviderSimple>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IItemContainerProvider {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IItemContainerProvider_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IItemContainerProvider_Impl, const OFFSET: isize>() -> IItemContainerProvider_Vtbl {
@@ -1049,6 +1078,8 @@ pub trait ILegacyIAccessibleProvider_Impl: Sized {
     fn GetSelection(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
     fn DefaultAction(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::windows::core::RuntimeName for ILegacyIAccessibleProvider {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ILegacyIAccessibleProvider_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILegacyIAccessibleProvider_Impl, const OFFSET: isize>() -> ILegacyIAccessibleProvider_Vtbl {
@@ -1218,6 +1249,8 @@ pub trait IMultipleViewProvider_Impl: Sized {
     fn GetSupportedViews(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::windows::core::RuntimeName for IMultipleViewProvider {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IMultipleViewProvider_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMultipleViewProvider_Impl, const OFFSET: isize>() -> IMultipleViewProvider_Vtbl {
         unsafe extern "system" fn GetViewName<Identity: ::windows::core::IUnknownImpl, Impl: IMultipleViewProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, viewid: i32, pretval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
@@ -1273,6 +1306,7 @@ impl IMultipleViewProvider_Vtbl {
 pub trait IObjectModelProvider_Impl: Sized {
     fn GetUnderlyingObjectModel(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
+impl ::windows::core::RuntimeName for IObjectModelProvider {}
 impl IObjectModelProvider_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IObjectModelProvider_Impl, const OFFSET: isize>() -> IObjectModelProvider_Vtbl {
         unsafe extern "system" fn GetUnderlyingObjectModel<Identity: ::windows::core::IUnknownImpl, Impl: IObjectModelProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppunknown: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -1297,6 +1331,8 @@ pub trait IProxyProviderWinEventHandler_Impl: Sized {
     fn RespondToWinEvent(&self, idwinevent: u32, hwnd: super::super::Foundation::HWND, idobject: i32, idchild: i32, psink: &::core::option::Option<IProxyProviderWinEventSink>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IProxyProviderWinEventHandler {}
+#[cfg(feature = "Win32_Foundation")]
 impl IProxyProviderWinEventHandler_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IProxyProviderWinEventHandler_Impl, const OFFSET: isize>() -> IProxyProviderWinEventHandler_Vtbl {
         unsafe extern "system" fn RespondToWinEvent<Identity: ::windows::core::IUnknownImpl, Impl: IProxyProviderWinEventHandler_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, idwinevent: u32, hwnd: super::super::Foundation::HWND, idobject: i32, idchild: i32, psink: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -1316,6 +1352,8 @@ pub trait IProxyProviderWinEventSink_Impl: Sized {
     fn AddAutomationEvent(&self, pprovider: &::core::option::Option<IRawElementProviderSimple>, id: i32) -> ::windows::core::Result<()>;
     fn AddStructureChangedEvent(&self, pprovider: &::core::option::Option<IRawElementProviderSimple>, structurechangetype: StructureChangeType, runtimeid: *const super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IProxyProviderWinEventSink {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IProxyProviderWinEventSink_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IProxyProviderWinEventSink_Impl, const OFFSET: isize>() -> IProxyProviderWinEventSink_Vtbl {
@@ -1355,6 +1393,8 @@ pub trait IRangeValueProvider_Impl: Sized {
     fn LargeChange(&self) -> ::windows::core::Result<f64>;
     fn SmallChange(&self) -> ::windows::core::Result<f64>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IRangeValueProvider {}
 #[cfg(feature = "Win32_Foundation")]
 impl IRangeValueProvider_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRangeValueProvider_Impl, const OFFSET: isize>() -> IRangeValueProvider_Vtbl {
@@ -1450,6 +1490,8 @@ pub trait IRawElementProviderAdviseEvents_Impl: Sized {
     fn AdviseEventRemoved(&self, eventid: i32, propertyids: *const super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
+impl ::windows::core::RuntimeName for IRawElementProviderAdviseEvents {}
+#[cfg(feature = "Win32_System_Com")]
 impl IRawElementProviderAdviseEvents_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRawElementProviderAdviseEvents_Impl, const OFFSET: isize>() -> IRawElementProviderAdviseEvents_Vtbl {
         unsafe extern "system" fn AdviseEventAdded<Identity: ::windows::core::IUnknownImpl, Impl: IRawElementProviderAdviseEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventid: i32, propertyids: *const super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT {
@@ -1481,6 +1523,8 @@ pub trait IRawElementProviderFragment_Impl: Sized {
     fn SetFocus(&self) -> ::windows::core::Result<()>;
     fn FragmentRoot(&self) -> ::windows::core::Result<IRawElementProviderFragmentRoot>;
 }
+#[cfg(feature = "Win32_System_Com")]
+impl ::windows::core::RuntimeName for IRawElementProviderFragment {}
 #[cfg(feature = "Win32_System_Com")]
 impl IRawElementProviderFragment_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRawElementProviderFragment_Impl, const OFFSET: isize>() -> IRawElementProviderFragment_Vtbl {
@@ -1562,6 +1606,7 @@ pub trait IRawElementProviderFragmentRoot_Impl: Sized {
     fn ElementProviderFromPoint(&self, x: f64, y: f64) -> ::windows::core::Result<IRawElementProviderFragment>;
     fn GetFocus(&self) -> ::windows::core::Result<IRawElementProviderFragment>;
 }
+impl ::windows::core::RuntimeName for IRawElementProviderFragmentRoot {}
 impl IRawElementProviderFragmentRoot_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRawElementProviderFragmentRoot_Impl, const OFFSET: isize>() -> IRawElementProviderFragmentRoot_Vtbl {
         unsafe extern "system" fn ElementProviderFromPoint<Identity: ::windows::core::IUnknownImpl, Impl: IRawElementProviderFragmentRoot_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, x: f64, y: f64, pretval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -1601,6 +1646,8 @@ pub trait IRawElementProviderHostingAccessibles_Impl: Sized {
     fn GetEmbeddedAccessibles(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
 }
 #[cfg(feature = "Win32_System_Com")]
+impl ::windows::core::RuntimeName for IRawElementProviderHostingAccessibles {}
+#[cfg(feature = "Win32_System_Com")]
 impl IRawElementProviderHostingAccessibles_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRawElementProviderHostingAccessibles_Impl, const OFFSET: isize>() -> IRawElementProviderHostingAccessibles_Vtbl {
         unsafe extern "system" fn GetEmbeddedAccessibles<Identity: ::windows::core::IUnknownImpl, Impl: IRawElementProviderHostingAccessibles_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT {
@@ -1624,6 +1671,8 @@ impl IRawElementProviderHostingAccessibles_Vtbl {
 pub trait IRawElementProviderHwndOverride_Impl: Sized {
     fn GetOverrideProviderForHwnd(&self, hwnd: super::super::Foundation::HWND) -> ::windows::core::Result<IRawElementProviderSimple>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IRawElementProviderHwndOverride {}
 #[cfg(feature = "Win32_Foundation")]
 impl IRawElementProviderHwndOverride_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRawElementProviderHwndOverride_Impl, const OFFSET: isize>() -> IRawElementProviderHwndOverride_Vtbl {
@@ -1654,6 +1703,8 @@ pub trait IRawElementProviderSimple_Impl: Sized {
     fn GetPropertyValue(&self, propertyid: i32) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
     fn HostRawElementProvider(&self) -> ::windows::core::Result<IRawElementProviderSimple>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IRawElementProviderSimple {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IRawElementProviderSimple_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRawElementProviderSimple_Impl, const OFFSET: isize>() -> IRawElementProviderSimple_Vtbl {
@@ -1718,6 +1769,8 @@ pub trait IRawElementProviderSimple2_Impl: Sized + IRawElementProviderSimple_Imp
     fn ShowContextMenu(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IRawElementProviderSimple2 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IRawElementProviderSimple2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRawElementProviderSimple2_Impl, const OFFSET: isize>() -> IRawElementProviderSimple2_Vtbl {
         unsafe extern "system" fn ShowContextMenu<Identity: ::windows::core::IUnknownImpl, Impl: IRawElementProviderSimple2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -1735,6 +1788,8 @@ impl IRawElementProviderSimple2_Vtbl {
 pub trait IRawElementProviderSimple3_Impl: Sized + IRawElementProviderSimple_Impl + IRawElementProviderSimple2_Impl {
     fn GetMetadataValue(&self, targetid: i32, metadataid: i32) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IRawElementProviderSimple3 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IRawElementProviderSimple3_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRawElementProviderSimple3_Impl, const OFFSET: isize>() -> IRawElementProviderSimple3_Vtbl {
@@ -1760,6 +1815,8 @@ pub trait IRawElementProviderWindowlessSite_Impl: Sized {
     fn GetAdjacentFragment(&self, direction: NavigateDirection) -> ::windows::core::Result<IRawElementProviderFragment>;
     fn GetRuntimeIdPrefix(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
 }
+#[cfg(feature = "Win32_System_Com")]
+impl ::windows::core::RuntimeName for IRawElementProviderWindowlessSite {}
 #[cfg(feature = "Win32_System_Com")]
 impl IRawElementProviderWindowlessSite_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRawElementProviderWindowlessSite_Impl, const OFFSET: isize>() -> IRawElementProviderWindowlessSite_Vtbl {
@@ -1799,6 +1856,7 @@ pub trait IRichEditUiaInformation_Impl: Sized {
     fn GetBoundaryRectangle(&self, puiarect: *mut UiaRect) -> ::windows::core::Result<()>;
     fn IsVisible(&self) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IRichEditUiaInformation {}
 impl IRichEditUiaInformation_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRichEditUiaInformation_Impl, const OFFSET: isize>() -> IRichEditUiaInformation_Vtbl {
         unsafe extern "system" fn GetBoundaryRectangle<Identity: ::windows::core::IUnknownImpl, Impl: IRichEditUiaInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, puiarect: *mut UiaRect) -> ::windows::core::HRESULT {
@@ -1824,6 +1882,7 @@ impl IRichEditUiaInformation_Vtbl {
 pub trait IRicheditWindowlessAccessibility_Impl: Sized {
     fn CreateProvider(&self, psite: &::core::option::Option<IRawElementProviderWindowlessSite>) -> ::windows::core::Result<IRawElementProviderSimple>;
 }
+impl ::windows::core::RuntimeName for IRicheditWindowlessAccessibility {}
 impl IRicheditWindowlessAccessibility_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRicheditWindowlessAccessibility_Impl, const OFFSET: isize>() -> IRicheditWindowlessAccessibility_Vtbl {
         unsafe extern "system" fn CreateProvider<Identity: ::windows::core::IUnknownImpl, Impl: IRicheditWindowlessAccessibility_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psite: ::windows::core::RawPtr, ppprovider: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -1846,6 +1905,7 @@ impl IRicheditWindowlessAccessibility_Vtbl {
 pub trait IScrollItemProvider_Impl: Sized {
     fn ScrollIntoView(&self) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IScrollItemProvider {}
 impl IScrollItemProvider_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IScrollItemProvider_Impl, const OFFSET: isize>() -> IScrollItemProvider_Vtbl {
         unsafe extern "system" fn ScrollIntoView<Identity: ::windows::core::IUnknownImpl, Impl: IScrollItemProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -1870,6 +1930,8 @@ pub trait IScrollProvider_Impl: Sized {
     fn HorizontallyScrollable(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
     fn VerticallyScrollable(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IScrollProvider {}
 #[cfg(feature = "Win32_Foundation")]
 impl IScrollProvider_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IScrollProvider_Impl, const OFFSET: isize>() -> IScrollProvider_Vtbl {
@@ -1974,6 +2036,8 @@ pub trait ISelectionItemProvider_Impl: Sized {
     fn SelectionContainer(&self) -> ::windows::core::Result<IRawElementProviderSimple>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for ISelectionItemProvider {}
+#[cfg(feature = "Win32_Foundation")]
 impl ISelectionItemProvider_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISelectionItemProvider_Impl, const OFFSET: isize>() -> ISelectionItemProvider_Vtbl {
         unsafe extern "system" fn Select<Identity: ::windows::core::IUnknownImpl, Impl: ISelectionItemProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -2033,6 +2097,8 @@ pub trait ISelectionProvider_Impl: Sized {
     fn IsSelectionRequired(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::windows::core::RuntimeName for ISelectionProvider {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ISelectionProvider_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISelectionProvider_Impl, const OFFSET: isize>() -> ISelectionProvider_Vtbl {
         unsafe extern "system" fn GetSelection<Identity: ::windows::core::IUnknownImpl, Impl: ISelectionProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT {
@@ -2086,6 +2152,8 @@ pub trait ISelectionProvider2_Impl: Sized + ISelectionProvider_Impl {
     fn CurrentSelectedItem(&self) -> ::windows::core::Result<IRawElementProviderSimple>;
     fn ItemCount(&self) -> ::windows::core::Result<i32>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::windows::core::RuntimeName for ISelectionProvider2 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ISelectionProvider2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISelectionProvider2_Impl, const OFFSET: isize>() -> ISelectionProvider2_Vtbl {
@@ -2152,6 +2220,8 @@ pub trait ISpreadsheetItemProvider_Impl: Sized {
     fn GetAnnotationTypes(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::windows::core::RuntimeName for ISpreadsheetItemProvider {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ISpreadsheetItemProvider_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpreadsheetItemProvider_Impl, const OFFSET: isize>() -> ISpreadsheetItemProvider_Vtbl {
         unsafe extern "system" fn Formula<Identity: ::windows::core::IUnknownImpl, Impl: ISpreadsheetItemProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
@@ -2201,6 +2271,7 @@ impl ISpreadsheetItemProvider_Vtbl {
 pub trait ISpreadsheetProvider_Impl: Sized {
     fn GetItemByName(&self, name: &::windows::core::PCWSTR) -> ::windows::core::Result<IRawElementProviderSimple>;
 }
+impl ::windows::core::RuntimeName for ISpreadsheetProvider {}
 impl ISpreadsheetProvider_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpreadsheetProvider_Impl, const OFFSET: isize>() -> ISpreadsheetProvider_Vtbl {
         unsafe extern "system" fn GetItemByName<Identity: ::windows::core::IUnknownImpl, Impl: ISpreadsheetProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::windows::core::PCWSTR, pretval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -2230,6 +2301,8 @@ pub trait IStylesProvider_Impl: Sized {
     fn FillPatternColor(&self) -> ::windows::core::Result<i32>;
     fn ExtendedProperties(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IStylesProvider {}
 #[cfg(feature = "Win32_Foundation")]
 impl IStylesProvider_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStylesProvider_Impl, const OFFSET: isize>() -> IStylesProvider_Vtbl {
@@ -2329,6 +2402,7 @@ pub trait ISynchronizedInputProvider_Impl: Sized {
     fn StartListening(&self, inputtype: SynchronizedInputType) -> ::windows::core::Result<()>;
     fn Cancel(&self) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for ISynchronizedInputProvider {}
 impl ISynchronizedInputProvider_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISynchronizedInputProvider_Impl, const OFFSET: isize>() -> ISynchronizedInputProvider_Vtbl {
         unsafe extern "system" fn StartListening<Identity: ::windows::core::IUnknownImpl, Impl: ISynchronizedInputProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, inputtype: SynchronizedInputType) -> ::windows::core::HRESULT {
@@ -2356,6 +2430,8 @@ pub trait ITableItemProvider_Impl: Sized {
     fn GetRowHeaderItems(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
     fn GetColumnHeaderItems(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
 }
+#[cfg(feature = "Win32_System_Com")]
+impl ::windows::core::RuntimeName for ITableItemProvider {}
 #[cfg(feature = "Win32_System_Com")]
 impl ITableItemProvider_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITableItemProvider_Impl, const OFFSET: isize>() -> ITableItemProvider_Vtbl {
@@ -2397,6 +2473,8 @@ pub trait ITableProvider_Impl: Sized {
     fn GetColumnHeaders(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
     fn RowOrColumnMajor(&self) -> ::windows::core::Result<RowOrColumnMajor>;
 }
+#[cfg(feature = "Win32_System_Com")]
+impl ::windows::core::RuntimeName for ITableProvider {}
 #[cfg(feature = "Win32_System_Com")]
 impl ITableProvider_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITableProvider_Impl, const OFFSET: isize>() -> ITableProvider_Vtbl {
@@ -2448,6 +2526,7 @@ pub trait ITextChildProvider_Impl: Sized {
     fn TextContainer(&self) -> ::windows::core::Result<IRawElementProviderSimple>;
     fn TextRange(&self) -> ::windows::core::Result<ITextRangeProvider>;
 }
+impl ::windows::core::RuntimeName for ITextChildProvider {}
 impl ITextChildProvider_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITextChildProvider_Impl, const OFFSET: isize>() -> ITextChildProvider_Vtbl {
         unsafe extern "system" fn TextContainer<Identity: ::windows::core::IUnknownImpl, Impl: ITextChildProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -2487,6 +2566,8 @@ pub trait ITextEditProvider_Impl: Sized + ITextProvider_Impl {
     fn GetActiveComposition(&self) -> ::windows::core::Result<ITextRangeProvider>;
     fn GetConversionTarget(&self) -> ::windows::core::Result<ITextRangeProvider>;
 }
+#[cfg(feature = "Win32_System_Com")]
+impl ::windows::core::RuntimeName for ITextEditProvider {}
 #[cfg(feature = "Win32_System_Com")]
 impl ITextEditProvider_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITextEditProvider_Impl, const OFFSET: isize>() -> ITextEditProvider_Vtbl {
@@ -2531,6 +2612,8 @@ pub trait ITextProvider_Impl: Sized {
     fn DocumentRange(&self) -> ::windows::core::Result<ITextRangeProvider>;
     fn SupportedTextSelection(&self) -> ::windows::core::Result<SupportedTextSelection>;
 }
+#[cfg(feature = "Win32_System_Com")]
+impl ::windows::core::RuntimeName for ITextProvider {}
 #[cfg(feature = "Win32_System_Com")]
 impl ITextProvider_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITextProvider_Impl, const OFFSET: isize>() -> ITextProvider_Vtbl {
@@ -2620,6 +2703,8 @@ pub trait ITextProvider2_Impl: Sized + ITextProvider_Impl {
     fn GetCaretRange(&self, isactive: *mut super::super::Foundation::BOOL, pretval: *mut ::core::option::Option<ITextRangeProvider>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::windows::core::RuntimeName for ITextProvider2 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ITextProvider2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITextProvider2_Impl, const OFFSET: isize>() -> ITextProvider2_Vtbl {
         unsafe extern "system" fn RangeFromAnnotation<Identity: ::windows::core::IUnknownImpl, Impl: ITextProvider2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, annotationelement: ::windows::core::RawPtr, pretval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -2669,6 +2754,8 @@ pub trait ITextRangeProvider_Impl: Sized {
     fn ScrollIntoView(&self, aligntotop: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn GetChildren(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ITextRangeProvider {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITextRangeProvider_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITextRangeProvider_Impl, const OFFSET: isize>() -> ITextRangeProvider_Vtbl {
@@ -2865,6 +2952,8 @@ pub trait ITextRangeProvider2_Impl: Sized + ITextRangeProvider_Impl {
     fn ShowContextMenu(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ITextRangeProvider2 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITextRangeProvider2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITextRangeProvider2_Impl, const OFFSET: isize>() -> ITextRangeProvider2_Vtbl {
         unsafe extern "system" fn ShowContextMenu<Identity: ::windows::core::IUnknownImpl, Impl: ITextRangeProvider2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -2882,6 +2971,7 @@ pub trait IToggleProvider_Impl: Sized {
     fn Toggle(&self) -> ::windows::core::Result<()>;
     fn ToggleState(&self) -> ::windows::core::Result<ToggleState>;
 }
+impl ::windows::core::RuntimeName for IToggleProvider {}
 impl IToggleProvider_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IToggleProvider_Impl, const OFFSET: isize>() -> IToggleProvider_Vtbl {
         unsafe extern "system" fn Toggle<Identity: ::windows::core::IUnknownImpl, Impl: IToggleProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -2919,6 +3009,8 @@ pub trait ITransformProvider_Impl: Sized {
     fn CanResize(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
     fn CanRotate(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for ITransformProvider {}
 #[cfg(feature = "Win32_Foundation")]
 impl ITransformProvider_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITransformProvider_Impl, const OFFSET: isize>() -> ITransformProvider_Vtbl {
@@ -2993,6 +3085,8 @@ pub trait ITransformProvider2_Impl: Sized + ITransformProvider_Impl {
     fn ZoomMaximum(&self) -> ::windows::core::Result<f64>;
     fn ZoomByUnit(&self, zoomunit: ZoomUnit) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for ITransformProvider2 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ITransformProvider2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITransformProvider2_Impl, const OFFSET: isize>() -> ITransformProvider2_Vtbl {
@@ -3122,6 +3216,8 @@ pub trait IUIAutomation_Impl: Sized {
     fn ElementFromIAccessible(&self, accessible: &::core::option::Option<IAccessible>, childid: i32) -> ::windows::core::Result<IUIAutomationElement>;
     fn ElementFromIAccessibleBuildCache(&self, accessible: &::core::option::Option<IAccessible>, childid: i32, cacherequest: &::core::option::Option<IUIAutomationCacheRequest>) -> ::windows::core::Result<IUIAutomationElement>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IUIAutomation {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IUIAutomation_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomation_Impl, const OFFSET: isize>() -> IUIAutomation_Vtbl {
@@ -3719,6 +3815,8 @@ pub trait IUIAutomation2_Impl: Sized + IUIAutomation_Impl {
     fn SetTransactionTimeout(&self, timeout: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IUIAutomation2 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IUIAutomation2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomation2_Impl, const OFFSET: isize>() -> IUIAutomation2_Vtbl {
         unsafe extern "system" fn AutoSetFocus<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomation2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, autosetfocus: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
@@ -3789,6 +3887,8 @@ pub trait IUIAutomation3_Impl: Sized + IUIAutomation_Impl + IUIAutomation2_Impl 
     fn RemoveTextEditTextChangedEventHandler(&self, element: &::core::option::Option<IUIAutomationElement>, handler: &::core::option::Option<IUIAutomationTextEditTextChangedEventHandler>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IUIAutomation3 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IUIAutomation3_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomation3_Impl, const OFFSET: isize>() -> IUIAutomation3_Vtbl {
         unsafe extern "system" fn AddTextEditTextChangedEventHandler<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomation3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, scope: TreeScope, texteditchangetype: TextEditChangeType, cacherequest: ::windows::core::RawPtr, handler: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -3817,6 +3917,8 @@ pub trait IUIAutomation4_Impl: Sized + IUIAutomation_Impl + IUIAutomation2_Impl 
     fn RemoveChangesEventHandler(&self, element: &::core::option::Option<IUIAutomationElement>, handler: &::core::option::Option<IUIAutomationChangesEventHandler>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IUIAutomation4 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IUIAutomation4_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomation4_Impl, const OFFSET: isize>() -> IUIAutomation4_Vtbl {
         unsafe extern "system" fn AddChangesEventHandler<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomation4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, scope: TreeScope, changetypes: *const i32, changescount: i32, pcacherequest: ::windows::core::RawPtr, handler: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -3844,6 +3946,8 @@ pub trait IUIAutomation5_Impl: Sized + IUIAutomation_Impl + IUIAutomation2_Impl 
     fn AddNotificationEventHandler(&self, element: &::core::option::Option<IUIAutomationElement>, scope: TreeScope, cacherequest: &::core::option::Option<IUIAutomationCacheRequest>, handler: &::core::option::Option<IUIAutomationNotificationEventHandler>) -> ::windows::core::Result<()>;
     fn RemoveNotificationEventHandler(&self, element: &::core::option::Option<IUIAutomationElement>, handler: &::core::option::Option<IUIAutomationNotificationEventHandler>) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IUIAutomation5 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IUIAutomation5_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomation5_Impl, const OFFSET: isize>() -> IUIAutomation5_Vtbl {
@@ -3879,6 +3983,8 @@ pub trait IUIAutomation6_Impl: Sized + IUIAutomation_Impl + IUIAutomation2_Impl 
     fn AddActiveTextPositionChangedEventHandler(&self, element: &::core::option::Option<IUIAutomationElement>, scope: TreeScope, cacherequest: &::core::option::Option<IUIAutomationCacheRequest>, handler: &::core::option::Option<IUIAutomationActiveTextPositionChangedEventHandler>) -> ::windows::core::Result<()>;
     fn RemoveActiveTextPositionChangedEventHandler(&self, element: &::core::option::Option<IUIAutomationElement>, handler: &::core::option::Option<IUIAutomationActiveTextPositionChangedEventHandler>) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IUIAutomation6 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IUIAutomation6_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomation6_Impl, const OFFSET: isize>() -> IUIAutomation6_Vtbl {
@@ -3965,6 +4071,7 @@ impl IUIAutomation6_Vtbl {
 pub trait IUIAutomationActiveTextPositionChangedEventHandler_Impl: Sized {
     fn HandleActiveTextPositionChangedEvent(&self, sender: &::core::option::Option<IUIAutomationElement>, range: &::core::option::Option<IUIAutomationTextRange>) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IUIAutomationActiveTextPositionChangedEventHandler {}
 impl IUIAutomationActiveTextPositionChangedEventHandler_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationActiveTextPositionChangedEventHandler_Impl, const OFFSET: isize>() -> IUIAutomationActiveTextPositionChangedEventHandler_Vtbl {
         unsafe extern "system" fn HandleActiveTextPositionChangedEvent<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationActiveTextPositionChangedEventHandler_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sender: ::windows::core::RawPtr, range: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -3987,6 +4094,8 @@ pub trait IUIAutomationAndCondition_Impl: Sized + IUIAutomationCondition_Impl {
     fn GetChildrenAsNativeArray(&self, childarray: *mut *mut ::core::option::Option<IUIAutomationCondition>, childarraycount: *mut i32) -> ::windows::core::Result<()>;
     fn GetChildren(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
 }
+#[cfg(feature = "Win32_System_Com")]
+impl ::windows::core::RuntimeName for IUIAutomationAndCondition {}
 #[cfg(feature = "Win32_System_Com")]
 impl IUIAutomationAndCondition_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationAndCondition_Impl, const OFFSET: isize>() -> IUIAutomationAndCondition_Vtbl {
@@ -4041,6 +4150,8 @@ pub trait IUIAutomationAnnotationPattern_Impl: Sized {
     fn CachedDateTime(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn CachedTarget(&self) -> ::windows::core::Result<IUIAutomationElement>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IUIAutomationAnnotationPattern {}
 #[cfg(feature = "Win32_Foundation")]
 impl IUIAutomationAnnotationPattern_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationAnnotationPattern_Impl, const OFFSET: isize>() -> IUIAutomationAnnotationPattern_Vtbl {
@@ -4177,6 +4288,8 @@ pub trait IUIAutomationBoolCondition_Impl: Sized + IUIAutomationCondition_Impl {
     fn BooleanValue(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IUIAutomationBoolCondition {}
+#[cfg(feature = "Win32_Foundation")]
 impl IUIAutomationBoolCondition_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationBoolCondition_Impl, const OFFSET: isize>() -> IUIAutomationBoolCondition_Vtbl {
         unsafe extern "system" fn BooleanValue<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationBoolCondition_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, boolval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
@@ -4207,6 +4320,7 @@ pub trait IUIAutomationCacheRequest_Impl: Sized {
     fn AutomationElementMode(&self) -> ::windows::core::Result<AutomationElementMode>;
     fn SetAutomationElementMode(&self, mode: AutomationElementMode) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IUIAutomationCacheRequest {}
 impl IUIAutomationCacheRequest_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationCacheRequest_Impl, const OFFSET: isize>() -> IUIAutomationCacheRequest_Vtbl {
         unsafe extern "system" fn AddProperty<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationCacheRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertyid: i32) -> ::windows::core::HRESULT {
@@ -4300,6 +4414,8 @@ pub trait IUIAutomationChangesEventHandler_Impl: Sized {
     fn HandleChangesEvent(&self, sender: &::core::option::Option<IUIAutomationElement>, uiachanges: *const UiaChangeInfo, changescount: i32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IUIAutomationChangesEventHandler {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IUIAutomationChangesEventHandler_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationChangesEventHandler_Impl, const OFFSET: isize>() -> IUIAutomationChangesEventHandler_Vtbl {
         unsafe extern "system" fn HandleChangesEvent<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationChangesEventHandler_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sender: ::windows::core::RawPtr, uiachanges: *const UiaChangeInfo, changescount: i32) -> ::windows::core::HRESULT {
@@ -4314,6 +4430,7 @@ impl IUIAutomationChangesEventHandler_Vtbl {
     }
 }
 pub trait IUIAutomationCondition_Impl: Sized {}
+impl ::windows::core::RuntimeName for IUIAutomationCondition {}
 impl IUIAutomationCondition_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationCondition_Impl, const OFFSET: isize>() -> IUIAutomationCondition_Vtbl {
         Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>() }
@@ -4325,6 +4442,7 @@ impl IUIAutomationCondition_Vtbl {
 pub trait IUIAutomationCustomNavigationPattern_Impl: Sized {
     fn Navigate(&self, direction: NavigateDirection) -> ::windows::core::Result<IUIAutomationElement>;
 }
+impl ::windows::core::RuntimeName for IUIAutomationCustomNavigationPattern {}
 impl IUIAutomationCustomNavigationPattern_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationCustomNavigationPattern_Impl, const OFFSET: isize>() -> IUIAutomationCustomNavigationPattern_Vtbl {
         unsafe extern "system" fn Navigate<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationCustomNavigationPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, direction: NavigateDirection, pretval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -4349,6 +4467,7 @@ pub trait IUIAutomationDockPattern_Impl: Sized {
     fn CurrentDockPosition(&self) -> ::windows::core::Result<DockPosition>;
     fn CachedDockPosition(&self) -> ::windows::core::Result<DockPosition>;
 }
+impl ::windows::core::RuntimeName for IUIAutomationDockPattern {}
 impl IUIAutomationDockPattern_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationDockPattern_Impl, const OFFSET: isize>() -> IUIAutomationDockPattern_Vtbl {
         unsafe extern "system" fn SetDockPosition<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationDockPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dockpos: DockPosition) -> ::windows::core::HRESULT {
@@ -4400,6 +4519,8 @@ pub trait IUIAutomationDragPattern_Impl: Sized {
     fn GetCurrentGrabbedItems(&self) -> ::windows::core::Result<IUIAutomationElementArray>;
     fn GetCachedGrabbedItems(&self) -> ::windows::core::Result<IUIAutomationElementArray>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::windows::core::RuntimeName for IUIAutomationDragPattern {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IUIAutomationDragPattern_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationDragPattern_Impl, const OFFSET: isize>() -> IUIAutomationDragPattern_Vtbl {
@@ -4514,6 +4635,8 @@ pub trait IUIAutomationDropTargetPattern_Impl: Sized {
     fn CurrentDropTargetEffects(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
     fn CachedDropTargetEffects(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::windows::core::RuntimeName for IUIAutomationDropTargetPattern {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IUIAutomationDropTargetPattern_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationDropTargetPattern_Impl, const OFFSET: isize>() -> IUIAutomationDropTargetPattern_Vtbl {
@@ -4658,6 +4781,8 @@ pub trait IUIAutomationElement_Impl: Sized {
     fn CachedProviderDescription(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn GetClickablePoint(&self, clickable: *mut super::super::Foundation::POINT, gotclickable: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IUIAutomationElement {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IUIAutomationElement_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationElement_Impl, const OFFSET: isize>() -> IUIAutomationElement_Vtbl {
@@ -5639,6 +5764,8 @@ pub trait IUIAutomationElement2_Impl: Sized + IUIAutomationElement_Impl {
     fn CachedFlowsFrom(&self) -> ::windows::core::Result<IUIAutomationElementArray>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IUIAutomationElement2 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IUIAutomationElement2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationElement2_Impl, const OFFSET: isize>() -> IUIAutomationElement2_Vtbl {
         unsafe extern "system" fn CurrentOptimizeForVisualContent<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationElement2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
@@ -5728,6 +5855,8 @@ pub trait IUIAutomationElement3_Impl: Sized + IUIAutomationElement_Impl + IUIAut
     fn CachedIsPeripheral(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IUIAutomationElement3 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IUIAutomationElement3_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationElement3_Impl, const OFFSET: isize>() -> IUIAutomationElement3_Vtbl {
         unsafe extern "system" fn ShowContextMenu<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationElement3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -5781,6 +5910,8 @@ pub trait IUIAutomationElement4_Impl: Sized + IUIAutomationElement_Impl + IUIAut
     fn CachedAnnotationTypes(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
     fn CachedAnnotationObjects(&self) -> ::windows::core::Result<IUIAutomationElementArray>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IUIAutomationElement4 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IUIAutomationElement4_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationElement4_Impl, const OFFSET: isize>() -> IUIAutomationElement4_Vtbl {
@@ -5920,6 +6051,8 @@ pub trait IUIAutomationElement5_Impl: Sized + IUIAutomationElement_Impl + IUIAut
     fn CachedLocalizedLandmarkType(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IUIAutomationElement5 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IUIAutomationElement5_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationElement5_Impl, const OFFSET: isize>() -> IUIAutomationElement5_Vtbl {
         unsafe extern "system" fn CurrentLandmarkType<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationElement5_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT {
@@ -5984,6 +6117,8 @@ pub trait IUIAutomationElement6_Impl: Sized + IUIAutomationElement_Impl + IUIAut
     fn CachedFullDescription(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IUIAutomationElement6 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IUIAutomationElement6_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationElement6_Impl, const OFFSET: isize>() -> IUIAutomationElement6_Vtbl {
         unsafe extern "system" fn CurrentFullDescription<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationElement6_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
@@ -6026,6 +6161,8 @@ pub trait IUIAutomationElement7_Impl: Sized + IUIAutomationElement_Impl + IUIAut
     fn FindAllWithOptionsBuildCache(&self, scope: TreeScope, condition: &::core::option::Option<IUIAutomationCondition>, cacherequest: &::core::option::Option<IUIAutomationCacheRequest>, traversaloptions: TreeTraversalOptions, root: &::core::option::Option<IUIAutomationElement>) -> ::windows::core::Result<IUIAutomationElementArray>;
     fn GetCurrentMetadataValue(&self, targetid: i32, metadataid: i32) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IUIAutomationElement7 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IUIAutomationElement7_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationElement7_Impl, const OFFSET: isize>() -> IUIAutomationElement7_Vtbl {
@@ -6103,6 +6240,8 @@ pub trait IUIAutomationElement8_Impl: Sized + IUIAutomationElement_Impl + IUIAut
     fn CachedHeadingLevel(&self) -> ::windows::core::Result<i32>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IUIAutomationElement8 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IUIAutomationElement8_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationElement8_Impl, const OFFSET: isize>() -> IUIAutomationElement8_Vtbl {
         unsafe extern "system" fn CurrentHeadingLevel<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationElement8_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT {
@@ -6143,6 +6282,8 @@ pub trait IUIAutomationElement9_Impl: Sized + IUIAutomationElement_Impl + IUIAut
     fn CachedIsDialog(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IUIAutomationElement9 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IUIAutomationElement9_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationElement9_Impl, const OFFSET: isize>() -> IUIAutomationElement9_Vtbl {
         unsafe extern "system" fn CurrentIsDialog<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationElement9_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
@@ -6181,6 +6322,7 @@ pub trait IUIAutomationElementArray_Impl: Sized {
     fn Length(&self) -> ::windows::core::Result<i32>;
     fn GetElement(&self, index: i32) -> ::windows::core::Result<IUIAutomationElement>;
 }
+impl ::windows::core::RuntimeName for IUIAutomationElementArray {}
 impl IUIAutomationElementArray_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationElementArray_Impl, const OFFSET: isize>() -> IUIAutomationElementArray_Vtbl {
         unsafe extern "system" fn Length<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationElementArray_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, length: *mut i32) -> ::windows::core::HRESULT {
@@ -6218,6 +6360,7 @@ impl IUIAutomationElementArray_Vtbl {
 pub trait IUIAutomationEventHandler_Impl: Sized {
     fn HandleAutomationEvent(&self, sender: &::core::option::Option<IUIAutomationElement>, eventid: i32) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IUIAutomationEventHandler {}
 impl IUIAutomationEventHandler_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationEventHandler_Impl, const OFFSET: isize>() -> IUIAutomationEventHandler_Vtbl {
         unsafe extern "system" fn HandleAutomationEvent<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationEventHandler_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sender: ::windows::core::RawPtr, eventid: i32) -> ::windows::core::HRESULT {
@@ -6240,6 +6383,7 @@ pub trait IUIAutomationEventHandlerGroup_Impl: Sized {
     fn AddStructureChangedEventHandler(&self, scope: TreeScope, cacherequest: &::core::option::Option<IUIAutomationCacheRequest>, handler: &::core::option::Option<IUIAutomationStructureChangedEventHandler>) -> ::windows::core::Result<()>;
     fn AddTextEditTextChangedEventHandler(&self, scope: TreeScope, texteditchangetype: TextEditChangeType, cacherequest: &::core::option::Option<IUIAutomationCacheRequest>, handler: &::core::option::Option<IUIAutomationTextEditTextChangedEventHandler>) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IUIAutomationEventHandlerGroup {}
 impl IUIAutomationEventHandlerGroup_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationEventHandlerGroup_Impl, const OFFSET: isize>() -> IUIAutomationEventHandlerGroup_Vtbl {
         unsafe extern "system" fn AddActiveTextPositionChangedEventHandler<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationEventHandlerGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, scope: TreeScope, cacherequest: ::windows::core::RawPtr, handler: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -6298,6 +6442,7 @@ pub trait IUIAutomationExpandCollapsePattern_Impl: Sized {
     fn CurrentExpandCollapseState(&self) -> ::windows::core::Result<ExpandCollapseState>;
     fn CachedExpandCollapseState(&self) -> ::windows::core::Result<ExpandCollapseState>;
 }
+impl ::windows::core::RuntimeName for IUIAutomationExpandCollapsePattern {}
 impl IUIAutomationExpandCollapsePattern_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationExpandCollapsePattern_Impl, const OFFSET: isize>() -> IUIAutomationExpandCollapsePattern_Vtbl {
         unsafe extern "system" fn Expand<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationExpandCollapsePattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -6347,6 +6492,7 @@ impl IUIAutomationExpandCollapsePattern_Vtbl {
 pub trait IUIAutomationFocusChangedEventHandler_Impl: Sized {
     fn HandleFocusChangedEvent(&self, sender: &::core::option::Option<IUIAutomationElement>) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IUIAutomationFocusChangedEventHandler {}
 impl IUIAutomationFocusChangedEventHandler_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationFocusChangedEventHandler_Impl, const OFFSET: isize>() -> IUIAutomationFocusChangedEventHandler_Vtbl {
         unsafe extern "system" fn HandleFocusChangedEvent<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationFocusChangedEventHandler_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sender: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -6372,6 +6518,7 @@ pub trait IUIAutomationGridItemPattern_Impl: Sized {
     fn CachedRowSpan(&self) -> ::windows::core::Result<i32>;
     fn CachedColumnSpan(&self) -> ::windows::core::Result<i32>;
 }
+impl ::windows::core::RuntimeName for IUIAutomationGridItemPattern {}
 impl IUIAutomationGridItemPattern_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationGridItemPattern_Impl, const OFFSET: isize>() -> IUIAutomationGridItemPattern_Vtbl {
         unsafe extern "system" fn CurrentContainingGrid<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationGridItemPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -6509,6 +6656,7 @@ pub trait IUIAutomationGridPattern_Impl: Sized {
     fn CachedRowCount(&self) -> ::windows::core::Result<i32>;
     fn CachedColumnCount(&self) -> ::windows::core::Result<i32>;
 }
+impl ::windows::core::RuntimeName for IUIAutomationGridPattern {}
 impl IUIAutomationGridPattern_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationGridPattern_Impl, const OFFSET: isize>() -> IUIAutomationGridPattern_Vtbl {
         unsafe extern "system" fn GetItem<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationGridPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, row: i32, column: i32, element: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -6582,6 +6730,7 @@ impl IUIAutomationGridPattern_Vtbl {
 pub trait IUIAutomationInvokePattern_Impl: Sized {
     fn Invoke(&self) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IUIAutomationInvokePattern {}
 impl IUIAutomationInvokePattern_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationInvokePattern_Impl, const OFFSET: isize>() -> IUIAutomationInvokePattern_Vtbl {
         unsafe extern "system" fn Invoke<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationInvokePattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -6599,6 +6748,8 @@ impl IUIAutomationInvokePattern_Vtbl {
 pub trait IUIAutomationItemContainerPattern_Impl: Sized {
     fn FindItemByProperty(&self, pstartafter: &::core::option::Option<IUIAutomationElement>, propertyid: i32, value: &super::super::System::Com::VARIANT) -> ::windows::core::Result<IUIAutomationElement>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IUIAutomationItemContainerPattern {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IUIAutomationItemContainerPattern_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationItemContainerPattern_Impl, const OFFSET: isize>() -> IUIAutomationItemContainerPattern_Vtbl {
@@ -6646,6 +6797,8 @@ pub trait IUIAutomationLegacyIAccessiblePattern_Impl: Sized {
     fn CachedDefaultAction(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn GetIAccessible(&self) -> ::windows::core::Result<IAccessible>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::windows::core::RuntimeName for IUIAutomationLegacyIAccessiblePattern {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IUIAutomationLegacyIAccessiblePattern_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationLegacyIAccessiblePattern_Impl, const OFFSET: isize>() -> IUIAutomationLegacyIAccessiblePattern_Vtbl {
@@ -6937,6 +7090,8 @@ pub trait IUIAutomationMultipleViewPattern_Impl: Sized {
     fn GetCachedSupportedViews(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::windows::core::RuntimeName for IUIAutomationMultipleViewPattern {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IUIAutomationMultipleViewPattern_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationMultipleViewPattern_Impl, const OFFSET: isize>() -> IUIAutomationMultipleViewPattern_Vtbl {
         unsafe extern "system" fn GetViewName<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationMultipleViewPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, view: i32, name: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
@@ -7016,6 +7171,7 @@ impl IUIAutomationMultipleViewPattern_Vtbl {
 pub trait IUIAutomationNotCondition_Impl: Sized + IUIAutomationCondition_Impl {
     fn GetChild(&self) -> ::windows::core::Result<IUIAutomationCondition>;
 }
+impl ::windows::core::RuntimeName for IUIAutomationNotCondition {}
 impl IUIAutomationNotCondition_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationNotCondition_Impl, const OFFSET: isize>() -> IUIAutomationNotCondition_Vtbl {
         unsafe extern "system" fn GetChild<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationNotCondition_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, condition: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -7040,6 +7196,8 @@ pub trait IUIAutomationNotificationEventHandler_Impl: Sized {
     fn HandleNotificationEvent(&self, sender: &::core::option::Option<IUIAutomationElement>, notificationkind: NotificationKind, notificationprocessing: NotificationProcessing, displaystring: &super::super::Foundation::BSTR, activityid: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IUIAutomationNotificationEventHandler {}
+#[cfg(feature = "Win32_Foundation")]
 impl IUIAutomationNotificationEventHandler_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationNotificationEventHandler_Impl, const OFFSET: isize>() -> IUIAutomationNotificationEventHandler_Vtbl {
         unsafe extern "system" fn HandleNotificationEvent<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationNotificationEventHandler_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sender: ::windows::core::RawPtr, notificationkind: NotificationKind, notificationprocessing: NotificationProcessing, displaystring: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, activityid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
@@ -7056,6 +7214,7 @@ impl IUIAutomationNotificationEventHandler_Vtbl {
 pub trait IUIAutomationObjectModelPattern_Impl: Sized {
     fn GetUnderlyingObjectModel(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
+impl ::windows::core::RuntimeName for IUIAutomationObjectModelPattern {}
 impl IUIAutomationObjectModelPattern_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationObjectModelPattern_Impl, const OFFSET: isize>() -> IUIAutomationObjectModelPattern_Vtbl {
         unsafe extern "system" fn GetUnderlyingObjectModel<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationObjectModelPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -7081,6 +7240,8 @@ pub trait IUIAutomationOrCondition_Impl: Sized + IUIAutomationCondition_Impl {
     fn GetChildrenAsNativeArray(&self, childarray: *mut *mut ::core::option::Option<IUIAutomationCondition>, childarraycount: *mut i32) -> ::windows::core::Result<()>;
     fn GetChildren(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
 }
+#[cfg(feature = "Win32_System_Com")]
+impl ::windows::core::RuntimeName for IUIAutomationOrCondition {}
 #[cfg(feature = "Win32_System_Com")]
 impl IUIAutomationOrCondition_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationOrCondition_Impl, const OFFSET: isize>() -> IUIAutomationOrCondition_Vtbl {
@@ -7126,6 +7287,7 @@ pub trait IUIAutomationPatternHandler_Impl: Sized {
     fn CreateClientWrapper(&self, ppatterninstance: &::core::option::Option<IUIAutomationPatternInstance>) -> ::windows::core::Result<::windows::core::IUnknown>;
     fn Dispatch(&self, ptarget: &::core::option::Option<::windows::core::IUnknown>, index: u32, pparams: *const UIAutomationParameter, cparams: u32) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IUIAutomationPatternHandler {}
 impl IUIAutomationPatternHandler_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationPatternHandler_Impl, const OFFSET: isize>() -> IUIAutomationPatternHandler_Vtbl {
         unsafe extern "system" fn CreateClientWrapper<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationPatternHandler_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppatterninstance: ::windows::core::RawPtr, pclientwrapper: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -7160,6 +7322,8 @@ pub trait IUIAutomationPatternInstance_Impl: Sized {
     fn CallMethod(&self, index: u32, pparams: *const UIAutomationParameter, cparams: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IUIAutomationPatternInstance {}
+#[cfg(feature = "Win32_Foundation")]
 impl IUIAutomationPatternInstance_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationPatternInstance_Impl, const OFFSET: isize>() -> IUIAutomationPatternInstance_Vtbl {
         unsafe extern "system" fn GetProperty<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationPatternInstance_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32, cached: super::super::Foundation::BOOL, r#type: UIAutomationType, pptr: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -7187,6 +7351,8 @@ pub trait IUIAutomationPropertyChangedEventHandler_Impl: Sized {
     fn HandlePropertyChangedEvent(&self, sender: &::core::option::Option<IUIAutomationElement>, propertyid: i32, newvalue: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IUIAutomationPropertyChangedEventHandler {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IUIAutomationPropertyChangedEventHandler_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationPropertyChangedEventHandler_Impl, const OFFSET: isize>() -> IUIAutomationPropertyChangedEventHandler_Vtbl {
         unsafe extern "system" fn HandlePropertyChangedEvent<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationPropertyChangedEventHandler_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sender: ::windows::core::RawPtr, propertyid: i32, newvalue: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
@@ -7209,6 +7375,8 @@ pub trait IUIAutomationPropertyCondition_Impl: Sized + IUIAutomationCondition_Im
     fn PropertyValue(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
     fn PropertyConditionFlags(&self) -> ::windows::core::Result<PropertyConditionFlags>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IUIAutomationPropertyCondition {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IUIAutomationPropertyCondition_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationPropertyCondition_Impl, const OFFSET: isize>() -> IUIAutomationPropertyCondition_Vtbl {
@@ -7262,6 +7430,8 @@ pub trait IUIAutomationProxyFactory_Impl: Sized {
     fn ProxyFactoryId(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IUIAutomationProxyFactory {}
+#[cfg(feature = "Win32_Foundation")]
 impl IUIAutomationProxyFactory_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationProxyFactory_Impl, const OFFSET: isize>() -> IUIAutomationProxyFactory_Vtbl {
         unsafe extern "system" fn CreateProvider<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationProxyFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hwnd: super::super::Foundation::HWND, idobject: i32, idchild: i32, provider: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -7312,6 +7482,8 @@ pub trait IUIAutomationProxyFactoryEntry_Impl: Sized {
     fn SetWinEventsForAutomationEvent(&self, eventid: i32, propertyid: i32, winevents: *const super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<()>;
     fn GetWinEventsForAutomationEvent(&self, eventid: i32, propertyid: i32) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::windows::core::RuntimeName for IUIAutomationProxyFactoryEntry {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IUIAutomationProxyFactoryEntry_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationProxyFactoryEntry_Impl, const OFFSET: isize>() -> IUIAutomationProxyFactoryEntry_Vtbl {
@@ -7456,6 +7628,8 @@ pub trait IUIAutomationProxyFactoryMapping_Impl: Sized {
     fn RestoreDefaultTable(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
+impl ::windows::core::RuntimeName for IUIAutomationProxyFactoryMapping {}
+#[cfg(feature = "Win32_System_Com")]
 impl IUIAutomationProxyFactoryMapping_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationProxyFactoryMapping_Impl, const OFFSET: isize>() -> IUIAutomationProxyFactoryMapping_Vtbl {
         unsafe extern "system" fn Count<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationProxyFactoryMapping_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, count: *mut u32) -> ::windows::core::HRESULT {
@@ -7554,6 +7728,8 @@ pub trait IUIAutomationRangeValuePattern_Impl: Sized {
     fn CachedLargeChange(&self) -> ::windows::core::Result<f64>;
     fn CachedSmallChange(&self) -> ::windows::core::Result<f64>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IUIAutomationRangeValuePattern {}
 #[cfg(feature = "Win32_Foundation")]
 impl IUIAutomationRangeValuePattern_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationRangeValuePattern_Impl, const OFFSET: isize>() -> IUIAutomationRangeValuePattern_Vtbl {
@@ -7722,6 +7898,8 @@ pub trait IUIAutomationRegistrar_Impl: Sized {
     fn RegisterPattern(&self, pattern: *const UIAutomationPatternInfo, ppatternid: *mut i32, ppatternavailablepropertyid: *mut i32, propertyidcount: u32, ppropertyids: *mut i32, eventidcount: u32, peventids: *mut i32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IUIAutomationRegistrar {}
+#[cfg(feature = "Win32_Foundation")]
 impl IUIAutomationRegistrar_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationRegistrar_Impl, const OFFSET: isize>() -> IUIAutomationRegistrar_Vtbl {
         unsafe extern "system" fn RegisterProperty<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationRegistrar_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, property: *const UIAutomationPropertyInfo, propertyid: *mut i32) -> ::windows::core::HRESULT {
@@ -7765,6 +7943,7 @@ impl IUIAutomationRegistrar_Vtbl {
 pub trait IUIAutomationScrollItemPattern_Impl: Sized {
     fn ScrollIntoView(&self) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IUIAutomationScrollItemPattern {}
 impl IUIAutomationScrollItemPattern_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationScrollItemPattern_Impl, const OFFSET: isize>() -> IUIAutomationScrollItemPattern_Vtbl {
         unsafe extern "system" fn ScrollIntoView<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationScrollItemPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -7795,6 +7974,8 @@ pub trait IUIAutomationScrollPattern_Impl: Sized {
     fn CachedHorizontallyScrollable(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
     fn CachedVerticallyScrollable(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IUIAutomationScrollPattern {}
 #[cfg(feature = "Win32_Foundation")]
 impl IUIAutomationScrollPattern_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationScrollPattern_Impl, const OFFSET: isize>() -> IUIAutomationScrollPattern_Vtbl {
@@ -7973,6 +8154,8 @@ pub trait IUIAutomationSelectionItemPattern_Impl: Sized {
     fn CachedSelectionContainer(&self) -> ::windows::core::Result<IUIAutomationElement>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IUIAutomationSelectionItemPattern {}
+#[cfg(feature = "Win32_Foundation")]
 impl IUIAutomationSelectionItemPattern_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationSelectionItemPattern_Impl, const OFFSET: isize>() -> IUIAutomationSelectionItemPattern_Vtbl {
         unsafe extern "system" fn Select<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationSelectionItemPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -8058,6 +8241,8 @@ pub trait IUIAutomationSelectionPattern_Impl: Sized {
     fn CachedCanSelectMultiple(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
     fn CachedIsSelectionRequired(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IUIAutomationSelectionPattern {}
 #[cfg(feature = "Win32_Foundation")]
 impl IUIAutomationSelectionPattern_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationSelectionPattern_Impl, const OFFSET: isize>() -> IUIAutomationSelectionPattern_Vtbl {
@@ -8152,6 +8337,8 @@ pub trait IUIAutomationSelectionPattern2_Impl: Sized + IUIAutomationSelectionPat
     fn CachedCurrentSelectedItem(&self) -> ::windows::core::Result<IUIAutomationElement>;
     fn CachedItemCount(&self) -> ::windows::core::Result<i32>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IUIAutomationSelectionPattern2 {}
 #[cfg(feature = "Win32_Foundation")]
 impl IUIAutomationSelectionPattern2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationSelectionPattern2_Impl, const OFFSET: isize>() -> IUIAutomationSelectionPattern2_Vtbl {
@@ -8269,6 +8456,8 @@ pub trait IUIAutomationSpreadsheetItemPattern_Impl: Sized {
     fn GetCachedAnnotationTypes(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::windows::core::RuntimeName for IUIAutomationSpreadsheetItemPattern {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IUIAutomationSpreadsheetItemPattern_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationSpreadsheetItemPattern_Impl, const OFFSET: isize>() -> IUIAutomationSpreadsheetItemPattern_Vtbl {
         unsafe extern "system" fn CurrentFormula<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationSpreadsheetItemPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
@@ -8356,6 +8545,8 @@ pub trait IUIAutomationSpreadsheetPattern_Impl: Sized {
     fn GetItemByName(&self, name: &super::super::Foundation::BSTR) -> ::windows::core::Result<IUIAutomationElement>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IUIAutomationSpreadsheetPattern {}
+#[cfg(feature = "Win32_Foundation")]
 impl IUIAutomationSpreadsheetPattern_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationSpreadsheetPattern_Impl, const OFFSET: isize>() -> IUIAutomationSpreadsheetPattern_Vtbl {
         unsafe extern "system" fn GetItemByName<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationSpreadsheetPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, element: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -8379,6 +8570,8 @@ impl IUIAutomationSpreadsheetPattern_Vtbl {
 pub trait IUIAutomationStructureChangedEventHandler_Impl: Sized {
     fn HandleStructureChangedEvent(&self, sender: &::core::option::Option<IUIAutomationElement>, changetype: StructureChangeType, runtimeid: *const super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_System_Com")]
+impl ::windows::core::RuntimeName for IUIAutomationStructureChangedEventHandler {}
 #[cfg(feature = "Win32_System_Com")]
 impl IUIAutomationStructureChangedEventHandler_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationStructureChangedEventHandler_Impl, const OFFSET: isize>() -> IUIAutomationStructureChangedEventHandler_Vtbl {
@@ -8415,6 +8608,8 @@ pub trait IUIAutomationStylesPattern_Impl: Sized {
     fn CachedExtendedProperties(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn GetCachedExtendedPropertiesAsArray(&self, propertyarray: *mut *mut ExtendedProperty, propertycount: *mut i32) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IUIAutomationStylesPattern {}
 #[cfg(feature = "Win32_Foundation")]
 impl IUIAutomationStylesPattern_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationStylesPattern_Impl, const OFFSET: isize>() -> IUIAutomationStylesPattern_Vtbl {
@@ -8610,6 +8805,7 @@ pub trait IUIAutomationSynchronizedInputPattern_Impl: Sized {
     fn StartListening(&self, inputtype: SynchronizedInputType) -> ::windows::core::Result<()>;
     fn Cancel(&self) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IUIAutomationSynchronizedInputPattern {}
 impl IUIAutomationSynchronizedInputPattern_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationSynchronizedInputPattern_Impl, const OFFSET: isize>() -> IUIAutomationSynchronizedInputPattern_Vtbl {
         unsafe extern "system" fn StartListening<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationSynchronizedInputPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, inputtype: SynchronizedInputType) -> ::windows::core::HRESULT {
@@ -8638,6 +8834,7 @@ pub trait IUIAutomationTableItemPattern_Impl: Sized {
     fn GetCachedRowHeaderItems(&self) -> ::windows::core::Result<IUIAutomationElementArray>;
     fn GetCachedColumnHeaderItems(&self) -> ::windows::core::Result<IUIAutomationElementArray>;
 }
+impl ::windows::core::RuntimeName for IUIAutomationTableItemPattern {}
 impl IUIAutomationTableItemPattern_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationTableItemPattern_Impl, const OFFSET: isize>() -> IUIAutomationTableItemPattern_Vtbl {
         unsafe extern "system" fn GetCurrentRowHeaderItems<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationTableItemPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -8704,6 +8901,7 @@ pub trait IUIAutomationTablePattern_Impl: Sized {
     fn GetCachedColumnHeaders(&self) -> ::windows::core::Result<IUIAutomationElementArray>;
     fn CachedRowOrColumnMajor(&self) -> ::windows::core::Result<RowOrColumnMajor>;
 }
+impl ::windows::core::RuntimeName for IUIAutomationTablePattern {}
 impl IUIAutomationTablePattern_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationTablePattern_Impl, const OFFSET: isize>() -> IUIAutomationTablePattern_Vtbl {
         unsafe extern "system" fn GetCurrentRowHeaders<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationTablePattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -8790,6 +8988,7 @@ pub trait IUIAutomationTextChildPattern_Impl: Sized {
     fn TextContainer(&self) -> ::windows::core::Result<IUIAutomationElement>;
     fn TextRange(&self) -> ::windows::core::Result<IUIAutomationTextRange>;
 }
+impl ::windows::core::RuntimeName for IUIAutomationTextChildPattern {}
 impl IUIAutomationTextChildPattern_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationTextChildPattern_Impl, const OFFSET: isize>() -> IUIAutomationTextChildPattern_Vtbl {
         unsafe extern "system" fn TextContainer<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationTextChildPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, container: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -8830,6 +9029,8 @@ pub trait IUIAutomationTextEditPattern_Impl: Sized + IUIAutomationTextPattern_Im
     fn GetConversionTarget(&self) -> ::windows::core::Result<IUIAutomationTextRange>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IUIAutomationTextEditPattern {}
+#[cfg(feature = "Win32_Foundation")]
 impl IUIAutomationTextEditPattern_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationTextEditPattern_Impl, const OFFSET: isize>() -> IUIAutomationTextEditPattern_Vtbl {
         unsafe extern "system" fn GetActiveComposition<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationTextEditPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, range: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -8869,6 +9070,8 @@ pub trait IUIAutomationTextEditTextChangedEventHandler_Impl: Sized {
     fn HandleTextEditTextChangedEvent(&self, sender: &::core::option::Option<IUIAutomationElement>, texteditchangetype: TextEditChangeType, eventstrings: *const super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
+impl ::windows::core::RuntimeName for IUIAutomationTextEditTextChangedEventHandler {}
+#[cfg(feature = "Win32_System_Com")]
 impl IUIAutomationTextEditTextChangedEventHandler_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationTextEditTextChangedEventHandler_Impl, const OFFSET: isize>() -> IUIAutomationTextEditTextChangedEventHandler_Vtbl {
         unsafe extern "system" fn HandleTextEditTextChangedEvent<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationTextEditTextChangedEventHandler_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sender: ::windows::core::RawPtr, texteditchangetype: TextEditChangeType, eventstrings: *const super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT {
@@ -8894,6 +9097,8 @@ pub trait IUIAutomationTextPattern_Impl: Sized {
     fn DocumentRange(&self) -> ::windows::core::Result<IUIAutomationTextRange>;
     fn SupportedTextSelection(&self) -> ::windows::core::Result<SupportedTextSelection>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IUIAutomationTextPattern {}
 #[cfg(feature = "Win32_Foundation")]
 impl IUIAutomationTextPattern_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationTextPattern_Impl, const OFFSET: isize>() -> IUIAutomationTextPattern_Vtbl {
@@ -8983,6 +9188,8 @@ pub trait IUIAutomationTextPattern2_Impl: Sized + IUIAutomationTextPattern_Impl 
     fn GetCaretRange(&self, isactive: *mut super::super::Foundation::BOOL, range: *mut ::core::option::Option<IUIAutomationTextRange>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IUIAutomationTextPattern2 {}
+#[cfg(feature = "Win32_Foundation")]
 impl IUIAutomationTextPattern2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationTextPattern2_Impl, const OFFSET: isize>() -> IUIAutomationTextPattern2_Vtbl {
         unsafe extern "system" fn RangeFromAnnotation<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationTextPattern2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, annotation: ::windows::core::RawPtr, range: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -9032,6 +9239,8 @@ pub trait IUIAutomationTextRange_Impl: Sized {
     fn ScrollIntoView(&self, aligntotop: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn GetChildren(&self) -> ::windows::core::Result<IUIAutomationElementArray>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IUIAutomationTextRange {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IUIAutomationTextRange_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationTextRange_Impl, const OFFSET: isize>() -> IUIAutomationTextRange_Vtbl {
@@ -9228,6 +9437,8 @@ pub trait IUIAutomationTextRange2_Impl: Sized + IUIAutomationTextRange_Impl {
     fn ShowContextMenu(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IUIAutomationTextRange2 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IUIAutomationTextRange2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationTextRange2_Impl, const OFFSET: isize>() -> IUIAutomationTextRange2_Vtbl {
         unsafe extern "system" fn ShowContextMenu<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationTextRange2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -9247,6 +9458,8 @@ pub trait IUIAutomationTextRange3_Impl: Sized + IUIAutomationTextRange_Impl + IU
     fn GetChildrenBuildCache(&self, cacherequest: &::core::option::Option<IUIAutomationCacheRequest>) -> ::windows::core::Result<IUIAutomationElementArray>;
     fn GetAttributeValues(&self, attributeids: *const i32, attributeidcount: i32) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IUIAutomationTextRange3 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IUIAutomationTextRange3_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationTextRange3_Impl, const OFFSET: isize>() -> IUIAutomationTextRange3_Vtbl {
@@ -9298,6 +9511,7 @@ pub trait IUIAutomationTextRangeArray_Impl: Sized {
     fn Length(&self) -> ::windows::core::Result<i32>;
     fn GetElement(&self, index: i32) -> ::windows::core::Result<IUIAutomationTextRange>;
 }
+impl ::windows::core::RuntimeName for IUIAutomationTextRangeArray {}
 impl IUIAutomationTextRangeArray_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationTextRangeArray_Impl, const OFFSET: isize>() -> IUIAutomationTextRangeArray_Vtbl {
         unsafe extern "system" fn Length<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationTextRangeArray_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, length: *mut i32) -> ::windows::core::HRESULT {
@@ -9337,6 +9551,7 @@ pub trait IUIAutomationTogglePattern_Impl: Sized {
     fn CurrentToggleState(&self) -> ::windows::core::Result<ToggleState>;
     fn CachedToggleState(&self) -> ::windows::core::Result<ToggleState>;
 }
+impl ::windows::core::RuntimeName for IUIAutomationTogglePattern {}
 impl IUIAutomationTogglePattern_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationTogglePattern_Impl, const OFFSET: isize>() -> IUIAutomationTogglePattern_Vtbl {
         unsafe extern "system" fn Toggle<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationTogglePattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -9389,6 +9604,8 @@ pub trait IUIAutomationTransformPattern_Impl: Sized {
     fn CachedCanResize(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
     fn CachedCanRotate(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IUIAutomationTransformPattern {}
 #[cfg(feature = "Win32_Foundation")]
 impl IUIAutomationTransformPattern_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationTransformPattern_Impl, const OFFSET: isize>() -> IUIAutomationTransformPattern_Vtbl {
@@ -9503,6 +9720,8 @@ pub trait IUIAutomationTransformPattern2_Impl: Sized + IUIAutomationTransformPat
     fn CurrentZoomMaximum(&self) -> ::windows::core::Result<f64>;
     fn CachedZoomMaximum(&self) -> ::windows::core::Result<f64>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IUIAutomationTransformPattern2 {}
 #[cfg(feature = "Win32_Foundation")]
 impl IUIAutomationTransformPattern2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationTransformPattern2_Impl, const OFFSET: isize>() -> IUIAutomationTransformPattern2_Vtbl {
@@ -9637,6 +9856,7 @@ pub trait IUIAutomationTreeWalker_Impl: Sized {
     fn NormalizeElementBuildCache(&self, element: &::core::option::Option<IUIAutomationElement>, cacherequest: &::core::option::Option<IUIAutomationCacheRequest>) -> ::windows::core::Result<IUIAutomationElement>;
     fn Condition(&self) -> ::windows::core::Result<IUIAutomationCondition>;
 }
+impl ::windows::core::RuntimeName for IUIAutomationTreeWalker {}
 impl IUIAutomationTreeWalker_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationTreeWalker_Impl, const OFFSET: isize>() -> IUIAutomationTreeWalker_Vtbl {
         unsafe extern "system" fn GetParentElement<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationTreeWalker_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, parent: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -9812,6 +10032,8 @@ pub trait IUIAutomationValuePattern_Impl: Sized {
     fn CachedIsReadOnly(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IUIAutomationValuePattern {}
+#[cfg(feature = "Win32_Foundation")]
 impl IUIAutomationValuePattern_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationValuePattern_Impl, const OFFSET: isize>() -> IUIAutomationValuePattern_Vtbl {
         unsafe extern "system" fn SetValue<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationValuePattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, val: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
@@ -9879,6 +10101,7 @@ impl IUIAutomationValuePattern_Vtbl {
 pub trait IUIAutomationVirtualizedItemPattern_Impl: Sized {
     fn Realize(&self) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IUIAutomationVirtualizedItemPattern {}
 impl IUIAutomationVirtualizedItemPattern_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationVirtualizedItemPattern_Impl, const OFFSET: isize>() -> IUIAutomationVirtualizedItemPattern_Vtbl {
         unsafe extern "system" fn Realize<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationVirtualizedItemPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -9910,6 +10133,8 @@ pub trait IUIAutomationWindowPattern_Impl: Sized {
     fn CachedWindowVisualState(&self) -> ::windows::core::Result<WindowVisualState>;
     fn CachedWindowInteractionState(&self) -> ::windows::core::Result<WindowInteractionState>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IUIAutomationWindowPattern {}
 #[cfg(feature = "Win32_Foundation")]
 impl IUIAutomationWindowPattern_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUIAutomationWindowPattern_Impl, const OFFSET: isize>() -> IUIAutomationWindowPattern_Vtbl {
@@ -10096,6 +10321,8 @@ pub trait IValueProvider_Impl: Sized {
     fn IsReadOnly(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IValueProvider {}
+#[cfg(feature = "Win32_Foundation")]
 impl IValueProvider_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IValueProvider_Impl, const OFFSET: isize>() -> IValueProvider_Vtbl {
         unsafe extern "system" fn SetValue<Identity: ::windows::core::IUnknownImpl, Impl: IValueProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, val: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
@@ -10139,6 +10366,7 @@ impl IValueProvider_Vtbl {
 pub trait IVirtualizedItemProvider_Impl: Sized {
     fn Realize(&self) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IVirtualizedItemProvider {}
 impl IVirtualizedItemProvider_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVirtualizedItemProvider_Impl, const OFFSET: isize>() -> IVirtualizedItemProvider_Vtbl {
         unsafe extern "system" fn Realize<Identity: ::windows::core::IUnknownImpl, Impl: IVirtualizedItemProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -10164,6 +10392,8 @@ pub trait IWindowProvider_Impl: Sized {
     fn WindowInteractionState(&self) -> ::windows::core::Result<WindowInteractionState>;
     fn IsTopmost(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IWindowProvider {}
 #[cfg(feature = "Win32_Foundation")]
 impl IWindowProvider_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWindowProvider_Impl, const OFFSET: isize>() -> IWindowProvider_Vtbl {

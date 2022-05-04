@@ -32,6 +32,8 @@ pub trait IADsTSUserEx_Impl: Sized + super::Com::IDispatch_Impl {
     fn SetTerminalServicesInitialProgram(&self, pnewval: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IADsTSUserEx {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IADsTSUserEx_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IADsTSUserEx_Impl, const OFFSET: isize>() -> IADsTSUserEx_Vtbl {
         unsafe extern "system" fn TerminalServicesProfilePath<Identity: ::windows::core::IUnknownImpl, Impl: IADsTSUserEx_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
@@ -320,6 +322,8 @@ pub trait IAudioDeviceEndpoint_Impl: Sized {
     fn WriteExclusiveModeParametersToSharedMemory(&self, htargetprocess: usize, hnsperiod: i64, hnsbufferduration: i64, u32latencycoefficient: u32, pu32sharedmemorysize: *mut u32, phsharedmemory: *mut usize) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IAudioDeviceEndpoint {}
+#[cfg(feature = "Win32_Foundation")]
 impl IAudioDeviceEndpoint_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAudioDeviceEndpoint_Impl, const OFFSET: isize>() -> IAudioDeviceEndpoint_Vtbl {
         unsafe extern "system" fn SetBuffer<Identity: ::windows::core::IUnknownImpl, Impl: IAudioDeviceEndpoint_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, maxperiod: i64, u32latencycoefficient: u32) -> ::windows::core::HRESULT {
@@ -374,6 +378,8 @@ pub trait IAudioEndpoint_Impl: Sized {
     fn SetStreamFlags(&self, streamflags: u32) -> ::windows::core::Result<()>;
     fn SetEventHandle(&self, eventhandle: super::super::Foundation::HANDLE) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio"))]
+impl ::windows::core::RuntimeName for IAudioEndpoint {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio"))]
 impl IAudioEndpoint_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAudioEndpoint_Impl, const OFFSET: isize>() -> IAudioEndpoint_Vtbl {
@@ -438,6 +444,7 @@ pub trait IAudioEndpointControl_Impl: Sized {
     fn Reset(&self) -> ::windows::core::Result<()>;
     fn Stop(&self) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IAudioEndpointControl {}
 impl IAudioEndpointControl_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAudioEndpointControl_Impl, const OFFSET: isize>() -> IAudioEndpointControl_Vtbl {
         unsafe extern "system" fn Start<Identity: ::windows::core::IUnknownImpl, Impl: IAudioEndpointControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -472,6 +479,7 @@ pub trait IAudioEndpointRT_Impl: Sized {
     fn SetPinInactive(&self) -> ::windows::core::Result<()>;
     fn SetPinActive(&self) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IAudioEndpointRT {}
 impl IAudioEndpointRT_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAudioEndpointRT_Impl, const OFFSET: isize>() -> IAudioEndpointRT_Vtbl {
         unsafe extern "system" fn GetCurrentPadding<Identity: ::windows::core::IUnknownImpl, Impl: IAudioEndpointRT_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppadding: *mut i64, paecurrentposition: *mut AE_CURRENT_POSITION) {
@@ -513,6 +521,8 @@ pub trait IAudioInputEndpointRT_Impl: Sized {
     fn PulseEndpoint(&self);
 }
 #[cfg(feature = "Win32_Media_Audio_Apo")]
+impl ::windows::core::RuntimeName for IAudioInputEndpointRT {}
+#[cfg(feature = "Win32_Media_Audio_Apo")]
 impl IAudioInputEndpointRT_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAudioInputEndpointRT_Impl, const OFFSET: isize>() -> IAudioInputEndpointRT_Vtbl {
         unsafe extern "system" fn GetInputDataPointer<Identity: ::windows::core::IUnknownImpl, Impl: IAudioInputEndpointRT_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pconnectionproperty: *mut super::super::Media::Audio::Apo::APO_CONNECTION_PROPERTY, paetimestamp: *mut AE_CURRENT_POSITION) {
@@ -547,6 +557,8 @@ pub trait IAudioOutputEndpointRT_Impl: Sized {
     fn ReleaseOutputDataPointer(&self, pconnectionproperty: *const super::super::Media::Audio::Apo::APO_CONNECTION_PROPERTY);
     fn PulseEndpoint(&self);
 }
+#[cfg(feature = "Win32_Media_Audio_Apo")]
+impl ::windows::core::RuntimeName for IAudioOutputEndpointRT {}
 #[cfg(feature = "Win32_Media_Audio_Apo")]
 impl IAudioOutputEndpointRT_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAudioOutputEndpointRT_Impl, const OFFSET: isize>() -> IAudioOutputEndpointRT_Vtbl {
@@ -589,6 +601,8 @@ pub trait IRemoteDesktopClient_Impl: Sized + super::Com::IDispatch_Impl {
     fn attachEvent(&self, eventname: &super::super::Foundation::BSTR, callback: &::core::option::Option<super::Com::IDispatch>) -> ::windows::core::Result<()>;
     fn detachEvent(&self, eventname: &super::super::Foundation::BSTR, callback: &::core::option::Option<super::Com::IDispatch>) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IRemoteDesktopClient {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IRemoteDesktopClient_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteDesktopClient_Impl, const OFFSET: isize>() -> IRemoteDesktopClient_Vtbl {
@@ -686,6 +700,8 @@ pub trait IRemoteDesktopClientActions_Impl: Sized + super::Com::IDispatch_Impl {
     fn GetSnapshot(&self, snapshotencoding: SnapshotEncodingType, snapshotformat: SnapshotFormatType, snapshotwidth: u32, snapshotheight: u32) -> ::windows::core::Result<super::super::Foundation::BSTR>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IRemoteDesktopClientActions {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IRemoteDesktopClientActions_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteDesktopClientActions_Impl, const OFFSET: isize>() -> IRemoteDesktopClientActions_Vtbl {
         unsafe extern "system" fn SuspendScreenUpdates<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteDesktopClientActions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -733,6 +749,8 @@ pub trait IRemoteDesktopClientSettings_Impl: Sized + super::Com::IDispatch_Impl 
     fn GetRdpProperty(&self, propertyname: &super::super::Foundation::BSTR) -> ::windows::core::Result<super::Com::VARIANT>;
     fn SetRdpProperty(&self, propertyname: &super::super::Foundation::BSTR, value: &super::Com::VARIANT) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IRemoteDesktopClientSettings {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IRemoteDesktopClientSettings_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteDesktopClientSettings_Impl, const OFFSET: isize>() -> IRemoteDesktopClientSettings_Vtbl {
@@ -789,6 +807,8 @@ pub trait IRemoteDesktopClientTouchPointer_Impl: Sized + super::Com::IDispatch_I
     fn SetPointerSpeed(&self, pointerspeed: u32) -> ::windows::core::Result<()>;
     fn PointerSpeed(&self) -> ::windows::core::Result<u32>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IRemoteDesktopClientTouchPointer {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IRemoteDesktopClientTouchPointer_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteDesktopClientTouchPointer_Impl, const OFFSET: isize>() -> IRemoteDesktopClientTouchPointer_Vtbl {
@@ -857,6 +877,7 @@ impl IRemoteDesktopClientTouchPointer_Vtbl {
 pub trait IRemoteSystemAdditionalInfoProvider_Impl: Sized {
     fn GetAdditionalInfo(&self, deduplicationid: *mut ::windows::core::HSTRING, riid: *const ::windows::core::GUID, mapview: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IRemoteSystemAdditionalInfoProvider {}
 impl IRemoteSystemAdditionalInfoProvider_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemAdditionalInfoProvider_Impl, const OFFSET: isize>() -> IRemoteSystemAdditionalInfoProvider_Vtbl {
         unsafe extern "system" fn GetAdditionalInfo<Identity: ::windows::core::IUnknownImpl, Impl: IRemoteSystemAdditionalInfoProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deduplicationid: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>, riid: *const ::windows::core::GUID, mapview: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -874,6 +895,8 @@ impl IRemoteSystemAdditionalInfoProvider_Vtbl {
 pub trait ITSGAccountingEngine_Impl: Sized {
     fn DoAccounting(&self, accountingdatatype: AAAccountingDataType, accountingdata: &AAAccountingData) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for ITSGAccountingEngine {}
 #[cfg(feature = "Win32_Foundation")]
 impl ITSGAccountingEngine_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITSGAccountingEngine_Impl, const OFFSET: isize>() -> ITSGAccountingEngine_Vtbl {
@@ -895,6 +918,8 @@ pub trait ITSGAuthenticateUserSink_Impl: Sized {
     fn ReauthenticateUser(&self, context: usize) -> ::windows::core::Result<()>;
     fn DisconnectUser(&self, context: usize) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for ITSGAuthenticateUserSink {}
 #[cfg(feature = "Win32_Foundation")]
 impl ITSGAuthenticateUserSink_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITSGAuthenticateUserSink_Impl, const OFFSET: isize>() -> ITSGAuthenticateUserSink_Vtbl {
@@ -934,6 +959,7 @@ pub trait ITSGAuthenticationEngine_Impl: Sized {
     fn AuthenticateUser(&self, mainsessionid: &::windows::core::GUID, cookiedata: *const u8, numcookiebytes: u32, context: usize, psink: &::core::option::Option<ITSGAuthenticateUserSink>) -> ::windows::core::Result<()>;
     fn CancelAuthentication(&self, mainsessionid: &::windows::core::GUID, context: usize) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for ITSGAuthenticationEngine {}
 impl ITSGAuthenticationEngine_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITSGAuthenticationEngine_Impl, const OFFSET: isize>() -> ITSGAuthenticationEngine_Vtbl {
         unsafe extern "system" fn AuthenticateUser<Identity: ::windows::core::IUnknownImpl, Impl: ITSGAuthenticationEngine_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, mainsessionid: ::windows::core::GUID, cookiedata: *const u8, numcookiebytes: u32, context: usize, psink: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -959,6 +985,7 @@ impl ITSGAuthenticationEngine_Vtbl {
 pub trait ITSGAuthorizeConnectionSink_Impl: Sized {
     fn OnConnectionAuthorized(&self, hrin: ::windows::core::HRESULT, mainsessionid: &::windows::core::GUID, cbsohresponse: u32, pbsohresponse: *const u8, idletimeout: u32, sessiontimeout: u32, sessiontimeoutaction: SESSION_TIMEOUT_ACTION_TYPE, trustclass: AATrustClassID, policyattributes: *const u32) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for ITSGAuthorizeConnectionSink {}
 impl ITSGAuthorizeConnectionSink_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITSGAuthorizeConnectionSink_Impl, const OFFSET: isize>() -> ITSGAuthorizeConnectionSink_Vtbl {
         unsafe extern "system" fn OnConnectionAuthorized<Identity: ::windows::core::IUnknownImpl, Impl: ITSGAuthorizeConnectionSink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hrin: ::windows::core::HRESULT, mainsessionid: ::windows::core::GUID, cbsohresponse: u32, pbsohresponse: *const u8, idletimeout: u32, sessiontimeout: u32, sessiontimeoutaction: SESSION_TIMEOUT_ACTION_TYPE, trustclass: AATrustClassID, policyattributes: *const u32) -> ::windows::core::HRESULT {
@@ -976,6 +1003,8 @@ impl ITSGAuthorizeConnectionSink_Vtbl {
 pub trait ITSGAuthorizeResourceSink_Impl: Sized {
     fn OnChannelAuthorized(&self, hrin: ::windows::core::HRESULT, mainsessionid: &::windows::core::GUID, subsessionid: i32, allowedresourcenames: *const super::super::Foundation::BSTR, numallowedresourcenames: u32, failedresourcenames: *const super::super::Foundation::BSTR, numfailedresourcenames: u32) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for ITSGAuthorizeResourceSink {}
 #[cfg(feature = "Win32_Foundation")]
 impl ITSGAuthorizeResourceSink_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITSGAuthorizeResourceSink_Impl, const OFFSET: isize>() -> ITSGAuthorizeResourceSink_Vtbl {
@@ -997,6 +1026,8 @@ pub trait ITSGPolicyEngine_Impl: Sized {
     fn Refresh(&self) -> ::windows::core::Result<()>;
     fn IsQuarantineEnabled(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for ITSGPolicyEngine {}
 #[cfg(feature = "Win32_Foundation")]
 impl ITSGPolicyEngine_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITSGPolicyEngine_Impl, const OFFSET: isize>() -> ITSGPolicyEngine_Vtbl {
@@ -1057,6 +1088,7 @@ pub trait ITsSbBaseNotifySink_Impl: Sized {
     fn OnError(&self, hrerror: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
     fn OnReportStatus(&self, messagetype: CLIENT_MESSAGE_TYPE, messageid: u32) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for ITsSbBaseNotifySink {}
 impl ITsSbBaseNotifySink_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITsSbBaseNotifySink_Impl, const OFFSET: isize>() -> ITsSbBaseNotifySink_Vtbl {
         unsafe extern "system" fn OnError<Identity: ::windows::core::IUnknownImpl, Impl: ITsSbBaseNotifySink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hrerror: ::windows::core::HRESULT) -> ::windows::core::HRESULT {
@@ -1097,6 +1129,8 @@ pub trait ITsSbClientConnection_Impl: Sized {
     fn UserSidString(&self) -> ::windows::core::Result<*mut i8>;
     fn GetDisconnectedSession(&self) -> ::windows::core::Result<ITsSbSession>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ITsSbClientConnection {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
 impl ITsSbClientConnection_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITsSbClientConnection_Impl, const OFFSET: isize>() -> ITsSbClientConnection_Vtbl {
@@ -1285,6 +1319,8 @@ impl ITsSbClientConnection_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
 pub trait ITsSbClientConnectionPropertySet_Impl: Sized + super::Com::StructuredStorage::IPropertyBag_Impl + ITsSbPropertySet_Impl {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ITsSbClientConnectionPropertySet {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
 impl ITsSbClientConnectionPropertySet_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITsSbClientConnectionPropertySet_Impl, const OFFSET: isize>() -> ITsSbClientConnectionPropertySet_Vtbl {
         Self { base__: ITsSbPropertySet_Vtbl::new::<Identity, Impl, OFFSET>() }
@@ -1300,6 +1336,8 @@ pub trait ITsSbEnvironment_Impl: Sized {
     fn EnvironmentPropertySet(&self) -> ::windows::core::Result<ITsSbEnvironmentPropertySet>;
     fn SetEnvironmentPropertySet(&self, pval: &::core::option::Option<ITsSbEnvironmentPropertySet>) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+impl ::windows::core::RuntimeName for ITsSbEnvironment {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 impl ITsSbEnvironment_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITsSbEnvironment_Impl, const OFFSET: isize>() -> ITsSbEnvironment_Vtbl {
@@ -1356,6 +1394,8 @@ impl ITsSbEnvironment_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
 pub trait ITsSbEnvironmentPropertySet_Impl: Sized + super::Com::StructuredStorage::IPropertyBag_Impl + ITsSbPropertySet_Impl {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ITsSbEnvironmentPropertySet {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
 impl ITsSbEnvironmentPropertySet_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITsSbEnvironmentPropertySet_Impl, const OFFSET: isize>() -> ITsSbEnvironmentPropertySet_Vtbl {
         Self { base__: ITsSbPropertySet_Vtbl::new::<Identity, Impl, OFFSET>() }
@@ -1370,6 +1410,8 @@ pub trait ITsSbFilterPluginStore_Impl: Sized {
     fn EnumerateProperties(&self) -> ::windows::core::Result<ITsSbPropertySet>;
     fn DeleteProperties(&self, propertyname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+impl ::windows::core::RuntimeName for ITsSbFilterPluginStore {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 impl ITsSbFilterPluginStore_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITsSbFilterPluginStore_Impl, const OFFSET: isize>() -> ITsSbFilterPluginStore_Vtbl {
@@ -1411,6 +1453,8 @@ pub trait ITsSbGenericNotifySink_Impl: Sized {
     fn GetWaitTimeout(&self) -> ::windows::core::Result<super::super::Foundation::FILETIME>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for ITsSbGenericNotifySink {}
+#[cfg(feature = "Win32_Foundation")]
 impl ITsSbGenericNotifySink_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITsSbGenericNotifySink_Impl, const OFFSET: isize>() -> ITsSbGenericNotifySink_Vtbl {
         unsafe extern "system" fn OnCompleted<Identity: ::windows::core::IUnknownImpl, Impl: ITsSbGenericNotifySink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, status: ::windows::core::HRESULT) -> ::windows::core::HRESULT {
@@ -1449,6 +1493,8 @@ pub trait ITsSbGlobalStore_Impl: Sized {
     fn EnumerateSessions(&self, providername: &super::super::Foundation::BSTR, targetname: &super::super::Foundation::BSTR, username: &super::super::Foundation::BSTR, userdomain: &super::super::Foundation::BSTR, poolname: &super::super::Foundation::BSTR, initialprogram: &super::super::Foundation::BSTR, psessionstate: *const TSSESSION_STATE, pdwcount: *mut u32, ppval: *mut *mut ::core::option::Option<ITsSbSession>) -> ::windows::core::Result<()>;
     fn GetFarmProperty(&self, farmname: &super::super::Foundation::BSTR, propertyname: &super::super::Foundation::BSTR, pvarvalue: *const super::Com::VARIANT) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ITsSbGlobalStore {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITsSbGlobalStore_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITsSbGlobalStore_Impl, const OFFSET: isize>() -> ITsSbGlobalStore_Vtbl {
@@ -1519,6 +1565,8 @@ pub trait ITsSbLoadBalanceResult_Impl: Sized {
     fn TargetName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for ITsSbLoadBalanceResult {}
+#[cfg(feature = "Win32_Foundation")]
 impl ITsSbLoadBalanceResult_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITsSbLoadBalanceResult_Impl, const OFFSET: isize>() -> ITsSbLoadBalanceResult_Vtbl {
         unsafe extern "system" fn TargetName<Identity: ::windows::core::IUnknownImpl, Impl: ITsSbLoadBalanceResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
@@ -1543,6 +1591,8 @@ pub trait ITsSbLoadBalancing_Impl: Sized + ITsSbPlugin_Impl {
     fn GetMostSuitableTarget(&self, pconnection: &::core::option::Option<ITsSbClientConnection>, plbsink: &::core::option::Option<ITsSbLoadBalancingNotifySink>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
+impl ::windows::core::RuntimeName for ITsSbLoadBalancing {}
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl ITsSbLoadBalancing_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITsSbLoadBalancing_Impl, const OFFSET: isize>() -> ITsSbLoadBalancing_Vtbl {
         unsafe extern "system" fn GetMostSuitableTarget<Identity: ::windows::core::IUnknownImpl, Impl: ITsSbLoadBalancing_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pconnection: ::windows::core::RawPtr, plbsink: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -1560,6 +1610,8 @@ impl ITsSbLoadBalancing_Vtbl {
 pub trait ITsSbLoadBalancingNotifySink_Impl: Sized + ITsSbBaseNotifySink_Impl {
     fn OnGetMostSuitableTarget(&self, plbresult: &::core::option::Option<ITsSbLoadBalanceResult>, fisnewconnection: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for ITsSbLoadBalancingNotifySink {}
 #[cfg(feature = "Win32_Foundation")]
 impl ITsSbLoadBalancingNotifySink_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITsSbLoadBalancingNotifySink_Impl, const OFFSET: isize>() -> ITsSbLoadBalancingNotifySink_Vtbl {
@@ -1579,6 +1631,8 @@ pub trait ITsSbOrchestration_Impl: Sized + ITsSbPlugin_Impl {
     fn PrepareTargetForConnect(&self, pconnection: &::core::option::Option<ITsSbClientConnection>, porchestrationnotifysink: &::core::option::Option<ITsSbOrchestrationNotifySink>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
+impl ::windows::core::RuntimeName for ITsSbOrchestration {}
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl ITsSbOrchestration_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITsSbOrchestration_Impl, const OFFSET: isize>() -> ITsSbOrchestration_Vtbl {
         unsafe extern "system" fn PrepareTargetForConnect<Identity: ::windows::core::IUnknownImpl, Impl: ITsSbOrchestration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pconnection: ::windows::core::RawPtr, porchestrationnotifysink: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -1595,6 +1649,7 @@ impl ITsSbOrchestration_Vtbl {
 pub trait ITsSbOrchestrationNotifySink_Impl: Sized + ITsSbBaseNotifySink_Impl {
     fn OnReadyToConnect(&self, ptarget: &::core::option::Option<ITsSbTarget>) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for ITsSbOrchestrationNotifySink {}
 impl ITsSbOrchestrationNotifySink_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITsSbOrchestrationNotifySink_Impl, const OFFSET: isize>() -> ITsSbOrchestrationNotifySink_Vtbl {
         unsafe extern "system" fn OnReadyToConnect<Identity: ::windows::core::IUnknownImpl, Impl: ITsSbOrchestrationNotifySink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptarget: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -1613,6 +1668,8 @@ pub trait ITsSbPlacement_Impl: Sized + ITsSbPlugin_Impl {
     fn QueryEnvironmentForTarget(&self, pconnection: &::core::option::Option<ITsSbClientConnection>, pplacementsink: &::core::option::Option<ITsSbPlacementNotifySink>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
+impl ::windows::core::RuntimeName for ITsSbPlacement {}
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl ITsSbPlacement_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITsSbPlacement_Impl, const OFFSET: isize>() -> ITsSbPlacement_Vtbl {
         unsafe extern "system" fn QueryEnvironmentForTarget<Identity: ::windows::core::IUnknownImpl, Impl: ITsSbPlacement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pconnection: ::windows::core::RawPtr, pplacementsink: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -1629,6 +1686,7 @@ impl ITsSbPlacement_Vtbl {
 pub trait ITsSbPlacementNotifySink_Impl: Sized + ITsSbBaseNotifySink_Impl {
     fn OnQueryEnvironmentCompleted(&self, penvironment: &::core::option::Option<ITsSbEnvironment>) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for ITsSbPlacementNotifySink {}
 impl ITsSbPlacementNotifySink_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITsSbPlacementNotifySink_Impl, const OFFSET: isize>() -> ITsSbPlacementNotifySink_Vtbl {
         unsafe extern "system" fn OnQueryEnvironmentCompleted<Identity: ::windows::core::IUnknownImpl, Impl: ITsSbPlacementNotifySink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, penvironment: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -1650,6 +1708,8 @@ pub trait ITsSbPlugin_Impl: Sized {
     fn Initialize(&self, pprovider: &::core::option::Option<ITsSbProvider>, pnotifysink: &::core::option::Option<ITsSbPluginNotifySink>, ppropertyset: &::core::option::Option<ITsSbPluginPropertySet>) -> ::windows::core::Result<()>;
     fn Terminate(&self, hr: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
+impl ::windows::core::RuntimeName for ITsSbPlugin {}
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl ITsSbPlugin_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITsSbPlugin_Impl, const OFFSET: isize>() -> ITsSbPlugin_Vtbl {
@@ -1677,6 +1737,7 @@ pub trait ITsSbPluginNotifySink_Impl: Sized + ITsSbBaseNotifySink_Impl {
     fn OnInitialized(&self, hr: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
     fn OnTerminated(&self) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for ITsSbPluginNotifySink {}
 impl ITsSbPluginNotifySink_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITsSbPluginNotifySink_Impl, const OFFSET: isize>() -> ITsSbPluginNotifySink_Vtbl {
         unsafe extern "system" fn OnInitialized<Identity: ::windows::core::IUnknownImpl, Impl: ITsSbPluginNotifySink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hr: ::windows::core::HRESULT) -> ::windows::core::HRESULT {
@@ -1702,6 +1763,8 @@ impl ITsSbPluginNotifySink_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
 pub trait ITsSbPluginPropertySet_Impl: Sized + super::Com::StructuredStorage::IPropertyBag_Impl + ITsSbPropertySet_Impl {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ITsSbPluginPropertySet {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
 impl ITsSbPluginPropertySet_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITsSbPluginPropertySet_Impl, const OFFSET: isize>() -> ITsSbPluginPropertySet_Vtbl {
         Self { base__: ITsSbPropertySet_Vtbl::new::<Identity, Impl, OFFSET>() }
@@ -1712,6 +1775,8 @@ impl ITsSbPluginPropertySet_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
 pub trait ITsSbPropertySet_Impl: Sized + super::Com::StructuredStorage::IPropertyBag_Impl {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ITsSbPropertySet {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
 impl ITsSbPropertySet_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITsSbPropertySet_Impl, const OFFSET: isize>() -> ITsSbPropertySet_Vtbl {
@@ -1736,6 +1801,8 @@ pub trait ITsSbProvider_Impl: Sized {
     fn GetInstanceOfGlobalStore(&self) -> ::windows::core::Result<ITsSbGlobalStore>;
     fn CreateEnvironmentPropertySetObject(&self) -> ::windows::core::Result<ITsSbEnvironmentPropertySet>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+impl ::windows::core::RuntimeName for ITsSbProvider {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 impl ITsSbProvider_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITsSbProvider_Impl, const OFFSET: isize>() -> ITsSbProvider_Vtbl {
@@ -1887,6 +1954,8 @@ pub trait ITsSbProvisioning_Impl: Sized + ITsSbPlugin_Impl {
     fn CancelJob(&self, jobguid: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+impl ::windows::core::RuntimeName for ITsSbProvisioning {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 impl ITsSbProvisioning_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITsSbProvisioning_Impl, const OFFSET: isize>() -> ITsSbProvisioning_Vtbl {
         unsafe extern "system" fn CreateVirtualMachines<Identity: ::windows::core::IUnknownImpl, Impl: ITsSbProvisioning_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, jobxmlstring: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, jobguid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, psink: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -1930,6 +1999,8 @@ pub trait ITsSbProvisioningPluginNotifySink_Impl: Sized {
     fn LockVirtualMachine(&self, pvmnotifyentry: *const VM_NOTIFY_ENTRY) -> ::windows::core::Result<()>;
     fn OnVirtualMachineHostStatusChanged(&self, vmhost: &super::super::Foundation::BSTR, vmhostnotifystatus: VM_HOST_NOTIFY_STATUS, errorcode: ::windows::core::HRESULT, errordescr: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for ITsSbProvisioningPluginNotifySink {}
 #[cfg(feature = "Win32_Foundation")]
 impl ITsSbProvisioningPluginNotifySink_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITsSbProvisioningPluginNotifySink_Impl, const OFFSET: isize>() -> ITsSbProvisioningPluginNotifySink_Vtbl {
@@ -1982,6 +2053,7 @@ pub trait ITsSbResourceNotification_Impl: Sized {
     fn NotifyTargetChange(&self, targetchangetype: u32, ptarget: &::core::option::Option<ITsSbTarget>) -> ::windows::core::Result<()>;
     fn NotifyClientConnectionStateChange(&self, changetype: CONNECTION_CHANGE_NOTIFICATION, pconnection: &::core::option::Option<ITsSbClientConnection>) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for ITsSbResourceNotification {}
 impl ITsSbResourceNotification_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITsSbResourceNotification_Impl, const OFFSET: isize>() -> ITsSbResourceNotification_Vtbl {
         unsafe extern "system" fn NotifySessionChange<Identity: ::windows::core::IUnknownImpl, Impl: ITsSbResourceNotification_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, changetype: TSSESSION_STATE, psession: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -2017,6 +2089,8 @@ pub trait ITsSbResourceNotificationEx_Impl: Sized {
     fn NotifyClientConnectionStateChangeEx(&self, username: &super::super::Foundation::BSTR, domain: &super::super::Foundation::BSTR, initialprogram: &super::super::Foundation::BSTR, poolname: &super::super::Foundation::BSTR, targetname: &super::super::Foundation::BSTR, connectionchangetype: CONNECTION_CHANGE_NOTIFICATION) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for ITsSbResourceNotificationEx {}
+#[cfg(feature = "Win32_Foundation")]
 impl ITsSbResourceNotificationEx_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITsSbResourceNotificationEx_Impl, const OFFSET: isize>() -> ITsSbResourceNotificationEx_Vtbl {
         unsafe extern "system" fn NotifySessionChangeEx<Identity: ::windows::core::IUnknownImpl, Impl: ITsSbResourceNotificationEx_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, targetname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, username: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, domain: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, sessionid: u32, sessionstate: TSSESSION_STATE) -> ::windows::core::HRESULT {
@@ -2047,6 +2121,8 @@ impl ITsSbResourceNotificationEx_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 pub trait ITsSbResourcePlugin_Impl: Sized + ITsSbPlugin_Impl {}
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
+impl ::windows::core::RuntimeName for ITsSbResourcePlugin {}
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl ITsSbResourcePlugin_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITsSbResourcePlugin_Impl, const OFFSET: isize>() -> ITsSbResourcePlugin_Vtbl {
@@ -2087,6 +2163,8 @@ pub trait ITsSbResourcePluginStore_Impl: Sized {
     fn GetServerState(&self, poolname: &super::super::Foundation::BSTR, serverfqdn: &super::super::Foundation::BSTR) -> ::windows::core::Result<TARGET_STATE>;
     fn SetServerDrainMode(&self, serverfqdn: &super::super::Foundation::BSTR, drainmode: u32) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ITsSbResourcePluginStore {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITsSbResourcePluginStore_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITsSbResourcePluginStore_Impl, const OFFSET: isize>() -> ITsSbResourcePluginStore_Vtbl {
@@ -2312,6 +2390,7 @@ pub trait ITsSbServiceNotification_Impl: Sized {
     fn NotifyServiceFailure(&self) -> ::windows::core::Result<()>;
     fn NotifyServiceSuccess(&self) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for ITsSbServiceNotification {}
 impl ITsSbServiceNotification_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITsSbServiceNotification_Impl, const OFFSET: isize>() -> ITsSbServiceNotification_Vtbl {
         unsafe extern "system" fn NotifyServiceFailure<Identity: ::windows::core::IUnknownImpl, Impl: ITsSbServiceNotification_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -2354,6 +2433,8 @@ pub trait ITsSbSession_Impl: Sized {
     fn ProtocolType(&self) -> ::windows::core::Result<u32>;
     fn SetProtocolType(&self, val: u32) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for ITsSbSession {}
 #[cfg(feature = "Win32_Foundation")]
 impl ITsSbSession_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITsSbSession_Impl, const OFFSET: isize>() -> ITsSbSession_Vtbl {
@@ -2550,6 +2631,8 @@ pub trait ITsSbTarget_Impl: Sized {
     fn TargetLoad(&self) -> ::windows::core::Result<u32>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+impl ::windows::core::RuntimeName for ITsSbTarget {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 impl ITsSbTarget_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITsSbTarget_Impl, const OFFSET: isize>() -> ITsSbTarget_Vtbl {
         unsafe extern "system" fn TargetName<Identity: ::windows::core::IUnknownImpl, Impl: ITsSbTarget_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
@@ -2737,6 +2820,8 @@ impl ITsSbTarget_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
 pub trait ITsSbTargetPropertySet_Impl: Sized + super::Com::StructuredStorage::IPropertyBag_Impl + ITsSbPropertySet_Impl {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ITsSbTargetPropertySet {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
 impl ITsSbTargetPropertySet_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITsSbTargetPropertySet_Impl, const OFFSET: isize>() -> ITsSbTargetPropertySet_Vtbl {
         Self { base__: ITsSbPropertySet_Vtbl::new::<Identity, Impl, OFFSET>() }
@@ -2757,6 +2842,8 @@ pub trait ITsSbTaskInfo_Impl: Sized {
     fn Plugin(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn Status(&self) -> ::windows::core::Result<RDV_TASK_STATUS>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::windows::core::RuntimeName for ITsSbTaskInfo {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ITsSbTaskInfo_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITsSbTaskInfo_Impl, const OFFSET: isize>() -> ITsSbTaskInfo_Vtbl {
@@ -2882,6 +2969,8 @@ pub trait ITsSbTaskPlugin_Impl: Sized + ITsSbPlugin_Impl {
     fn SetTaskQueue(&self, pszhostname: &super::super::Foundation::BSTR, sbtaskinfosize: u32, pitssbtaskinfo: *const ::core::option::Option<ITsSbTaskInfo>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+impl ::windows::core::RuntimeName for ITsSbTaskPlugin {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 impl ITsSbTaskPlugin_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITsSbTaskPlugin_Impl, const OFFSET: isize>() -> ITsSbTaskPlugin_Vtbl {
         unsafe extern "system" fn InitializeTaskPlugin<Identity: ::windows::core::IUnknownImpl, Impl: ITsSbTaskPlugin_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pitssbtaskpluginnotifysink: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -2911,6 +3000,8 @@ pub trait ITsSbTaskPluginNotifySink_Impl: Sized + ITsSbBaseNotifySink_Impl {
     fn OnUpdateTaskStatus(&self, sztargetname: &super::super::Foundation::BSTR, taskidentifier: &super::super::Foundation::BSTR, taskstatus: RDV_TASK_STATUS) -> ::windows::core::Result<()>;
     fn OnReportTasks(&self, szhostname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::windows::core::RuntimeName for ITsSbTaskPluginNotifySink {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ITsSbTaskPluginNotifySink_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITsSbTaskPluginNotifySink_Impl, const OFFSET: isize>() -> ITsSbTaskPluginNotifySink_Vtbl {
@@ -2949,6 +3040,7 @@ impl ITsSbTaskPluginNotifySink_Vtbl {
 pub trait IWRdsEnhancedFastReconnectArbitrator_Impl: Sized {
     fn GetSessionForEnhancedFastReconnect(&self, psessionidarray: *const i32, dwsessioncount: u32) -> ::windows::core::Result<i32>;
 }
+impl ::windows::core::RuntimeName for IWRdsEnhancedFastReconnectArbitrator {}
 impl IWRdsEnhancedFastReconnectArbitrator_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWRdsEnhancedFastReconnectArbitrator_Impl, const OFFSET: isize>() -> IWRdsEnhancedFastReconnectArbitrator_Vtbl {
         unsafe extern "system" fn GetSessionForEnhancedFastReconnect<Identity: ::windows::core::IUnknownImpl, Impl: IWRdsEnhancedFastReconnectArbitrator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psessionidarray: *const i32, dwsessioncount: u32, presultsessionid: *mut i32) -> ::windows::core::HRESULT {
@@ -2976,6 +3068,7 @@ pub trait IWRdsGraphicsChannel_Impl: Sized {
     fn Close(&self) -> ::windows::core::Result<()>;
     fn Open(&self, pchannelevents: &::core::option::Option<IWRdsGraphicsChannelEvents>, popencontext: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IWRdsGraphicsChannel {}
 impl IWRdsGraphicsChannel_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWRdsGraphicsChannel_Impl, const OFFSET: isize>() -> IWRdsGraphicsChannel_Vtbl {
         unsafe extern "system" fn Write<Identity: ::windows::core::IUnknownImpl, Impl: IWRdsGraphicsChannel_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cbsize: u32, pbuffer: *const u8, pcontext: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -3012,6 +3105,8 @@ pub trait IWRdsGraphicsChannelEvents_Impl: Sized {
     fn OnDataSent(&self, pwritecontext: &::core::option::Option<::windows::core::IUnknown>, bcancelled: super::super::Foundation::BOOL, pbuffer: *const u8, cbbuffer: u32) -> ::windows::core::Result<()>;
     fn OnMetricsUpdate(&self, bandwidth: u32, rtt: u32, lastsentbyteindex: u64) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IWRdsGraphicsChannelEvents {}
 #[cfg(feature = "Win32_Foundation")]
 impl IWRdsGraphicsChannelEvents_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWRdsGraphicsChannelEvents_Impl, const OFFSET: isize>() -> IWRdsGraphicsChannelEvents_Vtbl {
@@ -3056,6 +3151,7 @@ impl IWRdsGraphicsChannelEvents_Vtbl {
 pub trait IWRdsGraphicsChannelManager_Impl: Sized {
     fn CreateChannel(&self, pszchannelname: *const u8, channeltype: WRdsGraphicsChannelType) -> ::windows::core::Result<IWRdsGraphicsChannel>;
 }
+impl ::windows::core::RuntimeName for IWRdsGraphicsChannelManager {}
 impl IWRdsGraphicsChannelManager_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWRdsGraphicsChannelManager_Impl, const OFFSET: isize>() -> IWRdsGraphicsChannelManager_Vtbl {
         unsafe extern "system" fn CreateChannel<Identity: ::windows::core::IUnknownImpl, Impl: IWRdsGraphicsChannelManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszchannelname: *const u8, channeltype: WRdsGraphicsChannelType, ppvirtualchannel: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -3102,6 +3198,8 @@ pub trait IWRdsProtocolConnection_Impl: Sized {
     fn GetShadowConnection(&self) -> ::windows::core::Result<IWRdsProtocolShadowConnection>;
     fn NotifyCommandProcessCreated(&self, sessionid: u32) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IWRdsProtocolConnection {}
 #[cfg(feature = "Win32_Foundation")]
 impl IWRdsProtocolConnection_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWRdsProtocolConnection_Impl, const OFFSET: isize>() -> IWRdsProtocolConnection_Vtbl {
@@ -3324,6 +3422,7 @@ pub trait IWRdsProtocolConnectionCallback_Impl: Sized {
     fn RedrawWindow(&self, rect: *const WTS_SMALL_RECT) -> ::windows::core::Result<()>;
     fn GetConnectionId(&self) -> ::windows::core::Result<u32>;
 }
+impl ::windows::core::RuntimeName for IWRdsProtocolConnectionCallback {}
 impl IWRdsProtocolConnectionCallback_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWRdsProtocolConnectionCallback_Impl, const OFFSET: isize>() -> IWRdsProtocolConnectionCallback_Vtbl {
         unsafe extern "system" fn OnReady<Identity: ::windows::core::IUnknownImpl, Impl: IWRdsProtocolConnectionCallback_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -3374,6 +3473,7 @@ pub trait IWRdsProtocolConnectionSettings_Impl: Sized {
     fn SetConnectionSetting(&self, propertyid: &::windows::core::GUID, ppropertyentriesin: *const WTS_PROPERTY_VALUE) -> ::windows::core::Result<()>;
     fn GetConnectionSetting(&self, propertyid: &::windows::core::GUID) -> ::windows::core::Result<WTS_PROPERTY_VALUE>;
 }
+impl ::windows::core::RuntimeName for IWRdsProtocolConnectionSettings {}
 impl IWRdsProtocolConnectionSettings_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWRdsProtocolConnectionSettings_Impl, const OFFSET: isize>() -> IWRdsProtocolConnectionSettings_Vtbl {
         unsafe extern "system" fn SetConnectionSetting<Identity: ::windows::core::IUnknownImpl, Impl: IWRdsProtocolConnectionSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertyid: ::windows::core::GUID, ppropertyentriesin: *const WTS_PROPERTY_VALUE) -> ::windows::core::HRESULT {
@@ -3409,6 +3509,8 @@ pub trait IWRdsProtocolLicenseConnection_Impl: Sized {
     fn RequestClientLicense(&self, reserve1: *const u8, reserve2: u32, ppclientlicense: *mut u8, pcbclientlicense: *mut u32) -> ::windows::core::Result<()>;
     fn ProtocolComplete(&self, ulcomplete: u32) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IWRdsProtocolLicenseConnection {}
 #[cfg(feature = "Win32_Foundation")]
 impl IWRdsProtocolLicenseConnection_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWRdsProtocolLicenseConnection_Impl, const OFFSET: isize>() -> IWRdsProtocolLicenseConnection_Vtbl {
@@ -3449,6 +3551,7 @@ pub trait IWRdsProtocolListener_Impl: Sized {
     fn StartListen(&self, pcallback: &::core::option::Option<IWRdsProtocolListenerCallback>) -> ::windows::core::Result<()>;
     fn StopListen(&self) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IWRdsProtocolListener {}
 impl IWRdsProtocolListener_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWRdsProtocolListener_Impl, const OFFSET: isize>() -> IWRdsProtocolListener_Vtbl {
         unsafe extern "system" fn GetSettings<Identity: ::windows::core::IUnknownImpl, Impl: IWRdsProtocolListener_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wrdslistenersettinglevel: WRDS_LISTENER_SETTING_LEVEL, pwrdslistenersettings: *mut WRDS_LISTENER_SETTINGS) -> ::windows::core::HRESULT {
@@ -3488,6 +3591,8 @@ pub trait IWRdsProtocolListenerCallback_Impl: Sized {
     fn OnConnected(&self, pconnection: &::core::option::Option<IWRdsProtocolConnection>, pwrdsconnectionsettings: *const WRDS_CONNECTION_SETTINGS) -> ::windows::core::Result<IWRdsProtocolConnectionCallback>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IWRdsProtocolListenerCallback {}
+#[cfg(feature = "Win32_Foundation")]
 impl IWRdsProtocolListenerCallback_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWRdsProtocolListenerCallback_Impl, const OFFSET: isize>() -> IWRdsProtocolListenerCallback_Vtbl {
         unsafe extern "system" fn OnConnected<Identity: ::windows::core::IUnknownImpl, Impl: IWRdsProtocolListenerCallback_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pconnection: ::windows::core::RawPtr, pwrdsconnectionsettings: *const WRDS_CONNECTION_SETTINGS, pcallback: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -3513,6 +3618,7 @@ pub trait IWRdsProtocolLogonErrorRedirector_Impl: Sized {
     fn RedirectMessage(&self, pszcaption: &::windows::core::PCWSTR, pszmessage: &::windows::core::PCWSTR, utype: u32) -> ::windows::core::Result<WTS_LOGON_ERROR_REDIRECTOR_RESPONSE>;
     fn RedirectLogonError(&self, ntsstatus: i32, ntssubstatus: i32, pszcaption: &::windows::core::PCWSTR, pszmessage: &::windows::core::PCWSTR, utype: u32) -> ::windows::core::Result<WTS_LOGON_ERROR_REDIRECTOR_RESPONSE>;
 }
+impl ::windows::core::RuntimeName for IWRdsProtocolLogonErrorRedirector {}
 impl IWRdsProtocolLogonErrorRedirector_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWRdsProtocolLogonErrorRedirector_Impl, const OFFSET: isize>() -> IWRdsProtocolLogonErrorRedirector_Vtbl {
         unsafe extern "system" fn OnBeginPainting<Identity: ::windows::core::IUnknownImpl, Impl: IWRdsProtocolLogonErrorRedirector_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -3576,6 +3682,8 @@ pub trait IWRdsProtocolManager_Impl: Sized {
     fn NotifySettingsChange(&self, pwrdssettings: *const WRDS_SETTINGS) -> ::windows::core::Result<()>;
     fn Uninitialize(&self) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IWRdsProtocolManager {}
 #[cfg(feature = "Win32_Foundation")]
 impl IWRdsProtocolManager_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWRdsProtocolManager_Impl, const OFFSET: isize>() -> IWRdsProtocolManager_Vtbl {
@@ -3647,6 +3755,8 @@ pub trait IWRdsProtocolSettings_Impl: Sized {
     fn MergeSettings(&self, pwrdssettings: *const WRDS_SETTINGS, wrdsconnectionsettinglevel: WRDS_CONNECTION_SETTING_LEVEL, pwrdsconnectionsettings: *mut WRDS_CONNECTION_SETTINGS) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IWRdsProtocolSettings {}
+#[cfg(feature = "Win32_Foundation")]
 impl IWRdsProtocolSettings_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWRdsProtocolSettings_Impl, const OFFSET: isize>() -> IWRdsProtocolSettings_Vtbl {
         unsafe extern "system" fn GetSettings<Identity: ::windows::core::IUnknownImpl, Impl: IWRdsProtocolSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wrdssettingtype: WRDS_SETTING_TYPE, wrdssettinglevel: WRDS_SETTING_LEVEL, pwrdssettings: *mut WRDS_SETTINGS) -> ::windows::core::HRESULT {
@@ -3679,6 +3789,7 @@ pub trait IWRdsProtocolShadowCallback_Impl: Sized {
     fn StopShadow(&self) -> ::windows::core::Result<()>;
     fn InvokeTargetShadow(&self, ptargetservername: &::windows::core::PCWSTR, targetsessionid: u32, pparam1: *const u8, param1size: u32, pparam2: *const u8, param2size: u32, pparam3: *const u8, param3size: u32, pparam4: *const u8, param4size: u32, pclientname: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IWRdsProtocolShadowCallback {}
 impl IWRdsProtocolShadowCallback_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWRdsProtocolShadowCallback_Impl, const OFFSET: isize>() -> IWRdsProtocolShadowCallback_Vtbl {
         unsafe extern "system" fn StopShadow<Identity: ::windows::core::IUnknownImpl, Impl: IWRdsProtocolShadowCallback_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -3708,6 +3819,7 @@ pub trait IWRdsProtocolShadowConnection_Impl: Sized {
     fn Stop(&self) -> ::windows::core::Result<()>;
     fn DoTarget(&self, pparam1: *const u8, param1size: u32, pparam2: *const u8, param2size: u32, pparam3: *const u8, param3size: u32, pparam4: *const u8, param4size: u32, pclientname: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IWRdsProtocolShadowConnection {}
 impl IWRdsProtocolShadowConnection_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWRdsProtocolShadowConnection_Impl, const OFFSET: isize>() -> IWRdsProtocolShadowConnection_Vtbl {
         unsafe extern "system" fn Start<Identity: ::windows::core::IUnknownImpl, Impl: IWRdsProtocolShadowConnection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptargetservername: ::windows::core::PCWSTR, targetsessionid: u32, hotkeyvk: u8, hotkeymodifiers: u16, pshadowcallback: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -3743,6 +3855,8 @@ pub trait IWRdsWddmIddProps_Impl: Sized {
     fn OnDriverUnload(&self, sessionid: u32) -> ::windows::core::Result<()>;
     fn EnableWddmIdd(&self, enabled: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IWRdsWddmIddProps {}
 #[cfg(feature = "Win32_Foundation")]
 impl IWRdsWddmIddProps_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWRdsWddmIddProps_Impl, const OFFSET: isize>() -> IWRdsWddmIddProps_Vtbl {
@@ -3781,6 +3895,7 @@ impl IWRdsWddmIddProps_Vtbl {
 pub trait IWTSBitmapRenderService_Impl: Sized {
     fn GetMappedRenderer(&self, mappingid: u64, pmappedrenderercallback: &::core::option::Option<IWTSBitmapRendererCallback>) -> ::windows::core::Result<IWTSBitmapRenderer>;
 }
+impl ::windows::core::RuntimeName for IWTSBitmapRenderService {}
 impl IWTSBitmapRenderService_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWTSBitmapRenderService_Impl, const OFFSET: isize>() -> IWTSBitmapRenderService_Vtbl {
         unsafe extern "system" fn GetMappedRenderer<Identity: ::windows::core::IUnknownImpl, Impl: IWTSBitmapRenderService_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, mappingid: u64, pmappedrenderercallback: ::windows::core::RawPtr, ppmappedrenderer: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -3805,6 +3920,7 @@ pub trait IWTSBitmapRenderer_Impl: Sized {
     fn GetRendererStatistics(&self) -> ::windows::core::Result<BITMAP_RENDERER_STATISTICS>;
     fn RemoveMapping(&self) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IWTSBitmapRenderer {}
 impl IWTSBitmapRenderer_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWTSBitmapRenderer_Impl, const OFFSET: isize>() -> IWTSBitmapRenderer_Vtbl {
         unsafe extern "system" fn Render<Identity: ::windows::core::IUnknownImpl, Impl: IWTSBitmapRenderer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, imageformat: ::windows::core::GUID, dwwidth: u32, dwheight: u32, cbstride: i32, cbimagebuffer: u32, pimagebuffer: *const u8) -> ::windows::core::HRESULT {
@@ -3844,6 +3960,8 @@ pub trait IWTSBitmapRendererCallback_Impl: Sized {
     fn OnTargetSizeChanged(&self, rcnewsize: &super::super::Foundation::RECT) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IWTSBitmapRendererCallback {}
+#[cfg(feature = "Win32_Foundation")]
 impl IWTSBitmapRendererCallback_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWTSBitmapRendererCallback_Impl, const OFFSET: isize>() -> IWTSBitmapRendererCallback_Vtbl {
         unsafe extern "system" fn OnTargetSizeChanged<Identity: ::windows::core::IUnknownImpl, Impl: IWTSBitmapRendererCallback_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rcnewsize: super::super::Foundation::RECT) -> ::windows::core::HRESULT {
@@ -3861,6 +3979,8 @@ impl IWTSBitmapRendererCallback_Vtbl {
 pub trait IWTSListener_Impl: Sized {
     fn GetConfiguration(&self) -> ::windows::core::Result<super::Com::StructuredStorage::IPropertyBag>;
 }
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
+impl ::windows::core::RuntimeName for IWTSListener {}
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl IWTSListener_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWTSListener_Impl, const OFFSET: isize>() -> IWTSListener_Vtbl {
@@ -3886,6 +4006,8 @@ pub trait IWTSListenerCallback_Impl: Sized {
     fn OnNewChannelConnection(&self, pchannel: &::core::option::Option<IWTSVirtualChannel>, data: &super::super::Foundation::BSTR, pbaccept: *mut super::super::Foundation::BOOL, ppcallback: *mut ::core::option::Option<IWTSVirtualChannelCallback>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IWTSListenerCallback {}
+#[cfg(feature = "Win32_Foundation")]
 impl IWTSListenerCallback_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWTSListenerCallback_Impl, const OFFSET: isize>() -> IWTSListenerCallback_Vtbl {
         unsafe extern "system" fn OnNewChannelConnection<Identity: ::windows::core::IUnknownImpl, Impl: IWTSListenerCallback_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pchannel: ::windows::core::RawPtr, data: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pbaccept: *mut super::super::Foundation::BOOL, ppcallback: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -3905,6 +4027,7 @@ pub trait IWTSPlugin_Impl: Sized {
     fn Disconnected(&self, dwdisconnectcode: u32) -> ::windows::core::Result<()>;
     fn Terminated(&self) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IWTSPlugin {}
 impl IWTSPlugin_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWTSPlugin_Impl, const OFFSET: isize>() -> IWTSPlugin_Vtbl {
         unsafe extern "system" fn Initialize<Identity: ::windows::core::IUnknownImpl, Impl: IWTSPlugin_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pchannelmgr: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -3942,6 +4065,7 @@ impl IWTSPlugin_Vtbl {
 pub trait IWTSPluginServiceProvider_Impl: Sized {
     fn GetService(&self, serviceid: &::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
+impl ::windows::core::RuntimeName for IWTSPluginServiceProvider {}
 impl IWTSPluginServiceProvider_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWTSPluginServiceProvider_Impl, const OFFSET: isize>() -> IWTSPluginServiceProvider_Vtbl {
         unsafe extern "system" fn GetService<Identity: ::windows::core::IUnknownImpl, Impl: IWTSPluginServiceProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, serviceid: ::windows::core::GUID, ppunkobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -3987,6 +4111,8 @@ pub trait IWTSProtocolConnection_Impl: Sized {
     fn QueryProperty(&self, querytype: &::windows::core::GUID, ulnumentriesin: u32, ulnumentriesout: u32, ppropertyentriesin: *const WTS_PROPERTY_VALUE, ppropertyentriesout: *mut WTS_PROPERTY_VALUE) -> ::windows::core::Result<()>;
     fn GetShadowConnection(&self) -> ::windows::core::Result<IWTSProtocolShadowConnection>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IWTSProtocolConnection {}
 #[cfg(feature = "Win32_Foundation")]
 impl IWTSProtocolConnection_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWTSProtocolConnection_Impl, const OFFSET: isize>() -> IWTSProtocolConnection_Vtbl {
@@ -4197,6 +4323,7 @@ pub trait IWTSProtocolConnectionCallback_Impl: Sized {
     fn RedrawWindow(&self, rect: *const WTS_SMALL_RECT) -> ::windows::core::Result<()>;
     fn DisplayIOCtl(&self, displayioctl: *const WTS_DISPLAY_IOCTL) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IWTSProtocolConnectionCallback {}
 impl IWTSProtocolConnectionCallback_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWTSProtocolConnectionCallback_Impl, const OFFSET: isize>() -> IWTSProtocolConnectionCallback_Vtbl {
         unsafe extern "system" fn OnReady<Identity: ::windows::core::IUnknownImpl, Impl: IWTSProtocolConnectionCallback_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -4245,6 +4372,8 @@ pub trait IWTSProtocolLicenseConnection_Impl: Sized {
     fn ProtocolComplete(&self, ulcomplete: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IWTSProtocolLicenseConnection {}
+#[cfg(feature = "Win32_Foundation")]
 impl IWTSProtocolLicenseConnection_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWTSProtocolLicenseConnection_Impl, const OFFSET: isize>() -> IWTSProtocolLicenseConnection_Vtbl {
         unsafe extern "system" fn RequestLicensingCapabilities<Identity: ::windows::core::IUnknownImpl, Impl: IWTSProtocolLicenseConnection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pplicensecapabilities: *mut WTS_LICENSE_CAPABILITIES, pcblicensecapabilities: *mut u32) -> ::windows::core::HRESULT {
@@ -4283,6 +4412,7 @@ pub trait IWTSProtocolListener_Impl: Sized {
     fn StartListen(&self, pcallback: &::core::option::Option<IWTSProtocolListenerCallback>) -> ::windows::core::Result<()>;
     fn StopListen(&self) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IWTSProtocolListener {}
 impl IWTSProtocolListener_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWTSProtocolListener_Impl, const OFFSET: isize>() -> IWTSProtocolListener_Vtbl {
         unsafe extern "system" fn StartListen<Identity: ::windows::core::IUnknownImpl, Impl: IWTSProtocolListener_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcallback: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -4308,6 +4438,7 @@ impl IWTSProtocolListener_Vtbl {
 pub trait IWTSProtocolListenerCallback_Impl: Sized {
     fn OnConnected(&self, pconnection: &::core::option::Option<IWTSProtocolConnection>) -> ::windows::core::Result<IWTSProtocolConnectionCallback>;
 }
+impl ::windows::core::RuntimeName for IWTSProtocolListenerCallback {}
 impl IWTSProtocolListenerCallback_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWTSProtocolListenerCallback_Impl, const OFFSET: isize>() -> IWTSProtocolListenerCallback_Vtbl {
         unsafe extern "system" fn OnConnected<Identity: ::windows::core::IUnknownImpl, Impl: IWTSProtocolListenerCallback_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pconnection: ::windows::core::RawPtr, pcallback: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -4333,6 +4464,7 @@ pub trait IWTSProtocolLogonErrorRedirector_Impl: Sized {
     fn RedirectMessage(&self, pszcaption: &::windows::core::PCWSTR, pszmessage: &::windows::core::PCWSTR, utype: u32) -> ::windows::core::Result<WTS_LOGON_ERROR_REDIRECTOR_RESPONSE>;
     fn RedirectLogonError(&self, ntsstatus: i32, ntssubstatus: i32, pszcaption: &::windows::core::PCWSTR, pszmessage: &::windows::core::PCWSTR, utype: u32) -> ::windows::core::Result<WTS_LOGON_ERROR_REDIRECTOR_RESPONSE>;
 }
+impl ::windows::core::RuntimeName for IWTSProtocolLogonErrorRedirector {}
 impl IWTSProtocolLogonErrorRedirector_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWTSProtocolLogonErrorRedirector_Impl, const OFFSET: isize>() -> IWTSProtocolLogonErrorRedirector_Vtbl {
         unsafe extern "system" fn OnBeginPainting<Identity: ::windows::core::IUnknownImpl, Impl: IWTSProtocolLogonErrorRedirector_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -4392,6 +4524,7 @@ pub trait IWTSProtocolManager_Impl: Sized {
     fn NotifySessionOfServiceStop(&self, sessionid: *const WTS_SESSION_ID) -> ::windows::core::Result<()>;
     fn NotifySessionStateChange(&self, sessionid: *const WTS_SESSION_ID, eventid: u32) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IWTSProtocolManager {}
 impl IWTSProtocolManager_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWTSProtocolManager_Impl, const OFFSET: isize>() -> IWTSProtocolManager_Vtbl {
         unsafe extern "system" fn CreateListener<Identity: ::windows::core::IUnknownImpl, Impl: IWTSProtocolManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wszlistenername: ::windows::core::PCWSTR, pprotocollistener: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -4442,6 +4575,7 @@ pub trait IWTSProtocolShadowCallback_Impl: Sized {
     fn StopShadow(&self) -> ::windows::core::Result<()>;
     fn InvokeTargetShadow(&self, ptargetservername: &::windows::core::PCWSTR, targetsessionid: u32, pparam1: *const u8, param1size: u32, pparam2: *const u8, param2size: u32, pparam3: *const u8, param3size: u32, pparam4: *const u8, param4size: u32, pclientname: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IWTSProtocolShadowCallback {}
 impl IWTSProtocolShadowCallback_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWTSProtocolShadowCallback_Impl, const OFFSET: isize>() -> IWTSProtocolShadowCallback_Vtbl {
         unsafe extern "system" fn StopShadow<Identity: ::windows::core::IUnknownImpl, Impl: IWTSProtocolShadowCallback_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -4471,6 +4605,7 @@ pub trait IWTSProtocolShadowConnection_Impl: Sized {
     fn Stop(&self) -> ::windows::core::Result<()>;
     fn DoTarget(&self, pparam1: *const u8, param1size: u32, pparam2: *const u8, param2size: u32, pparam3: *const u8, param3size: u32, pparam4: *const u8, param4size: u32, pclientname: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IWTSProtocolShadowConnection {}
 impl IWTSProtocolShadowConnection_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWTSProtocolShadowConnection_Impl, const OFFSET: isize>() -> IWTSProtocolShadowConnection_Vtbl {
         unsafe extern "system" fn Start<Identity: ::windows::core::IUnknownImpl, Impl: IWTSProtocolShadowConnection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptargetservername: ::windows::core::PCWSTR, targetsessionid: u32, hotkeyvk: u8, hotkeymodifiers: u16, pshadowcallback: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -4508,6 +4643,8 @@ pub trait IWTSSBPlugin_Impl: Sized {
     fn Terminated(&self) -> ::windows::core::Result<()>;
     fn WTSSBX_GetUserExternalSession(&self, username: &::windows::core::PCWSTR, domainname: &::windows::core::PCWSTR, applicationtype: &::windows::core::PCWSTR, redirectorinternalip: *const WTSSBX_IP_ADDRESS, psessionid: *mut u32, pmachineconnectinfo: *mut WTSSBX_MACHINE_CONNECT_INFO) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IWTSSBPlugin {}
 #[cfg(feature = "Win32_Foundation")]
 impl IWTSSBPlugin_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWTSSBPlugin_Impl, const OFFSET: isize>() -> IWTSSBPlugin_Vtbl {
@@ -4565,6 +4702,7 @@ pub trait IWTSVirtualChannel_Impl: Sized {
     fn Write(&self, cbsize: u32, pbuffer: *const u8, preserved: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
     fn Close(&self) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IWTSVirtualChannel {}
 impl IWTSVirtualChannel_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWTSVirtualChannel_Impl, const OFFSET: isize>() -> IWTSVirtualChannel_Vtbl {
         unsafe extern "system" fn Write<Identity: ::windows::core::IUnknownImpl, Impl: IWTSVirtualChannel_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cbsize: u32, pbuffer: *const u8, preserved: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -4587,6 +4725,7 @@ pub trait IWTSVirtualChannelCallback_Impl: Sized {
     fn OnDataReceived(&self, cbsize: u32, pbuffer: *const u8) -> ::windows::core::Result<()>;
     fn OnClose(&self) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IWTSVirtualChannelCallback {}
 impl IWTSVirtualChannelCallback_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWTSVirtualChannelCallback_Impl, const OFFSET: isize>() -> IWTSVirtualChannelCallback_Vtbl {
         unsafe extern "system" fn OnDataReceived<Identity: ::windows::core::IUnknownImpl, Impl: IWTSVirtualChannelCallback_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cbsize: u32, pbuffer: *const u8) -> ::windows::core::HRESULT {
@@ -4612,6 +4751,7 @@ impl IWTSVirtualChannelCallback_Vtbl {
 pub trait IWTSVirtualChannelManager_Impl: Sized {
     fn CreateListener(&self, pszchannelname: *const u8, uflags: u32, plistenercallback: &::core::option::Option<IWTSListenerCallback>) -> ::windows::core::Result<IWTSListener>;
 }
+impl ::windows::core::RuntimeName for IWTSVirtualChannelManager {}
 impl IWTSVirtualChannelManager_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWTSVirtualChannelManager_Impl, const OFFSET: isize>() -> IWTSVirtualChannelManager_Vtbl {
         unsafe extern "system" fn CreateListener<Identity: ::windows::core::IUnknownImpl, Impl: IWTSVirtualChannelManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszchannelname: *const u8, uflags: u32, plistenercallback: ::windows::core::RawPtr, pplistener: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -4637,6 +4777,8 @@ pub trait IWorkspace_Impl: Sized {
     fn StartRemoteApplication(&self, bstrworkspaceid: &super::super::Foundation::BSTR, psaparams: *const super::Com::SAFEARRAY) -> ::windows::core::Result<()>;
     fn GetProcessId(&self) -> ::windows::core::Result<u32>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::windows::core::RuntimeName for IWorkspace {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IWorkspace_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWorkspace_Impl, const OFFSET: isize>() -> IWorkspace_Vtbl {
@@ -4683,6 +4825,8 @@ pub trait IWorkspace2_Impl: Sized + IWorkspace_Impl {
     fn StartRemoteApplicationEx(&self, bstrworkspaceid: &super::super::Foundation::BSTR, bstrrequestingappid: &super::super::Foundation::BSTR, bstrrequestingappfamilyname: &super::super::Foundation::BSTR, blaunchintoimmersiveclient: i16, bstrimmersiveclientactivationcontext: &super::super::Foundation::BSTR, psaparams: *const super::Com::SAFEARRAY) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::windows::core::RuntimeName for IWorkspace2 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IWorkspace2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWorkspace2_Impl, const OFFSET: isize>() -> IWorkspace2_Vtbl {
         unsafe extern "system" fn StartRemoteApplicationEx<Identity: ::windows::core::IUnknownImpl, Impl: IWorkspace2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrworkspaceid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrrequestingappid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrrequestingappfamilyname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, blaunchintoimmersiveclient: i16, bstrimmersiveclientactivationcontext: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, psaparams: *const super::Com::SAFEARRAY) -> ::windows::core::HRESULT {
@@ -4701,6 +4845,8 @@ pub trait IWorkspace3_Impl: Sized + IWorkspace_Impl + IWorkspace2_Impl {
     fn GetClaimsToken2(&self, bstrclaimshint: &super::super::Foundation::BSTR, bstruserhint: &super::super::Foundation::BSTR, claimcookie: u32, hwndcreduiparent: u32, rectcreduiparent: &super::super::Foundation::RECT) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn SetClaimsToken(&self, bstraccesstoken: &super::super::Foundation::BSTR, ullaccesstokenexpiration: u64, bstrrefreshtoken: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::windows::core::RuntimeName for IWorkspace3 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IWorkspace3_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWorkspace3_Impl, const OFFSET: isize>() -> IWorkspace3_Vtbl {
@@ -4736,6 +4882,8 @@ pub trait IWorkspaceClientExt_Impl: Sized {
     fn GetResourceDisplayName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn IssueDisconnect(&self) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IWorkspaceClientExt {}
 #[cfg(feature = "Win32_Foundation")]
 impl IWorkspaceClientExt_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWorkspaceClientExt_Impl, const OFFSET: isize>() -> IWorkspaceClientExt_Vtbl {
@@ -4781,6 +4929,7 @@ pub trait IWorkspaceRegistration_Impl: Sized {
     fn AddResource(&self, punk: &::core::option::Option<IWorkspaceClientExt>) -> ::windows::core::Result<u32>;
     fn RemoveResource(&self, dwcookieconnection: u32) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IWorkspaceRegistration {}
 impl IWorkspaceRegistration_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWorkspaceRegistration_Impl, const OFFSET: isize>() -> IWorkspaceRegistration_Vtbl {
         unsafe extern "system" fn AddResource<Identity: ::windows::core::IUnknownImpl, Impl: IWorkspaceRegistration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, punk: ::windows::core::RawPtr, pdwcookie: *mut u32) -> ::windows::core::HRESULT {
@@ -4815,6 +4964,8 @@ pub trait IWorkspaceRegistration2_Impl: Sized + IWorkspaceRegistration_Impl {
     fn RemoveResourceEx(&self, dwcookieconnection: u32, correlationid: &::windows::core::GUID) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IWorkspaceRegistration2 {}
+#[cfg(feature = "Win32_Foundation")]
 impl IWorkspaceRegistration2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWorkspaceRegistration2_Impl, const OFFSET: isize>() -> IWorkspaceRegistration2_Vtbl {
         unsafe extern "system" fn AddResourceEx<Identity: ::windows::core::IUnknownImpl, Impl: IWorkspaceRegistration2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, punk: ::windows::core::RawPtr, bstreventloguploadaddress: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pdwcookie: *mut u32, correlationid: ::windows::core::GUID) -> ::windows::core::HRESULT {
@@ -4843,6 +4994,8 @@ pub trait IWorkspaceReportMessage_Impl: Sized {
     fn IsErrorMessageRegistered(&self, bstrwkspid: &super::super::Foundation::BSTR, dwerrortype: u32, bstrerrormessagetype: &super::super::Foundation::BSTR, dwerrorcode: u32) -> ::windows::core::Result<i16>;
     fn RegisterErrorEvent(&self, bstrwkspid: &super::super::Foundation::BSTR, dwerrortype: u32, bstrerrormessagetype: &super::super::Foundation::BSTR, dwerrorcode: u32) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IWorkspaceReportMessage {}
 #[cfg(feature = "Win32_Foundation")]
 impl IWorkspaceReportMessage_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWorkspaceReportMessage_Impl, const OFFSET: isize>() -> IWorkspaceReportMessage_Vtbl {
@@ -4886,6 +5039,8 @@ pub trait IWorkspaceResTypeRegistry_Impl: Sized + super::Com::IDispatch_Impl {
     fn GetResourceTypeInfo(&self, fmachinewide: i16, bstrfileextension: &super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn ModifyResourceType(&self, fmachinewide: i16, bstrfileextension: &super::super::Foundation::BSTR, bstrlauncher: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IWorkspaceResTypeRegistry {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWorkspaceResTypeRegistry_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWorkspaceResTypeRegistry_Impl, const OFFSET: isize>() -> IWorkspaceResTypeRegistry_Vtbl {
@@ -4949,6 +5104,8 @@ pub trait IWorkspaceScriptable_Impl: Sized + super::Com::IDispatch_Impl {
     fn OnAuthenticated(&self, bstrworkspaceid: &super::super::Foundation::BSTR, bstrusername: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn DisconnectWorkspaceByFriendlyName(&self, bstrworkspacefriendlyname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IWorkspaceScriptable {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWorkspaceScriptable_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWorkspaceScriptable_Impl, const OFFSET: isize>() -> IWorkspaceScriptable_Vtbl {
@@ -5020,6 +5177,8 @@ pub trait IWorkspaceScriptable2_Impl: Sized + super::Com::IDispatch_Impl + IWork
     fn ResourceDismissed(&self, bstrworkspaceid: &super::super::Foundation::BSTR, bstrworkspacefriendlyname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IWorkspaceScriptable2 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWorkspaceScriptable2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWorkspaceScriptable2_Impl, const OFFSET: isize>() -> IWorkspaceScriptable2_Vtbl {
         unsafe extern "system" fn StartWorkspaceEx<Identity: ::windows::core::IUnknownImpl, Impl: IWorkspaceScriptable2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrworkspaceid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrworkspacefriendlyname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrredirectorname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrusername: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrpassword: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrappcontainer: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrworkspaceparams: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ltimeout: i32, lflags: i32) -> ::windows::core::HRESULT {
@@ -5046,6 +5205,8 @@ impl IWorkspaceScriptable2_Vtbl {
 pub trait IWorkspaceScriptable3_Impl: Sized + super::Com::IDispatch_Impl + IWorkspaceScriptable_Impl + IWorkspaceScriptable2_Impl {
     fn StartWorkspaceEx2(&self, bstrworkspaceid: &super::super::Foundation::BSTR, bstrworkspacefriendlyname: &super::super::Foundation::BSTR, bstrredirectorname: &super::super::Foundation::BSTR, bstrusername: &super::super::Foundation::BSTR, bstrpassword: &super::super::Foundation::BSTR, bstrappcontainer: &super::super::Foundation::BSTR, bstrworkspaceparams: &super::super::Foundation::BSTR, ltimeout: i32, lflags: i32, bstreventloguploadaddress: &super::super::Foundation::BSTR, correlationid: &::windows::core::GUID) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IWorkspaceScriptable3 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWorkspaceScriptable3_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWorkspaceScriptable3_Impl, const OFFSET: isize>() -> IWorkspaceScriptable3_Vtbl {
@@ -5084,6 +5245,8 @@ pub trait ItsPubPlugin_Impl: Sized {
     fn pluginVersion(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn ResolveResource(&self, resourcetype: *mut u32, resourcelocation: ::windows::core::PWSTR, endpointname: ::windows::core::PWSTR, userid: &::windows::core::PCWSTR, alias: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for ItsPubPlugin {}
 #[cfg(feature = "Win32_Foundation")]
 impl ItsPubPlugin_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ItsPubPlugin_Impl, const OFFSET: isize>() -> ItsPubPlugin_Vtbl {
@@ -5163,6 +5326,8 @@ pub trait ItsPubPlugin2_Impl: Sized + ItsPubPlugin_Impl {
     fn DeletePersonalDesktopAssignment(&self, userid: &::windows::core::PCWSTR, poolid: &::windows::core::PCWSTR, endpointname: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for ItsPubPlugin2 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ItsPubPlugin2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ItsPubPlugin2_Impl, const OFFSET: isize>() -> ItsPubPlugin2_Vtbl {
         unsafe extern "system" fn GetResource2List<Identity: ::windows::core::IUnknownImpl, Impl: ItsPubPlugin2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, userid: ::windows::core::PCWSTR, pceapplistsize: *mut i32, resourcelist: *mut *mut pluginResource2) -> ::windows::core::HRESULT {
@@ -5205,6 +5370,8 @@ impl ItsPubPlugin2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait _ITSWkspEvents_Impl: Sized + super::Com::IDispatch_Impl {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for _ITSWkspEvents {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl _ITSWkspEvents_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: _ITSWkspEvents_Impl, const OFFSET: isize>() -> _ITSWkspEvents_Vtbl {

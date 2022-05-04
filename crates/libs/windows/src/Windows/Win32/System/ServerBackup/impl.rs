@@ -2,6 +2,7 @@ pub trait IWsbApplicationAsync_Impl: Sized {
     fn QueryStatus(&self) -> ::windows::core::Result<::windows::core::HRESULT>;
     fn Abort(&self) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IWsbApplicationAsync {}
 impl IWsbApplicationAsync_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWsbApplicationAsync_Impl, const OFFSET: isize>() -> IWsbApplicationAsync_Vtbl {
         unsafe extern "system" fn QueryStatus<Identity: ::windows::core::IUnknownImpl, Impl: IWsbApplicationAsync_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, phrresult: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT {
@@ -33,6 +34,7 @@ impl IWsbApplicationAsync_Vtbl {
 pub trait IWsbApplicationBackupSupport_Impl: Sized {
     fn CheckConsistency(&self, wszwritermetadata: &::windows::core::PCWSTR, wszcomponentname: &::windows::core::PCWSTR, wszcomponentlogicalpath: &::windows::core::PCWSTR, cvolumes: u32, rgwszsourcevolumepath: *const ::windows::core::PWSTR, rgwszsnapshotvolumepath: *const ::windows::core::PWSTR) -> ::windows::core::Result<IWsbApplicationAsync>;
 }
+impl ::windows::core::RuntimeName for IWsbApplicationBackupSupport {}
 impl IWsbApplicationBackupSupport_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWsbApplicationBackupSupport_Impl, const OFFSET: isize>() -> IWsbApplicationBackupSupport_Vtbl {
         unsafe extern "system" fn CheckConsistency<Identity: ::windows::core::IUnknownImpl, Impl: IWsbApplicationBackupSupport_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wszwritermetadata: ::windows::core::PCWSTR, wszcomponentname: ::windows::core::PCWSTR, wszcomponentlogicalpath: ::windows::core::PCWSTR, cvolumes: u32, rgwszsourcevolumepath: *const ::windows::core::PWSTR, rgwszsnapshotvolumepath: *const ::windows::core::PWSTR, ppasync: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -59,6 +61,8 @@ pub trait IWsbApplicationRestoreSupport_Impl: Sized {
     fn OrderComponents(&self, ccomponents: u32, rgcomponentname: *const ::windows::core::PWSTR, rgcomponentlogicalpaths: *const ::windows::core::PWSTR, prgcomponentname: *mut *mut ::windows::core::PWSTR, prgcomponentlogicalpath: *mut *mut ::windows::core::PWSTR) -> ::windows::core::Result<()>;
     fn IsRollForwardSupported(&self) -> ::windows::core::Result<u8>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IWsbApplicationRestoreSupport {}
 #[cfg(feature = "Win32_Foundation")]
 impl IWsbApplicationRestoreSupport_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWsbApplicationRestoreSupport_Impl, const OFFSET: isize>() -> IWsbApplicationRestoreSupport_Vtbl {

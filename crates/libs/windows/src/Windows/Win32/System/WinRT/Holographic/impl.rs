@@ -7,9 +7,7 @@ pub trait IHolographicCameraInterop_Impl: Sized {
     fn UnacquireDirect3D12BufferResource(&self, presourcetounacquire: &::core::option::Option<super::super::super::Graphics::Direct3D12::ID3D12Resource>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
-impl ::windows::core::RuntimeName for IHolographicCameraInterop {
-    const NAME: &'static str = "";
-}
+impl ::windows::core::RuntimeName for IHolographicCameraInterop {}
 #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
 impl IHolographicCameraInterop_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicCameraInterop_Impl, const OFFSET: isize>() -> IHolographicCameraInterop_Vtbl {
@@ -69,9 +67,7 @@ pub trait IHolographicCameraRenderingParametersInterop_Impl: Sized {
     fn CommitDirect3D12ResourceWithDepthData(&self, pcolorresourcetocommit: &::core::option::Option<super::super::super::Graphics::Direct3D12::ID3D12Resource>, pcolorresourcefence: &::core::option::Option<super::super::super::Graphics::Direct3D12::ID3D12Fence>, colorresourcefencesignalvalue: u64, pdepthresourcetocommit: &::core::option::Option<super::super::super::Graphics::Direct3D12::ID3D12Resource>, pdepthresourcefence: &::core::option::Option<super::super::super::Graphics::Direct3D12::ID3D12Fence>, depthresourcefencesignalvalue: u64) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::windows::core::RuntimeName for IHolographicCameraRenderingParametersInterop {
-    const NAME: &'static str = "";
-}
+impl ::windows::core::RuntimeName for IHolographicCameraRenderingParametersInterop {}
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl IHolographicCameraRenderingParametersInterop_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicCameraRenderingParametersInterop_Impl, const OFFSET: isize>() -> IHolographicCameraRenderingParametersInterop_Vtbl {
@@ -104,9 +100,7 @@ pub trait IHolographicQuadLayerInterop_Impl: Sized {
     fn UnacquireDirect3D12BufferResource(&self, presourcetounacquire: &::core::option::Option<super::super::super::Graphics::Direct3D12::ID3D12Resource>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
-impl ::windows::core::RuntimeName for IHolographicQuadLayerInterop {
-    const NAME: &'static str = "";
-}
+impl ::windows::core::RuntimeName for IHolographicQuadLayerInterop {}
 #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
 impl IHolographicQuadLayerInterop_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicQuadLayerInterop_Impl, const OFFSET: isize>() -> IHolographicQuadLayerInterop_Vtbl {
@@ -165,9 +159,7 @@ pub trait IHolographicQuadLayerUpdateParametersInterop_Impl: Sized {
     fn CommitDirect3D12Resource(&self, pcolorresourcetocommit: &::core::option::Option<super::super::super::Graphics::Direct3D12::ID3D12Resource>, pcolorresourcefence: &::core::option::Option<super::super::super::Graphics::Direct3D12::ID3D12Fence>, colorresourcefencesignalvalue: u64) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-impl ::windows::core::RuntimeName for IHolographicQuadLayerUpdateParametersInterop {
-    const NAME: &'static str = "";
-}
+impl ::windows::core::RuntimeName for IHolographicQuadLayerUpdateParametersInterop {}
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl IHolographicQuadLayerUpdateParametersInterop_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHolographicQuadLayerUpdateParametersInterop_Impl, const OFFSET: isize>() -> IHolographicQuadLayerUpdateParametersInterop_Vtbl {

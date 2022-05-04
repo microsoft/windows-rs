@@ -7,6 +7,8 @@ pub trait IAVIEditStream_Impl: Sized {
     fn SetInfo(&self, lpinfo: *const AVISTREAMINFOW, cbinfo: i32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IAVIEditStream {}
+#[cfg(feature = "Win32_Foundation")]
 impl IAVIEditStream_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAVIEditStream_Impl, const OFFSET: isize>() -> IAVIEditStream_Vtbl {
         unsafe extern "system" fn Cut<Identity: ::windows::core::IUnknownImpl, Impl: IAVIEditStream_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plstart: *mut i32, pllength: *mut i32, ppresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -63,6 +65,8 @@ pub trait IAVIFile_Impl: Sized {
     fn EndRecord(&self) -> ::windows::core::Result<()>;
     fn DeleteStream(&self, fcctype: u32, lparam: i32) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IAVIFile {}
 #[cfg(feature = "Win32_Foundation")]
 impl IAVIFile_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAVIFile_Impl, const OFFSET: isize>() -> IAVIFile_Vtbl {
@@ -121,6 +125,8 @@ pub trait IAVIPersistFile_Impl: Sized + super::super::System::Com::IPersist_Impl
     fn Reserved1(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::windows::core::RuntimeName for IAVIPersistFile {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IAVIPersistFile_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAVIPersistFile_Impl, const OFFSET: isize>() -> IAVIPersistFile_Vtbl {
         unsafe extern "system" fn Reserved1<Identity: ::windows::core::IUnknownImpl, Impl: IAVIPersistFile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -148,6 +154,8 @@ pub trait IAVIStream_Impl: Sized {
     fn WriteData(&self, fcc: u32, lp: *const ::core::ffi::c_void, cb: i32) -> ::windows::core::Result<()>;
     fn SetInfo(&self, lpinfo: *const AVISTREAMINFOW, cbinfo: i32) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IAVIStream {}
 #[cfg(feature = "Win32_Foundation")]
 impl IAVIStream_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAVIStream_Impl, const OFFSET: isize>() -> IAVIStream_Vtbl {
@@ -229,6 +237,7 @@ pub trait IAVIStreaming_Impl: Sized {
     fn Begin(&self, lstart: i32, lend: i32, lrate: i32) -> ::windows::core::Result<()>;
     fn End(&self) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IAVIStreaming {}
 impl IAVIStreaming_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAVIStreaming_Impl, const OFFSET: isize>() -> IAVIStreaming_Vtbl {
         unsafe extern "system" fn Begin<Identity: ::windows::core::IUnknownImpl, Impl: IAVIStreaming_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lstart: i32, lend: i32, lrate: i32) -> ::windows::core::HRESULT {
@@ -254,6 +263,8 @@ pub trait IGetFrame_Impl: Sized {
     fn End(&self) -> ::windows::core::Result<()>;
     fn SetFormat(&self, lpbi: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpbits: *const ::core::ffi::c_void, x: i32, y: i32, dx: i32, dy: i32) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl ::windows::core::RuntimeName for IGetFrame {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl IGetFrame_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGetFrame_Impl, const OFFSET: isize>() -> IGetFrame_Vtbl {

@@ -3,6 +3,8 @@ pub trait DDiscFormat2DataEvents_Impl: Sized + super::super::System::Com::IDispa
     fn Update(&self, object: &::core::option::Option<super::super::System::Com::IDispatch>, progress: &::core::option::Option<super::super::System::Com::IDispatch>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for DDiscFormat2DataEvents {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl DDiscFormat2DataEvents_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: DDiscFormat2DataEvents_Impl, const OFFSET: isize>() -> DDiscFormat2DataEvents_Vtbl {
         unsafe extern "system" fn Update<Identity: ::windows::core::IUnknownImpl, Impl: DDiscFormat2DataEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, object: ::windows::core::RawPtr, progress: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -20,6 +22,8 @@ impl DDiscFormat2DataEvents_Vtbl {
 pub trait DDiscFormat2EraseEvents_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Update(&self, object: &::core::option::Option<super::super::System::Com::IDispatch>, elapsedseconds: i32, estimatedtotalseconds: i32) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for DDiscFormat2EraseEvents {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl DDiscFormat2EraseEvents_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: DDiscFormat2EraseEvents_Impl, const OFFSET: isize>() -> DDiscFormat2EraseEvents_Vtbl {
@@ -39,6 +43,8 @@ pub trait DDiscFormat2RawCDEvents_Impl: Sized + super::super::System::Com::IDisp
     fn Update(&self, object: &::core::option::Option<super::super::System::Com::IDispatch>, progress: &::core::option::Option<super::super::System::Com::IDispatch>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for DDiscFormat2RawCDEvents {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl DDiscFormat2RawCDEvents_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: DDiscFormat2RawCDEvents_Impl, const OFFSET: isize>() -> DDiscFormat2RawCDEvents_Vtbl {
         unsafe extern "system" fn Update<Identity: ::windows::core::IUnknownImpl, Impl: DDiscFormat2RawCDEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, object: ::windows::core::RawPtr, progress: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -56,6 +62,8 @@ impl DDiscFormat2RawCDEvents_Vtbl {
 pub trait DDiscFormat2TrackAtOnceEvents_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Update(&self, object: &::core::option::Option<super::super::System::Com::IDispatch>, progress: &::core::option::Option<super::super::System::Com::IDispatch>) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for DDiscFormat2TrackAtOnceEvents {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl DDiscFormat2TrackAtOnceEvents_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: DDiscFormat2TrackAtOnceEvents_Impl, const OFFSET: isize>() -> DDiscFormat2TrackAtOnceEvents_Vtbl {
@@ -75,6 +83,8 @@ pub trait DDiscMaster2Events_Impl: Sized + super::super::System::Com::IDispatch_
     fn NotifyDeviceAdded(&self, object: &::core::option::Option<super::super::System::Com::IDispatch>, uniqueid: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn NotifyDeviceRemoved(&self, object: &::core::option::Option<super::super::System::Com::IDispatch>, uniqueid: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for DDiscMaster2Events {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl DDiscMaster2Events_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: DDiscMaster2Events_Impl, const OFFSET: isize>() -> DDiscMaster2Events_Vtbl {
@@ -103,6 +113,8 @@ pub trait DFileSystemImageEvents_Impl: Sized + super::super::System::Com::IDispa
     fn Update(&self, object: &::core::option::Option<super::super::System::Com::IDispatch>, currentfile: &super::super::Foundation::BSTR, copiedsectors: i32, totalsectors: i32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for DFileSystemImageEvents {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl DFileSystemImageEvents_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: DFileSystemImageEvents_Impl, const OFFSET: isize>() -> DFileSystemImageEvents_Vtbl {
         unsafe extern "system" fn Update<Identity: ::windows::core::IUnknownImpl, Impl: DFileSystemImageEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, object: ::windows::core::RawPtr, currentfile: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, copiedsectors: i32, totalsectors: i32) -> ::windows::core::HRESULT {
@@ -120,6 +132,8 @@ impl DFileSystemImageEvents_Vtbl {
 pub trait DFileSystemImageImportEvents_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn UpdateImport(&self, object: &::core::option::Option<super::super::System::Com::IDispatch>, filesystem: FsiFileSystems, currentitem: &super::super::Foundation::BSTR, importeddirectoryitems: i32, totaldirectoryitems: i32, importedfileitems: i32, totalfileitems: i32) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for DFileSystemImageImportEvents {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl DFileSystemImageImportEvents_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: DFileSystemImageImportEvents_Impl, const OFFSET: isize>() -> DFileSystemImageImportEvents_Vtbl {
@@ -139,6 +153,8 @@ pub trait DWriteEngine2Events_Impl: Sized + super::super::System::Com::IDispatch
     fn Update(&self, object: &::core::option::Option<super::super::System::Com::IDispatch>, progress: &::core::option::Option<super::super::System::Com::IDispatch>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for DWriteEngine2Events {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl DWriteEngine2Events_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: DWriteEngine2Events_Impl, const OFFSET: isize>() -> DWriteEngine2Events_Vtbl {
         unsafe extern "system" fn Update<Identity: ::windows::core::IUnknownImpl, Impl: DWriteEngine2Events_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, object: ::windows::core::RawPtr, progress: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -157,6 +173,8 @@ pub trait IBlockRange_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn StartLba(&self) -> ::windows::core::Result<i32>;
     fn EndLba(&self) -> ::windows::core::Result<i32>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IBlockRange {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IBlockRange_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBlockRange_Impl, const OFFSET: isize>() -> IBlockRange_Vtbl {
@@ -197,6 +215,8 @@ pub trait IBlockRangeList_Impl: Sized + super::super::System::Com::IDispatch_Imp
     fn BlockRanges(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IBlockRangeList {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IBlockRangeList_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBlockRangeList_Impl, const OFFSET: isize>() -> IBlockRangeList_Vtbl {
         unsafe extern "system" fn BlockRanges<Identity: ::windows::core::IUnknownImpl, Impl: IBlockRangeList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT {
@@ -228,6 +248,8 @@ pub trait IBootOptions_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn ImageSize(&self) -> ::windows::core::Result<u32>;
     fn AssignBootImage(&self, newval: &::core::option::Option<super::super::System::Com::IStream>) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IBootOptions {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IBootOptions_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBootOptions_Impl, const OFFSET: isize>() -> IBootOptions_Vtbl {
@@ -327,6 +349,7 @@ pub trait IBurnVerification_Impl: Sized {
     fn SetBurnVerificationLevel(&self, value: IMAPI_BURN_VERIFICATION_LEVEL) -> ::windows::core::Result<()>;
     fn BurnVerificationLevel(&self) -> ::windows::core::Result<IMAPI_BURN_VERIFICATION_LEVEL>;
 }
+impl ::windows::core::RuntimeName for IBurnVerification {}
 impl IBurnVerification_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBurnVerification_Impl, const OFFSET: isize>() -> IBurnVerification_Vtbl {
         unsafe extern "system" fn SetBurnVerificationLevel<Identity: ::windows::core::IUnknownImpl, Impl: IBurnVerification_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: IMAPI_BURN_VERIFICATION_LEVEL) -> ::windows::core::HRESULT {
@@ -363,6 +386,8 @@ pub trait IDiscFormat2_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn MediaHeuristicallyBlank(&self) -> ::windows::core::Result<i16>;
     fn SupportedMediaTypes(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IDiscFormat2 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IDiscFormat2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDiscFormat2_Impl, const OFFSET: isize>() -> IDiscFormat2_Vtbl {
@@ -469,6 +494,8 @@ pub trait IDiscFormat2Data_Impl: Sized + super::super::System::Com::IDispatch_Im
     fn CancelWrite(&self) -> ::windows::core::Result<()>;
     fn SetWriteSpeed(&self, requestedsectorspersecond: i32, rotationtypeispurecav: i16) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IDiscFormat2Data {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IDiscFormat2Data_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDiscFormat2Data_Impl, const OFFSET: isize>() -> IDiscFormat2Data_Vtbl {
@@ -812,6 +839,8 @@ pub trait IDiscFormat2DataEventArgs_Impl: Sized + super::super::System::Com::IDi
     fn CurrentAction(&self) -> ::windows::core::Result<IMAPI_FORMAT2_DATA_WRITE_ACTION>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IDiscFormat2DataEventArgs {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IDiscFormat2DataEventArgs_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDiscFormat2DataEventArgs_Impl, const OFFSET: isize>() -> IDiscFormat2DataEventArgs_Vtbl {
         unsafe extern "system" fn ElapsedTime<Identity: ::windows::core::IUnknownImpl, Impl: IDiscFormat2DataEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT {
@@ -881,6 +910,8 @@ pub trait IDiscFormat2Erase_Impl: Sized + super::super::System::Com::IDispatch_I
     fn ClientName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn EraseMedia(&self) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IDiscFormat2Erase {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IDiscFormat2Erase_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDiscFormat2Erase_Impl, const OFFSET: isize>() -> IDiscFormat2Erase_Vtbl {
@@ -991,6 +1022,8 @@ pub trait IDiscFormat2RawCD_Impl: Sized + super::super::System::Com::IDispatch_I
     fn SupportedWriteSpeeds(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
     fn SupportedWriteSpeedDescriptors(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IDiscFormat2RawCD {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IDiscFormat2RawCD_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDiscFormat2RawCD_Impl, const OFFSET: isize>() -> IDiscFormat2RawCD_Vtbl {
@@ -1237,6 +1270,8 @@ pub trait IDiscFormat2RawCDEventArgs_Impl: Sized + super::super::System::Com::ID
     fn RemainingTime(&self) -> ::windows::core::Result<i32>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IDiscFormat2RawCDEventArgs {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IDiscFormat2RawCDEventArgs_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDiscFormat2RawCDEventArgs_Impl, const OFFSET: isize>() -> IDiscFormat2RawCDEventArgs_Vtbl {
         unsafe extern "system" fn CurrentAction<Identity: ::windows::core::IUnknownImpl, Impl: IDiscFormat2RawCDEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut IMAPI_FORMAT2_RAW_CD_WRITE_ACTION) -> ::windows::core::HRESULT {
@@ -1311,6 +1346,8 @@ pub trait IDiscFormat2TrackAtOnce_Impl: Sized + super::super::System::Com::IDisp
     fn SupportedWriteSpeeds(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
     fn SupportedWriteSpeedDescriptors(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IDiscFormat2TrackAtOnce {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IDiscFormat2TrackAtOnce_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDiscFormat2TrackAtOnce_Impl, const OFFSET: isize>() -> IDiscFormat2TrackAtOnce_Vtbl {
@@ -1576,6 +1613,8 @@ pub trait IDiscFormat2TrackAtOnceEventArgs_Impl: Sized + super::super::System::C
     fn RemainingTime(&self) -> ::windows::core::Result<i32>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IDiscFormat2TrackAtOnceEventArgs {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IDiscFormat2TrackAtOnceEventArgs_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDiscFormat2TrackAtOnceEventArgs_Impl, const OFFSET: isize>() -> IDiscFormat2TrackAtOnceEventArgs_Vtbl {
         unsafe extern "system" fn CurrentTrackNumber<Identity: ::windows::core::IUnknownImpl, Impl: IDiscFormat2TrackAtOnceEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT {
@@ -1648,6 +1687,7 @@ pub trait IDiscMaster_Impl: Sized {
     fn RecordDisc(&self, bsimulate: u8, bejectafterburn: u8) -> ::windows::core::Result<()>;
     fn Close(&self) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IDiscMaster {}
 impl IDiscMaster_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDiscMaster_Impl, const OFFSET: isize>() -> IDiscMaster_Vtbl {
         unsafe extern "system" fn Open<Identity: ::windows::core::IUnknownImpl, Impl: IDiscMaster_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -1768,6 +1808,8 @@ pub trait IDiscMaster2_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn IsSupportedEnvironment(&self) -> ::windows::core::Result<i16>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IDiscMaster2 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IDiscMaster2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDiscMaster2_Impl, const OFFSET: isize>() -> IDiscMaster2_Vtbl {
         unsafe extern "system" fn _NewEnum<Identity: ::windows::core::IUnknownImpl, Impl: IDiscMaster2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppunk: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -1837,6 +1879,7 @@ pub trait IDiscMasterProgressEvents_Impl: Sized {
     fn NotifyBurnComplete(&self, status: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
     fn NotifyEraseComplete(&self, status: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IDiscMasterProgressEvents {}
 impl IDiscMasterProgressEvents_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDiscMasterProgressEvents_Impl, const OFFSET: isize>() -> IDiscMasterProgressEvents_Vtbl {
         unsafe extern "system" fn QueryCancel<Identity: ::windows::core::IUnknownImpl, Impl: IDiscMasterProgressEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbcancel: *mut u8) -> ::windows::core::HRESULT {
@@ -1925,6 +1968,8 @@ pub trait IDiscRecorder_Impl: Sized {
     fn Erase(&self, bfullerase: u8) -> ::windows::core::Result<()>;
     fn Close(&self) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+impl ::windows::core::RuntimeName for IDiscRecorder {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 impl IDiscRecorder_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDiscRecorder_Impl, const OFFSET: isize>() -> IDiscRecorder_Vtbl {
@@ -2080,6 +2125,8 @@ pub trait IDiscRecorder2_Impl: Sized + super::super::System::Com::IDispatch_Impl
     fn SupportedModePages(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
     fn ExclusiveAccessOwner(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IDiscRecorder2 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IDiscRecorder2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDiscRecorder2_Impl, const OFFSET: isize>() -> IDiscRecorder2_Vtbl {
@@ -2323,6 +2370,8 @@ pub trait IDiscRecorder2Ex_Impl: Sized {
     fn GetMaximumPageAlignedTransferSize(&self) -> ::windows::core::Result<u32>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IDiscRecorder2Ex {}
+#[cfg(feature = "Win32_Foundation")]
 impl IDiscRecorder2Ex_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDiscRecorder2Ex_Impl, const OFFSET: isize>() -> IDiscRecorder2Ex_Vtbl {
         unsafe extern "system" fn SendCommandNoData<Identity: ::windows::core::IUnknownImpl, Impl: IDiscRecorder2Ex_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cdb: *const u8, cdbsize: u32, sensebuffer: *mut u8, timeout: u32) -> ::windows::core::HRESULT {
@@ -2465,6 +2514,7 @@ pub trait IEnumDiscMasterFormats_Impl: Sized {
     fn Reset(&self) -> ::windows::core::Result<()>;
     fn Clone(&self) -> ::windows::core::Result<IEnumDiscMasterFormats>;
 }
+impl ::windows::core::RuntimeName for IEnumDiscMasterFormats {}
 impl IEnumDiscMasterFormats_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEnumDiscMasterFormats_Impl, const OFFSET: isize>() -> IEnumDiscMasterFormats_Vtbl {
         unsafe extern "system" fn Next<Identity: ::windows::core::IUnknownImpl, Impl: IEnumDiscMasterFormats_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cformats: u32, lpiidformatid: *mut ::windows::core::GUID, pcfetched: *mut u32) -> ::windows::core::HRESULT {
@@ -2511,6 +2561,7 @@ pub trait IEnumDiscRecorders_Impl: Sized {
     fn Reset(&self) -> ::windows::core::Result<()>;
     fn Clone(&self) -> ::windows::core::Result<IEnumDiscRecorders>;
 }
+impl ::windows::core::RuntimeName for IEnumDiscRecorders {}
 impl IEnumDiscRecorders_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEnumDiscRecorders_Impl, const OFFSET: isize>() -> IEnumDiscRecorders_Vtbl {
         unsafe extern "system" fn Next<Identity: ::windows::core::IUnknownImpl, Impl: IEnumDiscRecorders_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, crecorders: u32, pprecorder: *mut ::windows::core::RawPtr, pcfetched: *mut u32) -> ::windows::core::HRESULT {
@@ -2559,6 +2610,8 @@ pub trait IEnumFsiItems_Impl: Sized {
     fn Clone(&self) -> ::windows::core::Result<IEnumFsiItems>;
 }
 #[cfg(feature = "Win32_System_Com")]
+impl ::windows::core::RuntimeName for IEnumFsiItems {}
+#[cfg(feature = "Win32_System_Com")]
 impl IEnumFsiItems_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEnumFsiItems_Impl, const OFFSET: isize>() -> IEnumFsiItems_Vtbl {
         unsafe extern "system" fn Next<Identity: ::windows::core::IUnknownImpl, Impl: IEnumFsiItems_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, celt: u32, rgelt: *mut ::windows::core::RawPtr, pceltfetched: *mut u32) -> ::windows::core::HRESULT {
@@ -2606,6 +2659,8 @@ pub trait IEnumProgressItems_Impl: Sized {
     fn Reset(&self) -> ::windows::core::Result<()>;
     fn Clone(&self) -> ::windows::core::Result<IEnumProgressItems>;
 }
+#[cfg(feature = "Win32_System_Com")]
+impl ::windows::core::RuntimeName for IEnumProgressItems {}
 #[cfg(feature = "Win32_System_Com")]
 impl IEnumProgressItems_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEnumProgressItems_Impl, const OFFSET: isize>() -> IEnumProgressItems_Vtbl {
@@ -2700,6 +2755,8 @@ pub trait IFileSystemImage_Impl: Sized + super::super::System::Com::IDispatch_Im
     fn MultisessionInterfaces(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
     fn SetMultisessionInterfaces(&self, newval: *const super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IFileSystemImage {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IFileSystemImage_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFileSystemImage_Impl, const OFFSET: isize>() -> IFileSystemImage_Vtbl {
@@ -3209,6 +3266,8 @@ pub trait IFileSystemImage2_Impl: Sized + super::super::System::Com::IDispatch_I
     fn SetBootImageOptionsArray(&self, newval: *const super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IFileSystemImage2 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IFileSystemImage2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFileSystemImage2_Impl, const OFFSET: isize>() -> IFileSystemImage2_Vtbl {
         unsafe extern "system" fn BootImageOptionsArray<Identity: ::windows::core::IUnknownImpl, Impl: IFileSystemImage2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT {
@@ -3243,6 +3302,8 @@ pub trait IFileSystemImage3_Impl: Sized + super::super::System::Com::IDispatch_I
     fn SetCreateRedundantUdfMetadataFiles(&self, newval: i16) -> ::windows::core::Result<()>;
     fn ProbeSpecificFileSystem(&self, filesystemtoprobe: FsiFileSystems) -> ::windows::core::Result<i16>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IFileSystemImage3 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IFileSystemImage3_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFileSystemImage3_Impl, const OFFSET: isize>() -> IFileSystemImage3_Vtbl {
@@ -3292,6 +3353,8 @@ pub trait IFileSystemImageResult_Impl: Sized + super::super::System::Com::IDispa
     fn BlockSize(&self) -> ::windows::core::Result<i32>;
     fn DiscId(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IFileSystemImageResult {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IFileSystemImageResult_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFileSystemImageResult_Impl, const OFFSET: isize>() -> IFileSystemImageResult_Vtbl {
@@ -3368,6 +3431,8 @@ pub trait IFileSystemImageResult2_Impl: Sized + super::super::System::Com::IDisp
     fn ModifiedBlocks(&self) -> ::windows::core::Result<IBlockRangeList>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IFileSystemImageResult2 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IFileSystemImageResult2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFileSystemImageResult2_Impl, const OFFSET: isize>() -> IFileSystemImageResult2_Vtbl {
         unsafe extern "system" fn ModifiedBlocks<Identity: ::windows::core::IUnknownImpl, Impl: IFileSystemImageResult2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -3400,6 +3465,8 @@ pub trait IFsiDirectoryItem_Impl: Sized + super::super::System::Com::IDispatch_I
     fn Remove(&self, path: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn RemoveTree(&self, path: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IFsiDirectoryItem {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IFsiDirectoryItem_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFsiDirectoryItem_Impl, const OFFSET: isize>() -> IFsiDirectoryItem_Vtbl {
@@ -3500,6 +3567,8 @@ pub trait IFsiDirectoryItem2_Impl: Sized + super::super::System::Com::IDispatch_
     fn AddTreeWithNamedStreams(&self, sourcedirectory: &super::super::Foundation::BSTR, includebasedirectory: i16) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IFsiDirectoryItem2 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IFsiDirectoryItem2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFsiDirectoryItem2_Impl, const OFFSET: isize>() -> IFsiDirectoryItem2_Vtbl {
         unsafe extern "system" fn AddTreeWithNamedStreams<Identity: ::windows::core::IUnknownImpl, Impl: IFsiDirectoryItem2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sourcedirectory: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, includebasedirectory: i16) -> ::windows::core::HRESULT {
@@ -3521,6 +3590,8 @@ pub trait IFsiFileItem_Impl: Sized + super::super::System::Com::IDispatch_Impl +
     fn Data(&self) -> ::windows::core::Result<super::super::System::Com::IStream>;
     fn SetData(&self, newval: &::core::option::Option<super::super::System::Com::IStream>) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IFsiFileItem {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IFsiFileItem_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFsiFileItem_Impl, const OFFSET: isize>() -> IFsiFileItem_Vtbl {
@@ -3595,6 +3666,8 @@ pub trait IFsiFileItem2_Impl: Sized + super::super::System::Com::IDispatch_Impl 
     fn IsRealTime(&self) -> ::windows::core::Result<i16>;
     fn SetIsRealTime(&self, newval: i16) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IFsiFileItem2 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IFsiFileItem2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFsiFileItem2_Impl, const OFFSET: isize>() -> IFsiFileItem2_Vtbl {
@@ -3675,6 +3748,8 @@ pub trait IFsiItem_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn FileSystemName(&self, filesystem: FsiFileSystems) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn FileSystemPath(&self, filesystem: FsiFileSystems) -> ::windows::core::Result<super::super::Foundation::BSTR>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IFsiItem {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IFsiItem_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFsiItem_Impl, const OFFSET: isize>() -> IFsiItem_Vtbl {
@@ -3814,6 +3889,8 @@ pub trait IFsiNamedStreams_Impl: Sized + super::super::System::Com::IDispatch_Im
     fn EnumNamedStreams(&self) -> ::windows::core::Result<IEnumFsiItems>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IFsiNamedStreams {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IFsiNamedStreams_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFsiNamedStreams_Impl, const OFFSET: isize>() -> IFsiNamedStreams_Vtbl {
         unsafe extern "system" fn _NewEnum<Identity: ::windows::core::IUnknownImpl, Impl: IFsiNamedStreams_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, newenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -3881,6 +3958,8 @@ pub trait IIsoImageManager_Impl: Sized + super::super::System::Com::IDispatch_Im
     fn Validate(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IIsoImageManager {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IIsoImageManager_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IIsoImageManager_Impl, const OFFSET: isize>() -> IIsoImageManager_Vtbl {
         unsafe extern "system" fn Path<Identity: ::windows::core::IUnknownImpl, Impl: IIsoImageManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
@@ -3942,6 +4021,8 @@ pub trait IJolietDiscMaster_Impl: Sized {
     fn GetJolietProperties(&self) -> ::windows::core::Result<super::super::System::Com::StructuredStorage::IPropertyStorage>;
     fn SetJolietProperties(&self, ppropstg: &::core::option::Option<super::super::System::Com::StructuredStorage::IPropertyStorage>) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
+impl ::windows::core::RuntimeName for IJolietDiscMaster {}
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl IJolietDiscMaster_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IJolietDiscMaster_Impl, const OFFSET: isize>() -> IJolietDiscMaster_Vtbl {
@@ -4021,6 +4102,8 @@ pub trait IMultisession_Impl: Sized + super::super::System::Com::IDispatch_Impl 
     fn ImportRecorder(&self) -> ::windows::core::Result<IDiscRecorder2>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IMultisession {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMultisession_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMultisession_Impl, const OFFSET: isize>() -> IMultisession_Vtbl {
         unsafe extern "system" fn IsSupportedOnCurrentMediaState<Identity: ::windows::core::IUnknownImpl, Impl: IMultisession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut i16) -> ::windows::core::HRESULT {
@@ -4080,6 +4163,8 @@ pub trait IMultisessionRandomWrite_Impl: Sized + super::super::System::Com::IDis
     fn TotalSectorsOnMedia(&self) -> ::windows::core::Result<i32>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IMultisessionRandomWrite {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMultisessionRandomWrite_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMultisessionRandomWrite_Impl, const OFFSET: isize>() -> IMultisessionRandomWrite_Vtbl {
         unsafe extern "system" fn WriteUnitSize<Identity: ::windows::core::IUnknownImpl, Impl: IMultisessionRandomWrite_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT {
@@ -4134,6 +4219,8 @@ pub trait IMultisessionSequential_Impl: Sized + super::super::System::Com::IDisp
     fn NextWritableAddress(&self) -> ::windows::core::Result<i32>;
     fn FreeSectorsOnMedia(&self) -> ::windows::core::Result<i32>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IMultisessionSequential {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMultisessionSequential_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMultisessionSequential_Impl, const OFFSET: isize>() -> IMultisessionSequential_Vtbl {
@@ -4210,6 +4297,8 @@ pub trait IMultisessionSequential2_Impl: Sized + super::super::System::Com::IDis
     fn WriteUnitSize(&self) -> ::windows::core::Result<i32>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IMultisessionSequential2 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMultisessionSequential2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMultisessionSequential2_Impl, const OFFSET: isize>() -> IMultisessionSequential2_Vtbl {
         unsafe extern "system" fn WriteUnitSize<Identity: ::windows::core::IUnknownImpl, Impl: IMultisessionSequential2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT {
@@ -4236,6 +4325,8 @@ pub trait IProgressItem_Impl: Sized + super::super::System::Com::IDispatch_Impl 
     fn LastBlock(&self) -> ::windows::core::Result<u32>;
     fn BlockCount(&self) -> ::windows::core::Result<u32>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IProgressItem {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IProgressItem_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IProgressItem_Impl, const OFFSET: isize>() -> IProgressItem_Vtbl {
@@ -4304,6 +4395,8 @@ pub trait IProgressItems_Impl: Sized + super::super::System::Com::IDispatch_Impl
     fn ProgressItemFromDescription(&self, description: &super::super::Foundation::BSTR) -> ::windows::core::Result<IProgressItem>;
     fn EnumProgressItems(&self) -> ::windows::core::Result<IEnumProgressItems>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IProgressItems {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IProgressItems_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IProgressItems_Impl, const OFFSET: isize>() -> IProgressItems_Vtbl {
@@ -4409,6 +4502,8 @@ pub trait IRawCDImageCreator_Impl: Sized + super::super::System::Com::IDispatch_
     fn LastUsedUserSectorInImage(&self) -> ::windows::core::Result<i32>;
     fn ExpectedTableOfContents(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IRawCDImageCreator {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IRawCDImageCreator_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRawCDImageCreator_Impl, const OFFSET: isize>() -> IRawCDImageCreator_Vtbl {
@@ -4623,6 +4718,8 @@ pub trait IRawCDImageTrackInfo_Impl: Sized + super::super::System::Com::IDispatc
     fn ClearTrackIndex(&self, lbaoffset: i32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IRawCDImageTrackInfo {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IRawCDImageTrackInfo_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRawCDImageTrackInfo_Impl, const OFFSET: isize>() -> IRawCDImageTrackInfo_Vtbl {
         unsafe extern "system" fn StartingLba<Identity: ::windows::core::IUnknownImpl, Impl: IRawCDImageTrackInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT {
@@ -4769,6 +4866,7 @@ pub trait IRedbookDiscMaster_Impl: Sized {
     fn AddAudioTrackBlocks(&self, pby: *const u8, cb: i32) -> ::windows::core::Result<()>;
     fn CloseAudioTrack(&self) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IRedbookDiscMaster {}
 impl IRedbookDiscMaster_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRedbookDiscMaster_Impl, const OFFSET: isize>() -> IRedbookDiscMaster_Vtbl {
         unsafe extern "system" fn GetTotalAudioTracks<Identity: ::windows::core::IUnknownImpl, Impl: IRedbookDiscMaster_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pntracks: *mut i32) -> ::windows::core::HRESULT {
@@ -4865,6 +4963,8 @@ pub trait IStreamConcatenate_Impl: Sized + super::super::System::Com::ISequentia
     fn Append2(&self, streams: *const ::core::option::Option<super::super::System::Com::IStream>, streamcount: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+impl ::windows::core::RuntimeName for IStreamConcatenate {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 impl IStreamConcatenate_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStreamConcatenate_Impl, const OFFSET: isize>() -> IStreamConcatenate_Vtbl {
         unsafe extern "system" fn Initialize<Identity: ::windows::core::IUnknownImpl, Impl: IStreamConcatenate_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, stream1: ::windows::core::RawPtr, stream2: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -4904,6 +5004,8 @@ pub trait IStreamInterleave_Impl: Sized + super::super::System::Com::ISequential
     fn Initialize(&self, streams: *const ::core::option::Option<super::super::System::Com::IStream>, interleavesizes: *const u32, streamcount: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+impl ::windows::core::RuntimeName for IStreamInterleave {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 impl IStreamInterleave_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStreamInterleave_Impl, const OFFSET: isize>() -> IStreamInterleave_Vtbl {
         unsafe extern "system" fn Initialize<Identity: ::windows::core::IUnknownImpl, Impl: IStreamInterleave_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, streams: *const ::windows::core::RawPtr, interleavesizes: *const u32, streamcount: u32) -> ::windows::core::HRESULT {
@@ -4924,6 +5026,8 @@ pub trait IStreamPseudoRandomBased_Impl: Sized + super::super::System::Com::ISeq
     fn put_ExtendedSeed(&self, values: *const u32, ecount: u32) -> ::windows::core::Result<()>;
     fn get_ExtendedSeed(&self, values: *mut *mut u32, ecount: *mut u32) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+impl ::windows::core::RuntimeName for IStreamPseudoRandomBased {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 impl IStreamPseudoRandomBased_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStreamPseudoRandomBased_Impl, const OFFSET: isize>() -> IStreamPseudoRandomBased_Vtbl {
@@ -4981,6 +5085,8 @@ pub trait IWriteEngine2_Impl: Sized + super::super::System::Com::IDispatch_Impl 
     fn BytesPerSector(&self) -> ::windows::core::Result<i32>;
     fn WriteInProgress(&self) -> ::windows::core::Result<i16>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IWriteEngine2 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWriteEngine2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWriteEngine2_Impl, const OFFSET: isize>() -> IWriteEngine2_Vtbl {
@@ -5117,6 +5223,8 @@ pub trait IWriteEngine2EventArgs_Impl: Sized + super::super::System::Com::IDispa
     fn FreeSystemBuffer(&self) -> ::windows::core::Result<i32>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IWriteEngine2EventArgs {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWriteEngine2EventArgs_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWriteEngine2EventArgs_Impl, const OFFSET: isize>() -> IWriteEngine2EventArgs_Vtbl {
         unsafe extern "system" fn StartLba<Identity: ::windows::core::IUnknownImpl, Impl: IWriteEngine2EventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT {
@@ -5217,6 +5325,8 @@ pub trait IWriteSpeedDescriptor_Impl: Sized + super::super::System::Com::IDispat
     fn RotationTypeIsPureCAV(&self) -> ::windows::core::Result<i16>;
     fn WriteSpeed(&self) -> ::windows::core::Result<i32>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IWriteSpeedDescriptor {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWriteSpeedDescriptor_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWriteSpeedDescriptor_Impl, const OFFSET: isize>() -> IWriteSpeedDescriptor_Vtbl {

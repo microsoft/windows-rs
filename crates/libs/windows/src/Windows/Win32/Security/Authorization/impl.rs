@@ -63,6 +63,8 @@ pub trait IAzApplication_Impl: Sized + super::super::System::Com::IDispatch_Impl
     fn DeleteDelegatedPolicyUserName(&self, bstrdelegatedpolicyuser: &super::super::Foundation::BSTR, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IAzApplication {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IAzApplication_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAzApplication_Impl, const OFFSET: isize>() -> IAzApplication_Vtbl {
         unsafe extern "system" fn Name<Identity: ::windows::core::IUnknownImpl, Impl: IAzApplication_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
@@ -643,6 +645,8 @@ pub trait IAzApplication2_Impl: Sized + super::super::System::Com::IDispatch_Imp
     fn InitializeClientContext2(&self, identifyingstring: &super::super::Foundation::BSTR, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<IAzClientContext2>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IAzApplication2 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IAzApplication2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAzApplication2_Impl, const OFFSET: isize>() -> IAzApplication2_Vtbl {
         unsafe extern "system" fn InitializeClientContextFromToken2<Identity: ::windows::core::IUnknownImpl, Impl: IAzApplication2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ultokenhandlelowpart: u32, ultokenhandlehighpart: u32, varreserved: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, ppclientcontext: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -694,6 +698,8 @@ pub trait IAzApplication3_Impl: Sized + super::super::System::Com::IDispatch_Imp
     fn BizRulesEnabled(&self) -> ::windows::core::Result<i16>;
     fn SetBizRulesEnabled(&self, benabled: i16) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IAzApplication3 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IAzApplication3_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAzApplication3_Impl, const OFFSET: isize>() -> IAzApplication3_Vtbl {
@@ -884,6 +890,8 @@ pub trait IAzApplicationGroup_Impl: Sized + super::super::System::Com::IDispatch
     fn MembersName(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
     fn NonMembersName(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IAzApplicationGroup {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IAzApplicationGroup_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAzApplicationGroup_Impl, const OFFSET: isize>() -> IAzApplicationGroup_Vtbl {
@@ -1170,6 +1178,8 @@ pub trait IAzApplicationGroup2_Impl: Sized + super::super::System::Com::IDispatc
     fn RoleAssignments(&self, bstrscopename: &super::super::Foundation::BSTR, brecursive: i16) -> ::windows::core::Result<IAzRoleAssignments>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IAzApplicationGroup2 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IAzApplicationGroup2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAzApplicationGroup2_Impl, const OFFSET: isize>() -> IAzApplicationGroup2_Vtbl {
         unsafe extern "system" fn BizRule<Identity: ::windows::core::IUnknownImpl, Impl: IAzApplicationGroup2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrprop: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
@@ -1253,6 +1263,8 @@ pub trait IAzApplicationGroups_Impl: Sized + super::super::System::Com::IDispatc
     fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IAzApplicationGroups {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IAzApplicationGroups_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAzApplicationGroups_Impl, const OFFSET: isize>() -> IAzApplicationGroups_Vtbl {
         unsafe extern "system" fn get_Item<Identity: ::windows::core::IUnknownImpl, Impl: IAzApplicationGroups_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, pvarobtptr: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
@@ -1305,6 +1317,8 @@ pub trait IAzApplications_Impl: Sized + super::super::System::Com::IDispatch_Imp
     fn Count(&self) -> ::windows::core::Result<i32>;
     fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IAzApplications {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IAzApplications_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAzApplications_Impl, const OFFSET: isize>() -> IAzApplications_Vtbl {
@@ -1406,6 +1420,8 @@ pub trait IAzAuthorizationStore_Impl: Sized + super::super::System::Com::IDispat
     fn DeleteDelegatedPolicyUserName(&self, bstrdelegatedpolicyuser: &super::super::Foundation::BSTR, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn CloseApplication(&self, bstrapplicationname: &super::super::Foundation::BSTR, lflag: i32) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IAzAuthorizationStore {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IAzAuthorizationStore_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAzAuthorizationStore_Impl, const OFFSET: isize>() -> IAzAuthorizationStore_Vtbl {
@@ -1861,6 +1877,8 @@ pub trait IAzAuthorizationStore2_Impl: Sized + super::super::System::Com::IDispa
     fn CreateApplication2(&self, bstrapplicationname: &super::super::Foundation::BSTR, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<IAzApplication2>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IAzAuthorizationStore2 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IAzAuthorizationStore2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAzAuthorizationStore2_Impl, const OFFSET: isize>() -> IAzAuthorizationStore2_Vtbl {
         unsafe extern "system" fn OpenApplication2<Identity: ::windows::core::IUnknownImpl, Impl: IAzAuthorizationStore2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrapplicationname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, varreserved: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, ppapplication: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -1903,6 +1921,8 @@ pub trait IAzAuthorizationStore3_Impl: Sized + super::super::System::Com::IDispa
     fn IsFunctionalLevelUpgradeSupported(&self, lfunctionallevel: i32) -> ::windows::core::Result<i16>;
     fn GetSchemaVersion(&self, plmajorversion: *mut i32, plminorversion: *mut i32) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IAzAuthorizationStore3 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IAzAuthorizationStore3_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAzAuthorizationStore3_Impl, const OFFSET: isize>() -> IAzAuthorizationStore3_Vtbl {
@@ -1970,6 +1990,8 @@ pub trait IAzBizRuleContext_Impl: Sized + super::super::System::Com::IDispatch_I
     fn GetParameter(&self, bstrparametername: &super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IAzBizRuleContext {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IAzBizRuleContext_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAzBizRuleContext_Impl, const OFFSET: isize>() -> IAzBizRuleContext_Vtbl {
         unsafe extern "system" fn SetBusinessRuleResult<Identity: ::windows::core::IUnknownImpl, Impl: IAzBizRuleContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bresult: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
@@ -2025,6 +2047,8 @@ pub trait IAzBizRuleInterfaces_Impl: Sized + super::super::System::Com::IDispatc
     fn RemoveAll(&self) -> ::windows::core::Result<()>;
     fn Count(&self) -> ::windows::core::Result<u32>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IAzBizRuleInterfaces {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IAzBizRuleInterfaces_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAzBizRuleInterfaces_Impl, const OFFSET: isize>() -> IAzBizRuleInterfaces_Vtbl {
@@ -2087,6 +2111,8 @@ pub trait IAzBizRuleParameters_Impl: Sized + super::super::System::Com::IDispatc
     fn RemoveAll(&self) -> ::windows::core::Result<()>;
     fn Count(&self) -> ::windows::core::Result<u32>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IAzBizRuleParameters {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IAzBizRuleParameters_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAzBizRuleParameters_Impl, const OFFSET: isize>() -> IAzBizRuleParameters_Vtbl {
@@ -2162,6 +2188,8 @@ pub trait IAzClientContext_Impl: Sized + super::super::System::Com::IDispatch_Im
     fn RoleForAccessCheck(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn SetRoleForAccessCheck(&self, bstrprop: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IAzClientContext {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IAzClientContext_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAzClientContext_Impl, const OFFSET: isize>() -> IAzClientContext_Vtbl {
@@ -2344,6 +2372,8 @@ pub trait IAzClientContext2_Impl: Sized + super::super::System::Com::IDispatch_I
     fn LDAPQueryDN(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IAzClientContext2 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IAzClientContext2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAzClientContext2_Impl, const OFFSET: isize>() -> IAzClientContext2_Vtbl {
         unsafe extern "system" fn GetAssignedScopesPage<Identity: ::windows::core::IUnknownImpl, Impl: IAzClientContext2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, loptions: i32, pagesize: i32, pvarcursor: *mut super::super::System::Com::VARIANT, pvarscopenames: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
@@ -2407,6 +2437,8 @@ pub trait IAzClientContext3_Impl: Sized + super::super::System::Com::IDispatch_I
     fn GetGroups(&self, bstrscopename: &super::super::Foundation::BSTR, uloptions: AZ_PROP_CONSTANTS) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
     fn Sids(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IAzClientContext3 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IAzClientContext3_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAzClientContext3_Impl, const OFFSET: isize>() -> IAzClientContext3_Vtbl {
@@ -2520,6 +2552,8 @@ pub trait IAzNameResolver_Impl: Sized + super::super::System::Com::IDispatch_Imp
     fn NamesFromSids(&self, vsids: &super::super::System::Com::VARIANT, pvsidtypes: *mut super::super::System::Com::VARIANT, pvnames: *mut super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IAzNameResolver {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IAzNameResolver_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAzNameResolver_Impl, const OFFSET: isize>() -> IAzNameResolver_Vtbl {
         unsafe extern "system" fn NameFromSid<Identity: ::windows::core::IUnknownImpl, Impl: IAzNameResolver_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrsid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, psidtype: *mut i32, pbstrname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
@@ -2547,6 +2581,8 @@ pub trait IAzObjectPicker_Impl: Sized + super::super::System::Com::IDispatch_Imp
     fn GetPrincipals(&self, hparentwnd: super::super::Foundation::HWND, bstrtitle: &super::super::Foundation::BSTR, pvsidtypes: *mut super::super::System::Com::VARIANT, pvnames: *mut super::super::System::Com::VARIANT, pvsids: *mut super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn Name(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IAzObjectPicker {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IAzObjectPicker_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAzObjectPicker_Impl, const OFFSET: isize>() -> IAzObjectPicker_Vtbl {
@@ -2591,6 +2627,8 @@ pub trait IAzOperation_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn SetProperty(&self, lpropid: i32, varprop: &super::super::System::Com::VARIANT, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn Submit(&self, lflags: i32, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IAzOperation {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IAzOperation_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAzOperation_Impl, const OFFSET: isize>() -> IAzOperation_Vtbl {
@@ -2715,6 +2753,8 @@ pub trait IAzOperation2_Impl: Sized + super::super::System::Com::IDispatch_Impl 
     fn RoleAssignments(&self, bstrscopename: &super::super::Foundation::BSTR, brecursive: i16) -> ::windows::core::Result<IAzRoleAssignments>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IAzOperation2 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IAzOperation2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAzOperation2_Impl, const OFFSET: isize>() -> IAzOperation2_Vtbl {
         unsafe extern "system" fn RoleAssignments<Identity: ::windows::core::IUnknownImpl, Impl: IAzOperation2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrscopename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, brecursive: i16, pproleassignments: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -2740,6 +2780,8 @@ pub trait IAzOperations_Impl: Sized + super::super::System::Com::IDispatch_Impl 
     fn Count(&self) -> ::windows::core::Result<i32>;
     fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IAzOperations {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IAzOperations_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAzOperations_Impl, const OFFSET: isize>() -> IAzOperations_Vtbl {
@@ -2792,6 +2834,8 @@ pub trait IAzPrincipalLocator_Impl: Sized + super::super::System::Com::IDispatch
     fn NameResolver(&self) -> ::windows::core::Result<IAzNameResolver>;
     fn ObjectPicker(&self) -> ::windows::core::Result<IAzObjectPicker>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IAzPrincipalLocator {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IAzPrincipalLocator_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAzPrincipalLocator_Impl, const OFFSET: isize>() -> IAzPrincipalLocator_Vtbl {
@@ -2857,6 +2901,8 @@ pub trait IAzRole_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn DeleteMemberName(&self, bstrprop: &super::super::Foundation::BSTR, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn MembersName(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IAzRole {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IAzRole_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAzRole_Impl, const OFFSET: isize>() -> IAzRole_Vtbl {
@@ -3098,6 +3144,8 @@ pub trait IAzRoleAssignment_Impl: Sized + super::super::System::Com::IDispatch_I
     fn Scope(&self) -> ::windows::core::Result<IAzScope>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IAzRoleAssignment {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IAzRoleAssignment_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAzRoleAssignment_Impl, const OFFSET: isize>() -> IAzRoleAssignment_Vtbl {
         unsafe extern "system" fn AddRoleDefinition<Identity: ::windows::core::IUnknownImpl, Impl: IAzRoleAssignment_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrroledefinition: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
@@ -3150,6 +3198,8 @@ pub trait IAzRoleAssignments_Impl: Sized + super::super::System::Com::IDispatch_
     fn Count(&self) -> ::windows::core::Result<i32>;
     fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IAzRoleAssignments {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IAzRoleAssignments_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAzRoleAssignments_Impl, const OFFSET: isize>() -> IAzRoleAssignments_Vtbl {
@@ -3205,6 +3255,8 @@ pub trait IAzRoleDefinition_Impl: Sized + super::super::System::Com::IDispatch_I
     fn RoleDefinitions(&self) -> ::windows::core::Result<IAzRoleDefinitions>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IAzRoleDefinition {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IAzRoleDefinition_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAzRoleDefinition_Impl, const OFFSET: isize>() -> IAzRoleDefinition_Vtbl {
         unsafe extern "system" fn RoleAssignments<Identity: ::windows::core::IUnknownImpl, Impl: IAzRoleDefinition_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrscopename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, brecursive: i16, pproleassignments: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -3258,6 +3310,8 @@ pub trait IAzRoleDefinitions_Impl: Sized + super::super::System::Com::IDispatch_
     fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IAzRoleDefinitions {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IAzRoleDefinitions_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAzRoleDefinitions_Impl, const OFFSET: isize>() -> IAzRoleDefinitions_Vtbl {
         unsafe extern "system" fn get_Item<Identity: ::windows::core::IUnknownImpl, Impl: IAzRoleDefinitions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, pvarobtptr: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
@@ -3310,6 +3364,8 @@ pub trait IAzRoles_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows::core::Result<i32>;
     fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IAzRoles {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IAzRoles_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAzRoles_Impl, const OFFSET: isize>() -> IAzRoles_Vtbl {
@@ -3398,6 +3454,8 @@ pub trait IAzScope_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn AddPolicyReaderName(&self, bstrreader: &super::super::Foundation::BSTR, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn DeletePolicyReaderName(&self, bstrreader: &super::super::Foundation::BSTR, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IAzScope {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IAzScope_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAzScope_Impl, const OFFSET: isize>() -> IAzScope_Vtbl {
@@ -3769,6 +3827,8 @@ pub trait IAzScope2_Impl: Sized + super::super::System::Com::IDispatch_Impl + IA
     fn DeleteRoleAssignment(&self, bstrroleassignmentname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IAzScope2 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IAzScope2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAzScope2_Impl, const OFFSET: isize>() -> IAzScope2_Vtbl {
         unsafe extern "system" fn RoleDefinitions<Identity: ::windows::core::IUnknownImpl, Impl: IAzScope2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pproledefinitions: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -3870,6 +3930,8 @@ pub trait IAzScopes_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IAzScopes {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IAzScopes_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAzScopes_Impl, const OFFSET: isize>() -> IAzScopes_Vtbl {
         unsafe extern "system" fn get_Item<Identity: ::windows::core::IUnknownImpl, Impl: IAzScopes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, pvarobtptr: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
@@ -3945,6 +4007,8 @@ pub trait IAzTask_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn DeletePropertyItem(&self, lpropid: i32, varprop: &super::super::System::Com::VARIANT, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn Submit(&self, lflags: i32, varreserved: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IAzTask {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IAzTask_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAzTask_Impl, const OFFSET: isize>() -> IAzTask_Vtbl {
@@ -4183,6 +4247,8 @@ pub trait IAzTask2_Impl: Sized + super::super::System::Com::IDispatch_Impl + IAz
     fn RoleAssignments(&self, bstrscopename: &super::super::Foundation::BSTR, brecursive: i16) -> ::windows::core::Result<IAzRoleAssignments>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IAzTask2 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IAzTask2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAzTask2_Impl, const OFFSET: isize>() -> IAzTask2_Vtbl {
         unsafe extern "system" fn RoleAssignments<Identity: ::windows::core::IUnknownImpl, Impl: IAzTask2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrscopename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, brecursive: i16, pproleassignments: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -4208,6 +4274,8 @@ pub trait IAzTasks_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows::core::Result<i32>;
     fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IAzTasks {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IAzTasks_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAzTasks_Impl, const OFFSET: isize>() -> IAzTasks_Vtbl {

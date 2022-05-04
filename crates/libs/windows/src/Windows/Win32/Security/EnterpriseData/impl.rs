@@ -4,9 +4,7 @@ pub trait IProtectionPolicyManagerInterop_Impl: Sized {
     fn GetForWindow(&self, appwindow: super::super::Foundation::HWND, riid: *const ::windows::core::GUID, result: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::RuntimeName for IProtectionPolicyManagerInterop {
-    const NAME: &'static str = "";
-}
+impl ::windows::core::RuntimeName for IProtectionPolicyManagerInterop {}
 #[cfg(feature = "Win32_Foundation")]
 impl IProtectionPolicyManagerInterop_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IProtectionPolicyManagerInterop_Impl, const OFFSET: isize>() -> IProtectionPolicyManagerInterop_Vtbl {
@@ -39,9 +37,7 @@ pub trait IProtectionPolicyManagerInterop2_Impl: Sized {
     fn RequestAccessForAppWithMessageForWindowAsync(&self, appwindow: super::super::Foundation::HWND, sourceidentity: &::windows::core::HSTRING, apppackagefamilyname: &::windows::core::HSTRING, auditinfounk: &::core::option::Option<::windows::core::IUnknown>, messagefromapp: &::windows::core::HSTRING, riid: *const ::windows::core::GUID, asyncoperation: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::RuntimeName for IProtectionPolicyManagerInterop2 {
-    const NAME: &'static str = "";
-}
+impl ::windows::core::RuntimeName for IProtectionPolicyManagerInterop2 {}
 #[cfg(feature = "Win32_Foundation")]
 impl IProtectionPolicyManagerInterop2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IProtectionPolicyManagerInterop2_Impl, const OFFSET: isize>() -> IProtectionPolicyManagerInterop2_Vtbl {
@@ -93,9 +89,7 @@ pub trait IProtectionPolicyManagerInterop3_Impl: Sized {
     fn RequestAccessToFilesForProcessWithMessageAndBehaviorForWindowAsync(&self, appwindow: super::super::Foundation::HWND, sourceitemlistunk: &::core::option::Option<::windows::core::IUnknown>, processid: u32, auditinfounk: &::core::option::Option<::windows::core::IUnknown>, messagefromapp: &::windows::core::HSTRING, behavior: u32, riid: *const ::windows::core::GUID, asyncoperation: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::RuntimeName for IProtectionPolicyManagerInterop3 {
-    const NAME: &'static str = "";
-}
+impl ::windows::core::RuntimeName for IProtectionPolicyManagerInterop3 {}
 #[cfg(feature = "Win32_Foundation")]
 impl IProtectionPolicyManagerInterop3_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IProtectionPolicyManagerInterop3_Impl, const OFFSET: isize>() -> IProtectionPolicyManagerInterop3_Vtbl {

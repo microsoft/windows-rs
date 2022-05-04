@@ -4,6 +4,8 @@ pub trait IDialBranding_Impl: Sized {
     fn GetBitmap(&self, dwindex: u32) -> ::windows::core::Result<super::super::Graphics::Gdi::HBITMAP>;
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
+impl ::windows::core::RuntimeName for IDialBranding {}
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl IDialBranding_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDialBranding_Impl, const OFFSET: isize>() -> IDialBranding_Vtbl {
         unsafe extern "system" fn Initialize<Identity: ::windows::core::IUnknownImpl, Impl: IDialBranding_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwzconnectoid: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
@@ -41,6 +43,7 @@ pub trait IDialEngine_Impl: Sized {
     fn GetConnectedState(&self) -> ::windows::core::Result<u32>;
     fn GetConnectHandle(&self) -> ::windows::core::Result<usize>;
 }
+impl ::windows::core::RuntimeName for IDialEngine {}
 impl IDialEngine_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDialEngine_Impl, const OFFSET: isize>() -> IDialEngine_Vtbl {
         unsafe extern "system" fn Initialize<Identity: ::windows::core::IUnknownImpl, Impl: IDialEngine_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwzconnectoid: ::windows::core::PCWSTR, pides: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -108,6 +111,7 @@ impl IDialEngine_Vtbl {
 pub trait IDialEventSink_Impl: Sized {
     fn OnEvent(&self, dwevent: u32, dwstatus: u32) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IDialEventSink {}
 impl IDialEventSink_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDialEventSink_Impl, const OFFSET: isize>() -> IDialEventSink_Vtbl {
         unsafe extern "system" fn OnEvent<Identity: ::windows::core::IUnknownImpl, Impl: IDialEventSink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwevent: u32, dwstatus: u32) -> ::windows::core::HRESULT {
@@ -124,6 +128,7 @@ impl IDialEventSink_Vtbl {
 pub trait IProofOfPossessionCookieInfoManager_Impl: Sized {
     fn GetCookieInfoForUri(&self, uri: &::windows::core::PCWSTR, cookieinfocount: *mut u32, cookieinfo: *mut *mut ProofOfPossessionCookieInfo) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IProofOfPossessionCookieInfoManager {}
 impl IProofOfPossessionCookieInfoManager_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IProofOfPossessionCookieInfoManager_Impl, const OFFSET: isize>() -> IProofOfPossessionCookieInfoManager_Vtbl {
         unsafe extern "system" fn GetCookieInfoForUri<Identity: ::windows::core::IUnknownImpl, Impl: IProofOfPossessionCookieInfoManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uri: ::windows::core::PCWSTR, cookieinfocount: *mut u32, cookieinfo: *mut *mut ProofOfPossessionCookieInfo) -> ::windows::core::HRESULT {
@@ -140,6 +145,7 @@ impl IProofOfPossessionCookieInfoManager_Vtbl {
 pub trait IProofOfPossessionCookieInfoManager2_Impl: Sized {
     fn GetCookieInfoWithUriForAccount(&self, webaccount: &::core::option::Option<::windows::core::IInspectable>, uri: &::windows::core::PCWSTR, cookieinfocount: *mut u32, cookieinfo: *mut *mut ProofOfPossessionCookieInfo) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IProofOfPossessionCookieInfoManager2 {}
 impl IProofOfPossessionCookieInfoManager2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IProofOfPossessionCookieInfoManager2_Impl, const OFFSET: isize>() -> IProofOfPossessionCookieInfoManager2_Vtbl {
         unsafe extern "system" fn GetCookieInfoWithUriForAccount<Identity: ::windows::core::IUnknownImpl, Impl: IProofOfPossessionCookieInfoManager2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, webaccount: *mut ::core::ffi::c_void, uri: ::windows::core::PCWSTR, cookieinfocount: *mut u32, cookieinfo: *mut *mut ProofOfPossessionCookieInfo) -> ::windows::core::HRESULT {

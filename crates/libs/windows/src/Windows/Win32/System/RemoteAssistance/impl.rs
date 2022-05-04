@@ -1,6 +1,8 @@
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait DRendezvousSessionEvents_Impl: Sized + super::Com::IDispatch_Impl {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for DRendezvousSessionEvents {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl DRendezvousSessionEvents_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: DRendezvousSessionEvents_Impl, const OFFSET: isize>() -> DRendezvousSessionEvents_Vtbl {
         Self { base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>() }
@@ -12,6 +14,7 @@ impl DRendezvousSessionEvents_Vtbl {
 pub trait IRendezvousApplication_Impl: Sized {
     fn SetRendezvousSession(&self, prendezvoussession: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IRendezvousApplication {}
 impl IRendezvousApplication_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRendezvousApplication_Impl, const OFFSET: isize>() -> IRendezvousApplication_Vtbl {
         unsafe extern "system" fn SetRendezvousSession<Identity: ::windows::core::IUnknownImpl, Impl: IRendezvousApplication_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, prendezvoussession: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -33,6 +36,8 @@ pub trait IRendezvousSession_Impl: Sized {
     fn SendContextData(&self, bstrdata: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn Terminate(&self, hr: ::windows::core::HRESULT, bstrappdata: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IRendezvousSession {}
 #[cfg(feature = "Win32_Foundation")]
 impl IRendezvousSession_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRendezvousSession_Impl, const OFFSET: isize>() -> IRendezvousSession_Vtbl {

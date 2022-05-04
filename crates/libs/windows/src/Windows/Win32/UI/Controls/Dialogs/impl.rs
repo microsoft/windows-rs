@@ -5,6 +5,8 @@ pub trait IPrintDialogCallback_Impl: Sized {
     fn HandleMessage(&self, hdlg: super::super::super::Foundation::HWND, umsg: u32, wparam: super::super::super::Foundation::WPARAM, lparam: super::super::super::Foundation::LPARAM, presult: *mut super::super::super::Foundation::LRESULT) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IPrintDialogCallback {}
+#[cfg(feature = "Win32_Foundation")]
 impl IPrintDialogCallback_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintDialogCallback_Impl, const OFFSET: isize>() -> IPrintDialogCallback_Vtbl {
         unsafe extern "system" fn InitDone<Identity: ::windows::core::IUnknownImpl, Impl: IPrintDialogCallback_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -39,6 +41,8 @@ pub trait IPrintDialogServices_Impl: Sized {
     fn GetCurrentPrinterName(&self, pprintername: ::windows::core::PWSTR, pcchsize: *mut u32) -> ::windows::core::Result<()>;
     fn GetCurrentPortName(&self, pportname: ::windows::core::PWSTR, pcchsize: *mut u32) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::windows::core::RuntimeName for IPrintDialogServices {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl IPrintDialogServices_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintDialogServices_Impl, const OFFSET: isize>() -> IPrintDialogServices_Vtbl {

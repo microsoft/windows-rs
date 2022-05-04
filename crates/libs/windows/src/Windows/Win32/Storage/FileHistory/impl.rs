@@ -16,6 +16,8 @@ pub trait IFhConfigMgr_Impl: Sized {
     fn QueryProtectionStatus(&self, protectionstate: *mut u32, protecteduntiltime: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IFhConfigMgr {}
+#[cfg(feature = "Win32_Foundation")]
 impl IFhConfigMgr_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFhConfigMgr_Impl, const OFFSET: isize>() -> IFhConfigMgr_Vtbl {
         unsafe extern "system" fn LoadConfiguration<Identity: ::windows::core::IUnknownImpl, Impl: IFhConfigMgr_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -149,6 +151,8 @@ pub trait IFhReassociation_Impl: Sized {
     fn PerformReassociation(&self, overwriteifexists: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IFhReassociation {}
+#[cfg(feature = "Win32_Foundation")]
 impl IFhReassociation_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFhReassociation_Impl, const OFFSET: isize>() -> IFhReassociation_Vtbl {
         unsafe extern "system" fn ValidateTarget<Identity: ::windows::core::IUnknownImpl, Impl: IFhReassociation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, targeturl: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, validationresult: *mut FH_DEVICE_VALIDATION_RESULT) -> ::windows::core::HRESULT {
@@ -201,6 +205,8 @@ pub trait IFhScopeIterator_Impl: Sized {
     fn GetItem(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IFhScopeIterator {}
+#[cfg(feature = "Win32_Foundation")]
 impl IFhScopeIterator_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFhScopeIterator_Impl, const OFFSET: isize>() -> IFhScopeIterator_Vtbl {
         unsafe extern "system" fn MoveToNextItem<Identity: ::windows::core::IUnknownImpl, Impl: IFhScopeIterator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -234,6 +240,8 @@ pub trait IFhTarget_Impl: Sized {
     fn GetStringProperty(&self, propertytype: FH_TARGET_PROPERTY_TYPE) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn GetNumericalProperty(&self, propertytype: FH_TARGET_PROPERTY_TYPE) -> ::windows::core::Result<u64>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IFhTarget {}
 #[cfg(feature = "Win32_Foundation")]
 impl IFhTarget_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFhTarget_Impl, const OFFSET: isize>() -> IFhTarget_Vtbl {
