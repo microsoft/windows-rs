@@ -142,7 +142,7 @@ pub fn gen_winrt_params(gen: &Gen, params: &[SignatureParam]) -> TokenStream {
     let mut result = quote! {};
 
     for (position, param) in params.iter().enumerate() {
-        let name = to_ident(&gen.reader.param_name(param.def).to_lowercase());
+        let name = gen.param_name(param.def);
         let kind = gen.type_name(&param.ty);
         let default_type = gen.type_default_name(&param.ty);
 
@@ -170,7 +170,7 @@ pub fn gen_winrt_params(gen: &Gen, params: &[SignatureParam]) -> TokenStream {
 pub fn gen_winrt_abi_args(gen: &Gen, params: &[SignatureParam]) -> TokenStream {
     let mut tokens = TokenStream::new();
     for param in params {
-        let name = to_ident(&gen.reader.param_name(param.def).to_lowercase());
+        let name = gen.param_name(param.def);
 
         let param = if gen.reader.param_flags(param.def).input() {
             if gen.reader.type_is_winrt_array(&param.ty) {

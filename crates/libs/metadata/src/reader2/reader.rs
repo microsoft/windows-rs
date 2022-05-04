@@ -583,6 +583,9 @@ impl<'a> Reader<'a> {
     pub fn type_def_interfaces(&'a self, row: TypeDef, generics: &'a [Type]) -> impl Iterator<Item = Interface> + '_ {
         self.type_def_interface_impls(row).map(move |row| self.interface_impl_type(row, generics))
     }
+    pub fn type_def_default_interface(&self, row:TypeDef) -> Option<Type> {
+        self.type_def_interfaces(row, &[]).find(|interface|interface.kind == InterfaceKind::Default).map(|interface|interface.ty)
+    }
     pub fn type_def_is_deprecated(&self, row: TypeDef) -> bool {
         self.type_def_attributes(row).any(|attribute| self.attribute_name(attribute) == "DeprecatedAttribute")
     }
