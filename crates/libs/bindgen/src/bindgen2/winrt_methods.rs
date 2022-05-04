@@ -174,26 +174,26 @@ pub fn gen_winrt_abi_args(gen: &Gen, params: &[SignatureParam]) -> TokenStream {
 
         let param = if gen.reader.param_flags(param.def).input() {
             if gen.reader.type_is_winrt_array(&param.ty) {
-                quote! { #name.len() as u32, ::core::mem::transmute(#name.as_ptr()) }
+                quote! { #name.len() as u32, ::core::mem::transmute(#name.as_ptr()), }
             } else if gen.reader.signature_param_is_convertible(param) {
                 if gen.reader.type_is_winrt_const_ref(&param.ty) {
-                    quote! { &#name.into_param().abi() }
+                    quote! { &#name.into_param().abi(), }
                 } else {
-                    quote! { #name.into_param().abi() }
+                    quote! { #name.into_param().abi(), }
                 }
             } else if gen.reader.type_is_blittable(&param.ty) {
-                quote! { #name }
+                quote! { #name, }
             } else {
-                quote! { ::core::mem::transmute_copy(#name) }
+                quote! { ::core::mem::transmute_copy(#name), }
             }
         } else if gen.reader.type_is_winrt_array(&param.ty) {
-            quote! { #name.len() as u32, ::core::mem::transmute_copy(&#name) }
+            quote! { #name.len() as u32, ::core::mem::transmute_copy(&#name), }
         } else if gen.reader.type_is_winrt_array_ref(&param.ty) {
-            quote! { #name.set_abi_len(), #name as *mut _ as _ }
+            quote! { #name.set_abi_len(), #name as *mut _ as _, }
         } else if gen.reader.type_is_blittable(&param.ty) {
-            quote! { #name }
+            quote! { #name, }
         } else {
-            quote! { #name as *mut _ as _ }
+            quote! { #name as *mut _ as _, }
         };
         tokens.combine(&param);
     }

@@ -55,7 +55,10 @@ impl<'a> Blob<'a> {
         mods
     }
     pub fn read_str(&mut self) -> &str {
-        unsafe { std::str::from_utf8_unchecked(&self.slice[..self.read_usize()]) }
+        let len = self.read_usize();
+        let value = unsafe { std::str::from_utf8_unchecked(&self.slice[..len]) };
+        self.offset(len);
+        value        
     }
     pub fn read_string(self) -> String {
         let slice = self.slice;

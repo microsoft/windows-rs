@@ -949,7 +949,7 @@ impl<'a> Reader<'a> {
             _ => {}
         }
     }
-    fn type_interfaces(&self, ty: &Type) -> Vec<Interface> {
+    pub fn type_interfaces(&self, ty: &Type) -> Vec<Interface> {
         fn walk(reader: &Reader, result: &mut Vec<Interface>, parent: &Type, is_base: bool) {
             if let Type::TypeDef((row, generics)) = parent {
                 for mut child in reader.type_def_interfaces(*row, generics) {
@@ -1315,4 +1315,4 @@ pub fn type_deref(ty: &Type) -> Type {
 
 const REMAP_TYPES: [(TypeName, TypeName); 1] = [(TypeName::D2D_MATRIX_3X2_F, TypeName::Matrix3x2)];
 
-const WELL_KNOWN_TYPES: [(TypeName, Type); 10] = [(TypeName::GUID, Type::GUID), (TypeName::IUnknown, Type::IUnknown), (TypeName::HResult, Type::HRESULT), (TypeName::HRESULT, Type::HRESULT), (TypeName::HSTRING, Type::String), (TypeName::IInspectable, Type::IInspectable), (TypeName::LARGE_INTEGER, Type::I64), (TypeName::ULARGE_INTEGER, Type::U64), (TypeName::PSTR, Type::PSTR), (TypeName::PWSTR, Type::PWSTR)];
+const WELL_KNOWN_TYPES: [(TypeName, Type); 11] = [(TypeName::GUID, Type::GUID), (TypeName::IUnknown, Type::IUnknown), (TypeName::HResult, Type::HRESULT), (TypeName::HRESULT, Type::HRESULT), (TypeName::HSTRING, Type::String), (TypeName::IInspectable, Type::IInspectable), (TypeName::LARGE_INTEGER, Type::I64), (TypeName::ULARGE_INTEGER, Type::U64), (TypeName::PSTR, Type::PSTR), (TypeName::PWSTR, Type::PWSTR), (TypeName::Type, Type::TypeName)];

@@ -17,7 +17,8 @@ pub fn gen(gen: &Gen, def: TypeDef) -> TokenStream {
 
 fn gen_class(gen: &Gen, def: TypeDef) -> TokenStream {
     let name = to_ident(gen.reader.type_def_name(def));
-    let interfaces : Vec<Interface> = gen.reader.type_def_interfaces(def, &[]).collect();
+    let interfaces = gen.reader.type_interfaces(&Type::TypeDef((def, Vec::new())));
+    // TODO: faster if this were a Vec?
     let mut methods = quote! {};
     let mut method_names = MethodNames::new();
 
@@ -105,7 +106,7 @@ fn gen_class(gen: &Gen, def: TypeDef) -> TokenStream {
         tokens.combine(&gen.interface_core_traits(def, &[], &name, &TokenStream::new(),&TokenStream::new(),&features));
         tokens.combine(&gen.interface_winrt_trait(def, &[], &name, &TokenStream::new(),&TokenStream::new(),&features));
         tokens.combine(&gen.interface_trait(def, &[], &name, &TokenStream::new(),&features));
-        // tokens.combine(&gen_runtime_name(def, &cfg, gen));
+        tokens.combine(&gen.runtime_name_trait(def, &[], &name, &TokenStream::new(), &features));
         // tokens.combine(&gen_async(def, &cfg, gen));
         // tokens.combine(&gen_iterator(def, &cfg, gen));
         // tokens.combine(&gen_conversions(def, &cfg, gen));
@@ -115,7 +116,7 @@ fn gen_class(gen: &Gen, def: TypeDef) -> TokenStream {
         let mut tokens = quote! {
             #doc
             #features
-            pub struct #name {}
+            pub struct #name;
             #features
             impl #name {
                 #methods
@@ -123,7 +124,7 @@ fn gen_class(gen: &Gen, def: TypeDef) -> TokenStream {
             }
         };
 
-        //tokens.combine(&gen_runtime_name(def, &cfg, gen));
+        tokens.combine(&gen.runtime_name_trait(def, &[], &name, &TokenStream::new(), &features));
         tokens
     }
 }

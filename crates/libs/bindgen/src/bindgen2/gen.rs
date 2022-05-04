@@ -573,6 +573,25 @@ impl<'a> Gen<'a> {
             quote! {}
         }
     }
+    pub fn runtime_name_trait(&self, def: TypeDef, generics: &[Type], name: &TokenStream, constraints: &TokenStream, features: &TokenStream) -> TokenStream {
+        if self.reader.type_def_flags(def).winrt() {
+            // TODO: this needs to use a ConstBuffer-like facility to accomodate generics
+            let runtime_name = format!("{}", self.reader.type_def_type_name(def));
+    
+            quote! {
+                #features
+                impl<#constraints> ::windows::core::RuntimeName for #name {
+                    const NAME: &'static str = #runtime_name;
+                }
+            }
+        } else {
+            quote! {
+                #features
+                impl ::windows::core::RuntimeName for #name {}
+            }
+        }
+    }
+    
     pub fn interface_trait(&self, def: TypeDef, generics: &[Type], ident: &TokenStream, constraints: &TokenStream, features: &TokenStream) -> TokenStream {
         if let Some(default) = self.reader.type_def_default_interface(def) {
             let default_name = self.type_name(&default);
