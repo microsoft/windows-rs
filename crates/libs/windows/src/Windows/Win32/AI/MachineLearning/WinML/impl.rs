@@ -4,6 +4,7 @@ pub trait IMLOperatorAttributes_Impl: Sized {
     fn GetStringAttributeElementLength(&self, name: &::windows::core::PCSTR, elementindex: u32) -> ::windows::core::Result<u32>;
     fn GetStringAttributeElement(&self, name: &::windows::core::PCSTR, elementindex: u32, attributeelementbytesize: u32, attributeelement: ::windows::core::PSTR) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IMLOperatorAttributes {}
 impl IMLOperatorAttributes_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMLOperatorAttributes_Impl, const OFFSET: isize>() -> IMLOperatorAttributes_Vtbl {
         unsafe extern "system" fn GetAttributeElementCount<Identity: ::windows::core::IUnknownImpl, Impl: IMLOperatorAttributes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::windows::core::PCSTR, r#type: MLOperatorAttributeType, elementcount: *mut u32) -> ::windows::core::HRESULT {
@@ -53,6 +54,7 @@ impl IMLOperatorAttributes_Vtbl {
 pub trait IMLOperatorKernel_Impl: Sized {
     fn Compute(&self, context: &::core::option::Option<IMLOperatorKernelContext>) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IMLOperatorKernel {}
 impl IMLOperatorKernel_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMLOperatorKernel_Impl, const OFFSET: isize>() -> IMLOperatorKernel_Vtbl {
         unsafe extern "system" fn Compute<Identity: ::windows::core::IUnknownImpl, Impl: IMLOperatorKernel_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, context: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -73,6 +75,7 @@ pub trait IMLOperatorKernelContext_Impl: Sized {
     fn AllocateTemporaryData(&self, size: usize) -> ::windows::core::Result<::windows::core::IUnknown>;
     fn GetExecutionInterface(&self, executionobject: *mut ::core::option::Option<::windows::core::IUnknown>);
 }
+impl ::windows::core::RuntimeName for IMLOperatorKernelContext {}
 impl IMLOperatorKernelContext_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMLOperatorKernelContext_Impl, const OFFSET: isize>() -> IMLOperatorKernelContext_Vtbl {
         unsafe extern "system" fn GetInputTensor<Identity: ::windows::core::IUnknownImpl, Impl: IMLOperatorKernelContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, inputindex: u32, tensor: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -148,6 +151,7 @@ pub trait IMLOperatorKernelCreationContext_Impl: Sized + IMLOperatorAttributes_I
     fn GetTensorShapeDescription(&self) -> ::windows::core::Result<IMLOperatorTensorShapeDescription>;
     fn GetExecutionInterface(&self, executionobject: *mut ::core::option::Option<::windows::core::IUnknown>);
 }
+impl ::windows::core::RuntimeName for IMLOperatorKernelCreationContext {}
 impl IMLOperatorKernelCreationContext_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMLOperatorKernelCreationContext_Impl, const OFFSET: isize>() -> IMLOperatorKernelCreationContext_Vtbl {
         unsafe extern "system" fn GetInputCount<Identity: ::windows::core::IUnknownImpl, Impl: IMLOperatorKernelCreationContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> u32 {
@@ -233,6 +237,7 @@ impl IMLOperatorKernelCreationContext_Vtbl {
 pub trait IMLOperatorKernelFactory_Impl: Sized {
     fn CreateKernel(&self, context: &::core::option::Option<IMLOperatorKernelCreationContext>) -> ::windows::core::Result<IMLOperatorKernel>;
 }
+impl ::windows::core::RuntimeName for IMLOperatorKernelFactory {}
 impl IMLOperatorKernelFactory_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMLOperatorKernelFactory_Impl, const OFFSET: isize>() -> IMLOperatorKernelFactory_Vtbl {
         unsafe extern "system" fn CreateKernel<Identity: ::windows::core::IUnknownImpl, Impl: IMLOperatorKernelFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, context: ::windows::core::RawPtr, kernel: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -256,6 +261,7 @@ pub trait IMLOperatorRegistry_Impl: Sized {
     fn RegisterOperatorSetSchema(&self, operatorsetid: *const MLOperatorSetId, baselineversion: i32, schema: *const *const MLOperatorSchemaDescription, schemacount: u32, typeinferrer: &::core::option::Option<IMLOperatorTypeInferrer>, shapeinferrer: &::core::option::Option<IMLOperatorShapeInferrer>) -> ::windows::core::Result<()>;
     fn RegisterOperatorKernel(&self, operatorkernel: *const MLOperatorKernelDescription, operatorkernelfactory: &::core::option::Option<IMLOperatorKernelFactory>, shapeinferrer: &::core::option::Option<IMLOperatorShapeInferrer>) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IMLOperatorRegistry {}
 impl IMLOperatorRegistry_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMLOperatorRegistry_Impl, const OFFSET: isize>() -> IMLOperatorRegistry_Vtbl {
         unsafe extern "system" fn RegisterOperatorSetSchema<Identity: ::windows::core::IUnknownImpl, Impl: IMLOperatorRegistry_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, operatorsetid: *const MLOperatorSetId, baselineversion: i32, schema: *const *const MLOperatorSchemaDescription, schemacount: u32, typeinferrer: ::windows::core::RawPtr, shapeinferrer: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -288,6 +294,7 @@ pub trait IMLOperatorShapeInferenceContext_Impl: Sized + IMLOperatorAttributes_I
     fn GetInputTensorShape(&self, inputindex: u32, dimensioncount: u32, dimensions: *mut u32) -> ::windows::core::Result<()>;
     fn SetOutputTensorShape(&self, outputindex: u32, dimensioncount: u32, dimensions: *const u32) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IMLOperatorShapeInferenceContext {}
 impl IMLOperatorShapeInferenceContext_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMLOperatorShapeInferenceContext_Impl, const OFFSET: isize>() -> IMLOperatorShapeInferenceContext_Vtbl {
         unsafe extern "system" fn GetInputCount<Identity: ::windows::core::IUnknownImpl, Impl: IMLOperatorShapeInferenceContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> u32 {
@@ -361,6 +368,7 @@ impl IMLOperatorShapeInferenceContext_Vtbl {
 pub trait IMLOperatorShapeInferrer_Impl: Sized {
     fn InferOutputShapes(&self, context: &::core::option::Option<IMLOperatorShapeInferenceContext>) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IMLOperatorShapeInferrer {}
 impl IMLOperatorShapeInferrer_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMLOperatorShapeInferrer_Impl, const OFFSET: isize>() -> IMLOperatorShapeInferrer_Vtbl {
         unsafe extern "system" fn InferOutputShapes<Identity: ::windows::core::IUnknownImpl, Impl: IMLOperatorShapeInferrer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, context: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -383,6 +391,7 @@ pub trait IMLOperatorTensor_Impl: Sized {
     fn GetData(&self) -> *mut ::core::ffi::c_void;
     fn GetDataInterface(&self, datainterface: *mut ::core::option::Option<::windows::core::IUnknown>);
 }
+impl ::windows::core::RuntimeName for IMLOperatorTensor {}
 impl IMLOperatorTensor_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMLOperatorTensor_Impl, const OFFSET: isize>() -> IMLOperatorTensor_Vtbl {
         unsafe extern "system" fn GetDimensionCount<Identity: ::windows::core::IUnknownImpl, Impl: IMLOperatorTensor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> u32 {
@@ -442,6 +451,7 @@ pub trait IMLOperatorTensorShapeDescription_Impl: Sized {
     fn GetOutputTensorDimensionCount(&self, outputindex: u32) -> ::windows::core::Result<u32>;
     fn GetOutputTensorShape(&self, outputindex: u32, dimensioncount: u32, dimensions: *mut u32) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IMLOperatorTensorShapeDescription {}
 impl IMLOperatorTensorShapeDescription_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMLOperatorTensorShapeDescription_Impl, const OFFSET: isize>() -> IMLOperatorTensorShapeDescription_Vtbl {
         unsafe extern "system" fn GetInputTensorDimensionCount<Identity: ::windows::core::IUnknownImpl, Impl: IMLOperatorTensorShapeDescription_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, inputindex: u32, dimensioncount: *mut u32) -> ::windows::core::HRESULT {
@@ -502,6 +512,7 @@ pub trait IMLOperatorTypeInferenceContext_Impl: Sized + IMLOperatorAttributes_Im
     fn GetInputEdgeDescription(&self, inputindex: u32) -> ::windows::core::Result<MLOperatorEdgeDescription>;
     fn SetOutputEdgeDescription(&self, outputindex: u32, edgedescription: *const MLOperatorEdgeDescription) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IMLOperatorTypeInferenceContext {}
 impl IMLOperatorTypeInferenceContext_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMLOperatorTypeInferenceContext_Impl, const OFFSET: isize>() -> IMLOperatorTypeInferenceContext_Vtbl {
         unsafe extern "system" fn GetInputCount<Identity: ::windows::core::IUnknownImpl, Impl: IMLOperatorTypeInferenceContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> u32 {
@@ -557,6 +568,7 @@ impl IMLOperatorTypeInferenceContext_Vtbl {
 pub trait IMLOperatorTypeInferrer_Impl: Sized {
     fn InferOutputTypes(&self, context: &::core::option::Option<IMLOperatorTypeInferenceContext>) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IMLOperatorTypeInferrer {}
 impl IMLOperatorTypeInferrer_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMLOperatorTypeInferrer_Impl, const OFFSET: isize>() -> IMLOperatorTypeInferrer_Vtbl {
         unsafe extern "system" fn InferOutputTypes<Identity: ::windows::core::IUnknownImpl, Impl: IMLOperatorTypeInferrer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, context: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -576,6 +588,8 @@ pub trait IWinMLEvaluationContext_Impl: Sized {
     fn GetValueByName(&self, name: &::windows::core::PCWSTR) -> ::windows::core::Result<*mut WINML_BINDING_DESC>;
     fn Clear(&self) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+impl ::windows::core::RuntimeName for IWinMLEvaluationContext {}
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl IWinMLEvaluationContext_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWinMLEvaluationContext_Impl, const OFFSET: isize>() -> IWinMLEvaluationContext_Vtbl {
@@ -618,6 +632,8 @@ pub trait IWinMLModel_Impl: Sized {
     fn EnumerateModelInputs(&self, index: u32) -> ::windows::core::Result<*mut WINML_VARIABLE_DESC>;
     fn EnumerateModelOutputs(&self, index: u32) -> ::windows::core::Result<*mut WINML_VARIABLE_DESC>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IWinMLModel {}
 #[cfg(feature = "Win32_Foundation")]
 impl IWinMLModel_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWinMLModel_Impl, const OFFSET: isize>() -> IWinMLModel_Vtbl {
@@ -678,6 +694,8 @@ pub trait IWinMLRuntime_Impl: Sized {
     fn EvaluateModel(&self, pcontext: &::core::option::Option<IWinMLEvaluationContext>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
+impl ::windows::core::RuntimeName for IWinMLRuntime {}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl IWinMLRuntime_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWinMLRuntime_Impl, const OFFSET: isize>() -> IWinMLRuntime_Vtbl {
         unsafe extern "system" fn LoadModel<Identity: ::windows::core::IUnknownImpl, Impl: IWinMLRuntime_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, path: ::windows::core::PCWSTR, ppmodel: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -721,6 +739,7 @@ impl IWinMLRuntime_Vtbl {
 pub trait IWinMLRuntimeFactory_Impl: Sized {
     fn CreateRuntime(&self, runtimetype: WINML_RUNTIME_TYPE) -> ::windows::core::Result<IWinMLRuntime>;
 }
+impl ::windows::core::RuntimeName for IWinMLRuntimeFactory {}
 impl IWinMLRuntimeFactory_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWinMLRuntimeFactory_Impl, const OFFSET: isize>() -> IWinMLRuntimeFactory_Vtbl {
         unsafe extern "system" fn CreateRuntime<Identity: ::windows::core::IUnknownImpl, Impl: IWinMLRuntimeFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, runtimetype: WINML_RUNTIME_TYPE, ppruntime: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {

@@ -6,6 +6,7 @@ pub trait IEnhancedStorageACT_Impl: Sized {
     fn GetUniqueIdentity(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
     fn GetSilos(&self, pppienhancedstoragesilos: *mut *mut ::core::option::Option<IEnhancedStorageSilo>, pcenhancedstoragesilos: *mut u32) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IEnhancedStorageACT {}
 impl IEnhancedStorageACT_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEnhancedStorageACT_Impl, const OFFSET: isize>() -> IEnhancedStorageACT_Vtbl {
         unsafe extern "system" fn Authorize<Identity: ::windows::core::IUnknownImpl, Impl: IEnhancedStorageACT_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hwndparent: u32, dwflags: u32) -> ::windows::core::HRESULT {
@@ -76,6 +77,8 @@ pub trait IEnhancedStorageACT2_Impl: Sized + IEnhancedStorageACT_Impl {
     fn IsDeviceRemovable(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IEnhancedStorageACT2 {}
+#[cfg(feature = "Win32_Foundation")]
 impl IEnhancedStorageACT2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEnhancedStorageACT2_Impl, const OFFSET: isize>() -> IEnhancedStorageACT2_Vtbl {
         unsafe extern "system" fn GetDeviceName<Identity: ::windows::core::IUnknownImpl, Impl: IEnhancedStorageACT2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppwszdevicename: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
@@ -116,6 +119,8 @@ pub trait IEnhancedStorageACT3_Impl: Sized + IEnhancedStorageACT_Impl + IEnhance
     fn IsQueueFrozen(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
     fn GetShellExtSupport(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IEnhancedStorageACT3 {}
 #[cfg(feature = "Win32_Foundation")]
 impl IEnhancedStorageACT3_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEnhancedStorageACT3_Impl, const OFFSET: isize>() -> IEnhancedStorageACT3_Vtbl {
@@ -165,6 +170,8 @@ pub trait IEnhancedStorageSilo_Impl: Sized {
     fn GetPortableDevice(&self) -> ::windows::core::Result<super::super::Devices::PortableDevices::IPortableDevice>;
     fn GetDevicePath(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
 }
+#[cfg(feature = "Win32_Devices_PortableDevices")]
+impl ::windows::core::RuntimeName for IEnhancedStorageSilo {}
 #[cfg(feature = "Win32_Devices_PortableDevices")]
 impl IEnhancedStorageSilo_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEnhancedStorageSilo_Impl, const OFFSET: isize>() -> IEnhancedStorageSilo_Vtbl {
@@ -229,6 +236,7 @@ pub trait IEnhancedStorageSiloAction_Impl: Sized {
     fn GetDescription(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
     fn Invoke(&self) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IEnhancedStorageSiloAction {}
 impl IEnhancedStorageSiloAction_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEnhancedStorageSiloAction_Impl, const OFFSET: isize>() -> IEnhancedStorageSiloAction_Vtbl {
         unsafe extern "system" fn GetName<Identity: ::windows::core::IUnknownImpl, Impl: IEnhancedStorageSiloAction_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppwszactionname: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
@@ -273,6 +281,7 @@ pub trait IEnumEnhancedStorageACT_Impl: Sized {
     fn GetACTs(&self, pppienhancedstorageacts: *mut *mut ::core::option::Option<IEnhancedStorageACT>, pcenhancedstorageacts: *mut u32) -> ::windows::core::Result<()>;
     fn GetMatchingACT(&self, szvolume: &::windows::core::PCWSTR) -> ::windows::core::Result<IEnhancedStorageACT>;
 }
+impl ::windows::core::RuntimeName for IEnumEnhancedStorageACT {}
 impl IEnumEnhancedStorageACT_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEnumEnhancedStorageACT_Impl, const OFFSET: isize>() -> IEnumEnhancedStorageACT_Vtbl {
         unsafe extern "system" fn GetACTs<Identity: ::windows::core::IUnknownImpl, Impl: IEnumEnhancedStorageACT_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pppienhancedstorageacts: *mut *mut ::windows::core::RawPtr, pcenhancedstorageacts: *mut u32) -> ::windows::core::HRESULT {

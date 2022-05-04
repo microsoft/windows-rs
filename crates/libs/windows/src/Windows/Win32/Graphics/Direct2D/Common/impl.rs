@@ -7,6 +7,7 @@ pub trait ID2D1SimplifiedGeometrySink_Impl: Sized {
     fn EndFigure(&self, figureend: D2D1_FIGURE_END);
     fn Close(&self) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for ID2D1SimplifiedGeometrySink {}
 impl ID2D1SimplifiedGeometrySink_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID2D1SimplifiedGeometrySink_Impl, const OFFSET: isize>() -> ID2D1SimplifiedGeometrySink_Vtbl {
         unsafe extern "system" fn SetFillMode<Identity: ::windows::core::IUnknownImpl, Impl: ID2D1SimplifiedGeometrySink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fillmode: D2D1_FILL_MODE) {

@@ -4,6 +4,8 @@ pub trait IDisplayDeviceInterop_Impl: Sized {
     fn OpenSharedHandle(&self, nthandle: super::super::super::Foundation::HANDLE, riid: &::windows::core::GUID) -> ::windows::core::Result<*mut ::core::ffi::c_void>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::windows::core::RuntimeName for IDisplayDeviceInterop {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl IDisplayDeviceInterop_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDisplayDeviceInterop_Impl, const OFFSET: isize>() -> IDisplayDeviceInterop_Vtbl {
         unsafe extern "system" fn CreateSharedHandle<Identity: ::windows::core::IUnknownImpl, Impl: IDisplayDeviceInterop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pobject: *mut ::core::ffi::c_void, psecurityattributes: *const super::super::super::Security::SECURITY_ATTRIBUTES, access: u32, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, phandle: *mut super::super::super::Foundation::HANDLE) -> ::windows::core::HRESULT {
@@ -43,6 +45,8 @@ pub trait IDisplayPathInterop_Impl: Sized {
     fn CreateSourcePresentationHandle(&self) -> ::windows::core::Result<super::super::super::Foundation::HANDLE>;
     fn GetSourceId(&self) -> ::windows::core::Result<u32>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IDisplayPathInterop {}
 #[cfg(feature = "Win32_Foundation")]
 impl IDisplayPathInterop_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDisplayPathInterop_Impl, const OFFSET: isize>() -> IDisplayPathInterop_Vtbl {

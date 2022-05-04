@@ -1,6 +1,7 @@
 pub trait INotificationActivationCallback_Impl: Sized {
     fn Activate(&self, appusermodelid: &::windows::core::PCWSTR, invokedargs: &::windows::core::PCWSTR, data: *const NOTIFICATION_USER_INPUT_DATA, count: u32) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for INotificationActivationCallback {}
 impl INotificationActivationCallback_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INotificationActivationCallback_Impl, const OFFSET: isize>() -> INotificationActivationCallback_Vtbl {
         unsafe extern "system" fn Activate<Identity: ::windows::core::IUnknownImpl, Impl: INotificationActivationCallback_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, appusermodelid: ::windows::core::PCWSTR, invokedargs: ::windows::core::PCWSTR, data: *const NOTIFICATION_USER_INPUT_DATA, count: u32) -> ::windows::core::HRESULT {

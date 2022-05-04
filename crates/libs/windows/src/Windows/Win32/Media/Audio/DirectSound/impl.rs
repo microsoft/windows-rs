@@ -10,6 +10,8 @@ pub trait IDirectSound_Impl: Sized {
     fn Initialize(&self, pcguiddevice: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IDirectSound {}
+#[cfg(feature = "Win32_Foundation")]
 impl IDirectSound_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirectSound_Impl, const OFFSET: isize>() -> IDirectSound_Vtbl {
         unsafe extern "system" fn CreateSoundBuffer<Identity: ::windows::core::IUnknownImpl, Impl: IDirectSound_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcdsbufferdesc: *const DSBUFFERDESC, ppdsbuffer: *mut ::windows::core::RawPtr, punkouter: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -107,6 +109,8 @@ pub trait IDirectSound3DBuffer_Impl: Sized {
     fn SetPosition(&self, x: f32, y: f32, z: f32, dwapply: u32) -> ::windows::core::Result<()>;
     fn SetVelocity(&self, x: f32, y: f32, z: f32, dwapply: u32) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Graphics_Direct3D")]
+impl ::windows::core::RuntimeName for IDirectSound3DBuffer {}
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 impl IDirectSound3DBuffer_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirectSound3DBuffer_Impl, const OFFSET: isize>() -> IDirectSound3DBuffer_Vtbl {
@@ -293,6 +297,8 @@ pub trait IDirectSound3DListener_Impl: Sized {
     fn CommitDeferredSettings(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Graphics_Direct3D")]
+impl ::windows::core::RuntimeName for IDirectSound3DListener {}
+#[cfg(feature = "Win32_Graphics_Direct3D")]
 impl IDirectSound3DListener_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirectSound3DListener_Impl, const OFFSET: isize>() -> IDirectSound3DListener_Vtbl {
         unsafe extern "system" fn GetAllParameters<Identity: ::windows::core::IUnknownImpl, Impl: IDirectSound3DListener_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plistener: *mut DS3DLISTENER) -> ::windows::core::HRESULT {
@@ -434,6 +440,8 @@ pub trait IDirectSound8_Impl: Sized + IDirectSound_Impl {
     fn VerifyCertification(&self) -> ::windows::core::Result<u32>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IDirectSound8 {}
+#[cfg(feature = "Win32_Foundation")]
 impl IDirectSound8_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirectSound8_Impl, const OFFSET: isize>() -> IDirectSound8_Vtbl {
         unsafe extern "system" fn VerifyCertification<Identity: ::windows::core::IUnknownImpl, Impl: IDirectSound8_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwcertified: *mut u32) -> ::windows::core::HRESULT {
@@ -473,6 +481,7 @@ pub trait IDirectSoundBuffer_Impl: Sized {
     fn Unlock(&self, pvaudioptr1: *const ::core::ffi::c_void, dwaudiobytes1: u32, pvaudioptr2: *const ::core::ffi::c_void, dwaudiobytes2: u32) -> ::windows::core::Result<()>;
     fn Restore(&self) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IDirectSoundBuffer {}
 impl IDirectSoundBuffer_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirectSoundBuffer_Impl, const OFFSET: isize>() -> IDirectSoundBuffer_Vtbl {
         unsafe extern "system" fn GetCaps<Identity: ::windows::core::IUnknownImpl, Impl: IDirectSoundBuffer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdsbuffercaps: *mut DSBCAPS) -> ::windows::core::HRESULT {
@@ -626,6 +635,7 @@ pub trait IDirectSoundBuffer8_Impl: Sized + IDirectSoundBuffer_Impl {
     fn AcquireResources(&self, dwflags: u32, dweffectscount: u32, pdwresultcodes: *mut u32) -> ::windows::core::Result<()>;
     fn GetObjectInPath(&self, rguidobject: *const ::windows::core::GUID, dwindex: u32, rguidinterface: *const ::windows::core::GUID, ppobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IDirectSoundBuffer8 {}
 impl IDirectSoundBuffer8_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirectSoundBuffer8_Impl, const OFFSET: isize>() -> IDirectSoundBuffer8_Vtbl {
         unsafe extern "system" fn SetFX<Identity: ::windows::core::IUnknownImpl, Impl: IDirectSoundBuffer8_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dweffectscount: u32, pdsfxdesc: *const DSEFFECTDESC, pdwresultcodes: *mut u32) -> ::windows::core::HRESULT {
@@ -659,6 +669,7 @@ pub trait IDirectSoundCapture_Impl: Sized {
     fn GetCaps(&self) -> ::windows::core::Result<DSCCAPS>;
     fn Initialize(&self, pcguiddevice: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IDirectSoundCapture {}
 impl IDirectSoundCapture_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirectSoundCapture_Impl, const OFFSET: isize>() -> IDirectSoundCapture_Vtbl {
         unsafe extern "system" fn CreateCaptureBuffer<Identity: ::windows::core::IUnknownImpl, Impl: IDirectSoundCapture_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcdscbufferdesc: *const DSCBUFFERDESC, ppdscbuffer: *mut ::windows::core::RawPtr, punkouter: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -704,6 +715,7 @@ pub trait IDirectSoundCaptureBuffer_Impl: Sized {
     fn Stop(&self) -> ::windows::core::Result<()>;
     fn Unlock(&self, pvaudioptr1: *const ::core::ffi::c_void, dwaudiobytes1: u32, pvaudioptr2: *const ::core::ffi::c_void, dwaudiobytes2: u32) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IDirectSoundCaptureBuffer {}
 impl IDirectSoundCaptureBuffer_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirectSoundCaptureBuffer_Impl, const OFFSET: isize>() -> IDirectSoundCaptureBuffer_Vtbl {
         unsafe extern "system" fn GetCaps<Identity: ::windows::core::IUnknownImpl, Impl: IDirectSoundCaptureBuffer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdscbcaps: *mut DSCBCAPS) -> ::windows::core::HRESULT {
@@ -784,6 +796,7 @@ pub trait IDirectSoundCaptureBuffer8_Impl: Sized + IDirectSoundCaptureBuffer_Imp
     fn GetObjectInPath(&self, rguidobject: *const ::windows::core::GUID, dwindex: u32, rguidinterface: *const ::windows::core::GUID, ppobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn GetFXStatus(&self, dweffectscount: u32, pdwfxstatus: *mut u32) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IDirectSoundCaptureBuffer8 {}
 impl IDirectSoundCaptureBuffer8_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirectSoundCaptureBuffer8_Impl, const OFFSET: isize>() -> IDirectSoundCaptureBuffer8_Vtbl {
         unsafe extern "system" fn GetObjectInPath<Identity: ::windows::core::IUnknownImpl, Impl: IDirectSoundCaptureBuffer8_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rguidobject: *const ::windows::core::GUID, dwindex: u32, rguidinterface: *const ::windows::core::GUID, ppobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -813,6 +826,8 @@ pub trait IDirectSoundCaptureFXAec_Impl: Sized {
     fn GetStatus(&self) -> ::windows::core::Result<u32>;
     fn Reset(&self) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IDirectSoundCaptureFXAec {}
 #[cfg(feature = "Win32_Foundation")]
 impl IDirectSoundCaptureFXAec_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirectSoundCaptureFXAec_Impl, const OFFSET: isize>() -> IDirectSoundCaptureFXAec_Vtbl {
@@ -867,6 +882,8 @@ pub trait IDirectSoundCaptureFXNoiseSuppress_Impl: Sized {
     fn Reset(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IDirectSoundCaptureFXNoiseSuppress {}
+#[cfg(feature = "Win32_Foundation")]
 impl IDirectSoundCaptureFXNoiseSuppress_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirectSoundCaptureFXNoiseSuppress_Impl, const OFFSET: isize>() -> IDirectSoundCaptureFXNoiseSuppress_Vtbl {
         unsafe extern "system" fn SetAllParameters<Identity: ::windows::core::IUnknownImpl, Impl: IDirectSoundCaptureFXNoiseSuppress_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcdscfxnoisesuppress: *const DSCFXNoiseSuppress) -> ::windows::core::HRESULT {
@@ -905,6 +922,7 @@ pub trait IDirectSoundFXChorus_Impl: Sized {
     fn SetAllParameters(&self, pcdsfxchorus: *const DSFXChorus) -> ::windows::core::Result<()>;
     fn GetAllParameters(&self) -> ::windows::core::Result<DSFXChorus>;
 }
+impl ::windows::core::RuntimeName for IDirectSoundFXChorus {}
 impl IDirectSoundFXChorus_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirectSoundFXChorus_Impl, const OFFSET: isize>() -> IDirectSoundFXChorus_Vtbl {
         unsafe extern "system" fn SetAllParameters<Identity: ::windows::core::IUnknownImpl, Impl: IDirectSoundFXChorus_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcdsfxchorus: *const DSFXChorus) -> ::windows::core::HRESULT {
@@ -937,6 +955,7 @@ pub trait IDirectSoundFXCompressor_Impl: Sized {
     fn SetAllParameters(&self, pcdsfxcompressor: *const DSFXCompressor) -> ::windows::core::Result<()>;
     fn GetAllParameters(&self) -> ::windows::core::Result<DSFXCompressor>;
 }
+impl ::windows::core::RuntimeName for IDirectSoundFXCompressor {}
 impl IDirectSoundFXCompressor_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirectSoundFXCompressor_Impl, const OFFSET: isize>() -> IDirectSoundFXCompressor_Vtbl {
         unsafe extern "system" fn SetAllParameters<Identity: ::windows::core::IUnknownImpl, Impl: IDirectSoundFXCompressor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcdsfxcompressor: *const DSFXCompressor) -> ::windows::core::HRESULT {
@@ -969,6 +988,7 @@ pub trait IDirectSoundFXDistortion_Impl: Sized {
     fn SetAllParameters(&self, pcdsfxdistortion: *const DSFXDistortion) -> ::windows::core::Result<()>;
     fn GetAllParameters(&self) -> ::windows::core::Result<DSFXDistortion>;
 }
+impl ::windows::core::RuntimeName for IDirectSoundFXDistortion {}
 impl IDirectSoundFXDistortion_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirectSoundFXDistortion_Impl, const OFFSET: isize>() -> IDirectSoundFXDistortion_Vtbl {
         unsafe extern "system" fn SetAllParameters<Identity: ::windows::core::IUnknownImpl, Impl: IDirectSoundFXDistortion_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcdsfxdistortion: *const DSFXDistortion) -> ::windows::core::HRESULT {
@@ -1001,6 +1021,7 @@ pub trait IDirectSoundFXEcho_Impl: Sized {
     fn SetAllParameters(&self, pcdsfxecho: *const DSFXEcho) -> ::windows::core::Result<()>;
     fn GetAllParameters(&self) -> ::windows::core::Result<DSFXEcho>;
 }
+impl ::windows::core::RuntimeName for IDirectSoundFXEcho {}
 impl IDirectSoundFXEcho_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirectSoundFXEcho_Impl, const OFFSET: isize>() -> IDirectSoundFXEcho_Vtbl {
         unsafe extern "system" fn SetAllParameters<Identity: ::windows::core::IUnknownImpl, Impl: IDirectSoundFXEcho_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcdsfxecho: *const DSFXEcho) -> ::windows::core::HRESULT {
@@ -1033,6 +1054,7 @@ pub trait IDirectSoundFXFlanger_Impl: Sized {
     fn SetAllParameters(&self, pcdsfxflanger: *const DSFXFlanger) -> ::windows::core::Result<()>;
     fn GetAllParameters(&self) -> ::windows::core::Result<DSFXFlanger>;
 }
+impl ::windows::core::RuntimeName for IDirectSoundFXFlanger {}
 impl IDirectSoundFXFlanger_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirectSoundFXFlanger_Impl, const OFFSET: isize>() -> IDirectSoundFXFlanger_Vtbl {
         unsafe extern "system" fn SetAllParameters<Identity: ::windows::core::IUnknownImpl, Impl: IDirectSoundFXFlanger_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcdsfxflanger: *const DSFXFlanger) -> ::windows::core::HRESULT {
@@ -1065,6 +1087,7 @@ pub trait IDirectSoundFXGargle_Impl: Sized {
     fn SetAllParameters(&self, pcdsfxgargle: *const DSFXGargle) -> ::windows::core::Result<()>;
     fn GetAllParameters(&self) -> ::windows::core::Result<DSFXGargle>;
 }
+impl ::windows::core::RuntimeName for IDirectSoundFXGargle {}
 impl IDirectSoundFXGargle_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirectSoundFXGargle_Impl, const OFFSET: isize>() -> IDirectSoundFXGargle_Vtbl {
         unsafe extern "system" fn SetAllParameters<Identity: ::windows::core::IUnknownImpl, Impl: IDirectSoundFXGargle_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcdsfxgargle: *const DSFXGargle) -> ::windows::core::HRESULT {
@@ -1101,6 +1124,7 @@ pub trait IDirectSoundFXI3DL2Reverb_Impl: Sized {
     fn SetQuality(&self, lquality: i32) -> ::windows::core::Result<()>;
     fn GetQuality(&self) -> ::windows::core::Result<i32>;
 }
+impl ::windows::core::RuntimeName for IDirectSoundFXI3DL2Reverb {}
 impl IDirectSoundFXI3DL2Reverb_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirectSoundFXI3DL2Reverb_Impl, const OFFSET: isize>() -> IDirectSoundFXI3DL2Reverb_Vtbl {
         unsafe extern "system" fn SetAllParameters<Identity: ::windows::core::IUnknownImpl, Impl: IDirectSoundFXI3DL2Reverb_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcdsfxi3dl2reverb: *const DSFXI3DL2Reverb) -> ::windows::core::HRESULT {
@@ -1169,6 +1193,7 @@ pub trait IDirectSoundFXParamEq_Impl: Sized {
     fn SetAllParameters(&self, pcdsfxparameq: *const DSFXParamEq) -> ::windows::core::Result<()>;
     fn GetAllParameters(&self) -> ::windows::core::Result<DSFXParamEq>;
 }
+impl ::windows::core::RuntimeName for IDirectSoundFXParamEq {}
 impl IDirectSoundFXParamEq_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirectSoundFXParamEq_Impl, const OFFSET: isize>() -> IDirectSoundFXParamEq_Vtbl {
         unsafe extern "system" fn SetAllParameters<Identity: ::windows::core::IUnknownImpl, Impl: IDirectSoundFXParamEq_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcdsfxparameq: *const DSFXParamEq) -> ::windows::core::HRESULT {
@@ -1201,6 +1226,7 @@ pub trait IDirectSoundFXWavesReverb_Impl: Sized {
     fn SetAllParameters(&self, pcdsfxwavesreverb: *const DSFXWavesReverb) -> ::windows::core::Result<()>;
     fn GetAllParameters(&self) -> ::windows::core::Result<DSFXWavesReverb>;
 }
+impl ::windows::core::RuntimeName for IDirectSoundFXWavesReverb {}
 impl IDirectSoundFXWavesReverb_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirectSoundFXWavesReverb_Impl, const OFFSET: isize>() -> IDirectSoundFXWavesReverb_Vtbl {
         unsafe extern "system" fn SetAllParameters<Identity: ::windows::core::IUnknownImpl, Impl: IDirectSoundFXWavesReverb_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcdsfxwavesreverb: *const DSFXWavesReverb) -> ::windows::core::HRESULT {
@@ -1234,6 +1260,8 @@ pub trait IDirectSoundFullDuplex_Impl: Sized {
     fn Initialize(&self, pcaptureguid: *const ::windows::core::GUID, prenderguid: *const ::windows::core::GUID, lpdscbufferdesc: *const DSCBUFFERDESC, lpdsbufferdesc: *const DSBUFFERDESC, hwnd: super::super::super::Foundation::HWND, dwlevel: u32, lplpdirectsoundcapturebuffer8: *mut ::core::option::Option<IDirectSoundCaptureBuffer8>, lplpdirectsoundbuffer8: *mut ::core::option::Option<IDirectSoundBuffer8>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IDirectSoundFullDuplex {}
+#[cfg(feature = "Win32_Foundation")]
 impl IDirectSoundFullDuplex_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirectSoundFullDuplex_Impl, const OFFSET: isize>() -> IDirectSoundFullDuplex_Vtbl {
         unsafe extern "system" fn Initialize<Identity: ::windows::core::IUnknownImpl, Impl: IDirectSoundFullDuplex_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcaptureguid: *const ::windows::core::GUID, prenderguid: *const ::windows::core::GUID, lpdscbufferdesc: *const DSCBUFFERDESC, lpdsbufferdesc: *const DSBUFFERDESC, hwnd: super::super::super::Foundation::HWND, dwlevel: u32, lplpdirectsoundcapturebuffer8: *mut ::windows::core::RawPtr, lplpdirectsoundbuffer8: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -1251,6 +1279,8 @@ impl IDirectSoundFullDuplex_Vtbl {
 pub trait IDirectSoundNotify_Impl: Sized {
     fn SetNotificationPositions(&self, dwpositionnotifies: u32, pcpositionnotifies: *const DSBPOSITIONNOTIFY) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IDirectSoundNotify {}
 #[cfg(feature = "Win32_Foundation")]
 impl IDirectSoundNotify_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirectSoundNotify_Impl, const OFFSET: isize>() -> IDirectSoundNotify_Vtbl {

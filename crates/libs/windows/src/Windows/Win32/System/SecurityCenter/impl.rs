@@ -3,6 +3,8 @@ pub trait IWSCDefaultProduct_Impl: Sized + super::Com::IDispatch_Impl {
     fn SetDefaultProduct(&self, etype: SECURITY_PRODUCT_TYPE, pguid: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IWSCDefaultProduct {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWSCDefaultProduct_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWSCDefaultProduct_Impl, const OFFSET: isize>() -> IWSCDefaultProduct_Vtbl {
         unsafe extern "system" fn SetDefaultProduct<Identity: ::windows::core::IUnknownImpl, Impl: IWSCDefaultProduct_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, etype: SECURITY_PRODUCT_TYPE, pguid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
@@ -22,6 +24,8 @@ pub trait IWSCProductList_Impl: Sized + super::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows::core::Result<i32>;
     fn get_Item(&self, index: u32) -> ::windows::core::Result<IWscProduct>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IWSCProductList {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWSCProductList_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWSCProductList_Impl, const OFFSET: isize>() -> IWSCProductList_Vtbl {
@@ -73,6 +77,8 @@ pub trait IWscProduct_Impl: Sized + super::Com::IDispatch_Impl {
     fn ProductGuid(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn ProductIsDefault(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IWscProduct {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWscProduct_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWscProduct_Impl, const OFFSET: isize>() -> IWscProduct_Vtbl {
@@ -178,6 +184,8 @@ pub trait IWscProduct2_Impl: Sized + super::Com::IDispatch_Impl + IWscProduct_Im
     fn FirewallPublicProfileSubstatus(&self) -> ::windows::core::Result<WSC_SECURITY_PRODUCT_SUBSTATUS>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IWscProduct2 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWscProduct2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWscProduct2_Impl, const OFFSET: isize>() -> IWscProduct2_Vtbl {
         unsafe extern "system" fn AntivirusScanSubstatus<Identity: ::windows::core::IUnknownImpl, Impl: IWscProduct2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pestatus: *mut WSC_SECURITY_PRODUCT_SUBSTATUS) -> ::windows::core::HRESULT {
@@ -264,6 +272,8 @@ impl IWscProduct2_Vtbl {
 pub trait IWscProduct3_Impl: Sized + super::Com::IDispatch_Impl + IWscProduct_Impl + IWscProduct2_Impl {
     fn AntivirusDaysUntilExpired(&self) -> ::windows::core::Result<u32>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IWscProduct3 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWscProduct3_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWscProduct3_Impl, const OFFSET: isize>() -> IWscProduct3_Vtbl {

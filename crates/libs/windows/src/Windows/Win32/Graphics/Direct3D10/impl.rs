@@ -4,6 +4,7 @@ pub trait ID3D10Asynchronous_Impl: Sized + ID3D10DeviceChild_Impl {
     fn GetData(&self, pdata: *mut ::core::ffi::c_void, datasize: u32, getdataflags: u32) -> ::windows::core::Result<()>;
     fn GetDataSize(&self) -> u32;
 }
+impl ::windows::core::RuntimeName for ID3D10Asynchronous {}
 impl ID3D10Asynchronous_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10Asynchronous_Impl, const OFFSET: isize>() -> ID3D10Asynchronous_Vtbl {
         unsafe extern "system" fn Begin<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10Asynchronous_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) {
@@ -43,6 +44,8 @@ pub trait ID3D10BlendState_Impl: Sized + ID3D10DeviceChild_Impl {
     fn GetDesc(&self, pdesc: *mut D3D10_BLEND_DESC);
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for ID3D10BlendState {}
+#[cfg(feature = "Win32_Foundation")]
 impl ID3D10BlendState_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10BlendState_Impl, const OFFSET: isize>() -> ID3D10BlendState_Vtbl {
         unsafe extern "system" fn GetDesc<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10BlendState_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdesc: *mut D3D10_BLEND_DESC) {
@@ -60,6 +63,8 @@ impl ID3D10BlendState_Vtbl {
 pub trait ID3D10BlendState1_Impl: Sized + ID3D10DeviceChild_Impl + ID3D10BlendState_Impl {
     fn GetDesc1(&self, pdesc: *mut D3D10_BLEND_DESC1);
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for ID3D10BlendState1 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ID3D10BlendState1_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10BlendState1_Impl, const OFFSET: isize>() -> ID3D10BlendState1_Vtbl {
@@ -79,6 +84,7 @@ pub trait ID3D10Buffer_Impl: Sized + ID3D10DeviceChild_Impl + ID3D10Resource_Imp
     fn Unmap(&self);
     fn GetDesc(&self, pdesc: *mut D3D10_BUFFER_DESC);
 }
+impl ::windows::core::RuntimeName for ID3D10Buffer {}
 impl ID3D10Buffer_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10Buffer_Impl, const OFFSET: isize>() -> ID3D10Buffer_Vtbl {
         unsafe extern "system" fn Map<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10Buffer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, maptype: D3D10_MAP, mapflags: u32, ppdata: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -110,6 +116,7 @@ impl ID3D10Buffer_Vtbl {
 pub trait ID3D10Counter_Impl: Sized + ID3D10DeviceChild_Impl + ID3D10Asynchronous_Impl {
     fn GetDesc(&self, pdesc: *mut D3D10_COUNTER_DESC);
 }
+impl ::windows::core::RuntimeName for ID3D10Counter {}
 impl ID3D10Counter_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10Counter_Impl, const OFFSET: isize>() -> ID3D10Counter_Vtbl {
         unsafe extern "system" fn GetDesc<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10Counter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdesc: *mut D3D10_COUNTER_DESC) {
@@ -133,6 +140,8 @@ pub trait ID3D10Debug_Impl: Sized {
     fn GetSwapChain(&self) -> ::windows::core::Result<super::Dxgi::IDXGISwapChain>;
     fn Validate(&self) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Graphics_Dxgi")]
+impl ::windows::core::RuntimeName for ID3D10Debug {}
 #[cfg(feature = "Win32_Graphics_Dxgi")]
 impl ID3D10Debug_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10Debug_Impl, const OFFSET: isize>() -> ID3D10Debug_Vtbl {
@@ -197,6 +206,8 @@ pub trait ID3D10DepthStencilState_Impl: Sized + ID3D10DeviceChild_Impl {
     fn GetDesc(&self, pdesc: *mut D3D10_DEPTH_STENCIL_DESC);
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for ID3D10DepthStencilState {}
+#[cfg(feature = "Win32_Foundation")]
 impl ID3D10DepthStencilState_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10DepthStencilState_Impl, const OFFSET: isize>() -> ID3D10DepthStencilState_Vtbl {
         unsafe extern "system" fn GetDesc<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10DepthStencilState_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdesc: *mut D3D10_DEPTH_STENCIL_DESC) {
@@ -214,6 +225,8 @@ impl ID3D10DepthStencilState_Vtbl {
 pub trait ID3D10DepthStencilView_Impl: Sized + ID3D10DeviceChild_Impl + ID3D10View_Impl {
     fn GetDesc(&self, pdesc: *mut D3D10_DEPTH_STENCIL_VIEW_DESC);
 }
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl ::windows::core::RuntimeName for ID3D10DepthStencilView {}
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ID3D10DepthStencilView_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10DepthStencilView_Impl, const OFFSET: isize>() -> ID3D10DepthStencilView_Vtbl {
@@ -326,6 +339,8 @@ pub trait ID3D10Device_Impl: Sized {
     fn SetTextFilterSize(&self, width: u32, height: u32);
     fn GetTextFilterSize(&self, pwidth: *mut u32, pheight: *mut u32);
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::windows::core::RuntimeName for ID3D10Device {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ID3D10Device_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10Device_Impl, const OFFSET: isize>() -> ID3D10Device_Vtbl {
@@ -1040,6 +1055,8 @@ pub trait ID3D10Device1_Impl: Sized + ID3D10Device_Impl {
     fn GetFeatureLevel(&self) -> D3D10_FEATURE_LEVEL1;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::windows::core::RuntimeName for ID3D10Device1 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ID3D10Device1_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10Device1_Impl, const OFFSET: isize>() -> ID3D10Device1_Vtbl {
         unsafe extern "system" fn CreateShaderResourceView1<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10Device1_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, presource: ::windows::core::RawPtr, pdesc: *const D3D10_SHADER_RESOURCE_VIEW_DESC1, ppsrview: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -1086,6 +1103,7 @@ pub trait ID3D10DeviceChild_Impl: Sized {
     fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn SetPrivateDataInterface(&self, guid: *const ::windows::core::GUID, pdata: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for ID3D10DeviceChild {}
 impl ID3D10DeviceChild_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10DeviceChild_Impl, const OFFSET: isize>() -> ID3D10DeviceChild_Vtbl {
         unsafe extern "system" fn GetDevice<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10DeviceChild_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppdevice: *mut ::windows::core::RawPtr) {
@@ -1136,6 +1154,8 @@ pub trait ID3D10Effect_Impl: Sized {
     fn Optimize(&self) -> ::windows::core::Result<()>;
     fn IsOptimized(&self) -> super::super::Foundation::BOOL;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for ID3D10Effect {}
 #[cfg(feature = "Win32_Foundation")]
 impl ID3D10Effect_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10Effect_Impl, const OFFSET: isize>() -> ID3D10Effect_Vtbl {
@@ -1243,6 +1263,8 @@ pub trait ID3D10EffectBlendVariable_Impl: Sized + ID3D10EffectVariable_Impl {
     fn GetBackingStore(&self, index: u32, pblenddesc: *mut D3D10_BLEND_DESC) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for ID3D10EffectBlendVariable {}
+#[cfg(feature = "Win32_Foundation")]
 impl ID3D10EffectBlendVariable_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10EffectBlendVariable_Impl, const OFFSET: isize>() -> ID3D10EffectBlendVariable_Vtbl {
         unsafe extern "system" fn GetBlendState<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10EffectBlendVariable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32, ppblendstate: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -1278,6 +1300,8 @@ pub trait ID3D10EffectConstantBuffer_Impl: Sized + ID3D10EffectVariable_Impl {
     fn SetTextureBuffer(&self, ptexturebuffer: &::core::option::Option<ID3D10ShaderResourceView>) -> ::windows::core::Result<()>;
     fn GetTextureBuffer(&self) -> ::windows::core::Result<ID3D10ShaderResourceView>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for ID3D10EffectConstantBuffer {}
 #[cfg(feature = "Win32_Foundation")]
 impl ID3D10EffectConstantBuffer_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10EffectConstantBuffer_Impl, const OFFSET: isize>() -> ID3D10EffectConstantBuffer_Vtbl {
@@ -1331,6 +1355,8 @@ pub trait ID3D10EffectDepthStencilVariable_Impl: Sized + ID3D10EffectVariable_Im
     fn GetBackingStore(&self, index: u32) -> ::windows::core::Result<D3D10_DEPTH_STENCIL_DESC>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for ID3D10EffectDepthStencilVariable {}
+#[cfg(feature = "Win32_Foundation")]
 impl ID3D10EffectDepthStencilVariable_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10EffectDepthStencilVariable_Impl, const OFFSET: isize>() -> ID3D10EffectDepthStencilVariable_Vtbl {
         unsafe extern "system" fn GetDepthStencilState<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10EffectDepthStencilVariable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32, ppdepthstencilstate: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -1372,6 +1398,8 @@ pub trait ID3D10EffectDepthStencilViewVariable_Impl: Sized + ID3D10EffectVariabl
     fn SetDepthStencilArray(&self, ppresources: *const ::core::option::Option<ID3D10DepthStencilView>, offset: u32, count: u32) -> ::windows::core::Result<()>;
     fn GetDepthStencilArray(&self, ppresources: *mut ::core::option::Option<ID3D10DepthStencilView>, offset: u32, count: u32) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for ID3D10EffectDepthStencilViewVariable {}
 #[cfg(feature = "Win32_Foundation")]
 impl ID3D10EffectDepthStencilViewVariable_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10EffectDepthStencilViewVariable_Impl, const OFFSET: isize>() -> ID3D10EffectDepthStencilViewVariable_Vtbl {
@@ -1424,6 +1452,8 @@ pub trait ID3D10EffectMatrixVariable_Impl: Sized + ID3D10EffectVariable_Impl {
     fn SetMatrixTransposeArray(&self, pdata: *mut f32, offset: u32, count: u32) -> ::windows::core::Result<()>;
     fn GetMatrixTransposeArray(&self, pdata: *mut f32, offset: u32, count: u32) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for ID3D10EffectMatrixVariable {}
 #[cfg(feature = "Win32_Foundation")]
 impl ID3D10EffectMatrixVariable_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10EffectMatrixVariable_Impl, const OFFSET: isize>() -> ID3D10EffectMatrixVariable_Vtbl {
@@ -1495,6 +1525,8 @@ pub trait ID3D10EffectPass_Impl: Sized {
     fn Apply(&self, flags: u32) -> ::windows::core::Result<()>;
     fn ComputeStateBlockMask(&self) -> ::windows::core::Result<D3D10_STATE_BLOCK_MASK>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for ID3D10EffectPass {}
 #[cfg(feature = "Win32_Foundation")]
 impl ID3D10EffectPass_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10EffectPass_Impl, const OFFSET: isize>() -> ID3D10EffectPass_Vtbl {
@@ -1568,6 +1600,7 @@ impl ID3D10EffectPass_Vtbl {
 pub trait ID3D10EffectPool_Impl: Sized {
     fn AsEffect(&self) -> ::core::option::Option<ID3D10Effect>;
 }
+impl ::windows::core::RuntimeName for ID3D10EffectPool {}
 impl ID3D10EffectPool_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10EffectPool_Impl, const OFFSET: isize>() -> ID3D10EffectPool_Vtbl {
         unsafe extern "system" fn AsEffect<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10EffectPool_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::core::option::Option<ID3D10Effect> {
@@ -1586,6 +1619,8 @@ pub trait ID3D10EffectRasterizerVariable_Impl: Sized + ID3D10EffectVariable_Impl
     fn GetRasterizerState(&self, index: u32) -> ::windows::core::Result<ID3D10RasterizerState>;
     fn GetBackingStore(&self, index: u32) -> ::windows::core::Result<D3D10_RASTERIZER_DESC>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for ID3D10EffectRasterizerVariable {}
 #[cfg(feature = "Win32_Foundation")]
 impl ID3D10EffectRasterizerVariable_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10EffectRasterizerVariable_Impl, const OFFSET: isize>() -> ID3D10EffectRasterizerVariable_Vtbl {
@@ -1628,6 +1663,8 @@ pub trait ID3D10EffectRenderTargetViewVariable_Impl: Sized + ID3D10EffectVariabl
     fn SetRenderTargetArray(&self, ppresources: *const ::core::option::Option<ID3D10RenderTargetView>, offset: u32, count: u32) -> ::windows::core::Result<()>;
     fn GetRenderTargetArray(&self, ppresources: *mut ::core::option::Option<ID3D10RenderTargetView>, offset: u32, count: u32) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for ID3D10EffectRenderTargetViewVariable {}
 #[cfg(feature = "Win32_Foundation")]
 impl ID3D10EffectRenderTargetViewVariable_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10EffectRenderTargetViewVariable_Impl, const OFFSET: isize>() -> ID3D10EffectRenderTargetViewVariable_Vtbl {
@@ -1674,6 +1711,8 @@ pub trait ID3D10EffectSamplerVariable_Impl: Sized + ID3D10EffectVariable_Impl {
     fn GetSampler(&self, index: u32) -> ::windows::core::Result<ID3D10SamplerState>;
     fn GetBackingStore(&self, index: u32) -> ::windows::core::Result<D3D10_SAMPLER_DESC>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for ID3D10EffectSamplerVariable {}
 #[cfg(feature = "Win32_Foundation")]
 impl ID3D10EffectSamplerVariable_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10EffectSamplerVariable_Impl, const OFFSET: isize>() -> ID3D10EffectSamplerVariable_Vtbl {
@@ -1724,6 +1763,8 @@ pub trait ID3D10EffectScalarVariable_Impl: Sized + ID3D10EffectVariable_Impl {
     fn SetBoolArray(&self, pdata: *const super::super::Foundation::BOOL, offset: u32, count: u32) -> ::windows::core::Result<()>;
     fn GetBoolArray(&self, pdata: *mut super::super::Foundation::BOOL, offset: u32, count: u32) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for ID3D10EffectScalarVariable {}
 #[cfg(feature = "Win32_Foundation")]
 impl ID3D10EffectScalarVariable_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10EffectScalarVariable_Impl, const OFFSET: isize>() -> ID3D10EffectScalarVariable_Vtbl {
@@ -1833,6 +1874,8 @@ pub trait ID3D10EffectShaderResourceVariable_Impl: Sized + ID3D10EffectVariable_
     fn GetResourceArray(&self, ppresources: *mut ::core::option::Option<ID3D10ShaderResourceView>, offset: u32, count: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for ID3D10EffectShaderResourceVariable {}
+#[cfg(feature = "Win32_Foundation")]
 impl ID3D10EffectShaderResourceVariable_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10EffectShaderResourceVariable_Impl, const OFFSET: isize>() -> ID3D10EffectShaderResourceVariable_Vtbl {
         unsafe extern "system" fn SetResource<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10EffectShaderResourceVariable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, presource: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -1882,6 +1925,8 @@ pub trait ID3D10EffectShaderVariable_Impl: Sized + ID3D10EffectVariable_Impl {
     fn GetInputSignatureElementDesc(&self, shaderindex: u32, element: u32) -> ::windows::core::Result<D3D10_SIGNATURE_PARAMETER_DESC>;
     fn GetOutputSignatureElementDesc(&self, shaderindex: u32, element: u32) -> ::windows::core::Result<D3D10_SIGNATURE_PARAMETER_DESC>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
+impl ::windows::core::RuntimeName for ID3D10EffectShaderVariable {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
 impl ID3D10EffectShaderVariable_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10EffectShaderVariable_Impl, const OFFSET: isize>() -> ID3D10EffectShaderVariable_Vtbl {
@@ -1971,6 +2016,8 @@ pub trait ID3D10EffectStringVariable_Impl: Sized + ID3D10EffectVariable_Impl {
     fn GetStringArray(&self, ppstrings: *mut ::windows::core::PSTR, offset: u32, count: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for ID3D10EffectStringVariable {}
+#[cfg(feature = "Win32_Foundation")]
 impl ID3D10EffectStringVariable_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10EffectStringVariable_Impl, const OFFSET: isize>() -> ID3D10EffectStringVariable_Vtbl {
         unsafe extern "system" fn GetString<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10EffectStringVariable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppstring: *mut ::windows::core::PSTR) -> ::windows::core::HRESULT {
@@ -2009,6 +2056,8 @@ pub trait ID3D10EffectTechnique_Impl: Sized {
     fn GetPassByName(&self, name: &::windows::core::PCSTR) -> ::core::option::Option<ID3D10EffectPass>;
     fn ComputeStateBlockMask(&self) -> ::windows::core::Result<D3D10_STATE_BLOCK_MASK>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for ID3D10EffectTechnique {}
 #[cfg(feature = "Win32_Foundation")]
 impl ID3D10EffectTechnique_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10EffectTechnique_Impl, const OFFSET: isize>() -> ID3D10EffectTechnique_Vtbl {
@@ -2077,6 +2126,8 @@ pub trait ID3D10EffectType_Impl: Sized {
     fn GetMemberName(&self, index: u32) -> ::windows::core::PSTR;
     fn GetMemberSemantic(&self, index: u32) -> ::windows::core::PSTR;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
+impl ::windows::core::RuntimeName for ID3D10EffectType {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
 impl ID3D10EffectType_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10EffectType_Impl, const OFFSET: isize>() -> ID3D10EffectType_Vtbl {
@@ -2157,6 +2208,8 @@ pub trait ID3D10EffectVariable_Impl: Sized {
     fn SetRawValue(&self, pdata: *const ::core::ffi::c_void, offset: u32, bytecount: u32) -> ::windows::core::Result<()>;
     fn GetRawValue(&self, pdata: *mut ::core::ffi::c_void, offset: u32, bytecount: u32) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for ID3D10EffectVariable {}
 #[cfg(feature = "Win32_Foundation")]
 impl ID3D10EffectVariable_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10EffectVariable_Impl, const OFFSET: isize>() -> ID3D10EffectVariable_Vtbl {
@@ -2339,6 +2392,8 @@ pub trait ID3D10EffectVectorVariable_Impl: Sized + ID3D10EffectVariable_Impl {
     fn GetFloatVectorArray(&self, pdata: *mut f32, offset: u32, count: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for ID3D10EffectVectorVariable {}
+#[cfg(feature = "Win32_Foundation")]
 impl ID3D10EffectVectorVariable_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10EffectVectorVariable_Impl, const OFFSET: isize>() -> ID3D10EffectVectorVariable_Vtbl {
         unsafe extern "system" fn SetBoolVector<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10EffectVectorVariable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdata: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
@@ -2422,6 +2477,7 @@ impl ID3D10EffectVectorVariable_Vtbl {
     }
 }
 pub trait ID3D10GeometryShader_Impl: Sized + ID3D10DeviceChild_Impl {}
+impl ::windows::core::RuntimeName for ID3D10GeometryShader {}
 impl ID3D10GeometryShader_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10GeometryShader_Impl, const OFFSET: isize>() -> ID3D10GeometryShader_Vtbl {
         Self { base__: ID3D10DeviceChild_Vtbl::new::<Identity, Impl, OFFSET>() }
@@ -2468,6 +2524,8 @@ pub trait ID3D10InfoQueue_Impl: Sized {
     fn SetMuteDebugOutput(&self, bmute: super::super::Foundation::BOOL);
     fn GetMuteDebugOutput(&self) -> super::super::Foundation::BOOL;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for ID3D10InfoQueue {}
 #[cfg(feature = "Win32_Foundation")]
 impl ID3D10InfoQueue_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10InfoQueue_Impl, const OFFSET: isize>() -> ID3D10InfoQueue_Vtbl {
@@ -2690,6 +2748,7 @@ impl ID3D10InfoQueue_Vtbl {
     }
 }
 pub trait ID3D10InputLayout_Impl: Sized + ID3D10DeviceChild_Impl {}
+impl ::windows::core::RuntimeName for ID3D10InputLayout {}
 impl ID3D10InputLayout_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10InputLayout_Impl, const OFFSET: isize>() -> ID3D10InputLayout_Vtbl {
         Self { base__: ID3D10DeviceChild_Vtbl::new::<Identity, Impl, OFFSET>() }
@@ -2705,6 +2764,8 @@ pub trait ID3D10Multithread_Impl: Sized {
     fn SetMultithreadProtected(&self, bmtprotect: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
     fn GetMultithreadProtected(&self) -> super::super::Foundation::BOOL;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for ID3D10Multithread {}
 #[cfg(feature = "Win32_Foundation")]
 impl ID3D10Multithread_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10Multithread_Impl, const OFFSET: isize>() -> ID3D10Multithread_Vtbl {
@@ -2741,6 +2802,7 @@ impl ID3D10Multithread_Vtbl {
     }
 }
 pub trait ID3D10PixelShader_Impl: Sized + ID3D10DeviceChild_Impl {}
+impl ::windows::core::RuntimeName for ID3D10PixelShader {}
 impl ID3D10PixelShader_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10PixelShader_Impl, const OFFSET: isize>() -> ID3D10PixelShader_Vtbl {
         Self { base__: ID3D10DeviceChild_Vtbl::new::<Identity, Impl, OFFSET>() }
@@ -2750,6 +2812,7 @@ impl ID3D10PixelShader_Vtbl {
     }
 }
 pub trait ID3D10Predicate_Impl: Sized + ID3D10DeviceChild_Impl + ID3D10Asynchronous_Impl + ID3D10Query_Impl {}
+impl ::windows::core::RuntimeName for ID3D10Predicate {}
 impl ID3D10Predicate_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10Predicate_Impl, const OFFSET: isize>() -> ID3D10Predicate_Vtbl {
         Self { base__: ID3D10Query_Vtbl::new::<Identity, Impl, OFFSET>() }
@@ -2761,6 +2824,7 @@ impl ID3D10Predicate_Vtbl {
 pub trait ID3D10Query_Impl: Sized + ID3D10DeviceChild_Impl + ID3D10Asynchronous_Impl {
     fn GetDesc(&self, pdesc: *mut D3D10_QUERY_DESC);
 }
+impl ::windows::core::RuntimeName for ID3D10Query {}
 impl ID3D10Query_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10Query_Impl, const OFFSET: isize>() -> ID3D10Query_Vtbl {
         unsafe extern "system" fn GetDesc<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10Query_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdesc: *mut D3D10_QUERY_DESC) {
@@ -2778,6 +2842,8 @@ impl ID3D10Query_Vtbl {
 pub trait ID3D10RasterizerState_Impl: Sized + ID3D10DeviceChild_Impl {
     fn GetDesc(&self, pdesc: *mut D3D10_RASTERIZER_DESC);
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for ID3D10RasterizerState {}
 #[cfg(feature = "Win32_Foundation")]
 impl ID3D10RasterizerState_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10RasterizerState_Impl, const OFFSET: isize>() -> ID3D10RasterizerState_Vtbl {
@@ -2797,6 +2863,8 @@ pub trait ID3D10RenderTargetView_Impl: Sized + ID3D10DeviceChild_Impl + ID3D10Vi
     fn GetDesc(&self, pdesc: *mut D3D10_RENDER_TARGET_VIEW_DESC);
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl ::windows::core::RuntimeName for ID3D10RenderTargetView {}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ID3D10RenderTargetView_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10RenderTargetView_Impl, const OFFSET: isize>() -> ID3D10RenderTargetView_Vtbl {
         unsafe extern "system" fn GetDesc<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10RenderTargetView_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdesc: *mut D3D10_RENDER_TARGET_VIEW_DESC) {
@@ -2815,6 +2883,7 @@ pub trait ID3D10Resource_Impl: Sized + ID3D10DeviceChild_Impl {
     fn SetEvictionPriority(&self, evictionpriority: u32);
     fn GetEvictionPriority(&self) -> u32;
 }
+impl ::windows::core::RuntimeName for ID3D10Resource {}
 impl ID3D10Resource_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10Resource_Impl, const OFFSET: isize>() -> ID3D10Resource_Vtbl {
         unsafe extern "system" fn GetType<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10Resource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rtype: *mut D3D10_RESOURCE_DIMENSION) {
@@ -2846,6 +2915,7 @@ impl ID3D10Resource_Vtbl {
 pub trait ID3D10SamplerState_Impl: Sized + ID3D10DeviceChild_Impl {
     fn GetDesc(&self, pdesc: *mut D3D10_SAMPLER_DESC);
 }
+impl ::windows::core::RuntimeName for ID3D10SamplerState {}
 impl ID3D10SamplerState_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10SamplerState_Impl, const OFFSET: isize>() -> ID3D10SamplerState_Vtbl {
         unsafe extern "system" fn GetDesc<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10SamplerState_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdesc: *mut D3D10_SAMPLER_DESC) {
@@ -2868,6 +2938,8 @@ pub trait ID3D10ShaderReflection_Impl: Sized {
     fn GetInputParameterDesc(&self, parameterindex: u32) -> ::windows::core::Result<D3D10_SIGNATURE_PARAMETER_DESC>;
     fn GetOutputParameterDesc(&self, parameterindex: u32) -> ::windows::core::Result<D3D10_SIGNATURE_PARAMETER_DESC>;
 }
+#[cfg(feature = "Win32_Graphics_Direct3D")]
+impl ::windows::core::RuntimeName for ID3D10ShaderReflection {}
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 impl ID3D10ShaderReflection_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10ShaderReflection_Impl, const OFFSET: isize>() -> ID3D10ShaderReflection_Vtbl {
@@ -2957,6 +3029,8 @@ pub trait ID3D10ShaderReflection1_Impl: Sized {
     fn IsLevel9Shader(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
     fn IsSampleFrequencyShader(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
+impl ::windows::core::RuntimeName for ID3D10ShaderReflection1 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
 impl ID3D10ShaderReflection1_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10ShaderReflection1_Impl, const OFFSET: isize>() -> ID3D10ShaderReflection1_Vtbl {
@@ -3137,6 +3211,8 @@ pub trait ID3D10ShaderReflectionConstantBuffer_Impl: Sized {
     fn GetVariableByName(&self, name: &::windows::core::PCSTR) -> ::core::option::Option<ID3D10ShaderReflectionVariable>;
 }
 #[cfg(feature = "Win32_Graphics_Direct3D")]
+impl ::windows::core::RuntimeName for ID3D10ShaderReflectionConstantBuffer {}
+#[cfg(feature = "Win32_Graphics_Direct3D")]
 impl ID3D10ShaderReflectionConstantBuffer_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10ShaderReflectionConstantBuffer_Impl, const OFFSET: isize>() -> ID3D10ShaderReflectionConstantBuffer_Vtbl {
         unsafe extern "system" fn GetDesc<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10ShaderReflectionConstantBuffer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdesc: *mut D3D10_SHADER_BUFFER_DESC) -> ::windows::core::HRESULT {
@@ -3178,6 +3254,8 @@ pub trait ID3D10ShaderReflectionType_Impl: Sized {
     fn GetMemberTypeName(&self, index: u32) -> ::windows::core::PSTR;
 }
 #[cfg(feature = "Win32_Graphics_Direct3D")]
+impl ::windows::core::RuntimeName for ID3D10ShaderReflectionType {}
+#[cfg(feature = "Win32_Graphics_Direct3D")]
 impl ID3D10ShaderReflectionType_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10ShaderReflectionType_Impl, const OFFSET: isize>() -> ID3D10ShaderReflectionType_Vtbl {
         unsafe extern "system" fn GetDesc<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10ShaderReflectionType_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdesc: *mut D3D10_SHADER_TYPE_DESC) -> ::windows::core::HRESULT {
@@ -3215,6 +3293,7 @@ pub trait ID3D10ShaderReflectionVariable_Impl: Sized {
     fn GetDesc(&self) -> ::windows::core::Result<D3D10_SHADER_VARIABLE_DESC>;
     fn GetType(&self) -> ::core::option::Option<ID3D10ShaderReflectionType>;
 }
+impl ::windows::core::RuntimeName for ID3D10ShaderReflectionVariable {}
 impl ID3D10ShaderReflectionVariable_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10ShaderReflectionVariable_Impl, const OFFSET: isize>() -> ID3D10ShaderReflectionVariable_Vtbl {
         unsafe extern "system" fn GetDesc<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10ShaderReflectionVariable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdesc: *mut D3D10_SHADER_VARIABLE_DESC) -> ::windows::core::HRESULT {
@@ -3244,6 +3323,8 @@ pub trait ID3D10ShaderResourceView_Impl: Sized + ID3D10DeviceChild_Impl + ID3D10
     fn GetDesc(&self, pdesc: *mut D3D10_SHADER_RESOURCE_VIEW_DESC);
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::windows::core::RuntimeName for ID3D10ShaderResourceView {}
+#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ID3D10ShaderResourceView_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10ShaderResourceView_Impl, const OFFSET: isize>() -> ID3D10ShaderResourceView_Vtbl {
         unsafe extern "system" fn GetDesc<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10ShaderResourceView_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdesc: *mut D3D10_SHADER_RESOURCE_VIEW_DESC) {
@@ -3261,6 +3342,8 @@ impl ID3D10ShaderResourceView_Vtbl {
 pub trait ID3D10ShaderResourceView1_Impl: Sized + ID3D10DeviceChild_Impl + ID3D10View_Impl + ID3D10ShaderResourceView_Impl {
     fn GetDesc1(&self, pdesc: *mut D3D10_SHADER_RESOURCE_VIEW_DESC1);
 }
+#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::windows::core::RuntimeName for ID3D10ShaderResourceView1 {}
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ID3D10ShaderResourceView1_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10ShaderResourceView1_Impl, const OFFSET: isize>() -> ID3D10ShaderResourceView1_Vtbl {
@@ -3281,6 +3364,7 @@ pub trait ID3D10StateBlock_Impl: Sized {
     fn ReleaseAllDeviceObjects(&self) -> ::windows::core::Result<()>;
     fn GetDevice(&self) -> ::windows::core::Result<ID3D10Device>;
 }
+impl ::windows::core::RuntimeName for ID3D10StateBlock {}
 impl ID3D10StateBlock_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10StateBlock_Impl, const OFFSET: isize>() -> ID3D10StateBlock_Vtbl {
         unsafe extern "system" fn Capture<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10StateBlock_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -3327,6 +3411,8 @@ pub trait ID3D10SwitchToRef_Impl: Sized {
     fn GetUseRef(&self) -> super::super::Foundation::BOOL;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for ID3D10SwitchToRef {}
+#[cfg(feature = "Win32_Foundation")]
 impl ID3D10SwitchToRef_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10SwitchToRef_Impl, const OFFSET: isize>() -> ID3D10SwitchToRef_Vtbl {
         unsafe extern "system" fn SetUseRef<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10SwitchToRef_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, useref: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL {
@@ -3355,6 +3441,8 @@ pub trait ID3D10Texture1D_Impl: Sized + ID3D10DeviceChild_Impl + ID3D10Resource_
     fn Unmap(&self, subresource: u32);
     fn GetDesc(&self, pdesc: *mut D3D10_TEXTURE1D_DESC);
 }
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl ::windows::core::RuntimeName for ID3D10Texture1D {}
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ID3D10Texture1D_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10Texture1D_Impl, const OFFSET: isize>() -> ID3D10Texture1D_Vtbl {
@@ -3390,6 +3478,8 @@ pub trait ID3D10Texture2D_Impl: Sized + ID3D10DeviceChild_Impl + ID3D10Resource_
     fn Unmap(&self, subresource: u32);
     fn GetDesc(&self, pdesc: *mut D3D10_TEXTURE2D_DESC);
 }
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl ::windows::core::RuntimeName for ID3D10Texture2D {}
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ID3D10Texture2D_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10Texture2D_Impl, const OFFSET: isize>() -> ID3D10Texture2D_Vtbl {
@@ -3432,6 +3522,8 @@ pub trait ID3D10Texture3D_Impl: Sized + ID3D10DeviceChild_Impl + ID3D10Resource_
     fn GetDesc(&self, pdesc: *mut D3D10_TEXTURE3D_DESC);
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl ::windows::core::RuntimeName for ID3D10Texture3D {}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ID3D10Texture3D_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10Texture3D_Impl, const OFFSET: isize>() -> ID3D10Texture3D_Vtbl {
         unsafe extern "system" fn Map<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10Texture3D_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, subresource: u32, maptype: D3D10_MAP, mapflags: u32, pmappedtex3d: *mut D3D10_MAPPED_TEXTURE3D) -> ::windows::core::HRESULT {
@@ -3467,6 +3559,7 @@ impl ID3D10Texture3D_Vtbl {
     }
 }
 pub trait ID3D10VertexShader_Impl: Sized + ID3D10DeviceChild_Impl {}
+impl ::windows::core::RuntimeName for ID3D10VertexShader {}
 impl ID3D10VertexShader_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10VertexShader_Impl, const OFFSET: isize>() -> ID3D10VertexShader_Vtbl {
         Self { base__: ID3D10DeviceChild_Vtbl::new::<Identity, Impl, OFFSET>() }
@@ -3478,6 +3571,7 @@ impl ID3D10VertexShader_Vtbl {
 pub trait ID3D10View_Impl: Sized + ID3D10DeviceChild_Impl {
     fn GetResource(&self, ppresource: *mut ::core::option::Option<ID3D10Resource>);
 }
+impl ::windows::core::RuntimeName for ID3D10View {}
 impl ID3D10View_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10View_Impl, const OFFSET: isize>() -> ID3D10View_Vtbl {
         unsafe extern "system" fn GetResource<Identity: ::windows::core::IUnknownImpl, Impl: ID3D10View_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppresource: *mut ::windows::core::RawPtr) {

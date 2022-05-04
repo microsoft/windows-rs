@@ -7,6 +7,8 @@ pub trait IAccountingProviderConfig_Impl: Sized {
     fn Deactivate(&self, uconnectionparam: usize, ureserved1: usize, ureserved2: usize) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IAccountingProviderConfig {}
+#[cfg(feature = "Win32_Foundation")]
 impl IAccountingProviderConfig_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAccountingProviderConfig_Impl, const OFFSET: isize>() -> IAccountingProviderConfig_Vtbl {
         unsafe extern "system" fn Initialize<Identity: ::windows::core::IUnknownImpl, Impl: IAccountingProviderConfig_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszmachinename: ::windows::core::PCWSTR, puconnectionparam: *mut usize) -> ::windows::core::HRESULT {
@@ -61,6 +63,8 @@ pub trait IAuthenticationProviderConfig_Impl: Sized {
     fn Activate(&self, uconnectionparam: usize, ureserved1: usize, ureserved2: usize) -> ::windows::core::Result<()>;
     fn Deactivate(&self, uconnectionparam: usize, ureserved1: usize, ureserved2: usize) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IAuthenticationProviderConfig {}
 #[cfg(feature = "Win32_Foundation")]
 impl IAuthenticationProviderConfig_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAuthenticationProviderConfig_Impl, const OFFSET: isize>() -> IAuthenticationProviderConfig_Vtbl {
@@ -117,6 +121,8 @@ pub trait IEAPProviderConfig_Impl: Sized {
     fn RouterInvokeCredentialsUI(&self, dweaptypeid: u32, uconnectionparam: usize, hwndparent: super::super::Foundation::HWND, dwflags: u32, pconnectiondatain: *const u8, dwsizeofconnectiondatain: u32, puserdatain: *const u8, dwsizeofuserdatain: u32, ppuserdataout: *mut *mut u8, pdwsizeofuserdataout: *mut u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IEAPProviderConfig {}
+#[cfg(feature = "Win32_Foundation")]
 impl IEAPProviderConfig_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEAPProviderConfig_Impl, const OFFSET: isize>() -> IEAPProviderConfig_Vtbl {
         unsafe extern "system" fn Initialize<Identity: ::windows::core::IUnknownImpl, Impl: IEAPProviderConfig_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszmachinename: ::windows::core::PCWSTR, dweaptypeid: u32, puconnectionparam: *mut usize) -> ::windows::core::HRESULT {
@@ -171,6 +177,8 @@ pub trait IEAPProviderConfig2_Impl: Sized + IEAPProviderConfig_Impl {
     fn GetGlobalConfig(&self, dweaptypeid: u32, ppconfigdataout: *mut *mut u8, pdwsizeofconfigdataout: *mut u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IEAPProviderConfig2 {}
+#[cfg(feature = "Win32_Foundation")]
 impl IEAPProviderConfig2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEAPProviderConfig2_Impl, const OFFSET: isize>() -> IEAPProviderConfig2_Vtbl {
         unsafe extern "system" fn ServerInvokeConfigUI2<Identity: ::windows::core::IUnknownImpl, Impl: IEAPProviderConfig2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dweaptypeid: u32, uconnectionparam: usize, hwnd: super::super::Foundation::HWND, pconfigdatain: *const u8, dwsizeofconfigdatain: u32, ppconfigdataout: *mut *mut u8, pdwsizeofconfigdataout: *mut u32) -> ::windows::core::HRESULT {
@@ -198,6 +206,8 @@ pub trait IEAPProviderConfig3_Impl: Sized + IEAPProviderConfig_Impl + IEAPProvid
     fn ServerInvokeCertificateConfigUI(&self, dweaptypeid: u32, uconnectionparam: usize, hwnd: super::super::Foundation::HWND, pconfigdatain: *const u8, dwsizeofconfigdatain: u32, ppconfigdataout: *mut *mut u8, pdwsizeofconfigdataout: *mut u32, ureserved: usize) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IEAPProviderConfig3 {}
+#[cfg(feature = "Win32_Foundation")]
 impl IEAPProviderConfig3_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEAPProviderConfig3_Impl, const OFFSET: isize>() -> IEAPProviderConfig3_Vtbl {
         unsafe extern "system" fn ServerInvokeCertificateConfigUI<Identity: ::windows::core::IUnknownImpl, Impl: IEAPProviderConfig3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dweaptypeid: u32, uconnectionparam: usize, hwnd: super::super::Foundation::HWND, pconfigdatain: *const u8, dwsizeofconfigdatain: u32, ppconfigdataout: *mut *mut u8, pdwsizeofconfigdataout: *mut u32, ureserved: usize) -> ::windows::core::HRESULT {
@@ -219,6 +229,8 @@ pub trait IRouterProtocolConfig_Impl: Sized {
     fn AddProtocol(&self, pszmachinename: &::windows::core::PCWSTR, dwtransportid: u32, dwprotocolid: u32, hwnd: super::super::Foundation::HWND, dwflags: u32, prouter: &::core::option::Option<::windows::core::IUnknown>, ureserved1: usize) -> ::windows::core::Result<()>;
     fn RemoveProtocol(&self, pszmachinename: &::windows::core::PCWSTR, dwtransportid: u32, dwprotocolid: u32, hwnd: super::super::Foundation::HWND, dwflags: u32, prouter: &::core::option::Option<::windows::core::IUnknown>, ureserved1: usize) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IRouterProtocolConfig {}
 #[cfg(feature = "Win32_Foundation")]
 impl IRouterProtocolConfig_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRouterProtocolConfig_Impl, const OFFSET: isize>() -> IRouterProtocolConfig_Vtbl {

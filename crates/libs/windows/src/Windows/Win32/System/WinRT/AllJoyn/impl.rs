@@ -1,9 +1,7 @@
 pub trait IWindowsDevicesAllJoynBusAttachmentFactoryInterop_Impl: Sized {
     fn CreateFromWin32Handle(&self, win32handle: u64, enableaboutdata: u8, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
-impl ::windows::core::RuntimeName for IWindowsDevicesAllJoynBusAttachmentFactoryInterop {
-    const NAME: &'static str = "";
-}
+impl ::windows::core::RuntimeName for IWindowsDevicesAllJoynBusAttachmentFactoryInterop {}
 impl IWindowsDevicesAllJoynBusAttachmentFactoryInterop_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWindowsDevicesAllJoynBusAttachmentFactoryInterop_Impl, const OFFSET: isize>() -> IWindowsDevicesAllJoynBusAttachmentFactoryInterop_Vtbl {
         unsafe extern "system" fn CreateFromWin32Handle<Identity: ::windows::core::IUnknownImpl, Impl: IWindowsDevicesAllJoynBusAttachmentFactoryInterop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, win32handle: u64, enableaboutdata: u8, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -23,9 +21,7 @@ impl IWindowsDevicesAllJoynBusAttachmentFactoryInterop_Vtbl {
 pub trait IWindowsDevicesAllJoynBusAttachmentInterop_Impl: Sized {
     fn Win32Handle(&self) -> ::windows::core::Result<u64>;
 }
-impl ::windows::core::RuntimeName for IWindowsDevicesAllJoynBusAttachmentInterop {
-    const NAME: &'static str = "";
-}
+impl ::windows::core::RuntimeName for IWindowsDevicesAllJoynBusAttachmentInterop {}
 impl IWindowsDevicesAllJoynBusAttachmentInterop_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWindowsDevicesAllJoynBusAttachmentInterop_Impl, const OFFSET: isize>() -> IWindowsDevicesAllJoynBusAttachmentInterop_Vtbl {
         unsafe extern "system" fn Win32Handle<Identity: ::windows::core::IUnknownImpl, Impl: IWindowsDevicesAllJoynBusAttachmentInterop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut u64) -> ::windows::core::HRESULT {
@@ -51,9 +47,7 @@ impl IWindowsDevicesAllJoynBusAttachmentInterop_Vtbl {
 pub trait IWindowsDevicesAllJoynBusObjectFactoryInterop_Impl: Sized {
     fn CreateFromWin32Handle(&self, win32handle: u64, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
-impl ::windows::core::RuntimeName for IWindowsDevicesAllJoynBusObjectFactoryInterop {
-    const NAME: &'static str = "";
-}
+impl ::windows::core::RuntimeName for IWindowsDevicesAllJoynBusObjectFactoryInterop {}
 impl IWindowsDevicesAllJoynBusObjectFactoryInterop_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWindowsDevicesAllJoynBusObjectFactoryInterop_Impl, const OFFSET: isize>() -> IWindowsDevicesAllJoynBusObjectFactoryInterop_Vtbl {
         unsafe extern "system" fn CreateFromWin32Handle<Identity: ::windows::core::IUnknownImpl, Impl: IWindowsDevicesAllJoynBusObjectFactoryInterop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, win32handle: u64, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -75,9 +69,7 @@ pub trait IWindowsDevicesAllJoynBusObjectInterop_Impl: Sized {
     fn AddPropertySetHandler(&self, context: *const ::core::ffi::c_void, interfacename: &::windows::core::HSTRING, callback: isize) -> ::windows::core::Result<()>;
     fn Win32Handle(&self) -> ::windows::core::Result<u64>;
 }
-impl ::windows::core::RuntimeName for IWindowsDevicesAllJoynBusObjectInterop {
-    const NAME: &'static str = "";
-}
+impl ::windows::core::RuntimeName for IWindowsDevicesAllJoynBusObjectInterop {}
 impl IWindowsDevicesAllJoynBusObjectInterop_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWindowsDevicesAllJoynBusObjectInterop_Impl, const OFFSET: isize>() -> IWindowsDevicesAllJoynBusObjectInterop_Vtbl {
         unsafe extern "system" fn AddPropertyGetHandler<Identity: ::windows::core::IUnknownImpl, Impl: IWindowsDevicesAllJoynBusObjectInterop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, context: *const ::core::ffi::c_void, interfacename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, callback: isize) -> ::windows::core::HRESULT {

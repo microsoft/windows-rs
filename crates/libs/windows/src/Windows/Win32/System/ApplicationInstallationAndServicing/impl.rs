@@ -5,6 +5,7 @@ pub trait IAssemblyCache_Impl: Sized {
     fn Reserved(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
     fn InstallAssembly(&self, dwflags: u32, pszmanifestfilepath: &::windows::core::PCWSTR, prefdata: *mut FUSION_INSTALL_REFERENCE) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IAssemblyCache {}
 impl IAssemblyCache_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAssemblyCache_Impl, const OFFSET: isize>() -> IAssemblyCache_Vtbl {
         unsafe extern "system" fn UninstallAssembly<Identity: ::windows::core::IUnknownImpl, Impl: IAssemblyCache_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwflags: u32, pszassemblyname: ::windows::core::PCWSTR, prefdata: *mut FUSION_INSTALL_REFERENCE, puldisposition: *mut IASSEMBLYCACHE_UNINSTALL_DISPOSITION) -> ::windows::core::HRESULT {
@@ -58,6 +59,8 @@ pub trait IAssemblyCacheItem_Impl: Sized {
     fn AbortItem(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
+impl ::windows::core::RuntimeName for IAssemblyCacheItem {}
+#[cfg(feature = "Win32_System_Com")]
 impl IAssemblyCacheItem_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAssemblyCacheItem_Impl, const OFFSET: isize>() -> IAssemblyCacheItem_Vtbl {
         unsafe extern "system" fn CreateStream<Identity: ::windows::core::IUnknownImpl, Impl: IAssemblyCacheItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwflags: u32, pszstreamname: ::windows::core::PCWSTR, dwformat: u32, dwformatflags: u32, ppistream: *mut ::windows::core::RawPtr, pulimaxsize: *mut u64) -> ::windows::core::HRESULT {
@@ -97,6 +100,7 @@ pub trait IAssemblyName_Impl: Sized {
     fn IsEqual(&self, pname: &::core::option::Option<IAssemblyName>, dwcmpflags: u32) -> ::windows::core::Result<()>;
     fn Clone(&self) -> ::windows::core::Result<IAssemblyName>;
 }
+impl ::windows::core::RuntimeName for IAssemblyName {}
 impl IAssemblyName_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAssemblyName_Impl, const OFFSET: isize>() -> IAssemblyName_Vtbl {
         unsafe extern "system" fn SetProperty<Identity: ::windows::core::IUnknownImpl, Impl: IAssemblyName_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertyid: u32, pvproperty: *mut ::core::ffi::c_void, cbproperty: u32) -> ::windows::core::HRESULT {
@@ -175,6 +179,8 @@ pub trait IEnumMsmDependency_Impl: Sized {
     fn Clone(&self) -> ::windows::core::Result<IEnumMsmDependency>;
 }
 #[cfg(feature = "Win32_System_Com")]
+impl ::windows::core::RuntimeName for IEnumMsmDependency {}
+#[cfg(feature = "Win32_System_Com")]
 impl IEnumMsmDependency_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEnumMsmDependency_Impl, const OFFSET: isize>() -> IEnumMsmDependency_Vtbl {
         unsafe extern "system" fn Next<Identity: ::windows::core::IUnknownImpl, Impl: IEnumMsmDependency_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cfetch: u32, rgmsmdependencies: *mut ::windows::core::RawPtr, pcfetched: *mut u32) -> ::windows::core::HRESULT {
@@ -222,6 +228,8 @@ pub trait IEnumMsmError_Impl: Sized {
     fn Reset(&self) -> ::windows::core::Result<()>;
     fn Clone(&self) -> ::windows::core::Result<IEnumMsmError>;
 }
+#[cfg(feature = "Win32_System_Com")]
+impl ::windows::core::RuntimeName for IEnumMsmError {}
 #[cfg(feature = "Win32_System_Com")]
 impl IEnumMsmError_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEnumMsmError_Impl, const OFFSET: isize>() -> IEnumMsmError_Vtbl {
@@ -271,6 +279,8 @@ pub trait IEnumMsmString_Impl: Sized {
     fn Clone(&self) -> ::windows::core::Result<IEnumMsmString>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IEnumMsmString {}
+#[cfg(feature = "Win32_Foundation")]
 impl IEnumMsmString_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEnumMsmString_Impl, const OFFSET: isize>() -> IEnumMsmString_Vtbl {
         unsafe extern "system" fn Next<Identity: ::windows::core::IUnknownImpl, Impl: IEnumMsmString_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cfetch: u32, rgbstrstrings: *mut super::super::Foundation::BSTR, pcfetched: *mut u32) -> ::windows::core::HRESULT {
@@ -317,6 +327,8 @@ pub trait IMsmDependencies_Impl: Sized + super::Com::IDispatch_Impl {
     fn Count(&self, count: *mut i32) -> ::windows::core::Result<()>;
     fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IMsmDependencies {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMsmDependencies_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMsmDependencies_Impl, const OFFSET: isize>() -> IMsmDependencies_Vtbl {
@@ -365,6 +377,8 @@ pub trait IMsmDependency_Impl: Sized + super::Com::IDispatch_Impl {
     fn Version(&self, version: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IMsmDependency {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMsmDependency_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMsmDependency_Impl, const OFFSET: isize>() -> IMsmDependency_Vtbl {
         unsafe extern "system" fn Module<Identity: ::windows::core::IUnknownImpl, Impl: IMsmDependency_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, module: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
@@ -403,6 +417,8 @@ pub trait IMsmError_Impl: Sized + super::Com::IDispatch_Impl {
     fn ModuleTable(&self, errortable: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn ModuleKeys(&self) -> ::windows::core::Result<IMsmStrings>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IMsmError {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMsmError_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMsmError_Impl, const OFFSET: isize>() -> IMsmError_Vtbl {
@@ -475,6 +491,8 @@ pub trait IMsmErrors_Impl: Sized + super::Com::IDispatch_Impl {
     fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IMsmErrors {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMsmErrors_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMsmErrors_Impl, const OFFSET: isize>() -> IMsmErrors_Vtbl {
         unsafe extern "system" fn get_Item<Identity: ::windows::core::IUnknownImpl, Impl: IMsmErrors_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, item: i32, r#return: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -520,6 +538,8 @@ pub trait IMsmGetFiles_Impl: Sized + super::Com::IDispatch_Impl {
     fn ModuleFiles(&self) -> ::windows::core::Result<IMsmStrings>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IMsmGetFiles {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMsmGetFiles_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMsmGetFiles_Impl, const OFFSET: isize>() -> IMsmGetFiles_Vtbl {
         unsafe extern "system" fn ModuleFiles<Identity: ::windows::core::IUnknownImpl, Impl: IMsmGetFiles_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, files: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -555,6 +575,8 @@ pub trait IMsmMerge_Impl: Sized + super::Com::IDispatch_Impl {
     fn ExtractCAB(&self, filename: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn ExtractFiles(&self, path: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IMsmMerge {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMsmMerge_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMsmMerge_Impl, const OFFSET: isize>() -> IMsmMerge_Vtbl {
@@ -663,6 +685,8 @@ pub trait IMsmStrings_Impl: Sized + super::Com::IDispatch_Impl {
     fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IMsmStrings {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMsmStrings_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMsmStrings_Impl, const OFFSET: isize>() -> IMsmStrings_Vtbl {
         unsafe extern "system" fn get_Item<Identity: ::windows::core::IUnknownImpl, Impl: IMsmStrings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, item: i32, r#return: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
@@ -755,6 +779,8 @@ pub trait IPMApplicationInfo_Impl: Sized {
     fn set_IsMdilMaintenanceNeeded(&self, fismdilmaintenanceneeded: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn set_Title(&self, apptitle: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IPMApplicationInfo {}
 #[cfg(feature = "Win32_Foundation")]
 impl IPMApplicationInfo_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPMApplicationInfo_Impl, const OFFSET: isize>() -> IPMApplicationInfo_Vtbl {
@@ -1309,6 +1335,7 @@ impl IPMApplicationInfo_Vtbl {
 pub trait IPMApplicationInfoEnumerator_Impl: Sized {
     fn Next(&self) -> ::windows::core::Result<IPMApplicationInfo>;
 }
+impl ::windows::core::RuntimeName for IPMApplicationInfoEnumerator {}
 impl IPMApplicationInfoEnumerator_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPMApplicationInfoEnumerator_Impl, const OFFSET: isize>() -> IPMApplicationInfoEnumerator_Vtbl {
         unsafe extern "system" fn Next<Identity: ::windows::core::IUnknownImpl, Impl: IPMApplicationInfoEnumerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppappinfo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -1345,6 +1372,8 @@ pub trait IPMBackgroundServiceAgentInfo_Impl: Sized {
     fn set_IsScheduled(&self, isscheduled: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn set_IsScheduleAllowed(&self, isscheduleallowed: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IPMBackgroundServiceAgentInfo {}
 #[cfg(feature = "Win32_Foundation")]
 impl IPMBackgroundServiceAgentInfo_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPMBackgroundServiceAgentInfo_Impl, const OFFSET: isize>() -> IPMBackgroundServiceAgentInfo_Vtbl {
@@ -1479,6 +1508,7 @@ impl IPMBackgroundServiceAgentInfo_Vtbl {
 pub trait IPMBackgroundServiceAgentInfoEnumerator_Impl: Sized {
     fn Next(&self) -> ::windows::core::Result<IPMBackgroundServiceAgentInfo>;
 }
+impl ::windows::core::RuntimeName for IPMBackgroundServiceAgentInfoEnumerator {}
 impl IPMBackgroundServiceAgentInfoEnumerator_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPMBackgroundServiceAgentInfoEnumerator_Impl, const OFFSET: isize>() -> IPMBackgroundServiceAgentInfoEnumerator_Vtbl {
         unsafe extern "system" fn Next<Identity: ::windows::core::IUnknownImpl, Impl: IPMBackgroundServiceAgentInfoEnumerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppbsainfo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -1507,6 +1537,8 @@ pub trait IPMBackgroundWorkerInfo_Impl: Sized {
     fn ExpectedRuntime(&self) -> ::windows::core::Result<u32>;
     fn IsBootWorker(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IPMBackgroundWorkerInfo {}
 #[cfg(feature = "Win32_Foundation")]
 impl IPMBackgroundWorkerInfo_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPMBackgroundWorkerInfo_Impl, const OFFSET: isize>() -> IPMBackgroundWorkerInfo_Vtbl {
@@ -1581,6 +1613,7 @@ impl IPMBackgroundWorkerInfo_Vtbl {
 pub trait IPMBackgroundWorkerInfoEnumerator_Impl: Sized {
     fn Next(&self) -> ::windows::core::Result<IPMBackgroundWorkerInfo>;
 }
+impl ::windows::core::RuntimeName for IPMBackgroundWorkerInfoEnumerator {}
 impl IPMBackgroundWorkerInfoEnumerator_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPMBackgroundWorkerInfoEnumerator_Impl, const OFFSET: isize>() -> IPMBackgroundWorkerInfoEnumerator_Vtbl {
         unsafe extern "system" fn Next<Identity: ::windows::core::IUnknownImpl, Impl: IPMBackgroundWorkerInfoEnumerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppbwinfo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -1638,6 +1671,8 @@ pub trait IPMDeploymentManager_Impl: Sized {
     fn AddLicenseForAppx(&self, productid: &::windows::core::GUID, pblicense: *const u8, cblicense: u32, pbplayreadyheader: *const u8, cbplayreadyheader: u32) -> ::windows::core::Result<()>;
     fn FixJunctionsForAppsOnSDCard(&self) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::windows::core::RuntimeName for IPMDeploymentManager {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IPMDeploymentManager_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPMDeploymentManager_Impl, const OFFSET: isize>() -> IPMDeploymentManager_Vtbl {
@@ -1897,6 +1932,8 @@ pub trait IPMEnumerationManager_Impl: Sized {
     fn get_StartAppEnumeratorBlob(&self, filter: &PM_ENUM_FILTER, pcapps: *mut u32, ppappblobs: *mut *mut PM_STARTAPPBLOB) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IPMEnumerationManager {}
+#[cfg(feature = "Win32_Foundation")]
 impl IPMEnumerationManager_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPMEnumerationManager_Impl, const OFFSET: isize>() -> IPMEnumerationManager_Vtbl {
         unsafe extern "system" fn get_AllApplications<Identity: ::windows::core::IUnknownImpl, Impl: IPMEnumerationManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppappenum: *mut ::windows::core::RawPtr, filter: ::core::mem::ManuallyDrop<PM_ENUM_FILTER>) -> ::windows::core::HRESULT {
@@ -2074,6 +2111,8 @@ pub trait IPMExtensionCachedFileUpdaterInfo_Impl: Sized {
     fn SupportsUpdates(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IPMExtensionCachedFileUpdaterInfo {}
+#[cfg(feature = "Win32_Foundation")]
 impl IPMExtensionCachedFileUpdaterInfo_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPMExtensionCachedFileUpdaterInfo_Impl, const OFFSET: isize>() -> IPMExtensionCachedFileUpdaterInfo_Vtbl {
         unsafe extern "system" fn SupportsUpdates<Identity: ::windows::core::IUnknownImpl, Impl: IPMExtensionCachedFileUpdaterInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psupportsupdates: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
@@ -2098,6 +2137,8 @@ pub trait IPMExtensionContractInfo_Impl: Sized {
     fn get_InvocationInfo(&self, paumid: *mut super::super::Foundation::BSTR, pargs: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IPMExtensionContractInfo {}
+#[cfg(feature = "Win32_Foundation")]
 impl IPMExtensionContractInfo_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPMExtensionContractInfo_Impl, const OFFSET: isize>() -> IPMExtensionContractInfo_Vtbl {
         unsafe extern "system" fn get_InvocationInfo<Identity: ::windows::core::IUnknownImpl, Impl: IPMExtensionContractInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, paumid: *mut super::super::Foundation::BSTR, pargs: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
@@ -2121,6 +2162,8 @@ pub trait IPMExtensionFileExtensionInfo_Impl: Sized {
     fn get_InvocationInfo(&self, pimageurn: *mut super::super::Foundation::BSTR, pparameters: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn get_AllFileTypes(&self, pcbtypes: *mut u32, pptypes: *mut *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IPMExtensionFileExtensionInfo {}
 #[cfg(feature = "Win32_Foundation")]
 impl IPMExtensionFileExtensionInfo_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPMExtensionFileExtensionInfo_Impl, const OFFSET: isize>() -> IPMExtensionFileExtensionInfo_Vtbl {
@@ -2180,6 +2223,8 @@ pub trait IPMExtensionFileOpenPickerInfo_Impl: Sized {
     fn SupportsAllFileTypes(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IPMExtensionFileOpenPickerInfo {}
+#[cfg(feature = "Win32_Foundation")]
 impl IPMExtensionFileOpenPickerInfo_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPMExtensionFileOpenPickerInfo_Impl, const OFFSET: isize>() -> IPMExtensionFileOpenPickerInfo_Vtbl {
         unsafe extern "system" fn get_AllFileTypes<Identity: ::windows::core::IUnknownImpl, Impl: IPMExtensionFileOpenPickerInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pctypes: *mut u32, pptypes: *mut *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
@@ -2213,6 +2258,8 @@ pub trait IPMExtensionFileSavePickerInfo_Impl: Sized {
     fn get_AllFileTypes(&self, pctypes: *mut u32, pptypes: *mut *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn SupportsAllFileTypes(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IPMExtensionFileSavePickerInfo {}
 #[cfg(feature = "Win32_Foundation")]
 impl IPMExtensionFileSavePickerInfo_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPMExtensionFileSavePickerInfo_Impl, const OFFSET: isize>() -> IPMExtensionFileSavePickerInfo_Vtbl {
@@ -2251,6 +2298,8 @@ pub trait IPMExtensionInfo_Impl: Sized {
     fn ExtraFile(&self, pfilepath: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn get_InvocationInfo(&self, pimageurn: *mut super::super::Foundation::BSTR, pparameters: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IPMExtensionInfo {}
 #[cfg(feature = "Win32_Foundation")]
 impl IPMExtensionInfo_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPMExtensionInfo_Impl, const OFFSET: isize>() -> IPMExtensionInfo_Vtbl {
@@ -2307,6 +2356,7 @@ impl IPMExtensionInfo_Vtbl {
 pub trait IPMExtensionInfoEnumerator_Impl: Sized {
     fn Next(&self) -> ::windows::core::Result<IPMExtensionInfo>;
 }
+impl ::windows::core::RuntimeName for IPMExtensionInfoEnumerator {}
 impl IPMExtensionInfoEnumerator_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPMExtensionInfoEnumerator_Impl, const OFFSET: isize>() -> IPMExtensionInfoEnumerator_Vtbl {
         unsafe extern "system" fn Next<Identity: ::windows::core::IUnknownImpl, Impl: IPMExtensionInfoEnumerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppextensioninfo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -2331,6 +2381,8 @@ pub trait IPMExtensionProtocolInfo_Impl: Sized {
     fn Protocol(&self, pprotocol: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn get_InvocationInfo(&self, pimageurn: *mut super::super::Foundation::BSTR, pparameters: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IPMExtensionProtocolInfo {}
 #[cfg(feature = "Win32_Foundation")]
 impl IPMExtensionProtocolInfo_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPMExtensionProtocolInfo_Impl, const OFFSET: isize>() -> IPMExtensionProtocolInfo_Vtbl {
@@ -2360,6 +2412,8 @@ pub trait IPMExtensionShareTargetInfo_Impl: Sized {
     fn get_AllDataFormats(&self, pcdataformats: *mut u32, ppdataformats: *mut *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn SupportsAllFileTypes(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IPMExtensionShareTargetInfo {}
 #[cfg(feature = "Win32_Foundation")]
 impl IPMExtensionShareTargetInfo_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPMExtensionShareTargetInfo_Impl, const OFFSET: isize>() -> IPMExtensionShareTargetInfo_Vtbl {
@@ -2422,6 +2476,8 @@ pub trait IPMLiveTileJobInfo_Impl: Sized {
     fn DownloadState(&self) -> ::windows::core::Result<u32>;
     fn set_DownloadState(&self, uldownloadstate: u32) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IPMLiveTileJobInfo {}
 #[cfg(feature = "Win32_Foundation")]
 impl IPMLiveTileJobInfo_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPMLiveTileJobInfo_Impl, const OFFSET: isize>() -> IPMLiveTileJobInfo_Vtbl {
@@ -2640,6 +2696,7 @@ impl IPMLiveTileJobInfo_Vtbl {
 pub trait IPMLiveTileJobInfoEnumerator_Impl: Sized {
     fn Next(&self) -> ::windows::core::Result<IPMLiveTileJobInfo>;
 }
+impl ::windows::core::RuntimeName for IPMLiveTileJobInfoEnumerator {}
 impl IPMLiveTileJobInfoEnumerator_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPMLiveTileJobInfoEnumerator_Impl, const OFFSET: isize>() -> IPMLiveTileJobInfoEnumerator_Vtbl {
         unsafe extern "system" fn Next<Identity: ::windows::core::IUnknownImpl, Impl: IPMLiveTileJobInfoEnumerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pplivetilejobinfo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -2683,6 +2740,8 @@ pub trait IPMTaskInfo_Impl: Sized {
     fn BackgroundExecutionAbilities(&self, pbackgroundexecutionabilities: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn IsOptedForExtendedMem(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IPMTaskInfo {}
 #[cfg(feature = "Win32_Foundation")]
 impl IPMTaskInfo_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPMTaskInfo_Impl, const OFFSET: isize>() -> IPMTaskInfo_Vtbl {
@@ -2895,6 +2954,7 @@ impl IPMTaskInfo_Vtbl {
 pub trait IPMTaskInfoEnumerator_Impl: Sized {
     fn Next(&self) -> ::windows::core::Result<IPMTaskInfo>;
 }
+impl ::windows::core::RuntimeName for IPMTaskInfoEnumerator {}
 impl IPMTaskInfoEnumerator_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPMTaskInfoEnumerator_Impl, const OFFSET: isize>() -> IPMTaskInfoEnumerator_Vtbl {
         unsafe extern "system" fn Next<Identity: ::windows::core::IUnknownImpl, Impl: IPMTaskInfoEnumerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pptaskinfo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -2941,6 +3001,8 @@ pub trait IPMTileInfo_Impl: Sized {
     fn set_IsRestoring(&self, restoring: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn set_IsAutoRestoreDisabled(&self, autorestoredisabled: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IPMTileInfo {}
 #[cfg(feature = "Win32_Foundation")]
 impl IPMTileInfo_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPMTileInfo_Impl, const OFFSET: isize>() -> IPMTileInfo_Vtbl {
@@ -3177,6 +3239,7 @@ impl IPMTileInfo_Vtbl {
 pub trait IPMTileInfoEnumerator_Impl: Sized {
     fn Next(&self) -> ::windows::core::Result<IPMTileInfo>;
 }
+impl ::windows::core::RuntimeName for IPMTileInfoEnumerator {}
 impl IPMTileInfoEnumerator_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPMTileInfoEnumerator_Impl, const OFFSET: isize>() -> IPMTileInfoEnumerator_Vtbl {
         unsafe extern "system" fn Next<Identity: ::windows::core::IUnknownImpl, Impl: IPMTileInfoEnumerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pptileinfo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -3199,6 +3262,7 @@ impl IPMTileInfoEnumerator_Vtbl {
 pub trait IPMTilePropertyEnumerator_Impl: Sized {
     fn Next(&self) -> ::windows::core::Result<IPMTilePropertyInfo>;
 }
+impl ::windows::core::RuntimeName for IPMTilePropertyEnumerator {}
 impl IPMTilePropertyEnumerator_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPMTilePropertyEnumerator_Impl, const OFFSET: isize>() -> IPMTilePropertyEnumerator_Vtbl {
         unsafe extern "system" fn Next<Identity: ::windows::core::IUnknownImpl, Impl: IPMTilePropertyEnumerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pppropinfo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -3224,6 +3288,8 @@ pub trait IPMTilePropertyInfo_Impl: Sized {
     fn PropertyValue(&self, ppropvalue: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn set_Property(&self, propvalue: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IPMTilePropertyInfo {}
 #[cfg(feature = "Win32_Foundation")]
 impl IPMTilePropertyInfo_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPMTilePropertyInfo_Impl, const OFFSET: isize>() -> IPMTilePropertyInfo_Vtbl {
@@ -3269,6 +3335,8 @@ pub trait IValidate_Impl: Sized {
     fn SetStatus(&self, pstatusfunction: &LPEVALCOMCALLBACK, pcontext: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn Validate(&self, wzices: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IValidate {}
 #[cfg(feature = "Win32_Foundation")]
 impl IValidate_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IValidate_Impl, const OFFSET: isize>() -> IValidate_Vtbl {

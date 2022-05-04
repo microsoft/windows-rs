@@ -3,6 +3,8 @@ pub trait IMSMQApplication_Impl: Sized + super::Com::IDispatch_Impl {
     fn MachineIdOfMachineName(&self, machinename: &super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::Foundation::BSTR>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IMSMQApplication {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMSMQApplication_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMSMQApplication_Impl, const OFFSET: isize>() -> IMSMQApplication_Vtbl {
         unsafe extern "system" fn MachineIdOfMachineName<Identity: ::windows::core::IUnknownImpl, Impl: IMSMQApplication_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, machinename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pbstrguid: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
@@ -32,6 +34,8 @@ pub trait IMSMQApplication2_Impl: Sized + super::Com::IDispatch_Impl + IMSMQAppl
     fn IsDsEnabled(&self) -> ::windows::core::Result<i16>;
     fn Properties(&self) -> ::windows::core::Result<super::Com::IDispatch>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IMSMQApplication2 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMSMQApplication2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMSMQApplication2_Impl, const OFFSET: isize>() -> IMSMQApplication2_Vtbl {
@@ -134,6 +138,8 @@ pub trait IMSMQApplication3_Impl: Sized + super::Com::IDispatch_Impl + IMSMQAppl
     fn Disconnect(&self) -> ::windows::core::Result<()>;
     fn Tidy(&self) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IMSMQApplication3 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMSMQApplication3_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMSMQApplication3_Impl, const OFFSET: isize>() -> IMSMQApplication3_Vtbl {
@@ -248,6 +254,8 @@ pub trait IMSMQCollection_Impl: Sized + super::Com::IDispatch_Impl {
     fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IMSMQCollection {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMSMQCollection_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMSMQCollection_Impl, const OFFSET: isize>() -> IMSMQCollection_Vtbl {
         unsafe extern "system" fn Item<Identity: ::windows::core::IUnknownImpl, Impl: IMSMQCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: *const super::Com::VARIANT, pvarret: *mut super::Com::VARIANT) -> ::windows::core::HRESULT {
@@ -299,6 +307,8 @@ pub trait IMSMQCoordinatedTransactionDispenser_Impl: Sized + super::Com::IDispat
     fn BeginTransaction(&self) -> ::windows::core::Result<IMSMQTransaction>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IMSMQCoordinatedTransactionDispenser {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMSMQCoordinatedTransactionDispenser_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMSMQCoordinatedTransactionDispenser_Impl, const OFFSET: isize>() -> IMSMQCoordinatedTransactionDispenser_Vtbl {
         unsafe extern "system" fn BeginTransaction<Identity: ::windows::core::IUnknownImpl, Impl: IMSMQCoordinatedTransactionDispenser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptransaction: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -323,6 +333,8 @@ pub trait IMSMQCoordinatedTransactionDispenser2_Impl: Sized + super::Com::IDispa
     fn BeginTransaction(&self) -> ::windows::core::Result<IMSMQTransaction2>;
     fn Properties(&self) -> ::windows::core::Result<super::Com::IDispatch>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IMSMQCoordinatedTransactionDispenser2 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMSMQCoordinatedTransactionDispenser2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMSMQCoordinatedTransactionDispenser2_Impl, const OFFSET: isize>() -> IMSMQCoordinatedTransactionDispenser2_Vtbl {
@@ -363,6 +375,8 @@ pub trait IMSMQCoordinatedTransactionDispenser3_Impl: Sized + super::Com::IDispa
     fn BeginTransaction(&self) -> ::windows::core::Result<IMSMQTransaction3>;
     fn Properties(&self) -> ::windows::core::Result<super::Com::IDispatch>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IMSMQCoordinatedTransactionDispenser3 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMSMQCoordinatedTransactionDispenser3_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMSMQCoordinatedTransactionDispenser3_Impl, const OFFSET: isize>() -> IMSMQCoordinatedTransactionDispenser3_Vtbl {
@@ -415,6 +429,8 @@ pub trait IMSMQDestination_Impl: Sized + super::Com::IDispatch_Impl {
     fn putref_Destinations(&self, pdestinations: &::core::option::Option<super::Com::IDispatch>) -> ::windows::core::Result<()>;
     fn Properties(&self) -> ::windows::core::Result<super::Com::IDispatch>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IMSMQDestination {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMSMQDestination_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMSMQDestination_Impl, const OFFSET: isize>() -> IMSMQDestination_Vtbl {
@@ -555,6 +571,8 @@ impl IMSMQDestination_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMSMQEvent_Impl: Sized + super::Com::IDispatch_Impl {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IMSMQEvent {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMSMQEvent_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMSMQEvent_Impl, const OFFSET: isize>() -> IMSMQEvent_Vtbl {
         Self { base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>() }
@@ -567,6 +585,8 @@ impl IMSMQEvent_Vtbl {
 pub trait IMSMQEvent2_Impl: Sized + super::Com::IDispatch_Impl + IMSMQEvent_Impl {
     fn Properties(&self) -> ::windows::core::Result<super::Com::IDispatch>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IMSMQEvent2 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMSMQEvent2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMSMQEvent2_Impl, const OFFSET: isize>() -> IMSMQEvent2_Vtbl {
@@ -590,6 +610,8 @@ impl IMSMQEvent2_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMSMQEvent3_Impl: Sized + super::Com::IDispatch_Impl + IMSMQEvent_Impl + IMSMQEvent2_Impl {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IMSMQEvent3 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMSMQEvent3_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMSMQEvent3_Impl, const OFFSET: isize>() -> IMSMQEvent3_Vtbl {
         Self { base__: IMSMQEvent2_Vtbl::new::<Identity, Impl, OFFSET>() }
@@ -610,6 +632,8 @@ pub trait IMSMQManagement_Impl: Sized + super::Com::IDispatch_Impl {
     fn TransactionalStatus(&self) -> ::windows::core::Result<i32>;
     fn BytesInQueue(&self) -> ::windows::core::Result<super::Com::VARIANT>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IMSMQManagement {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMSMQManagement_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMSMQManagement_Impl, const OFFSET: isize>() -> IMSMQManagement_Vtbl {
@@ -775,6 +799,8 @@ pub trait IMSMQMessage_Impl: Sized + super::Com::IDispatch_Impl {
     fn Send(&self, destinationqueue: &::core::option::Option<IMSMQQueue>, transaction: *const super::Com::VARIANT) -> ::windows::core::Result<()>;
     fn AttachCurrentSecurityContext(&self) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IMSMQMessage {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMSMQMessage_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMSMQMessage_Impl, const OFFSET: isize>() -> IMSMQMessage_Vtbl {
@@ -1326,6 +1352,8 @@ pub trait IMSMQMessage2_Impl: Sized + super::Com::IDispatch_Impl {
     fn putref_AdminQueueInfo(&self, pqinfoadmin: &::core::option::Option<IMSMQQueueInfo2>) -> ::windows::core::Result<()>;
     fn ReceivedAuthenticationLevel(&self) -> ::windows::core::Result<i16>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IMSMQMessage2 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMSMQMessage2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMSMQMessage2_Impl, const OFFSET: isize>() -> IMSMQMessage2_Vtbl {
@@ -2145,6 +2173,8 @@ pub trait IMSMQMessage3_Impl: Sized + super::Com::IDispatch_Impl {
     fn SetSoapHeader(&self, bstrsoapheader: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn SetSoapBody(&self, bstrsoapbody: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IMSMQMessage3 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMSMQMessage3_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMSMQMessage3_Impl, const OFFSET: isize>() -> IMSMQMessage3_Vtbl {
@@ -3121,6 +3151,8 @@ pub trait IMSMQMessage4_Impl: Sized + super::Com::IDispatch_Impl {
     fn SetSoapBody(&self, bstrsoapbody: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IMSMQMessage4 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMSMQMessage4_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMSMQMessage4_Impl, const OFFSET: isize>() -> IMSMQMessage4_Vtbl {
         unsafe extern "system" fn Class<Identity: ::windows::core::IUnknownImpl, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plclass: *mut i32) -> ::windows::core::HRESULT {
@@ -4011,6 +4043,8 @@ pub trait IMSMQOutgoingQueueManagement_Impl: Sized + super::Com::IDispatch_Impl 
     fn EodResend(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IMSMQOutgoingQueueManagement {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMSMQOutgoingQueueManagement_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMSMQOutgoingQueueManagement_Impl, const OFFSET: isize>() -> IMSMQOutgoingQueueManagement_Vtbl {
         unsafe extern "system" fn State<Identity: ::windows::core::IUnknownImpl, Impl: IMSMQOutgoingQueueManagement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plstate: *mut i32) -> ::windows::core::HRESULT {
@@ -4081,6 +4115,8 @@ pub trait IMSMQPrivateDestination_Impl: Sized + super::Com::IDispatch_Impl {
     fn SetHandle(&self, varhandle: &super::Com::VARIANT) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IMSMQPrivateDestination {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMSMQPrivateDestination_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMSMQPrivateDestination_Impl, const OFFSET: isize>() -> IMSMQPrivateDestination_Vtbl {
         unsafe extern "system" fn Handle<Identity: ::windows::core::IUnknownImpl, Impl: IMSMQPrivateDestination_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarhandle: *mut super::Com::VARIANT) -> ::windows::core::HRESULT {
@@ -4115,6 +4151,8 @@ pub trait IMSMQPrivateEvent_Impl: Sized + super::Com::IDispatch_Impl {
     fn FireArrivedEvent(&self, pq: &::core::option::Option<IMSMQQueue>, msgcursor: i32) -> ::windows::core::Result<()>;
     fn FireArrivedErrorEvent(&self, pq: &::core::option::Option<IMSMQQueue>, hrstatus: ::windows::core::HRESULT, msgcursor: i32) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IMSMQPrivateEvent {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMSMQPrivateEvent_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMSMQPrivateEvent_Impl, const OFFSET: isize>() -> IMSMQPrivateEvent_Vtbl {
@@ -4155,6 +4193,8 @@ pub trait IMSMQQuery_Impl: Sized + super::Com::IDispatch_Impl {
     fn LookupQueue(&self, queueguid: *const super::Com::VARIANT, servicetypeguid: *const super::Com::VARIANT, label: *const super::Com::VARIANT, createtime: *const super::Com::VARIANT, modifytime: *const super::Com::VARIANT, relservicetype: *const super::Com::VARIANT, rellabel: *const super::Com::VARIANT, relcreatetime: *const super::Com::VARIANT, relmodifytime: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQQueueInfos>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IMSMQQuery {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMSMQQuery_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMSMQQuery_Impl, const OFFSET: isize>() -> IMSMQQuery_Vtbl {
         unsafe extern "system" fn LookupQueue<Identity: ::windows::core::IUnknownImpl, Impl: IMSMQQuery_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, queueguid: *const super::Com::VARIANT, servicetypeguid: *const super::Com::VARIANT, label: *const super::Com::VARIANT, createtime: *const super::Com::VARIANT, modifytime: *const super::Com::VARIANT, relservicetype: *const super::Com::VARIANT, rellabel: *const super::Com::VARIANT, relcreatetime: *const super::Com::VARIANT, relmodifytime: *const super::Com::VARIANT, ppqinfos: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -4179,6 +4219,8 @@ pub trait IMSMQQuery2_Impl: Sized + super::Com::IDispatch_Impl {
     fn LookupQueue(&self, queueguid: *const super::Com::VARIANT, servicetypeguid: *const super::Com::VARIANT, label: *const super::Com::VARIANT, createtime: *const super::Com::VARIANT, modifytime: *const super::Com::VARIANT, relservicetype: *const super::Com::VARIANT, rellabel: *const super::Com::VARIANT, relcreatetime: *const super::Com::VARIANT, relmodifytime: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQQueueInfos2>;
     fn Properties(&self) -> ::windows::core::Result<super::Com::IDispatch>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IMSMQQuery2 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMSMQQuery2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMSMQQuery2_Impl, const OFFSET: isize>() -> IMSMQQuery2_Vtbl {
@@ -4220,6 +4262,8 @@ pub trait IMSMQQuery3_Impl: Sized + super::Com::IDispatch_Impl {
     fn Properties(&self) -> ::windows::core::Result<super::Com::IDispatch>;
     fn LookupQueue(&self, queueguid: *const super::Com::VARIANT, servicetypeguid: *const super::Com::VARIANT, label: *const super::Com::VARIANT, createtime: *const super::Com::VARIANT, modifytime: *const super::Com::VARIANT, relservicetype: *const super::Com::VARIANT, rellabel: *const super::Com::VARIANT, relcreatetime: *const super::Com::VARIANT, relmodifytime: *const super::Com::VARIANT, multicastaddress: *const super::Com::VARIANT, relmulticastaddress: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQQueueInfos3>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IMSMQQuery3 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMSMQQuery3_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMSMQQuery3_Impl, const OFFSET: isize>() -> IMSMQQuery3_Vtbl {
@@ -4285,6 +4329,8 @@ pub trait IMSMQQuery4_Impl: Sized + super::Com::IDispatch_Impl {
     fn Properties(&self) -> ::windows::core::Result<super::Com::IDispatch>;
     fn LookupQueue(&self, queueguid: *const super::Com::VARIANT, servicetypeguid: *const super::Com::VARIANT, label: *const super::Com::VARIANT, createtime: *const super::Com::VARIANT, modifytime: *const super::Com::VARIANT, relservicetype: *const super::Com::VARIANT, rellabel: *const super::Com::VARIANT, relcreatetime: *const super::Com::VARIANT, relmodifytime: *const super::Com::VARIANT, multicastaddress: *const super::Com::VARIANT, relmulticastaddress: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQQueueInfos4>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IMSMQQuery4 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMSMQQuery4_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMSMQQuery4_Impl, const OFFSET: isize>() -> IMSMQQuery4_Vtbl {
@@ -4360,6 +4406,8 @@ pub trait IMSMQQueue_Impl: Sized + super::Com::IDispatch_Impl {
     fn PeekNext(&self, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage>;
     fn PeekCurrent(&self, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IMSMQQueue {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMSMQQueue_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMSMQQueue_Impl, const OFFSET: isize>() -> IMSMQQueue_Vtbl {
@@ -4531,6 +4579,8 @@ pub trait IMSMQQueue2_Impl: Sized + super::Com::IDispatch_Impl {
     fn PeekCurrent(&self, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage2>;
     fn Properties(&self) -> ::windows::core::Result<super::Com::IDispatch>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IMSMQQueue2 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMSMQQueue2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMSMQQueue2_Impl, const OFFSET: isize>() -> IMSMQQueue2_Vtbl {
@@ -4787,6 +4837,8 @@ pub trait IMSMQQueue3_Impl: Sized + super::Com::IDispatch_Impl {
     fn Purge(&self) -> ::windows::core::Result<()>;
     fn IsOpen2(&self) -> ::windows::core::Result<i16>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IMSMQQueue3 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMSMQQueue3_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMSMQQueue3_Impl, const OFFSET: isize>() -> IMSMQQueue3_Vtbl {
@@ -5194,6 +5246,8 @@ pub trait IMSMQQueue4_Impl: Sized + super::Com::IDispatch_Impl {
     fn IsOpen2(&self) -> ::windows::core::Result<i16>;
     fn ReceiveByLookupIdAllowPeek(&self, lookupid: &super::Com::VARIANT, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage4>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IMSMQQueue4 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMSMQQueue4_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMSMQQueue4_Impl, const OFFSET: isize>() -> IMSMQQueue4_Vtbl {
@@ -5611,6 +5665,8 @@ pub trait IMSMQQueueInfo_Impl: Sized + super::Com::IDispatch_Impl {
     fn Update(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IMSMQQueueInfo {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMSMQQueueInfo_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMSMQQueueInfo_Impl, const OFFSET: isize>() -> IMSMQQueueInfo_Vtbl {
         unsafe extern "system" fn QueueGuid<Identity: ::windows::core::IUnknownImpl, Impl: IMSMQQueueInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrguidqueue: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
@@ -5934,6 +5990,8 @@ pub trait IMSMQQueueInfo2_Impl: Sized + super::Com::IDispatch_Impl {
     fn Security(&self) -> ::windows::core::Result<super::Com::VARIANT>;
     fn SetSecurity(&self, varsecurity: &super::Com::VARIANT) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IMSMQQueueInfo2 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMSMQQueueInfo2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMSMQQueueInfo2_Impl, const OFFSET: isize>() -> IMSMQQueueInfo2_Vtbl {
@@ -6305,6 +6363,8 @@ pub trait IMSMQQueueInfo3_Impl: Sized + super::Com::IDispatch_Impl {
     fn SetMulticastAddress(&self, bstrmulticastaddress: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn ADsPath(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IMSMQQueueInfo3 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMSMQQueueInfo3_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMSMQQueueInfo3_Impl, const OFFSET: isize>() -> IMSMQQueueInfo3_Vtbl {
@@ -6731,6 +6791,8 @@ pub trait IMSMQQueueInfo4_Impl: Sized + super::Com::IDispatch_Impl {
     fn ADsPath(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IMSMQQueueInfo4 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMSMQQueueInfo4_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMSMQQueueInfo4_Impl, const OFFSET: isize>() -> IMSMQQueueInfo4_Vtbl {
         unsafe extern "system" fn QueueGuid<Identity: ::windows::core::IUnknownImpl, Impl: IMSMQQueueInfo4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrguidqueue: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
@@ -7119,6 +7181,8 @@ pub trait IMSMQQueueInfos_Impl: Sized + super::Com::IDispatch_Impl {
     fn Next(&self) -> ::windows::core::Result<IMSMQQueueInfo>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IMSMQQueueInfos {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMSMQQueueInfos_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMSMQQueueInfos_Impl, const OFFSET: isize>() -> IMSMQQueueInfos_Vtbl {
         unsafe extern "system" fn Reset<Identity: ::windows::core::IUnknownImpl, Impl: IMSMQQueueInfos_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -7153,6 +7217,8 @@ pub trait IMSMQQueueInfos2_Impl: Sized + super::Com::IDispatch_Impl {
     fn Next(&self) -> ::windows::core::Result<IMSMQQueueInfo2>;
     fn Properties(&self) -> ::windows::core::Result<super::Com::IDispatch>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IMSMQQueueInfos2 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMSMQQueueInfos2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMSMQQueueInfos2_Impl, const OFFSET: isize>() -> IMSMQQueueInfos2_Vtbl {
@@ -7201,6 +7267,8 @@ pub trait IMSMQQueueInfos3_Impl: Sized + super::Com::IDispatch_Impl {
     fn Properties(&self) -> ::windows::core::Result<super::Com::IDispatch>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IMSMQQueueInfos3 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMSMQQueueInfos3_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMSMQQueueInfos3_Impl, const OFFSET: isize>() -> IMSMQQueueInfos3_Vtbl {
         unsafe extern "system" fn Reset<Identity: ::windows::core::IUnknownImpl, Impl: IMSMQQueueInfos3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -7248,6 +7316,8 @@ pub trait IMSMQQueueInfos4_Impl: Sized + super::Com::IDispatch_Impl {
     fn Properties(&self) -> ::windows::core::Result<super::Com::IDispatch>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IMSMQQueueInfos4 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMSMQQueueInfos4_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMSMQQueueInfos4_Impl, const OFFSET: isize>() -> IMSMQQueueInfos4_Vtbl {
         unsafe extern "system" fn Reset<Identity: ::windows::core::IUnknownImpl, Impl: IMSMQQueueInfos4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -7294,6 +7364,8 @@ pub trait IMSMQQueueManagement_Impl: Sized + super::Com::IDispatch_Impl + IMSMQM
     fn BytesInJournal(&self) -> ::windows::core::Result<super::Com::VARIANT>;
     fn EodGetReceiveInfo(&self) -> ::windows::core::Result<super::Com::VARIANT>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IMSMQQueueManagement {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMSMQQueueManagement_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMSMQQueueManagement_Impl, const OFFSET: isize>() -> IMSMQQueueManagement_Vtbl {
@@ -7348,6 +7420,8 @@ pub trait IMSMQTransaction_Impl: Sized + super::Com::IDispatch_Impl {
     fn Abort(&self, fretaining: *const super::Com::VARIANT, fasync: *const super::Com::VARIANT) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IMSMQTransaction {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMSMQTransaction_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMSMQTransaction_Impl, const OFFSET: isize>() -> IMSMQTransaction_Vtbl {
         unsafe extern "system" fn Transaction<Identity: ::windows::core::IUnknownImpl, Impl: IMSMQTransaction_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pltransaction: *mut i32) -> ::windows::core::HRESULT {
@@ -7388,6 +7462,8 @@ pub trait IMSMQTransaction2_Impl: Sized + super::Com::IDispatch_Impl + IMSMQTran
     fn Properties(&self) -> ::windows::core::Result<super::Com::IDispatch>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IMSMQTransaction2 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMSMQTransaction2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMSMQTransaction2_Impl, const OFFSET: isize>() -> IMSMQTransaction2_Vtbl {
         unsafe extern "system" fn InitNew<Identity: ::windows::core::IUnknownImpl, Impl: IMSMQTransaction2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vartransaction: ::core::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::core::HRESULT {
@@ -7421,6 +7497,8 @@ pub trait IMSMQTransaction3_Impl: Sized + super::Com::IDispatch_Impl + IMSMQTran
     fn ITransaction(&self) -> ::windows::core::Result<super::Com::VARIANT>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IMSMQTransaction3 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMSMQTransaction3_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMSMQTransaction3_Impl, const OFFSET: isize>() -> IMSMQTransaction3_Vtbl {
         unsafe extern "system" fn ITransaction<Identity: ::windows::core::IUnknownImpl, Impl: IMSMQTransaction3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvaritransaction: *mut super::Com::VARIANT) -> ::windows::core::HRESULT {
@@ -7444,6 +7522,8 @@ impl IMSMQTransaction3_Vtbl {
 pub trait IMSMQTransactionDispenser_Impl: Sized + super::Com::IDispatch_Impl {
     fn BeginTransaction(&self) -> ::windows::core::Result<IMSMQTransaction>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IMSMQTransactionDispenser {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMSMQTransactionDispenser_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMSMQTransactionDispenser_Impl, const OFFSET: isize>() -> IMSMQTransactionDispenser_Vtbl {
@@ -7469,6 +7549,8 @@ pub trait IMSMQTransactionDispenser2_Impl: Sized + super::Com::IDispatch_Impl {
     fn BeginTransaction(&self) -> ::windows::core::Result<IMSMQTransaction2>;
     fn Properties(&self) -> ::windows::core::Result<super::Com::IDispatch>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IMSMQTransactionDispenser2 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMSMQTransactionDispenser2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMSMQTransactionDispenser2_Impl, const OFFSET: isize>() -> IMSMQTransactionDispenser2_Vtbl {
@@ -7510,6 +7592,8 @@ pub trait IMSMQTransactionDispenser3_Impl: Sized + super::Com::IDispatch_Impl {
     fn Properties(&self) -> ::windows::core::Result<super::Com::IDispatch>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IMSMQTransactionDispenser3 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMSMQTransactionDispenser3_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMSMQTransactionDispenser3_Impl, const OFFSET: isize>() -> IMSMQTransactionDispenser3_Vtbl {
         unsafe extern "system" fn BeginTransaction<Identity: ::windows::core::IUnknownImpl, Impl: IMSMQTransactionDispenser3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptransaction: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -7546,6 +7630,8 @@ impl IMSMQTransactionDispenser3_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait _DMSMQEventEvents_Impl: Sized + super::Com::IDispatch_Impl {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for _DMSMQEventEvents {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl _DMSMQEventEvents_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: _DMSMQEventEvents_Impl, const OFFSET: isize>() -> _DMSMQEventEvents_Vtbl {

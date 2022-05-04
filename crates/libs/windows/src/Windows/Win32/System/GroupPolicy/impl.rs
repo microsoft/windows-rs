@@ -11,6 +11,8 @@ pub trait IGPEInformation_Impl: Sized {
     fn PolicyChanged(&self, bmachine: super::super::Foundation::BOOL, badd: super::super::Foundation::BOOL, pguidextension: *mut ::windows::core::GUID, pguidsnapin: *mut ::windows::core::GUID) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+impl ::windows::core::RuntimeName for IGPEInformation {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 impl IGPEInformation_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGPEInformation_Impl, const OFFSET: isize>() -> IGPEInformation_Vtbl {
         unsafe extern "system" fn GetName<Identity: ::windows::core::IUnknownImpl, Impl: IGPEInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszname: ::windows::core::PWSTR, cchmaxlength: i32) -> ::windows::core::HRESULT {
@@ -90,6 +92,8 @@ pub trait IGPM_Impl: Sized + super::Com::IDispatch_Impl {
     fn CreateMigrationTable(&self) -> ::windows::core::Result<IGPMMigrationTable>;
     fn InitializeReporting(&self, bstradmpath: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IGPM {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IGPM_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGPM_Impl, const OFFSET: isize>() -> IGPM_Vtbl {
@@ -245,6 +249,8 @@ pub trait IGPM2_Impl: Sized + super::Com::IDispatch_Impl + IGPM_Impl {
     fn InitializeReportingEx(&self, bstradmpath: &super::super::Foundation::BSTR, reportingoptions: i32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IGPM2 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IGPM2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGPM2_Impl, const OFFSET: isize>() -> IGPM2_Vtbl {
         unsafe extern "system" fn GetBackupDirEx<Identity: ::windows::core::IUnknownImpl, Impl: IGPM2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrbackupdir: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, backupdirtype: GPMBackupType, ppigpmbackupdirex: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -278,6 +284,8 @@ pub trait IGPMAsyncCancel_Impl: Sized + super::Com::IDispatch_Impl {
     fn Cancel(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IGPMAsyncCancel {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IGPMAsyncCancel_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGPMAsyncCancel_Impl, const OFFSET: isize>() -> IGPMAsyncCancel_Vtbl {
         unsafe extern "system" fn Cancel<Identity: ::windows::core::IUnknownImpl, Impl: IGPMAsyncCancel_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -295,6 +303,8 @@ impl IGPMAsyncCancel_Vtbl {
 pub trait IGPMAsyncProgress_Impl: Sized + super::Com::IDispatch_Impl {
     fn Status(&self, lprogressnumerator: i32, lprogressdenominator: i32, hrstatus: ::windows::core::HRESULT, presult: *const super::Com::VARIANT, ppigpmstatusmsgcollection: &::core::option::Option<IGPMStatusMsgCollection>) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IGPMAsyncProgress {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IGPMAsyncProgress_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGPMAsyncProgress_Impl, const OFFSET: isize>() -> IGPMAsyncProgress_Vtbl {
@@ -322,6 +332,8 @@ pub trait IGPMBackup_Impl: Sized + super::Com::IDispatch_Impl {
     fn GenerateReport(&self, gpmreporttype: GPMReportType, pvargpmprogress: *const super::Com::VARIANT, pvargpmcancel: *mut super::Com::VARIANT, ppigpmresult: *mut ::core::option::Option<IGPMResult>) -> ::windows::core::Result<()>;
     fn GenerateReportToFile(&self, gpmreporttype: GPMReportType, bstrtargetfilepath: &super::super::Foundation::BSTR) -> ::windows::core::Result<IGPMResult>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IGPMBackup {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IGPMBackup_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGPMBackup_Impl, const OFFSET: isize>() -> IGPMBackup_Vtbl {
@@ -448,6 +460,8 @@ pub trait IGPMBackupCollection_Impl: Sized + super::Com::IDispatch_Impl {
     fn _NewEnum(&self) -> ::windows::core::Result<super::Ole::IEnumVARIANT>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IGPMBackupCollection {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IGPMBackupCollection_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGPMBackupCollection_Impl, const OFFSET: isize>() -> IGPMBackupCollection_Vtbl {
         unsafe extern "system" fn Count<Identity: ::windows::core::IUnknownImpl, Impl: IGPMBackupCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows::core::HRESULT {
@@ -500,6 +514,8 @@ pub trait IGPMBackupDir_Impl: Sized + super::Com::IDispatch_Impl {
     fn GetBackup(&self, bstrid: &super::super::Foundation::BSTR) -> ::windows::core::Result<IGPMBackup>;
     fn SearchBackups(&self, pigpmsearchcriteria: &::core::option::Option<IGPMSearchCriteria>) -> ::windows::core::Result<IGPMBackupCollection>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IGPMBackupDir {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IGPMBackupDir_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGPMBackupDir_Impl, const OFFSET: isize>() -> IGPMBackupDir_Vtbl {
@@ -554,6 +570,8 @@ pub trait IGPMBackupDirEx_Impl: Sized + super::Com::IDispatch_Impl {
     fn GetBackup(&self, bstrid: &super::super::Foundation::BSTR) -> ::windows::core::Result<super::Com::VARIANT>;
     fn SearchBackups(&self, pigpmsearchcriteria: &::core::option::Option<IGPMSearchCriteria>) -> ::windows::core::Result<super::Com::VARIANT>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IGPMBackupDirEx {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IGPMBackupDirEx_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGPMBackupDirEx_Impl, const OFFSET: isize>() -> IGPMBackupDirEx_Vtbl {
@@ -620,6 +638,8 @@ pub trait IGPMCSECollection_Impl: Sized + super::Com::IDispatch_Impl {
     fn _NewEnum(&self) -> ::windows::core::Result<super::Ole::IEnumVARIANT>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IGPMCSECollection {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IGPMCSECollection_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGPMCSECollection_Impl, const OFFSET: isize>() -> IGPMCSECollection_Vtbl {
         unsafe extern "system" fn Count<Identity: ::windows::core::IUnknownImpl, Impl: IGPMCSECollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows::core::HRESULT {
@@ -673,6 +693,8 @@ pub trait IGPMClientSideExtension_Impl: Sized + super::Com::IDispatch_Impl {
     fn IsUserEnabled(&self) -> ::windows::core::Result<i16>;
     fn IsComputerEnabled(&self) -> ::windows::core::Result<i16>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IGPMClientSideExtension {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IGPMClientSideExtension_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGPMClientSideExtension_Impl, const OFFSET: isize>() -> IGPMClientSideExtension_Vtbl {
@@ -795,6 +817,8 @@ pub trait IGPMConstants_Impl: Sized + super::Com::IDispatch_Impl {
     fn RsopPlanningAssumeUserWQLFilterTrue(&self) -> ::windows::core::Result<i32>;
     fn RsopPlanningAssumeCompWQLFilterTrue(&self) -> ::windows::core::Result<i32>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IGPMConstants {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IGPMConstants_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGPMConstants_Impl, const OFFSET: isize>() -> IGPMConstants_Vtbl {
@@ -1545,6 +1569,8 @@ pub trait IGPMConstants2_Impl: Sized + super::Com::IDispatch_Impl + IGPMConstant
     fn ReportComments(&self) -> ::windows::core::Result<GPMReportingOptions>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IGPMConstants2 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IGPMConstants2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGPMConstants2_Impl, const OFFSET: isize>() -> IGPMConstants2_Vtbl {
         unsafe extern "system" fn BackupTypeGPO<Identity: ::windows::core::IUnknownImpl, Impl: IGPMConstants2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut GPMBackupType) -> ::windows::core::HRESULT {
@@ -1749,6 +1775,8 @@ pub trait IGPMDomain_Impl: Sized + super::Com::IDispatch_Impl {
     fn SearchWMIFilters(&self, pigpmsearchcriteria: &::core::option::Option<IGPMSearchCriteria>) -> ::windows::core::Result<IGPMWMIFilterCollection>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IGPMDomain {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IGPMDomain_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGPMDomain_Impl, const OFFSET: isize>() -> IGPMDomain_Vtbl {
         unsafe extern "system" fn DomainController<Identity: ::windows::core::IUnknownImpl, Impl: IGPMDomain_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
@@ -1883,6 +1911,8 @@ pub trait IGPMDomain2_Impl: Sized + super::Com::IDispatch_Impl + IGPMDomain_Impl
     fn RestoreStarterGPO(&self, pigpmtmplbackup: &::core::option::Option<IGPMStarterGPOBackup>, pvargpmprogress: *const super::Com::VARIANT, pvargpmcancel: *mut super::Com::VARIANT, ppigpmresult: *mut ::core::option::Option<IGPMResult>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IGPMDomain2 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IGPMDomain2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGPMDomain2_Impl, const OFFSET: isize>() -> IGPMDomain2_Vtbl {
         unsafe extern "system" fn CreateStarterGPO<Identity: ::windows::core::IUnknownImpl, Impl: IGPMDomain2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppnewtemplate: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -1961,6 +1991,8 @@ pub trait IGPMDomain3_Impl: Sized + super::Com::IDispatch_Impl + IGPMDomain_Impl
     fn SetInfrastructureFlags(&self, dwflags: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IGPMDomain3 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IGPMDomain3_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGPMDomain3_Impl, const OFFSET: isize>() -> IGPMDomain3_Vtbl {
         unsafe extern "system" fn GenerateReport<Identity: ::windows::core::IUnknownImpl, Impl: IGPMDomain3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, gpmreporttype: GPMReportType, pvargpmprogress: *const super::Com::VARIANT, pvargpmcancel: *mut super::Com::VARIANT, ppigpmresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -2033,6 +2065,8 @@ pub trait IGPMGPO_Impl: Sized + super::Com::IDispatch_Impl {
     fn IsACLConsistent(&self) -> ::windows::core::Result<i16>;
     fn MakeACLConsistent(&self) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IGPMGPO {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IGPMGPO_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGPMGPO_Impl, const OFFSET: isize>() -> IGPMGPO_Vtbl {
@@ -2326,6 +2360,8 @@ pub trait IGPMGPO2_Impl: Sized + super::Com::IDispatch_Impl + IGPMGPO_Impl {
     fn SetDescription(&self, newval: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IGPMGPO2 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IGPMGPO2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGPMGPO2_Impl, const OFFSET: isize>() -> IGPMGPO2_Vtbl {
         unsafe extern "system" fn Description<Identity: ::windows::core::IUnknownImpl, Impl: IGPMGPO2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
@@ -2360,6 +2396,8 @@ pub trait IGPMGPO3_Impl: Sized + super::Com::IDispatch_Impl + IGPMGPO_Impl + IGP
     fn SetInfrastructureDC(&self, newval: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn SetInfrastructureFlags(&self, dwflags: u32) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IGPMGPO3 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IGPMGPO3_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGPMGPO3_Impl, const OFFSET: isize>() -> IGPMGPO3_Vtbl {
@@ -2401,6 +2439,8 @@ pub trait IGPMGPOCollection_Impl: Sized + super::Com::IDispatch_Impl {
     fn get_Item(&self, lindex: i32) -> ::windows::core::Result<super::Com::VARIANT>;
     fn _NewEnum(&self) -> ::windows::core::Result<super::Ole::IEnumVARIANT>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IGPMGPOCollection {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IGPMGPOCollection_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGPMGPOCollection_Impl, const OFFSET: isize>() -> IGPMGPOCollection_Vtbl {
@@ -2460,6 +2500,8 @@ pub trait IGPMGPOLink_Impl: Sized + super::Com::IDispatch_Impl {
     fn SOM(&self) -> ::windows::core::Result<IGPMSOM>;
     fn Delete(&self) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IGPMGPOLink {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IGPMGPOLink_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGPMGPOLink_Impl, const OFFSET: isize>() -> IGPMGPOLink_Vtbl {
@@ -2568,6 +2610,8 @@ pub trait IGPMGPOLinksCollection_Impl: Sized + super::Com::IDispatch_Impl {
     fn _NewEnum(&self) -> ::windows::core::Result<super::Ole::IEnumVARIANT>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IGPMGPOLinksCollection {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IGPMGPOLinksCollection_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGPMGPOLinksCollection_Impl, const OFFSET: isize>() -> IGPMGPOLinksCollection_Vtbl {
         unsafe extern "system" fn Count<Identity: ::windows::core::IUnknownImpl, Impl: IGPMGPOLinksCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows::core::HRESULT {
@@ -2621,6 +2665,8 @@ pub trait IGPMMapEntry_Impl: Sized + super::Com::IDispatch_Impl {
     fn DestinationOption(&self) -> ::windows::core::Result<GPMDestinationOption>;
     fn EntryType(&self) -> ::windows::core::Result<GPMEntryType>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IGPMMapEntry {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IGPMMapEntry_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGPMMapEntry_Impl, const OFFSET: isize>() -> IGPMMapEntry_Vtbl {
@@ -2687,6 +2733,8 @@ pub trait IGPMMapEntryCollection_Impl: Sized + super::Com::IDispatch_Impl {
     fn _NewEnum(&self) -> ::windows::core::Result<super::Ole::IEnumVARIANT>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IGPMMapEntryCollection {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IGPMMapEntryCollection_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGPMMapEntryCollection_Impl, const OFFSET: isize>() -> IGPMMapEntryCollection_Vtbl {
         unsafe extern "system" fn Count<Identity: ::windows::core::IUnknownImpl, Impl: IGPMMapEntryCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows::core::HRESULT {
@@ -2744,6 +2792,8 @@ pub trait IGPMMigrationTable_Impl: Sized + super::Com::IDispatch_Impl {
     fn Validate(&self) -> ::windows::core::Result<IGPMResult>;
     fn GetEntries(&self) -> ::windows::core::Result<IGPMMapEntryCollection>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IGPMMigrationTable {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IGPMMigrationTable_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGPMMigrationTable_Impl, const OFFSET: isize>() -> IGPMMigrationTable_Vtbl {
@@ -2841,6 +2891,8 @@ pub trait IGPMPermission_Impl: Sized + super::Com::IDispatch_Impl {
     fn Permission(&self) -> ::windows::core::Result<GPMPermissionType>;
     fn Trustee(&self) -> ::windows::core::Result<IGPMTrustee>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IGPMPermission {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IGPMPermission_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGPMPermission_Impl, const OFFSET: isize>() -> IGPMPermission_Vtbl {
@@ -2950,6 +3002,8 @@ pub trait IGPMRSOP_Impl: Sized + super::Com::IDispatch_Impl {
     fn GenerateReport(&self, gpmreporttype: GPMReportType, pvargpmprogress: *const super::Com::VARIANT, pvargpmcancel: *mut super::Com::VARIANT, ppigpmresult: *mut ::core::option::Option<IGPMResult>) -> ::windows::core::Result<()>;
     fn GenerateReportToFile(&self, gpmreporttype: GPMReportType, bstrtargetfilepath: &super::super::Foundation::BSTR) -> ::windows::core::Result<IGPMResult>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IGPMRSOP {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IGPMRSOP_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGPMRSOP_Impl, const OFFSET: isize>() -> IGPMRSOP_Vtbl {
@@ -3286,6 +3340,8 @@ pub trait IGPMResult_Impl: Sized + super::Com::IDispatch_Impl {
     fn OverallStatus(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IGPMResult {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IGPMResult_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGPMResult_Impl, const OFFSET: isize>() -> IGPMResult_Vtbl {
         unsafe extern "system" fn Status<Identity: ::windows::core::IUnknownImpl, Impl: IGPMResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppigpmstatusmsgcollection: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -3339,6 +3395,8 @@ pub trait IGPMSOM_Impl: Sized + super::Com::IDispatch_Impl {
     fn GetSecurityInfo(&self) -> ::windows::core::Result<IGPMSecurityInfo>;
     fn SetSecurityInfo(&self, psecurityinfo: &::core::option::Option<IGPMSecurityInfo>) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IGPMSOM {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IGPMSOM_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGPMSOM_Impl, const OFFSET: isize>() -> IGPMSOM_Vtbl {
@@ -3465,6 +3523,8 @@ pub trait IGPMSOMCollection_Impl: Sized + super::Com::IDispatch_Impl {
     fn _NewEnum(&self) -> ::windows::core::Result<super::Ole::IEnumVARIANT>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IGPMSOMCollection {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IGPMSOMCollection_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGPMSOMCollection_Impl, const OFFSET: isize>() -> IGPMSOMCollection_Vtbl {
         unsafe extern "system" fn Count<Identity: ::windows::core::IUnknownImpl, Impl: IGPMSOMCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows::core::HRESULT {
@@ -3516,6 +3576,8 @@ pub trait IGPMSearchCriteria_Impl: Sized + super::Com::IDispatch_Impl {
     fn Add(&self, searchproperty: GPMSearchProperty, searchoperation: GPMSearchOperation, varvalue: &super::Com::VARIANT) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IGPMSearchCriteria {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IGPMSearchCriteria_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGPMSearchCriteria_Impl, const OFFSET: isize>() -> IGPMSearchCriteria_Vtbl {
         unsafe extern "system" fn Add<Identity: ::windows::core::IUnknownImpl, Impl: IGPMSearchCriteria_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, searchproperty: GPMSearchProperty, searchoperation: GPMSearchOperation, varvalue: ::core::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::core::HRESULT {
@@ -3538,6 +3600,8 @@ pub trait IGPMSecurityInfo_Impl: Sized + super::Com::IDispatch_Impl {
     fn Remove(&self, pperm: &::core::option::Option<IGPMPermission>) -> ::windows::core::Result<()>;
     fn RemoveTrustee(&self, bstrtrustee: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IGPMSecurityInfo {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IGPMSecurityInfo_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGPMSecurityInfo_Impl, const OFFSET: isize>() -> IGPMSecurityInfo_Vtbl {
@@ -3611,6 +3675,8 @@ pub trait IGPMSitesContainer_Impl: Sized + super::Com::IDispatch_Impl {
     fn GetSite(&self, bstrsitename: &super::super::Foundation::BSTR) -> ::windows::core::Result<IGPMSOM>;
     fn SearchSites(&self, pigpmsearchcriteria: &::core::option::Option<IGPMSearchCriteria>) -> ::windows::core::Result<IGPMSOMCollection>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IGPMSitesContainer {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IGPMSitesContainer_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGPMSitesContainer_Impl, const OFFSET: isize>() -> IGPMSitesContainer_Vtbl {
@@ -3706,6 +3772,8 @@ pub trait IGPMStarterGPO_Impl: Sized + super::Com::IDispatch_Impl {
     fn GetSecurityInfo(&self) -> ::windows::core::Result<IGPMSecurityInfo>;
     fn SetSecurityInfo(&self, psecurityinfo: &::core::option::Option<IGPMSecurityInfo>) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IGPMStarterGPO {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IGPMStarterGPO_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGPMStarterGPO_Impl, const OFFSET: isize>() -> IGPMStarterGPO_Vtbl {
@@ -3950,6 +4018,8 @@ pub trait IGPMStarterGPOBackup_Impl: Sized + super::Com::IDispatch_Impl {
     fn GenerateReportToFile(&self, gpmreporttype: GPMReportType, bstrtargetfilepath: &super::super::Foundation::BSTR) -> ::windows::core::Result<IGPMResult>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IGPMStarterGPOBackup {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IGPMStarterGPOBackup_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGPMStarterGPOBackup_Impl, const OFFSET: isize>() -> IGPMStarterGPOBackup_Vtbl {
         unsafe extern "system" fn BackupDir<Identity: ::windows::core::IUnknownImpl, Impl: IGPMStarterGPOBackup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrbackupdir: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
@@ -4087,6 +4157,8 @@ pub trait IGPMStarterGPOBackupCollection_Impl: Sized + super::Com::IDispatch_Imp
     fn _NewEnum(&self) -> ::windows::core::Result<super::Ole::IEnumVARIANT>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IGPMStarterGPOBackupCollection {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IGPMStarterGPOBackupCollection_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGPMStarterGPOBackupCollection_Impl, const OFFSET: isize>() -> IGPMStarterGPOBackupCollection_Vtbl {
         unsafe extern "system" fn Count<Identity: ::windows::core::IUnknownImpl, Impl: IGPMStarterGPOBackupCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows::core::HRESULT {
@@ -4139,6 +4211,8 @@ pub trait IGPMStarterGPOCollection_Impl: Sized + super::Com::IDispatch_Impl {
     fn get_Item(&self, lindex: i32) -> ::windows::core::Result<super::Com::VARIANT>;
     fn _NewEnum(&self) -> ::windows::core::Result<super::Ole::IEnumVARIANT>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IGPMStarterGPOCollection {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IGPMStarterGPOCollection_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGPMStarterGPOCollection_Impl, const OFFSET: isize>() -> IGPMStarterGPOCollection_Vtbl {
@@ -4195,6 +4269,8 @@ pub trait IGPMStatusMessage_Impl: Sized + super::Com::IDispatch_Impl {
     fn OperationCode(&self) -> ::windows::core::Result<()>;
     fn Message(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IGPMStatusMessage {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IGPMStatusMessage_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGPMStatusMessage_Impl, const OFFSET: isize>() -> IGPMStatusMessage_Vtbl {
@@ -4273,6 +4349,8 @@ pub trait IGPMStatusMsgCollection_Impl: Sized + super::Com::IDispatch_Impl {
     fn _NewEnum(&self) -> ::windows::core::Result<super::Ole::IEnumVARIANT>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IGPMStatusMsgCollection {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IGPMStatusMsgCollection_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGPMStatusMsgCollection_Impl, const OFFSET: isize>() -> IGPMStatusMsgCollection_Vtbl {
         unsafe extern "system" fn Count<Identity: ::windows::core::IUnknownImpl, Impl: IGPMStatusMsgCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows::core::HRESULT {
@@ -4327,6 +4405,8 @@ pub trait IGPMTrustee_Impl: Sized + super::Com::IDispatch_Impl {
     fn TrusteeDSPath(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn TrusteeType(&self) -> ::windows::core::Result<i32>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IGPMTrustee {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IGPMTrustee_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGPMTrustee_Impl, const OFFSET: isize>() -> IGPMTrustee_Vtbl {
@@ -4409,6 +4489,8 @@ pub trait IGPMWMIFilter_Impl: Sized + super::Com::IDispatch_Impl {
     fn GetSecurityInfo(&self) -> ::windows::core::Result<IGPMSecurityInfo>;
     fn SetSecurityInfo(&self, psecurityinfo: &::core::option::Option<IGPMSecurityInfo>) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IGPMWMIFilter {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IGPMWMIFilter_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGPMWMIFilter_Impl, const OFFSET: isize>() -> IGPMWMIFilter_Vtbl {
@@ -4505,6 +4587,8 @@ pub trait IGPMWMIFilterCollection_Impl: Sized + super::Com::IDispatch_Impl {
     fn _NewEnum(&self) -> ::windows::core::Result<super::Ole::IEnumVARIANT>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IGPMWMIFilterCollection {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IGPMWMIFilterCollection_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGPMWMIFilterCollection_Impl, const OFFSET: isize>() -> IGPMWMIFilterCollection_Vtbl {
         unsafe extern "system" fn Count<Identity: ::windows::core::IUnknownImpl, Impl: IGPMWMIFilterCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows::core::HRESULT {
@@ -4572,6 +4656,8 @@ pub trait IGroupPolicyObject_Impl: Sized {
     fn GetMachineName(&self, pszname: ::windows::core::PWSTR, cchmaxlength: i32) -> ::windows::core::Result<()>;
     fn GetPropertySheetPages(&self, hpages: *mut *mut super::super::UI::Controls::HPROPSHEETPAGE, upagecount: *mut u32) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry", feature = "Win32_UI_Controls"))]
+impl ::windows::core::RuntimeName for IGroupPolicyObject {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry", feature = "Win32_UI_Controls"))]
 impl IGroupPolicyObject_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGroupPolicyObject_Impl, const OFFSET: isize>() -> IGroupPolicyObject_Vtbl {
@@ -4696,6 +4782,7 @@ pub trait IRSOPInformation_Impl: Sized {
     fn GetFlags(&self, pdwflags: *mut u32) -> ::windows::core::Result<()>;
     fn GetEventLogEntryText(&self, pszeventsource: &::windows::core::PCWSTR, pszeventlogname: &::windows::core::PCWSTR, pszeventtime: &::windows::core::PCWSTR, dweventid: u32) -> ::windows::core::Result<::windows::core::PWSTR>;
 }
+impl ::windows::core::RuntimeName for IRSOPInformation {}
 impl IRSOPInformation_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRSOPInformation_Impl, const OFFSET: isize>() -> IRSOPInformation_Vtbl {
         unsafe extern "system" fn GetNamespace<Identity: ::windows::core::IUnknownImpl, Impl: IRSOPInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwsection: u32, pszname: ::windows::core::PWSTR, cchmaxlength: i32) -> ::windows::core::HRESULT {

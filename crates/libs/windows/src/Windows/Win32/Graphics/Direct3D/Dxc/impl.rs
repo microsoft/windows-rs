@@ -1,6 +1,7 @@
 pub trait IDxcAssembler_Impl: Sized {
     fn AssembleToContainer(&self, pshader: &::core::option::Option<IDxcBlob>) -> ::windows::core::Result<IDxcOperationResult>;
 }
+impl ::windows::core::RuntimeName for IDxcAssembler {}
 impl IDxcAssembler_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDxcAssembler_Impl, const OFFSET: isize>() -> IDxcAssembler_Vtbl {
         unsafe extern "system" fn AssembleToContainer<Identity: ::windows::core::IUnknownImpl, Impl: IDxcAssembler_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pshader: ::windows::core::RawPtr, ppresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -24,6 +25,7 @@ pub trait IDxcBlob_Impl: Sized {
     fn GetBufferPointer(&self) -> *mut ::core::ffi::c_void;
     fn GetBufferSize(&self) -> usize;
 }
+impl ::windows::core::RuntimeName for IDxcBlob {}
 impl IDxcBlob_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDxcBlob_Impl, const OFFSET: isize>() -> IDxcBlob_Vtbl {
         unsafe extern "system" fn GetBufferPointer<Identity: ::windows::core::IUnknownImpl, Impl: IDxcBlob_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> *mut ::core::ffi::c_void {
@@ -51,6 +53,8 @@ pub trait IDxcBlobEncoding_Impl: Sized + IDxcBlob_Impl {
     fn GetEncoding(&self, pknown: *mut super::super::super::Foundation::BOOL, pcodepage: *mut DXC_CP) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IDxcBlobEncoding {}
+#[cfg(feature = "Win32_Foundation")]
 impl IDxcBlobEncoding_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDxcBlobEncoding_Impl, const OFFSET: isize>() -> IDxcBlobEncoding_Vtbl {
         unsafe extern "system" fn GetEncoding<Identity: ::windows::core::IUnknownImpl, Impl: IDxcBlobEncoding_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pknown: *mut super::super::super::Foundation::BOOL, pcodepage: *mut DXC_CP) -> ::windows::core::HRESULT {
@@ -69,6 +73,8 @@ pub trait IDxcBlobUtf16_Impl: Sized + IDxcBlob_Impl + IDxcBlobEncoding_Impl {
     fn GetStringPointer(&self) -> ::windows::core::PWSTR;
     fn GetStringLength(&self) -> usize;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IDxcBlobUtf16 {}
 #[cfg(feature = "Win32_Foundation")]
 impl IDxcBlobUtf16_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDxcBlobUtf16_Impl, const OFFSET: isize>() -> IDxcBlobUtf16_Vtbl {
@@ -98,6 +104,8 @@ pub trait IDxcBlobUtf8_Impl: Sized + IDxcBlob_Impl + IDxcBlobEncoding_Impl {
     fn GetStringLength(&self) -> usize;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IDxcBlobUtf8 {}
+#[cfg(feature = "Win32_Foundation")]
 impl IDxcBlobUtf8_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDxcBlobUtf8_Impl, const OFFSET: isize>() -> IDxcBlobUtf8_Vtbl {
         unsafe extern "system" fn GetStringPointer<Identity: ::windows::core::IUnknownImpl, Impl: IDxcBlobUtf8_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::PSTR {
@@ -125,6 +133,7 @@ pub trait IDxcCompiler_Impl: Sized {
     fn Preprocess(&self, psource: &::core::option::Option<IDxcBlob>, psourcename: &::windows::core::PCWSTR, parguments: *const ::windows::core::PWSTR, argcount: u32, pdefines: *const DxcDefine, definecount: u32, pincludehandler: &::core::option::Option<IDxcIncludeHandler>) -> ::windows::core::Result<IDxcOperationResult>;
     fn Disassemble(&self, psource: &::core::option::Option<IDxcBlob>) -> ::windows::core::Result<IDxcBlobEncoding>;
 }
+impl ::windows::core::RuntimeName for IDxcCompiler {}
 impl IDxcCompiler_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDxcCompiler_Impl, const OFFSET: isize>() -> IDxcCompiler_Vtbl {
         unsafe extern "system" fn Compile<Identity: ::windows::core::IUnknownImpl, Impl: IDxcCompiler_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psource: ::windows::core::RawPtr, psourcename: ::windows::core::PCWSTR, pentrypoint: ::windows::core::PCWSTR, ptargetprofile: ::windows::core::PCWSTR, parguments: *const ::windows::core::PWSTR, argcount: u32, pdefines: *const DxcDefine, definecount: u32, pincludehandler: ::windows::core::RawPtr, ppresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -174,6 +183,7 @@ impl IDxcCompiler_Vtbl {
 pub trait IDxcCompiler2_Impl: Sized + IDxcCompiler_Impl {
     fn CompileWithDebug(&self, psource: &::core::option::Option<IDxcBlob>, psourcename: &::windows::core::PCWSTR, pentrypoint: &::windows::core::PCWSTR, ptargetprofile: &::windows::core::PCWSTR, parguments: *const ::windows::core::PWSTR, argcount: u32, pdefines: *const DxcDefine, definecount: u32, pincludehandler: &::core::option::Option<IDxcIncludeHandler>, ppresult: *mut ::core::option::Option<IDxcOperationResult>, ppdebugblobname: *mut ::windows::core::PWSTR, ppdebugblob: *mut ::core::option::Option<IDxcBlob>) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IDxcCompiler2 {}
 impl IDxcCompiler2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDxcCompiler2_Impl, const OFFSET: isize>() -> IDxcCompiler2_Vtbl {
         unsafe extern "system" fn CompileWithDebug<Identity: ::windows::core::IUnknownImpl, Impl: IDxcCompiler2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psource: ::windows::core::RawPtr, psourcename: ::windows::core::PCWSTR, pentrypoint: ::windows::core::PCWSTR, ptargetprofile: ::windows::core::PCWSTR, parguments: *const ::windows::core::PWSTR, argcount: u32, pdefines: *const DxcDefine, definecount: u32, pincludehandler: ::windows::core::RawPtr, ppresult: *mut ::windows::core::RawPtr, ppdebugblobname: *mut ::windows::core::PWSTR, ppdebugblob: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -206,6 +216,7 @@ pub trait IDxcCompiler3_Impl: Sized {
     fn Compile(&self, psource: *const DxcBuffer, parguments: *const ::windows::core::PWSTR, argcount: u32, pincludehandler: &::core::option::Option<IDxcIncludeHandler>, riid: *const ::windows::core::GUID, ppresult: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn Disassemble(&self, pobject: *const DxcBuffer, riid: *const ::windows::core::GUID, ppresult: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IDxcCompiler3 {}
 impl IDxcCompiler3_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDxcCompiler3_Impl, const OFFSET: isize>() -> IDxcCompiler3_Vtbl {
         unsafe extern "system" fn Compile<Identity: ::windows::core::IUnknownImpl, Impl: IDxcCompiler3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psource: *const DxcBuffer, parguments: *const ::windows::core::PWSTR, argcount: u32, pincludehandler: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, ppresult: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -235,6 +246,7 @@ pub trait IDxcCompilerArgs_Impl: Sized {
     fn AddArgumentsUTF8(&self, parguments: *const ::windows::core::PSTR, argcount: u32) -> ::windows::core::Result<()>;
     fn AddDefines(&self, pdefines: *const DxcDefine, definecount: u32) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IDxcCompilerArgs {}
 impl IDxcCompilerArgs_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDxcCompilerArgs_Impl, const OFFSET: isize>() -> IDxcCompilerArgs_Vtbl {
         unsafe extern "system" fn GetArguments<Identity: ::windows::core::IUnknownImpl, Impl: IDxcCompilerArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> *mut ::windows::core::PWSTR {
@@ -281,6 +293,7 @@ pub trait IDxcContainerBuilder_Impl: Sized {
     fn RemovePart(&self, fourcc: u32) -> ::windows::core::Result<()>;
     fn SerializeContainer(&self) -> ::windows::core::Result<IDxcOperationResult>;
 }
+impl ::windows::core::RuntimeName for IDxcContainerBuilder {}
 impl IDxcContainerBuilder_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDxcContainerBuilder_Impl, const OFFSET: isize>() -> IDxcContainerBuilder_Vtbl {
         unsafe extern "system" fn Load<Identity: ::windows::core::IUnknownImpl, Impl: IDxcContainerBuilder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdxilcontainerheader: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -329,6 +342,7 @@ pub trait IDxcContainerReflection_Impl: Sized {
     fn FindFirstPartKind(&self, kind: u32) -> ::windows::core::Result<u32>;
     fn GetPartReflection(&self, idx: u32, iid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IDxcContainerReflection {}
 impl IDxcContainerReflection_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDxcContainerReflection_Impl, const OFFSET: isize>() -> IDxcContainerReflection_Vtbl {
         unsafe extern "system" fn Load<Identity: ::windows::core::IUnknownImpl, Impl: IDxcContainerReflection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcontainer: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -403,6 +417,7 @@ pub trait IDxcExtraOutputs_Impl: Sized {
     fn GetOutputCount(&self) -> u32;
     fn GetOutput(&self, uindex: u32, iid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void, ppoutputtype: *mut ::core::option::Option<IDxcBlobUtf16>, ppoutputname: *mut ::core::option::Option<IDxcBlobUtf16>) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IDxcExtraOutputs {}
 impl IDxcExtraOutputs_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDxcExtraOutputs_Impl, const OFFSET: isize>() -> IDxcExtraOutputs_Vtbl {
         unsafe extern "system" fn GetOutputCount<Identity: ::windows::core::IUnknownImpl, Impl: IDxcExtraOutputs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> u32 {
@@ -428,6 +443,7 @@ impl IDxcExtraOutputs_Vtbl {
 pub trait IDxcIncludeHandler_Impl: Sized {
     fn LoadSource(&self, pfilename: &::windows::core::PCWSTR) -> ::windows::core::Result<IDxcBlob>;
 }
+impl ::windows::core::RuntimeName for IDxcIncludeHandler {}
 impl IDxcIncludeHandler_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDxcIncludeHandler_Impl, const OFFSET: isize>() -> IDxcIncludeHandler_Vtbl {
         unsafe extern "system" fn LoadSource<Identity: ::windows::core::IUnknownImpl, Impl: IDxcIncludeHandler_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfilename: ::windows::core::PCWSTR, ppincludesource: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -460,6 +476,8 @@ pub trait IDxcLibrary_Impl: Sized {
     fn GetBlobAsUtf8(&self, pblob: &::core::option::Option<IDxcBlob>) -> ::windows::core::Result<IDxcBlobEncoding>;
     fn GetBlobAsUtf16(&self, pblob: &::core::option::Option<IDxcBlob>) -> ::windows::core::Result<IDxcBlobEncoding>;
 }
+#[cfg(feature = "Win32_System_Com")]
+impl ::windows::core::RuntimeName for IDxcLibrary {}
 #[cfg(feature = "Win32_System_Com")]
 impl IDxcLibrary_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDxcLibrary_Impl, const OFFSET: isize>() -> IDxcLibrary_Vtbl {
@@ -589,6 +607,7 @@ pub trait IDxcLinker_Impl: Sized {
     fn RegisterLibrary(&self, plibname: &::windows::core::PCWSTR, plib: &::core::option::Option<IDxcBlob>) -> ::windows::core::Result<()>;
     fn Link(&self, pentryname: &::windows::core::PCWSTR, ptargetprofile: &::windows::core::PCWSTR, plibnames: *const ::windows::core::PWSTR, libcount: u32, parguments: *const ::windows::core::PWSTR, argcount: u32) -> ::windows::core::Result<IDxcOperationResult>;
 }
+impl ::windows::core::RuntimeName for IDxcLinker {}
 impl IDxcLinker_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDxcLinker_Impl, const OFFSET: isize>() -> IDxcLinker_Vtbl {
         unsafe extern "system" fn RegisterLibrary<Identity: ::windows::core::IUnknownImpl, Impl: IDxcLinker_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plibname: ::windows::core::PCWSTR, plib: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -622,6 +641,7 @@ pub trait IDxcOperationResult_Impl: Sized {
     fn GetResult(&self) -> ::windows::core::Result<IDxcBlob>;
     fn GetErrorBuffer(&self) -> ::windows::core::Result<IDxcBlobEncoding>;
 }
+impl ::windows::core::RuntimeName for IDxcOperationResult {}
 impl IDxcOperationResult_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDxcOperationResult_Impl, const OFFSET: isize>() -> IDxcOperationResult_Vtbl {
         unsafe extern "system" fn GetStatus<Identity: ::windows::core::IUnknownImpl, Impl: IDxcOperationResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pstatus: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT {
@@ -673,6 +693,7 @@ pub trait IDxcOptimizer_Impl: Sized {
     fn GetAvailablePass(&self, index: u32) -> ::windows::core::Result<IDxcOptimizerPass>;
     fn RunOptimizer(&self, pblob: &::core::option::Option<IDxcBlob>, ppoptions: *const ::windows::core::PWSTR, optioncount: u32, poutputmodule: *mut ::core::option::Option<IDxcBlob>, ppoutputtext: *mut ::core::option::Option<IDxcBlobEncoding>) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IDxcOptimizer {}
 impl IDxcOptimizer_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDxcOptimizer_Impl, const OFFSET: isize>() -> IDxcOptimizer_Vtbl {
         unsafe extern "system" fn GetAvailablePassCount<Identity: ::windows::core::IUnknownImpl, Impl: IDxcOptimizer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcount: *mut u32) -> ::windows::core::HRESULT {
@@ -720,6 +741,7 @@ pub trait IDxcOptimizerPass_Impl: Sized {
     fn GetOptionArgName(&self, argindex: u32) -> ::windows::core::Result<::windows::core::PWSTR>;
     fn GetOptionArgDescription(&self, argindex: u32) -> ::windows::core::Result<::windows::core::PWSTR>;
 }
+impl ::windows::core::RuntimeName for IDxcOptimizerPass {}
 impl IDxcOptimizerPass_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDxcOptimizerPass_Impl, const OFFSET: isize>() -> IDxcOptimizerPass_Vtbl {
         unsafe extern "system" fn GetOptionName<Identity: ::windows::core::IUnknownImpl, Impl: IDxcOptimizerPass_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppresult: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
@@ -817,6 +839,8 @@ pub trait IDxcPdbUtils_Impl: Sized {
     fn OverrideArgs(&self, pargpairs: *const DxcArgPair, unumargpairs: u32) -> ::windows::core::Result<()>;
     fn OverrideRootSignature(&self, prootsignature: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IDxcPdbUtils {}
 #[cfg(feature = "Win32_Foundation")]
 impl IDxcPdbUtils_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDxcPdbUtils_Impl, const OFFSET: isize>() -> IDxcPdbUtils_Vtbl {
@@ -1089,6 +1113,8 @@ pub trait IDxcResult_Impl: Sized + IDxcOperationResult_Impl {
     fn PrimaryOutput(&self) -> DXC_OUT_KIND;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IDxcResult {}
+#[cfg(feature = "Win32_Foundation")]
 impl IDxcResult_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDxcResult_Impl, const OFFSET: isize>() -> IDxcResult_Vtbl {
         unsafe extern "system" fn HasOutput<Identity: ::windows::core::IUnknownImpl, Impl: IDxcResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dxcoutkind: DXC_OUT_KIND) -> super::super::super::Foundation::BOOL {
@@ -1145,6 +1171,8 @@ pub trait IDxcUtils_Impl: Sized {
     fn BuildArguments(&self, psourcename: &::windows::core::PCWSTR, pentrypoint: &::windows::core::PCWSTR, ptargetprofile: &::windows::core::PCWSTR, parguments: *const ::windows::core::PWSTR, argcount: u32, pdefines: *const DxcDefine, definecount: u32) -> ::windows::core::Result<IDxcCompilerArgs>;
     fn GetPDBContents(&self, ppdbblob: &::core::option::Option<IDxcBlob>, pphash: *mut ::core::option::Option<IDxcBlob>, ppcontainer: *mut ::core::option::Option<IDxcBlob>) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_System_Com")]
+impl ::windows::core::RuntimeName for IDxcUtils {}
 #[cfg(feature = "Win32_System_Com")]
 impl IDxcUtils_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDxcUtils_Impl, const OFFSET: isize>() -> IDxcUtils_Vtbl {
@@ -1297,6 +1325,7 @@ impl IDxcUtils_Vtbl {
 pub trait IDxcValidator_Impl: Sized {
     fn Validate(&self, pshader: &::core::option::Option<IDxcBlob>, flags: u32) -> ::windows::core::Result<IDxcOperationResult>;
 }
+impl ::windows::core::RuntimeName for IDxcValidator {}
 impl IDxcValidator_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDxcValidator_Impl, const OFFSET: isize>() -> IDxcValidator_Vtbl {
         unsafe extern "system" fn Validate<Identity: ::windows::core::IUnknownImpl, Impl: IDxcValidator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pshader: ::windows::core::RawPtr, flags: u32, ppresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -1319,6 +1348,7 @@ impl IDxcValidator_Vtbl {
 pub trait IDxcValidator2_Impl: Sized + IDxcValidator_Impl {
     fn ValidateWithDebug(&self, pshader: &::core::option::Option<IDxcBlob>, flags: u32, poptdebugbitcode: *const DxcBuffer) -> ::windows::core::Result<IDxcOperationResult>;
 }
+impl ::windows::core::RuntimeName for IDxcValidator2 {}
 impl IDxcValidator2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDxcValidator2_Impl, const OFFSET: isize>() -> IDxcValidator2_Vtbl {
         unsafe extern "system" fn ValidateWithDebug<Identity: ::windows::core::IUnknownImpl, Impl: IDxcValidator2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pshader: ::windows::core::RawPtr, flags: u32, poptdebugbitcode: *const DxcBuffer, ppresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -1342,6 +1372,7 @@ pub trait IDxcVersionInfo_Impl: Sized {
     fn GetVersion(&self, pmajor: *mut u32, pminor: *mut u32) -> ::windows::core::Result<()>;
     fn GetFlags(&self) -> ::windows::core::Result<u32>;
 }
+impl ::windows::core::RuntimeName for IDxcVersionInfo {}
 impl IDxcVersionInfo_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDxcVersionInfo_Impl, const OFFSET: isize>() -> IDxcVersionInfo_Vtbl {
         unsafe extern "system" fn GetVersion<Identity: ::windows::core::IUnknownImpl, Impl: IDxcVersionInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pmajor: *mut u32, pminor: *mut u32) -> ::windows::core::HRESULT {
@@ -1373,6 +1404,7 @@ impl IDxcVersionInfo_Vtbl {
 pub trait IDxcVersionInfo2_Impl: Sized + IDxcVersionInfo_Impl {
     fn GetCommitInfo(&self, pcommitcount: *mut u32, pcommithash: *mut *mut i8) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IDxcVersionInfo2 {}
 impl IDxcVersionInfo2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDxcVersionInfo2_Impl, const OFFSET: isize>() -> IDxcVersionInfo2_Vtbl {
         unsafe extern "system" fn GetCommitInfo<Identity: ::windows::core::IUnknownImpl, Impl: IDxcVersionInfo2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcommitcount: *mut u32, pcommithash: *mut *mut i8) -> ::windows::core::HRESULT {
@@ -1389,6 +1421,7 @@ impl IDxcVersionInfo2_Vtbl {
 pub trait IDxcVersionInfo3_Impl: Sized {
     fn GetCustomVersionString(&self) -> ::windows::core::Result<*mut i8>;
 }
+impl ::windows::core::RuntimeName for IDxcVersionInfo3 {}
 impl IDxcVersionInfo3_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDxcVersionInfo3_Impl, const OFFSET: isize>() -> IDxcVersionInfo3_Vtbl {
         unsafe extern "system" fn GetCustomVersionString<Identity: ::windows::core::IUnknownImpl, Impl: IDxcVersionInfo3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pversionstring: *mut *mut i8) -> ::windows::core::HRESULT {

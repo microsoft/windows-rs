@@ -6,6 +6,8 @@ pub trait IABContainer_Impl: Sized + IMAPIProp_Impl + IMAPIContainer_Impl {
     fn ResolveNames(&self, lpproptagarray: *const SPropTagArray, ulflags: u32, lpadrlist: *const ADRLIST) -> ::windows::core::Result<_flaglist>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::windows::core::RuntimeName for IABContainer {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IABContainer_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IABContainer_Impl, const OFFSET: isize>() -> IABContainer_Vtbl {
         unsafe extern "system" fn CreateEntry<Identity: ::windows::core::IUnknownImpl, Impl: IABContainer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cbentryid: u32, lpentryid: *const ENTRYID, ulcreateflags: u32, lppmapipropentry: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -73,6 +75,8 @@ pub trait IAddrBook_Impl: Sized + IMAPIProp_Impl {
     fn SetSearchPath(&self, ulflags: u32, lpsearchpath: *mut SRowSet) -> ::windows::core::Result<()>;
     fn PrepareRecips(&self, ulflags: u32, lpproptagarray: *mut SPropTagArray, lpreciplist: *mut ADRLIST) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::windows::core::RuntimeName for IAddrBook {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IAddrBook_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAddrBook_Impl, const OFFSET: isize>() -> IAddrBook_Vtbl {
@@ -195,6 +199,8 @@ impl IAddrBook_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IAttach_Impl: Sized + IMAPIProp_Impl {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::windows::core::RuntimeName for IAttach {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IAttach_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAttach_Impl, const OFFSET: isize>() -> IAttach_Vtbl {
         Self { base__: IMAPIProp_Vtbl::new::<Identity, Impl, OFFSET>() }
@@ -210,6 +216,8 @@ pub trait IDistList_Impl: Sized + IMAPIProp_Impl + IMAPIContainer_Impl {
     fn DeleteEntries(&self, lpentries: *const SBinaryArray, ulflags: u32) -> ::windows::core::Result<()>;
     fn ResolveNames(&self, lpproptagarray: *const SPropTagArray, ulflags: u32, lpadrlist: *const ADRLIST) -> ::windows::core::Result<_flaglist>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::windows::core::RuntimeName for IDistList {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IDistList_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDistList_Impl, const OFFSET: isize>() -> IDistList_Vtbl {
@@ -262,6 +270,8 @@ pub trait IMAPIAdviseSink_Impl: Sized {
     fn OnNotify(&self, cnotif: u32, lpnotifications: *mut NOTIFICATION) -> u32;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::windows::core::RuntimeName for IMAPIAdviseSink {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IMAPIAdviseSink_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMAPIAdviseSink_Impl, const OFFSET: isize>() -> IMAPIAdviseSink_Vtbl {
         unsafe extern "system" fn OnNotify<Identity: ::windows::core::IUnknownImpl, Impl: IMAPIAdviseSink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cnotif: u32, lpnotifications: *mut NOTIFICATION) -> u32 {
@@ -283,6 +293,8 @@ pub trait IMAPIContainer_Impl: Sized + IMAPIProp_Impl {
     fn SetSearchCriteria(&self, lprestriction: *const SRestriction, lpcontainerlist: *const SBinaryArray, ulsearchflags: u32) -> ::windows::core::Result<()>;
     fn GetSearchCriteria(&self, ulflags: u32, lpprestriction: *mut *mut SRestriction, lppcontainerlist: *mut *mut SBinaryArray, lpulsearchstate: *mut u32) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::windows::core::RuntimeName for IMAPIContainer {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IMAPIContainer_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMAPIContainer_Impl, const OFFSET: isize>() -> IMAPIContainer_Vtbl {
@@ -341,6 +353,7 @@ pub trait IMAPIControl_Impl: Sized {
     fn Activate(&self, ulflags: u32, uluiparam: usize) -> ::windows::core::Result<()>;
     fn GetState(&self, ulflags: u32, lpulstate: *mut u32) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IMAPIControl {}
 impl IMAPIControl_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMAPIControl_Impl, const OFFSET: isize>() -> IMAPIControl_Vtbl {
         unsafe extern "system" fn GetLastError<Identity: ::windows::core::IUnknownImpl, Impl: IMAPIControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hresult: ::windows::core::HRESULT, ulflags: u32, lppmapierror: *mut *mut MAPIERROR) -> ::windows::core::HRESULT {
@@ -389,6 +402,8 @@ pub trait IMAPIFolder_Impl: Sized + IMAPIProp_Impl + IMAPIContainer_Impl {
     fn SaveContentsSort(&self, lpsortcriteria: *const SSortOrderSet, ulflags: u32) -> ::windows::core::Result<()>;
     fn EmptyFolder(&self, uluiparam: usize, lpprogress: &::core::option::Option<IMAPIProgress>, ulflags: u32) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::windows::core::RuntimeName for IMAPIFolder {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IMAPIFolder_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMAPIFolder_Impl, const OFFSET: isize>() -> IMAPIFolder_Vtbl {
@@ -491,6 +506,7 @@ pub trait IMAPIProgress_Impl: Sized {
     fn GetMin(&self, lpulmin: *mut u32) -> ::windows::core::Result<()>;
     fn SetLimits(&self, lpulmin: *mut u32, lpulmax: *mut u32, lpulflags: *mut u32) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IMAPIProgress {}
 impl IMAPIProgress_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMAPIProgress_Impl, const OFFSET: isize>() -> IMAPIProgress_Vtbl {
         unsafe extern "system" fn Progress<Identity: ::windows::core::IUnknownImpl, Impl: IMAPIProgress_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ulvalue: u32, ulcount: u32, ultotal: u32) -> ::windows::core::HRESULT {
@@ -545,6 +561,8 @@ pub trait IMAPIProp_Impl: Sized {
     fn GetNamesFromIDs(&self, lppproptags: *mut *mut SPropTagArray, lppropsetguid: *mut ::windows::core::GUID, ulflags: u32, lpcpropnames: *mut u32, lppppropnames: *mut *mut *mut MAPINAMEID) -> ::windows::core::Result<()>;
     fn GetIDsFromNames(&self, cpropnames: u32, lpppropnames: *mut *mut MAPINAMEID, ulflags: u32, lppproptags: *mut *mut SPropTagArray) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::windows::core::RuntimeName for IMAPIProp {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IMAPIProp_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMAPIProp_Impl, const OFFSET: isize>() -> IMAPIProp_Vtbl {
@@ -630,6 +648,8 @@ pub trait IMAPIStatus_Impl: Sized + IMAPIProp_Impl {
     fn FlushQueues(&self, uluiparam: usize, cbtargettransport: u32, lptargettransport: *const ENTRYID, ulflags: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::windows::core::RuntimeName for IMAPIStatus {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IMAPIStatus_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMAPIStatus_Impl, const OFFSET: isize>() -> IMAPIStatus_Vtbl {
         unsafe extern "system" fn ValidateState<Identity: ::windows::core::IUnknownImpl, Impl: IMAPIStatus_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uluiparam: usize, ulflags: u32) -> ::windows::core::HRESULT {
@@ -690,6 +710,8 @@ pub trait IMAPITable_Impl: Sized {
     fn GetCollapseState(&self, ulflags: u32, cbinstancekey: u32, lpbinstancekey: *mut u8, lpcbcollapsestate: *mut u32, lppbcollapsestate: *mut *mut u8) -> ::windows::core::Result<()>;
     fn SetCollapseState(&self, ulflags: u32, cbcollapsestate: u32, pbcollapsestate: *mut u8, lpbklocation: *mut u32) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::windows::core::RuntimeName for IMAPITable {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IMAPITable_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMAPITable_Impl, const OFFSET: isize>() -> IMAPITable_Vtbl {
@@ -842,6 +864,8 @@ impl IMAPITable_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IMailUser_Impl: Sized + IMAPIProp_Impl {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::windows::core::RuntimeName for IMailUser {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IMailUser_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMailUser_Impl, const OFFSET: isize>() -> IMailUser_Vtbl {
         Self { base__: IMAPIProp_Vtbl::new::<Identity, Impl, OFFSET>() }
@@ -861,6 +885,8 @@ pub trait IMessage_Impl: Sized + IMAPIProp_Impl {
     fn SubmitMessage(&self, ulflags: u32) -> ::windows::core::Result<()>;
     fn SetReadFlag(&self, ulflags: u32) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::windows::core::RuntimeName for IMessage {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IMessage_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMessage_Impl, const OFFSET: isize>() -> IMessage_Vtbl {
@@ -954,6 +980,8 @@ pub trait IMsgStore_Impl: Sized + IMAPIProp_Impl {
     fn FinishedMsg(&self, ulflags: u32, cbentryid: u32, lpentryid: *const ENTRYID) -> ::windows::core::Result<()>;
     fn NotifyNewMail(&self, lpnotification: *const NOTIFICATION) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::windows::core::RuntimeName for IMsgStore {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IMsgStore_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMsgStore_Impl, const OFFSET: isize>() -> IMsgStore_Vtbl {
@@ -1070,6 +1098,8 @@ impl IMsgStore_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IProfSect_Impl: Sized + IMAPIProp_Impl {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::windows::core::RuntimeName for IProfSect {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IProfSect_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IProfSect_Impl, const OFFSET: isize>() -> IProfSect_Vtbl {
         Self { base__: IMAPIProp_Vtbl::new::<Identity, Impl, OFFSET>() }
@@ -1085,6 +1115,8 @@ pub trait IPropData_Impl: Sized + IMAPIProp_Impl {
     fn HrGetPropAccess(&self, lppproptagarray: *mut *mut SPropTagArray, lprgulaccess: *mut *mut u32) -> ::windows::core::Result<()>;
     fn HrAddObjProps(&self, lppproptagarray: *mut SPropTagArray, lprgulaccess: *mut *mut SPropProblemArray) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::windows::core::RuntimeName for IPropData {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IPropData_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPropData_Impl, const OFFSET: isize>() -> IPropData_Vtbl {
@@ -1128,6 +1160,8 @@ pub trait IProviderAdmin_Impl: Sized {
     fn DeleteProvider(&self, lpuid: *const MAPIUID) -> ::windows::core::Result<()>;
     fn OpenProfileSection(&self, lpuid: *const MAPIUID, lpinterface: *const ::windows::core::GUID, ulflags: u32) -> ::windows::core::Result<IProfSect>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::windows::core::RuntimeName for IProviderAdmin {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IProviderAdmin_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IProviderAdmin_Impl, const OFFSET: isize>() -> IProviderAdmin_Vtbl {
@@ -1206,6 +1240,8 @@ pub trait ITableData_Impl: Sized {
     fn HrDeleteRows(&self, ulflags: u32, lprowsettodelete: *mut SRowSet, crowsdeleted: *mut u32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::windows::core::RuntimeName for ITableData {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ITableData_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITableData_Impl, const OFFSET: isize>() -> ITableData_Vtbl {
         unsafe extern "system" fn HrGetView<Identity: ::windows::core::IUnknownImpl, Impl: ITableData_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lpssortorderset: *mut SSortOrderSet, lpfcallerrelease: *mut ::windows::core::RawPtr, ulcallerdata: u32, lppmapitable: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -1275,6 +1311,8 @@ pub trait IWABExtInit_Impl: Sized {
     fn Initialize(&self, lpwabextdisplay: *mut WABEXTDISPLAY) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IWABExtInit {}
+#[cfg(feature = "Win32_Foundation")]
 impl IWABExtInit_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWABExtInit_Impl, const OFFSET: isize>() -> IWABExtInit_Vtbl {
         unsafe extern "system" fn Initialize<Identity: ::windows::core::IUnknownImpl, Impl: IWABExtInit_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lpwabextdisplay: *mut WABEXTDISPLAY) -> ::windows::core::HRESULT {
@@ -1307,6 +1345,8 @@ pub trait IWABOBJECT__Impl: Sized {
     fn GetMe(&self, lpiab: &::core::option::Option<IAddrBook>, ulflags: u32, lpdwaction: *mut u32, lpsbeid: *mut SBinary, hwnd: super::super::Foundation::HWND) -> ::windows::core::Result<()>;
     fn SetMe(&self, lpiab: &::core::option::Option<IAddrBook>, ulflags: u32, sbeid: &SBinary, hwnd: super::super::Foundation::HWND) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IWABOBJECT_ {}
 #[cfg(feature = "Win32_Foundation")]
 impl IWABOBJECT__Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWABOBJECT__Impl, const OFFSET: isize>() -> IWABOBJECT__Vtbl {
@@ -1441,6 +1481,8 @@ pub trait IWABObject_Impl: Sized {
     fn GetMe(&self, lpiab: &::core::option::Option<IAddrBook>, ulflags: u32, lpdwaction: *mut u32, lpsbeid: *mut SBinary, hwnd: super::super::Foundation::HWND) -> ::windows::core::Result<()>;
     fn SetMe(&self, lpiab: &::core::option::Option<IAddrBook>, ulflags: u32, sbeid: &SBinary, hwnd: super::super::Foundation::HWND) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IWABObject {}
 #[cfg(feature = "Win32_Foundation")]
 impl IWABObject_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWABObject_Impl, const OFFSET: isize>() -> IWABObject_Vtbl {

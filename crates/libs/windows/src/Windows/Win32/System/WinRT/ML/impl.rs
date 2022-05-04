@@ -3,6 +3,8 @@ pub trait ILearningModelDeviceFactoryNative_Impl: Sized {
     fn CreateFromD3D12CommandQueue(&self, value: &::core::option::Option<super::super::super::Graphics::Direct3D12::ID3D12CommandQueue>) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
+impl ::windows::core::RuntimeName for ILearningModelDeviceFactoryNative {}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ILearningModelDeviceFactoryNative_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILearningModelDeviceFactoryNative_Impl, const OFFSET: isize>() -> ILearningModelDeviceFactoryNative_Vtbl {
         unsafe extern "system" fn CreateFromD3D12CommandQueue<Identity: ::windows::core::IUnknownImpl, Impl: ILearningModelDeviceFactoryNative_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -30,6 +32,8 @@ pub trait ILearningModelOperatorProviderNative_Impl: Sized {
     fn GetRegistry(&self) -> ::windows::core::Result<super::super::super::AI::MachineLearning::WinML::IMLOperatorRegistry>;
 }
 #[cfg(feature = "Win32_AI_MachineLearning_WinML")]
+impl ::windows::core::RuntimeName for ILearningModelOperatorProviderNative {}
+#[cfg(feature = "Win32_AI_MachineLearning_WinML")]
 impl ILearningModelOperatorProviderNative_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILearningModelOperatorProviderNative_Impl, const OFFSET: isize>() -> ILearningModelOperatorProviderNative_Vtbl {
         unsafe extern "system" fn GetRegistry<Identity: ::windows::core::IUnknownImpl, Impl: ILearningModelOperatorProviderNative_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppoperatorregistry: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -52,6 +56,7 @@ impl ILearningModelOperatorProviderNative_Vtbl {
 pub trait ILearningModelSessionOptionsNative_Impl: Sized {
     fn SetIntraOpNumThreadsOverride(&self, intraopnumthreads: u32) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for ILearningModelSessionOptionsNative {}
 impl ILearningModelSessionOptionsNative_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILearningModelSessionOptionsNative_Impl, const OFFSET: isize>() -> ILearningModelSessionOptionsNative_Vtbl {
         unsafe extern "system" fn SetIntraOpNumThreadsOverride<Identity: ::windows::core::IUnknownImpl, Impl: ILearningModelSessionOptionsNative_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, intraopnumthreads: u32) -> ::windows::core::HRESULT {
@@ -73,6 +78,8 @@ pub trait ITensorNative_Impl: Sized {
     fn GetBuffer(&self, value: *mut *mut u8, capacity: *mut u32) -> ::windows::core::Result<()>;
     fn GetD3D12Resource(&self) -> ::windows::core::Result<super::super::super::Graphics::Direct3D12::ID3D12Resource>;
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+impl ::windows::core::RuntimeName for ITensorNative {}
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ITensorNative_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITensorNative_Impl, const OFFSET: isize>() -> ITensorNative_Vtbl {
@@ -106,6 +113,8 @@ impl ITensorNative_Vtbl {
 pub trait ITensorStaticsNative_Impl: Sized {
     fn CreateFromD3D12Resource(&self, value: &::core::option::Option<super::super::super::Graphics::Direct3D12::ID3D12Resource>, shape: *mut i64, shapecount: i32, result: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+impl ::windows::core::RuntimeName for ITensorStaticsNative {}
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ITensorStaticsNative_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITensorStaticsNative_Impl, const OFFSET: isize>() -> ITensorStaticsNative_Vtbl {

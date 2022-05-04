@@ -10,6 +10,7 @@ pub trait IDXCoreAdapter_Impl: Sized {
     fn SetState(&self, state: DXCoreAdapterState, inputstatedetailssize: usize, inputstatedetails: *const ::core::ffi::c_void, inputdatasize: usize, inputdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn GetFactory(&self, riid: *const ::windows::core::GUID, ppvfactory: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IDXCoreAdapter {}
 impl IDXCoreAdapter_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDXCoreAdapter_Impl, const OFFSET: isize>() -> IDXCoreAdapter_Vtbl {
         unsafe extern "system" fn IsValid<Identity: ::windows::core::IUnknownImpl, Impl: IDXCoreAdapter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> bool {
@@ -95,6 +96,8 @@ pub trait IDXCoreAdapterFactory_Impl: Sized {
     fn UnregisterEventNotification(&self, eventcookie: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IDXCoreAdapterFactory {}
+#[cfg(feature = "Win32_Foundation")]
 impl IDXCoreAdapterFactory_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDXCoreAdapterFactory_Impl, const OFFSET: isize>() -> IDXCoreAdapterFactory_Vtbl {
         unsafe extern "system" fn CreateAdapterList<Identity: ::windows::core::IUnknownImpl, Impl: IDXCoreAdapterFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, numattributes: u32, filterattributes: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppvadapterlist: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -149,6 +152,7 @@ pub trait IDXCoreAdapterList_Impl: Sized {
     fn Sort(&self, numpreferences: u32, preferences: *const DXCoreAdapterPreference) -> ::windows::core::Result<()>;
     fn IsAdapterPreferenceSupported(&self, preference: DXCoreAdapterPreference) -> bool;
 }
+impl ::windows::core::RuntimeName for IDXCoreAdapterList {}
 impl IDXCoreAdapterList_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDXCoreAdapterList_Impl, const OFFSET: isize>() -> IDXCoreAdapterList_Vtbl {
         unsafe extern "system" fn GetAdapter<Identity: ::windows::core::IUnknownImpl, Impl: IDXCoreAdapterList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32, riid: *const ::windows::core::GUID, ppvadapter: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {

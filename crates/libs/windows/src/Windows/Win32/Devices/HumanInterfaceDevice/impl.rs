@@ -3,6 +3,8 @@ pub trait IDirectInput2A_Impl: Sized + IDirectInputA_Impl {
     fn FindDevice(&self, param0: *const ::windows::core::GUID, param1: &::windows::core::PCSTR, param2: *mut ::windows::core::GUID) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IDirectInput2A {}
+#[cfg(feature = "Win32_Foundation")]
 impl IDirectInput2A_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirectInput2A_Impl, const OFFSET: isize>() -> IDirectInput2A_Vtbl {
         unsafe extern "system" fn FindDevice<Identity: ::windows::core::IUnknownImpl, Impl: IDirectInput2A_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, param0: *const ::windows::core::GUID, param1: ::windows::core::PCSTR, param2: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
@@ -20,6 +22,8 @@ impl IDirectInput2A_Vtbl {
 pub trait IDirectInput2W_Impl: Sized + IDirectInputW_Impl {
     fn FindDevice(&self, param0: *const ::windows::core::GUID, param1: &::windows::core::PCWSTR, param2: *mut ::windows::core::GUID) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IDirectInput2W {}
 #[cfg(feature = "Win32_Foundation")]
 impl IDirectInput2W_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirectInput2W_Impl, const OFFSET: isize>() -> IDirectInput2W_Vtbl {
@@ -39,6 +43,8 @@ pub trait IDirectInput7A_Impl: Sized + IDirectInputA_Impl + IDirectInput2A_Impl 
     fn CreateDeviceEx(&self, param0: *const ::windows::core::GUID, param1: *const ::windows::core::GUID, param2: *mut *mut ::core::ffi::c_void, param3: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IDirectInput7A {}
+#[cfg(feature = "Win32_Foundation")]
 impl IDirectInput7A_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirectInput7A_Impl, const OFFSET: isize>() -> IDirectInput7A_Vtbl {
         unsafe extern "system" fn CreateDeviceEx<Identity: ::windows::core::IUnknownImpl, Impl: IDirectInput7A_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, param0: *const ::windows::core::GUID, param1: *const ::windows::core::GUID, param2: *mut *mut ::core::ffi::c_void, param3: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -56,6 +62,8 @@ impl IDirectInput7A_Vtbl {
 pub trait IDirectInput7W_Impl: Sized + IDirectInputW_Impl + IDirectInput2W_Impl {
     fn CreateDeviceEx(&self, param0: *const ::windows::core::GUID, param1: *const ::windows::core::GUID, param2: *mut *mut ::core::ffi::c_void, param3: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IDirectInput7W {}
 #[cfg(feature = "Win32_Foundation")]
 impl IDirectInput7W_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirectInput7W_Impl, const OFFSET: isize>() -> IDirectInput7W_Vtbl {
@@ -81,6 +89,8 @@ pub trait IDirectInput8A_Impl: Sized {
     fn EnumDevicesBySemantics(&self, param0: &::windows::core::PCSTR, param1: *mut DIACTIONFORMATA, param2: &LPDIENUMDEVICESBYSEMANTICSCBA, param3: *mut ::core::ffi::c_void, param4: u32) -> ::windows::core::Result<()>;
     fn ConfigureDevices(&self, param0: &LPDICONFIGUREDEVICESCALLBACK, param1: *mut DICONFIGUREDEVICESPARAMSA, param2: u32, param3: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IDirectInput8A {}
 #[cfg(feature = "Win32_Foundation")]
 impl IDirectInput8A_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirectInput8A_Impl, const OFFSET: isize>() -> IDirectInput8A_Vtbl {
@@ -152,6 +162,8 @@ pub trait IDirectInput8W_Impl: Sized {
     fn ConfigureDevices(&self, param0: &LPDICONFIGUREDEVICESCALLBACK, param1: *mut DICONFIGUREDEVICESPARAMSW, param2: u32, param3: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IDirectInput8W {}
+#[cfg(feature = "Win32_Foundation")]
 impl IDirectInput8W_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirectInput8W_Impl, const OFFSET: isize>() -> IDirectInput8W_Vtbl {
         unsafe extern "system" fn CreateDevice<Identity: ::windows::core::IUnknownImpl, Impl: IDirectInput8W_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, param0: *const ::windows::core::GUID, param1: *mut ::windows::core::RawPtr, param2: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -219,6 +231,8 @@ pub trait IDirectInputA_Impl: Sized {
     fn Initialize(&self, param0: super::super::Foundation::HINSTANCE, param1: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IDirectInputA {}
+#[cfg(feature = "Win32_Foundation")]
 impl IDirectInputA_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirectInputA_Impl, const OFFSET: isize>() -> IDirectInputA_Vtbl {
         unsafe extern "system" fn CreateDevice<Identity: ::windows::core::IUnknownImpl, Impl: IDirectInputA_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, param0: *const ::windows::core::GUID, param1: *mut ::windows::core::RawPtr, param2: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -271,6 +285,8 @@ pub trait IDirectInputDevice2A_Impl: Sized + IDirectInputDeviceA_Impl {
     fn Poll(&self) -> ::windows::core::Result<()>;
     fn SendDeviceData(&self, param0: u32, param1: *mut DIDEVICEOBJECTDATA, param2: *mut u32, param3: u32) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IDirectInputDevice2A {}
 #[cfg(feature = "Win32_Foundation")]
 impl IDirectInputDevice2A_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirectInputDevice2A_Impl, const OFFSET: isize>() -> IDirectInputDevice2A_Vtbl {
@@ -349,6 +365,8 @@ pub trait IDirectInputDevice2W_Impl: Sized + IDirectInputDeviceW_Impl {
     fn SendDeviceData(&self, param0: u32, param1: *mut DIDEVICEOBJECTDATA, param2: *mut u32, param3: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IDirectInputDevice2W {}
+#[cfg(feature = "Win32_Foundation")]
 impl IDirectInputDevice2W_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirectInputDevice2W_Impl, const OFFSET: isize>() -> IDirectInputDevice2W_Vtbl {
         unsafe extern "system" fn CreateEffect<Identity: ::windows::core::IUnknownImpl, Impl: IDirectInputDevice2W_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, param0: *const ::windows::core::GUID, param1: *mut DIEFFECT, param2: *mut ::windows::core::RawPtr, param3: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -419,6 +437,8 @@ pub trait IDirectInputDevice7A_Impl: Sized + IDirectInputDeviceA_Impl + IDirectI
     fn WriteEffectToFile(&self, param0: &::windows::core::PCSTR, param1: u32, param2: *mut DIFILEEFFECT, param3: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IDirectInputDevice7A {}
+#[cfg(feature = "Win32_Foundation")]
 impl IDirectInputDevice7A_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirectInputDevice7A_Impl, const OFFSET: isize>() -> IDirectInputDevice7A_Vtbl {
         unsafe extern "system" fn EnumEffectsInFile<Identity: ::windows::core::IUnknownImpl, Impl: IDirectInputDevice7A_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, param0: ::windows::core::PCSTR, param1: ::windows::core::RawPtr, param2: *mut ::core::ffi::c_void, param3: u32) -> ::windows::core::HRESULT {
@@ -446,6 +466,8 @@ pub trait IDirectInputDevice7W_Impl: Sized + IDirectInputDeviceW_Impl + IDirectI
     fn EnumEffectsInFile(&self, param0: &::windows::core::PCWSTR, param1: &LPDIENUMEFFECTSINFILECALLBACK, param2: *mut ::core::ffi::c_void, param3: u32) -> ::windows::core::Result<()>;
     fn WriteEffectToFile(&self, param0: &::windows::core::PCWSTR, param1: u32, param2: *mut DIFILEEFFECT, param3: u32) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IDirectInputDevice7W {}
 #[cfg(feature = "Win32_Foundation")]
 impl IDirectInputDevice7W_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirectInputDevice7W_Impl, const OFFSET: isize>() -> IDirectInputDevice7W_Vtbl {
@@ -501,6 +523,8 @@ pub trait IDirectInputDevice8A_Impl: Sized {
     fn SetActionMap(&self, param0: *mut DIACTIONFORMATA, param1: &::windows::core::PCSTR, param2: u32) -> ::windows::core::Result<()>;
     fn GetImageInfo(&self, param0: *mut DIDEVICEIMAGEINFOHEADERA) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IDirectInputDevice8A {}
 #[cfg(feature = "Win32_Foundation")]
 impl IDirectInputDevice8A_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirectInputDevice8A_Impl, const OFFSET: isize>() -> IDirectInputDevice8A_Vtbl {
@@ -719,6 +743,8 @@ pub trait IDirectInputDevice8W_Impl: Sized {
     fn GetImageInfo(&self, param0: *mut DIDEVICEIMAGEINFOHEADERW) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IDirectInputDevice8W {}
+#[cfg(feature = "Win32_Foundation")]
 impl IDirectInputDevice8W_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirectInputDevice8W_Impl, const OFFSET: isize>() -> IDirectInputDevice8W_Vtbl {
         unsafe extern "system" fn GetCapabilities<Identity: ::windows::core::IUnknownImpl, Impl: IDirectInputDevice8W_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, param0: *mut DIDEVCAPS) -> ::windows::core::HRESULT {
@@ -922,6 +948,8 @@ pub trait IDirectInputDeviceA_Impl: Sized {
     fn Initialize(&self, param0: super::super::Foundation::HINSTANCE, param1: u32, param2: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IDirectInputDeviceA {}
+#[cfg(feature = "Win32_Foundation")]
 impl IDirectInputDeviceA_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirectInputDeviceA_Impl, const OFFSET: isize>() -> IDirectInputDeviceA_Vtbl {
         unsafe extern "system" fn GetCapabilities<Identity: ::windows::core::IUnknownImpl, Impl: IDirectInputDeviceA_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, param0: *mut DIDEVCAPS) -> ::windows::core::HRESULT {
@@ -1041,6 +1069,8 @@ pub trait IDirectInputDeviceW_Impl: Sized {
     fn Initialize(&self, param0: super::super::Foundation::HINSTANCE, param1: u32, param2: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IDirectInputDeviceW {}
+#[cfg(feature = "Win32_Foundation")]
 impl IDirectInputDeviceW_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirectInputDeviceW_Impl, const OFFSET: isize>() -> IDirectInputDeviceW_Vtbl {
         unsafe extern "system" fn GetCapabilities<Identity: ::windows::core::IUnknownImpl, Impl: IDirectInputDeviceW_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, param0: *mut DIDEVCAPS) -> ::windows::core::HRESULT {
@@ -1155,6 +1185,8 @@ pub trait IDirectInputEffect_Impl: Sized {
     fn Escape(&self, param0: *mut DIEFFESCAPE) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IDirectInputEffect {}
+#[cfg(feature = "Win32_Foundation")]
 impl IDirectInputEffect_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirectInputEffect_Impl, const OFFSET: isize>() -> IDirectInputEffect_Vtbl {
         unsafe extern "system" fn Initialize<Identity: ::windows::core::IUnknownImpl, Impl: IDirectInputEffect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HINSTANCE, param1: u32, param2: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
@@ -1238,6 +1270,7 @@ pub trait IDirectInputEffectDriver_Impl: Sized {
     fn StopEffect(&self, param0: u32, param1: u32) -> ::windows::core::Result<()>;
     fn GetEffectStatus(&self, param0: u32, param1: u32, param2: *mut u32) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IDirectInputEffectDriver {}
 impl IDirectInputEffectDriver_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirectInputEffectDriver_Impl, const OFFSET: isize>() -> IDirectInputEffectDriver_Vtbl {
         unsafe extern "system" fn DeviceID<Identity: ::windows::core::IUnknownImpl, Impl: IDirectInputEffectDriver_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, param0: u32, param1: u32, param2: u32, param3: u32, param4: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -1333,6 +1366,8 @@ pub trait IDirectInputJoyConfig_Impl: Sized {
     fn OpenTypeKey(&self, param0: &::windows::core::PCWSTR, param1: u32, param2: *mut super::super::System::Registry::HKEY) -> ::windows::core::Result<()>;
     fn OpenConfigKey(&self, param0: u32, param1: u32, param2: *mut super::super::System::Registry::HKEY) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+impl ::windows::core::RuntimeName for IDirectInputJoyConfig {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 impl IDirectInputJoyConfig_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirectInputJoyConfig_Impl, const OFFSET: isize>() -> IDirectInputJoyConfig_Vtbl {
@@ -1460,6 +1495,8 @@ pub trait IDirectInputJoyConfig8_Impl: Sized {
     fn OpenAppStatusKey(&self, param0: *mut super::super::System::Registry::HKEY) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+impl ::windows::core::RuntimeName for IDirectInputJoyConfig8 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 impl IDirectInputJoyConfig8_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirectInputJoyConfig8_Impl, const OFFSET: isize>() -> IDirectInputJoyConfig8_Vtbl {
         unsafe extern "system" fn Acquire<Identity: ::windows::core::IUnknownImpl, Impl: IDirectInputJoyConfig8_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -1574,6 +1611,8 @@ pub trait IDirectInputW_Impl: Sized {
     fn RunControlPanel(&self, param0: super::super::Foundation::HWND, param1: u32) -> ::windows::core::Result<()>;
     fn Initialize(&self, param0: super::super::Foundation::HINSTANCE, param1: u32) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IDirectInputW {}
 #[cfg(feature = "Win32_Foundation")]
 impl IDirectInputW_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirectInputW_Impl, const OFFSET: isize>() -> IDirectInputW_Vtbl {

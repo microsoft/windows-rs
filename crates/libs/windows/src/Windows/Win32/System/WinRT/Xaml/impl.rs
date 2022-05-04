@@ -4,6 +4,8 @@ pub trait IDesktopWindowXamlSourceNative_Impl: Sized {
     fn WindowHandle(&self) -> ::windows::core::Result<super::super::super::Foundation::HWND>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IDesktopWindowXamlSourceNative {}
+#[cfg(feature = "Win32_Foundation")]
 impl IDesktopWindowXamlSourceNative_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDesktopWindowXamlSourceNative_Impl, const OFFSET: isize>() -> IDesktopWindowXamlSourceNative_Vtbl {
         unsafe extern "system" fn AttachToWindow<Identity: ::windows::core::IUnknownImpl, Impl: IDesktopWindowXamlSourceNative_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, parentwnd: super::super::super::Foundation::HWND) -> ::windows::core::HRESULT {
@@ -37,6 +39,8 @@ pub trait IDesktopWindowXamlSourceNative2_Impl: Sized + IDesktopWindowXamlSource
     fn PreTranslateMessage(&self, message: *const super::super::super::UI::WindowsAndMessaging::MSG, result: *mut super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+impl ::windows::core::RuntimeName for IDesktopWindowXamlSourceNative2 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl IDesktopWindowXamlSourceNative2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDesktopWindowXamlSourceNative2_Impl, const OFFSET: isize>() -> IDesktopWindowXamlSourceNative2_Vtbl {
         unsafe extern "system" fn PreTranslateMessage<Identity: ::windows::core::IUnknownImpl, Impl: IDesktopWindowXamlSourceNative2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, message: *const super::super::super::UI::WindowsAndMessaging::MSG, result: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
@@ -53,6 +57,7 @@ impl IDesktopWindowXamlSourceNative2_Vtbl {
 pub trait IFindReferenceTargetsCallback_Impl: Sized {
     fn FoundTrackerTarget(&self, target: &::core::option::Option<IReferenceTrackerTarget>) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IFindReferenceTargetsCallback {}
 impl IFindReferenceTargetsCallback_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFindReferenceTargetsCallback_Impl, const OFFSET: isize>() -> IFindReferenceTargetsCallback_Vtbl {
         unsafe extern "system" fn FoundTrackerTarget<Identity: ::windows::core::IUnknownImpl, Impl: IFindReferenceTargetsCallback_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, target: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -75,6 +80,7 @@ pub trait IReferenceTracker_Impl: Sized {
     fn ReleaseFromTrackerSource(&self) -> ::windows::core::Result<()>;
     fn PegFromTrackerSource(&self) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IReferenceTracker {}
 impl IReferenceTracker_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IReferenceTracker_Impl, const OFFSET: isize>() -> IReferenceTracker_Vtbl {
         unsafe extern "system" fn ConnectFromTrackerSource<Identity: ::windows::core::IUnknownImpl, Impl: IReferenceTracker_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -134,6 +140,7 @@ impl IReferenceTracker_Vtbl {
     }
 }
 pub trait IReferenceTrackerExtension_Impl: Sized {}
+impl ::windows::core::RuntimeName for IReferenceTrackerExtension {}
 impl IReferenceTrackerExtension_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IReferenceTrackerExtension_Impl, const OFFSET: isize>() -> IReferenceTrackerExtension_Vtbl {
         Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>() }
@@ -150,6 +157,7 @@ pub trait IReferenceTrackerHost_Impl: Sized {
     fn AddMemoryPressure(&self, bytesallocated: u64) -> ::windows::core::Result<()>;
     fn RemoveMemoryPressure(&self, bytesallocated: u64) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IReferenceTrackerHost {}
 impl IReferenceTrackerHost_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IReferenceTrackerHost_Impl, const OFFSET: isize>() -> IReferenceTrackerHost_Vtbl {
         unsafe extern "system" fn DisconnectUnusedReferenceSources<Identity: ::windows::core::IUnknownImpl, Impl: IReferenceTrackerHost_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, options: XAML_REFERENCETRACKER_DISCONNECT) -> ::windows::core::HRESULT {
@@ -208,6 +216,7 @@ pub trait IReferenceTrackerManager_Impl: Sized {
     fn ReferenceTrackingCompleted(&self) -> ::windows::core::Result<()>;
     fn SetReferenceTrackerHost(&self, value: &::core::option::Option<IReferenceTrackerHost>) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IReferenceTrackerManager {}
 impl IReferenceTrackerManager_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IReferenceTrackerManager_Impl, const OFFSET: isize>() -> IReferenceTrackerManager_Vtbl {
         unsafe extern "system" fn ReferenceTrackingStarted<Identity: ::windows::core::IUnknownImpl, Impl: IReferenceTrackerManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -248,6 +257,7 @@ pub trait IReferenceTrackerTarget_Impl: Sized {
     fn Peg(&self) -> ::windows::core::Result<()>;
     fn Unpeg(&self) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IReferenceTrackerTarget {}
 impl IReferenceTrackerTarget_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IReferenceTrackerTarget_Impl, const OFFSET: isize>() -> IReferenceTrackerTarget_Vtbl {
         unsafe extern "system" fn AddRefFromReferenceTracker<Identity: ::windows::core::IUnknownImpl, Impl: IReferenceTrackerTarget_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> u32 {
@@ -285,6 +295,7 @@ impl IReferenceTrackerTarget_Vtbl {
 pub trait ISurfaceImageSourceManagerNative_Impl: Sized {
     fn FlushAllSurfacesWithDevice(&self, device: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for ISurfaceImageSourceManagerNative {}
 impl ISurfaceImageSourceManagerNative_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISurfaceImageSourceManagerNative_Impl, const OFFSET: isize>() -> ISurfaceImageSourceManagerNative_Vtbl {
         unsafe extern "system" fn FlushAllSurfacesWithDevice<Identity: ::windows::core::IUnknownImpl, Impl: ISurfaceImageSourceManagerNative_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, device: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -307,6 +318,8 @@ pub trait ISurfaceImageSourceNative_Impl: Sized {
     fn BeginDraw(&self, updaterect: &super::super::super::Foundation::RECT, surface: *mut ::core::option::Option<super::super::super::Graphics::Dxgi::IDXGISurface>, offset: *mut super::super::super::Foundation::POINT) -> ::windows::core::Result<()>;
     fn EndDraw(&self) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
+impl ::windows::core::RuntimeName for ISurfaceImageSourceNative {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
 impl ISurfaceImageSourceNative_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISurfaceImageSourceNative_Impl, const OFFSET: isize>() -> ISurfaceImageSourceNative_Vtbl {
@@ -344,6 +357,8 @@ pub trait ISurfaceImageSourceNativeWithD2D_Impl: Sized {
     fn SuspendDraw(&self) -> ::windows::core::Result<()>;
     fn ResumeDraw(&self) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for ISurfaceImageSourceNativeWithD2D {}
 #[cfg(feature = "Win32_Foundation")]
 impl ISurfaceImageSourceNativeWithD2D_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISurfaceImageSourceNativeWithD2D_Impl, const OFFSET: isize>() -> ISurfaceImageSourceNativeWithD2D_Vtbl {
@@ -390,6 +405,8 @@ pub trait ISwapChainBackgroundPanelNative_Impl: Sized {
     fn SetSwapChain(&self, swapchain: &::core::option::Option<super::super::super::Graphics::Dxgi::IDXGISwapChain>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Graphics_Dxgi")]
+impl ::windows::core::RuntimeName for ISwapChainBackgroundPanelNative {}
+#[cfg(feature = "Win32_Graphics_Dxgi")]
 impl ISwapChainBackgroundPanelNative_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISwapChainBackgroundPanelNative_Impl, const OFFSET: isize>() -> ISwapChainBackgroundPanelNative_Vtbl {
         unsafe extern "system" fn SetSwapChain<Identity: ::windows::core::IUnknownImpl, Impl: ISwapChainBackgroundPanelNative_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, swapchain: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -408,6 +425,8 @@ pub trait ISwapChainPanelNative_Impl: Sized {
     fn SetSwapChain(&self, swapchain: &::core::option::Option<super::super::super::Graphics::Dxgi::IDXGISwapChain>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Graphics_Dxgi")]
+impl ::windows::core::RuntimeName for ISwapChainPanelNative {}
+#[cfg(feature = "Win32_Graphics_Dxgi")]
 impl ISwapChainPanelNative_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISwapChainPanelNative_Impl, const OFFSET: isize>() -> ISwapChainPanelNative_Vtbl {
         unsafe extern "system" fn SetSwapChain<Identity: ::windows::core::IUnknownImpl, Impl: ISwapChainPanelNative_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, swapchain: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -425,6 +444,8 @@ impl ISwapChainPanelNative_Vtbl {
 pub trait ISwapChainPanelNative2_Impl: Sized + ISwapChainPanelNative_Impl {
     fn SetSwapChainHandle(&self, swapchainhandle: super::super::super::Foundation::HANDLE) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
+impl ::windows::core::RuntimeName for ISwapChainPanelNative2 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
 impl ISwapChainPanelNative2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISwapChainPanelNative2_Impl, const OFFSET: isize>() -> ISwapChainPanelNative2_Vtbl {
@@ -445,6 +466,7 @@ pub trait ITrackerOwner_Impl: Sized {
     fn SetTrackerValue(&self, handle: *const TrackerHandle__, value: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
     fn TryGetSafeTrackerValue(&self, handle: *const TrackerHandle__, returnvalue: *mut ::core::option::Option<::windows::core::IUnknown>) -> u8;
 }
+impl ::windows::core::RuntimeName for ITrackerOwner {}
 impl ITrackerOwner_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITrackerOwner_Impl, const OFFSET: isize>() -> ITrackerOwner_Vtbl {
         unsafe extern "system" fn CreateTrackerHandle<Identity: ::windows::core::IUnknownImpl, Impl: ITrackerOwner_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, returnvalue: *mut *mut TrackerHandle__) -> ::windows::core::HRESULT {
@@ -494,6 +516,8 @@ pub trait IVirtualSurfaceImageSourceNative_Impl: Sized + ISurfaceImageSourceNati
     fn RegisterForUpdatesNeeded(&self, callback: &::core::option::Option<IVirtualSurfaceUpdatesCallbackNative>) -> ::windows::core::Result<()>;
     fn Resize(&self, newwidth: i32, newheight: i32) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
+impl ::windows::core::RuntimeName for IVirtualSurfaceImageSourceNative {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
 impl IVirtualSurfaceImageSourceNative_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVirtualSurfaceImageSourceNative_Impl, const OFFSET: isize>() -> IVirtualSurfaceImageSourceNative_Vtbl {
@@ -556,6 +580,7 @@ impl IVirtualSurfaceImageSourceNative_Vtbl {
 pub trait IVirtualSurfaceUpdatesCallbackNative_Impl: Sized {
     fn UpdatesNeeded(&self) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IVirtualSurfaceUpdatesCallbackNative {}
 impl IVirtualSurfaceUpdatesCallbackNative_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IVirtualSurfaceUpdatesCallbackNative_Impl, const OFFSET: isize>() -> IVirtualSurfaceUpdatesCallbackNative_Vtbl {
         unsafe extern "system" fn UpdatesNeeded<Identity: ::windows::core::IUnknownImpl, Impl: IVirtualSurfaceUpdatesCallbackNative_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {

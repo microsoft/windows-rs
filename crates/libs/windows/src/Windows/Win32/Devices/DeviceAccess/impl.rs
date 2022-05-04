@@ -4,6 +4,7 @@ pub trait ICreateDeviceAccessAsync_Impl: Sized {
     fn Close(&self) -> ::windows::core::Result<()>;
     fn GetResult(&self, riid: *const ::windows::core::GUID, deviceaccess: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for ICreateDeviceAccessAsync {}
 impl ICreateDeviceAccessAsync_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICreateDeviceAccessAsync_Impl, const OFFSET: isize>() -> ICreateDeviceAccessAsync_Vtbl {
         unsafe extern "system" fn Cancel<Identity: ::windows::core::IUnknownImpl, Impl: ICreateDeviceAccessAsync_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -43,6 +44,7 @@ pub trait IDeviceIoControl_Impl: Sized {
     fn DeviceIoControlAsync(&self, iocontrolcode: u32, inputbuffer: *const u8, inputbuffersize: u32, outputbuffer: *mut u8, outputbuffersize: u32, requestcompletioncallback: &::core::option::Option<IDeviceRequestCompletionCallback>, cancelcontext: *mut usize) -> ::windows::core::Result<()>;
     fn CancelOperation(&self, cancelcontext: usize) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IDeviceIoControl {}
 impl IDeviceIoControl_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDeviceIoControl_Impl, const OFFSET: isize>() -> IDeviceIoControl_Vtbl {
         unsafe extern "system" fn DeviceIoControlSync<Identity: ::windows::core::IUnknownImpl, Impl: IDeviceIoControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, iocontrolcode: u32, inputbuffer: *const u8, inputbuffersize: u32, outputbuffer: *mut u8, outputbuffersize: u32, bytesreturned: *mut u32) -> ::windows::core::HRESULT {
@@ -74,6 +76,7 @@ impl IDeviceIoControl_Vtbl {
 pub trait IDeviceRequestCompletionCallback_Impl: Sized {
     fn Invoke(&self, requestresult: ::windows::core::HRESULT, bytesreturned: u32) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IDeviceRequestCompletionCallback {}
 impl IDeviceRequestCompletionCallback_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDeviceRequestCompletionCallback_Impl, const OFFSET: isize>() -> IDeviceRequestCompletionCallback_Vtbl {
         unsafe extern "system" fn Invoke<Identity: ::windows::core::IUnknownImpl, Impl: IDeviceRequestCompletionCallback_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, requestresult: ::windows::core::HRESULT, bytesreturned: u32) -> ::windows::core::HRESULT {

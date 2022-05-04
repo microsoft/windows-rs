@@ -6,6 +6,8 @@ pub trait IEnumACDGroup_Impl: Sized {
     fn Clone(&self) -> ::windows::core::Result<IEnumACDGroup>;
 }
 #[cfg(feature = "Win32_System_Com")]
+impl ::windows::core::RuntimeName for IEnumACDGroup {}
+#[cfg(feature = "Win32_System_Com")]
 impl IEnumACDGroup_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEnumACDGroup_Impl, const OFFSET: isize>() -> IEnumACDGroup_Vtbl {
         unsafe extern "system" fn Next<Identity: ::windows::core::IUnknownImpl, Impl: IEnumACDGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, celt: u32, ppelements: *mut ::windows::core::RawPtr, pceltfetched: *mut u32) -> ::windows::core::HRESULT {
@@ -53,6 +55,8 @@ pub trait IEnumAddress_Impl: Sized {
     fn Skip(&self, celt: u32) -> ::windows::core::Result<()>;
     fn Clone(&self) -> ::windows::core::Result<IEnumAddress>;
 }
+#[cfg(feature = "Win32_System_Com")]
+impl ::windows::core::RuntimeName for IEnumAddress {}
 #[cfg(feature = "Win32_System_Com")]
 impl IEnumAddress_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEnumAddress_Impl, const OFFSET: isize>() -> IEnumAddress_Vtbl {
@@ -102,6 +106,8 @@ pub trait IEnumAgent_Impl: Sized {
     fn Clone(&self) -> ::windows::core::Result<IEnumAgent>;
 }
 #[cfg(feature = "Win32_System_Com")]
+impl ::windows::core::RuntimeName for IEnumAgent {}
+#[cfg(feature = "Win32_System_Com")]
 impl IEnumAgent_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEnumAgent_Impl, const OFFSET: isize>() -> IEnumAgent_Vtbl {
         unsafe extern "system" fn Next<Identity: ::windows::core::IUnknownImpl, Impl: IEnumAgent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, celt: u32, ppelements: *mut ::windows::core::RawPtr, pceltfetched: *mut u32) -> ::windows::core::HRESULT {
@@ -149,6 +155,8 @@ pub trait IEnumAgentHandler_Impl: Sized {
     fn Skip(&self, celt: u32) -> ::windows::core::Result<()>;
     fn Clone(&self) -> ::windows::core::Result<IEnumAgentHandler>;
 }
+#[cfg(feature = "Win32_System_Com")]
+impl ::windows::core::RuntimeName for IEnumAgentHandler {}
 #[cfg(feature = "Win32_System_Com")]
 impl IEnumAgentHandler_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEnumAgentHandler_Impl, const OFFSET: isize>() -> IEnumAgentHandler_Vtbl {
@@ -198,6 +206,8 @@ pub trait IEnumAgentSession_Impl: Sized {
     fn Clone(&self) -> ::windows::core::Result<IEnumAgentSession>;
 }
 #[cfg(feature = "Win32_System_Com")]
+impl ::windows::core::RuntimeName for IEnumAgentSession {}
+#[cfg(feature = "Win32_System_Com")]
 impl IEnumAgentSession_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEnumAgentSession_Impl, const OFFSET: isize>() -> IEnumAgentSession_Vtbl {
         unsafe extern "system" fn Next<Identity: ::windows::core::IUnknownImpl, Impl: IEnumAgentSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, celt: u32, ppelements: *mut ::windows::core::RawPtr, pceltfetched: *mut u32) -> ::windows::core::HRESULT {
@@ -245,6 +255,8 @@ pub trait IEnumBstr_Impl: Sized {
     fn Skip(&self, celt: u32) -> ::windows::core::Result<()>;
     fn Clone(&self) -> ::windows::core::Result<IEnumBstr>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IEnumBstr {}
 #[cfg(feature = "Win32_Foundation")]
 impl IEnumBstr_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEnumBstr_Impl, const OFFSET: isize>() -> IEnumBstr_Vtbl {
@@ -294,6 +306,8 @@ pub trait IEnumCall_Impl: Sized {
     fn Clone(&self) -> ::windows::core::Result<IEnumCall>;
 }
 #[cfg(feature = "Win32_System_Com")]
+impl ::windows::core::RuntimeName for IEnumCall {}
+#[cfg(feature = "Win32_System_Com")]
 impl IEnumCall_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEnumCall_Impl, const OFFSET: isize>() -> IEnumCall_Vtbl {
         unsafe extern "system" fn Next<Identity: ::windows::core::IUnknownImpl, Impl: IEnumCall_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, celt: u32, ppelements: *mut ::windows::core::RawPtr, pceltfetched: *mut u32) -> ::windows::core::HRESULT {
@@ -341,6 +355,8 @@ pub trait IEnumCallHub_Impl: Sized {
     fn Skip(&self, celt: u32) -> ::windows::core::Result<()>;
     fn Clone(&self) -> ::windows::core::Result<IEnumCallHub>;
 }
+#[cfg(feature = "Win32_System_Com")]
+impl ::windows::core::RuntimeName for IEnumCallHub {}
 #[cfg(feature = "Win32_System_Com")]
 impl IEnumCallHub_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEnumCallHub_Impl, const OFFSET: isize>() -> IEnumCallHub_Vtbl {
@@ -390,6 +406,8 @@ pub trait IEnumCallingCard_Impl: Sized {
     fn Clone(&self) -> ::windows::core::Result<IEnumCallingCard>;
 }
 #[cfg(feature = "Win32_System_Com")]
+impl ::windows::core::RuntimeName for IEnumCallingCard {}
+#[cfg(feature = "Win32_System_Com")]
 impl IEnumCallingCard_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEnumCallingCard_Impl, const OFFSET: isize>() -> IEnumCallingCard_Vtbl {
         unsafe extern "system" fn Next<Identity: ::windows::core::IUnknownImpl, Impl: IEnumCallingCard_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, celt: u32, ppelements: *mut ::windows::core::RawPtr, pceltfetched: *mut u32) -> ::windows::core::HRESULT {
@@ -437,6 +455,8 @@ pub trait IEnumDialableAddrs_Impl: Sized {
     fn Skip(&self, celt: u32) -> ::windows::core::Result<()>;
     fn Clone(&self) -> ::windows::core::Result<IEnumDialableAddrs>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IEnumDialableAddrs {}
 #[cfg(feature = "Win32_Foundation")]
 impl IEnumDialableAddrs_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEnumDialableAddrs_Impl, const OFFSET: isize>() -> IEnumDialableAddrs_Vtbl {
@@ -486,6 +506,8 @@ pub trait IEnumDirectory_Impl: Sized {
     fn Clone(&self) -> ::windows::core::Result<IEnumDirectory>;
 }
 #[cfg(feature = "Win32_System_Com")]
+impl ::windows::core::RuntimeName for IEnumDirectory {}
+#[cfg(feature = "Win32_System_Com")]
 impl IEnumDirectory_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEnumDirectory_Impl, const OFFSET: isize>() -> IEnumDirectory_Vtbl {
         unsafe extern "system" fn Next<Identity: ::windows::core::IUnknownImpl, Impl: IEnumDirectory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, celt: u32, ppelements: *mut ::windows::core::RawPtr, pcfetched: *mut u32) -> ::windows::core::HRESULT {
@@ -533,6 +555,8 @@ pub trait IEnumDirectoryObject_Impl: Sized {
     fn Skip(&self, celt: u32) -> ::windows::core::Result<()>;
     fn Clone(&self) -> ::windows::core::Result<IEnumDirectoryObject>;
 }
+#[cfg(feature = "Win32_System_Com")]
+impl ::windows::core::RuntimeName for IEnumDirectoryObject {}
 #[cfg(feature = "Win32_System_Com")]
 impl IEnumDirectoryObject_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEnumDirectoryObject_Impl, const OFFSET: isize>() -> IEnumDirectoryObject_Vtbl {
@@ -582,6 +606,8 @@ pub trait IEnumLocation_Impl: Sized {
     fn Clone(&self) -> ::windows::core::Result<IEnumLocation>;
 }
 #[cfg(feature = "Win32_System_Com")]
+impl ::windows::core::RuntimeName for IEnumLocation {}
+#[cfg(feature = "Win32_System_Com")]
 impl IEnumLocation_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEnumLocation_Impl, const OFFSET: isize>() -> IEnumLocation_Vtbl {
         unsafe extern "system" fn Next<Identity: ::windows::core::IUnknownImpl, Impl: IEnumLocation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, celt: u32, ppelements: *mut ::windows::core::RawPtr, pceltfetched: *mut u32) -> ::windows::core::HRESULT {
@@ -629,6 +655,8 @@ pub trait IEnumMcastScope_Impl: Sized {
     fn Skip(&self, celt: u32) -> ::windows::core::Result<()>;
     fn Clone(&self) -> ::windows::core::Result<IEnumMcastScope>;
 }
+#[cfg(feature = "Win32_System_Com")]
+impl ::windows::core::RuntimeName for IEnumMcastScope {}
 #[cfg(feature = "Win32_System_Com")]
 impl IEnumMcastScope_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEnumMcastScope_Impl, const OFFSET: isize>() -> IEnumMcastScope_Vtbl {
@@ -678,6 +706,8 @@ pub trait IEnumPhone_Impl: Sized {
     fn Clone(&self) -> ::windows::core::Result<IEnumPhone>;
 }
 #[cfg(feature = "Win32_System_Com")]
+impl ::windows::core::RuntimeName for IEnumPhone {}
+#[cfg(feature = "Win32_System_Com")]
 impl IEnumPhone_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEnumPhone_Impl, const OFFSET: isize>() -> IEnumPhone_Vtbl {
         unsafe extern "system" fn Next<Identity: ::windows::core::IUnknownImpl, Impl: IEnumPhone_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, celt: u32, ppelements: *mut ::windows::core::RawPtr, pceltfetched: *mut u32) -> ::windows::core::HRESULT {
@@ -725,6 +755,8 @@ pub trait IEnumPluggableSuperclassInfo_Impl: Sized {
     fn Skip(&self, celt: u32) -> ::windows::core::Result<()>;
     fn Clone(&self) -> ::windows::core::Result<IEnumPluggableSuperclassInfo>;
 }
+#[cfg(feature = "Win32_System_Com")]
+impl ::windows::core::RuntimeName for IEnumPluggableSuperclassInfo {}
 #[cfg(feature = "Win32_System_Com")]
 impl IEnumPluggableSuperclassInfo_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEnumPluggableSuperclassInfo_Impl, const OFFSET: isize>() -> IEnumPluggableSuperclassInfo_Vtbl {
@@ -774,6 +806,8 @@ pub trait IEnumPluggableTerminalClassInfo_Impl: Sized {
     fn Clone(&self) -> ::windows::core::Result<IEnumPluggableTerminalClassInfo>;
 }
 #[cfg(feature = "Win32_System_Com")]
+impl ::windows::core::RuntimeName for IEnumPluggableTerminalClassInfo {}
+#[cfg(feature = "Win32_System_Com")]
 impl IEnumPluggableTerminalClassInfo_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEnumPluggableTerminalClassInfo_Impl, const OFFSET: isize>() -> IEnumPluggableTerminalClassInfo_Vtbl {
         unsafe extern "system" fn Next<Identity: ::windows::core::IUnknownImpl, Impl: IEnumPluggableTerminalClassInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, celt: u32, ppelements: *mut ::windows::core::RawPtr, pceltfetched: *mut u32) -> ::windows::core::HRESULT {
@@ -821,6 +855,8 @@ pub trait IEnumQueue_Impl: Sized {
     fn Skip(&self, celt: u32) -> ::windows::core::Result<()>;
     fn Clone(&self) -> ::windows::core::Result<IEnumQueue>;
 }
+#[cfg(feature = "Win32_System_Com")]
+impl ::windows::core::RuntimeName for IEnumQueue {}
 #[cfg(feature = "Win32_System_Com")]
 impl IEnumQueue_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEnumQueue_Impl, const OFFSET: isize>() -> IEnumQueue_Vtbl {
@@ -870,6 +906,8 @@ pub trait IEnumStream_Impl: Sized {
     fn Clone(&self) -> ::windows::core::Result<IEnumStream>;
 }
 #[cfg(feature = "Win32_System_Com")]
+impl ::windows::core::RuntimeName for IEnumStream {}
+#[cfg(feature = "Win32_System_Com")]
 impl IEnumStream_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEnumStream_Impl, const OFFSET: isize>() -> IEnumStream_Vtbl {
         unsafe extern "system" fn Next<Identity: ::windows::core::IUnknownImpl, Impl: IEnumStream_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, celt: u32, ppelements: *mut ::windows::core::RawPtr, pceltfetched: *mut u32) -> ::windows::core::HRESULT {
@@ -917,6 +955,8 @@ pub trait IEnumSubStream_Impl: Sized {
     fn Skip(&self, celt: u32) -> ::windows::core::Result<()>;
     fn Clone(&self) -> ::windows::core::Result<IEnumSubStream>;
 }
+#[cfg(feature = "Win32_System_Com")]
+impl ::windows::core::RuntimeName for IEnumSubStream {}
 #[cfg(feature = "Win32_System_Com")]
 impl IEnumSubStream_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEnumSubStream_Impl, const OFFSET: isize>() -> IEnumSubStream_Vtbl {
@@ -966,6 +1006,8 @@ pub trait IEnumTerminal_Impl: Sized {
     fn Clone(&self) -> ::windows::core::Result<IEnumTerminal>;
 }
 #[cfg(feature = "Win32_System_Com")]
+impl ::windows::core::RuntimeName for IEnumTerminal {}
+#[cfg(feature = "Win32_System_Com")]
 impl IEnumTerminal_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEnumTerminal_Impl, const OFFSET: isize>() -> IEnumTerminal_Vtbl {
         unsafe extern "system" fn Next<Identity: ::windows::core::IUnknownImpl, Impl: IEnumTerminal_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, celt: u32, ppelements: *mut ::windows::core::RawPtr, pceltfetched: *mut u32) -> ::windows::core::HRESULT {
@@ -1012,6 +1054,7 @@ pub trait IEnumTerminalClass_Impl: Sized {
     fn Skip(&self, celt: u32) -> ::windows::core::Result<()>;
     fn Clone(&self) -> ::windows::core::Result<IEnumTerminalClass>;
 }
+impl ::windows::core::RuntimeName for IEnumTerminalClass {}
 impl IEnumTerminalClass_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEnumTerminalClass_Impl, const OFFSET: isize>() -> IEnumTerminalClass_Vtbl {
         unsafe extern "system" fn Next<Identity: ::windows::core::IUnknownImpl, Impl: IEnumTerminalClass_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, celt: u32, pelements: *mut ::windows::core::GUID, pceltfetched: *mut u32) -> ::windows::core::HRESULT {
@@ -1062,6 +1105,8 @@ pub trait IMcastAddressAllocation_Impl: Sized + super::super::System::Com::IDisp
     fn CreateLeaseInfo(&self, leasestarttime: f64, leasestoptime: f64, dwnumaddresses: u32, ppaddresses: *const ::windows::core::PWSTR, prequestid: &::windows::core::PCWSTR, pserveraddress: &::windows::core::PCWSTR) -> ::windows::core::Result<IMcastLeaseInfo>;
     fn CreateLeaseInfoFromVariant(&self, leasestarttime: f64, leasestoptime: f64, vaddresses: &super::super::System::Com::VARIANT, prequestid: &super::super::Foundation::BSTR, pserveraddress: &super::super::Foundation::BSTR) -> ::windows::core::Result<IMcastLeaseInfo>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IMcastAddressAllocation {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMcastAddressAllocation_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMcastAddressAllocation_Impl, const OFFSET: isize>() -> IMcastAddressAllocation_Vtbl {
@@ -1164,6 +1209,8 @@ pub trait IMcastLeaseInfo_Impl: Sized + super::super::System::Com::IDispatch_Imp
     fn Addresses(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
     fn EnumerateAddresses(&self) -> ::windows::core::Result<IEnumBstr>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IMcastLeaseInfo {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMcastLeaseInfo_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMcastLeaseInfo_Impl, const OFFSET: isize>() -> IMcastLeaseInfo_Vtbl {
@@ -1292,6 +1339,8 @@ pub trait IMcastScope_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn TTL(&self) -> ::windows::core::Result<i32>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IMcastScope {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMcastScope_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMcastScope_Impl, const OFFSET: isize>() -> IMcastScope_Vtbl {
         unsafe extern "system" fn ScopeID<Identity: ::windows::core::IUnknownImpl, Impl: IMcastScope_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pid: *mut i32) -> ::windows::core::HRESULT {
@@ -1369,6 +1418,8 @@ pub trait ITACDGroup_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Queues(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ITACDGroup {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITACDGroup_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITACDGroup_Impl, const OFFSET: isize>() -> ITACDGroup_Vtbl {
         unsafe extern "system" fn Name<Identity: ::windows::core::IUnknownImpl, Impl: ITACDGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
@@ -1421,6 +1472,8 @@ pub trait ITACDGroupEvent_Impl: Sized + super::super::System::Com::IDispatch_Imp
     fn Event(&self) -> ::windows::core::Result<ACDGROUP_EVENT>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ITACDGroupEvent {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITACDGroupEvent_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITACDGroupEvent_Impl, const OFFSET: isize>() -> ITACDGroupEvent_Vtbl {
         unsafe extern "system" fn Group<Identity: ::windows::core::IUnknownImpl, Impl: ITACDGroupEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppgroup: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -1461,6 +1514,8 @@ pub trait ITAMMediaFormat_Impl: Sized {
     fn SetMediaFormat(&self, pmt: *const super::super::Media::DirectShow::AM_MEDIA_TYPE) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_DirectShow"))]
+impl ::windows::core::RuntimeName for ITAMMediaFormat {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_DirectShow"))]
 impl ITAMMediaFormat_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITAMMediaFormat_Impl, const OFFSET: isize>() -> ITAMMediaFormat_Vtbl {
         unsafe extern "system" fn MediaFormat<Identity: ::windows::core::IUnknownImpl, Impl: ITAMMediaFormat_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppmt: *mut *mut super::super::Media::DirectShow::AM_MEDIA_TYPE) -> ::windows::core::HRESULT {
@@ -1495,6 +1550,8 @@ pub trait ITASRTerminalEvent_Impl: Sized + super::super::System::Com::IDispatch_
     fn Call(&self) -> ::windows::core::Result<ITCallInfo>;
     fn Error(&self) -> ::windows::core::Result<::windows::core::HRESULT>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ITASRTerminalEvent {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITASRTerminalEvent_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITASRTerminalEvent_Impl, const OFFSET: isize>() -> ITASRTerminalEvent_Vtbl {
@@ -1560,6 +1617,8 @@ pub trait ITAddress_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn SetDoNotDisturb(&self, fdonotdisturb: i16) -> ::windows::core::Result<()>;
     fn DoNotDisturb(&self) -> ::windows::core::Result<i16>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ITAddress {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITAddress_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITAddress_Impl, const OFFSET: isize>() -> ITAddress_Vtbl {
@@ -1747,6 +1806,8 @@ pub trait ITAddress2_Impl: Sized + super::super::System::Com::IDispatch_Impl + I
     fn NegotiateExtVersion(&self, llowversion: i32, lhighversion: i32) -> ::windows::core::Result<i32>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ITAddress2 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITAddress2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITAddress2_Impl, const OFFSET: isize>() -> ITAddress2_Vtbl {
         unsafe extern "system" fn Phones<Identity: ::windows::core::IUnknownImpl, Impl: ITAddress2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pphones: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
@@ -1871,6 +1932,8 @@ pub trait ITAddressCapabilities_Impl: Sized + super::super::System::Com::IDispat
     fn EnumerateDeviceClasses(&self) -> ::windows::core::Result<IEnumBstr>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ITAddressCapabilities {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITAddressCapabilities_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITAddressCapabilities_Impl, const OFFSET: isize>() -> ITAddressCapabilities_Vtbl {
         unsafe extern "system" fn get_AddressCapability<Identity: ::windows::core::IUnknownImpl, Impl: ITAddressCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, addresscap: ADDRESS_CAPABILITY, plcapability: *mut i32) -> ::windows::core::HRESULT {
@@ -1986,6 +2049,8 @@ pub trait ITAddressDeviceSpecificEvent_Impl: Sized + super::super::System::Com::
     fn lParam3(&self) -> ::windows::core::Result<i32>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ITAddressDeviceSpecificEvent {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITAddressDeviceSpecificEvent_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITAddressDeviceSpecificEvent_Impl, const OFFSET: isize>() -> ITAddressDeviceSpecificEvent_Vtbl {
         unsafe extern "system" fn Address<Identity: ::windows::core::IUnknownImpl, Impl: ITAddressDeviceSpecificEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppaddress: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -2063,6 +2128,8 @@ pub trait ITAddressEvent_Impl: Sized + super::super::System::Com::IDispatch_Impl
     fn Terminal(&self) -> ::windows::core::Result<ITTerminal>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ITAddressEvent {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITAddressEvent_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITAddressEvent_Impl, const OFFSET: isize>() -> ITAddressEvent_Vtbl {
         unsafe extern "system" fn Address<Identity: ::windows::core::IUnknownImpl, Impl: ITAddressEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppaddress: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -2118,6 +2185,8 @@ pub trait ITAddressTranslation_Impl: Sized + super::super::System::Com::IDispatc
     fn EnumerateCallingCards(&self) -> ::windows::core::Result<IEnumCallingCard>;
     fn CallingCards(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ITAddressTranslation {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITAddressTranslation_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITAddressTranslation_Impl, const OFFSET: isize>() -> ITAddressTranslation_Vtbl {
@@ -2203,6 +2272,8 @@ pub trait ITAddressTranslationInfo_Impl: Sized + super::super::System::Com::IDis
     fn DestinationCountryCode(&self) -> ::windows::core::Result<i32>;
     fn TranslationResults(&self) -> ::windows::core::Result<i32>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ITAddressTranslationInfo {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITAddressTranslationInfo_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITAddressTranslationInfo_Impl, const OFFSET: isize>() -> ITAddressTranslationInfo_Vtbl {
@@ -2294,6 +2365,8 @@ pub trait ITAgent_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn TotalWrapUpTime(&self) -> ::windows::core::Result<i32>;
     fn AgentSessions(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ITAgent {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITAgent_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITAgent_Impl, const OFFSET: isize>() -> ITAgent_Vtbl {
@@ -2503,6 +2576,8 @@ pub trait ITAgentEvent_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Event(&self) -> ::windows::core::Result<AGENT_EVENT>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ITAgentEvent {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITAgentEvent_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITAgentEvent_Impl, const OFFSET: isize>() -> ITAgentEvent_Vtbl {
         unsafe extern "system" fn Agent<Identity: ::windows::core::IUnknownImpl, Impl: ITAgentEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppagent: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -2547,6 +2622,8 @@ pub trait ITAgentHandler_Impl: Sized + super::super::System::Com::IDispatch_Impl
     fn ACDGroups(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
     fn UsableAddresses(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ITAgentHandler {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITAgentHandler_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITAgentHandler_Impl, const OFFSET: isize>() -> ITAgentHandler_Vtbl {
@@ -2648,6 +2725,8 @@ pub trait ITAgentHandlerEvent_Impl: Sized + super::super::System::Com::IDispatch
     fn Event(&self) -> ::windows::core::Result<AGENTHANDLER_EVENT>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ITAgentHandlerEvent {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITAgentHandlerEvent_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITAgentHandlerEvent_Impl, const OFFSET: isize>() -> ITAgentHandlerEvent_Vtbl {
         unsafe extern "system" fn AgentHandler<Identity: ::windows::core::IUnknownImpl, Impl: ITAgentHandlerEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppagenthandler: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -2702,6 +2781,8 @@ pub trait ITAgentSession_Impl: Sized + super::super::System::Com::IDispatch_Impl
     fn LongestTimeToAnswer(&self) -> ::windows::core::Result<i32>;
     fn AverageTimeToAnswer(&self) -> ::windows::core::Result<i32>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ITAgentSession {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITAgentSession_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITAgentSession_Impl, const OFFSET: isize>() -> ITAgentSession_Vtbl {
@@ -2917,6 +2998,8 @@ pub trait ITAgentSessionEvent_Impl: Sized + super::super::System::Com::IDispatch
     fn Event(&self) -> ::windows::core::Result<AGENT_SESSION_EVENT>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ITAgentSessionEvent {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITAgentSessionEvent_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITAgentSessionEvent_Impl, const OFFSET: isize>() -> ITAgentSessionEvent_Vtbl {
         unsafe extern "system" fn Session<Identity: ::windows::core::IUnknownImpl, Impl: ITAgentSessionEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppsession: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -2960,6 +3043,8 @@ pub trait ITAllocatorProperties_Impl: Sized {
     fn SetBufferSize(&self, buffersize: u32) -> ::windows::core::Result<()>;
     fn GetBufferSize(&self) -> ::windows::core::Result<u32>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_DirectShow"))]
+impl ::windows::core::RuntimeName for ITAllocatorProperties {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_DirectShow"))]
 impl ITAllocatorProperties_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITAllocatorProperties_Impl, const OFFSET: isize>() -> ITAllocatorProperties_Vtbl {
@@ -3060,6 +3145,8 @@ pub trait ITAutomatedPhoneControl_Impl: Sized + super::super::System::Com::IDisp
     fn EnumerateSelectedCalls(&self) -> ::windows::core::Result<IEnumCall>;
     fn SelectedCalls(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ITAutomatedPhoneControl {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITAutomatedPhoneControl_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITAutomatedPhoneControl_Impl, const OFFSET: isize>() -> ITAutomatedPhoneControl_Vtbl {
@@ -3361,6 +3448,8 @@ pub trait ITBasicAudioTerminal_Impl: Sized + super::super::System::Com::IDispatc
     fn Balance(&self) -> ::windows::core::Result<i32>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ITBasicAudioTerminal {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITBasicAudioTerminal_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITBasicAudioTerminal_Impl, const OFFSET: isize>() -> ITBasicAudioTerminal_Vtbl {
         unsafe extern "system" fn SetVolume<Identity: ::windows::core::IUnknownImpl, Impl: ITBasicAudioTerminal_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lvolume: i32) -> ::windows::core::HRESULT {
@@ -3428,6 +3517,8 @@ pub trait ITBasicCallControl_Impl: Sized + super::super::System::Com::IDispatch_
     fn Finish(&self, finishmode: FINISH_MODE) -> ::windows::core::Result<()>;
     fn RemoveFromConference(&self) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ITBasicCallControl {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITBasicCallControl_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITBasicCallControl_Impl, const OFFSET: isize>() -> ITBasicCallControl_Vtbl {
@@ -3560,6 +3651,8 @@ pub trait ITBasicCallControl2_Impl: Sized + super::super::System::Com::IDispatch
     fn UnselectTerminalOnCall(&self, pterminal: &::core::option::Option<ITTerminal>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ITBasicCallControl2 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITBasicCallControl2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITBasicCallControl2_Impl, const OFFSET: isize>() -> ITBasicCallControl2_Vtbl {
         unsafe extern "system" fn RequestTerminal<Identity: ::windows::core::IUnknownImpl, Impl: ITBasicCallControl2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrterminalclassguid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, lmediatype: i32, direction: TERMINAL_DIRECTION, ppterminal: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -3602,6 +3695,8 @@ pub trait ITCallHub_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn NumCalls(&self) -> ::windows::core::Result<i32>;
     fn State(&self) -> ::windows::core::Result<CALLHUB_STATE>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ITCallHub {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITCallHub_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITCallHub_Impl, const OFFSET: isize>() -> ITCallHub_Vtbl {
@@ -3674,6 +3769,8 @@ pub trait ITCallHubEvent_Impl: Sized + super::super::System::Com::IDispatch_Impl
     fn Call(&self) -> ::windows::core::Result<ITCallInfo>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ITCallHubEvent {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITCallHubEvent_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITCallHubEvent_Impl, const OFFSET: isize>() -> ITCallHubEvent_Vtbl {
         unsafe extern "system" fn Event<Identity: ::windows::core::IUnknownImpl, Impl: ITCallHubEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pevent: *mut CALLHUB_EVENT) -> ::windows::core::HRESULT {
@@ -3736,6 +3833,8 @@ pub trait ITCallInfo_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn SetCallInfoBuffer(&self, callinfobuffer: CALLINFO_BUFFER, dwsize: u32, pcallinfobuffer: *const u8) -> ::windows::core::Result<()>;
     fn ReleaseUserUserInfo(&self) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ITCallInfo {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITCallInfo_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITCallInfo_Impl, const OFFSET: isize>() -> ITCallInfo_Vtbl {
@@ -3873,6 +3972,8 @@ pub trait ITCallInfo2_Impl: Sized + super::super::System::Com::IDispatch_Impl + 
     fn put_EventFilter(&self, tapievent: TAPI_EVENT, lsubevent: i32, benable: i16) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ITCallInfo2 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITCallInfo2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITCallInfo2_Impl, const OFFSET: isize>() -> ITCallInfo2_Vtbl {
         unsafe extern "system" fn get_EventFilter<Identity: ::windows::core::IUnknownImpl, Impl: ITCallInfo2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, tapievent: TAPI_EVENT, lsubevent: i32, penable: *mut i16) -> ::windows::core::HRESULT {
@@ -3907,6 +4008,8 @@ pub trait ITCallInfoChangeEvent_Impl: Sized + super::super::System::Com::IDispat
     fn Cause(&self) -> ::windows::core::Result<CALLINFOCHANGE_CAUSE>;
     fn CallbackInstance(&self) -> ::windows::core::Result<i32>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ITCallInfoChangeEvent {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITCallInfoChangeEvent_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITCallInfoChangeEvent_Impl, const OFFSET: isize>() -> ITCallInfoChangeEvent_Vtbl {
@@ -3963,6 +4066,8 @@ pub trait ITCallMediaEvent_Impl: Sized + super::super::System::Com::IDispatch_Im
     fn Stream(&self) -> ::windows::core::Result<ITStream>;
     fn Cause(&self) -> ::windows::core::Result<CALL_MEDIA_EVENT_CAUSE>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ITCallMediaEvent {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITCallMediaEvent_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITCallMediaEvent_Impl, const OFFSET: isize>() -> ITCallMediaEvent_Vtbl {
@@ -4053,6 +4158,8 @@ pub trait ITCallNotificationEvent_Impl: Sized + super::super::System::Com::IDisp
     fn CallbackInstance(&self) -> ::windows::core::Result<i32>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ITCallNotificationEvent {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITCallNotificationEvent_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITCallNotificationEvent_Impl, const OFFSET: isize>() -> ITCallNotificationEvent_Vtbl {
         unsafe extern "system" fn Call<Identity: ::windows::core::IUnknownImpl, Impl: ITCallNotificationEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppcall: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -4106,6 +4213,8 @@ pub trait ITCallStateEvent_Impl: Sized + super::super::System::Com::IDispatch_Im
     fn Cause(&self) -> ::windows::core::Result<CALL_STATE_EVENT_CAUSE>;
     fn CallbackInstance(&self) -> ::windows::core::Result<i32>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ITCallStateEvent {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITCallStateEvent_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITCallStateEvent_Impl, const OFFSET: isize>() -> ITCallStateEvent_Vtbl {
@@ -4175,6 +4284,8 @@ pub trait ITCallingCard_Impl: Sized + super::super::System::Com::IDispatch_Impl 
     fn LongDistanceDialingRule(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn InternationalDialingRule(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ITCallingCard {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITCallingCard_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITCallingCard_Impl, const OFFSET: isize>() -> ITCallingCard_Vtbl {
@@ -4277,6 +4388,8 @@ pub trait ITCollection_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ITCollection {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITCollection_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITCollection_Impl, const OFFSET: isize>() -> ITCollection_Vtbl {
         unsafe extern "system" fn Count<Identity: ::windows::core::IUnknownImpl, Impl: ITCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lcount: *mut i32) -> ::windows::core::HRESULT {
@@ -4329,6 +4442,8 @@ pub trait ITCollection2_Impl: Sized + super::super::System::Com::IDispatch_Impl 
     fn Remove(&self, index: i32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ITCollection2 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITCollection2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITCollection2_Impl, const OFFSET: isize>() -> ITCollection2_Vtbl {
         unsafe extern "system" fn Add<Identity: ::windows::core::IUnknownImpl, Impl: ITCollection2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, pvariant: *const super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
@@ -4358,6 +4473,8 @@ pub trait ITCustomTone_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Volume(&self) -> ::windows::core::Result<i32>;
     fn SetVolume(&self, lvolume: i32) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ITCustomTone {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITCustomTone_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITCustomTone_Impl, const OFFSET: isize>() -> ITCustomTone_Vtbl {
@@ -4451,6 +4568,8 @@ pub trait ITDetectTone_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn put_Frequency(&self, index: i32, lfrequency: i32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ITDetectTone {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITDetectTone_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITDetectTone_Impl, const OFFSET: isize>() -> ITDetectTone_Vtbl {
         unsafe extern "system" fn AppSpecific<Identity: ::windows::core::IUnknownImpl, Impl: ITDetectTone_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plappspecific: *mut i32) -> ::windows::core::HRESULT {
@@ -4523,6 +4642,8 @@ pub trait ITDigitDetectionEvent_Impl: Sized + super::super::System::Com::IDispat
     fn TickCount(&self) -> ::windows::core::Result<i32>;
     fn CallbackInstance(&self) -> ::windows::core::Result<i32>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ITDigitDetectionEvent {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITDigitDetectionEvent_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITDigitDetectionEvent_Impl, const OFFSET: isize>() -> ITDigitDetectionEvent_Vtbl {
@@ -4602,6 +4723,8 @@ pub trait ITDigitGenerationEvent_Impl: Sized + super::super::System::Com::IDispa
     fn CallbackInstance(&self) -> ::windows::core::Result<i32>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ITDigitGenerationEvent {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITDigitGenerationEvent_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITDigitGenerationEvent_Impl, const OFFSET: isize>() -> ITDigitGenerationEvent_Vtbl {
         unsafe extern "system" fn Call<Identity: ::windows::core::IUnknownImpl, Impl: ITDigitGenerationEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppcallinfo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -4668,6 +4791,8 @@ pub trait ITDigitsGatheredEvent_Impl: Sized + super::super::System::Com::IDispat
     fn TickCount(&self) -> ::windows::core::Result<i32>;
     fn CallbackInstance(&self) -> ::windows::core::Result<i32>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ITDigitsGatheredEvent {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITDigitsGatheredEvent_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITDigitsGatheredEvent_Impl, const OFFSET: isize>() -> ITDigitsGatheredEvent_Vtbl {
@@ -4756,6 +4881,8 @@ pub trait ITDirectory_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn get_DirectoryObjects(&self, directoryobjecttype: DIRECTORY_OBJECT_TYPE, pname: &super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
     fn EnumerateDirectoryObjects(&self, directoryobjecttype: DIRECTORY_OBJECT_TYPE, pname: &super::super::Foundation::BSTR) -> ::windows::core::Result<IEnumDirectoryObject>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ITDirectory {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITDirectory_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITDirectory_Impl, const OFFSET: isize>() -> ITDirectory_Vtbl {
@@ -4898,6 +5025,8 @@ pub trait ITDirectoryObject_Impl: Sized + super::super::System::Com::IDispatch_I
     fn SetSecurityDescriptor(&self, psecdes: &::core::option::Option<super::super::System::Com::IDispatch>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ITDirectoryObject {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITDirectoryObject_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITDirectoryObject_Impl, const OFFSET: isize>() -> ITDirectoryObject_Vtbl {
         unsafe extern "system" fn ObjectType<Identity: ::windows::core::IUnknownImpl, Impl: ITDirectoryObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pobjecttype: *mut DIRECTORY_OBJECT_TYPE) -> ::windows::core::HRESULT {
@@ -4998,6 +5127,8 @@ pub trait ITDirectoryObjectConference_Impl: Sized + super::super::System::Com::I
     fn StopTime(&self) -> ::windows::core::Result<f64>;
     fn SetStopTime(&self, date: f64) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ITDirectoryObjectConference {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITDirectoryObjectConference_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITDirectoryObjectConference_Impl, const OFFSET: isize>() -> ITDirectoryObjectConference_Vtbl {
@@ -5153,6 +5284,8 @@ pub trait ITDirectoryObjectUser_Impl: Sized + super::super::System::Com::IDispat
     fn SetIPPhonePrimary(&self, pname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ITDirectoryObjectUser {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITDirectoryObjectUser_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITDirectoryObjectUser_Impl, const OFFSET: isize>() -> ITDirectoryObjectUser_Vtbl {
         unsafe extern "system" fn IPPhonePrimary<Identity: ::windows::core::IUnknownImpl, Impl: ITDirectoryObjectUser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
@@ -5186,6 +5319,8 @@ pub trait ITDispatchMapper_Impl: Sized + super::super::System::Com::IDispatch_Im
     fn QueryDispatchInterface(&self, piid: &super::super::Foundation::BSTR, pinterfacetomap: &::core::option::Option<super::super::System::Com::IDispatch>) -> ::windows::core::Result<super::super::System::Com::IDispatch>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ITDispatchMapper {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITDispatchMapper_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITDispatchMapper_Impl, const OFFSET: isize>() -> ITDispatchMapper_Vtbl {
         unsafe extern "system" fn QueryDispatchInterface<Identity: ::windows::core::IUnknownImpl, Impl: ITDispatchMapper_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, piid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pinterfacetomap: ::windows::core::RawPtr, ppreturnedinterface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -5217,6 +5352,8 @@ pub trait ITFileTerminalEvent_Impl: Sized + super::super::System::Com::IDispatch
     fn Cause(&self) -> ::windows::core::Result<FT_STATE_EVENT_CAUSE>;
     fn Error(&self) -> ::windows::core::Result<::windows::core::HRESULT>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ITFileTerminalEvent {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITFileTerminalEvent_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITFileTerminalEvent_Impl, const OFFSET: isize>() -> ITFileTerminalEvent_Vtbl {
@@ -5310,6 +5447,8 @@ pub trait ITFileTrack_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn EmptyAudioFormatForScripting(&self) -> ::windows::core::Result<ITScriptableAudioFormat>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_DirectShow", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ITFileTrack {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_DirectShow", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITFileTrack_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITFileTrack_Impl, const OFFSET: isize>() -> ITFileTrack_Vtbl {
         unsafe extern "system" fn Format<Identity: ::windows::core::IUnknownImpl, Impl: ITFileTrack_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppmt: *mut *mut super::super::Media::DirectShow::AM_MEDIA_TYPE) -> ::windows::core::HRESULT {
@@ -5391,6 +5530,8 @@ pub trait ITForwardInformation_Impl: Sized + super::super::System::Com::IDispatc
     fn Clear(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ITForwardInformation {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITForwardInformation_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITForwardInformation_Impl, const OFFSET: isize>() -> ITForwardInformation_Vtbl {
         unsafe extern "system" fn SetNumRingsNoAnswer<Identity: ::windows::core::IUnknownImpl, Impl: ITForwardInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lnumrings: i32) -> ::windows::core::HRESULT {
@@ -5469,6 +5610,8 @@ pub trait ITForwardInformation2_Impl: Sized + super::super::System::Com::IDispat
     fn get_ForwardTypeCallerAddressType(&self, forwardtype: i32) -> ::windows::core::Result<i32>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ITForwardInformation2 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITForwardInformation2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITForwardInformation2_Impl, const OFFSET: isize>() -> ITForwardInformation2_Vtbl {
         unsafe extern "system" fn SetForwardType2<Identity: ::windows::core::IUnknownImpl, Impl: ITForwardInformation2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, forwardtype: i32, pdestaddress: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, destaddresstype: i32, pcalleraddress: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, calleraddresstype: i32) -> ::windows::core::HRESULT {
@@ -5521,6 +5664,8 @@ pub trait ITILSConfig_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn SetPort(&self, port: i32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ITILSConfig {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITILSConfig_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITILSConfig_Impl, const OFFSET: isize>() -> ITILSConfig_Vtbl {
         unsafe extern "system" fn Port<Identity: ::windows::core::IUnknownImpl, Impl: ITILSConfig_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pport: *mut i32) -> ::windows::core::HRESULT {
@@ -5556,6 +5701,8 @@ pub trait ITLegacyAddressMediaControl_Impl: Sized {
     fn SetDevConfig(&self, pdeviceclass: &super::super::Foundation::BSTR, dwsize: u32, pdeviceconfig: *const u8) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for ITLegacyAddressMediaControl {}
+#[cfg(feature = "Win32_Foundation")]
 impl ITLegacyAddressMediaControl_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITLegacyAddressMediaControl_Impl, const OFFSET: isize>() -> ITLegacyAddressMediaControl_Vtbl {
         unsafe extern "system" fn GetID<Identity: ::windows::core::IUnknownImpl, Impl: ITLegacyAddressMediaControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdeviceclass: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pdwsize: *mut u32, ppdeviceid: *mut *mut u8) -> ::windows::core::HRESULT {
@@ -5590,6 +5737,8 @@ pub trait ITLegacyAddressMediaControl2_Impl: Sized + ITLegacyAddressMediaControl
     fn ConfigDialogEdit(&self, hwndowner: super::super::Foundation::HWND, pdeviceclass: &super::super::Foundation::BSTR, dwsizein: u32, pdeviceconfigin: *const u8, pdwsizeout: *mut u32, ppdeviceconfigout: *mut *mut u8) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for ITLegacyAddressMediaControl2 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ITLegacyAddressMediaControl2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITLegacyAddressMediaControl2_Impl, const OFFSET: isize>() -> ITLegacyAddressMediaControl2_Vtbl {
         unsafe extern "system" fn ConfigDialog<Identity: ::windows::core::IUnknownImpl, Impl: ITLegacyAddressMediaControl2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hwndowner: super::super::Foundation::HWND, pdeviceclass: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
@@ -5620,6 +5769,8 @@ pub trait ITLegacyCallMediaControl_Impl: Sized + super::super::System::Com::IDis
     fn SetMediaType(&self, lmediatype: i32) -> ::windows::core::Result<()>;
     fn MonitorMedia(&self, lmediatype: i32) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ITLegacyCallMediaControl {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITLegacyCallMediaControl_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITLegacyCallMediaControl_Impl, const OFFSET: isize>() -> ITLegacyCallMediaControl_Vtbl {
@@ -5674,6 +5825,8 @@ pub trait ITLegacyCallMediaControl2_Impl: Sized + super::super::System::Com::IDi
     fn CreateCustomToneObject(&self) -> ::windows::core::Result<ITCustomTone>;
     fn GetIDAsVariant(&self, bstrdeviceclass: &super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ITLegacyCallMediaControl2 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITLegacyCallMediaControl2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITLegacyCallMediaControl2_Impl, const OFFSET: isize>() -> ITLegacyCallMediaControl2_Vtbl {
@@ -5768,6 +5921,8 @@ pub trait ITLegacyWaveSupport_Impl: Sized + super::super::System::Com::IDispatch
     fn IsFullDuplex(&self) -> ::windows::core::Result<FULLDUPLEX_SUPPORT>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ITLegacyWaveSupport {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITLegacyWaveSupport_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITLegacyWaveSupport_Impl, const OFFSET: isize>() -> ITLegacyWaveSupport_Vtbl {
         unsafe extern "system" fn IsFullDuplex<Identity: ::windows::core::IUnknownImpl, Impl: ITLegacyWaveSupport_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psupport: *mut FULLDUPLEX_SUPPORT) -> ::windows::core::HRESULT {
@@ -5801,6 +5956,8 @@ pub trait ITLocationInfo_Impl: Sized + super::super::System::Com::IDispatch_Impl
     fn TollPrefixList(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn CancelCallWaitingCode(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ITLocationInfo {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITLocationInfo_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITLocationInfo_Impl, const OFFSET: isize>() -> ITLocationInfo_Vtbl {
@@ -5952,6 +6109,7 @@ pub trait ITMSPAddress_Impl: Sized {
     fn ReceiveTSPData(&self, pmspcall: &::core::option::Option<::windows::core::IUnknown>, pbuffer: *const u8, dwsize: u32) -> ::windows::core::Result<()>;
     fn GetEvent(&self, pdwsize: *mut u32, peventbuffer: *mut u8) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for ITMSPAddress {}
 impl ITMSPAddress_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITMSPAddress_Impl, const OFFSET: isize>() -> ITMSPAddress_Vtbl {
         unsafe extern "system" fn Initialize<Identity: ::windows::core::IUnknownImpl, Impl: ITMSPAddress_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hevent: *const i32) -> ::windows::core::HRESULT {
@@ -6012,6 +6170,8 @@ pub trait ITMediaControl_Impl: Sized + super::super::System::Com::IDispatch_Impl
     fn MediaState(&self) -> ::windows::core::Result<TERMINAL_MEDIA_STATE>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ITMediaControl {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITMediaControl_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITMediaControl_Impl, const OFFSET: isize>() -> ITMediaControl_Vtbl {
         unsafe extern "system" fn Start<Identity: ::windows::core::IUnknownImpl, Impl: ITMediaControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -6058,6 +6218,8 @@ pub trait ITMediaPlayback_Impl: Sized + super::super::System::Com::IDispatch_Imp
     fn PlayList(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ITMediaPlayback {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITMediaPlayback_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITMediaPlayback_Impl, const OFFSET: isize>() -> ITMediaPlayback_Vtbl {
         unsafe extern "system" fn SetPlayList<Identity: ::windows::core::IUnknownImpl, Impl: ITMediaPlayback_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, playlistvariant: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
@@ -6092,6 +6254,8 @@ pub trait ITMediaRecord_Impl: Sized + super::super::System::Com::IDispatch_Impl 
     fn FileName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ITMediaRecord {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITMediaRecord_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITMediaRecord_Impl, const OFFSET: isize>() -> ITMediaRecord_Vtbl {
         unsafe extern "system" fn SetFileName<Identity: ::windows::core::IUnknownImpl, Impl: ITMediaRecord_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrfilename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
@@ -6125,6 +6289,8 @@ pub trait ITMediaSupport_Impl: Sized + super::super::System::Com::IDispatch_Impl
     fn MediaTypes(&self) -> ::windows::core::Result<i32>;
     fn QueryMediaType(&self, lmediatype: i32) -> ::windows::core::Result<i16>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ITMediaSupport {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITMediaSupport_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITMediaSupport_Impl, const OFFSET: isize>() -> ITMediaSupport_Vtbl {
@@ -6169,6 +6335,8 @@ pub trait ITMultiTrackTerminal_Impl: Sized + super::super::System::Com::IDispatc
     fn DirectionsInUse(&self) -> ::windows::core::Result<TERMINAL_DIRECTION>;
     fn RemoveTrackTerminal(&self, ptrackterminaltoremove: &::core::option::Option<ITTerminal>) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ITMultiTrackTerminal {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITMultiTrackTerminal_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITMultiTrackTerminal_Impl, const OFFSET: isize>() -> ITMultiTrackTerminal_Vtbl {
@@ -6282,6 +6450,8 @@ pub trait ITPhone_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn DeviceSpecificVariant(&self, vardevspecificbytearray: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn NegotiateExtVersion(&self, llowversion: i32, lhighversion: i32) -> ::windows::core::Result<i32>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ITPhone {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITPhone_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITPhone_Impl, const OFFSET: isize>() -> ITPhone_Vtbl {
@@ -6619,6 +6789,8 @@ pub trait ITPhoneDeviceSpecificEvent_Impl: Sized + super::super::System::Com::ID
     fn lParam3(&self) -> ::windows::core::Result<i32>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ITPhoneDeviceSpecificEvent {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITPhoneDeviceSpecificEvent_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITPhoneDeviceSpecificEvent_Impl, const OFFSET: isize>() -> ITPhoneDeviceSpecificEvent_Vtbl {
         unsafe extern "system" fn Phone<Identity: ::windows::core::IUnknownImpl, Impl: ITPhoneDeviceSpecificEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppphone: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -6689,6 +6861,8 @@ pub trait ITPhoneEvent_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn NumberGathered(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn Call(&self) -> ::windows::core::Result<ITCallInfo>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ITPhoneEvent {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITPhoneEvent_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITPhoneEvent_Impl, const OFFSET: isize>() -> ITPhoneEvent_Vtbl {
@@ -6819,6 +6993,8 @@ pub trait ITPluggableTerminalClassInfo_Impl: Sized + super::super::System::Com::
     fn MediaTypes(&self) -> ::windows::core::Result<i32>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ITPluggableTerminalClassInfo {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITPluggableTerminalClassInfo_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITPluggableTerminalClassInfo_Impl, const OFFSET: isize>() -> ITPluggableTerminalClassInfo_Vtbl {
         unsafe extern "system" fn Name<Identity: ::windows::core::IUnknownImpl, Impl: ITPluggableTerminalClassInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
@@ -6918,6 +7094,8 @@ pub trait ITPluggableTerminalEventSink_Impl: Sized {
     fn FireEvent(&self, pmspeventinfo: *const MSP_EVENT_INFO) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
+impl ::windows::core::RuntimeName for ITPluggableTerminalEventSink {}
+#[cfg(feature = "Win32_System_Com")]
 impl ITPluggableTerminalEventSink_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITPluggableTerminalEventSink_Impl, const OFFSET: isize>() -> ITPluggableTerminalEventSink_Vtbl {
         unsafe extern "system" fn FireEvent<Identity: ::windows::core::IUnknownImpl, Impl: ITPluggableTerminalEventSink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pmspeventinfo: *const MSP_EVENT_INFO) -> ::windows::core::HRESULT {
@@ -6935,6 +7113,7 @@ pub trait ITPluggableTerminalEventSinkRegistration_Impl: Sized {
     fn RegisterSink(&self, peventsink: &::core::option::Option<ITPluggableTerminalEventSink>) -> ::windows::core::Result<()>;
     fn UnregisterSink(&self) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for ITPluggableTerminalEventSinkRegistration {}
 impl ITPluggableTerminalEventSinkRegistration_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITPluggableTerminalEventSinkRegistration_Impl, const OFFSET: isize>() -> ITPluggableTerminalEventSinkRegistration_Vtbl {
         unsafe extern "system" fn RegisterSink<Identity: ::windows::core::IUnknownImpl, Impl: ITPluggableTerminalEventSinkRegistration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, peventsink: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -6962,6 +7141,8 @@ pub trait ITPluggableTerminalSuperclassInfo_Impl: Sized + super::super::System::
     fn Name(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn CLSID(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ITPluggableTerminalSuperclassInfo {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITPluggableTerminalSuperclassInfo_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITPluggableTerminalSuperclassInfo_Impl, const OFFSET: isize>() -> ITPluggableTerminalSuperclassInfo_Vtbl {
@@ -7005,6 +7186,8 @@ pub trait ITPrivateEvent_Impl: Sized + super::super::System::Com::IDispatch_Impl
     fn EventCode(&self) -> ::windows::core::Result<i32>;
     fn EventInterface(&self) -> ::windows::core::Result<super::super::System::Com::IDispatch>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ITPrivateEvent {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITPrivateEvent_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITPrivateEvent_Impl, const OFFSET: isize>() -> ITPrivateEvent_Vtbl {
@@ -7083,6 +7266,8 @@ pub trait ITQOSEvent_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn MediaType(&self) -> ::windows::core::Result<i32>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ITQOSEvent {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITQOSEvent_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITQOSEvent_Impl, const OFFSET: isize>() -> ITQOSEvent_Vtbl {
         unsafe extern "system" fn Call<Identity: ::windows::core::IUnknownImpl, Impl: ITQOSEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppcall: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -7144,6 +7329,8 @@ pub trait ITQueue_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn FinalDisposition(&self) -> ::windows::core::Result<i32>;
     fn Name(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ITQueue {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITQueue_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITQueue_Impl, const OFFSET: isize>() -> ITQueue_Vtbl {
@@ -7299,6 +7486,8 @@ pub trait ITQueueEvent_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Event(&self) -> ::windows::core::Result<ACDQUEUE_EVENT>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ITQueueEvent {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITQueueEvent_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITQueueEvent_Impl, const OFFSET: isize>() -> ITQueueEvent_Vtbl {
         unsafe extern "system" fn Queue<Identity: ::windows::core::IUnknownImpl, Impl: ITQueueEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppqueue: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -7340,6 +7529,8 @@ pub trait ITRendezvous_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn CreateDirectory(&self, directorytype: DIRECTORY_TYPE, pname: &super::super::Foundation::BSTR) -> ::windows::core::Result<ITDirectory>;
     fn CreateDirectoryObject(&self, directoryobjecttype: DIRECTORY_OBJECT_TYPE, pname: &super::super::Foundation::BSTR) -> ::windows::core::Result<ITDirectoryObject>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ITRendezvous {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITRendezvous_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITRendezvous_Impl, const OFFSET: isize>() -> ITRendezvous_Vtbl {
@@ -7404,6 +7595,8 @@ pub trait ITRequest_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn MakeCall(&self, pdestaddress: &super::super::Foundation::BSTR, pappname: &super::super::Foundation::BSTR, pcalledparty: &super::super::Foundation::BSTR, pcomment: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ITRequest {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITRequest_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITRequest_Impl, const OFFSET: isize>() -> ITRequest_Vtbl {
         unsafe extern "system" fn MakeCall<Identity: ::windows::core::IUnknownImpl, Impl: ITRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdestaddress: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pappname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pcalledparty: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pcomment: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
@@ -7426,6 +7619,8 @@ pub trait ITRequestEvent_Impl: Sized + super::super::System::Com::IDispatch_Impl
     fn CalledParty(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn Comment(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ITRequestEvent {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITRequestEvent_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITRequestEvent_Impl, const OFFSET: isize>() -> ITRequestEvent_Vtbl {
@@ -7524,6 +7719,8 @@ pub trait ITScriptableAudioFormat_Impl: Sized + super::super::System::Com::IDisp
     fn FormatTag(&self) -> ::windows::core::Result<i32>;
     fn SetFormatTag(&self, nnewval: i32) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ITScriptableAudioFormat {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITScriptableAudioFormat_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITScriptableAudioFormat_Impl, const OFFSET: isize>() -> ITScriptableAudioFormat_Vtbl {
@@ -7648,6 +7845,8 @@ pub trait ITStaticAudioTerminal_Impl: Sized + super::super::System::Com::IDispat
     fn WaveId(&self) -> ::windows::core::Result<i32>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ITStaticAudioTerminal {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITStaticAudioTerminal_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITStaticAudioTerminal_Impl, const OFFSET: isize>() -> ITStaticAudioTerminal_Vtbl {
         unsafe extern "system" fn WaveId<Identity: ::windows::core::IUnknownImpl, Impl: ITStaticAudioTerminal_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plwaveid: *mut i32) -> ::windows::core::HRESULT {
@@ -7680,6 +7879,8 @@ pub trait ITStream_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn EnumerateTerminals(&self) -> ::windows::core::Result<IEnumTerminal>;
     fn Terminals(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ITStream {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITStream_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITStream_Impl, const OFFSET: isize>() -> ITStream_Vtbl {
@@ -7789,6 +7990,8 @@ pub trait ITStreamControl_Impl: Sized + super::super::System::Com::IDispatch_Imp
     fn Streams(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ITStreamControl {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITStreamControl_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITStreamControl_Impl, const OFFSET: isize>() -> ITStreamControl_Vtbl {
         unsafe extern "system" fn CreateStream<Identity: ::windows::core::IUnknownImpl, Impl: ITStreamControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lmediatype: i32, td: TERMINAL_DIRECTION, ppstream: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -7852,6 +8055,8 @@ pub trait ITSubStream_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Terminals(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
     fn Stream(&self) -> ::windows::core::Result<ITStream>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ITSubStream {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITSubStream_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITSubStream_Impl, const OFFSET: isize>() -> ITSubStream_Vtbl {
@@ -7937,6 +8142,8 @@ pub trait ITSubStreamControl_Impl: Sized + super::super::System::Com::IDispatch_
     fn SubStreams(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ITSubStreamControl {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITSubStreamControl_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITSubStreamControl_Impl, const OFFSET: isize>() -> ITSubStreamControl_Vtbl {
         unsafe extern "system" fn CreateSubStream<Identity: ::windows::core::IUnknownImpl, Impl: ITSubStreamControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppsubstream: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -8008,6 +8215,8 @@ pub trait ITTAPI_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn SetEventFilter(&self, lfiltermask: i32) -> ::windows::core::Result<()>;
     fn EventFilter(&self) -> ::windows::core::Result<i32>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ITTAPI {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITTAPI_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITTAPI_Impl, const OFFSET: isize>() -> ITTAPI_Vtbl {
@@ -8170,6 +8379,8 @@ pub trait ITTAPI2_Impl: Sized + super::super::System::Com::IDispatch_Impl + ITTA
     fn CreateEmptyCollectionObject(&self) -> ::windows::core::Result<ITCollection2>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ITTAPI2 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITTAPI2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITTAPI2_Impl, const OFFSET: isize>() -> ITTAPI2_Vtbl {
         unsafe extern "system" fn Phones<Identity: ::windows::core::IUnknownImpl, Impl: ITTAPI2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pphones: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
@@ -8222,6 +8433,8 @@ pub trait ITTAPICallCenter_Impl: Sized + super::super::System::Com::IDispatch_Im
     fn AgentHandlers(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ITTAPICallCenter {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITTAPICallCenter_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITTAPICallCenter_Impl, const OFFSET: isize>() -> ITTAPICallCenter_Vtbl {
         unsafe extern "system" fn EnumerateAgentHandlers<Identity: ::windows::core::IUnknownImpl, Impl: ITTAPICallCenter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenumhandler: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -8259,6 +8472,8 @@ impl ITTAPICallCenter_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITTAPIDispatchEventNotification_Impl: Sized + super::super::System::Com::IDispatch_Impl {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ITTAPIDispatchEventNotification {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITTAPIDispatchEventNotification_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITTAPIDispatchEventNotification_Impl, const OFFSET: isize>() -> ITTAPIDispatchEventNotification_Vtbl {
         Self { base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>() }
@@ -8271,6 +8486,8 @@ impl ITTAPIDispatchEventNotification_Vtbl {
 pub trait ITTAPIEventNotification_Impl: Sized {
     fn Event(&self, tapievent: TAPI_EVENT, pevent: &::core::option::Option<super::super::System::Com::IDispatch>) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_System_Com")]
+impl ::windows::core::RuntimeName for ITTAPIEventNotification {}
 #[cfg(feature = "Win32_System_Com")]
 impl ITTAPIEventNotification_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITTAPIEventNotification_Impl, const OFFSET: isize>() -> ITTAPIEventNotification_Vtbl {
@@ -8292,6 +8509,8 @@ pub trait ITTAPIObjectEvent_Impl: Sized + super::super::System::Com::IDispatch_I
     fn Address(&self) -> ::windows::core::Result<ITAddress>;
     fn CallbackInstance(&self) -> ::windows::core::Result<i32>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ITTAPIObjectEvent {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITTAPIObjectEvent_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITTAPIObjectEvent_Impl, const OFFSET: isize>() -> ITTAPIObjectEvent_Vtbl {
@@ -8356,6 +8575,8 @@ pub trait ITTAPIObjectEvent2_Impl: Sized + super::super::System::Com::IDispatch_
     fn Phone(&self) -> ::windows::core::Result<ITPhone>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ITTAPIObjectEvent2 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITTAPIObjectEvent2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITTAPIObjectEvent2_Impl, const OFFSET: isize>() -> ITTAPIObjectEvent2_Vtbl {
         unsafe extern "system" fn Phone<Identity: ::windows::core::IUnknownImpl, Impl: ITTAPIObjectEvent2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppphone: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -8381,6 +8602,8 @@ pub trait ITTTSTerminalEvent_Impl: Sized + super::super::System::Com::IDispatch_
     fn Call(&self) -> ::windows::core::Result<ITCallInfo>;
     fn Error(&self) -> ::windows::core::Result<::windows::core::HRESULT>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ITTTSTerminalEvent {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITTTSTerminalEvent_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITTTSTerminalEvent_Impl, const OFFSET: isize>() -> ITTTSTerminalEvent_Vtbl {
@@ -8437,6 +8660,8 @@ pub trait ITTerminal_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn MediaType(&self) -> ::windows::core::Result<i32>;
     fn Direction(&self) -> ::windows::core::Result<TERMINAL_DIRECTION>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ITTerminal {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITTerminal_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITTerminal_Impl, const OFFSET: isize>() -> ITTerminal_Vtbl {
@@ -8530,6 +8755,8 @@ pub trait ITTerminalSupport_Impl: Sized + super::super::System::Com::IDispatch_I
     fn GetDefaultStaticTerminal(&self, lmediatype: i32, direction: TERMINAL_DIRECTION) -> ::windows::core::Result<ITTerminal>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ITTerminalSupport {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITTerminalSupport_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITTerminalSupport_Impl, const OFFSET: isize>() -> ITTerminalSupport_Vtbl {
         unsafe extern "system" fn StaticTerminals<Identity: ::windows::core::IUnknownImpl, Impl: ITTerminalSupport_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvariant: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
@@ -8620,6 +8847,8 @@ pub trait ITTerminalSupport2_Impl: Sized + super::super::System::Com::IDispatch_
     fn EnumeratePluggableTerminalClasses(&self, iidterminalsuperclass: &::windows::core::GUID, lmediatype: i32) -> ::windows::core::Result<IEnumPluggableTerminalClassInfo>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ITTerminalSupport2 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITTerminalSupport2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITTerminalSupport2_Impl, const OFFSET: isize>() -> ITTerminalSupport2_Vtbl {
         unsafe extern "system" fn PluggableSuperclasses<Identity: ::windows::core::IUnknownImpl, Impl: ITTerminalSupport2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvariant: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
@@ -8686,6 +8915,8 @@ pub trait ITToneDetectionEvent_Impl: Sized + super::super::System::Com::IDispatc
     fn CallbackInstance(&self) -> ::windows::core::Result<i32>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ITToneDetectionEvent {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITToneDetectionEvent_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITToneDetectionEvent_Impl, const OFFSET: isize>() -> ITToneDetectionEvent_Vtbl {
         unsafe extern "system" fn Call<Identity: ::windows::core::IUnknownImpl, Impl: ITToneDetectionEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppcallinfo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -8751,6 +8982,8 @@ pub trait ITToneTerminalEvent_Impl: Sized + super::super::System::Com::IDispatch
     fn Error(&self) -> ::windows::core::Result<::windows::core::HRESULT>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ITToneTerminalEvent {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITToneTerminalEvent_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITToneTerminalEvent_Impl, const OFFSET: isize>() -> ITToneTerminalEvent_Vtbl {
         unsafe extern "system" fn Terminal<Identity: ::windows::core::IUnknownImpl, Impl: ITToneTerminalEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppterminal: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -8807,6 +9040,8 @@ pub trait ITnef_Impl: Sized {
     fn EncodeRecips(&self, ulflags: u32, lprecipienttable: &::core::option::Option<super::super::System::AddressBook::IMAPITable>) -> ::windows::core::Result<()>;
     fn FinishComponent(&self, ulflags: u32, ulcomponentid: u32, lpcustomproplist: *mut super::super::System::AddressBook::SPropTagArray, lpcustomprops: *mut super::super::System::AddressBook::SPropValue, lpproplist: *mut super::super::System::AddressBook::SPropTagArray, lpproblems: *mut *mut STnefProblemArray) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_AddressBook", feature = "Win32_System_Com"))]
+impl ::windows::core::RuntimeName for ITnef {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_AddressBook", feature = "Win32_System_Com"))]
 impl ITnef_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITnef_Impl, const OFFSET: isize>() -> ITnef_Vtbl {

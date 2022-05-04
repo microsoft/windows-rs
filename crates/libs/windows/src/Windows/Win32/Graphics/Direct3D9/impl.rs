@@ -16,6 +16,8 @@ pub trait IDirect3D9_Impl: Sized {
     fn CreateDevice(&self, adapter: u32, devicetype: D3DDEVTYPE, hfocuswindow: super::super::Foundation::HWND, behaviorflags: u32, ppresentationparameters: *mut D3DPRESENT_PARAMETERS, ppreturneddeviceinterface: *mut ::core::option::Option<IDirect3DDevice9>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::windows::core::RuntimeName for IDirect3D9 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl IDirect3D9_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirect3D9_Impl, const OFFSET: isize>() -> IDirect3D9_Vtbl {
         unsafe extern "system" fn RegisterSoftwareDevice<Identity: ::windows::core::IUnknownImpl, Impl: IDirect3D9_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinitializefunction: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -119,6 +121,8 @@ pub trait IDirect3D9Ex_Impl: Sized + IDirect3D9_Impl {
     fn GetAdapterLUID(&self, adapter: u32, pluid: *mut super::super::Foundation::LUID) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::windows::core::RuntimeName for IDirect3D9Ex {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl IDirect3D9Ex_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirect3D9Ex_Impl, const OFFSET: isize>() -> IDirect3D9Ex_Vtbl {
         unsafe extern "system" fn GetAdapterModeCountEx<Identity: ::windows::core::IUnknownImpl, Impl: IDirect3D9Ex_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, adapter: u32, pfilter: *const D3DDISPLAYMODEFILTER) -> u32 {
@@ -167,6 +171,7 @@ pub trait IDirect3DBaseTexture9_Impl: Sized + IDirect3DResource9_Impl {
     fn GetAutoGenFilterType(&self) -> D3DTEXTUREFILTERTYPE;
     fn GenerateMipSubLevels(&self);
 }
+impl ::windows::core::RuntimeName for IDirect3DBaseTexture9 {}
 impl IDirect3DBaseTexture9_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirect3DBaseTexture9_Impl, const OFFSET: isize>() -> IDirect3DBaseTexture9_Vtbl {
         unsafe extern "system" fn SetLOD<Identity: ::windows::core::IUnknownImpl, Impl: IDirect3DBaseTexture9_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lodnew: u32) -> u32 {
@@ -221,6 +226,8 @@ pub trait IDirect3DCubeTexture9_Impl: Sized + IDirect3DResource9_Impl + IDirect3
     fn UnlockRect(&self, facetype: D3DCUBEMAP_FACES, level: u32) -> ::windows::core::Result<()>;
     fn AddDirtyRect(&self, facetype: D3DCUBEMAP_FACES, pdirtyrect: *const super::super::Foundation::RECT) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IDirect3DCubeTexture9 {}
 #[cfg(feature = "Win32_Foundation")]
 impl IDirect3DCubeTexture9_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirect3DCubeTexture9_Impl, const OFFSET: isize>() -> IDirect3DCubeTexture9_Vtbl {
@@ -387,6 +394,8 @@ pub trait IDirect3DDevice9_Impl: Sized {
     fn DeletePatch(&self, handle: u32) -> ::windows::core::Result<()>;
     fn CreateQuery(&self, r#type: D3DQUERYTYPE) -> ::windows::core::Result<IDirect3DQuery9>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Gdi"))]
+impl ::windows::core::RuntimeName for IDirect3DDevice9 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Gdi"))]
 impl IDirect3DDevice9_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirect3DDevice9_Impl, const OFFSET: isize>() -> IDirect3DDevice9_Vtbl {
@@ -1209,6 +1218,8 @@ pub trait IDirect3DDevice9Ex_Impl: Sized + IDirect3DDevice9_Impl {
     fn GetDisplayModeEx(&self, iswapchain: u32, pmode: *mut D3DDISPLAYMODEEX, protation: *mut D3DDISPLAYROTATION) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Gdi"))]
+impl ::windows::core::RuntimeName for IDirect3DDevice9Ex {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Gdi"))]
 impl IDirect3DDevice9Ex_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirect3DDevice9Ex_Impl, const OFFSET: isize>() -> IDirect3DDevice9Ex_Vtbl {
         unsafe extern "system" fn SetConvolutionMonoKernel<Identity: ::windows::core::IUnknownImpl, Impl: IDirect3DDevice9Ex_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, width: u32, height: u32, rows: *mut f32, columns: *mut f32) -> ::windows::core::HRESULT {
@@ -1314,6 +1325,7 @@ pub trait IDirect3DIndexBuffer9_Impl: Sized + IDirect3DResource9_Impl {
     fn Unlock(&self) -> ::windows::core::Result<()>;
     fn GetDesc(&self, pdesc: *mut D3DINDEXBUFFER_DESC) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IDirect3DIndexBuffer9 {}
 impl IDirect3DIndexBuffer9_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirect3DIndexBuffer9_Impl, const OFFSET: isize>() -> IDirect3DIndexBuffer9_Vtbl {
         unsafe extern "system" fn Lock<Identity: ::windows::core::IUnknownImpl, Impl: IDirect3DIndexBuffer9_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, offsettolock: u32, sizetolock: u32, ppbdata: *mut *mut ::core::ffi::c_void, flags: u32) -> ::windows::core::HRESULT {
@@ -1346,6 +1358,7 @@ pub trait IDirect3DPixelShader9_Impl: Sized {
     fn GetDevice(&self) -> ::windows::core::Result<IDirect3DDevice9>;
     fn GetFunction(&self, param0: *mut ::core::ffi::c_void, psizeofdata: *mut u32) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IDirect3DPixelShader9 {}
 impl IDirect3DPixelShader9_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirect3DPixelShader9_Impl, const OFFSET: isize>() -> IDirect3DPixelShader9_Vtbl {
         unsafe extern "system" fn GetDevice<Identity: ::windows::core::IUnknownImpl, Impl: IDirect3DPixelShader9_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppdevice: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -1381,6 +1394,7 @@ pub trait IDirect3DQuery9_Impl: Sized {
     fn Issue(&self, dwissueflags: u32) -> ::windows::core::Result<()>;
     fn GetData(&self, pdata: *mut ::core::ffi::c_void, dwsize: u32, dwgetdataflags: u32) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IDirect3DQuery9 {}
 impl IDirect3DQuery9_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirect3DQuery9_Impl, const OFFSET: isize>() -> IDirect3DQuery9_Vtbl {
         unsafe extern "system" fn GetDevice<Identity: ::windows::core::IUnknownImpl, Impl: IDirect3DQuery9_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppdevice: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -1437,6 +1451,7 @@ pub trait IDirect3DResource9_Impl: Sized {
     fn PreLoad(&self);
     fn GetType(&self) -> D3DRESOURCETYPE;
 }
+impl ::windows::core::RuntimeName for IDirect3DResource9 {}
 impl IDirect3DResource9_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirect3DResource9_Impl, const OFFSET: isize>() -> IDirect3DResource9_Vtbl {
         unsafe extern "system" fn GetDevice<Identity: ::windows::core::IUnknownImpl, Impl: IDirect3DResource9_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppdevice: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -1506,6 +1521,7 @@ pub trait IDirect3DStateBlock9_Impl: Sized {
     fn Capture(&self) -> ::windows::core::Result<()>;
     fn Apply(&self) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IDirect3DStateBlock9 {}
 impl IDirect3DStateBlock9_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirect3DStateBlock9_Impl, const OFFSET: isize>() -> IDirect3DStateBlock9_Vtbl {
         unsafe extern "system" fn GetDevice<Identity: ::windows::core::IUnknownImpl, Impl: IDirect3DStateBlock9_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppdevice: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -1549,6 +1565,8 @@ pub trait IDirect3DSurface9_Impl: Sized + IDirect3DResource9_Impl {
     fn GetDC(&self, phdc: *mut super::Gdi::HDC) -> ::windows::core::Result<()>;
     fn ReleaseDC(&self, hdc: super::Gdi::HDC) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::windows::core::RuntimeName for IDirect3DSurface9 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl IDirect3DSurface9_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirect3DSurface9_Impl, const OFFSET: isize>() -> IDirect3DSurface9_Vtbl {
@@ -1606,6 +1624,8 @@ pub trait IDirect3DSwapChain9_Impl: Sized {
     fn GetDevice(&self) -> ::windows::core::Result<IDirect3DDevice9>;
     fn GetPresentParameters(&self, ppresentationparameters: *mut D3DPRESENT_PARAMETERS) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::windows::core::RuntimeName for IDirect3DSwapChain9 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl IDirect3DSwapChain9_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirect3DSwapChain9_Impl, const OFFSET: isize>() -> IDirect3DSwapChain9_Vtbl {
@@ -1678,6 +1698,8 @@ pub trait IDirect3DSwapChain9Ex_Impl: Sized + IDirect3DSwapChain9_Impl {
     fn GetDisplayModeEx(&self, pmode: *mut D3DDISPLAYMODEEX, protation: *mut D3DDISPLAYROTATION) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::windows::core::RuntimeName for IDirect3DSwapChain9Ex {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl IDirect3DSwapChain9Ex_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirect3DSwapChain9Ex_Impl, const OFFSET: isize>() -> IDirect3DSwapChain9Ex_Vtbl {
         unsafe extern "system" fn GetLastPresentCount<Identity: ::windows::core::IUnknownImpl, Impl: IDirect3DSwapChain9Ex_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plastpresentcount: *mut u32) -> ::windows::core::HRESULT {
@@ -1714,6 +1736,8 @@ pub trait IDirect3DTexture9_Impl: Sized + IDirect3DResource9_Impl + IDirect3DBas
     fn UnlockRect(&self, level: u32) -> ::windows::core::Result<()>;
     fn AddDirtyRect(&self, pdirtyrect: *const super::super::Foundation::RECT) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IDirect3DTexture9 {}
 #[cfg(feature = "Win32_Foundation")]
 impl IDirect3DTexture9_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirect3DTexture9_Impl, const OFFSET: isize>() -> IDirect3DTexture9_Vtbl {
@@ -1766,6 +1790,7 @@ pub trait IDirect3DVertexBuffer9_Impl: Sized + IDirect3DResource9_Impl {
     fn Unlock(&self) -> ::windows::core::Result<()>;
     fn GetDesc(&self, pdesc: *mut D3DVERTEXBUFFER_DESC) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IDirect3DVertexBuffer9 {}
 impl IDirect3DVertexBuffer9_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirect3DVertexBuffer9_Impl, const OFFSET: isize>() -> IDirect3DVertexBuffer9_Vtbl {
         unsafe extern "system" fn Lock<Identity: ::windows::core::IUnknownImpl, Impl: IDirect3DVertexBuffer9_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, offsettolock: u32, sizetolock: u32, ppbdata: *mut *mut ::core::ffi::c_void, flags: u32) -> ::windows::core::HRESULT {
@@ -1798,6 +1823,7 @@ pub trait IDirect3DVertexDeclaration9_Impl: Sized {
     fn GetDevice(&self) -> ::windows::core::Result<IDirect3DDevice9>;
     fn GetDeclaration(&self, pelement: *mut D3DVERTEXELEMENT9, pnumelements: *mut u32) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IDirect3DVertexDeclaration9 {}
 impl IDirect3DVertexDeclaration9_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirect3DVertexDeclaration9_Impl, const OFFSET: isize>() -> IDirect3DVertexDeclaration9_Vtbl {
         unsafe extern "system" fn GetDevice<Identity: ::windows::core::IUnknownImpl, Impl: IDirect3DVertexDeclaration9_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppdevice: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -1830,6 +1856,7 @@ pub trait IDirect3DVertexShader9_Impl: Sized {
     fn GetDevice(&self) -> ::windows::core::Result<IDirect3DDevice9>;
     fn GetFunction(&self, param0: *mut ::core::ffi::c_void, psizeofdata: *mut u32) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IDirect3DVertexShader9 {}
 impl IDirect3DVertexShader9_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirect3DVertexShader9_Impl, const OFFSET: isize>() -> IDirect3DVertexShader9_Vtbl {
         unsafe extern "system" fn GetDevice<Identity: ::windows::core::IUnknownImpl, Impl: IDirect3DVertexShader9_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppdevice: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -1868,6 +1895,7 @@ pub trait IDirect3DVolume9_Impl: Sized {
     fn LockBox(&self, plockedvolume: *mut D3DLOCKED_BOX, pbox: *const D3DBOX, flags: u32) -> ::windows::core::Result<()>;
     fn UnlockBox(&self) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IDirect3DVolume9 {}
 impl IDirect3DVolume9_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirect3DVolume9_Impl, const OFFSET: isize>() -> IDirect3DVolume9_Vtbl {
         unsafe extern "system" fn GetDevice<Identity: ::windows::core::IUnknownImpl, Impl: IDirect3DVolume9_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppdevice: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -1939,6 +1967,7 @@ pub trait IDirect3DVolumeTexture9_Impl: Sized + IDirect3DResource9_Impl + IDirec
     fn UnlockBox(&self, level: u32) -> ::windows::core::Result<()>;
     fn AddDirtyBox(&self, pdirtybox: *const D3DBOX) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IDirect3DVolumeTexture9 {}
 impl IDirect3DVolumeTexture9_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirect3DVolumeTexture9_Impl, const OFFSET: isize>() -> IDirect3DVolumeTexture9_Vtbl {
         unsafe extern "system" fn GetLevelDesc<Identity: ::windows::core::IUnknownImpl, Impl: IDirect3DVolumeTexture9_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, level: u32, pdesc: *mut D3DVOLUME_DESC) -> ::windows::core::HRESULT {

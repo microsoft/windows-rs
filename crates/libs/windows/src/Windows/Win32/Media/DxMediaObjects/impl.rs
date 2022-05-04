@@ -3,6 +3,7 @@ pub trait IDMOQualityControl_Impl: Sized {
     fn SetStatus(&self, dwflags: u32) -> ::windows::core::Result<()>;
     fn GetStatus(&self) -> ::windows::core::Result<u32>;
 }
+impl ::windows::core::RuntimeName for IDMOQualityControl {}
 impl IDMOQualityControl_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDMOQualityControl_Impl, const OFFSET: isize>() -> IDMOQualityControl_Vtbl {
         unsafe extern "system" fn SetNow<Identity: ::windows::core::IUnknownImpl, Impl: IDMOQualityControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rtnow: i64) -> ::windows::core::HRESULT {
@@ -43,6 +44,7 @@ pub trait IDMOVideoOutputOptimizations_Impl: Sized {
     fn GetCurrentOperationMode(&self, uloutputstreamindex: u32) -> ::windows::core::Result<u32>;
     fn GetCurrentSampleRequirements(&self, uloutputstreamindex: u32) -> ::windows::core::Result<u32>;
 }
+impl ::windows::core::RuntimeName for IDMOVideoOutputOptimizations {}
 impl IDMOVideoOutputOptimizations_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDMOVideoOutputOptimizations_Impl, const OFFSET: isize>() -> IDMOVideoOutputOptimizations_Vtbl {
         unsafe extern "system" fn QueryOperationModePreferences<Identity: ::windows::core::IUnknownImpl, Impl: IDMOVideoOutputOptimizations_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uloutputstreamindex: u32, pdwrequestedcapabilities: *mut u32) -> ::windows::core::HRESULT {
@@ -101,6 +103,7 @@ pub trait IEnumDMO_Impl: Sized {
     fn Reset(&self) -> ::windows::core::Result<()>;
     fn Clone(&self) -> ::windows::core::Result<IEnumDMO>;
 }
+impl ::windows::core::RuntimeName for IEnumDMO {}
 impl IEnumDMO_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEnumDMO_Impl, const OFFSET: isize>() -> IEnumDMO_Vtbl {
         unsafe extern "system" fn Next<Identity: ::windows::core::IUnknownImpl, Impl: IEnumDMO_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, citemstofetch: u32, pclsid: *mut ::windows::core::GUID, names: *mut ::windows::core::PWSTR, pcitemsfetched: *mut u32) -> ::windows::core::HRESULT {
@@ -146,6 +149,7 @@ pub trait IMediaBuffer_Impl: Sized {
     fn GetMaxLength(&self) -> ::windows::core::Result<u32>;
     fn GetBufferAndLength(&self, ppbuffer: *mut *mut u8, pcblength: *mut u32) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IMediaBuffer {}
 impl IMediaBuffer_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaBuffer_Impl, const OFFSET: isize>() -> IMediaBuffer_Vtbl {
         unsafe extern "system" fn SetLength<Identity: ::windows::core::IUnknownImpl, Impl: IMediaBuffer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cblength: u32) -> ::windows::core::HRESULT {
@@ -204,6 +208,8 @@ pub trait IMediaObject_Impl: Sized {
     fn ProcessOutput(&self, dwflags: u32, coutputbuffercount: u32, poutputbuffers: *mut DMO_OUTPUT_DATA_BUFFER, pdwstatus: *mut u32) -> ::windows::core::Result<()>;
     fn Lock(&self, block: i32) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IMediaObject {}
 #[cfg(feature = "Win32_Foundation")]
 impl IMediaObject_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaObject_Impl, const OFFSET: isize>() -> IMediaObject_Vtbl {
@@ -394,6 +400,7 @@ pub trait IMediaObjectInPlace_Impl: Sized {
     fn Clone(&self) -> ::windows::core::Result<IMediaObjectInPlace>;
     fn GetLatency(&self) -> ::windows::core::Result<i64>;
 }
+impl ::windows::core::RuntimeName for IMediaObjectInPlace {}
 impl IMediaObjectInPlace_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaObjectInPlace_Impl, const OFFSET: isize>() -> IMediaObjectInPlace_Vtbl {
         unsafe extern "system" fn Process<Identity: ::windows::core::IUnknownImpl, Impl: IMediaObjectInPlace_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ulsize: u32, pdata: *mut u8, reftimestart: i64, dwflags: u32) -> ::windows::core::HRESULT {

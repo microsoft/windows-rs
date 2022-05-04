@@ -13,6 +13,8 @@ pub trait IDeviceModelPlugIn_Impl: Sized {
     fn GetNeutralAxis(&self, ccolors: u32, pxyzcolors: *mut XYZColorF) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IDeviceModelPlugIn {}
+#[cfg(feature = "Win32_Foundation")]
 impl IDeviceModelPlugIn_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDeviceModelPlugIn_Impl, const OFFSET: isize>() -> IDeviceModelPlugIn_Vtbl {
         unsafe extern "system" fn Initialize<Identity: ::windows::core::IUnknownImpl, Impl: IDeviceModelPlugIn_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrxml: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, cnummodels: u32, imodelposition: u32) -> ::windows::core::HRESULT {
@@ -124,6 +126,8 @@ pub trait IGamutMapModelPlugIn_Impl: Sized {
     fn Initialize(&self, bstrxml: &super::super::Foundation::BSTR, psrcplugin: &::core::option::Option<IDeviceModelPlugIn>, pdestplugin: &::core::option::Option<IDeviceModelPlugIn>, psrcgbd: *const GamutBoundaryDescription, pdestgbd: *const GamutBoundaryDescription) -> ::windows::core::Result<()>;
     fn SourceToDestinationAppearanceColors(&self, ccolors: u32, pinputcolors: *const JChColorF, poutputcolors: *mut JChColorF) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IGamutMapModelPlugIn {}
 #[cfg(feature = "Win32_Foundation")]
 impl IGamutMapModelPlugIn_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGamutMapModelPlugIn_Impl, const OFFSET: isize>() -> IGamutMapModelPlugIn_Vtbl {

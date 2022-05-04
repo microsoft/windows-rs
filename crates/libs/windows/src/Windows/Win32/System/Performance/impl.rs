@@ -1,6 +1,8 @@
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait DICounterItem_Impl: Sized + super::Com::IDispatch_Impl {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for DICounterItem {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl DICounterItem_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: DICounterItem_Impl, const OFFSET: isize>() -> DICounterItem_Vtbl {
         Self { base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>() }
@@ -11,6 +13,8 @@ impl DICounterItem_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait DILogFileItem_Impl: Sized + super::Com::IDispatch_Impl {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for DILogFileItem {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl DILogFileItem_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: DILogFileItem_Impl, const OFFSET: isize>() -> DILogFileItem_Vtbl {
@@ -23,6 +27,8 @@ impl DILogFileItem_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait DISystemMonitor_Impl: Sized + super::Com::IDispatch_Impl {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for DISystemMonitor {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl DISystemMonitor_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: DISystemMonitor_Impl, const OFFSET: isize>() -> DISystemMonitor_Vtbl {
         Self { base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>() }
@@ -34,6 +40,8 @@ impl DISystemMonitor_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait DISystemMonitorEvents_Impl: Sized + super::Com::IDispatch_Impl {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for DISystemMonitorEvents {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl DISystemMonitorEvents_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: DISystemMonitorEvents_Impl, const OFFSET: isize>() -> DISystemMonitorEvents_Vtbl {
         Self { base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>() }
@@ -44,6 +52,8 @@ impl DISystemMonitorEvents_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait DISystemMonitorInternal_Impl: Sized + super::Com::IDispatch_Impl {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for DISystemMonitorInternal {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl DISystemMonitorInternal_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: DISystemMonitorInternal_Impl, const OFFSET: isize>() -> DISystemMonitorInternal_Vtbl {
@@ -72,6 +82,8 @@ pub trait IAlertDataCollector_Impl: Sized + super::Com::IDispatch_Impl + IDataCo
     fn TriggerDataCollectorSet(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn SetTriggerDataCollectorSet(&self, name: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IAlertDataCollector {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IAlertDataCollector_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAlertDataCollector_Impl, const OFFSET: isize>() -> IAlertDataCollector_Vtbl {
@@ -245,6 +257,8 @@ pub trait IApiTracingDataCollector_Impl: Sized + super::Com::IDispatch_Impl + ID
     fn SetExcludeApis(&self, excludeapis: *const super::Com::SAFEARRAY) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IApiTracingDataCollector {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IApiTracingDataCollector_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IApiTracingDataCollector_Impl, const OFFSET: isize>() -> IApiTracingDataCollector_Vtbl {
         unsafe extern "system" fn LogApiNamesOnly<Identity: ::windows::core::IUnknownImpl, Impl: IApiTracingDataCollector_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, logapinames: *mut i16) -> ::windows::core::HRESULT {
@@ -402,6 +416,8 @@ pub trait IConfigurationDataCollector_Impl: Sized + super::Com::IDispatch_Impl +
     fn SystemStateFile(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn SetSystemStateFile(&self, filename: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IConfigurationDataCollector {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IConfigurationDataCollector_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IConfigurationDataCollector_Impl, const OFFSET: isize>() -> IConfigurationDataCollector_Vtbl {
@@ -591,6 +607,8 @@ pub trait ICounterItem_Impl: Sized {
     fn GetStatistics(&self, max: *mut f64, min: *mut f64, avg: *mut f64, status: *mut i32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for ICounterItem {}
+#[cfg(feature = "Win32_Foundation")]
 impl ICounterItem_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICounterItem_Impl, const OFFSET: isize>() -> ICounterItem_Vtbl {
         unsafe extern "system" fn Value<Identity: ::windows::core::IUnknownImpl, Impl: ICounterItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdblvalue: *mut f64) -> ::windows::core::HRESULT {
@@ -718,6 +736,8 @@ pub trait ICounterItem2_Impl: Sized + ICounterItem_Impl {
     fn GetDataAt(&self, iindex: i32, iwhich: SysmonDataType) -> ::windows::core::Result<super::Com::VARIANT>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ICounterItem2 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ICounterItem2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICounterItem2_Impl, const OFFSET: isize>() -> ICounterItem2_Vtbl {
         unsafe extern "system" fn SetSelected<Identity: ::windows::core::IUnknownImpl, Impl: ICounterItem2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstate: i16) -> ::windows::core::HRESULT {
@@ -784,6 +804,8 @@ pub trait ICounters_Impl: Sized + super::Com::IDispatch_Impl {
     fn Add(&self, pathname: &super::super::Foundation::BSTR) -> ::windows::core::Result<DICounterItem>;
     fn Remove(&self, index: &super::Com::VARIANT) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ICounters {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ICounters_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICounters_Impl, const OFFSET: isize>() -> ICounters_Vtbl {
@@ -877,6 +899,8 @@ pub trait IDataCollector_Impl: Sized + super::Com::IDispatch_Impl {
     fn SetXml(&self, xml: &super::super::Foundation::BSTR) -> ::windows::core::Result<IValueMap>;
     fn CreateOutputLocation(&self, latest: i16) -> ::windows::core::Result<super::super::Foundation::BSTR>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IDataCollector {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IDataCollector_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDataCollector_Impl, const OFFSET: isize>() -> IDataCollector_Vtbl {
@@ -1141,6 +1165,8 @@ pub trait IDataCollectorCollection_Impl: Sized + super::Com::IDispatch_Impl {
     fn CreateDataCollector(&self, r#type: DataCollectorType) -> ::windows::core::Result<IDataCollector>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IDataCollectorCollection {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IDataCollectorCollection_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDataCollectorCollection_Impl, const OFFSET: isize>() -> IDataCollectorCollection_Vtbl {
         unsafe extern "system" fn Count<Identity: ::windows::core::IUnknownImpl, Impl: IDataCollectorCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT {
@@ -1292,6 +1318,8 @@ pub trait IDataCollectorSet_Impl: Sized + super::Com::IDispatch_Impl {
     fn SetValue(&self, key: &super::super::Foundation::BSTR, value: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn GetValue(&self, key: &super::super::Foundation::BSTR) -> ::windows::core::Result<super::super::Foundation::BSTR>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IDataCollectorSet {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IDataCollectorSet_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDataCollectorSet_Impl, const OFFSET: isize>() -> IDataCollectorSet_Vtbl {
@@ -1879,6 +1907,8 @@ pub trait IDataCollectorSetCollection_Impl: Sized + super::Com::IDispatch_Impl {
     fn GetDataCollectorSets(&self, server: &super::super::Foundation::BSTR, filter: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IDataCollectorSetCollection {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IDataCollectorSetCollection_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDataCollectorSetCollection_Impl, const OFFSET: isize>() -> IDataCollectorSetCollection_Vtbl {
         unsafe extern "system" fn Count<Identity: ::windows::core::IUnknownImpl, Impl: IDataCollectorSetCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT {
@@ -1983,6 +2013,8 @@ pub trait IDataManager_Impl: Sized + super::Com::IDispatch_Impl {
     fn Run(&self, steps: DataManagerSteps, bstrfolder: &super::super::Foundation::BSTR) -> ::windows::core::Result<IValueMap>;
     fn Extract(&self, cabfilename: &super::super::Foundation::BSTR, destinationpath: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IDataManager {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IDataManager_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDataManager_Impl, const OFFSET: isize>() -> IDataManager_Vtbl {
@@ -2234,6 +2266,8 @@ pub trait IFolderAction_Impl: Sized + super::Com::IDispatch_Impl {
     fn SetSendCabTo(&self, bstrdestination: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IFolderAction {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IFolderAction_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFolderAction_Impl, const OFFSET: isize>() -> IFolderAction_Vtbl {
         unsafe extern "system" fn Age<Identity: ::windows::core::IUnknownImpl, Impl: IFolderAction_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pulage: *mut u32) -> ::windows::core::HRESULT {
@@ -2328,6 +2362,8 @@ pub trait IFolderActionCollection_Impl: Sized + super::Com::IDispatch_Impl {
     fn CreateFolderAction(&self) -> ::windows::core::Result<IFolderAction>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IFolderActionCollection {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IFolderActionCollection_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFolderActionCollection_Impl, const OFFSET: isize>() -> IFolderActionCollection_Vtbl {
         unsafe extern "system" fn Count<Identity: ::windows::core::IUnknownImpl, Impl: IFolderActionCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, count: *mut u32) -> ::windows::core::HRESULT {
@@ -2415,6 +2451,8 @@ pub trait ILogFileItem_Impl: Sized {
     fn Path(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for ILogFileItem {}
+#[cfg(feature = "Win32_Foundation")]
 impl ILogFileItem_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILogFileItem_Impl, const OFFSET: isize>() -> ILogFileItem_Vtbl {
         unsafe extern "system" fn Path<Identity: ::windows::core::IUnknownImpl, Impl: ILogFileItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pstrvalue: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
@@ -2442,6 +2480,8 @@ pub trait ILogFiles_Impl: Sized + super::Com::IDispatch_Impl {
     fn Add(&self, pathname: &super::super::Foundation::BSTR) -> ::windows::core::Result<DILogFileItem>;
     fn Remove(&self, index: &super::Com::VARIANT) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ILogFiles {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ILogFiles_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILogFiles_Impl, const OFFSET: isize>() -> ILogFiles_Vtbl {
@@ -2520,6 +2560,8 @@ pub trait IPerformanceCounterDataCollector_Impl: Sized + super::Com::IDispatch_I
     fn SegmentMaxRecords(&self) -> ::windows::core::Result<u32>;
     fn SetSegmentMaxRecords(&self, records: u32) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IPerformanceCounterDataCollector {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IPerformanceCounterDataCollector_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPerformanceCounterDataCollector_Impl, const OFFSET: isize>() -> IPerformanceCounterDataCollector_Vtbl {
@@ -2633,6 +2675,8 @@ pub trait ISchedule_Impl: Sized + super::Com::IDispatch_Impl {
     fn SetDays(&self, days: WeekDays) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ISchedule {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ISchedule_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISchedule_Impl, const OFFSET: isize>() -> ISchedule_Vtbl {
         unsafe extern "system" fn StartDate<Identity: ::windows::core::IUnknownImpl, Impl: ISchedule_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, start: *mut super::Com::VARIANT) -> ::windows::core::HRESULT {
@@ -2726,6 +2770,8 @@ pub trait IScheduleCollection_Impl: Sized + super::Com::IDispatch_Impl {
     fn AddRange(&self, pschedules: &::core::option::Option<IScheduleCollection>) -> ::windows::core::Result<()>;
     fn CreateSchedule(&self) -> ::windows::core::Result<ISchedule>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IScheduleCollection {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IScheduleCollection_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IScheduleCollection_Impl, const OFFSET: isize>() -> IScheduleCollection_Vtbl {
@@ -2888,6 +2934,8 @@ pub trait ISystemMonitor_Impl: Sized {
     fn SetSqlLogSetName(&self, bssqllogsetname: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn SqlLogSetName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ISystemMonitor {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ISystemMonitor_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISystemMonitor_Impl, const OFFSET: isize>() -> ISystemMonitor_Vtbl {
@@ -3595,6 +3643,8 @@ pub trait ISystemMonitor2_Impl: Sized + ISystemMonitor_Impl {
     fn LoadSettings(&self, bstrsettingfilename: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ISystemMonitor2 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ISystemMonitor2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISystemMonitor2_Impl, const OFFSET: isize>() -> ISystemMonitor2_Vtbl {
         unsafe extern "system" fn SetEnableDigitGrouping<Identity: ::windows::core::IUnknownImpl, Impl: ISystemMonitor2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstate: i16) -> ::windows::core::HRESULT {
@@ -3774,6 +3824,7 @@ pub trait ISystemMonitorEvents_Impl: Sized {
     fn OnSampleCollected(&self);
     fn OnDblClick(&self, index: i32);
 }
+impl ::windows::core::RuntimeName for ISystemMonitorEvents {}
 impl ISystemMonitorEvents_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISystemMonitorEvents_Impl, const OFFSET: isize>() -> ISystemMonitorEvents_Vtbl {
         unsafe extern "system" fn OnCounterSelected<Identity: ::windows::core::IUnknownImpl, Impl: ISystemMonitorEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32) {
@@ -3857,6 +3908,8 @@ pub trait ITraceDataCollector_Impl: Sized + super::Com::IDispatch_Impl + IDataCo
     fn SetStreamMode(&self, mode: StreamMode) -> ::windows::core::Result<()>;
     fn TraceDataProviders(&self) -> ::windows::core::Result<ITraceDataProviderCollection>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ITraceDataCollector {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITraceDataCollector_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITraceDataCollector_Impl, const OFFSET: isize>() -> ITraceDataCollector_Vtbl {
@@ -4257,6 +4310,8 @@ pub trait ITraceDataProvider_Impl: Sized + super::Com::IDispatch_Impl {
     fn GetRegisteredProcesses(&self) -> ::windows::core::Result<IValueMap>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ITraceDataProvider {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITraceDataProvider_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITraceDataProvider_Impl, const OFFSET: isize>() -> ITraceDataProvider_Vtbl {
         unsafe extern "system" fn DisplayName<Identity: ::windows::core::IUnknownImpl, Impl: ITraceDataProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
@@ -4461,6 +4516,8 @@ pub trait ITraceDataProviderCollection_Impl: Sized + super::Com::IDispatch_Impl 
     fn GetTraceDataProvidersByProcess(&self, server: &super::super::Foundation::BSTR, pid: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ITraceDataProviderCollection {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITraceDataProviderCollection_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITraceDataProviderCollection_Impl, const OFFSET: isize>() -> ITraceDataProviderCollection_Vtbl {
         unsafe extern "system" fn Count<Identity: ::windows::core::IUnknownImpl, Impl: ITraceDataProviderCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT {
@@ -4572,6 +4629,8 @@ pub trait IValueMap_Impl: Sized + super::Com::IDispatch_Impl {
     fn AddRange(&self, map: &::core::option::Option<IValueMap>) -> ::windows::core::Result<()>;
     fn CreateValueMapItem(&self) -> ::windows::core::Result<IValueMapItem>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IValueMap {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IValueMap_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IValueMap_Impl, const OFFSET: isize>() -> IValueMap_Vtbl {
@@ -4723,6 +4782,8 @@ pub trait IValueMapItem_Impl: Sized + super::Com::IDispatch_Impl {
     fn SetValueMapType(&self, r#type: ValueMapType) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IValueMapItem {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IValueMapItem_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IValueMapItem_Impl, const OFFSET: isize>() -> IValueMapItem_Vtbl {
         unsafe extern "system" fn Description<Identity: ::windows::core::IUnknownImpl, Impl: IValueMapItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, description: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
@@ -4843,6 +4904,8 @@ pub trait _ICounterItemUnion_Impl: Sized {
     fn Visible(&self) -> ::windows::core::Result<i16>;
     fn GetDataAt(&self, iindex: i32, iwhich: SysmonDataType) -> ::windows::core::Result<super::Com::VARIANT>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for _ICounterItemUnion {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl _ICounterItemUnion_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: _ICounterItemUnion_Impl, const OFFSET: isize>() -> _ICounterItemUnion_Vtbl {
@@ -5109,6 +5172,8 @@ pub trait _ISystemMonitorUnion_Impl: Sized {
     fn BatchingLock(&self, flock: i16, ebatchreason: SysmonBatchReason) -> ::windows::core::Result<()>;
     fn LoadSettings(&self, bstrsettingfilename: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for _ISystemMonitorUnion {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl _ISystemMonitorUnion_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: _ISystemMonitorUnion_Impl, const OFFSET: isize>() -> _ISystemMonitorUnion_Vtbl {

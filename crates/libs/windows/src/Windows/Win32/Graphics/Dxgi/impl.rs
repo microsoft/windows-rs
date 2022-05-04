@@ -5,6 +5,8 @@ pub trait IDXGIAdapter_Impl: Sized + IDXGIObject_Impl {
     fn CheckInterfaceSupport(&self, interfacename: *const ::windows::core::GUID) -> ::windows::core::Result<i64>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IDXGIAdapter {}
+#[cfg(feature = "Win32_Foundation")]
 impl IDXGIAdapter_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDXGIAdapter_Impl, const OFFSET: isize>() -> IDXGIAdapter_Vtbl {
         unsafe extern "system" fn EnumOutputs<Identity: ::windows::core::IUnknownImpl, Impl: IDXGIAdapter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, output: u32, ppoutput: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -56,6 +58,8 @@ pub trait IDXGIAdapter1_Impl: Sized + IDXGIObject_Impl + IDXGIAdapter_Impl {
     fn GetDesc1(&self) -> ::windows::core::Result<DXGI_ADAPTER_DESC1>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IDXGIAdapter1 {}
+#[cfg(feature = "Win32_Foundation")]
 impl IDXGIAdapter1_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDXGIAdapter1_Impl, const OFFSET: isize>() -> IDXGIAdapter1_Vtbl {
         unsafe extern "system" fn GetDesc1<Identity: ::windows::core::IUnknownImpl, Impl: IDXGIAdapter1_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdesc: *mut DXGI_ADAPTER_DESC1) -> ::windows::core::HRESULT {
@@ -79,6 +83,8 @@ impl IDXGIAdapter1_Vtbl {
 pub trait IDXGIAdapter2_Impl: Sized + IDXGIObject_Impl + IDXGIAdapter_Impl + IDXGIAdapter1_Impl {
     fn GetDesc2(&self) -> ::windows::core::Result<DXGI_ADAPTER_DESC2>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IDXGIAdapter2 {}
 #[cfg(feature = "Win32_Foundation")]
 impl IDXGIAdapter2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDXGIAdapter2_Impl, const OFFSET: isize>() -> IDXGIAdapter2_Vtbl {
@@ -108,6 +114,8 @@ pub trait IDXGIAdapter3_Impl: Sized + IDXGIObject_Impl + IDXGIAdapter_Impl + IDX
     fn RegisterVideoMemoryBudgetChangeNotificationEvent(&self, hevent: super::super::Foundation::HANDLE) -> ::windows::core::Result<u32>;
     fn UnregisterVideoMemoryBudgetChangeNotification(&self, dwcookie: u32);
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IDXGIAdapter3 {}
 #[cfg(feature = "Win32_Foundation")]
 impl IDXGIAdapter3_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDXGIAdapter3_Impl, const OFFSET: isize>() -> IDXGIAdapter3_Vtbl {
@@ -178,6 +186,8 @@ pub trait IDXGIAdapter4_Impl: Sized + IDXGIObject_Impl + IDXGIAdapter_Impl + IDX
     fn GetDesc3(&self) -> ::windows::core::Result<DXGI_ADAPTER_DESC3>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IDXGIAdapter4 {}
+#[cfg(feature = "Win32_Foundation")]
 impl IDXGIAdapter4_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDXGIAdapter4_Impl, const OFFSET: isize>() -> IDXGIAdapter4_Vtbl {
         unsafe extern "system" fn GetDesc3<Identity: ::windows::core::IUnknownImpl, Impl: IDXGIAdapter4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdesc: *mut DXGI_ADAPTER_DESC3) -> ::windows::core::HRESULT {
@@ -200,6 +210,7 @@ impl IDXGIAdapter4_Vtbl {
 pub trait IDXGIDebug_Impl: Sized {
     fn ReportLiveObjects(&self, apiid: &::windows::core::GUID, flags: DXGI_DEBUG_RLO_FLAGS) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IDXGIDebug {}
 impl IDXGIDebug_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDXGIDebug_Impl, const OFFSET: isize>() -> IDXGIDebug_Vtbl {
         unsafe extern "system" fn ReportLiveObjects<Identity: ::windows::core::IUnknownImpl, Impl: IDXGIDebug_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, apiid: ::windows::core::GUID, flags: DXGI_DEBUG_RLO_FLAGS) -> ::windows::core::HRESULT {
@@ -219,6 +230,8 @@ pub trait IDXGIDebug1_Impl: Sized + IDXGIDebug_Impl {
     fn DisableLeakTrackingForThread(&self);
     fn IsLeakTrackingEnabledForThread(&self) -> super::super::Foundation::BOOL;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IDXGIDebug1 {}
 #[cfg(feature = "Win32_Foundation")]
 impl IDXGIDebug1_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDXGIDebug1_Impl, const OFFSET: isize>() -> IDXGIDebug1_Vtbl {
@@ -260,6 +273,8 @@ pub trait IDXGIDecodeSwapChain_Impl: Sized {
     fn SetColorSpace(&self, colorspace: DXGI_MULTIPLANE_OVERLAY_YCbCr_FLAGS) -> ::windows::core::Result<()>;
     fn GetColorSpace(&self) -> DXGI_MULTIPLANE_OVERLAY_YCbCr_FLAGS;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IDXGIDecodeSwapChain {}
 #[cfg(feature = "Win32_Foundation")]
 impl IDXGIDecodeSwapChain_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDXGIDecodeSwapChain_Impl, const OFFSET: isize>() -> IDXGIDecodeSwapChain_Vtbl {
@@ -346,6 +361,8 @@ pub trait IDXGIDevice_Impl: Sized + IDXGIObject_Impl {
     fn GetGPUThreadPriority(&self) -> ::windows::core::Result<i32>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::windows::core::RuntimeName for IDXGIDevice {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl IDXGIDevice_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDXGIDevice_Impl, const OFFSET: isize>() -> IDXGIDevice_Vtbl {
         unsafe extern "system" fn GetAdapter<Identity: ::windows::core::IUnknownImpl, Impl: IDXGIDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, padapter: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -404,6 +421,8 @@ pub trait IDXGIDevice1_Impl: Sized + IDXGIObject_Impl + IDXGIDevice_Impl {
     fn GetMaximumFrameLatency(&self) -> ::windows::core::Result<u32>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::windows::core::RuntimeName for IDXGIDevice1 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl IDXGIDevice1_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDXGIDevice1_Impl, const OFFSET: isize>() -> IDXGIDevice1_Vtbl {
         unsafe extern "system" fn SetMaximumFrameLatency<Identity: ::windows::core::IUnknownImpl, Impl: IDXGIDevice1_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, maxlatency: u32) -> ::windows::core::HRESULT {
@@ -438,6 +457,8 @@ pub trait IDXGIDevice2_Impl: Sized + IDXGIObject_Impl + IDXGIDevice_Impl + IDXGI
     fn ReclaimResources(&self, numresources: u32, ppresources: *const ::core::option::Option<IDXGIResource>) -> ::windows::core::Result<super::super::Foundation::BOOL>;
     fn EnqueueSetEvent(&self, hevent: super::super::Foundation::HANDLE) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::windows::core::RuntimeName for IDXGIDevice2 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl IDXGIDevice2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDXGIDevice2_Impl, const OFFSET: isize>() -> IDXGIDevice2_Vtbl {
@@ -478,6 +499,8 @@ pub trait IDXGIDevice3_Impl: Sized + IDXGIObject_Impl + IDXGIDevice_Impl + IDXGI
     fn Trim(&self);
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::windows::core::RuntimeName for IDXGIDevice3 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl IDXGIDevice3_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDXGIDevice3_Impl, const OFFSET: isize>() -> IDXGIDevice3_Vtbl {
         unsafe extern "system" fn Trim<Identity: ::windows::core::IUnknownImpl, Impl: IDXGIDevice3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) {
@@ -496,6 +519,8 @@ pub trait IDXGIDevice4_Impl: Sized + IDXGIObject_Impl + IDXGIDevice_Impl + IDXGI
     fn OfferResources1(&self, numresources: u32, ppresources: *const ::core::option::Option<IDXGIResource>, priority: DXGI_OFFER_RESOURCE_PRIORITY, flags: u32) -> ::windows::core::Result<()>;
     fn ReclaimResources1(&self, numresources: u32, ppresources: *const ::core::option::Option<IDXGIResource>) -> ::windows::core::Result<DXGI_RECLAIM_RESOURCE_RESULTS>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::windows::core::RuntimeName for IDXGIDevice4 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl IDXGIDevice4_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDXGIDevice4_Impl, const OFFSET: isize>() -> IDXGIDevice4_Vtbl {
@@ -528,6 +553,7 @@ impl IDXGIDevice4_Vtbl {
 pub trait IDXGIDeviceSubObject_Impl: Sized + IDXGIObject_Impl {
     fn GetDevice(&self, riid: *const ::windows::core::GUID, ppdevice: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IDXGIDeviceSubObject {}
 impl IDXGIDeviceSubObject_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDXGIDeviceSubObject_Impl, const OFFSET: isize>() -> IDXGIDeviceSubObject_Vtbl {
         unsafe extern "system" fn GetDevice<Identity: ::windows::core::IUnknownImpl, Impl: IDXGIDeviceSubObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppdevice: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -546,6 +572,8 @@ pub trait IDXGIDisplayControl_Impl: Sized {
     fn IsStereoEnabled(&self) -> super::super::Foundation::BOOL;
     fn SetStereoEnabled(&self, enabled: super::super::Foundation::BOOL);
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IDXGIDisplayControl {}
 #[cfg(feature = "Win32_Foundation")]
 impl IDXGIDisplayControl_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDXGIDisplayControl_Impl, const OFFSET: isize>() -> IDXGIDisplayControl_Vtbl {
@@ -577,6 +605,8 @@ pub trait IDXGIFactory_Impl: Sized + IDXGIObject_Impl {
     fn CreateSwapChain(&self, pdevice: &::core::option::Option<::windows::core::IUnknown>, pdesc: *const DXGI_SWAP_CHAIN_DESC) -> ::windows::core::Result<IDXGISwapChain>;
     fn CreateSoftwareAdapter(&self, module: super::super::Foundation::HINSTANCE) -> ::windows::core::Result<IDXGIAdapter>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::windows::core::RuntimeName for IDXGIFactory {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl IDXGIFactory_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDXGIFactory_Impl, const OFFSET: isize>() -> IDXGIFactory_Vtbl {
@@ -648,6 +678,8 @@ pub trait IDXGIFactory1_Impl: Sized + IDXGIObject_Impl + IDXGIFactory_Impl {
     fn IsCurrent(&self) -> super::super::Foundation::BOOL;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::windows::core::RuntimeName for IDXGIFactory1 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl IDXGIFactory1_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDXGIFactory1_Impl, const OFFSET: isize>() -> IDXGIFactory1_Vtbl {
         unsafe extern "system" fn EnumAdapters1<Identity: ::windows::core::IUnknownImpl, Impl: IDXGIFactory1_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, adapter: u32, ppadapter: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -690,6 +722,8 @@ pub trait IDXGIFactory2_Impl: Sized + IDXGIObject_Impl + IDXGIFactory_Impl + IDX
     fn UnregisterOcclusionStatus(&self, dwcookie: u32);
     fn CreateSwapChainForComposition(&self, pdevice: &::core::option::Option<::windows::core::IUnknown>, pdesc: *const DXGI_SWAP_CHAIN_DESC1, prestricttooutput: &::core::option::Option<IDXGIOutput>) -> ::windows::core::Result<IDXGISwapChain1>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::windows::core::RuntimeName for IDXGIFactory2 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl IDXGIFactory2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDXGIFactory2_Impl, const OFFSET: isize>() -> IDXGIFactory2_Vtbl {
@@ -820,6 +854,8 @@ pub trait IDXGIFactory3_Impl: Sized + IDXGIObject_Impl + IDXGIFactory_Impl + IDX
     fn GetCreationFlags(&self) -> u32;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::windows::core::RuntimeName for IDXGIFactory3 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl IDXGIFactory3_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDXGIFactory3_Impl, const OFFSET: isize>() -> IDXGIFactory3_Vtbl {
         unsafe extern "system" fn GetCreationFlags<Identity: ::windows::core::IUnknownImpl, Impl: IDXGIFactory3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> u32 {
@@ -838,6 +874,8 @@ pub trait IDXGIFactory4_Impl: Sized + IDXGIObject_Impl + IDXGIFactory_Impl + IDX
     fn EnumAdapterByLuid(&self, adapterluid: &super::super::Foundation::LUID, riid: *const ::windows::core::GUID, ppvadapter: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn EnumWarpAdapter(&self, riid: *const ::windows::core::GUID, ppvadapter: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::windows::core::RuntimeName for IDXGIFactory4 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl IDXGIFactory4_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDXGIFactory4_Impl, const OFFSET: isize>() -> IDXGIFactory4_Vtbl {
@@ -866,6 +904,8 @@ pub trait IDXGIFactory5_Impl: Sized + IDXGIObject_Impl + IDXGIFactory_Impl + IDX
     fn CheckFeatureSupport(&self, feature: DXGI_FEATURE, pfeaturesupportdata: *mut ::core::ffi::c_void, featuresupportdatasize: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::windows::core::RuntimeName for IDXGIFactory5 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl IDXGIFactory5_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDXGIFactory5_Impl, const OFFSET: isize>() -> IDXGIFactory5_Vtbl {
         unsafe extern "system" fn CheckFeatureSupport<Identity: ::windows::core::IUnknownImpl, Impl: IDXGIFactory5_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, feature: DXGI_FEATURE, pfeaturesupportdata: *mut ::core::ffi::c_void, featuresupportdatasize: u32) -> ::windows::core::HRESULT {
@@ -883,6 +923,8 @@ impl IDXGIFactory5_Vtbl {
 pub trait IDXGIFactory6_Impl: Sized + IDXGIObject_Impl + IDXGIFactory_Impl + IDXGIFactory1_Impl + IDXGIFactory2_Impl + IDXGIFactory3_Impl + IDXGIFactory4_Impl + IDXGIFactory5_Impl {
     fn EnumAdapterByGpuPreference(&self, adapter: u32, gpupreference: DXGI_GPU_PREFERENCE, riid: *const ::windows::core::GUID, ppvadapter: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::windows::core::RuntimeName for IDXGIFactory6 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl IDXGIFactory6_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDXGIFactory6_Impl, const OFFSET: isize>() -> IDXGIFactory6_Vtbl {
@@ -902,6 +944,8 @@ pub trait IDXGIFactory7_Impl: Sized + IDXGIObject_Impl + IDXGIFactory_Impl + IDX
     fn RegisterAdaptersChangedEvent(&self, hevent: super::super::Foundation::HANDLE) -> ::windows::core::Result<u32>;
     fn UnregisterAdaptersChangedEvent(&self, dwcookie: u32) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::windows::core::RuntimeName for IDXGIFactory7 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl IDXGIFactory7_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDXGIFactory7_Impl, const OFFSET: isize>() -> IDXGIFactory7_Vtbl {
@@ -936,6 +980,8 @@ pub trait IDXGIFactoryMedia_Impl: Sized {
     fn CreateSwapChainForCompositionSurfaceHandle(&self, pdevice: &::core::option::Option<::windows::core::IUnknown>, hsurface: super::super::Foundation::HANDLE, pdesc: *const DXGI_SWAP_CHAIN_DESC1, prestricttooutput: &::core::option::Option<IDXGIOutput>) -> ::windows::core::Result<IDXGISwapChain1>;
     fn CreateDecodeSwapChainForCompositionSurfaceHandle(&self, pdevice: &::core::option::Option<::windows::core::IUnknown>, hsurface: super::super::Foundation::HANDLE, pdesc: *const DXGI_DECODE_SWAP_CHAIN_DESC, pyuvdecodebuffers: &::core::option::Option<IDXGIResource>, prestricttooutput: &::core::option::Option<IDXGIOutput>) -> ::windows::core::Result<IDXGIDecodeSwapChain>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::windows::core::RuntimeName for IDXGIFactoryMedia {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl IDXGIFactoryMedia_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDXGIFactoryMedia_Impl, const OFFSET: isize>() -> IDXGIFactoryMedia_Vtbl {
@@ -1011,6 +1057,8 @@ pub trait IDXGIInfoQueue_Impl: Sized {
     fn SetMuteDebugOutput(&self, producer: &::windows::core::GUID, bmute: super::super::Foundation::BOOL);
     fn GetMuteDebugOutput(&self, producer: &::windows::core::GUID) -> super::super::Foundation::BOOL;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IDXGIInfoQueue {}
 #[cfg(feature = "Win32_Foundation")]
 impl IDXGIInfoQueue_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDXGIInfoQueue_Impl, const OFFSET: isize>() -> IDXGIInfoQueue_Vtbl {
@@ -1248,6 +1296,7 @@ pub trait IDXGIKeyedMutex_Impl: Sized + IDXGIObject_Impl + IDXGIDeviceSubObject_
     fn AcquireSync(&self, key: u64, dwmilliseconds: u32) -> ::windows::core::Result<()>;
     fn ReleaseSync(&self, key: u64) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IDXGIKeyedMutex {}
 impl IDXGIKeyedMutex_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDXGIKeyedMutex_Impl, const OFFSET: isize>() -> IDXGIKeyedMutex_Vtbl {
         unsafe extern "system" fn AcquireSync<Identity: ::windows::core::IUnknownImpl, Impl: IDXGIKeyedMutex_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, key: u64, dwmilliseconds: u32) -> ::windows::core::HRESULT {
@@ -1276,6 +1325,7 @@ pub trait IDXGIObject_Impl: Sized {
     fn GetPrivateData(&self, name: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn GetParent(&self, riid: *const ::windows::core::GUID, ppparent: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IDXGIObject {}
 impl IDXGIObject_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDXGIObject_Impl, const OFFSET: isize>() -> IDXGIObject_Vtbl {
         unsafe extern "system" fn SetPrivateData<Identity: ::windows::core::IUnknownImpl, Impl: IDXGIObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -1325,6 +1375,8 @@ pub trait IDXGIOutput_Impl: Sized + IDXGIObject_Impl {
     fn GetDisplaySurfaceData(&self, pdestination: &::core::option::Option<IDXGISurface>) -> ::windows::core::Result<()>;
     fn GetFrameStatistics(&self) -> ::windows::core::Result<DXGI_FRAME_STATISTICS>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
+impl ::windows::core::RuntimeName for IDXGIOutput {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
 impl IDXGIOutput_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDXGIOutput_Impl, const OFFSET: isize>() -> IDXGIOutput_Vtbl {
@@ -1440,6 +1492,8 @@ pub trait IDXGIOutput1_Impl: Sized + IDXGIObject_Impl + IDXGIOutput_Impl {
     fn DuplicateOutput(&self, pdevice: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<IDXGIOutputDuplication>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
+impl ::windows::core::RuntimeName for IDXGIOutput1 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
 impl IDXGIOutput1_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDXGIOutput1_Impl, const OFFSET: isize>() -> IDXGIOutput1_Vtbl {
         unsafe extern "system" fn GetDisplayModeList1<Identity: ::windows::core::IUnknownImpl, Impl: IDXGIOutput1_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, enumformat: Common::DXGI_FORMAT, flags: u32, pnummodes: *mut u32, pdesc: *mut DXGI_MODE_DESC1) -> ::windows::core::HRESULT {
@@ -1485,6 +1539,8 @@ pub trait IDXGIOutput2_Impl: Sized + IDXGIObject_Impl + IDXGIOutput_Impl + IDXGI
     fn SupportsOverlays(&self) -> super::super::Foundation::BOOL;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
+impl ::windows::core::RuntimeName for IDXGIOutput2 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
 impl IDXGIOutput2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDXGIOutput2_Impl, const OFFSET: isize>() -> IDXGIOutput2_Vtbl {
         unsafe extern "system" fn SupportsOverlays<Identity: ::windows::core::IUnknownImpl, Impl: IDXGIOutput2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
@@ -1502,6 +1558,8 @@ impl IDXGIOutput2_Vtbl {
 pub trait IDXGIOutput3_Impl: Sized + IDXGIObject_Impl + IDXGIOutput_Impl + IDXGIOutput1_Impl + IDXGIOutput2_Impl {
     fn CheckOverlaySupport(&self, enumformat: Common::DXGI_FORMAT, pconcerneddevice: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<u32>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
+impl ::windows::core::RuntimeName for IDXGIOutput3 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
 impl IDXGIOutput3_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDXGIOutput3_Impl, const OFFSET: isize>() -> IDXGIOutput3_Vtbl {
@@ -1526,6 +1584,8 @@ impl IDXGIOutput3_Vtbl {
 pub trait IDXGIOutput4_Impl: Sized + IDXGIObject_Impl + IDXGIOutput_Impl + IDXGIOutput1_Impl + IDXGIOutput2_Impl + IDXGIOutput3_Impl {
     fn CheckOverlayColorSpaceSupport(&self, format: Common::DXGI_FORMAT, colorspace: Common::DXGI_COLOR_SPACE_TYPE, pconcerneddevice: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<u32>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
+impl ::windows::core::RuntimeName for IDXGIOutput4 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
 impl IDXGIOutput4_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDXGIOutput4_Impl, const OFFSET: isize>() -> IDXGIOutput4_Vtbl {
@@ -1554,6 +1614,8 @@ pub trait IDXGIOutput5_Impl: Sized + IDXGIObject_Impl + IDXGIOutput_Impl + IDXGI
     fn DuplicateOutput1(&self, pdevice: &::core::option::Option<::windows::core::IUnknown>, flags: u32, supportedformatscount: u32, psupportedformats: *const Common::DXGI_FORMAT) -> ::windows::core::Result<IDXGIOutputDuplication>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
+impl ::windows::core::RuntimeName for IDXGIOutput5 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
 impl IDXGIOutput5_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDXGIOutput5_Impl, const OFFSET: isize>() -> IDXGIOutput5_Vtbl {
         unsafe extern "system" fn DuplicateOutput1<Identity: ::windows::core::IUnknownImpl, Impl: IDXGIOutput5_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdevice: *mut ::core::ffi::c_void, flags: u32, supportedformatscount: u32, psupportedformats: *const Common::DXGI_FORMAT, ppoutputduplication: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -1578,6 +1640,8 @@ pub trait IDXGIOutput6_Impl: Sized + IDXGIObject_Impl + IDXGIOutput_Impl + IDXGI
     fn GetDesc1(&self) -> ::windows::core::Result<DXGI_OUTPUT_DESC1>;
     fn CheckHardwareCompositionSupport(&self) -> ::windows::core::Result<u32>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
+impl ::windows::core::RuntimeName for IDXGIOutput6 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
 impl IDXGIOutput6_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDXGIOutput6_Impl, const OFFSET: isize>() -> IDXGIOutput6_Vtbl {
@@ -1624,6 +1688,8 @@ pub trait IDXGIOutputDuplication_Impl: Sized + IDXGIObject_Impl {
     fn UnMapDesktopSurface(&self) -> ::windows::core::Result<()>;
     fn ReleaseFrame(&self) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::windows::core::RuntimeName for IDXGIOutputDuplication {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl IDXGIOutputDuplication_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDXGIOutputDuplication_Impl, const OFFSET: isize>() -> IDXGIOutputDuplication_Vtbl {
@@ -1697,6 +1763,8 @@ pub trait IDXGIResource_Impl: Sized + IDXGIObject_Impl + IDXGIDeviceSubObject_Im
     fn GetEvictionPriority(&self) -> ::windows::core::Result<u32>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IDXGIResource {}
+#[cfg(feature = "Win32_Foundation")]
 impl IDXGIResource_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDXGIResource_Impl, const OFFSET: isize>() -> IDXGIResource_Vtbl {
         unsafe extern "system" fn GetSharedHandle<Identity: ::windows::core::IUnknownImpl, Impl: IDXGIResource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psharedhandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::HRESULT {
@@ -1755,6 +1823,8 @@ pub trait IDXGIResource1_Impl: Sized + IDXGIObject_Impl + IDXGIDeviceSubObject_I
     fn CreateSharedHandle(&self, pattributes: *const super::super::Security::SECURITY_ATTRIBUTES, dwaccess: u32, lpname: &::windows::core::PCWSTR) -> ::windows::core::Result<super::super::Foundation::HANDLE>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::windows::core::RuntimeName for IDXGIResource1 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl IDXGIResource1_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDXGIResource1_Impl, const OFFSET: isize>() -> IDXGIResource1_Vtbl {
         unsafe extern "system" fn CreateSubresourceSurface<Identity: ::windows::core::IUnknownImpl, Impl: IDXGIResource1_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32, ppsurface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -1796,6 +1866,8 @@ pub trait IDXGISurface_Impl: Sized + IDXGIObject_Impl + IDXGIDeviceSubObject_Imp
     fn Unmap(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl ::windows::core::RuntimeName for IDXGISurface {}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl IDXGISurface_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDXGISurface_Impl, const OFFSET: isize>() -> IDXGISurface_Vtbl {
         unsafe extern "system" fn GetDesc<Identity: ::windows::core::IUnknownImpl, Impl: IDXGISurface_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdesc: *mut DXGI_SURFACE_DESC) -> ::windows::core::HRESULT {
@@ -1836,6 +1908,8 @@ pub trait IDXGISurface1_Impl: Sized + IDXGIObject_Impl + IDXGIDeviceSubObject_Im
     fn ReleaseDC(&self, pdirtyrect: *const super::super::Foundation::RECT) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
+impl ::windows::core::RuntimeName for IDXGISurface1 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
 impl IDXGISurface1_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDXGISurface1_Impl, const OFFSET: isize>() -> IDXGISurface1_Vtbl {
         unsafe extern "system" fn GetDC<Identity: ::windows::core::IUnknownImpl, Impl: IDXGISurface1_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, discard: super::super::Foundation::BOOL, phdc: *mut super::Gdi::HDC) -> ::windows::core::HRESULT {
@@ -1869,6 +1943,8 @@ pub trait IDXGISurface2_Impl: Sized + IDXGIObject_Impl + IDXGIDeviceSubObject_Im
     fn GetResource(&self, riid: *const ::windows::core::GUID, ppparentresource: *mut *mut ::core::ffi::c_void, psubresourceindex: *mut u32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
+impl ::windows::core::RuntimeName for IDXGISurface2 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
 impl IDXGISurface2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDXGISurface2_Impl, const OFFSET: isize>() -> IDXGISurface2_Vtbl {
         unsafe extern "system" fn GetResource<Identity: ::windows::core::IUnknownImpl, Impl: IDXGISurface2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppparentresource: *mut *mut ::core::ffi::c_void, psubresourceindex: *mut u32) -> ::windows::core::HRESULT {
@@ -1895,6 +1971,8 @@ pub trait IDXGISwapChain_Impl: Sized + IDXGIObject_Impl + IDXGIDeviceSubObject_I
     fn GetFrameStatistics(&self) -> ::windows::core::Result<DXGI_FRAME_STATISTICS>;
     fn GetLastPresentCount(&self) -> ::windows::core::Result<u32>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::windows::core::RuntimeName for IDXGISwapChain {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl IDXGISwapChain_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDXGISwapChain_Impl, const OFFSET: isize>() -> IDXGISwapChain_Vtbl {
@@ -2004,6 +2082,8 @@ pub trait IDXGISwapChain1_Impl: Sized + IDXGIObject_Impl + IDXGIDeviceSubObject_
     fn SetRotation(&self, rotation: Common::DXGI_MODE_ROTATION) -> ::windows::core::Result<()>;
     fn GetRotation(&self) -> ::windows::core::Result<Common::DXGI_MODE_ROTATION>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::windows::core::RuntimeName for IDXGISwapChain1 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl IDXGISwapChain1_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDXGISwapChain1_Impl, const OFFSET: isize>() -> IDXGISwapChain1_Vtbl {
@@ -2128,6 +2208,8 @@ pub trait IDXGISwapChain2_Impl: Sized + IDXGIObject_Impl + IDXGIDeviceSubObject_
     fn GetMatrixTransform(&self) -> ::windows::core::Result<DXGI_MATRIX_3X2_F>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::windows::core::RuntimeName for IDXGISwapChain2 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl IDXGISwapChain2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDXGISwapChain2_Impl, const OFFSET: isize>() -> IDXGISwapChain2_Vtbl {
         unsafe extern "system" fn SetSourceSize<Identity: ::windows::core::IUnknownImpl, Impl: IDXGISwapChain2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, width: u32, height: u32) -> ::windows::core::HRESULT {
@@ -2200,6 +2282,8 @@ pub trait IDXGISwapChain3_Impl: Sized + IDXGIObject_Impl + IDXGIDeviceSubObject_
     fn ResizeBuffers1(&self, buffercount: u32, width: u32, height: u32, format: Common::DXGI_FORMAT, swapchainflags: u32, pcreationnodemask: *const u32, pppresentqueue: *const ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::windows::core::RuntimeName for IDXGISwapChain3 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl IDXGISwapChain3_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDXGISwapChain3_Impl, const OFFSET: isize>() -> IDXGISwapChain3_Vtbl {
         unsafe extern "system" fn GetCurrentBackBufferIndex<Identity: ::windows::core::IUnknownImpl, Impl: IDXGISwapChain3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> u32 {
@@ -2245,6 +2329,8 @@ pub trait IDXGISwapChain4_Impl: Sized + IDXGIObject_Impl + IDXGIDeviceSubObject_
     fn SetHDRMetaData(&self, r#type: DXGI_HDR_METADATA_TYPE, size: u32, pmetadata: *const ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::windows::core::RuntimeName for IDXGISwapChain4 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl IDXGISwapChain4_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDXGISwapChain4_Impl, const OFFSET: isize>() -> IDXGISwapChain4_Vtbl {
         unsafe extern "system" fn SetHDRMetaData<Identity: ::windows::core::IUnknownImpl, Impl: IDXGISwapChain4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, r#type: DXGI_HDR_METADATA_TYPE, size: u32, pmetadata: *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -2263,6 +2349,7 @@ pub trait IDXGISwapChainMedia_Impl: Sized {
     fn SetPresentDuration(&self, duration: u32) -> ::windows::core::Result<()>;
     fn CheckPresentDurationSupport(&self, desiredpresentduration: u32, pclosestsmallerpresentduration: *mut u32, pclosestlargerpresentduration: *mut u32) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IDXGISwapChainMedia {}
 impl IDXGISwapChainMedia_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDXGISwapChainMedia_Impl, const OFFSET: isize>() -> IDXGISwapChainMedia_Vtbl {
         unsafe extern "system" fn GetFrameStatisticsMedia<Identity: ::windows::core::IUnknownImpl, Impl: IDXGISwapChainMedia_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pstats: *mut DXGI_FRAME_STATISTICS_MEDIA) -> ::windows::core::HRESULT {
@@ -2301,6 +2388,7 @@ pub trait IDXGraphicsAnalysis_Impl: Sized {
     fn BeginCapture(&self);
     fn EndCapture(&self);
 }
+impl ::windows::core::RuntimeName for IDXGraphicsAnalysis {}
 impl IDXGraphicsAnalysis_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDXGraphicsAnalysis_Impl, const OFFSET: isize>() -> IDXGraphicsAnalysis_Vtbl {
         unsafe extern "system" fn BeginCapture<Identity: ::windows::core::IUnknownImpl, Impl: IDXGraphicsAnalysis_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) {

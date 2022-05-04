@@ -9,6 +9,8 @@ pub trait IDCompositionAffineTransform2DEffect_Impl: Sized + IDCompositionEffect
     fn SetSharpness2(&self, sharpness: f32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+impl ::windows::core::RuntimeName for IDCompositionAffineTransform2DEffect {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
 impl IDCompositionAffineTransform2DEffect_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDCompositionAffineTransform2DEffect_Impl, const OFFSET: isize>() -> IDCompositionAffineTransform2DEffect_Vtbl {
         unsafe extern "system" fn SetInterpolationMode<Identity: ::windows::core::IUnknownImpl, Impl: IDCompositionAffineTransform2DEffect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, interpolationmode: super::Direct2D::Common::D2D1_2DAFFINETRANSFORM_INTERPOLATION_MODE) -> ::windows::core::HRESULT {
@@ -69,6 +71,7 @@ pub trait IDCompositionAnimation_Impl: Sized {
     fn AddRepeat(&self, beginoffset: f64, durationtorepeat: f64) -> ::windows::core::Result<()>;
     fn End(&self, endoffset: f64, endvalue: f32) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IDCompositionAnimation {}
 impl IDCompositionAnimation_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDCompositionAnimation_Impl, const OFFSET: isize>() -> IDCompositionAnimation_Vtbl {
         unsafe extern "system" fn Reset<Identity: ::windows::core::IUnknownImpl, Impl: IDCompositionAnimation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -128,6 +131,8 @@ pub trait IDCompositionArithmeticCompositeEffect_Impl: Sized + IDCompositionEffe
     fn SetCoefficient4(&self, animation: &::core::option::Option<IDCompositionAnimation>) -> ::windows::core::Result<()>;
     fn SetCoefficient42(&self, coefficient4: f32) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))]
+impl ::windows::core::RuntimeName for IDCompositionArithmeticCompositeEffect {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))]
 impl IDCompositionArithmeticCompositeEffect_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDCompositionArithmeticCompositeEffect_Impl, const OFFSET: isize>() -> IDCompositionArithmeticCompositeEffect_Vtbl {
@@ -204,6 +209,8 @@ pub trait IDCompositionBlendEffect_Impl: Sized + IDCompositionEffect_Impl + IDCo
     fn SetMode(&self, mode: super::Direct2D::Common::D2D1_BLEND_MODE) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+impl ::windows::core::RuntimeName for IDCompositionBlendEffect {}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl IDCompositionBlendEffect_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDCompositionBlendEffect_Impl, const OFFSET: isize>() -> IDCompositionBlendEffect_Vtbl {
         unsafe extern "system" fn SetMode<Identity: ::windows::core::IUnknownImpl, Impl: IDCompositionBlendEffect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, mode: super::Direct2D::Common::D2D1_BLEND_MODE) -> ::windows::core::HRESULT {
@@ -230,6 +237,8 @@ pub trait IDCompositionBrightnessEffect_Impl: Sized + IDCompositionEffect_Impl +
     fn SetBlackPointY(&self, animation: &::core::option::Option<IDCompositionAnimation>) -> ::windows::core::Result<()>;
     fn SetBlackPointY2(&self, blackpointy: f32) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+impl ::windows::core::RuntimeName for IDCompositionBrightnessEffect {}
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl IDCompositionBrightnessEffect_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDCompositionBrightnessEffect_Impl, const OFFSET: isize>() -> IDCompositionBrightnessEffect_Vtbl {
@@ -302,6 +311,7 @@ impl IDCompositionBrightnessEffect_Vtbl {
     }
 }
 pub trait IDCompositionClip_Impl: Sized {}
+impl ::windows::core::RuntimeName for IDCompositionClip {}
 impl IDCompositionClip_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDCompositionClip_Impl, const OFFSET: isize>() -> IDCompositionClip_Vtbl {
         Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>() }
@@ -318,6 +328,8 @@ pub trait IDCompositionColorMatrixEffect_Impl: Sized + IDCompositionEffect_Impl 
     fn SetAlphaMode(&self, mode: super::Direct2D::Common::D2D1_COLORMATRIX_ALPHA_MODE) -> ::windows::core::Result<()>;
     fn SetClampOutput(&self, clamp: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))]
+impl ::windows::core::RuntimeName for IDCompositionColorMatrixEffect {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))]
 impl IDCompositionColorMatrixEffect_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDCompositionColorMatrixEffect_Impl, const OFFSET: isize>() -> IDCompositionColorMatrixEffect_Vtbl {
@@ -364,6 +376,8 @@ pub trait IDCompositionCompositeEffect_Impl: Sized + IDCompositionEffect_Impl + 
     fn SetMode(&self, mode: super::Direct2D::Common::D2D1_COMPOSITE_MODE) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+impl ::windows::core::RuntimeName for IDCompositionCompositeEffect {}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl IDCompositionCompositeEffect_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDCompositionCompositeEffect_Impl, const OFFSET: isize>() -> IDCompositionCompositeEffect_Vtbl {
         unsafe extern "system" fn SetMode<Identity: ::windows::core::IUnknownImpl, Impl: IDCompositionCompositeEffect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, mode: super::Direct2D::Common::D2D1_COMPOSITE_MODE) -> ::windows::core::HRESULT {
@@ -384,6 +398,8 @@ pub trait IDCompositionDelegatedInkTrail_Impl: Sized {
     fn RemoveTrailPoints(&self, generationid: u32) -> ::windows::core::Result<()>;
     fn StartNewTrail(&self, color: *const super::Direct2D::Common::D2D1_COLOR_F) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+impl ::windows::core::RuntimeName for IDCompositionDelegatedInkTrail {}
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl IDCompositionDelegatedInkTrail_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDCompositionDelegatedInkTrail_Impl, const OFFSET: isize>() -> IDCompositionDelegatedInkTrail_Vtbl {
@@ -437,6 +453,8 @@ pub trait IDCompositionDesktopDevice_Impl: Sized + IDCompositionDevice2_Impl {
     fn CreateSurfaceFromHandle(&self, handle: super::super::Foundation::HANDLE) -> ::windows::core::Result<::windows::core::IUnknown>;
     fn CreateSurfaceFromHwnd(&self, hwnd: super::super::Foundation::HWND) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::windows::core::RuntimeName for IDCompositionDesktopDevice {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl IDCompositionDesktopDevice_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDCompositionDesktopDevice_Impl, const OFFSET: isize>() -> IDCompositionDesktopDevice_Vtbl {
@@ -511,6 +529,8 @@ pub trait IDCompositionDevice_Impl: Sized {
     fn CreateAnimation(&self) -> ::windows::core::Result<IDCompositionAnimation>;
     fn CheckDeviceState(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::windows::core::RuntimeName for IDCompositionDevice {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl IDCompositionDevice_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDCompositionDevice_Impl, const OFFSET: isize>() -> IDCompositionDevice_Vtbl {
@@ -823,6 +843,8 @@ pub trait IDCompositionDevice2_Impl: Sized {
     fn CreateAnimation(&self) -> ::windows::core::Result<IDCompositionAnimation>;
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl ::windows::core::RuntimeName for IDCompositionDevice2 {}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl IDCompositionDevice2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDCompositionDevice2_Impl, const OFFSET: isize>() -> IDCompositionDevice2_Vtbl {
         unsafe extern "system" fn Commit<Identity: ::windows::core::IUnknownImpl, Impl: IDCompositionDevice2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -1090,6 +1112,8 @@ pub trait IDCompositionDevice3_Impl: Sized + IDCompositionDevice2_Impl {
     fn CreateAffineTransform2DEffect(&self) -> ::windows::core::Result<IDCompositionAffineTransform2DEffect>;
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl ::windows::core::RuntimeName for IDCompositionDevice3 {}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl IDCompositionDevice3_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDCompositionDevice3_Impl, const OFFSET: isize>() -> IDCompositionDevice3_Vtbl {
         unsafe extern "system" fn CreateGaussianBlurEffect<Identity: ::windows::core::IUnknownImpl, Impl: IDCompositionDevice3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, gaussianblureffect: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -1260,6 +1284,7 @@ pub trait IDCompositionDeviceDebug_Impl: Sized {
     fn EnableDebugCounters(&self) -> ::windows::core::Result<()>;
     fn DisableDebugCounters(&self) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IDCompositionDeviceDebug {}
 impl IDCompositionDeviceDebug_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDCompositionDeviceDebug_Impl, const OFFSET: isize>() -> IDCompositionDeviceDebug_Vtbl {
         unsafe extern "system" fn EnableDebugCounters<Identity: ::windows::core::IUnknownImpl, Impl: IDCompositionDeviceDebug_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -1283,6 +1308,7 @@ impl IDCompositionDeviceDebug_Vtbl {
     }
 }
 pub trait IDCompositionEffect_Impl: Sized {}
+impl ::windows::core::RuntimeName for IDCompositionEffect {}
 impl IDCompositionEffect_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDCompositionEffect_Impl, const OFFSET: isize>() -> IDCompositionEffect_Vtbl {
         Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>() }
@@ -1296,6 +1322,7 @@ pub trait IDCompositionEffectGroup_Impl: Sized + IDCompositionEffect_Impl {
     fn SetOpacity2(&self, opacity: f32) -> ::windows::core::Result<()>;
     fn SetTransform3D(&self, transform3d: &::core::option::Option<IDCompositionTransform3D>) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IDCompositionEffectGroup {}
 impl IDCompositionEffectGroup_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDCompositionEffectGroup_Impl, const OFFSET: isize>() -> IDCompositionEffectGroup_Vtbl {
         unsafe extern "system" fn SetOpacity<Identity: ::windows::core::IUnknownImpl, Impl: IDCompositionEffectGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -1327,6 +1354,7 @@ impl IDCompositionEffectGroup_Vtbl {
 pub trait IDCompositionFilterEffect_Impl: Sized + IDCompositionEffect_Impl {
     fn SetInput(&self, index: u32, input: &::core::option::Option<::windows::core::IUnknown>, flags: u32) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IDCompositionFilterEffect {}
 impl IDCompositionFilterEffect_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDCompositionFilterEffect_Impl, const OFFSET: isize>() -> IDCompositionFilterEffect_Vtbl {
         unsafe extern "system" fn SetInput<Identity: ::windows::core::IUnknownImpl, Impl: IDCompositionFilterEffect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32, input: *mut ::core::ffi::c_void, flags: u32) -> ::windows::core::HRESULT {
@@ -1346,6 +1374,8 @@ pub trait IDCompositionGaussianBlurEffect_Impl: Sized + IDCompositionEffect_Impl
     fn SetStandardDeviation2(&self, amount: f32) -> ::windows::core::Result<()>;
     fn SetBorderMode(&self, mode: super::Direct2D::Common::D2D1_BORDER_MODE) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+impl ::windows::core::RuntimeName for IDCompositionGaussianBlurEffect {}
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl IDCompositionGaussianBlurEffect_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDCompositionGaussianBlurEffect_Impl, const OFFSET: isize>() -> IDCompositionGaussianBlurEffect_Vtbl {
@@ -1379,6 +1409,7 @@ pub trait IDCompositionHueRotationEffect_Impl: Sized + IDCompositionEffect_Impl 
     fn SetAngle(&self, animation: &::core::option::Option<IDCompositionAnimation>) -> ::windows::core::Result<()>;
     fn SetAngle2(&self, amountdegrees: f32) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IDCompositionHueRotationEffect {}
 impl IDCompositionHueRotationEffect_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDCompositionHueRotationEffect_Impl, const OFFSET: isize>() -> IDCompositionHueRotationEffect_Vtbl {
         unsafe extern "system" fn SetAngle<Identity: ::windows::core::IUnknownImpl, Impl: IDCompositionHueRotationEffect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -1405,6 +1436,7 @@ pub trait IDCompositionInkTrailDevice_Impl: Sized {
     fn CreateDelegatedInkTrail(&self) -> ::windows::core::Result<IDCompositionDelegatedInkTrail>;
     fn CreateDelegatedInkTrailForSwapChain(&self, swapchain: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<IDCompositionDelegatedInkTrail>;
 }
+impl ::windows::core::RuntimeName for IDCompositionInkTrailDevice {}
 impl IDCompositionInkTrailDevice_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDCompositionInkTrailDevice_Impl, const OFFSET: isize>() -> IDCompositionInkTrailDevice_Vtbl {
         unsafe extern "system" fn CreateDelegatedInkTrail<Identity: ::windows::core::IUnknownImpl, Impl: IDCompositionInkTrailDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, inktrail: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -1463,6 +1495,8 @@ pub trait IDCompositionLinearTransferEffect_Impl: Sized + IDCompositionEffect_Im
     fn SetAlphaDisable(&self, alphadisable: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn SetClampOutput(&self, clampoutput: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IDCompositionLinearTransferEffect {}
 #[cfg(feature = "Win32_Foundation")]
 impl IDCompositionLinearTransferEffect_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDCompositionLinearTransferEffect_Impl, const OFFSET: isize>() -> IDCompositionLinearTransferEffect_Vtbl {
@@ -1607,6 +1641,8 @@ pub trait IDCompositionMatrixTransform_Impl: Sized + IDCompositionEffect_Impl + 
     fn SetMatrixElement2(&self, row: i32, column: i32, value: f32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Foundation_Numerics")]
+impl ::windows::core::RuntimeName for IDCompositionMatrixTransform {}
+#[cfg(feature = "Foundation_Numerics")]
 impl IDCompositionMatrixTransform_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDCompositionMatrixTransform_Impl, const OFFSET: isize>() -> IDCompositionMatrixTransform_Vtbl {
         unsafe extern "system" fn SetMatrix<Identity: ::windows::core::IUnknownImpl, Impl: IDCompositionMatrixTransform_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, matrix: *const super::super::super::Foundation::Numerics::Matrix3x2) -> ::windows::core::HRESULT {
@@ -1641,6 +1677,8 @@ pub trait IDCompositionMatrixTransform3D_Impl: Sized + IDCompositionEffect_Impl 
     fn SetMatrixElement(&self, row: i32, column: i32, animation: &::core::option::Option<IDCompositionAnimation>) -> ::windows::core::Result<()>;
     fn SetMatrixElement2(&self, row: i32, column: i32, value: f32) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Graphics_Direct3D")]
+impl ::windows::core::RuntimeName for IDCompositionMatrixTransform3D {}
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 impl IDCompositionMatrixTransform3D_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDCompositionMatrixTransform3D_Impl, const OFFSET: isize>() -> IDCompositionMatrixTransform3D_Vtbl {
@@ -1696,6 +1734,7 @@ pub trait IDCompositionRectangleClip_Impl: Sized + IDCompositionClip_Impl {
     fn SetBottomRightRadiusY(&self, animation: &::core::option::Option<IDCompositionAnimation>) -> ::windows::core::Result<()>;
     fn SetBottomRightRadiusY2(&self, radius: f32) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IDCompositionRectangleClip {}
 impl IDCompositionRectangleClip_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDCompositionRectangleClip_Impl, const OFFSET: isize>() -> IDCompositionRectangleClip_Vtbl {
         unsafe extern "system" fn SetLeft<Identity: ::windows::core::IUnknownImpl, Impl: IDCompositionRectangleClip_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -1858,6 +1897,7 @@ pub trait IDCompositionRotateTransform_Impl: Sized + IDCompositionEffect_Impl + 
     fn SetCenterY(&self, animation: &::core::option::Option<IDCompositionAnimation>) -> ::windows::core::Result<()>;
     fn SetCenterY2(&self, centery: f32) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IDCompositionRotateTransform {}
 impl IDCompositionRotateTransform_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDCompositionRotateTransform_Impl, const OFFSET: isize>() -> IDCompositionRotateTransform_Vtbl {
         unsafe extern "system" fn SetAngle<Identity: ::windows::core::IUnknownImpl, Impl: IDCompositionRotateTransform_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -1920,6 +1960,7 @@ pub trait IDCompositionRotateTransform3D_Impl: Sized + IDCompositionEffect_Impl 
     fn SetCenterZ(&self, animation: &::core::option::Option<IDCompositionAnimation>) -> ::windows::core::Result<()>;
     fn SetCenterZ2(&self, centerz: f32) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IDCompositionRotateTransform3D {}
 impl IDCompositionRotateTransform3D_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDCompositionRotateTransform3D_Impl, const OFFSET: isize>() -> IDCompositionRotateTransform3D_Vtbl {
         unsafe extern "system" fn SetAngle<Identity: ::windows::core::IUnknownImpl, Impl: IDCompositionRotateTransform3D_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -2018,6 +2059,7 @@ pub trait IDCompositionSaturationEffect_Impl: Sized + IDCompositionEffect_Impl +
     fn SetSaturation(&self, animation: &::core::option::Option<IDCompositionAnimation>) -> ::windows::core::Result<()>;
     fn SetSaturation2(&self, ratio: f32) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IDCompositionSaturationEffect {}
 impl IDCompositionSaturationEffect_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDCompositionSaturationEffect_Impl, const OFFSET: isize>() -> IDCompositionSaturationEffect_Vtbl {
         unsafe extern "system" fn SetSaturation<Identity: ::windows::core::IUnknownImpl, Impl: IDCompositionSaturationEffect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -2050,6 +2092,7 @@ pub trait IDCompositionScaleTransform_Impl: Sized + IDCompositionEffect_Impl + I
     fn SetCenterY(&self, animation: &::core::option::Option<IDCompositionAnimation>) -> ::windows::core::Result<()>;
     fn SetCenterY2(&self, centery: f32) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IDCompositionScaleTransform {}
 impl IDCompositionScaleTransform_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDCompositionScaleTransform_Impl, const OFFSET: isize>() -> IDCompositionScaleTransform_Vtbl {
         unsafe extern "system" fn SetScaleX<Identity: ::windows::core::IUnknownImpl, Impl: IDCompositionScaleTransform_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -2122,6 +2165,7 @@ pub trait IDCompositionScaleTransform3D_Impl: Sized + IDCompositionEffect_Impl +
     fn SetCenterZ(&self, animation: &::core::option::Option<IDCompositionAnimation>) -> ::windows::core::Result<()>;
     fn SetCenterZ2(&self, centerz: f32) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IDCompositionScaleTransform3D {}
 impl IDCompositionScaleTransform3D_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDCompositionScaleTransform3D_Impl, const OFFSET: isize>() -> IDCompositionScaleTransform3D_Vtbl {
         unsafe extern "system" fn SetScaleX<Identity: ::windows::core::IUnknownImpl, Impl: IDCompositionScaleTransform3D_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -2219,6 +2263,8 @@ pub trait IDCompositionShadowEffect_Impl: Sized + IDCompositionEffect_Impl + IDC
     fn SetAlpha2(&self, amount: f32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+impl ::windows::core::RuntimeName for IDCompositionShadowEffect {}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl IDCompositionShadowEffect_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDCompositionShadowEffect_Impl, const OFFSET: isize>() -> IDCompositionShadowEffect_Vtbl {
         unsafe extern "system" fn SetStandardDeviation<Identity: ::windows::core::IUnknownImpl, Impl: IDCompositionShadowEffect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -2305,6 +2351,7 @@ pub trait IDCompositionSkewTransform_Impl: Sized + IDCompositionEffect_Impl + ID
     fn SetCenterY(&self, animation: &::core::option::Option<IDCompositionAnimation>) -> ::windows::core::Result<()>;
     fn SetCenterY2(&self, centery: f32) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IDCompositionSkewTransform {}
 impl IDCompositionSkewTransform_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDCompositionSkewTransform_Impl, const OFFSET: isize>() -> IDCompositionSkewTransform_Vtbl {
         unsafe extern "system" fn SetAngleX<Identity: ::windows::core::IUnknownImpl, Impl: IDCompositionSkewTransform_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -2372,6 +2419,8 @@ pub trait IDCompositionSurface_Impl: Sized {
     fn Scroll(&self, scrollrect: *const super::super::Foundation::RECT, cliprect: *const super::super::Foundation::RECT, offsetx: i32, offsety: i32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IDCompositionSurface {}
+#[cfg(feature = "Win32_Foundation")]
 impl IDCompositionSurface_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDCompositionSurface_Impl, const OFFSET: isize>() -> IDCompositionSurface_Vtbl {
         unsafe extern "system" fn BeginDraw<Identity: ::windows::core::IUnknownImpl, Impl: IDCompositionSurface_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, updaterect: *const super::super::Foundation::RECT, iid: *const ::windows::core::GUID, updateobject: *mut *mut ::core::ffi::c_void, updateoffset: *mut super::super::Foundation::POINT) -> ::windows::core::HRESULT {
@@ -2417,6 +2466,8 @@ pub trait IDCompositionSurfaceFactory_Impl: Sized {
     fn CreateSurface(&self, width: u32, height: u32, pixelformat: super::Dxgi::Common::DXGI_FORMAT, alphamode: super::Dxgi::Common::DXGI_ALPHA_MODE) -> ::windows::core::Result<IDCompositionSurface>;
     fn CreateVirtualSurface(&self, initialwidth: u32, initialheight: u32, pixelformat: super::Dxgi::Common::DXGI_FORMAT, alphamode: super::Dxgi::Common::DXGI_ALPHA_MODE) -> ::windows::core::Result<IDCompositionVirtualSurface>;
 }
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl ::windows::core::RuntimeName for IDCompositionSurfaceFactory {}
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl IDCompositionSurfaceFactory_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDCompositionSurfaceFactory_Impl, const OFFSET: isize>() -> IDCompositionSurfaceFactory_Vtbl {
@@ -2472,6 +2523,8 @@ pub trait IDCompositionTableTransferEffect_Impl: Sized + IDCompositionEffect_Imp
     fn SetAlphaTableValue(&self, index: u32, animation: &::core::option::Option<IDCompositionAnimation>) -> ::windows::core::Result<()>;
     fn SetAlphaTableValue2(&self, index: u32, value: f32) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IDCompositionTableTransferEffect {}
 #[cfg(feature = "Win32_Foundation")]
 impl IDCompositionTableTransferEffect_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDCompositionTableTransferEffect_Impl, const OFFSET: isize>() -> IDCompositionTableTransferEffect_Vtbl {
@@ -2588,6 +2641,7 @@ impl IDCompositionTableTransferEffect_Vtbl {
 pub trait IDCompositionTarget_Impl: Sized {
     fn SetRoot(&self, visual: &::core::option::Option<IDCompositionVisual>) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IDCompositionTarget {}
 impl IDCompositionTarget_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDCompositionTarget_Impl, const OFFSET: isize>() -> IDCompositionTarget_Vtbl {
         unsafe extern "system" fn SetRoot<Identity: ::windows::core::IUnknownImpl, Impl: IDCompositionTarget_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, visual: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -2602,6 +2656,7 @@ impl IDCompositionTarget_Vtbl {
     }
 }
 pub trait IDCompositionTransform_Impl: Sized + IDCompositionEffect_Impl + IDCompositionTransform3D_Impl {}
+impl ::windows::core::RuntimeName for IDCompositionTransform {}
 impl IDCompositionTransform_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDCompositionTransform_Impl, const OFFSET: isize>() -> IDCompositionTransform_Vtbl {
         Self { base__: IDCompositionTransform3D_Vtbl::new::<Identity, Impl, OFFSET>() }
@@ -2611,6 +2666,7 @@ impl IDCompositionTransform_Vtbl {
     }
 }
 pub trait IDCompositionTransform3D_Impl: Sized + IDCompositionEffect_Impl {}
+impl ::windows::core::RuntimeName for IDCompositionTransform3D {}
 impl IDCompositionTransform3D_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDCompositionTransform3D_Impl, const OFFSET: isize>() -> IDCompositionTransform3D_Vtbl {
         Self { base__: IDCompositionEffect_Vtbl::new::<Identity, Impl, OFFSET>() }
@@ -2625,6 +2681,7 @@ pub trait IDCompositionTranslateTransform_Impl: Sized + IDCompositionEffect_Impl
     fn SetOffsetY(&self, animation: &::core::option::Option<IDCompositionAnimation>) -> ::windows::core::Result<()>;
     fn SetOffsetY2(&self, offsety: f32) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IDCompositionTranslateTransform {}
 impl IDCompositionTranslateTransform_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDCompositionTranslateTransform_Impl, const OFFSET: isize>() -> IDCompositionTranslateTransform_Vtbl {
         unsafe extern "system" fn SetOffsetX<Identity: ::windows::core::IUnknownImpl, Impl: IDCompositionTranslateTransform_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -2667,6 +2724,7 @@ pub trait IDCompositionTranslateTransform3D_Impl: Sized + IDCompositionEffect_Im
     fn SetOffsetZ(&self, animation: &::core::option::Option<IDCompositionAnimation>) -> ::windows::core::Result<()>;
     fn SetOffsetZ2(&self, offsetz: f32) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IDCompositionTranslateTransform3D {}
 impl IDCompositionTranslateTransform3D_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDCompositionTranslateTransform3D_Impl, const OFFSET: isize>() -> IDCompositionTranslateTransform3D_Vtbl {
         unsafe extern "system" fn SetOffsetX<Identity: ::windows::core::IUnknownImpl, Impl: IDCompositionTranslateTransform3D_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -2723,6 +2781,8 @@ pub trait IDCompositionTurbulenceEffect_Impl: Sized + IDCompositionEffect_Impl +
     fn SetNoise(&self, noise: super::Direct2D::Common::D2D1_TURBULENCE_NOISE) -> ::windows::core::Result<()>;
     fn SetStitchable(&self, stitchable: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))]
+impl ::windows::core::RuntimeName for IDCompositionTurbulenceEffect {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))]
 impl IDCompositionTurbulenceEffect_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDCompositionTurbulenceEffect_Impl, const OFFSET: isize>() -> IDCompositionTurbulenceEffect_Vtbl {
@@ -2782,6 +2842,8 @@ pub trait IDCompositionVirtualSurface_Impl: Sized + IDCompositionSurface_Impl {
     fn Trim(&self, rectangles: *const super::super::Foundation::RECT, count: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IDCompositionVirtualSurface {}
+#[cfg(feature = "Win32_Foundation")]
 impl IDCompositionVirtualSurface_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDCompositionVirtualSurface_Impl, const OFFSET: isize>() -> IDCompositionVirtualSurface_Vtbl {
         unsafe extern "system" fn Resize<Identity: ::windows::core::IUnknownImpl, Impl: IDCompositionVirtualSurface_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, width: u32, height: u32) -> ::windows::core::HRESULT {
@@ -2824,6 +2886,8 @@ pub trait IDCompositionVisual_Impl: Sized {
     fn RemoveAllVisuals(&self) -> ::windows::core::Result<()>;
     fn SetCompositeMode(&self, compositemode: DCOMPOSITION_COMPOSITE_MODE) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))]
+impl ::windows::core::RuntimeName for IDCompositionVisual {}
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))]
 impl IDCompositionVisual_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDCompositionVisual_Impl, const OFFSET: isize>() -> IDCompositionVisual_Vtbl {
@@ -2943,6 +3007,8 @@ pub trait IDCompositionVisual2_Impl: Sized + IDCompositionVisual_Impl {
     fn SetBackFaceVisibility(&self, visibility: DCOMPOSITION_BACKFACE_VISIBILITY) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))]
+impl ::windows::core::RuntimeName for IDCompositionVisual2 {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))]
 impl IDCompositionVisual2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDCompositionVisual2_Impl, const OFFSET: isize>() -> IDCompositionVisual2_Vtbl {
         unsafe extern "system" fn SetOpacityMode<Identity: ::windows::core::IUnknownImpl, Impl: IDCompositionVisual2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, mode: DCOMPOSITION_OPACITY_MODE) -> ::windows::core::HRESULT {
@@ -2976,6 +3042,8 @@ pub trait IDCompositionVisual3_Impl: Sized + IDCompositionVisual_Impl + IDCompos
     fn SetTransform4(&self, matrix: *const super::Direct2D::Common::D2D_MATRIX_4X4_F) -> ::windows::core::Result<()>;
     fn SetVisible(&self, visible: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))]
+impl ::windows::core::RuntimeName for IDCompositionVisual3 {}
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))]
 impl IDCompositionVisual3_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDCompositionVisual3_Impl, const OFFSET: isize>() -> IDCompositionVisual3_Vtbl {
@@ -3042,6 +3110,8 @@ pub trait IDCompositionVisualDebug_Impl: Sized + IDCompositionVisual_Impl + IDCo
     fn EnableRedrawRegions(&self) -> ::windows::core::Result<()>;
     fn DisableRedrawRegions(&self) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))]
+impl ::windows::core::RuntimeName for IDCompositionVisualDebug {}
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))]
 impl IDCompositionVisualDebug_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDCompositionVisualDebug_Impl, const OFFSET: isize>() -> IDCompositionVisualDebug_Vtbl {

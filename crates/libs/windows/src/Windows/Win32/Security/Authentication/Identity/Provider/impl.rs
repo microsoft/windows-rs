@@ -8,6 +8,8 @@ pub trait AsyncIAssociatedIdentityProvider_Impl: Sized {
     fn Finish_ChangeCredential(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
+impl ::windows::core::RuntimeName for AsyncIAssociatedIdentityProvider {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl AsyncIAssociatedIdentityProvider_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: AsyncIAssociatedIdentityProvider_Impl, const OFFSET: isize>() -> AsyncIAssociatedIdentityProvider_Vtbl {
         unsafe extern "system" fn Begin_AssociateIdentity<Identity: ::windows::core::IUnknownImpl, Impl: AsyncIAssociatedIdentityProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hwndparent: super::super::super::super::Foundation::HWND) -> ::windows::core::HRESULT {
@@ -73,6 +75,8 @@ pub trait AsyncIConnectedIdentityProvider_Impl: Sized {
     fn Begin_GetAccountState(&self) -> ::windows::core::Result<()>;
     fn Finish_GetAccountState(&self) -> ::windows::core::Result<ACCOUNT_STATE>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for AsyncIConnectedIdentityProvider {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl AsyncIConnectedIdentityProvider_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: AsyncIConnectedIdentityProvider_Impl, const OFFSET: isize>() -> AsyncIConnectedIdentityProvider_Vtbl {
@@ -160,6 +164,7 @@ pub trait AsyncIIdentityAdvise_Impl: Sized {
     fn Begin_IdentityUpdated(&self, dwidentityupdateevents: u32, lpszuniqueid: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn Finish_IdentityUpdated(&self) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for AsyncIIdentityAdvise {}
 impl AsyncIIdentityAdvise_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: AsyncIIdentityAdvise_Impl, const OFFSET: isize>() -> AsyncIIdentityAdvise_Vtbl {
         unsafe extern "system" fn Begin_IdentityUpdated<Identity: ::windows::core::IUnknownImpl, Impl: AsyncIIdentityAdvise_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwidentityupdateevents: u32, lpszuniqueid: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
@@ -189,6 +194,8 @@ pub trait AsyncIIdentityAuthentication_Impl: Sized {
     fn Begin_ValidateIdentityCredential(&self, credbuffer: *const u8, credbufferlength: u32, ppidentityproperties: *mut ::core::option::Option<super::super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>) -> ::windows::core::Result<()>;
     fn Finish_ValidateIdentityCredential(&self, ppidentityproperties: *mut ::core::option::Option<super::super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+impl ::windows::core::RuntimeName for AsyncIIdentityAuthentication {}
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 impl AsyncIIdentityAuthentication_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: AsyncIIdentityAuthentication_Impl, const OFFSET: isize>() -> AsyncIIdentityAuthentication_Vtbl {
@@ -243,6 +250,8 @@ pub trait AsyncIIdentityProvider_Impl: Sized {
     fn Begin_UnAdvise(&self, dwcookie: u32) -> ::windows::core::Result<()>;
     fn Finish_UnAdvise(&self) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
+impl ::windows::core::RuntimeName for AsyncIIdentityProvider {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl AsyncIIdentityProvider_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: AsyncIIdentityProvider_Impl, const OFFSET: isize>() -> AsyncIIdentityProvider_Vtbl {
@@ -396,6 +405,8 @@ pub trait AsyncIIdentityStore_Impl: Sized {
     fn Finish_Reset(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
+impl ::windows::core::RuntimeName for AsyncIIdentityStore {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl AsyncIIdentityStore_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: AsyncIIdentityStore_Impl, const OFFSET: isize>() -> AsyncIIdentityStore_Vtbl {
         unsafe extern "system" fn Begin_GetCount<Identity: ::windows::core::IUnknownImpl, Impl: AsyncIIdentityStore_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -496,6 +507,7 @@ pub trait AsyncIIdentityStoreEx_Impl: Sized {
     fn Begin_DeleteConnectedIdentity(&self, connectedname: &::windows::core::PCWSTR, providerguid: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
     fn Finish_DeleteConnectedIdentity(&self) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for AsyncIIdentityStoreEx {}
 impl AsyncIIdentityStoreEx_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: AsyncIIdentityStoreEx_Impl, const OFFSET: isize>() -> AsyncIIdentityStoreEx_Vtbl {
         unsafe extern "system" fn Begin_CreateConnectedIdentity<Identity: ::windows::core::IUnknownImpl, Impl: AsyncIIdentityStoreEx_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, localname: ::windows::core::PCWSTR, connectedname: ::windows::core::PCWSTR, providerguid: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
@@ -536,6 +548,8 @@ pub trait IAssociatedIdentityProvider_Impl: Sized {
     fn DisassociateIdentity(&self, hwndparent: super::super::super::super::Foundation::HWND, lpszuniqueid: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn ChangeCredential(&self, hwndparent: super::super::super::super::Foundation::HWND, lpszuniqueid: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
+impl ::windows::core::RuntimeName for IAssociatedIdentityProvider {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl IAssociatedIdentityProvider_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAssociatedIdentityProvider_Impl, const OFFSET: isize>() -> IAssociatedIdentityProvider_Vtbl {
@@ -579,6 +593,8 @@ pub trait IConnectedIdentityProvider_Impl: Sized {
     fn GetUrl(&self, identifier: IDENTITY_URL, context: &::core::option::Option<super::super::super::super::System::Com::IBindCtx>, postdata: *mut super::super::super::super::System::Com::VARIANT, url: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()>;
     fn GetAccountState(&self) -> ::windows::core::Result<ACCOUNT_STATE>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IConnectedIdentityProvider {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IConnectedIdentityProvider_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IConnectedIdentityProvider_Impl, const OFFSET: isize>() -> IConnectedIdentityProvider_Vtbl {
@@ -635,6 +651,7 @@ impl IConnectedIdentityProvider_Vtbl {
 pub trait IIdentityAdvise_Impl: Sized {
     fn IdentityUpdated(&self, dwidentityupdateevents: IdentityUpdateEvent, lpszuniqueid: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IIdentityAdvise {}
 impl IIdentityAdvise_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IIdentityAdvise_Impl, const OFFSET: isize>() -> IIdentityAdvise_Vtbl {
         unsafe extern "system" fn IdentityUpdated<Identity: ::windows::core::IUnknownImpl, Impl: IIdentityAdvise_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwidentityupdateevents: IdentityUpdateEvent, lpszuniqueid: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
@@ -653,6 +670,8 @@ pub trait IIdentityAuthentication_Impl: Sized {
     fn SetIdentityCredential(&self, credbuffer: *const u8, credbufferlength: u32) -> ::windows::core::Result<()>;
     fn ValidateIdentityCredential(&self, credbuffer: *const u8, credbufferlength: u32, ppidentityproperties: *mut ::core::option::Option<super::super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+impl ::windows::core::RuntimeName for IIdentityAuthentication {}
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 impl IIdentityAuthentication_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IIdentityAuthentication_Impl, const OFFSET: isize>() -> IIdentityAuthentication_Vtbl {
@@ -687,6 +706,8 @@ pub trait IIdentityProvider_Impl: Sized {
     fn Advise(&self, pidentityadvise: &::core::option::Option<IIdentityAdvise>, dwidentityupdateevents: IdentityUpdateEvent) -> ::windows::core::Result<u32>;
     fn UnAdvise(&self, dwcookie: u32) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
+impl ::windows::core::RuntimeName for IIdentityProvider {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl IIdentityProvider_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IIdentityProvider_Impl, const OFFSET: isize>() -> IIdentityProvider_Vtbl {
@@ -780,6 +801,8 @@ pub trait IIdentityStore_Impl: Sized {
     fn Reset(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
+impl ::windows::core::RuntimeName for IIdentityStore {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl IIdentityStore_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IIdentityStore_Impl, const OFFSET: isize>() -> IIdentityStore_Vtbl {
         unsafe extern "system" fn GetCount<Identity: ::windows::core::IUnknownImpl, Impl: IIdentityStore_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwproviders: *mut u32) -> ::windows::core::HRESULT {
@@ -842,6 +865,7 @@ pub trait IIdentityStoreEx_Impl: Sized {
     fn CreateConnectedIdentity(&self, localname: &::windows::core::PCWSTR, connectedname: &::windows::core::PCWSTR, providerguid: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
     fn DeleteConnectedIdentity(&self, connectedname: &::windows::core::PCWSTR, providerguid: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IIdentityStoreEx {}
 impl IIdentityStoreEx_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IIdentityStoreEx_Impl, const OFFSET: isize>() -> IIdentityStoreEx_Vtbl {
         unsafe extern "system" fn CreateConnectedIdentity<Identity: ::windows::core::IUnknownImpl, Impl: IIdentityStoreEx_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, localname: ::windows::core::PCWSTR, connectedname: ::windows::core::PCWSTR, providerguid: *const ::windows::core::GUID) -> ::windows::core::HRESULT {

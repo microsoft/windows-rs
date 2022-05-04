@@ -1,6 +1,7 @@
 pub trait IAMWMBufferPass_Impl: Sized {
     fn SetNotify(&self, pcallback: &::core::option::Option<IAMWMBufferPassCallback>) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IAMWMBufferPass {}
 impl IAMWMBufferPass_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAMWMBufferPass_Impl, const OFFSET: isize>() -> IAMWMBufferPass_Vtbl {
         unsafe extern "system" fn SetNotify<Identity: ::windows::core::IUnknownImpl, Impl: IAMWMBufferPass_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcallback: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -18,6 +19,8 @@ impl IAMWMBufferPass_Vtbl {
 pub trait IAMWMBufferPassCallback_Impl: Sized {
     fn Notify(&self, pnssbuffer3: &::core::option::Option<INSSBuffer3>, ppin: &::core::option::Option<super::DirectShow::IPin>, prtstart: *const i64, prtend: *const i64) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Media_DirectShow")]
+impl ::windows::core::RuntimeName for IAMWMBufferPassCallback {}
 #[cfg(feature = "Win32_Media_DirectShow")]
 impl IAMWMBufferPassCallback_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAMWMBufferPassCallback_Impl, const OFFSET: isize>() -> IAMWMBufferPassCallback_Vtbl {
@@ -43,6 +46,8 @@ pub trait INSNetSourceCreator_Impl: Sized {
     fn GetProtocolName(&self, dwprotocolnum: u32, pwszprotocolname: ::windows::core::PWSTR, pcchprotocolname: *mut u16) -> ::windows::core::Result<()>;
     fn Shutdown(&self) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for INSNetSourceCreator {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl INSNetSourceCreator_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INSNetSourceCreator_Impl, const OFFSET: isize>() -> INSNetSourceCreator_Vtbl {
@@ -133,6 +138,7 @@ pub trait INSSBuffer_Impl: Sized {
     fn GetBuffer(&self) -> ::windows::core::Result<*mut u8>;
     fn GetBufferAndLength(&self, ppdwbuffer: *mut *mut u8, pdwlength: *mut u32) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for INSSBuffer {}
 impl INSSBuffer_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INSSBuffer_Impl, const OFFSET: isize>() -> INSSBuffer_Vtbl {
         unsafe extern "system" fn GetLength<Identity: ::windows::core::IUnknownImpl, Impl: INSSBuffer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwlength: *mut u32) -> ::windows::core::HRESULT {
@@ -195,6 +201,7 @@ pub trait INSSBuffer2_Impl: Sized + INSSBuffer_Impl {
     fn GetSampleProperties(&self, cbproperties: u32) -> ::windows::core::Result<u8>;
     fn SetSampleProperties(&self, cbproperties: u32, pbproperties: *const u8) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for INSSBuffer2 {}
 impl INSSBuffer2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INSSBuffer2_Impl, const OFFSET: isize>() -> INSSBuffer2_Vtbl {
         unsafe extern "system" fn GetSampleProperties<Identity: ::windows::core::IUnknownImpl, Impl: INSSBuffer2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cbproperties: u32, pbproperties: *mut u8) -> ::windows::core::HRESULT {
@@ -227,6 +234,7 @@ pub trait INSSBuffer3_Impl: Sized + INSSBuffer_Impl + INSSBuffer2_Impl {
     fn SetProperty(&self, guidbufferproperty: &::windows::core::GUID, pvbufferproperty: *const ::core::ffi::c_void, dwbufferpropertysize: u32) -> ::windows::core::Result<()>;
     fn GetProperty(&self, guidbufferproperty: &::windows::core::GUID, pvbufferproperty: *mut ::core::ffi::c_void, pdwbufferpropertysize: *mut u32) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for INSSBuffer3 {}
 impl INSSBuffer3_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INSSBuffer3_Impl, const OFFSET: isize>() -> INSSBuffer3_Vtbl {
         unsafe extern "system" fn SetProperty<Identity: ::windows::core::IUnknownImpl, Impl: INSSBuffer3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guidbufferproperty: ::windows::core::GUID, pvbufferproperty: *const ::core::ffi::c_void, dwbufferpropertysize: u32) -> ::windows::core::HRESULT {
@@ -253,6 +261,7 @@ pub trait INSSBuffer4_Impl: Sized + INSSBuffer_Impl + INSSBuffer2_Impl + INSSBuf
     fn GetPropertyCount(&self) -> ::windows::core::Result<u32>;
     fn GetPropertyByIndex(&self, dwbufferpropertyindex: u32, pguidbufferproperty: *mut ::windows::core::GUID, pvbufferproperty: *mut ::core::ffi::c_void, pdwbufferpropertysize: *mut u32) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for INSSBuffer4 {}
 impl INSSBuffer4_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INSSBuffer4_Impl, const OFFSET: isize>() -> INSSBuffer4_Vtbl {
         unsafe extern "system" fn GetPropertyCount<Identity: ::windows::core::IUnknownImpl, Impl: INSSBuffer4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcbufferproperties: *mut u32) -> ::windows::core::HRESULT {
@@ -287,6 +296,7 @@ pub trait IWMAddressAccess_Impl: Sized {
     fn AddAccessEntry(&self, aetype: WM_AETYPE, paddraccessentry: *const WM_ADDRESS_ACCESSENTRY) -> ::windows::core::Result<()>;
     fn RemoveAccessEntry(&self, aetype: WM_AETYPE, dwentrynum: u32) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IWMAddressAccess {}
 impl IWMAddressAccess_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMAddressAccess_Impl, const OFFSET: isize>() -> IWMAddressAccess_Vtbl {
         unsafe extern "system" fn GetAccessEntryCount<Identity: ::windows::core::IUnknownImpl, Impl: IWMAddressAccess_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, aetype: WM_AETYPE, pcentries: *mut u32) -> ::windows::core::HRESULT {
@@ -339,6 +349,8 @@ pub trait IWMAddressAccess2_Impl: Sized + IWMAddressAccess_Impl {
     fn AddAccessEntryEx(&self, aetype: WM_AETYPE, bstraddress: &super::super::Foundation::BSTR, bstrmask: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IWMAddressAccess2 {}
+#[cfg(feature = "Win32_Foundation")]
 impl IWMAddressAccess2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMAddressAccess2_Impl, const OFFSET: isize>() -> IWMAddressAccess2_Vtbl {
         unsafe extern "system" fn GetAccessEntryEx<Identity: ::windows::core::IUnknownImpl, Impl: IWMAddressAccess2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, aetype: WM_AETYPE, dwentrynum: u32, pbstraddress: *mut super::super::Foundation::BSTR, pbstrmask: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
@@ -366,6 +378,7 @@ pub trait IWMAuthorizer_Impl: Sized {
     fn GetCert(&self, dwindex: u32) -> ::windows::core::Result<*mut u8>;
     fn GetSharedData(&self, dwcertindex: u32, pbshareddata: *const u8, pbcert: *const u8) -> ::windows::core::Result<*mut u8>;
 }
+impl ::windows::core::RuntimeName for IWMAuthorizer {}
 impl IWMAuthorizer_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMAuthorizer_Impl, const OFFSET: isize>() -> IWMAuthorizer_Vtbl {
         unsafe extern "system" fn GetCertCount<Identity: ::windows::core::IUnknownImpl, Impl: IWMAuthorizer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pccerts: *mut u32) -> ::windows::core::HRESULT {
@@ -420,6 +433,7 @@ pub trait IWMBackupRestoreProps_Impl: Sized {
     fn RemoveProp(&self, pcwszname: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn RemoveAllProps(&self) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IWMBackupRestoreProps {}
 impl IWMBackupRestoreProps_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMBackupRestoreProps_Impl, const OFFSET: isize>() -> IWMBackupRestoreProps_Vtbl {
         unsafe extern "system" fn GetPropCount<Identity: ::windows::core::IUnknownImpl, Impl: IWMBackupRestoreProps_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcprops: *mut u16) -> ::windows::core::HRESULT {
@@ -478,6 +492,7 @@ pub trait IWMBandwidthSharing_Impl: Sized + IWMStreamList_Impl {
     fn GetBandwidth(&self, pdwbitrate: *mut u32, pmsbufferwindow: *mut u32) -> ::windows::core::Result<()>;
     fn SetBandwidth(&self, dwbitrate: u32, msbufferwindow: u32) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IWMBandwidthSharing {}
 impl IWMBandwidthSharing_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMBandwidthSharing_Impl, const OFFSET: isize>() -> IWMBandwidthSharing_Vtbl {
         unsafe extern "system" fn GetType<Identity: ::windows::core::IUnknownImpl, Impl: IWMBandwidthSharing_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pguidtype: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
@@ -522,6 +537,7 @@ pub trait IWMClientConnections_Impl: Sized {
     fn GetClientCount(&self) -> ::windows::core::Result<u32>;
     fn GetClientProperties(&self, dwclientnum: u32) -> ::windows::core::Result<WM_CLIENT_PROPERTIES>;
 }
+impl ::windows::core::RuntimeName for IWMClientConnections {}
 impl IWMClientConnections_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMClientConnections_Impl, const OFFSET: isize>() -> IWMClientConnections_Vtbl {
         unsafe extern "system" fn GetClientCount<Identity: ::windows::core::IUnknownImpl, Impl: IWMClientConnections_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcclients: *mut u32) -> ::windows::core::HRESULT {
@@ -559,6 +575,7 @@ impl IWMClientConnections_Vtbl {
 pub trait IWMClientConnections2_Impl: Sized + IWMClientConnections_Impl {
     fn GetClientInfo(&self, dwclientnum: u32, pwsznetworkaddress: ::windows::core::PWSTR, pcchnetworkaddress: *mut u32, pwszport: ::windows::core::PWSTR, pcchport: *mut u32, pwszdnsname: ::windows::core::PWSTR, pcchdnsname: *mut u32) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IWMClientConnections2 {}
 impl IWMClientConnections2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMClientConnections2_Impl, const OFFSET: isize>() -> IWMClientConnections2_Vtbl {
         unsafe extern "system" fn GetClientInfo<Identity: ::windows::core::IUnknownImpl, Impl: IWMClientConnections2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwclientnum: u32, pwsznetworkaddress: ::windows::core::PWSTR, pcchnetworkaddress: *mut u32, pwszport: ::windows::core::PWSTR, pcchport: *mut u32, pwszdnsname: ::windows::core::PWSTR, pcchdnsname: *mut u32) -> ::windows::core::HRESULT {
@@ -578,6 +595,8 @@ pub trait IWMCodecAMVideoAccelerator_Impl: Sized {
     fn NegotiateConnection(&self, pmediatype: *const super::DirectShow::AM_MEDIA_TYPE) -> ::windows::core::Result<()>;
     fn SetPlayerNotify(&self, phook: &::core::option::Option<IWMPlayerTimestampHook>) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_DirectShow"))]
+impl ::windows::core::RuntimeName for IWMCodecAMVideoAccelerator {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_DirectShow"))]
 impl IWMCodecAMVideoAccelerator_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMCodecAMVideoAccelerator_Impl, const OFFSET: isize>() -> IWMCodecAMVideoAccelerator_Vtbl {
@@ -612,6 +631,7 @@ pub trait IWMCodecInfo_Impl: Sized {
     fn GetCodecFormatCount(&self, guidtype: *const ::windows::core::GUID, dwcodecindex: u32) -> ::windows::core::Result<u32>;
     fn GetCodecFormat(&self, guidtype: *const ::windows::core::GUID, dwcodecindex: u32, dwformatindex: u32) -> ::windows::core::Result<IWMStreamConfig>;
 }
+impl ::windows::core::RuntimeName for IWMCodecInfo {}
 impl IWMCodecInfo_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMCodecInfo_Impl, const OFFSET: isize>() -> IWMCodecInfo_Vtbl {
         unsafe extern "system" fn GetCodecInfoCount<Identity: ::windows::core::IUnknownImpl, Impl: IWMCodecInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guidtype: *const ::windows::core::GUID, pccodecs: *mut u32) -> ::windows::core::HRESULT {
@@ -662,6 +682,7 @@ pub trait IWMCodecInfo2_Impl: Sized + IWMCodecInfo_Impl {
     fn GetCodecName(&self, guidtype: *const ::windows::core::GUID, dwcodecindex: u32, wszname: ::windows::core::PWSTR, pcchname: *mut u32) -> ::windows::core::Result<()>;
     fn GetCodecFormatDesc(&self, guidtype: *const ::windows::core::GUID, dwcodecindex: u32, dwformatindex: u32, ppistreamconfig: *mut ::core::option::Option<IWMStreamConfig>, wszdesc: ::windows::core::PWSTR, pcchdesc: *mut u32) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IWMCodecInfo2 {}
 impl IWMCodecInfo2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMCodecInfo2_Impl, const OFFSET: isize>() -> IWMCodecInfo2_Vtbl {
         unsafe extern "system" fn GetCodecName<Identity: ::windows::core::IUnknownImpl, Impl: IWMCodecInfo2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guidtype: *const ::windows::core::GUID, dwcodecindex: u32, wszname: ::windows::core::PWSTR, pcchname: *mut u32) -> ::windows::core::HRESULT {
@@ -690,6 +711,7 @@ pub trait IWMCodecInfo3_Impl: Sized + IWMCodecInfo_Impl + IWMCodecInfo2_Impl {
     fn SetCodecEnumerationSetting(&self, guidtype: *const ::windows::core::GUID, dwcodecindex: u32, pszname: &::windows::core::PCWSTR, r#type: WMT_ATTR_DATATYPE, pvalue: *const u8, dwsize: u32) -> ::windows::core::Result<()>;
     fn GetCodecEnumerationSetting(&self, guidtype: *const ::windows::core::GUID, dwcodecindex: u32, pszname: &::windows::core::PCWSTR, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pdwsize: *mut u32) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IWMCodecInfo3 {}
 impl IWMCodecInfo3_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMCodecInfo3_Impl, const OFFSET: isize>() -> IWMCodecInfo3_Vtbl {
         unsafe extern "system" fn GetCodecFormatProp<Identity: ::windows::core::IUnknownImpl, Impl: IWMCodecInfo3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guidtype: *const ::windows::core::GUID, dwcodecindex: u32, dwformatindex: u32, pszname: ::windows::core::PCWSTR, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pdwsize: *mut u32) -> ::windows::core::HRESULT {
@@ -730,6 +752,8 @@ pub trait IWMCodecVideoAccelerator_Impl: Sized {
     fn SetPlayerNotify(&self, phook: &::core::option::Option<IWMPlayerTimestampHook>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_DirectShow"))]
+impl ::windows::core::RuntimeName for IWMCodecVideoAccelerator {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_DirectShow"))]
 impl IWMCodecVideoAccelerator_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMCodecVideoAccelerator_Impl, const OFFSET: isize>() -> IWMCodecVideoAccelerator_Vtbl {
         unsafe extern "system" fn NegotiateConnection<Identity: ::windows::core::IUnknownImpl, Impl: IWMCodecVideoAccelerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, piamva: ::windows::core::RawPtr, pmediatype: *const super::DirectShow::AM_MEDIA_TYPE) -> ::windows::core::HRESULT {
@@ -755,6 +779,7 @@ impl IWMCodecVideoAccelerator_Vtbl {
 pub trait IWMCredentialCallback_Impl: Sized {
     fn AcquireCredentials(&self, pwszrealm: &::windows::core::PCWSTR, pwszsite: &::windows::core::PCWSTR, pwszuser: ::windows::core::PWSTR, cchuser: u32, pwszpassword: ::windows::core::PWSTR, cchpassword: u32, hrstatus: ::windows::core::HRESULT, pdwflags: *mut u32) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IWMCredentialCallback {}
 impl IWMCredentialCallback_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMCredentialCallback_Impl, const OFFSET: isize>() -> IWMCredentialCallback_Vtbl {
         unsafe extern "system" fn AcquireCredentials<Identity: ::windows::core::IUnknownImpl, Impl: IWMCredentialCallback_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszrealm: ::windows::core::PCWSTR, pwszsite: ::windows::core::PCWSTR, pwszuser: ::windows::core::PWSTR, cchuser: u32, pwszpassword: ::windows::core::PWSTR, cchpassword: u32, hrstatus: ::windows::core::HRESULT, pdwflags: *mut u32) -> ::windows::core::HRESULT {
@@ -771,6 +796,7 @@ impl IWMCredentialCallback_Vtbl {
 pub trait IWMDRMEditor_Impl: Sized {
     fn GetDRMProperty(&self, pwstrname: &::windows::core::PCWSTR, pdwtype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pcblength: *mut u16) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IWMDRMEditor {}
 impl IWMDRMEditor_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMDRMEditor_Impl, const OFFSET: isize>() -> IWMDRMEditor_Vtbl {
         unsafe extern "system" fn GetDRMProperty<Identity: ::windows::core::IUnknownImpl, Impl: IWMDRMEditor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwstrname: ::windows::core::PCWSTR, pdwtype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pcblength: *mut u16) -> ::windows::core::HRESULT {
@@ -789,6 +815,8 @@ pub trait IWMDRMMessageParser_Impl: Sized {
     fn ParseRegistrationReqMsg(&self, pbregistrationreqmsg: *const u8, cbregistrationreqmsg: u32, ppdevicecert: *mut ::core::option::Option<INSSBuffer>, pdeviceserialnumber: *mut DRM_VAL16) -> ::windows::core::Result<()>;
     fn ParseLicenseRequestMsg(&self, pblicenserequestmsg: *const u8, cblicenserequestmsg: u32, ppdevicecert: *mut ::core::option::Option<INSSBuffer>, pdeviceserialnumber: *mut DRM_VAL16, pbstraction: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IWMDRMMessageParser {}
 #[cfg(feature = "Win32_Foundation")]
 impl IWMDRMMessageParser_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMDRMMessageParser_Impl, const OFFSET: isize>() -> IWMDRMMessageParser_Vtbl {
@@ -822,6 +850,7 @@ pub trait IWMDRMReader_Impl: Sized {
     fn SetDRMProperty(&self, pwstrname: &::windows::core::PCWSTR, dwtype: WMT_ATTR_DATATYPE, pvalue: *const u8, cblength: u16) -> ::windows::core::Result<()>;
     fn GetDRMProperty(&self, pwstrname: &::windows::core::PCWSTR, pdwtype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pcblength: *mut u16) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IWMDRMReader {}
 impl IWMDRMReader_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMDRMReader_Impl, const OFFSET: isize>() -> IWMDRMReader_Vtbl {
         unsafe extern "system" fn AcquireLicense<Identity: ::windows::core::IUnknownImpl, Impl: IWMDRMReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwflags: u32) -> ::windows::core::HRESULT {
@@ -888,6 +917,8 @@ pub trait IWMDRMReader2_Impl: Sized + IWMDRMReader_Impl {
     fn TryNextLicense(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IWMDRMReader2 {}
+#[cfg(feature = "Win32_Foundation")]
 impl IWMDRMReader2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMDRMReader2_Impl, const OFFSET: isize>() -> IWMDRMReader2_Vtbl {
         unsafe extern "system" fn SetEvaluateOutputLevelLicenses<Identity: ::windows::core::IUnknownImpl, Impl: IWMDRMReader2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fevaluate: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
@@ -927,6 +958,8 @@ pub trait IWMDRMReader3_Impl: Sized + IWMDRMReader_Impl + IWMDRMReader2_Impl {
     fn GetInclusionList(&self, ppguids: *mut *mut ::windows::core::GUID, pcguids: *mut u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IWMDRMReader3 {}
+#[cfg(feature = "Win32_Foundation")]
 impl IWMDRMReader3_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMDRMReader3_Impl, const OFFSET: isize>() -> IWMDRMReader3_Vtbl {
         unsafe extern "system" fn GetInclusionList<Identity: ::windows::core::IUnknownImpl, Impl: IWMDRMReader3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppguids: *mut *mut ::windows::core::GUID, pcguids: *mut u32) -> ::windows::core::HRESULT {
@@ -943,6 +976,7 @@ impl IWMDRMReader3_Vtbl {
 pub trait IWMDRMTranscryptionManager_Impl: Sized {
     fn CreateTranscryptor(&self) -> ::windows::core::Result<IWMDRMTranscryptor>;
 }
+impl ::windows::core::RuntimeName for IWMDRMTranscryptionManager {}
 impl IWMDRMTranscryptionManager_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMDRMTranscryptionManager_Impl, const OFFSET: isize>() -> IWMDRMTranscryptionManager_Vtbl {
         unsafe extern "system" fn CreateTranscryptor<Identity: ::windows::core::IUnknownImpl, Impl: IWMDRMTranscryptionManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pptranscryptor: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -969,6 +1003,8 @@ pub trait IWMDRMTranscryptor_Impl: Sized {
     fn Read(&self, pbdata: *const u8, pcbdata: *const u32) -> ::windows::core::Result<()>;
     fn Close(&self) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IWMDRMTranscryptor {}
 #[cfg(feature = "Win32_Foundation")]
 impl IWMDRMTranscryptor_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMDRMTranscryptor_Impl, const OFFSET: isize>() -> IWMDRMTranscryptor_Vtbl {
@@ -1011,6 +1047,8 @@ pub trait IWMDRMTranscryptor2_Impl: Sized + IWMDRMTranscryptor_Impl {
     fn GetSeekStartTime(&self) -> ::windows::core::Result<u64>;
     fn GetDuration(&self) -> ::windows::core::Result<u64>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IWMDRMTranscryptor2 {}
 #[cfg(feature = "Win32_Foundation")]
 impl IWMDRMTranscryptor2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMDRMTranscryptor2_Impl, const OFFSET: isize>() -> IWMDRMTranscryptor2_Vtbl {
@@ -1064,6 +1102,7 @@ pub trait IWMDRMWriter_Impl: Sized {
     fn GenerateSigningKeyPair(&self, pwszprivkey: ::windows::core::PWSTR, pcwchprivkeylength: *mut u32, pwszpubkey: ::windows::core::PWSTR, pcwchpubkeylength: *mut u32) -> ::windows::core::Result<()>;
     fn SetDRMAttribute(&self, wstreamnum: u16, pszname: &::windows::core::PCWSTR, r#type: WMT_ATTR_DATATYPE, pvalue: *const u8, cblength: u16) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IWMDRMWriter {}
 impl IWMDRMWriter_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMDRMWriter_Impl, const OFFSET: isize>() -> IWMDRMWriter_Vtbl {
         unsafe extern "system" fn GenerateKeySeed<Identity: ::windows::core::IUnknownImpl, Impl: IWMDRMWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszkeyseed: ::windows::core::PWSTR, pcwchlength: *mut u32) -> ::windows::core::HRESULT {
@@ -1103,6 +1142,8 @@ pub trait IWMDRMWriter2_Impl: Sized + IWMDRMWriter_Impl {
     fn SetWMDRMNetEncryption(&self, fsamplesencrypted: super::super::Foundation::BOOL, pbkeyid: *const u8, cbkeyid: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IWMDRMWriter2 {}
+#[cfg(feature = "Win32_Foundation")]
 impl IWMDRMWriter2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMDRMWriter2_Impl, const OFFSET: isize>() -> IWMDRMWriter2_Vtbl {
         unsafe extern "system" fn SetWMDRMNetEncryption<Identity: ::windows::core::IUnknownImpl, Impl: IWMDRMWriter2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fsamplesencrypted: super::super::Foundation::BOOL, pbkeyid: *const u8, cbkeyid: u32) -> ::windows::core::HRESULT {
@@ -1120,6 +1161,8 @@ impl IWMDRMWriter2_Vtbl {
 pub trait IWMDRMWriter3_Impl: Sized + IWMDRMWriter_Impl + IWMDRMWriter2_Impl {
     fn SetProtectStreamSamples(&self, pimportinitstruct: *const WMDRM_IMPORT_INIT_STRUCT) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IWMDRMWriter3 {}
 #[cfg(feature = "Win32_Foundation")]
 impl IWMDRMWriter3_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMDRMWriter3_Impl, const OFFSET: isize>() -> IWMDRMWriter3_Vtbl {
@@ -1142,6 +1185,7 @@ pub trait IWMDeviceRegistration_Impl: Sized {
     fn GetNextRegisteredDevice(&self) -> ::windows::core::Result<IWMRegisteredDevice>;
     fn GetRegisteredDeviceByID(&self, dwregistertype: u32, pbcertificate: *const u8, cbcertificate: u32, serialnumber: &DRM_VAL16) -> ::windows::core::Result<IWMRegisteredDevice>;
 }
+impl ::windows::core::RuntimeName for IWMDeviceRegistration {}
 impl IWMDeviceRegistration_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMDeviceRegistration_Impl, const OFFSET: isize>() -> IWMDeviceRegistration_Vtbl {
         unsafe extern "system" fn RegisterDevice<Identity: ::windows::core::IUnknownImpl, Impl: IWMDeviceRegistration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwregistertype: u32, pbcertificate: *const u8, cbcertificate: u32, serialnumber: DRM_VAL16, ppdevice: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -1221,6 +1265,7 @@ impl IWMDeviceRegistration_Vtbl {
 pub trait IWMGetSecureChannel_Impl: Sized {
     fn GetPeerSecureChannelInterface(&self) -> ::windows::core::Result<IWMSecureChannel>;
 }
+impl ::windows::core::RuntimeName for IWMGetSecureChannel {}
 impl IWMGetSecureChannel_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMGetSecureChannel_Impl, const OFFSET: isize>() -> IWMGetSecureChannel_Vtbl {
         unsafe extern "system" fn GetPeerSecureChannelInterface<Identity: ::windows::core::IUnknownImpl, Impl: IWMGetSecureChannel_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pppeer: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -1257,6 +1302,7 @@ pub trait IWMHeaderInfo_Impl: Sized {
     fn AddScript(&self, pwsztype: &::windows::core::PCWSTR, pwszcommand: &::windows::core::PCWSTR, cnsscripttime: u64) -> ::windows::core::Result<()>;
     fn RemoveScript(&self, windex: u16) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IWMHeaderInfo {}
 impl IWMHeaderInfo_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMHeaderInfo_Impl, const OFFSET: isize>() -> IWMHeaderInfo_Vtbl {
         unsafe extern "system" fn GetAttributeCount<Identity: ::windows::core::IUnknownImpl, Impl: IWMHeaderInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wstreamnum: u16, pcattributes: *mut u16) -> ::windows::core::HRESULT {
@@ -1361,6 +1407,7 @@ pub trait IWMHeaderInfo2_Impl: Sized + IWMHeaderInfo_Impl {
     fn GetCodecInfoCount(&self) -> ::windows::core::Result<u32>;
     fn GetCodecInfo(&self, windex: u32, pcchname: *mut u16, pwszname: ::windows::core::PWSTR, pcchdescription: *mut u16, pwszdescription: ::windows::core::PWSTR, pcodectype: *mut WMT_CODEC_INFO_TYPE, pcbcodecinfo: *mut u16, pbcodecinfo: *mut u8) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IWMHeaderInfo2 {}
 impl IWMHeaderInfo2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMHeaderInfo2_Impl, const OFFSET: isize>() -> IWMHeaderInfo2_Vtbl {
         unsafe extern "system" fn GetCodecInfoCount<Identity: ::windows::core::IUnknownImpl, Impl: IWMHeaderInfo2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pccodecinfos: *mut u32) -> ::windows::core::HRESULT {
@@ -1398,6 +1445,7 @@ pub trait IWMHeaderInfo3_Impl: Sized + IWMHeaderInfo_Impl + IWMHeaderInfo2_Impl 
     fn DeleteAttribute(&self, wstreamnum: u16, windex: u16) -> ::windows::core::Result<()>;
     fn AddCodecInfo(&self, pwszname: &::windows::core::PCWSTR, pwszdescription: &::windows::core::PCWSTR, codectype: WMT_CODEC_INFO_TYPE, cbcodecinfo: u16, pbcodecinfo: *const u8) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IWMHeaderInfo3 {}
 impl IWMHeaderInfo3_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMHeaderInfo3_Impl, const OFFSET: isize>() -> IWMHeaderInfo3_Vtbl {
         unsafe extern "system" fn GetAttributeCountEx<Identity: ::windows::core::IUnknownImpl, Impl: IWMHeaderInfo3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wstreamnum: u16, pcattributes: *mut u16) -> ::windows::core::HRESULT {
@@ -1459,6 +1507,7 @@ impl IWMHeaderInfo3_Vtbl {
 pub trait IWMIStreamProps_Impl: Sized {
     fn GetProperty(&self, pszname: &::windows::core::PCWSTR, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pdwsize: *mut u32) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IWMIStreamProps {}
 impl IWMIStreamProps_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMIStreamProps_Impl, const OFFSET: isize>() -> IWMIStreamProps_Vtbl {
         unsafe extern "system" fn GetProperty<Identity: ::windows::core::IUnknownImpl, Impl: IWMIStreamProps_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszname: ::windows::core::PCWSTR, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pdwsize: *mut u32) -> ::windows::core::HRESULT {
@@ -1476,6 +1525,7 @@ pub trait IWMImageInfo_Impl: Sized {
     fn GetImageCount(&self) -> ::windows::core::Result<u32>;
     fn GetImage(&self, windex: u32, pcchmimetype: *mut u16, pwszmimetype: ::windows::core::PWSTR, pcchdescription: *mut u16, pwszdescription: ::windows::core::PWSTR, pimagetype: *mut u16, pcbimagedata: *mut u32, pbimagedata: *mut u8) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IWMImageInfo {}
 impl IWMImageInfo_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMImageInfo_Impl, const OFFSET: isize>() -> IWMImageInfo_Vtbl {
         unsafe extern "system" fn GetImageCount<Identity: ::windows::core::IUnknownImpl, Impl: IWMImageInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcimages: *mut u32) -> ::windows::core::HRESULT {
@@ -1508,6 +1558,7 @@ pub trait IWMIndexer_Impl: Sized {
     fn StartIndexing(&self, pwszurl: &::windows::core::PCWSTR, pcallback: &::core::option::Option<IWMStatusCallback>, pvcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn Cancel(&self) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IWMIndexer {}
 impl IWMIndexer_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMIndexer_Impl, const OFFSET: isize>() -> IWMIndexer_Vtbl {
         unsafe extern "system" fn StartIndexing<Identity: ::windows::core::IUnknownImpl, Impl: IWMIndexer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszurl: ::windows::core::PCWSTR, pcallback: ::windows::core::RawPtr, pvcontext: *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -1533,6 +1584,7 @@ impl IWMIndexer_Vtbl {
 pub trait IWMIndexer2_Impl: Sized + IWMIndexer_Impl {
     fn Configure(&self, wstreamnum: u16, nindexertype: WMT_INDEXER_TYPE, pvinterval: *const ::core::ffi::c_void, pvindextype: *const ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IWMIndexer2 {}
 impl IWMIndexer2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMIndexer2_Impl, const OFFSET: isize>() -> IWMIndexer2_Vtbl {
         unsafe extern "system" fn Configure<Identity: ::windows::core::IUnknownImpl, Impl: IWMIndexer2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wstreamnum: u16, nindexertype: WMT_INDEXER_TYPE, pvinterval: *const ::core::ffi::c_void, pvindextype: *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -1551,6 +1603,8 @@ pub trait IWMInputMediaProps_Impl: Sized + IWMMediaProps_Impl {
     fn GetConnectionName(&self, pwszname: ::windows::core::PWSTR, pcchname: *mut u16) -> ::windows::core::Result<()>;
     fn GetGroupName(&self, pwszname: ::windows::core::PWSTR, pcchname: *mut u16) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IWMInputMediaProps {}
 #[cfg(feature = "Win32_Foundation")]
 impl IWMInputMediaProps_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMInputMediaProps_Impl, const OFFSET: isize>() -> IWMInputMediaProps_Vtbl {
@@ -1579,6 +1633,7 @@ pub trait IWMLanguageList_Impl: Sized {
     fn GetLanguageDetails(&self, windex: u16, pwszlanguagestring: ::windows::core::PWSTR, pcchlanguagestringlength: *mut u16) -> ::windows::core::Result<()>;
     fn AddLanguageByRFC1766String(&self, pwszlanguagestring: &::windows::core::PCWSTR) -> ::windows::core::Result<u16>;
 }
+impl ::windows::core::RuntimeName for IWMLanguageList {}
 impl IWMLanguageList_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMLanguageList_Impl, const OFFSET: isize>() -> IWMLanguageList_Vtbl {
         unsafe extern "system" fn GetLanguageCount<Identity: ::windows::core::IUnknownImpl, Impl: IWMLanguageList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwcount: *mut u16) -> ::windows::core::HRESULT {
@@ -1623,6 +1678,7 @@ pub trait IWMLicenseBackup_Impl: Sized {
     fn BackupLicenses(&self, dwflags: u32, pcallback: &::core::option::Option<IWMStatusCallback>) -> ::windows::core::Result<()>;
     fn CancelLicenseBackup(&self) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IWMLicenseBackup {}
 impl IWMLicenseBackup_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMLicenseBackup_Impl, const OFFSET: isize>() -> IWMLicenseBackup_Vtbl {
         unsafe extern "system" fn BackupLicenses<Identity: ::windows::core::IUnknownImpl, Impl: IWMLicenseBackup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwflags: u32, pcallback: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -1649,6 +1705,7 @@ pub trait IWMLicenseRestore_Impl: Sized {
     fn RestoreLicenses(&self, dwflags: u32, pcallback: &::core::option::Option<IWMStatusCallback>) -> ::windows::core::Result<()>;
     fn CancelLicenseRestore(&self) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IWMLicenseRestore {}
 impl IWMLicenseRestore_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMLicenseRestore_Impl, const OFFSET: isize>() -> IWMLicenseRestore_Vtbl {
         unsafe extern "system" fn RestoreLicenses<Identity: ::windows::core::IUnknownImpl, Impl: IWMLicenseRestore_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwflags: u32, pcallback: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -1675,6 +1732,7 @@ pub trait IWMLicenseRevocationAgent_Impl: Sized {
     fn GetLRBChallenge(&self, pmachineid: *const u8, dwmachineidlength: u32, pchallenge: *const u8, dwchallengelength: u32, pchallengeoutput: *mut u8, pdwchallengeoutputlength: *mut u32) -> ::windows::core::Result<()>;
     fn ProcessLRB(&self, psignedlrb: *const u8, dwsignedlrblength: u32, psignedack: *mut u8, pdwsignedacklength: *mut u32) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IWMLicenseRevocationAgent {}
 impl IWMLicenseRevocationAgent_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMLicenseRevocationAgent_Impl, const OFFSET: isize>() -> IWMLicenseRevocationAgent_Vtbl {
         unsafe extern "system" fn GetLRBChallenge<Identity: ::windows::core::IUnknownImpl, Impl: IWMLicenseRevocationAgent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pmachineid: *const u8, dwmachineidlength: u32, pchallenge: *const u8, dwchallengelength: u32, pchallengeoutput: *mut u8, pdwchallengeoutputlength: *mut u32) -> ::windows::core::HRESULT {
@@ -1703,6 +1761,8 @@ pub trait IWMMediaProps_Impl: Sized {
     fn GetMediaType(&self, ptype: *mut WM_MEDIA_TYPE, pcbtype: *mut u32) -> ::windows::core::Result<()>;
     fn SetMediaType(&self, ptype: *const WM_MEDIA_TYPE) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IWMMediaProps {}
 #[cfg(feature = "Win32_Foundation")]
 impl IWMMediaProps_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMMediaProps_Impl, const OFFSET: isize>() -> IWMMediaProps_Vtbl {
@@ -1743,6 +1803,7 @@ pub trait IWMMetadataEditor_Impl: Sized {
     fn Close(&self) -> ::windows::core::Result<()>;
     fn Flush(&self) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IWMMetadataEditor {}
 impl IWMMetadataEditor_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMMetadataEditor_Impl, const OFFSET: isize>() -> IWMMetadataEditor_Vtbl {
         unsafe extern "system" fn Open<Identity: ::windows::core::IUnknownImpl, Impl: IWMMetadataEditor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszfilename: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
@@ -1774,6 +1835,7 @@ impl IWMMetadataEditor_Vtbl {
 pub trait IWMMetadataEditor2_Impl: Sized + IWMMetadataEditor_Impl {
     fn OpenEx(&self, pwszfilename: &::windows::core::PCWSTR, dwdesiredaccess: u32, dwsharemode: u32) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IWMMetadataEditor2 {}
 impl IWMMetadataEditor2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMMetadataEditor2_Impl, const OFFSET: isize>() -> IWMMetadataEditor2_Vtbl {
         unsafe extern "system" fn OpenEx<Identity: ::windows::core::IUnknownImpl, Impl: IWMMetadataEditor2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszfilename: ::windows::core::PCWSTR, dwdesiredaccess: u32, dwsharemode: u32) -> ::windows::core::HRESULT {
@@ -1791,6 +1853,7 @@ pub trait IWMMutualExclusion_Impl: Sized + IWMStreamList_Impl {
     fn GetType(&self) -> ::windows::core::Result<::windows::core::GUID>;
     fn SetType(&self, guidtype: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IWMMutualExclusion {}
 impl IWMMutualExclusion_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMMutualExclusion_Impl, const OFFSET: isize>() -> IWMMutualExclusion_Vtbl {
         unsafe extern "system" fn GetType<Identity: ::windows::core::IUnknownImpl, Impl: IWMMutualExclusion_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pguidtype: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
@@ -1831,6 +1894,7 @@ pub trait IWMMutualExclusion2_Impl: Sized + IWMStreamList_Impl + IWMMutualExclus
     fn AddStreamForRecord(&self, wrecordnumber: u16, wstreamnumber: u16) -> ::windows::core::Result<()>;
     fn RemoveStreamForRecord(&self, wrecordnumber: u16, wstreamnumber: u16) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IWMMutualExclusion2 {}
 impl IWMMutualExclusion2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMMutualExclusion2_Impl, const OFFSET: isize>() -> IWMMutualExclusion2_Vtbl {
         unsafe extern "system" fn GetName<Identity: ::windows::core::IUnknownImpl, Impl: IWMMutualExclusion2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszname: ::windows::core::PWSTR, pcchname: *mut u16) -> ::windows::core::HRESULT {
@@ -1913,6 +1977,8 @@ pub trait IWMOutputMediaProps_Impl: Sized + IWMMediaProps_Impl {
     fn GetConnectionName(&self, pwszname: ::windows::core::PWSTR, pcchname: *mut u16) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IWMOutputMediaProps {}
+#[cfg(feature = "Win32_Foundation")]
 impl IWMOutputMediaProps_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMOutputMediaProps_Impl, const OFFSET: isize>() -> IWMOutputMediaProps_Vtbl {
         unsafe extern "system" fn GetStreamGroupName<Identity: ::windows::core::IUnknownImpl, Impl: IWMOutputMediaProps_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszname: ::windows::core::PWSTR, pcchname: *mut u16) -> ::windows::core::HRESULT {
@@ -1939,6 +2005,7 @@ pub trait IWMPacketSize_Impl: Sized {
     fn GetMaxPacketSize(&self) -> ::windows::core::Result<u32>;
     fn SetMaxPacketSize(&self, dwmaxpacketsize: u32) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IWMPacketSize {}
 impl IWMPacketSize_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMPacketSize_Impl, const OFFSET: isize>() -> IWMPacketSize_Vtbl {
         unsafe extern "system" fn GetMaxPacketSize<Identity: ::windows::core::IUnknownImpl, Impl: IWMPacketSize_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwmaxpacketsize: *mut u32) -> ::windows::core::HRESULT {
@@ -1971,6 +2038,7 @@ pub trait IWMPacketSize2_Impl: Sized + IWMPacketSize_Impl {
     fn GetMinPacketSize(&self) -> ::windows::core::Result<u32>;
     fn SetMinPacketSize(&self, dwminpacketsize: u32) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IWMPacketSize2 {}
 impl IWMPacketSize2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMPacketSize2_Impl, const OFFSET: isize>() -> IWMPacketSize2_Vtbl {
         unsafe extern "system" fn GetMinPacketSize<Identity: ::windows::core::IUnknownImpl, Impl: IWMPacketSize2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwminpacketsize: *mut u32) -> ::windows::core::HRESULT {
@@ -2002,6 +2070,7 @@ impl IWMPacketSize2_Vtbl {
 pub trait IWMPlayerHook_Impl: Sized {
     fn PreDecode(&self) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IWMPlayerHook {}
 impl IWMPlayerHook_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMPlayerHook_Impl, const OFFSET: isize>() -> IWMPlayerHook_Vtbl {
         unsafe extern "system" fn PreDecode<Identity: ::windows::core::IUnknownImpl, Impl: IWMPlayerHook_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -2018,6 +2087,7 @@ impl IWMPlayerHook_Vtbl {
 pub trait IWMPlayerTimestampHook_Impl: Sized {
     fn MapTimestamp(&self, rtin: i64) -> ::windows::core::Result<i64>;
 }
+impl ::windows::core::RuntimeName for IWMPlayerTimestampHook {}
 impl IWMPlayerTimestampHook_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMPlayerTimestampHook_Impl, const OFFSET: isize>() -> IWMPlayerTimestampHook_Vtbl {
         unsafe extern "system" fn MapTimestamp<Identity: ::windows::core::IUnknownImpl, Impl: IWMPlayerTimestampHook_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rtin: i64, prtout: *mut i64) -> ::windows::core::HRESULT {
@@ -2057,6 +2127,7 @@ pub trait IWMProfile_Impl: Sized {
     fn AddMutualExclusion(&self, pme: &::core::option::Option<IWMMutualExclusion>) -> ::windows::core::Result<()>;
     fn CreateNewMutualExclusion(&self) -> ::windows::core::Result<IWMMutualExclusion>;
 }
+impl ::windows::core::RuntimeName for IWMProfile {}
 impl IWMProfile_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMProfile_Impl, const OFFSET: isize>() -> IWMProfile_Vtbl {
         unsafe extern "system" fn GetVersion<Identity: ::windows::core::IUnknownImpl, Impl: IWMProfile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwversion: *mut WMT_VERSION) -> ::windows::core::HRESULT {
@@ -2226,6 +2297,7 @@ impl IWMProfile_Vtbl {
 pub trait IWMProfile2_Impl: Sized + IWMProfile_Impl {
     fn GetProfileID(&self) -> ::windows::core::Result<::windows::core::GUID>;
 }
+impl ::windows::core::RuntimeName for IWMProfile2 {}
 impl IWMProfile2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMProfile2_Impl, const OFFSET: isize>() -> IWMProfile2_Vtbl {
         unsafe extern "system" fn GetProfileID<Identity: ::windows::core::IUnknownImpl, Impl: IWMProfile2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pguidid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
@@ -2259,6 +2331,7 @@ pub trait IWMProfile3_Impl: Sized + IWMProfile_Impl + IWMProfile2_Impl {
     fn CreateNewStreamPrioritization(&self) -> ::windows::core::Result<IWMStreamPrioritization>;
     fn GetExpectedPacketCount(&self, msduration: u64) -> ::windows::core::Result<u64>;
 }
+impl ::windows::core::RuntimeName for IWMProfile3 {}
 impl IWMProfile3_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMProfile3_Impl, const OFFSET: isize>() -> IWMProfile3_Vtbl {
         unsafe extern "system" fn GetStorageFormat<Identity: ::windows::core::IUnknownImpl, Impl: IWMProfile3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pnstorageformat: *mut WMT_STORAGE_FORMAT) -> ::windows::core::HRESULT {
@@ -2391,6 +2464,7 @@ pub trait IWMProfileManager_Impl: Sized {
     fn GetSystemProfileCount(&self) -> ::windows::core::Result<u32>;
     fn LoadSystemProfile(&self, dwprofileindex: u32) -> ::windows::core::Result<IWMProfile>;
 }
+impl ::windows::core::RuntimeName for IWMProfileManager {}
 impl IWMProfileManager_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMProfileManager_Impl, const OFFSET: isize>() -> IWMProfileManager_Vtbl {
         unsafe extern "system" fn CreateEmptyProfile<Identity: ::windows::core::IUnknownImpl, Impl: IWMProfileManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwversion: WMT_VERSION, ppprofile: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -2471,6 +2545,7 @@ pub trait IWMProfileManager2_Impl: Sized + IWMProfileManager_Impl {
     fn GetSystemProfileVersion(&self, pdwversion: *mut WMT_VERSION) -> ::windows::core::Result<()>;
     fn SetSystemProfileVersion(&self, dwversion: WMT_VERSION) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IWMProfileManager2 {}
 impl IWMProfileManager2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMProfileManager2_Impl, const OFFSET: isize>() -> IWMProfileManager2_Vtbl {
         unsafe extern "system" fn GetSystemProfileVersion<Identity: ::windows::core::IUnknownImpl, Impl: IWMProfileManager2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwversion: *mut WMT_VERSION) -> ::windows::core::HRESULT {
@@ -2497,6 +2572,7 @@ pub trait IWMProfileManagerLanguage_Impl: Sized {
     fn GetUserLanguageID(&self, wlangid: *mut u16) -> ::windows::core::Result<()>;
     fn SetUserLanguageID(&self, wlangid: u16) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IWMProfileManagerLanguage {}
 impl IWMProfileManagerLanguage_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMProfileManagerLanguage_Impl, const OFFSET: isize>() -> IWMProfileManagerLanguage_Vtbl {
         unsafe extern "system" fn GetUserLanguageID<Identity: ::windows::core::IUnknownImpl, Impl: IWMProfileManagerLanguage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wlangid: *mut u16) -> ::windows::core::HRESULT {
@@ -2527,6 +2603,7 @@ pub trait IWMPropertyVault_Impl: Sized {
     fn CopyPropertiesFrom(&self, piwmpropertyvault: &::core::option::Option<IWMPropertyVault>) -> ::windows::core::Result<()>;
     fn Clear(&self) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IWMPropertyVault {}
 impl IWMPropertyVault_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMPropertyVault_Impl, const OFFSET: isize>() -> IWMPropertyVault_Vtbl {
         unsafe extern "system" fn GetPropertyCount<Identity: ::windows::core::IUnknownImpl, Impl: IWMPropertyVault_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwcount: *const u32) -> ::windows::core::HRESULT {
@@ -2576,6 +2653,7 @@ impl IWMPropertyVault_Vtbl {
 pub trait IWMProximityDetection_Impl: Sized {
     fn StartDetection(&self, pbregistrationmsg: *const u8, cbregistrationmsg: u32, pblocaladdress: *const u8, cblocaladdress: u32, dwextraportsallowed: u32, ppregistrationresponsemsg: *mut ::core::option::Option<INSSBuffer>, pcallback: &::core::option::Option<IWMStatusCallback>, pvcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IWMProximityDetection {}
 impl IWMProximityDetection_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMProximityDetection_Impl, const OFFSET: isize>() -> IWMProximityDetection_Vtbl {
         unsafe extern "system" fn StartDetection<Identity: ::windows::core::IUnknownImpl, Impl: IWMProximityDetection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbregistrationmsg: *const u8, cbregistrationmsg: u32, pblocaladdress: *const u8, cblocaladdress: u32, dwextraportsallowed: u32, ppregistrationresponsemsg: *mut ::windows::core::RawPtr, pcallback: ::windows::core::RawPtr, pvcontext: *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -2602,6 +2680,7 @@ pub trait IWMReader_Impl: Sized {
     fn Pause(&self) -> ::windows::core::Result<()>;
     fn Resume(&self) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IWMReader {}
 impl IWMReader_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMReader_Impl, const OFFSET: isize>() -> IWMReader_Vtbl {
         unsafe extern "system" fn Open<Identity: ::windows::core::IUnknownImpl, Impl: IWMReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszurl: ::windows::core::PCWSTR, pcallback: ::windows::core::RawPtr, pvcontext: *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -2708,6 +2787,8 @@ pub trait IWMReaderAccelerator_Impl: Sized {
     fn Notify(&self, dwoutputnum: u32, psubtype: *const WM_MEDIA_TYPE) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IWMReaderAccelerator {}
+#[cfg(feature = "Win32_Foundation")]
 impl IWMReaderAccelerator_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMReaderAccelerator_Impl, const OFFSET: isize>() -> IWMReaderAccelerator_Vtbl {
         unsafe extern "system" fn GetCodecInterface<Identity: ::windows::core::IUnknownImpl, Impl: IWMReaderAccelerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwoutputnum: u32, riid: *const ::windows::core::GUID, ppvcodecinterface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -2753,6 +2834,8 @@ pub trait IWMReaderAdvanced_Impl: Sized {
     fn GetMaxStreamSampleSize(&self, wstream: u16) -> ::windows::core::Result<u32>;
     fn NotifyLateDelivery(&self, cnslateness: u64) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IWMReaderAdvanced {}
 #[cfg(feature = "Win32_Foundation")]
 impl IWMReaderAdvanced_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMReaderAdvanced_Impl, const OFFSET: isize>() -> IWMReaderAdvanced_Vtbl {
@@ -2957,6 +3040,8 @@ pub trait IWMReaderAdvanced2_Impl: Sized + IWMReaderAdvanced_Impl {
     fn OpenStream(&self, pstream: &::core::option::Option<super::super::System::Com::IStream>, pcallback: &::core::option::Option<IWMReaderCallback>, pvcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::windows::core::RuntimeName for IWMReaderAdvanced2 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IWMReaderAdvanced2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMReaderAdvanced2_Impl, const OFFSET: isize>() -> IWMReaderAdvanced2_Vtbl {
         unsafe extern "system" fn SetPlayMode<Identity: ::windows::core::IUnknownImpl, Impl: IWMReaderAdvanced2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, mode: WMT_PLAY_MODE) -> ::windows::core::HRESULT {
@@ -3081,6 +3166,8 @@ pub trait IWMReaderAdvanced3_Impl: Sized + IWMReaderAdvanced_Impl + IWMReaderAdv
     fn StartAtPosition(&self, wstreamnum: u16, pvoffsetstart: *const ::core::ffi::c_void, pvduration: *const ::core::ffi::c_void, dwoffsetformat: WMT_OFFSET_FORMAT, frate: f32, pvcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::windows::core::RuntimeName for IWMReaderAdvanced3 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IWMReaderAdvanced3_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMReaderAdvanced3_Impl, const OFFSET: isize>() -> IWMReaderAdvanced3_Vtbl {
         unsafe extern "system" fn StopNetStreaming<Identity: ::windows::core::IUnknownImpl, Impl: IWMReaderAdvanced3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -3115,6 +3202,8 @@ pub trait IWMReaderAdvanced4_Impl: Sized + IWMReaderAdvanced_Impl + IWMReaderAdv
     fn CancelSaveFileAs(&self) -> ::windows::core::Result<()>;
     fn GetURL(&self, pwszurl: ::windows::core::PWSTR, pcchurl: *mut u32) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::windows::core::RuntimeName for IWMReaderAdvanced4 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IWMReaderAdvanced4_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMReaderAdvanced4_Impl, const OFFSET: isize>() -> IWMReaderAdvanced4_Vtbl {
@@ -3209,6 +3298,8 @@ pub trait IWMReaderAdvanced5_Impl: Sized + IWMReaderAdvanced_Impl + IWMReaderAdv
     fn SetPlayerHook(&self, dwoutputnum: u32, phook: &::core::option::Option<IWMPlayerHook>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::windows::core::RuntimeName for IWMReaderAdvanced5 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IWMReaderAdvanced5_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMReaderAdvanced5_Impl, const OFFSET: isize>() -> IWMReaderAdvanced5_Vtbl {
         unsafe extern "system" fn SetPlayerHook<Identity: ::windows::core::IUnknownImpl, Impl: IWMReaderAdvanced5_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwoutputnum: u32, phook: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -3227,6 +3318,8 @@ pub trait IWMReaderAdvanced6_Impl: Sized + IWMReaderAdvanced_Impl + IWMReaderAdv
     fn SetProtectStreamSamples(&self, pbcertificate: *const u8, cbcertificate: u32, dwcertificatetype: u32, dwflags: u32, pbinitializationvector: *mut u8, pcbinitializationvector: *mut u32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::windows::core::RuntimeName for IWMReaderAdvanced6 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IWMReaderAdvanced6_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMReaderAdvanced6_Impl, const OFFSET: isize>() -> IWMReaderAdvanced6_Vtbl {
         unsafe extern "system" fn SetProtectStreamSamples<Identity: ::windows::core::IUnknownImpl, Impl: IWMReaderAdvanced6_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbcertificate: *const u8, cbcertificate: u32, dwcertificatetype: u32, dwflags: u32, pbinitializationvector: *mut u8, pcbinitializationvector: *mut u32) -> ::windows::core::HRESULT {
@@ -3244,6 +3337,7 @@ pub trait IWMReaderAllocatorEx_Impl: Sized {
     fn AllocateForStreamEx(&self, wstreamnum: u16, cbbuffer: u32, ppbuffer: *mut ::core::option::Option<INSSBuffer>, dwflags: u32, cnssampletime: u64, cnssampleduration: u64, pvcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn AllocateForOutputEx(&self, dwoutputnum: u32, cbbuffer: u32, ppbuffer: *mut ::core::option::Option<INSSBuffer>, dwflags: u32, cnssampletime: u64, cnssampleduration: u64, pvcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IWMReaderAllocatorEx {}
 impl IWMReaderAllocatorEx_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMReaderAllocatorEx_Impl, const OFFSET: isize>() -> IWMReaderAllocatorEx_Vtbl {
         unsafe extern "system" fn AllocateForStreamEx<Identity: ::windows::core::IUnknownImpl, Impl: IWMReaderAllocatorEx_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wstreamnum: u16, cbbuffer: u32, ppbuffer: *mut ::windows::core::RawPtr, dwflags: u32, cnssampletime: u64, cnssampleduration: u64, pvcontext: *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -3269,6 +3363,7 @@ impl IWMReaderAllocatorEx_Vtbl {
 pub trait IWMReaderCallback_Impl: Sized + IWMStatusCallback_Impl {
     fn OnSample(&self, dwoutputnum: u32, cnssampletime: u64, cnssampleduration: u64, dwflags: u32, psample: &::core::option::Option<INSSBuffer>, pvcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IWMReaderCallback {}
 impl IWMReaderCallback_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMReaderCallback_Impl, const OFFSET: isize>() -> IWMReaderCallback_Vtbl {
         unsafe extern "system" fn OnSample<Identity: ::windows::core::IUnknownImpl, Impl: IWMReaderCallback_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwoutputnum: u32, cnssampletime: u64, cnssampleduration: u64, dwflags: u32, psample: ::windows::core::RawPtr, pvcontext: *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -3291,6 +3386,8 @@ pub trait IWMReaderCallbackAdvanced_Impl: Sized {
     fn AllocateForStream(&self, wstreamnum: u16, cbbuffer: u32, ppbuffer: *mut ::core::option::Option<INSSBuffer>, pvcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn AllocateForOutput(&self, dwoutputnum: u32, cbbuffer: u32, ppbuffer: *mut ::core::option::Option<INSSBuffer>, pvcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IWMReaderCallbackAdvanced {}
 #[cfg(feature = "Win32_Foundation")]
 impl IWMReaderCallbackAdvanced_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMReaderCallbackAdvanced_Impl, const OFFSET: isize>() -> IWMReaderCallbackAdvanced_Vtbl {
@@ -3374,6 +3471,8 @@ pub trait IWMReaderNetworkConfig_Impl: Sized {
     fn GetLoggingUrlCount(&self) -> ::windows::core::Result<u32>;
     fn ResetLoggingUrlList(&self) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IWMReaderNetworkConfig {}
 #[cfg(feature = "Win32_Foundation")]
 impl IWMReaderNetworkConfig_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMReaderNetworkConfig_Impl, const OFFSET: isize>() -> IWMReaderNetworkConfig_Vtbl {
@@ -3672,6 +3771,8 @@ pub trait IWMReaderNetworkConfig2_Impl: Sized + IWMReaderNetworkConfig_Impl {
     fn GetMaxNetPacketSize(&self) -> ::windows::core::Result<u32>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IWMReaderNetworkConfig2 {}
+#[cfg(feature = "Win32_Foundation")]
 impl IWMReaderNetworkConfig2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMReaderNetworkConfig2_Impl, const OFFSET: isize>() -> IWMReaderNetworkConfig2_Vtbl {
         unsafe extern "system" fn GetEnableContentCaching<Identity: ::windows::core::IUnknownImpl, Impl: IWMReaderNetworkConfig2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfenablecontentcaching: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
@@ -3808,6 +3909,7 @@ pub trait IWMReaderPlaylistBurn_Impl: Sized {
     fn Cancel(&self) -> ::windows::core::Result<()>;
     fn EndPlaylistBurn(&self, hrburnresult: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IWMReaderPlaylistBurn {}
 impl IWMReaderPlaylistBurn_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMReaderPlaylistBurn_Impl, const OFFSET: isize>() -> IWMReaderPlaylistBurn_Vtbl {
         unsafe extern "system" fn InitPlaylistBurn<Identity: ::windows::core::IUnknownImpl, Impl: IWMReaderPlaylistBurn_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cfiles: u32, ppwszfilenames: *const ::windows::core::PWSTR, pcallback: ::windows::core::RawPtr, pvcontext: *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -3853,6 +3955,7 @@ pub trait IWMReaderStreamClock_Impl: Sized {
     fn SetTimer(&self, cnswhen: u64, pvparam: *const ::core::ffi::c_void) -> ::windows::core::Result<u32>;
     fn KillTimer(&self, dwtimerid: u32) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IWMReaderStreamClock {}
 impl IWMReaderStreamClock_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMReaderStreamClock_Impl, const OFFSET: isize>() -> IWMReaderStreamClock_Vtbl {
         unsafe extern "system" fn GetTime<Identity: ::windows::core::IUnknownImpl, Impl: IWMReaderStreamClock_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcnsnow: *const u64) -> ::windows::core::HRESULT {
@@ -3891,6 +3994,7 @@ pub trait IWMReaderTimecode_Impl: Sized {
     fn GetTimecodeRangeCount(&self, wstreamnum: u16) -> ::windows::core::Result<u16>;
     fn GetTimecodeRangeBounds(&self, wstreamnum: u16, wrangenum: u16, pstarttimecode: *mut u32, pendtimecode: *mut u32) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IWMReaderTimecode {}
 impl IWMReaderTimecode_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMReaderTimecode_Impl, const OFFSET: isize>() -> IWMReaderTimecode_Vtbl {
         unsafe extern "system" fn GetTimecodeRangeCount<Identity: ::windows::core::IUnknownImpl, Impl: IWMReaderTimecode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wstreamnum: u16, pwrangecount: *mut u16) -> ::windows::core::HRESULT {
@@ -3922,6 +4026,7 @@ impl IWMReaderTimecode_Vtbl {
 pub trait IWMReaderTypeNegotiation_Impl: Sized {
     fn TryOutputProps(&self, dwoutputnum: u32, poutput: &::core::option::Option<IWMOutputMediaProps>) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IWMReaderTypeNegotiation {}
 impl IWMReaderTypeNegotiation_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMReaderTypeNegotiation_Impl, const OFFSET: isize>() -> IWMReaderTypeNegotiation_Vtbl {
         unsafe extern "system" fn TryOutputProps<Identity: ::windows::core::IUnknownImpl, Impl: IWMReaderTypeNegotiation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwoutputnum: u32, poutput: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -3939,6 +4044,7 @@ pub trait IWMRegisterCallback_Impl: Sized {
     fn Advise(&self, pcallback: &::core::option::Option<IWMStatusCallback>, pvcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn Unadvise(&self, pcallback: &::core::option::Option<IWMStatusCallback>, pvcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IWMRegisterCallback {}
 impl IWMRegisterCallback_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMRegisterCallback_Impl, const OFFSET: isize>() -> IWMRegisterCallback_Vtbl {
         unsafe extern "system" fn Advise<Identity: ::windows::core::IUnknownImpl, Impl: IWMRegisterCallback_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcallback: ::windows::core::RawPtr, pvcontext: *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -3978,6 +4084,8 @@ pub trait IWMRegisteredDevice_Impl: Sized {
     fn Open(&self) -> ::windows::core::Result<()>;
     fn Close(&self) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IWMRegisteredDevice {}
 #[cfg(feature = "Win32_Foundation")]
 impl IWMRegisteredDevice_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMRegisteredDevice_Impl, const OFFSET: isize>() -> IWMRegisteredDevice_Vtbl {
@@ -4131,6 +4239,7 @@ pub trait IWMSBufferAllocator_Impl: Sized {
     fn AllocateBuffer(&self, dwmaxbuffersize: u32) -> ::windows::core::Result<INSSBuffer>;
     fn AllocatePageSizeBuffer(&self, dwmaxbuffersize: u32) -> ::windows::core::Result<INSSBuffer>;
 }
+impl ::windows::core::RuntimeName for IWMSBufferAllocator {}
 impl IWMSBufferAllocator_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMSBufferAllocator_Impl, const OFFSET: isize>() -> IWMSBufferAllocator_Vtbl {
         unsafe extern "system" fn AllocateBuffer<Identity: ::windows::core::IUnknownImpl, Impl: IWMSBufferAllocator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwmaxbuffersize: u32, ppbuffer: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -4179,6 +4288,8 @@ pub trait IWMSInternalAdminNetSource_Impl: Sized {
     fn ShutdownProxyContext(&self, dwproxycontext: u32) -> ::windows::core::Result<()>;
     fn IsUsingIE(&self, dwproxycontext: u32) -> ::windows::core::Result<super::super::Foundation::BOOL>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IWMSInternalAdminNetSource {}
 #[cfg(feature = "Win32_Foundation")]
 impl IWMSInternalAdminNetSource_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMSInternalAdminNetSource_Impl, const OFFSET: isize>() -> IWMSInternalAdminNetSource_Vtbl {
@@ -4282,6 +4393,8 @@ pub trait IWMSInternalAdminNetSource2_Impl: Sized {
     fn FindProxyForURLEx(&self, bstrprotocol: &super::super::Foundation::BSTR, bstrhost: &super::super::Foundation::BSTR, bstrurl: &super::super::Foundation::BSTR, pfproxyenabled: *mut super::super::Foundation::BOOL, pbstrproxyserver: *mut super::super::Foundation::BSTR, pdwproxyport: *mut u32, pdwproxycontext: *mut u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IWMSInternalAdminNetSource2 {}
+#[cfg(feature = "Win32_Foundation")]
 impl IWMSInternalAdminNetSource2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMSInternalAdminNetSource2_Impl, const OFFSET: isize>() -> IWMSInternalAdminNetSource2_Vtbl {
         unsafe extern "system" fn SetCredentialsEx<Identity: ::windows::core::IUnknownImpl, Impl: IWMSInternalAdminNetSource2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrrealm: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrurl: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, fproxy: super::super::Foundation::BOOL, bstrname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrpassword: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, fpersist: super::super::Foundation::BOOL, fconfirmedgood: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
@@ -4326,6 +4439,8 @@ pub trait IWMSInternalAdminNetSource3_Impl: Sized + IWMSInternalAdminNetSource2_
     fn SetCredentialsEx2(&self, bstrrealm: &super::super::Foundation::BSTR, bstrurl: &super::super::Foundation::BSTR, fproxy: super::super::Foundation::BOOL, bstrname: &super::super::Foundation::BSTR, bstrpassword: &super::super::Foundation::BSTR, fpersist: super::super::Foundation::BOOL, fconfirmedgood: super::super::Foundation::BOOL, fcleartextauthentication: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn GetCredentialsEx2(&self, bstrrealm: &super::super::Foundation::BSTR, bstrurl: &super::super::Foundation::BSTR, fproxy: super::super::Foundation::BOOL, fcleartextauthentication: super::super::Foundation::BOOL, pdwurlpolicy: *mut NETSOURCE_URLCREDPOLICY_SETTINGS, pbstrname: *mut super::super::Foundation::BSTR, pbstrpassword: *mut super::super::Foundation::BSTR, pfconfirmedgood: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IWMSInternalAdminNetSource3 {}
 #[cfg(feature = "Win32_Foundation")]
 impl IWMSInternalAdminNetSource3_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMSInternalAdminNetSource3_Impl, const OFFSET: isize>() -> IWMSInternalAdminNetSource3_Vtbl {
@@ -4405,6 +4520,8 @@ pub trait IWMSecureChannel_Impl: Sized + IWMAuthorizer_Impl {
     fn WMSC_Unlock(&self) -> ::windows::core::Result<()>;
     fn WMSC_SetSharedData(&self, dwcertindex: u32, pbshareddata: *const u8) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IWMSecureChannel {}
 #[cfg(feature = "Win32_Foundation")]
 impl IWMSecureChannel_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMSecureChannel_Impl, const OFFSET: isize>() -> IWMSecureChannel_Vtbl {
@@ -4491,6 +4608,7 @@ impl IWMSecureChannel_Vtbl {
 pub trait IWMStatusCallback_Impl: Sized {
     fn OnStatus(&self, status: WMT_STATUS, hr: ::windows::core::HRESULT, dwtype: WMT_ATTR_DATATYPE, pvalue: *const u8, pvcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IWMStatusCallback {}
 impl IWMStatusCallback_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMStatusCallback_Impl, const OFFSET: isize>() -> IWMStatusCallback_Vtbl {
         unsafe extern "system" fn OnStatus<Identity: ::windows::core::IUnknownImpl, Impl: IWMStatusCallback_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, status: WMT_STATUS, hr: ::windows::core::HRESULT, dwtype: WMT_ATTR_DATATYPE, pvalue: *const u8, pvcontext: *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -4517,6 +4635,7 @@ pub trait IWMStreamConfig_Impl: Sized {
     fn GetBufferWindow(&self) -> ::windows::core::Result<u32>;
     fn SetBufferWindow(&self, msbufferwindow: u32) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IWMStreamConfig {}
 impl IWMStreamConfig_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMStreamConfig_Impl, const OFFSET: isize>() -> IWMStreamConfig_Vtbl {
         unsafe extern "system" fn GetStreamType<Identity: ::windows::core::IUnknownImpl, Impl: IWMStreamConfig_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pguidstreamtype: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
@@ -4625,6 +4744,7 @@ pub trait IWMStreamConfig2_Impl: Sized + IWMStreamConfig_Impl {
     fn GetDataUnitExtension(&self, wdataunitextensionnumber: u16, pguidextensionsystemid: *mut ::windows::core::GUID, pcbextensiondatasize: *mut u16, pbextensionsysteminfo: *mut u8, pcbextensionsysteminfo: *mut u32) -> ::windows::core::Result<()>;
     fn RemoveAllDataUnitExtensions(&self) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IWMStreamConfig2 {}
 impl IWMStreamConfig2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMStreamConfig2_Impl, const OFFSET: isize>() -> IWMStreamConfig2_Vtbl {
         unsafe extern "system" fn GetTransportType<Identity: ::windows::core::IUnknownImpl, Impl: IWMStreamConfig2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pntransporttype: *mut WMT_TRANSPORT_TYPE) -> ::windows::core::HRESULT {
@@ -4687,6 +4807,7 @@ pub trait IWMStreamConfig3_Impl: Sized + IWMStreamConfig_Impl + IWMStreamConfig2
     fn GetLanguage(&self, pwszlanguagestring: ::windows::core::PWSTR, pcchlanguagestringlength: *mut u16) -> ::windows::core::Result<()>;
     fn SetLanguage(&self, pwszlanguagestring: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IWMStreamConfig3 {}
 impl IWMStreamConfig3_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMStreamConfig3_Impl, const OFFSET: isize>() -> IWMStreamConfig3_Vtbl {
         unsafe extern "system" fn GetLanguage<Identity: ::windows::core::IUnknownImpl, Impl: IWMStreamConfig3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszlanguagestring: ::windows::core::PWSTR, pcchlanguagestringlength: *mut u16) -> ::windows::core::HRESULT {
@@ -4714,6 +4835,7 @@ pub trait IWMStreamList_Impl: Sized {
     fn AddStream(&self, wstreamnum: u16) -> ::windows::core::Result<()>;
     fn RemoveStream(&self, wstreamnum: u16) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IWMStreamList {}
 impl IWMStreamList_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMStreamList_Impl, const OFFSET: isize>() -> IWMStreamList_Vtbl {
         unsafe extern "system" fn GetStreams<Identity: ::windows::core::IUnknownImpl, Impl: IWMStreamList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwstreamnumarray: *mut u16, pcstreams: *mut u16) -> ::windows::core::HRESULT {
@@ -4747,6 +4869,8 @@ pub trait IWMStreamPrioritization_Impl: Sized {
     fn GetPriorityRecords(&self, precordarray: *mut WM_STREAM_PRIORITY_RECORD, pcrecords: *mut u16) -> ::windows::core::Result<()>;
     fn SetPriorityRecords(&self, precordarray: *const WM_STREAM_PRIORITY_RECORD, crecords: u16) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IWMStreamPrioritization {}
 #[cfg(feature = "Win32_Foundation")]
 impl IWMStreamPrioritization_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMStreamPrioritization_Impl, const OFFSET: isize>() -> IWMStreamPrioritization_Vtbl {
@@ -4794,6 +4918,8 @@ pub trait IWMSyncReader_Impl: Sized {
     fn GetMaxStreamSampleSize(&self, wstream: u16) -> ::windows::core::Result<u32>;
     fn OpenStream(&self, pstream: &::core::option::Option<super::super::System::Com::IStream>) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::windows::core::RuntimeName for IWMSyncReader {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IWMSyncReader_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMSyncReader_Impl, const OFFSET: isize>() -> IWMSyncReader_Vtbl {
@@ -5001,6 +5127,8 @@ pub trait IWMSyncReader2_Impl: Sized + IWMSyncReader_Impl {
     fn GetAllocateForStream(&self, dwsreamnum: u16) -> ::windows::core::Result<IWMReaderAllocatorEx>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::windows::core::RuntimeName for IWMSyncReader2 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IWMSyncReader2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMSyncReader2_Impl, const OFFSET: isize>() -> IWMSyncReader2_Vtbl {
         unsafe extern "system" fn SetRangeByTimecode<Identity: ::windows::core::IUnknownImpl, Impl: IWMSyncReader2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wstreamnum: u16, pstart: *const WMT_TIMECODE_EXTENSION_DATA, pend: *const WMT_TIMECODE_EXTENSION_DATA) -> ::windows::core::HRESULT {
@@ -5073,6 +5201,8 @@ pub trait IWMVideoMediaProps_Impl: Sized + IWMMediaProps_Impl {
     fn SetQuality(&self, dwquality: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IWMVideoMediaProps {}
+#[cfg(feature = "Win32_Foundation")]
 impl IWMVideoMediaProps_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMVideoMediaProps_Impl, const OFFSET: isize>() -> IWMVideoMediaProps_Vtbl {
         unsafe extern "system" fn GetMaxKeyFrameSpacing<Identity: ::windows::core::IUnknownImpl, Impl: IWMVideoMediaProps_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plltime: *mut i64) -> ::windows::core::HRESULT {
@@ -5123,6 +5253,7 @@ pub trait IWMWatermarkInfo_Impl: Sized {
     fn GetWatermarkEntryCount(&self, wmettype: WMT_WATERMARK_ENTRY_TYPE) -> ::windows::core::Result<u32>;
     fn GetWatermarkEntry(&self, wmettype: WMT_WATERMARK_ENTRY_TYPE, dwentrynum: u32) -> ::windows::core::Result<WMT_WATERMARK_ENTRY>;
 }
+impl ::windows::core::RuntimeName for IWMWatermarkInfo {}
 impl IWMWatermarkInfo_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMWatermarkInfo_Impl, const OFFSET: isize>() -> IWMWatermarkInfo_Vtbl {
         unsafe extern "system" fn GetWatermarkEntryCount<Identity: ::windows::core::IUnknownImpl, Impl: IWMWatermarkInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wmettype: WMT_WATERMARK_ENTRY_TYPE, pdwcount: *mut u32) -> ::windows::core::HRESULT {
@@ -5172,6 +5303,7 @@ pub trait IWMWriter_Impl: Sized {
     fn WriteSample(&self, dwinputnum: u32, cnssampletime: u64, dwflags: u32, psample: &::core::option::Option<INSSBuffer>) -> ::windows::core::Result<()>;
     fn Flush(&self) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IWMWriter {}
 impl IWMWriter_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMWriter_Impl, const OFFSET: isize>() -> IWMWriter_Vtbl {
         unsafe extern "system" fn SetProfileByID<Identity: ::windows::core::IUnknownImpl, Impl: IWMWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guidprofile: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
@@ -5305,6 +5437,8 @@ pub trait IWMWriterAdvanced_Impl: Sized {
     fn GetSyncTolerance(&self) -> ::windows::core::Result<u32>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IWMWriterAdvanced {}
+#[cfg(feature = "Win32_Foundation")]
 impl IWMWriterAdvanced_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMWriterAdvanced_Impl, const OFFSET: isize>() -> IWMWriterAdvanced_Vtbl {
         unsafe extern "system" fn GetSinkCount<Identity: ::windows::core::IUnknownImpl, Impl: IWMWriterAdvanced_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcsinks: *mut u32) -> ::windows::core::HRESULT {
@@ -5423,6 +5557,8 @@ pub trait IWMWriterAdvanced2_Impl: Sized + IWMWriterAdvanced_Impl {
     fn SetInputSetting(&self, dwinputnum: u32, pszname: &::windows::core::PCWSTR, r#type: WMT_ATTR_DATATYPE, pvalue: *const u8, cblength: u16) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IWMWriterAdvanced2 {}
+#[cfg(feature = "Win32_Foundation")]
 impl IWMWriterAdvanced2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMWriterAdvanced2_Impl, const OFFSET: isize>() -> IWMWriterAdvanced2_Vtbl {
         unsafe extern "system" fn GetInputSetting<Identity: ::windows::core::IUnknownImpl, Impl: IWMWriterAdvanced2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwinputnum: u32, pszname: ::windows::core::PCWSTR, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pcblength: *mut u16) -> ::windows::core::HRESULT {
@@ -5450,6 +5586,8 @@ pub trait IWMWriterAdvanced3_Impl: Sized + IWMWriterAdvanced_Impl + IWMWriterAdv
     fn GetStatisticsEx(&self, wstreamnum: u16) -> ::windows::core::Result<WM_WRITER_STATISTICS_EX>;
     fn SetNonBlocking(&self) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IWMWriterAdvanced3 {}
 #[cfg(feature = "Win32_Foundation")]
 impl IWMWriterAdvanced3_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMWriterAdvanced3_Impl, const OFFSET: isize>() -> IWMWriterAdvanced3_Vtbl {
@@ -5484,6 +5622,8 @@ pub trait IWMWriterFileSink_Impl: Sized + IWMWriterSink_Impl {
     fn Open(&self, pwszfilename: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IWMWriterFileSink {}
+#[cfg(feature = "Win32_Foundation")]
 impl IWMWriterFileSink_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMWriterFileSink_Impl, const OFFSET: isize>() -> IWMWriterFileSink_Vtbl {
         unsafe extern "system" fn Open<Identity: ::windows::core::IUnknownImpl, Impl: IWMWriterFileSink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszfilename: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
@@ -5507,6 +5647,8 @@ pub trait IWMWriterFileSink2_Impl: Sized + IWMWriterSink_Impl + IWMWriterFileSin
     fn Close(&self) -> ::windows::core::Result<()>;
     fn IsClosed(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IWMWriterFileSink2 {}
 #[cfg(feature = "Win32_Foundation")]
 impl IWMWriterFileSink2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMWriterFileSink2_Impl, const OFFSET: isize>() -> IWMWriterFileSink2_Vtbl {
@@ -5596,6 +5738,8 @@ pub trait IWMWriterFileSink3_Impl: Sized + IWMWriterSink_Impl + IWMWriterFileSin
     fn CompleteOperations(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IWMWriterFileSink3 {}
+#[cfg(feature = "Win32_Foundation")]
 impl IWMWriterFileSink3_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMWriterFileSink3_Impl, const OFFSET: isize>() -> IWMWriterFileSink3_Vtbl {
         unsafe extern "system" fn SetAutoIndexing<Identity: ::windows::core::IUnknownImpl, Impl: IWMWriterFileSink3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fdoautoindexing: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
@@ -5684,6 +5828,8 @@ pub trait IWMWriterNetworkSink_Impl: Sized + IWMWriterSink_Impl {
     fn Close(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IWMWriterNetworkSink {}
+#[cfg(feature = "Win32_Foundation")]
 impl IWMWriterNetworkSink_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMWriterNetworkSink_Impl, const OFFSET: isize>() -> IWMWriterNetworkSink_Vtbl {
         unsafe extern "system" fn SetMaximumClients<Identity: ::windows::core::IUnknownImpl, Impl: IWMWriterNetworkSink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwmaxclients: u32) -> ::windows::core::HRESULT {
@@ -5766,6 +5912,8 @@ pub trait IWMWriterPostView_Impl: Sized {
     fn SetAllocateForPostView(&self, wstreamnumber: u16, fallocate: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn GetAllocateForPostView(&self, wstreamnumber: u16) -> ::windows::core::Result<super::super::Foundation::BOOL>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IWMWriterPostView {}
 #[cfg(feature = "Win32_Foundation")]
 impl IWMWriterPostView_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMWriterPostView_Impl, const OFFSET: isize>() -> IWMWriterPostView_Vtbl {
@@ -5865,6 +6013,7 @@ pub trait IWMWriterPostViewCallback_Impl: Sized + IWMStatusCallback_Impl {
     fn OnPostViewSample(&self, wstreamnumber: u16, cnssampletime: u64, cnssampleduration: u64, dwflags: u32, psample: &::core::option::Option<INSSBuffer>, pvcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn AllocateForPostView(&self, wstreamnum: u16, cbbuffer: u32, ppbuffer: *mut ::core::option::Option<INSSBuffer>, pvcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IWMWriterPostViewCallback {}
 impl IWMWriterPostViewCallback_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMWriterPostViewCallback_Impl, const OFFSET: isize>() -> IWMWriterPostViewCallback_Vtbl {
         unsafe extern "system" fn OnPostViewSample<Identity: ::windows::core::IUnknownImpl, Impl: IWMWriterPostViewCallback_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wstreamnumber: u16, cnssampletime: u64, cnssampleduration: u64, dwflags: u32, psample: ::windows::core::RawPtr, pvcontext: *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -5894,6 +6043,7 @@ pub trait IWMWriterPreprocess_Impl: Sized {
     fn PreprocessSample(&self, dwinputnum: u32, cnssampletime: u64, dwflags: u32, psample: &::core::option::Option<INSSBuffer>) -> ::windows::core::Result<()>;
     fn EndPreprocessingPass(&self, dwinputnum: u32, dwflags: u32) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IWMWriterPreprocess {}
 impl IWMWriterPreprocess_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMWriterPreprocess_Impl, const OFFSET: isize>() -> IWMWriterPreprocess_Vtbl {
         unsafe extern "system" fn GetMaxPreprocessingPasses<Identity: ::windows::core::IUnknownImpl, Impl: IWMWriterPreprocess_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwinputnum: u32, dwflags: u32, pdwmaxnumpasses: *mut u32) -> ::windows::core::HRESULT {
@@ -5947,6 +6097,8 @@ pub trait IWMWriterPushSink_Impl: Sized + IWMWriterSink_Impl {
     fn EndSession(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IWMWriterPushSink {}
+#[cfg(feature = "Win32_Foundation")]
 impl IWMWriterPushSink_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMWriterPushSink_Impl, const OFFSET: isize>() -> IWMWriterPushSink_Vtbl {
         unsafe extern "system" fn Connect<Identity: ::windows::core::IUnknownImpl, Impl: IWMWriterPushSink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszurl: ::windows::core::PCWSTR, pwsztemplateurl: ::windows::core::PCWSTR, fautodestroy: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
@@ -5983,6 +6135,8 @@ pub trait IWMWriterSink_Impl: Sized {
     fn OnDataUnit(&self, pdataunit: &::core::option::Option<INSSBuffer>) -> ::windows::core::Result<()>;
     fn OnEndWriting(&self) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IWMWriterSink {}
 #[cfg(feature = "Win32_Foundation")]
 impl IWMWriterSink_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWMWriterSink_Impl, const OFFSET: isize>() -> IWMWriterSink_Vtbl {

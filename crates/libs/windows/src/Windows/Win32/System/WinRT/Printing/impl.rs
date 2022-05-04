@@ -4,9 +4,7 @@ pub trait IPrintManagerInterop_Impl: Sized {
     fn ShowPrintUIForWindowAsync(&self, appwindow: super::super::super::Foundation::HWND, riid: *const ::windows::core::GUID, asyncoperation: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::RuntimeName for IPrintManagerInterop {
-    const NAME: &'static str = "";
-}
+impl ::windows::core::RuntimeName for IPrintManagerInterop {}
 #[cfg(feature = "Win32_Foundation")]
 impl IPrintManagerInterop_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintManagerInterop_Impl, const OFFSET: isize>() -> IPrintManagerInterop_Vtbl {
@@ -36,6 +34,8 @@ pub trait IPrintWorkflowConfigurationNative_Impl: Sized {
     fn DriverProperties(&self) -> ::windows::core::Result<super::super::super::Graphics::Printing::IPrinterPropertyBag>;
     fn UserProperties(&self) -> ::windows::core::Result<super::super::super::Graphics::Printing::IPrinterPropertyBag>;
 }
+#[cfg(all(feature = "Win32_Graphics_Printing", feature = "Win32_System_Com"))]
+impl ::windows::core::RuntimeName for IPrintWorkflowConfigurationNative {}
 #[cfg(all(feature = "Win32_Graphics_Printing", feature = "Win32_System_Com"))]
 impl IPrintWorkflowConfigurationNative_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintWorkflowConfigurationNative_Impl, const OFFSET: isize>() -> IPrintWorkflowConfigurationNative_Vtbl {
@@ -89,6 +89,8 @@ pub trait IPrintWorkflowObjectModelSourceFileContentNative_Impl: Sized {
     fn ObjectFactory(&self) -> ::windows::core::Result<super::super::super::Storage::Xps::IXpsOMObjectFactory1>;
 }
 #[cfg(feature = "Win32_Storage_Xps")]
+impl ::windows::core::RuntimeName for IPrintWorkflowObjectModelSourceFileContentNative {}
+#[cfg(feature = "Win32_Storage_Xps")]
 impl IPrintWorkflowObjectModelSourceFileContentNative_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintWorkflowObjectModelSourceFileContentNative_Impl, const OFFSET: isize>() -> IPrintWorkflowObjectModelSourceFileContentNative_Vtbl {
         unsafe extern "system" fn StartXpsOMGeneration<Identity: ::windows::core::IUnknownImpl, Impl: IPrintWorkflowObjectModelSourceFileContentNative_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, receiver: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -122,6 +124,8 @@ pub trait IPrintWorkflowXpsObjectModelTargetPackageNative_Impl: Sized {
     fn DocumentPackageTarget(&self) -> ::windows::core::Result<super::super::super::Storage::Xps::IXpsDocumentPackageTarget>;
 }
 #[cfg(feature = "Win32_Storage_Xps")]
+impl ::windows::core::RuntimeName for IPrintWorkflowXpsObjectModelTargetPackageNative {}
+#[cfg(feature = "Win32_Storage_Xps")]
 impl IPrintWorkflowXpsObjectModelTargetPackageNative_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintWorkflowXpsObjectModelTargetPackageNative_Impl, const OFFSET: isize>() -> IPrintWorkflowXpsObjectModelTargetPackageNative_Vtbl {
         unsafe extern "system" fn DocumentPackageTarget<Identity: ::windows::core::IUnknownImpl, Impl: IPrintWorkflowXpsObjectModelTargetPackageNative_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -149,6 +153,8 @@ pub trait IPrintWorkflowXpsReceiver_Impl: Sized {
     fn AddPage(&self, documentid: u32, pageid: u32, pagereference: &::core::option::Option<super::super::super::Storage::Xps::IXpsOMPageReference>, pageuri: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn Close(&self) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Storage_Xps", feature = "Win32_System_Com"))]
+impl ::windows::core::RuntimeName for IPrintWorkflowXpsReceiver {}
 #[cfg(all(feature = "Win32_Storage_Xps", feature = "Win32_System_Com"))]
 impl IPrintWorkflowXpsReceiver_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintWorkflowXpsReceiver_Impl, const OFFSET: isize>() -> IPrintWorkflowXpsReceiver_Vtbl {
@@ -195,6 +201,8 @@ pub trait IPrintWorkflowXpsReceiver2_Impl: Sized + IPrintWorkflowXpsReceiver_Imp
     fn Failed(&self, xpserror: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Storage_Xps", feature = "Win32_System_Com"))]
+impl ::windows::core::RuntimeName for IPrintWorkflowXpsReceiver2 {}
+#[cfg(all(feature = "Win32_Storage_Xps", feature = "Win32_System_Com"))]
 impl IPrintWorkflowXpsReceiver2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrintWorkflowXpsReceiver2_Impl, const OFFSET: isize>() -> IPrintWorkflowXpsReceiver2_Vtbl {
         unsafe extern "system" fn Failed<Identity: ::windows::core::IUnknownImpl, Impl: IPrintWorkflowXpsReceiver2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xpserror: ::windows::core::HRESULT) -> ::windows::core::HRESULT {
@@ -214,9 +222,7 @@ pub trait IPrinting3DManagerInterop_Impl: Sized {
     fn ShowPrintUIForWindowAsync(&self, appwindow: super::super::super::Foundation::HWND, riid: *const ::windows::core::GUID, asyncoperation: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::windows::core::RuntimeName for IPrinting3DManagerInterop {
-    const NAME: &'static str = "";
-}
+impl ::windows::core::RuntimeName for IPrinting3DManagerInterop {}
 #[cfg(feature = "Win32_Foundation")]
 impl IPrinting3DManagerInterop_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrinting3DManagerInterop_Impl, const OFFSET: isize>() -> IPrinting3DManagerInterop_Vtbl {

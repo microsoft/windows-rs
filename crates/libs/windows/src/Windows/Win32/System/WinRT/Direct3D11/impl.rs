@@ -1,6 +1,7 @@
 pub trait IDirect3DDxgiInterfaceAccess_Impl: Sized {
     fn GetInterface(&self, iid: *const ::windows::core::GUID, p: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IDirect3DDxgiInterfaceAccess {}
 impl IDirect3DDxgiInterfaceAccess_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirect3DDxgiInterfaceAccess_Impl, const OFFSET: isize>() -> IDirect3DDxgiInterfaceAccess_Vtbl {
         unsafe extern "system" fn GetInterface<Identity: ::windows::core::IUnknownImpl, Impl: IDirect3DDxgiInterfaceAccess_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, iid: *const ::windows::core::GUID, p: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {

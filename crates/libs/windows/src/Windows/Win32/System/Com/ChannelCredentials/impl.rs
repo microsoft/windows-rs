@@ -12,6 +12,8 @@ pub trait IChannelCredentials_Impl: Sized + super::IDispatch_Impl {
     fn SetIssuedToken(&self, localissueraddres: &super::super::super::Foundation::BSTR, localissuerbindingtype: &super::super::super::Foundation::BSTR, localissuerbinding: &super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IChannelCredentials {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
 impl IChannelCredentials_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IChannelCredentials_Impl, const OFFSET: isize>() -> IChannelCredentials_Vtbl {
         unsafe extern "system" fn SetWindowsCredential<Identity: ::windows::core::IUnknownImpl, Impl: IChannelCredentials_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, domain: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, username: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, password: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, impersonationlevel: i32, allowntlm: super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {

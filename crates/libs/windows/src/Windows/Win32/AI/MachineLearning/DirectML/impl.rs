@@ -7,6 +7,8 @@ pub trait IDMLBindingTable_Impl: Sized + IDMLObject_Impl + IDMLDeviceChild_Impl 
     fn Reset(&self, desc: *const DML_BINDING_TABLE_DESC) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
+impl ::windows::core::RuntimeName for IDMLBindingTable {}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl IDMLBindingTable_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDMLBindingTable_Impl, const OFFSET: isize>() -> IDMLBindingTable_Vtbl {
         unsafe extern "system" fn BindInputs<Identity: ::windows::core::IUnknownImpl, Impl: IDMLBindingTable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bindingcount: u32, bindings: *const DML_BINDING_DESC) {
@@ -52,6 +54,8 @@ pub trait IDMLCommandRecorder_Impl: Sized + IDMLObject_Impl + IDMLDeviceChild_Im
     fn RecordDispatch(&self, commandlist: &::core::option::Option<super::super::super::Graphics::Direct3D12::ID3D12CommandList>, dispatchable: &::core::option::Option<IDMLDispatchable>, bindings: &::core::option::Option<IDMLBindingTable>);
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
+impl ::windows::core::RuntimeName for IDMLCommandRecorder {}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl IDMLCommandRecorder_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDMLCommandRecorder_Impl, const OFFSET: isize>() -> IDMLCommandRecorder_Vtbl {
         unsafe extern "system" fn RecordDispatch<Identity: ::windows::core::IUnknownImpl, Impl: IDMLCommandRecorder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, commandlist: ::windows::core::RawPtr, dispatchable: ::windows::core::RawPtr, bindings: ::windows::core::RawPtr) {
@@ -66,6 +70,7 @@ impl IDMLCommandRecorder_Vtbl {
     }
 }
 pub trait IDMLCompiledOperator_Impl: Sized + IDMLObject_Impl + IDMLDeviceChild_Impl + IDMLPageable_Impl + IDMLDispatchable_Impl {}
+impl ::windows::core::RuntimeName for IDMLCompiledOperator {}
 impl IDMLCompiledOperator_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDMLCompiledOperator_Impl, const OFFSET: isize>() -> IDMLCompiledOperator_Vtbl {
         Self { base__: IDMLDispatchable_Vtbl::new::<Identity, Impl, OFFSET>() }
@@ -78,6 +83,8 @@ impl IDMLCompiledOperator_Vtbl {
 pub trait IDMLDebugDevice_Impl: Sized {
     fn SetMuteDebugOutput(&self, mute: super::super::super::Foundation::BOOL);
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IDMLDebugDevice {}
 #[cfg(feature = "Win32_Foundation")]
 impl IDMLDebugDevice_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDMLDebugDevice_Impl, const OFFSET: isize>() -> IDMLDebugDevice_Vtbl {
@@ -105,6 +112,8 @@ pub trait IDMLDevice_Impl: Sized + IDMLObject_Impl {
     fn GetDeviceRemovedReason(&self) -> ::windows::core::Result<()>;
     fn GetParentDevice(&self, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+impl ::windows::core::RuntimeName for IDMLDevice {}
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl IDMLDevice_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDMLDevice_Impl, const OFFSET: isize>() -> IDMLDevice_Vtbl {
@@ -181,6 +190,8 @@ pub trait IDMLDevice1_Impl: Sized + IDMLObject_Impl + IDMLDevice_Impl {
     fn CompileGraph(&self, desc: *const DML_GRAPH_DESC, flags: DML_EXECUTION_FLAGS, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
+impl ::windows::core::RuntimeName for IDMLDevice1 {}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl IDMLDevice1_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDMLDevice1_Impl, const OFFSET: isize>() -> IDMLDevice1_Vtbl {
         unsafe extern "system" fn CompileGraph<Identity: ::windows::core::IUnknownImpl, Impl: IDMLDevice1_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, desc: *const DML_GRAPH_DESC, flags: DML_EXECUTION_FLAGS, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -197,6 +208,7 @@ impl IDMLDevice1_Vtbl {
 pub trait IDMLDeviceChild_Impl: Sized + IDMLObject_Impl {
     fn GetDevice(&self, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IDMLDeviceChild {}
 impl IDMLDeviceChild_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDMLDeviceChild_Impl, const OFFSET: isize>() -> IDMLDeviceChild_Vtbl {
         unsafe extern "system" fn GetDevice<Identity: ::windows::core::IUnknownImpl, Impl: IDMLDeviceChild_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -213,6 +225,7 @@ impl IDMLDeviceChild_Vtbl {
 pub trait IDMLDispatchable_Impl: Sized + IDMLObject_Impl + IDMLDeviceChild_Impl + IDMLPageable_Impl {
     fn GetBindingProperties(&self) -> DML_BINDING_PROPERTIES;
 }
+impl ::windows::core::RuntimeName for IDMLDispatchable {}
 impl IDMLDispatchable_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDMLDispatchable_Impl, const OFFSET: isize>() -> IDMLDispatchable_Vtbl {
         unsafe extern "system" fn GetBindingProperties<Identity: ::windows::core::IUnknownImpl, Impl: IDMLDispatchable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut DML_BINDING_PROPERTIES) {
@@ -232,6 +245,7 @@ pub trait IDMLObject_Impl: Sized {
     fn SetPrivateDataInterface(&self, guid: *const ::windows::core::GUID, data: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
     fn SetName(&self, name: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IDMLObject {}
 impl IDMLObject_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDMLObject_Impl, const OFFSET: isize>() -> IDMLObject_Vtbl {
         unsafe extern "system" fn GetPrivateData<Identity: ::windows::core::IUnknownImpl, Impl: IDMLObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, datasize: *mut u32, data: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -267,6 +281,7 @@ impl IDMLObject_Vtbl {
     }
 }
 pub trait IDMLOperator_Impl: Sized + IDMLObject_Impl + IDMLDeviceChild_Impl {}
+impl ::windows::core::RuntimeName for IDMLOperator {}
 impl IDMLOperator_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDMLOperator_Impl, const OFFSET: isize>() -> IDMLOperator_Vtbl {
         Self { base__: IDMLDeviceChild_Vtbl::new::<Identity, Impl, OFFSET>() }
@@ -278,6 +293,7 @@ impl IDMLOperator_Vtbl {
 pub trait IDMLOperatorInitializer_Impl: Sized + IDMLObject_Impl + IDMLDeviceChild_Impl + IDMLPageable_Impl + IDMLDispatchable_Impl {
     fn Reset(&self, operatorcount: u32, operators: *const ::core::option::Option<IDMLCompiledOperator>) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IDMLOperatorInitializer {}
 impl IDMLOperatorInitializer_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDMLOperatorInitializer_Impl, const OFFSET: isize>() -> IDMLOperatorInitializer_Vtbl {
         unsafe extern "system" fn Reset<Identity: ::windows::core::IUnknownImpl, Impl: IDMLOperatorInitializer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, operatorcount: u32, operators: *const ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -292,6 +308,7 @@ impl IDMLOperatorInitializer_Vtbl {
     }
 }
 pub trait IDMLPageable_Impl: Sized + IDMLObject_Impl + IDMLDeviceChild_Impl {}
+impl ::windows::core::RuntimeName for IDMLPageable {}
 impl IDMLPageable_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDMLPageable_Impl, const OFFSET: isize>() -> IDMLPageable_Vtbl {
         Self { base__: IDMLDeviceChild_Vtbl::new::<Identity, Impl, OFFSET>() }

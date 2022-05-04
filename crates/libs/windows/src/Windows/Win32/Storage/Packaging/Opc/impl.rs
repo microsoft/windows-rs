@@ -6,6 +6,8 @@ pub trait IOpcCertificateEnumerator_Impl: Sized {
     fn Clone(&self) -> ::windows::core::Result<IOpcCertificateEnumerator>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+impl ::windows::core::RuntimeName for IOpcCertificateEnumerator {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl IOpcCertificateEnumerator_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IOpcCertificateEnumerator_Impl, const OFFSET: isize>() -> IOpcCertificateEnumerator_Vtbl {
         unsafe extern "system" fn MoveNext<Identity: ::windows::core::IUnknownImpl, Impl: IOpcCertificateEnumerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hasnext: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
@@ -52,6 +54,8 @@ pub trait IOpcCertificateSet_Impl: Sized {
     fn Remove(&self, certificate: *const super::super::super::Security::Cryptography::CERT_CONTEXT) -> ::windows::core::Result<()>;
     fn GetEnumerator(&self) -> ::windows::core::Result<IOpcCertificateEnumerator>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+impl ::windows::core::RuntimeName for IOpcCertificateSet {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl IOpcCertificateSet_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IOpcCertificateSet_Impl, const OFFSET: isize>() -> IOpcCertificateSet_Vtbl {
@@ -105,6 +109,8 @@ pub trait IOpcDigitalSignature_Impl: Sized {
     fn GetCustomObjectEnumerator(&self) -> ::windows::core::Result<IOpcSignatureCustomObjectEnumerator>;
     fn GetSignatureXml(&self, signaturexml: *mut *mut u8, count: *mut u32) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_System_Com")]
+impl ::windows::core::RuntimeName for IOpcDigitalSignature {}
 #[cfg(feature = "Win32_System_Com")]
 impl IOpcDigitalSignature_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IOpcDigitalSignature_Impl, const OFFSET: isize>() -> IOpcDigitalSignature_Vtbl {
@@ -274,6 +280,8 @@ pub trait IOpcDigitalSignatureEnumerator_Impl: Sized {
     fn Clone(&self) -> ::windows::core::Result<IOpcDigitalSignatureEnumerator>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IOpcDigitalSignatureEnumerator {}
+#[cfg(feature = "Win32_Foundation")]
 impl IOpcDigitalSignatureEnumerator_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IOpcDigitalSignatureEnumerator_Impl, const OFFSET: isize>() -> IOpcDigitalSignatureEnumerator_Vtbl {
         unsafe extern "system" fn MoveNext<Identity: ::windows::core::IUnknownImpl, Impl: IOpcDigitalSignatureEnumerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hasnext: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
@@ -343,6 +351,8 @@ pub trait IOpcDigitalSignatureManager_Impl: Sized {
     fn Sign(&self, certificate: *const super::super::super::Security::Cryptography::CERT_CONTEXT, signingoptions: &::core::option::Option<IOpcSigningOptions>) -> ::windows::core::Result<IOpcDigitalSignature>;
     fn ReplaceSignatureXml(&self, signaturepartname: &::core::option::Option<IOpcPartUri>, newsignaturexml: *const u8, count: u32) -> ::windows::core::Result<IOpcDigitalSignature>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_System_Com"))]
+impl ::windows::core::RuntimeName for IOpcDigitalSignatureManager {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_System_Com"))]
 impl IOpcDigitalSignatureManager_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IOpcDigitalSignatureManager_Impl, const OFFSET: isize>() -> IOpcDigitalSignatureManager_Vtbl {
@@ -443,6 +453,8 @@ pub trait IOpcFactory_Impl: Sized {
     fn CreateDigitalSignatureManager(&self, package: &::core::option::Option<IOpcPackage>) -> ::windows::core::Result<IOpcDigitalSignatureManager>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_Com"))]
+impl ::windows::core::RuntimeName for IOpcFactory {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_Com"))]
 impl IOpcFactory_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IOpcFactory_Impl, const OFFSET: isize>() -> IOpcFactory_Vtbl {
         unsafe extern "system" fn CreatePackageRootUri<Identity: ::windows::core::IUnknownImpl, Impl: IOpcFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rooturi: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -535,6 +547,7 @@ pub trait IOpcPackage_Impl: Sized {
     fn GetPartSet(&self) -> ::windows::core::Result<IOpcPartSet>;
     fn GetRelationshipSet(&self) -> ::windows::core::Result<IOpcRelationshipSet>;
 }
+impl ::windows::core::RuntimeName for IOpcPackage {}
 impl IOpcPackage_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IOpcPackage_Impl, const OFFSET: isize>() -> IOpcPackage_Vtbl {
         unsafe extern "system" fn GetPartSet<Identity: ::windows::core::IUnknownImpl, Impl: IOpcPackage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, partset: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -577,6 +590,8 @@ pub trait IOpcPart_Impl: Sized {
     fn GetContentType(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
     fn GetCompressionOptions(&self) -> ::windows::core::Result<OPC_COMPRESSION_OPTIONS>;
 }
+#[cfg(feature = "Win32_System_Com")]
+impl ::windows::core::RuntimeName for IOpcPart {}
 #[cfg(feature = "Win32_System_Com")]
 impl IOpcPart_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IOpcPart_Impl, const OFFSET: isize>() -> IOpcPart_Vtbl {
@@ -656,6 +671,8 @@ pub trait IOpcPartEnumerator_Impl: Sized {
     fn Clone(&self) -> ::windows::core::Result<IOpcPartEnumerator>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IOpcPartEnumerator {}
+#[cfg(feature = "Win32_Foundation")]
 impl IOpcPartEnumerator_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IOpcPartEnumerator_Impl, const OFFSET: isize>() -> IOpcPartEnumerator_Vtbl {
         unsafe extern "system" fn MoveNext<Identity: ::windows::core::IUnknownImpl, Impl: IOpcPartEnumerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hasnext: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
@@ -722,6 +739,8 @@ pub trait IOpcPartSet_Impl: Sized {
     fn PartExists(&self, name: &::core::option::Option<IOpcPartUri>) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
     fn GetEnumerator(&self) -> ::windows::core::Result<IOpcPartEnumerator>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::windows::core::RuntimeName for IOpcPartSet {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IOpcPartSet_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IOpcPartSet_Impl, const OFFSET: isize>() -> IOpcPartSet_Vtbl {
@@ -794,6 +813,8 @@ pub trait IOpcPartUri_Impl: Sized + super::super::super::System::Com::IUri_Impl 
     fn IsRelationshipsPartUri(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::windows::core::RuntimeName for IOpcPartUri {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IOpcPartUri_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IOpcPartUri_Impl, const OFFSET: isize>() -> IOpcPartUri_Vtbl {
         unsafe extern "system" fn ComparePartUri<Identity: ::windows::core::IUnknownImpl, Impl: IOpcPartUri_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, parturi: ::windows::core::RawPtr, comparisonresult: *mut i32) -> ::windows::core::HRESULT {
@@ -848,6 +869,8 @@ pub trait IOpcRelationship_Impl: Sized {
     fn GetTargetUri(&self) -> ::windows::core::Result<super::super::super::System::Com::IUri>;
     fn GetTargetMode(&self) -> ::windows::core::Result<OPC_URI_TARGET_MODE>;
 }
+#[cfg(feature = "Win32_System_Com")]
+impl ::windows::core::RuntimeName for IOpcRelationship {}
 #[cfg(feature = "Win32_System_Com")]
 impl IOpcRelationship_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IOpcRelationship_Impl, const OFFSET: isize>() -> IOpcRelationship_Vtbl {
@@ -927,6 +950,8 @@ pub trait IOpcRelationshipEnumerator_Impl: Sized {
     fn Clone(&self) -> ::windows::core::Result<IOpcRelationshipEnumerator>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IOpcRelationshipEnumerator {}
+#[cfg(feature = "Win32_Foundation")]
 impl IOpcRelationshipEnumerator_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IOpcRelationshipEnumerator_Impl, const OFFSET: isize>() -> IOpcRelationshipEnumerator_Vtbl {
         unsafe extern "system" fn MoveNext<Identity: ::windows::core::IUnknownImpl, Impl: IOpcRelationshipEnumerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hasnext: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
@@ -989,6 +1014,7 @@ pub trait IOpcRelationshipSelector_Impl: Sized {
     fn GetSelectorType(&self) -> ::windows::core::Result<OPC_RELATIONSHIP_SELECTOR>;
     fn GetSelectionCriterion(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
 }
+impl ::windows::core::RuntimeName for IOpcRelationshipSelector {}
 impl IOpcRelationshipSelector_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IOpcRelationshipSelector_Impl, const OFFSET: isize>() -> IOpcRelationshipSelector_Vtbl {
         unsafe extern "system" fn GetSelectorType<Identity: ::windows::core::IUnknownImpl, Impl: IOpcRelationshipSelector_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, selector: *mut OPC_RELATIONSHIP_SELECTOR) -> ::windows::core::HRESULT {
@@ -1030,6 +1056,8 @@ pub trait IOpcRelationshipSelectorEnumerator_Impl: Sized {
     fn GetCurrent(&self) -> ::windows::core::Result<IOpcRelationshipSelector>;
     fn Clone(&self) -> ::windows::core::Result<IOpcRelationshipSelectorEnumerator>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IOpcRelationshipSelectorEnumerator {}
 #[cfg(feature = "Win32_Foundation")]
 impl IOpcRelationshipSelectorEnumerator_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IOpcRelationshipSelectorEnumerator_Impl, const OFFSET: isize>() -> IOpcRelationshipSelectorEnumerator_Vtbl {
@@ -1094,6 +1122,7 @@ pub trait IOpcRelationshipSelectorSet_Impl: Sized {
     fn Delete(&self, relationshipselector: &::core::option::Option<IOpcRelationshipSelector>) -> ::windows::core::Result<()>;
     fn GetEnumerator(&self) -> ::windows::core::Result<IOpcRelationshipSelectorEnumerator>;
 }
+impl ::windows::core::RuntimeName for IOpcRelationshipSelectorSet {}
 impl IOpcRelationshipSelectorSet_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IOpcRelationshipSelectorSet_Impl, const OFFSET: isize>() -> IOpcRelationshipSelectorSet_Vtbl {
         unsafe extern "system" fn Create<Identity: ::windows::core::IUnknownImpl, Impl: IOpcRelationshipSelectorSet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, selector: OPC_RELATIONSHIP_SELECTOR, selectioncriterion: ::windows::core::PCWSTR, relationshipselector: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -1144,6 +1173,8 @@ pub trait IOpcRelationshipSet_Impl: Sized {
     fn GetEnumeratorForType(&self, relationshiptype: &::windows::core::PCWSTR) -> ::windows::core::Result<IOpcRelationshipEnumerator>;
     fn GetRelationshipsContentStream(&self) -> ::windows::core::Result<super::super::super::System::Com::IStream>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::windows::core::RuntimeName for IOpcRelationshipSet {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IOpcRelationshipSet_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IOpcRelationshipSet_Impl, const OFFSET: isize>() -> IOpcRelationshipSet_Vtbl {
@@ -1236,6 +1267,7 @@ impl IOpcRelationshipSet_Vtbl {
 pub trait IOpcSignatureCustomObject_Impl: Sized {
     fn GetXml(&self, xmlmarkup: *mut *mut u8, count: *mut u32) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IOpcSignatureCustomObject {}
 impl IOpcSignatureCustomObject_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IOpcSignatureCustomObject_Impl, const OFFSET: isize>() -> IOpcSignatureCustomObject_Vtbl {
         unsafe extern "system" fn GetXml<Identity: ::windows::core::IUnknownImpl, Impl: IOpcSignatureCustomObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xmlmarkup: *mut *mut u8, count: *mut u32) -> ::windows::core::HRESULT {
@@ -1256,6 +1288,8 @@ pub trait IOpcSignatureCustomObjectEnumerator_Impl: Sized {
     fn GetCurrent(&self) -> ::windows::core::Result<IOpcSignatureCustomObject>;
     fn Clone(&self) -> ::windows::core::Result<IOpcSignatureCustomObjectEnumerator>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IOpcSignatureCustomObjectEnumerator {}
 #[cfg(feature = "Win32_Foundation")]
 impl IOpcSignatureCustomObjectEnumerator_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IOpcSignatureCustomObjectEnumerator_Impl, const OFFSET: isize>() -> IOpcSignatureCustomObjectEnumerator_Vtbl {
@@ -1320,6 +1354,7 @@ pub trait IOpcSignatureCustomObjectSet_Impl: Sized {
     fn Delete(&self, customobject: &::core::option::Option<IOpcSignatureCustomObject>) -> ::windows::core::Result<()>;
     fn GetEnumerator(&self) -> ::windows::core::Result<IOpcSignatureCustomObjectEnumerator>;
 }
+impl ::windows::core::RuntimeName for IOpcSignatureCustomObjectSet {}
 impl IOpcSignatureCustomObjectSet_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IOpcSignatureCustomObjectSet_Impl, const OFFSET: isize>() -> IOpcSignatureCustomObjectSet_Vtbl {
         unsafe extern "system" fn Create<Identity: ::windows::core::IUnknownImpl, Impl: IOpcSignatureCustomObjectSet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xmlmarkup: *const u8, count: u32, customobject: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -1368,6 +1403,8 @@ pub trait IOpcSignaturePartReference_Impl: Sized {
     fn GetDigestValue(&self, digestvalue: *mut *mut u8, count: *mut u32) -> ::windows::core::Result<()>;
     fn GetTransformMethod(&self) -> ::windows::core::Result<OPC_CANONICALIZATION_METHOD>;
 }
+#[cfg(feature = "Win32_System_Com")]
+impl ::windows::core::RuntimeName for IOpcSignaturePartReference {}
 #[cfg(feature = "Win32_System_Com")]
 impl IOpcSignaturePartReference_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IOpcSignaturePartReference_Impl, const OFFSET: isize>() -> IOpcSignaturePartReference_Vtbl {
@@ -1441,6 +1478,8 @@ pub trait IOpcSignaturePartReferenceEnumerator_Impl: Sized {
     fn Clone(&self) -> ::windows::core::Result<IOpcSignaturePartReferenceEnumerator>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IOpcSignaturePartReferenceEnumerator {}
+#[cfg(feature = "Win32_Foundation")]
 impl IOpcSignaturePartReferenceEnumerator_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IOpcSignaturePartReferenceEnumerator_Impl, const OFFSET: isize>() -> IOpcSignaturePartReferenceEnumerator_Vtbl {
         unsafe extern "system" fn MoveNext<Identity: ::windows::core::IUnknownImpl, Impl: IOpcSignaturePartReferenceEnumerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hasnext: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
@@ -1506,6 +1545,8 @@ pub trait IOpcSignaturePartReferenceSet_Impl: Sized {
     fn GetEnumerator(&self) -> ::windows::core::Result<IOpcSignaturePartReferenceEnumerator>;
 }
 #[cfg(feature = "Win32_System_Com")]
+impl ::windows::core::RuntimeName for IOpcSignaturePartReferenceSet {}
+#[cfg(feature = "Win32_System_Com")]
 impl IOpcSignaturePartReferenceSet_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IOpcSignaturePartReferenceSet_Impl, const OFFSET: isize>() -> IOpcSignaturePartReferenceSet_Vtbl {
         unsafe extern "system" fn Create<Identity: ::windows::core::IUnknownImpl, Impl: IOpcSignaturePartReferenceSet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, parturi: ::windows::core::RawPtr, digestmethod: ::windows::core::PCWSTR, transformmethod: OPC_CANONICALIZATION_METHOD, partreference: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -1555,6 +1596,8 @@ pub trait IOpcSignatureReference_Impl: Sized {
     fn GetDigestMethod(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
     fn GetDigestValue(&self, digestvalue: *mut *mut u8, count: *mut u32) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_System_Com")]
+impl ::windows::core::RuntimeName for IOpcSignatureReference {}
 #[cfg(feature = "Win32_System_Com")]
 impl IOpcSignatureReference_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IOpcSignatureReference_Impl, const OFFSET: isize>() -> IOpcSignatureReference_Vtbl {
@@ -1640,6 +1683,8 @@ pub trait IOpcSignatureReferenceEnumerator_Impl: Sized {
     fn Clone(&self) -> ::windows::core::Result<IOpcSignatureReferenceEnumerator>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IOpcSignatureReferenceEnumerator {}
+#[cfg(feature = "Win32_Foundation")]
 impl IOpcSignatureReferenceEnumerator_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IOpcSignatureReferenceEnumerator_Impl, const OFFSET: isize>() -> IOpcSignatureReferenceEnumerator_Vtbl {
         unsafe extern "system" fn MoveNext<Identity: ::windows::core::IUnknownImpl, Impl: IOpcSignatureReferenceEnumerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hasnext: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
@@ -1705,6 +1750,8 @@ pub trait IOpcSignatureReferenceSet_Impl: Sized {
     fn GetEnumerator(&self) -> ::windows::core::Result<IOpcSignatureReferenceEnumerator>;
 }
 #[cfg(feature = "Win32_System_Com")]
+impl ::windows::core::RuntimeName for IOpcSignatureReferenceSet {}
+#[cfg(feature = "Win32_System_Com")]
 impl IOpcSignatureReferenceSet_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IOpcSignatureReferenceSet_Impl, const OFFSET: isize>() -> IOpcSignatureReferenceSet_Vtbl {
         unsafe extern "system" fn Create<Identity: ::windows::core::IUnknownImpl, Impl: IOpcSignatureReferenceSet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, referenceuri: ::windows::core::RawPtr, referenceid: ::windows::core::PCWSTR, r#type: ::windows::core::PCWSTR, digestmethod: ::windows::core::PCWSTR, transformmethod: OPC_CANONICALIZATION_METHOD, reference: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -1754,6 +1801,8 @@ pub trait IOpcSignatureRelationshipReference_Impl: Sized {
     fn GetRelationshipSigningOption(&self) -> ::windows::core::Result<OPC_RELATIONSHIPS_SIGNING_OPTION>;
     fn GetRelationshipSelectorEnumerator(&self) -> ::windows::core::Result<IOpcRelationshipSelectorEnumerator>;
 }
+#[cfg(feature = "Win32_System_Com")]
+impl ::windows::core::RuntimeName for IOpcSignatureRelationshipReference {}
 #[cfg(feature = "Win32_System_Com")]
 impl IOpcSignatureRelationshipReference_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IOpcSignatureRelationshipReference_Impl, const OFFSET: isize>() -> IOpcSignatureRelationshipReference_Vtbl {
@@ -1839,6 +1888,8 @@ pub trait IOpcSignatureRelationshipReferenceEnumerator_Impl: Sized {
     fn Clone(&self) -> ::windows::core::Result<IOpcSignatureRelationshipReferenceEnumerator>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IOpcSignatureRelationshipReferenceEnumerator {}
+#[cfg(feature = "Win32_Foundation")]
 impl IOpcSignatureRelationshipReferenceEnumerator_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IOpcSignatureRelationshipReferenceEnumerator_Impl, const OFFSET: isize>() -> IOpcSignatureRelationshipReferenceEnumerator_Vtbl {
         unsafe extern "system" fn MoveNext<Identity: ::windows::core::IUnknownImpl, Impl: IOpcSignatureRelationshipReferenceEnumerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hasnext: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
@@ -1904,6 +1955,8 @@ pub trait IOpcSignatureRelationshipReferenceSet_Impl: Sized {
     fn Delete(&self, relationshipreference: &::core::option::Option<IOpcSignatureRelationshipReference>) -> ::windows::core::Result<()>;
     fn GetEnumerator(&self) -> ::windows::core::Result<IOpcSignatureRelationshipReferenceEnumerator>;
 }
+#[cfg(feature = "Win32_System_Com")]
+impl ::windows::core::RuntimeName for IOpcSignatureRelationshipReferenceSet {}
 #[cfg(feature = "Win32_System_Com")]
 impl IOpcSignatureRelationshipReferenceSet_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IOpcSignatureRelationshipReferenceSet_Impl, const OFFSET: isize>() -> IOpcSignatureRelationshipReferenceSet_Vtbl {
@@ -1977,6 +2030,8 @@ pub trait IOpcSigningOptions_Impl: Sized {
     fn GetSignaturePartName(&self) -> ::windows::core::Result<IOpcPartUri>;
     fn SetSignaturePartName(&self, signaturepartname: &::core::option::Option<IOpcPartUri>) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_System_Com")]
+impl ::windows::core::RuntimeName for IOpcSigningOptions {}
 #[cfg(feature = "Win32_System_Com")]
 impl IOpcSigningOptions_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IOpcSigningOptions_Impl, const OFFSET: isize>() -> IOpcSigningOptions_Vtbl {
@@ -2162,6 +2217,8 @@ pub trait IOpcUri_Impl: Sized + super::super::super::System::Com::IUri_Impl {
     fn GetRelativeUri(&self, targetparturi: &::core::option::Option<IOpcPartUri>) -> ::windows::core::Result<super::super::super::System::Com::IUri>;
     fn CombinePartUri(&self, relativeuri: &::core::option::Option<super::super::super::System::Com::IUri>) -> ::windows::core::Result<IOpcPartUri>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::windows::core::RuntimeName for IOpcUri {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IOpcUri_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IOpcUri_Impl, const OFFSET: isize>() -> IOpcUri_Vtbl {

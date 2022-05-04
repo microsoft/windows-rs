@@ -3,6 +3,7 @@ pub trait IContact_Impl: Sized {
     fn GetPath(&self, pszpath: &::windows::core::PWSTR, cchpath: u32, pdwcchpathrequired: *mut u32) -> ::windows::core::Result<()>;
     fn CommitChanges(&self, dwcommitflags: u32) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IContact {}
 impl IContact_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContact_Impl, const OFFSET: isize>() -> IContact_Vtbl {
         unsafe extern "system" fn GetContactID<Identity: ::windows::core::IUnknownImpl, Impl: IContact_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszcontactid: ::windows::core::PWSTR, cchcontactid: u32, pdwcchcontactidrequired: *mut u32) -> ::windows::core::HRESULT {
@@ -42,6 +43,7 @@ pub trait IContactAggregationAggregate_Impl: Sized {
     fn SetFavoriteOrder(&self, favoriteorder: u32) -> ::windows::core::Result<()>;
     fn Id(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
 }
+impl ::windows::core::RuntimeName for IContactAggregationAggregate {}
 impl IContactAggregationAggregate_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactAggregationAggregate_Impl, const OFFSET: isize>() -> IContactAggregationAggregate_Vtbl {
         unsafe extern "system" fn Save<Identity: ::windows::core::IUnknownImpl, Impl: IContactAggregationAggregate_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -142,6 +144,7 @@ pub trait IContactAggregationAggregateCollection_Impl: Sized {
     fn FindNext(&self) -> ::windows::core::Result<IContactAggregationAggregate>;
     fn Count(&self) -> ::windows::core::Result<i32>;
 }
+impl ::windows::core::RuntimeName for IContactAggregationAggregateCollection {}
 impl IContactAggregationAggregateCollection_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactAggregationAggregateCollection_Impl, const OFFSET: isize>() -> IContactAggregationAggregateCollection_Vtbl {
         unsafe extern "system" fn FindFirst<Identity: ::windows::core::IUnknownImpl, Impl: IContactAggregationAggregateCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppaggregate: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -221,6 +224,8 @@ pub trait IContactAggregationContact_Impl: Sized {
     fn SyncIdentityHash(&self) -> ::windows::core::Result<*mut CONTACT_AGGREGATION_BLOB>;
     fn SetSyncIdentityHash(&self, psyncidentityhash: *const CONTACT_AGGREGATION_BLOB) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IContactAggregationContact {}
 #[cfg(feature = "Win32_Foundation")]
 impl IContactAggregationContact_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactAggregationContact_Impl, const OFFSET: isize>() -> IContactAggregationContact_Vtbl {
@@ -401,6 +406,7 @@ pub trait IContactAggregationContactCollection_Impl: Sized {
     fn Count(&self) -> ::windows::core::Result<i32>;
     fn FindFirstByRemoteId(&self, psourcetype: &::windows::core::PCWSTR, paccountid: &::windows::core::PCWSTR, premoteobjectid: *const CONTACT_AGGREGATION_BLOB) -> ::windows::core::Result<IContactAggregationContact>;
 }
+impl ::windows::core::RuntimeName for IContactAggregationContactCollection {}
 impl IContactAggregationContactCollection_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactAggregationContactCollection_Impl, const OFFSET: isize>() -> IContactAggregationContactCollection_Vtbl {
         unsafe extern "system" fn FindFirst<Identity: ::windows::core::IUnknownImpl, Impl: IContactAggregationContactCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppitem: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -483,6 +489,7 @@ pub trait IContactAggregationGroup_Impl: Sized {
     fn Name(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
     fn SetName(&self, pname: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IContactAggregationGroup {}
 impl IContactAggregationGroup_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactAggregationGroup_Impl, const OFFSET: isize>() -> IContactAggregationGroup_Vtbl {
         unsafe extern "system" fn Delete<Identity: ::windows::core::IUnknownImpl, Impl: IContactAggregationGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -583,6 +590,7 @@ pub trait IContactAggregationGroupCollection_Impl: Sized {
     fn FindNext(&self) -> ::windows::core::Result<IContactAggregationGroup>;
     fn Count(&self) -> ::windows::core::Result<u32>;
 }
+impl ::windows::core::RuntimeName for IContactAggregationGroupCollection {}
 impl IContactAggregationGroupCollection_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactAggregationGroupCollection_Impl, const OFFSET: isize>() -> IContactAggregationGroupCollection_Vtbl {
         unsafe extern "system" fn FindFirst<Identity: ::windows::core::IUnknownImpl, Impl: IContactAggregationGroupCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppgroup: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -661,6 +669,8 @@ pub trait IContactAggregationLink_Impl: Sized {
     fn SyncIdentityHash(&self) -> ::windows::core::Result<*mut CONTACT_AGGREGATION_BLOB>;
     fn SetSyncIdentityHash(&self, psyncidentityhash: *const CONTACT_AGGREGATION_BLOB) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IContactAggregationLink {}
 #[cfg(feature = "Win32_Foundation")]
 impl IContactAggregationLink_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactAggregationLink_Impl, const OFFSET: isize>() -> IContactAggregationLink_Vtbl {
@@ -828,6 +838,7 @@ pub trait IContactAggregationLinkCollection_Impl: Sized {
     fn FindNext(&self) -> ::windows::core::Result<IContactAggregationLink>;
     fn Count(&self) -> ::windows::core::Result<u32>;
 }
+impl ::windows::core::RuntimeName for IContactAggregationLinkCollection {}
 impl IContactAggregationLinkCollection_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactAggregationLinkCollection_Impl, const OFFSET: isize>() -> IContactAggregationLinkCollection_Vtbl {
         unsafe extern "system" fn FindFirst<Identity: ::windows::core::IUnknownImpl, Impl: IContactAggregationLinkCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppservercontactlink: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -904,6 +915,8 @@ pub trait IContactAggregationManager_Impl: Sized {
     fn ServerPersons(&self) -> ::windows::core::Result<IContactAggregationServerPersonCollection>;
     fn get_ServerContactLinks(&self, ppersonitemid: &::windows::core::PCWSTR) -> ::windows::core::Result<IContactAggregationLinkCollection>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IContactAggregationManager {}
 #[cfg(feature = "Win32_Foundation")]
 impl IContactAggregationManager_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactAggregationManager_Impl, const OFFSET: isize>() -> IContactAggregationManager_Vtbl {
@@ -1103,6 +1116,8 @@ pub trait IContactAggregationServerPerson_Impl: Sized {
     fn ObjectId(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
     fn SetObjectId(&self, pobjectid: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IContactAggregationServerPerson {}
 #[cfg(feature = "Win32_Foundation")]
 impl IContactAggregationServerPerson_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactAggregationServerPerson_Impl, const OFFSET: isize>() -> IContactAggregationServerPerson_Vtbl {
@@ -1326,6 +1341,7 @@ pub trait IContactAggregationServerPersonCollection_Impl: Sized {
     fn FindNext(&self) -> ::windows::core::Result<IContactAggregationServerPerson>;
     fn Count(&self) -> ::windows::core::Result<u32>;
 }
+impl ::windows::core::RuntimeName for IContactAggregationServerPersonCollection {}
 impl IContactAggregationServerPersonCollection_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactAggregationServerPersonCollection_Impl, const OFFSET: isize>() -> IContactAggregationServerPersonCollection_Vtbl {
         unsafe extern "system" fn FindFirst<Identity: ::windows::core::IUnknownImpl, Impl: IContactAggregationServerPersonCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppserverperson: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -1413,6 +1429,7 @@ pub trait IContactCollection_Impl: Sized {
     fn Next(&self) -> ::windows::core::Result<()>;
     fn GetCurrent(&self) -> ::windows::core::Result<IContact>;
 }
+impl ::windows::core::RuntimeName for IContactCollection {}
 impl IContactCollection_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactCollection_Impl, const OFFSET: isize>() -> IContactCollection_Vtbl {
         unsafe extern "system" fn Reset<Identity: ::windows::core::IUnknownImpl, Impl: IContactCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -1455,6 +1472,7 @@ pub trait IContactManager_Impl: Sized {
     fn SetMeContact(&self, pmecontact: &::core::option::Option<IContact>) -> ::windows::core::Result<()>;
     fn GetContactCollection(&self) -> ::windows::core::Result<IContactCollection>;
 }
+impl ::windows::core::RuntimeName for IContactManager {}
 impl IContactManager_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactManager_Impl, const OFFSET: isize>() -> IContactManager_Vtbl {
         unsafe extern "system" fn Initialize<Identity: ::windows::core::IUnknownImpl, Impl: IContactManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszappname: ::windows::core::PCWSTR, pszappversion: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
@@ -1535,6 +1553,8 @@ pub trait IContactProperties_Impl: Sized {
     fn DeleteLabels(&self, pszarrayelementname: &::windows::core::PCWSTR, dwflags: u32) -> ::windows::core::Result<()>;
     fn GetPropertyCollection(&self, pppropertycollection: *mut ::core::option::Option<IContactPropertyCollection>, dwflags: u32, pszmultivaluename: &::windows::core::PCWSTR, dwlabelcount: u32, ppszlabels: *const ::windows::core::PWSTR, fanylabelmatches: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::windows::core::RuntimeName for IContactProperties {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IContactProperties_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactProperties_Impl, const OFFSET: isize>() -> IContactProperties_Vtbl {
@@ -1634,6 +1654,8 @@ pub trait IContactPropertyCollection_Impl: Sized {
     fn GetPropertyModificationDate(&self, pftmodificationdate: *mut super::super::Foundation::FILETIME) -> ::windows::core::Result<()>;
     fn GetPropertyArrayElementID(&self, pszarrayelementid: &::windows::core::PWSTR, ccharrayelementid: u32, pdwccharrayelementidrequired: *mut u32) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IContactPropertyCollection {}
 #[cfg(feature = "Win32_Foundation")]
 impl IContactPropertyCollection_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IContactPropertyCollection_Impl, const OFFSET: isize>() -> IContactPropertyCollection_Vtbl {

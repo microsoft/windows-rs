@@ -8,6 +8,8 @@ pub trait IFunctionDiscovery_Impl: Sized {
     fn RemoveInstance(&self, enumsystemvisibility: SystemVisibilityFlags, pszcategory: &::windows::core::PCWSTR, pszsubcategory: &::windows::core::PCWSTR, pszcategoryidentity: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::windows::core::RuntimeName for IFunctionDiscovery {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IFunctionDiscovery_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFunctionDiscovery_Impl, const OFFSET: isize>() -> IFunctionDiscovery_Vtbl {
         unsafe extern "system" fn GetInstanceCollection<Identity: ::windows::core::IUnknownImpl, Impl: IFunctionDiscovery_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszcategory: ::windows::core::PCWSTR, pszsubcategory: ::windows::core::PCWSTR, fincludeallsubcategories: super::super::Foundation::BOOL, ppifunctioninstancecollection: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -79,6 +81,8 @@ pub trait IFunctionDiscoveryNotification_Impl: Sized {
     fn OnEvent(&self, dweventid: u32, fdqcquerycontext: u64, pszprovider: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
+impl ::windows::core::RuntimeName for IFunctionDiscoveryNotification {}
+#[cfg(feature = "Win32_System_Com")]
 impl IFunctionDiscoveryNotification_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFunctionDiscoveryNotification_Impl, const OFFSET: isize>() -> IFunctionDiscoveryNotification_Vtbl {
         unsafe extern "system" fn OnUpdate<Identity: ::windows::core::IUnknownImpl, Impl: IFunctionDiscoveryNotification_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, enumqueryupdateaction: QueryUpdateAction, fdqcquerycontext: u64, pifunctioninstance: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -118,6 +122,8 @@ pub trait IFunctionDiscoveryProvider_Impl: Sized {
     fn InstanceQueryService(&self, pifunctioninstance: &::core::option::Option<IFunctionInstance>, iproviderinstancecontext: isize, guidservice: *const ::windows::core::GUID, riid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown>;
     fn InstanceReleased(&self, pifunctioninstance: &::core::option::Option<IFunctionInstance>, iproviderinstancecontext: isize) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_PropertiesSystem"))]
+impl ::windows::core::RuntimeName for IFunctionDiscoveryProvider {}
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl IFunctionDiscoveryProvider_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFunctionDiscoveryProvider_Impl, const OFFSET: isize>() -> IFunctionDiscoveryProvider_Vtbl {
@@ -208,6 +214,8 @@ pub trait IFunctionDiscoveryProviderFactory_Impl: Sized {
     fn CreateFunctionInstanceCollection(&self) -> ::windows::core::Result<IFunctionInstanceCollection>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_PropertiesSystem"))]
+impl ::windows::core::RuntimeName for IFunctionDiscoveryProviderFactory {}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl IFunctionDiscoveryProviderFactory_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFunctionDiscoveryProviderFactory_Impl, const OFFSET: isize>() -> IFunctionDiscoveryProviderFactory_Vtbl {
         unsafe extern "system" fn CreatePropertyStore<Identity: ::windows::core::IUnknownImpl, Impl: IFunctionDiscoveryProviderFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppipropertystore: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -262,6 +270,8 @@ pub trait IFunctionDiscoveryProviderQuery_Impl: Sized {
     fn GetPropertyConstraints(&self) -> ::windows::core::Result<IProviderPropertyConstraintCollection>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IFunctionDiscoveryProviderQuery {}
+#[cfg(feature = "Win32_Foundation")]
 impl IFunctionDiscoveryProviderQuery_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFunctionDiscoveryProviderQuery_Impl, const OFFSET: isize>() -> IFunctionDiscoveryProviderQuery_Vtbl {
         unsafe extern "system" fn IsInstanceQuery<Identity: ::windows::core::IUnknownImpl, Impl: IFunctionDiscoveryProviderQuery_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pisinstancequery: *mut super::super::Foundation::BOOL, ppszconstraintvalue: *mut *mut u16) -> ::windows::core::HRESULT {
@@ -313,6 +323,8 @@ pub trait IFunctionDiscoveryServiceProvider_Impl: Sized {
     fn Initialize(&self, pifunctioninstance: &::core::option::Option<IFunctionInstance>, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
+impl ::windows::core::RuntimeName for IFunctionDiscoveryServiceProvider {}
+#[cfg(feature = "Win32_System_Com")]
 impl IFunctionDiscoveryServiceProvider_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFunctionDiscoveryServiceProvider_Impl, const OFFSET: isize>() -> IFunctionDiscoveryServiceProvider_Vtbl {
         unsafe extern "system" fn Initialize<Identity: ::windows::core::IUnknownImpl, Impl: IFunctionDiscoveryServiceProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pifunctioninstance: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -333,6 +345,8 @@ pub trait IFunctionInstance_Impl: Sized + super::super::System::Com::IServicePro
     fn OpenPropertyStore(&self, dwstgaccess: super::super::System::Com::StructuredStorage::STGM) -> ::windows::core::Result<super::super::UI::Shell::PropertiesSystem::IPropertyStore>;
     fn GetCategory(&self, ppszcomemcategory: *mut *mut u16, ppszcomemsubcategory: *mut *mut u16) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
+impl ::windows::core::RuntimeName for IFunctionInstance {}
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl IFunctionInstance_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFunctionInstance_Impl, const OFFSET: isize>() -> IFunctionInstance_Vtbl {
@@ -396,6 +410,8 @@ pub trait IFunctionInstanceCollection_Impl: Sized {
     fn Delete(&self, dwindex: u32) -> ::windows::core::Result<()>;
     fn DeleteAll(&self) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_System_Com")]
+impl ::windows::core::RuntimeName for IFunctionInstanceCollection {}
 #[cfg(feature = "Win32_System_Com")]
 impl IFunctionInstanceCollection_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFunctionInstanceCollection_Impl, const OFFSET: isize>() -> IFunctionInstanceCollection_Vtbl {
@@ -474,6 +490,8 @@ pub trait IFunctionInstanceCollectionQuery_Impl: Sized {
     fn Execute(&self) -> ::windows::core::Result<IFunctionInstanceCollection>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
+impl ::windows::core::RuntimeName for IFunctionInstanceCollectionQuery {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl IFunctionInstanceCollectionQuery_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFunctionInstanceCollectionQuery_Impl, const OFFSET: isize>() -> IFunctionInstanceCollectionQuery_Vtbl {
         unsafe extern "system" fn AddQueryConstraint<Identity: ::windows::core::IUnknownImpl, Impl: IFunctionInstanceCollectionQuery_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszconstraintname: ::windows::core::PCWSTR, pszconstraintvalue: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
@@ -513,6 +531,8 @@ pub trait IFunctionInstanceQuery_Impl: Sized {
     fn Execute(&self) -> ::windows::core::Result<IFunctionInstance>;
 }
 #[cfg(feature = "Win32_System_Com")]
+impl ::windows::core::RuntimeName for IFunctionInstanceQuery {}
+#[cfg(feature = "Win32_System_Com")]
 impl IFunctionInstanceQuery_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFunctionInstanceQuery_Impl, const OFFSET: isize>() -> IFunctionInstanceQuery_Vtbl {
         unsafe extern "system" fn Execute<Identity: ::windows::core::IUnknownImpl, Impl: IFunctionInstanceQuery_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppifunctioninstance: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -537,6 +557,7 @@ pub trait IPNPXAssociation_Impl: Sized {
     fn Unassociate(&self, pszsubcategory: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn Delete(&self, pszsubcategory: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IPNPXAssociation {}
 impl IPNPXAssociation_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPNPXAssociation_Impl, const OFFSET: isize>() -> IPNPXAssociation_Vtbl {
         unsafe extern "system" fn Associate<Identity: ::windows::core::IUnknownImpl, Impl: IPNPXAssociation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszsubcategory: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
@@ -570,6 +591,7 @@ pub trait IPNPXDeviceAssociation_Impl: Sized {
     fn Unassociate(&self, pszsubcategory: &::windows::core::PCWSTR, pifunctiondiscoverynotification: &::core::option::Option<IFunctionDiscoveryNotification>) -> ::windows::core::Result<()>;
     fn Delete(&self, pszsubcategory: &::windows::core::PCWSTR, pifunctiondiscoverynotification: &::core::option::Option<IFunctionDiscoveryNotification>) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IPNPXDeviceAssociation {}
 impl IPNPXDeviceAssociation_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPNPXDeviceAssociation_Impl, const OFFSET: isize>() -> IPNPXDeviceAssociation_Vtbl {
         unsafe extern "system" fn Associate<Identity: ::windows::core::IUnknownImpl, Impl: IPNPXDeviceAssociation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszsubcategory: ::windows::core::PCWSTR, pifunctiondiscoverynotification: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -608,6 +630,8 @@ pub trait IPropertyStoreCollection_Impl: Sized {
     fn Delete(&self, dwindex: u32) -> ::windows::core::Result<()>;
     fn DeleteAll(&self) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+impl ::windows::core::RuntimeName for IPropertyStoreCollection {}
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 impl IPropertyStoreCollection_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPropertyStoreCollection_Impl, const OFFSET: isize>() -> IPropertyStoreCollection_Vtbl {
@@ -687,6 +711,8 @@ pub trait IProviderProperties_Impl: Sized {
     fn SetValue(&self, pifunctioninstance: &::core::option::Option<IFunctionInstance>, iproviderinstancecontext: isize, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, ppropvar: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
+impl ::windows::core::RuntimeName for IProviderProperties {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl IProviderProperties_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IProviderProperties_Impl, const OFFSET: isize>() -> IProviderProperties_Vtbl {
         unsafe extern "system" fn GetCount<Identity: ::windows::core::IUnknownImpl, Impl: IProviderProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pifunctioninstance: ::windows::core::RawPtr, iproviderinstancecontext: isize, pdwcount: *mut u32) -> ::windows::core::HRESULT {
@@ -749,6 +775,8 @@ pub trait IProviderPropertyConstraintCollection_Impl: Sized {
     fn Reset(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
+impl ::windows::core::RuntimeName for IProviderPropertyConstraintCollection {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl IProviderPropertyConstraintCollection_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IProviderPropertyConstraintCollection_Impl, const OFFSET: isize>() -> IProviderPropertyConstraintCollection_Vtbl {
         unsafe extern "system" fn GetCount<Identity: ::windows::core::IUnknownImpl, Impl: IProviderPropertyConstraintCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwcount: *mut u32) -> ::windows::core::HRESULT {
@@ -807,6 +835,8 @@ pub trait IProviderPublishing_Impl: Sized {
     fn RemoveInstance(&self, enumvisibilityflags: SystemVisibilityFlags, pszsubcategory: &::windows::core::PCWSTR, pszproviderinstanceidentity: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
+impl ::windows::core::RuntimeName for IProviderPublishing {}
+#[cfg(feature = "Win32_System_Com")]
 impl IProviderPublishing_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IProviderPublishing_Impl, const OFFSET: isize>() -> IProviderPublishing_Vtbl {
         unsafe extern "system" fn CreateInstance<Identity: ::windows::core::IUnknownImpl, Impl: IProviderPublishing_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, enumvisibilityflags: SystemVisibilityFlags, pszsubcategory: ::windows::core::PCWSTR, pszproviderinstanceidentity: ::windows::core::PCWSTR, ppifunctioninstance: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -843,6 +873,7 @@ pub trait IProviderQueryConstraintCollection_Impl: Sized {
     fn Skip(&self) -> ::windows::core::Result<()>;
     fn Reset(&self) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IProviderQueryConstraintCollection {}
 impl IProviderQueryConstraintCollection_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IProviderQueryConstraintCollection_Impl, const OFFSET: isize>() -> IProviderQueryConstraintCollection_Vtbl {
         unsafe extern "system" fn GetCount<Identity: ::windows::core::IUnknownImpl, Impl: IProviderQueryConstraintCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwcount: *mut u32) -> ::windows::core::HRESULT {

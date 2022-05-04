@@ -5,6 +5,8 @@ pub trait IAction_Impl: Sized + super::Com::IDispatch_Impl {
     fn Type(&self, ptype: *mut TASK_ACTION_TYPE) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IAction {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IAction_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAction_Impl, const OFFSET: isize>() -> IAction_Vtbl {
         unsafe extern "system" fn Id<Identity: ::windows::core::IUnknownImpl, Impl: IAction_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pid: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
@@ -46,6 +48,8 @@ pub trait IActionCollection_Impl: Sized + super::Com::IDispatch_Impl {
     fn Context(&self, pcontext: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn SetContext(&self, context: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IActionCollection {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IActionCollection_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IActionCollection_Impl, const OFFSET: isize>() -> IActionCollection_Vtbl {
@@ -141,6 +145,8 @@ pub trait IBootTrigger_Impl: Sized + super::Com::IDispatch_Impl + ITrigger_Impl 
     fn SetDelay(&self, delay: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IBootTrigger {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IBootTrigger_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBootTrigger_Impl, const OFFSET: isize>() -> IBootTrigger_Vtbl {
         unsafe extern "system" fn Delay<Identity: ::windows::core::IUnknownImpl, Impl: IBootTrigger_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdelay: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
@@ -166,6 +172,8 @@ pub trait IComHandlerAction_Impl: Sized + super::Com::IDispatch_Impl + IAction_I
     fn Data(&self, pdata: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn SetData(&self, data: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IComHandlerAction {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IComHandlerAction_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IComHandlerAction_Impl, const OFFSET: isize>() -> IComHandlerAction_Vtbl {
@@ -208,6 +216,8 @@ pub trait IDailyTrigger_Impl: Sized + super::Com::IDispatch_Impl + ITrigger_Impl
     fn RandomDelay(&self, prandomdelay: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn SetRandomDelay(&self, randomdelay: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IDailyTrigger {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IDailyTrigger_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDailyTrigger_Impl, const OFFSET: isize>() -> IDailyTrigger_Vtbl {
@@ -266,6 +276,8 @@ pub trait IEmailAction_Impl: Sized + super::Com::IDispatch_Impl + IAction_Impl {
     fn Attachments(&self, pattachements: *mut *mut super::Com::SAFEARRAY) -> ::windows::core::Result<()>;
     fn SetAttachments(&self, pattachements: *mut super::Com::SAFEARRAY) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IEmailAction {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IEmailAction_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEmailAction_Impl, const OFFSET: isize>() -> IEmailAction_Vtbl {
@@ -409,6 +421,7 @@ pub trait IEnumWorkItems_Impl: Sized {
     fn Reset(&self) -> ::windows::core::Result<()>;
     fn Clone(&self) -> ::windows::core::Result<IEnumWorkItems>;
 }
+impl ::windows::core::RuntimeName for IEnumWorkItems {}
 impl IEnumWorkItems_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEnumWorkItems_Impl, const OFFSET: isize>() -> IEnumWorkItems_Vtbl {
         unsafe extern "system" fn Next<Identity: ::windows::core::IUnknownImpl, Impl: IEnumWorkItems_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, celt: u32, rgpwsznames: *mut *mut ::windows::core::PWSTR, pceltfetched: *mut u32) -> ::windows::core::HRESULT {
@@ -458,6 +471,8 @@ pub trait IEventTrigger_Impl: Sized + super::Com::IDispatch_Impl + ITrigger_Impl
     fn ValueQueries(&self) -> ::windows::core::Result<ITaskNamedValueCollection>;
     fn SetValueQueries(&self, pnamedxpaths: &::core::option::Option<ITaskNamedValueCollection>) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IEventTrigger {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IEventTrigger_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEventTrigger_Impl, const OFFSET: isize>() -> IEventTrigger_Vtbl {
@@ -521,6 +536,8 @@ pub trait IExecAction_Impl: Sized + super::Com::IDispatch_Impl + IAction_Impl {
     fn SetWorkingDirectory(&self, workingdirectory: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IExecAction {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IExecAction_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IExecAction_Impl, const OFFSET: isize>() -> IExecAction_Vtbl {
         unsafe extern "system" fn Path<Identity: ::windows::core::IUnknownImpl, Impl: IExecAction_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppath: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
@@ -573,6 +590,8 @@ pub trait IExecAction2_Impl: Sized + super::Com::IDispatch_Impl + IAction_Impl +
     fn SetHideAppWindow(&self, hideappwindow: i16) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IExecAction2 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IExecAction2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IExecAction2_Impl, const OFFSET: isize>() -> IExecAction2_Vtbl {
         unsafe extern "system" fn HideAppWindow<Identity: ::windows::core::IUnknownImpl, Impl: IExecAction2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, phideappwindow: *mut i16) -> ::windows::core::HRESULT {
@@ -606,6 +625,8 @@ pub trait IIdleSettings_Impl: Sized + super::Com::IDispatch_Impl {
     fn RestartOnIdle(&self, prestart: *mut i16) -> ::windows::core::Result<()>;
     fn SetRestartOnIdle(&self, restart: i16) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IIdleSettings {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IIdleSettings_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IIdleSettings_Impl, const OFFSET: isize>() -> IIdleSettings_Vtbl {
@@ -668,6 +689,8 @@ impl IIdleSettings_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IIdleTrigger_Impl: Sized + super::Com::IDispatch_Impl + ITrigger_Impl {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IIdleTrigger {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IIdleTrigger_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IIdleTrigger_Impl, const OFFSET: isize>() -> IIdleTrigger_Vtbl {
         Self { base__: ITrigger_Vtbl::new::<Identity, Impl, OFFSET>() }
@@ -683,6 +706,8 @@ pub trait ILogonTrigger_Impl: Sized + super::Com::IDispatch_Impl + ITrigger_Impl
     fn UserId(&self, puser: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn SetUserId(&self, user: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ILogonTrigger {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ILogonTrigger_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILogonTrigger_Impl, const OFFSET: isize>() -> ILogonTrigger_Vtbl {
@@ -727,6 +752,8 @@ pub trait IMaintenanceSettings_Impl: Sized + super::Com::IDispatch_Impl {
     fn SetExclusive(&self, value: i16) -> ::windows::core::Result<()>;
     fn Exclusive(&self, target: *mut i16) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IMaintenanceSettings {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMaintenanceSettings_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMaintenanceSettings_Impl, const OFFSET: isize>() -> IMaintenanceSettings_Vtbl {
@@ -787,6 +814,8 @@ pub trait IMonthlyDOWTrigger_Impl: Sized + super::Com::IDispatch_Impl + ITrigger
     fn RandomDelay(&self, prandomdelay: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn SetRandomDelay(&self, randomdelay: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IMonthlyDOWTrigger {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMonthlyDOWTrigger_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMonthlyDOWTrigger_Impl, const OFFSET: isize>() -> IMonthlyDOWTrigger_Vtbl {
@@ -870,6 +899,8 @@ pub trait IMonthlyTrigger_Impl: Sized + super::Com::IDispatch_Impl + ITrigger_Im
     fn SetRandomDelay(&self, randomdelay: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IMonthlyTrigger {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IMonthlyTrigger_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMonthlyTrigger_Impl, const OFFSET: isize>() -> IMonthlyTrigger_Vtbl {
         unsafe extern "system" fn DaysOfMonth<Identity: ::windows::core::IUnknownImpl, Impl: IMonthlyTrigger_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdays: *mut i32) -> ::windows::core::HRESULT {
@@ -936,6 +967,8 @@ pub trait INetworkSettings_Impl: Sized + super::Com::IDispatch_Impl {
     fn SetId(&self, id: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for INetworkSettings {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl INetworkSettings_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INetworkSettings_Impl, const OFFSET: isize>() -> INetworkSettings_Vtbl {
         unsafe extern "system" fn Name<Identity: ::windows::core::IUnknownImpl, Impl: INetworkSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
@@ -985,6 +1018,8 @@ pub trait IPrincipal_Impl: Sized + super::Com::IDispatch_Impl {
     fn RunLevel(&self, prunlevel: *mut TASK_RUNLEVEL_TYPE) -> ::windows::core::Result<()>;
     fn SetRunLevel(&self, runlevel: TASK_RUNLEVEL_TYPE) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IPrincipal {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IPrincipal_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrincipal_Impl, const OFFSET: isize>() -> IPrincipal_Vtbl {
@@ -1077,6 +1112,8 @@ pub trait IPrincipal2_Impl: Sized + super::Com::IDispatch_Impl {
     fn AddRequiredPrivilege(&self, privilege: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IPrincipal2 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IPrincipal2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPrincipal2_Impl, const OFFSET: isize>() -> IPrincipal2_Vtbl {
         unsafe extern "system" fn ProcessTokenSidType<Identity: ::windows::core::IUnknownImpl, Impl: IPrincipal2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pprocesstokensidtype: *mut TASK_PROCESSTOKENSID_TYPE) -> ::windows::core::HRESULT {
@@ -1122,6 +1159,8 @@ pub trait IProvideTaskPage_Impl: Sized {
     fn GetPage(&self, tptype: TASKPAGE, fpersistchanges: super::super::Foundation::BOOL) -> ::windows::core::Result<super::super::UI::Controls::HPROPSHEETPAGE>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
+impl ::windows::core::RuntimeName for IProvideTaskPage {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
 impl IProvideTaskPage_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IProvideTaskPage_Impl, const OFFSET: isize>() -> IProvideTaskPage_Vtbl {
         unsafe extern "system" fn GetPage<Identity: ::windows::core::IUnknownImpl, Impl: IProvideTaskPage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, tptype: TASKPAGE, fpersistchanges: super::super::Foundation::BOOL, phpage: *mut super::super::UI::Controls::HPROPSHEETPAGE) -> ::windows::core::HRESULT {
@@ -1162,6 +1201,8 @@ pub trait IRegisteredTask_Impl: Sized + super::Com::IDispatch_Impl {
     fn Stop(&self, flags: i32) -> ::windows::core::Result<()>;
     fn GetRunTimes(&self, pststart: *const super::super::Foundation::SYSTEMTIME, pstend: *const super::super::Foundation::SYSTEMTIME, pcount: *mut u32, pruntimes: *mut *mut super::super::Foundation::SYSTEMTIME) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IRegisteredTask {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IRegisteredTask_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRegisteredTask_Impl, const OFFSET: isize>() -> IRegisteredTask_Vtbl {
@@ -1372,6 +1413,8 @@ pub trait IRegisteredTaskCollection_Impl: Sized + super::Com::IDispatch_Impl {
     fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IRegisteredTaskCollection {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IRegisteredTaskCollection_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRegisteredTaskCollection_Impl, const OFFSET: isize>() -> IRegisteredTaskCollection_Vtbl {
         unsafe extern "system" fn Count<Identity: ::windows::core::IUnknownImpl, Impl: IRegisteredTaskCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcount: *mut i32) -> ::windows::core::HRESULT {
@@ -1439,6 +1482,8 @@ pub trait IRegistrationInfo_Impl: Sized + super::Com::IDispatch_Impl {
     fn Source(&self, psource: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn SetSource(&self, source: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IRegistrationInfo {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IRegistrationInfo_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRegistrationInfo_Impl, const OFFSET: isize>() -> IRegistrationInfo_Vtbl {
@@ -1564,6 +1609,8 @@ pub trait IRegistrationTrigger_Impl: Sized + super::Com::IDispatch_Impl + ITrigg
     fn SetDelay(&self, delay: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IRegistrationTrigger {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IRegistrationTrigger_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRegistrationTrigger_Impl, const OFFSET: isize>() -> IRegistrationTrigger_Vtbl {
         unsafe extern "system" fn Delay<Identity: ::windows::core::IUnknownImpl, Impl: IRegistrationTrigger_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdelay: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
@@ -1591,6 +1638,8 @@ pub trait IRepetitionPattern_Impl: Sized + super::Com::IDispatch_Impl {
     fn StopAtDurationEnd(&self, pstop: *mut i16) -> ::windows::core::Result<()>;
     fn SetStopAtDurationEnd(&self, stop: i16) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IRepetitionPattern {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IRepetitionPattern_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRepetitionPattern_Impl, const OFFSET: isize>() -> IRepetitionPattern_Vtbl {
@@ -1649,6 +1698,8 @@ pub trait IRunningTask_Impl: Sized + super::Com::IDispatch_Impl {
     fn Refresh(&self) -> ::windows::core::Result<()>;
     fn EnginePID(&self) -> ::windows::core::Result<u32>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IRunningTask {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IRunningTask_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRunningTask_Impl, const OFFSET: isize>() -> IRunningTask_Vtbl {
@@ -1751,6 +1802,8 @@ pub trait IRunningTaskCollection_Impl: Sized + super::Com::IDispatch_Impl {
     fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IRunningTaskCollection {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IRunningTaskCollection_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRunningTaskCollection_Impl, const OFFSET: isize>() -> IRunningTaskCollection_Vtbl {
         unsafe extern "system" fn Count<Identity: ::windows::core::IUnknownImpl, Impl: IRunningTaskCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcount: *mut i32) -> ::windows::core::HRESULT {
@@ -1829,6 +1882,8 @@ pub trait IScheduledWorkItem_Impl: Sized {
     fn SetAccountInformation(&self, pwszaccountname: &::windows::core::PCWSTR, pwszpassword: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn GetAccountInformation(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IScheduledWorkItem {}
 #[cfg(feature = "Win32_Foundation")]
 impl IScheduledWorkItem_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IScheduledWorkItem_Impl, const OFFSET: isize>() -> IScheduledWorkItem_Vtbl {
@@ -2096,6 +2151,8 @@ pub trait ISessionStateChangeTrigger_Impl: Sized + super::Com::IDispatch_Impl + 
     fn SetStateChange(&self, r#type: TASK_SESSION_STATE_CHANGE_TYPE) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ISessionStateChangeTrigger {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ISessionStateChangeTrigger_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISessionStateChangeTrigger_Impl, const OFFSET: isize>() -> ISessionStateChangeTrigger_Vtbl {
         unsafe extern "system" fn Delay<Identity: ::windows::core::IUnknownImpl, Impl: ISessionStateChangeTrigger_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdelay: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
@@ -2150,6 +2207,8 @@ pub trait IShowMessageAction_Impl: Sized + super::Com::IDispatch_Impl + IAction_
     fn SetMessageBody(&self, messagebody: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IShowMessageAction {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IShowMessageAction_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IShowMessageAction_Impl, const OFFSET: isize>() -> IShowMessageAction_Vtbl {
         unsafe extern "system" fn Title<Identity: ::windows::core::IUnknownImpl, Impl: IShowMessageAction_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptitle: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
@@ -2199,6 +2258,8 @@ pub trait ITask_Impl: Sized + IScheduledWorkItem_Impl {
     fn SetMaxRunTime(&self, dwmaxruntimems: u32) -> ::windows::core::Result<()>;
     fn GetMaxRunTime(&self) -> ::windows::core::Result<u32>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for ITask {}
 #[cfg(feature = "Win32_Foundation")]
 impl ITask_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITask_Impl, const OFFSET: isize>() -> ITask_Vtbl {
@@ -2335,6 +2396,8 @@ pub trait ITaskDefinition_Impl: Sized + super::Com::IDispatch_Impl {
     fn XmlText(&self, pxml: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn SetXmlText(&self, xml: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ITaskDefinition {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITaskDefinition_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITaskDefinition_Impl, const OFFSET: isize>() -> ITaskDefinition_Vtbl {
@@ -2476,6 +2539,8 @@ pub trait ITaskFolder_Impl: Sized + super::Com::IDispatch_Impl {
     fn GetSecurityDescriptor(&self, securityinformation: i32) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn SetSecurityDescriptor(&self, sddl: &super::super::Foundation::BSTR, flags: i32) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ITaskFolder {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITaskFolder_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITaskFolder_Impl, const OFFSET: isize>() -> ITaskFolder_Vtbl {
@@ -2632,6 +2697,8 @@ pub trait ITaskFolderCollection_Impl: Sized + super::Com::IDispatch_Impl {
     fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ITaskFolderCollection {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITaskFolderCollection_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITaskFolderCollection_Impl, const OFFSET: isize>() -> ITaskFolderCollection_Vtbl {
         unsafe extern "system" fn Count<Identity: ::windows::core::IUnknownImpl, Impl: ITaskFolderCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcount: *mut i32) -> ::windows::core::HRESULT {
@@ -2686,6 +2753,8 @@ pub trait ITaskHandler_Impl: Sized {
     fn Resume(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for ITaskHandler {}
+#[cfg(feature = "Win32_Foundation")]
 impl ITaskHandler_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITaskHandler_Impl, const OFFSET: isize>() -> ITaskHandler_Vtbl {
         unsafe extern "system" fn Start<Identity: ::windows::core::IUnknownImpl, Impl: ITaskHandler_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, phandlerservices: *mut ::core::ffi::c_void, data: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
@@ -2732,6 +2801,8 @@ pub trait ITaskHandlerStatus_Impl: Sized {
     fn TaskCompleted(&self, taskerrcode: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for ITaskHandlerStatus {}
+#[cfg(feature = "Win32_Foundation")]
 impl ITaskHandlerStatus_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITaskHandlerStatus_Impl, const OFFSET: isize>() -> ITaskHandlerStatus_Vtbl {
         unsafe extern "system" fn UpdateStatus<Identity: ::windows::core::IUnknownImpl, Impl: ITaskHandlerStatus_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, percentcomplete: i16, statusmessage: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
@@ -2763,6 +2834,8 @@ pub trait ITaskNamedValueCollection_Impl: Sized + super::Com::IDispatch_Impl {
     fn Remove(&self, index: i32) -> ::windows::core::Result<()>;
     fn Clear(&self) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ITaskNamedValueCollection {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITaskNamedValueCollection_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITaskNamedValueCollection_Impl, const OFFSET: isize>() -> ITaskNamedValueCollection_Vtbl {
@@ -2836,6 +2909,8 @@ pub trait ITaskNamedValuePair_Impl: Sized + super::Com::IDispatch_Impl {
     fn SetValue(&self, value: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ITaskNamedValuePair {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITaskNamedValuePair_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITaskNamedValuePair_Impl, const OFFSET: isize>() -> ITaskNamedValuePair_Vtbl {
         unsafe extern "system" fn Name<Identity: ::windows::core::IUnknownImpl, Impl: ITaskNamedValuePair_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
@@ -2880,6 +2955,7 @@ pub trait ITaskScheduler_Impl: Sized {
     fn AddWorkItem(&self, pwsztaskname: &::windows::core::PCWSTR, pworkitem: &::core::option::Option<IScheduledWorkItem>) -> ::windows::core::Result<()>;
     fn IsOfType(&self, pwszname: &::windows::core::PCWSTR, riid: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for ITaskScheduler {}
 impl ITaskScheduler_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITaskScheduler_Impl, const OFFSET: isize>() -> ITaskScheduler_Vtbl {
         unsafe extern "system" fn SetTargetComputer<Identity: ::windows::core::IUnknownImpl, Impl: ITaskScheduler_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszcomputer: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
@@ -2974,6 +3050,8 @@ pub trait ITaskService_Impl: Sized + super::Com::IDispatch_Impl {
     fn ConnectedDomain(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
     fn HighestVersion(&self) -> ::windows::core::Result<u32>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ITaskService {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITaskService_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITaskService_Impl, const OFFSET: isize>() -> ITaskService_Vtbl {
@@ -3130,6 +3208,8 @@ pub trait ITaskSettings_Impl: Sized + super::Com::IDispatch_Impl {
     fn NetworkSettings(&self) -> ::windows::core::Result<INetworkSettings>;
     fn SetNetworkSettings(&self, pnetworksettings: &::core::option::Option<INetworkSettings>) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ITaskSettings {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITaskSettings_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITaskSettings_Impl, const OFFSET: isize>() -> ITaskSettings_Vtbl {
@@ -3401,6 +3481,8 @@ pub trait ITaskSettings2_Impl: Sized + super::Com::IDispatch_Impl {
     fn SetUseUnifiedSchedulingEngine(&self, useunifiedengine: i16) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ITaskSettings2 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITaskSettings2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITaskSettings2_Impl, const OFFSET: isize>() -> ITaskSettings2_Vtbl {
         unsafe extern "system" fn DisallowStartOnRemoteAppSession<Identity: ::windows::core::IUnknownImpl, Impl: ITaskSettings2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdisallowstart: *mut i16) -> ::windows::core::HRESULT {
@@ -3447,6 +3529,8 @@ pub trait ITaskSettings3_Impl: Sized + super::Com::IDispatch_Impl + ITaskSetting
     fn Volatile(&self, pvolatile: *mut i16) -> ::windows::core::Result<()>;
     fn SetVolatile(&self, volatile: i16) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ITaskSettings3 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITaskSettings3_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITaskSettings3_Impl, const OFFSET: isize>() -> ITaskSettings3_Vtbl {
@@ -3529,6 +3613,7 @@ pub trait ITaskTrigger_Impl: Sized {
     fn GetTrigger(&self) -> ::windows::core::Result<TASK_TRIGGER>;
     fn GetTriggerString(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
 }
+impl ::windows::core::RuntimeName for ITaskTrigger {}
 impl ITaskTrigger_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITaskTrigger_Impl, const OFFSET: isize>() -> ITaskTrigger_Vtbl {
         unsafe extern "system" fn SetTrigger<Identity: ::windows::core::IUnknownImpl, Impl: ITaskTrigger_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptrigger: *const TASK_TRIGGER) -> ::windows::core::HRESULT {
@@ -3576,6 +3661,8 @@ pub trait ITaskVariables_Impl: Sized {
     fn GetContext(&self) -> ::windows::core::Result<super::super::Foundation::BSTR>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for ITaskVariables {}
+#[cfg(feature = "Win32_Foundation")]
 impl ITaskVariables_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITaskVariables_Impl, const OFFSET: isize>() -> ITaskVariables_Vtbl {
         unsafe extern "system" fn GetInput<Identity: ::windows::core::IUnknownImpl, Impl: ITaskVariables_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinput: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
@@ -3622,6 +3709,8 @@ pub trait ITimeTrigger_Impl: Sized + super::Com::IDispatch_Impl + ITrigger_Impl 
     fn SetRandomDelay(&self, randomdelay: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ITimeTrigger {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITimeTrigger_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITimeTrigger_Impl, const OFFSET: isize>() -> ITimeTrigger_Vtbl {
         unsafe extern "system" fn RandomDelay<Identity: ::windows::core::IUnknownImpl, Impl: ITimeTrigger_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, prandomdelay: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
@@ -3660,6 +3749,8 @@ pub trait ITrigger_Impl: Sized + super::Com::IDispatch_Impl {
     fn Enabled(&self, penabled: *mut i16) -> ::windows::core::Result<()>;
     fn SetEnabled(&self, enabled: i16) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ITrigger {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITrigger_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITrigger_Impl, const OFFSET: isize>() -> ITrigger_Vtbl {
@@ -3765,6 +3856,8 @@ pub trait ITriggerCollection_Impl: Sized + super::Com::IDispatch_Impl {
     fn Clear(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for ITriggerCollection {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITriggerCollection_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITriggerCollection_Impl, const OFFSET: isize>() -> ITriggerCollection_Vtbl {
         unsafe extern "system" fn Count<Identity: ::windows::core::IUnknownImpl, Impl: ITriggerCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcount: *mut i32) -> ::windows::core::HRESULT {
@@ -3838,6 +3931,8 @@ pub trait IWeeklyTrigger_Impl: Sized + super::Com::IDispatch_Impl + ITrigger_Imp
     fn RandomDelay(&self, prandomdelay: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn SetRandomDelay(&self, randomdelay: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IWeeklyTrigger {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWeeklyTrigger_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWeeklyTrigger_Impl, const OFFSET: isize>() -> IWeeklyTrigger_Vtbl {

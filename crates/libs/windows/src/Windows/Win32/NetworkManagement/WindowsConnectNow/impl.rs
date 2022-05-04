@@ -2,6 +2,7 @@ pub trait IWCNConnectNotify_Impl: Sized {
     fn ConnectSucceeded(&self) -> ::windows::core::Result<()>;
     fn ConnectFailed(&self, hrfailure: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IWCNConnectNotify {}
 impl IWCNConnectNotify_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWCNConnectNotify_Impl, const OFFSET: isize>() -> IWCNConnectNotify_Vtbl {
         unsafe extern "system" fn ConnectSucceeded<Identity: ::windows::core::IUnknownImpl, Impl: IWCNConnectNotify_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -37,6 +38,7 @@ pub trait IWCNDevice_Impl: Sized {
     fn Unadvise(&self) -> ::windows::core::Result<()>;
     fn SetNFCPasswordParams(&self, r#type: WCN_PASSWORD_TYPE, dwoobpasswordid: u32, dwpasswordlength: u32, pbpassword: *const u8, dwremotepublickeyhashlength: u32, pbremotepublickeyhash: *const u8, dwdhkeybloblength: u32, pbdhkeyblob: *const u8) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IWCNDevice {}
 impl IWCNDevice_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWCNDevice_Impl, const OFFSET: isize>() -> IWCNDevice_Vtbl {
         unsafe extern "system" fn SetPassword<Identity: ::windows::core::IUnknownImpl, Impl: IWCNDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, r#type: WCN_PASSWORD_TYPE, dwpasswordlength: u32, pbpassword: *const u8) -> ::windows::core::HRESULT {

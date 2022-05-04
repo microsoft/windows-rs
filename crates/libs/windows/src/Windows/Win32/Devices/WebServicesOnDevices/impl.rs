@@ -4,6 +4,8 @@ pub trait IWSDAddress_Impl: Sized {
     fn Deserialize(&self, pszbuffer: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IWSDAddress {}
+#[cfg(feature = "Win32_Foundation")]
 impl IWSDAddress_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWSDAddress_Impl, const OFFSET: isize>() -> IWSDAddress_Vtbl {
         unsafe extern "system" fn Serialize<Identity: ::windows::core::IUnknownImpl, Impl: IWSDAddress_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszbuffer: ::windows::core::PWSTR, cchlength: u32, fsafe: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
@@ -29,6 +31,7 @@ impl IWSDAddress_Vtbl {
 pub trait IWSDAsyncCallback_Impl: Sized {
     fn AsyncOperationComplete(&self, pasyncresult: &::core::option::Option<IWSDAsyncResult>, pasyncstate: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IWSDAsyncCallback {}
 impl IWSDAsyncCallback_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWSDAsyncCallback_Impl, const OFFSET: isize>() -> IWSDAsyncCallback_Vtbl {
         unsafe extern "system" fn AsyncOperationComplete<Identity: ::windows::core::IUnknownImpl, Impl: IWSDAsyncCallback_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pasyncresult: ::windows::core::RawPtr, pasyncstate: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -52,6 +55,8 @@ pub trait IWSDAsyncResult_Impl: Sized {
     fn GetEvent(&self) -> ::windows::core::Result<WSD_EVENT>;
     fn GetEndpointProxy(&self) -> ::windows::core::Result<IWSDEndpointProxy>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IWSDAsyncResult {}
 #[cfg(feature = "Win32_Foundation")]
 impl IWSDAsyncResult_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWSDAsyncResult_Impl, const OFFSET: isize>() -> IWSDAsyncResult_Vtbl {
@@ -124,6 +129,7 @@ impl IWSDAsyncResult_Vtbl {
     }
 }
 pub trait IWSDAttachment_Impl: Sized {}
+impl ::windows::core::RuntimeName for IWSDAttachment {}
 impl IWSDAttachment_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWSDAttachment_Impl, const OFFSET: isize>() -> IWSDAttachment_Vtbl {
         Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>() }
@@ -147,6 +153,8 @@ pub trait IWSDDeviceHost_Impl: Sized {
     fn SetServiceDiscoverable(&self, pszserviceid: &::windows::core::PCWSTR, fdiscoverable: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn SignalEvent(&self, pszserviceid: &::windows::core::PCWSTR, pbody: *const ::core::ffi::c_void, poperation: *const WSD_OPERATION) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IWSDDeviceHost {}
 #[cfg(feature = "Win32_Foundation")]
 impl IWSDDeviceHost_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWSDDeviceHost_Impl, const OFFSET: isize>() -> IWSDDeviceHost_Vtbl {
@@ -233,6 +241,7 @@ impl IWSDDeviceHost_Vtbl {
 pub trait IWSDDeviceHostNotify_Impl: Sized {
     fn GetService(&self, pszserviceid: &::windows::core::PCWSTR) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
+impl ::windows::core::RuntimeName for IWSDDeviceHostNotify {}
 impl IWSDDeviceHostNotify_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWSDDeviceHostNotify_Impl, const OFFSET: isize>() -> IWSDDeviceHostNotify_Vtbl {
         unsafe extern "system" fn GetService<Identity: ::windows::core::IUnknownImpl, Impl: IWSDDeviceHostNotify_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszserviceid: ::windows::core::PCWSTR, ppservice: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -264,6 +273,7 @@ pub trait IWSDDeviceProxy_Impl: Sized {
     fn GetServiceProxyByType(&self, ptype: *const WSDXML_NAME) -> ::windows::core::Result<IWSDServiceProxy>;
     fn GetEndpointProxy(&self) -> ::windows::core::Result<IWSDEndpointProxy>;
 }
+impl ::windows::core::RuntimeName for IWSDDeviceProxy {}
 impl IWSDDeviceProxy_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWSDDeviceProxy_Impl, const OFFSET: isize>() -> IWSDDeviceProxy_Vtbl {
         unsafe extern "system" fn Init<Identity: ::windows::core::IUnknownImpl, Impl: IWSDDeviceProxy_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszdeviceid: ::windows::core::PCWSTR, pdeviceaddress: ::windows::core::RawPtr, pszlocalid: ::windows::core::PCWSTR, pcontext: ::windows::core::RawPtr, psponsor: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -393,6 +403,8 @@ pub trait IWSDEndpointProxy_Impl: Sized {
     fn GetFaultInfo(&self) -> ::windows::core::Result<*mut WSD_SOAP_FAULT>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IWSDEndpointProxy {}
+#[cfg(feature = "Win32_Foundation")]
 impl IWSDEndpointProxy_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWSDEndpointProxy_Impl, const OFFSET: isize>() -> IWSDEndpointProxy_Vtbl {
         unsafe extern "system" fn SendOneWayRequest<Identity: ::windows::core::IUnknownImpl, Impl: IWSDEndpointProxy_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbody: *const ::core::ffi::c_void, poperation: *const WSD_OPERATION) -> ::windows::core::HRESULT {
@@ -468,6 +480,7 @@ pub trait IWSDEventingStatus_Impl: Sized {
     fn SubscriptionRenewalFailed(&self, pszsubscriptionaction: &::windows::core::PCWSTR, hr: ::windows::core::HRESULT);
     fn SubscriptionEnded(&self, pszsubscriptionaction: &::windows::core::PCWSTR);
 }
+impl ::windows::core::RuntimeName for IWSDEventingStatus {}
 impl IWSDEventingStatus_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWSDEventingStatus_Impl, const OFFSET: isize>() -> IWSDEventingStatus_Vtbl {
         unsafe extern "system" fn SubscriptionRenewed<Identity: ::windows::core::IUnknownImpl, Impl: IWSDEventingStatus_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszsubscriptionaction: ::windows::core::PCWSTR) {
@@ -503,6 +516,8 @@ pub trait IWSDHttpAddress_Impl: Sized + IWSDAddress_Impl + IWSDTransportAddress_
     fn GetPath(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
     fn SetPath(&self, pszpath: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IWSDHttpAddress {}
 #[cfg(feature = "Win32_Foundation")]
 impl IWSDHttpAddress_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWSDHttpAddress_Impl, const OFFSET: isize>() -> IWSDHttpAddress_Vtbl {
@@ -550,6 +565,8 @@ pub trait IWSDHttpAuthParameters_Impl: Sized {
     fn GetAuthType(&self) -> ::windows::core::Result<u32>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IWSDHttpAuthParameters {}
+#[cfg(feature = "Win32_Foundation")]
 impl IWSDHttpAuthParameters_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWSDHttpAuthParameters_Impl, const OFFSET: isize>() -> IWSDHttpAuthParameters_Vtbl {
         unsafe extern "system" fn GetClientAccessToken<Identity: ::windows::core::IUnknownImpl, Impl: IWSDHttpAuthParameters_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, phtoken: *mut super::super::Foundation::HANDLE) -> ::windows::core::HRESULT {
@@ -595,6 +612,7 @@ pub trait IWSDHttpMessageParameters_Impl: Sized + IWSDMessageParameters_Impl {
     fn GetContext(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
     fn Clear(&self) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IWSDHttpMessageParameters {}
 impl IWSDHttpMessageParameters_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWSDHttpMessageParameters_Impl, const OFFSET: isize>() -> IWSDHttpMessageParameters_Vtbl {
         unsafe extern "system" fn SetInboundHttpHeaders<Identity: ::windows::core::IUnknownImpl, Impl: IWSDHttpMessageParameters_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszheaders: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
@@ -687,6 +705,7 @@ pub trait IWSDInboundAttachment_Impl: Sized + IWSDAttachment_Impl {
     fn Read(&self, pbuffer: *mut u8, dwbytestoread: u32, pdwnumberofbytesread: *mut u32) -> ::windows::core::Result<()>;
     fn Close(&self) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IWSDInboundAttachment {}
 impl IWSDInboundAttachment_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWSDInboundAttachment_Impl, const OFFSET: isize>() -> IWSDInboundAttachment_Vtbl {
         unsafe extern "system" fn Read<Identity: ::windows::core::IUnknownImpl, Impl: IWSDInboundAttachment_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbuffer: *mut u8, dwbytestoread: u32, pdwnumberofbytesread: *mut u32) -> ::windows::core::HRESULT {
@@ -712,6 +731,7 @@ pub trait IWSDMessageParameters_Impl: Sized {
     fn SetRemoteAddress(&self, paddress: &::core::option::Option<IWSDAddress>) -> ::windows::core::Result<()>;
     fn GetLowerParameters(&self) -> ::windows::core::Result<IWSDMessageParameters>;
 }
+impl ::windows::core::RuntimeName for IWSDMessageParameters {}
 impl IWSDMessageParameters_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWSDMessageParameters_Impl, const OFFSET: isize>() -> IWSDMessageParameters_Vtbl {
         unsafe extern "system" fn GetLocalAddress<Identity: ::windows::core::IUnknownImpl, Impl: IWSDMessageParameters_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppaddress: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -773,6 +793,7 @@ impl IWSDMessageParameters_Vtbl {
 pub trait IWSDMetadataExchange_Impl: Sized {
     fn GetMetadata(&self) -> ::windows::core::Result<*mut WSD_METADATA_SECTION_LIST>;
 }
+impl ::windows::core::RuntimeName for IWSDMetadataExchange {}
 impl IWSDMetadataExchange_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWSDMetadataExchange_Impl, const OFFSET: isize>() -> IWSDMetadataExchange_Vtbl {
         unsafe extern "system" fn GetMetadata<Identity: ::windows::core::IUnknownImpl, Impl: IWSDMetadataExchange_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, metadataout: *mut *mut WSD_METADATA_SECTION_LIST) -> ::windows::core::HRESULT {
@@ -797,6 +818,7 @@ pub trait IWSDOutboundAttachment_Impl: Sized + IWSDAttachment_Impl {
     fn Close(&self) -> ::windows::core::Result<()>;
     fn Abort(&self) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IWSDOutboundAttachment {}
 impl IWSDOutboundAttachment_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWSDOutboundAttachment_Impl, const OFFSET: isize>() -> IWSDOutboundAttachment_Vtbl {
         unsafe extern "system" fn Write<Identity: ::windows::core::IUnknownImpl, Impl: IWSDOutboundAttachment_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbuffer: *const u8, dwbytestowrite: u32, pdwnumberofbyteswritten: *mut u32) -> ::windows::core::HRESULT {
@@ -836,6 +858,8 @@ pub trait IWSDSSLClientCertificate_Impl: Sized {
     fn GetClientCertificate(&self) -> ::windows::core::Result<*mut super::super::Security::Cryptography::CERT_CONTEXT>;
     fn GetMappedAccessToken(&self) -> ::windows::core::Result<super::super::Foundation::HANDLE>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+impl ::windows::core::RuntimeName for IWSDSSLClientCertificate {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl IWSDSSLClientCertificate_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWSDSSLClientCertificate_Impl, const OFFSET: isize>() -> IWSDSSLClientCertificate_Vtbl {
@@ -877,6 +901,8 @@ pub trait IWSDScopeMatchingRule_Impl: Sized {
     fn MatchScopes(&self, pszscope1: &::windows::core::PCWSTR, pszscope2: &::windows::core::PCWSTR) -> ::windows::core::Result<super::super::Foundation::BOOL>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IWSDScopeMatchingRule {}
+#[cfg(feature = "Win32_Foundation")]
 impl IWSDScopeMatchingRule_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWSDScopeMatchingRule_Impl, const OFFSET: isize>() -> IWSDScopeMatchingRule_Vtbl {
         unsafe extern "system" fn GetScopeRule<Identity: ::windows::core::IUnknownImpl, Impl: IWSDScopeMatchingRule_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszscopematchingrule: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
@@ -915,6 +941,7 @@ pub trait IWSDServiceMessaging_Impl: Sized {
     fn SendResponse(&self, pbody: *const ::core::ffi::c_void, poperation: *const WSD_OPERATION, pmessageparameters: &::core::option::Option<IWSDMessageParameters>) -> ::windows::core::Result<()>;
     fn FaultRequest(&self, prequestheader: *const WSD_SOAP_HEADER, pmessageparameters: &::core::option::Option<IWSDMessageParameters>, pfault: *const WSD_SOAP_FAULT) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IWSDServiceMessaging {}
 impl IWSDServiceMessaging_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWSDServiceMessaging_Impl, const OFFSET: isize>() -> IWSDServiceMessaging_Vtbl {
         unsafe extern "system" fn SendResponse<Identity: ::windows::core::IUnknownImpl, Impl: IWSDServiceMessaging_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbody: *const ::core::ffi::c_void, poperation: *const WSD_OPERATION, pmessageparameters: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -946,6 +973,7 @@ pub trait IWSDServiceProxy_Impl: Sized + IWSDMetadataExchange_Impl {
     fn SetEventingStatusCallback(&self, pstatus: &::core::option::Option<IWSDEventingStatus>) -> ::windows::core::Result<()>;
     fn GetEndpointProxy(&self) -> ::windows::core::Result<IWSDEndpointProxy>;
 }
+impl ::windows::core::RuntimeName for IWSDServiceProxy {}
 impl IWSDServiceProxy_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWSDServiceProxy_Impl, const OFFSET: isize>() -> IWSDServiceProxy_Vtbl {
         unsafe extern "system" fn BeginGetMetadata<Identity: ::windows::core::IUnknownImpl, Impl: IWSDServiceProxy_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -1043,6 +1071,8 @@ pub trait IWSDServiceProxyEventing_Impl: Sized + IWSDMetadataExchange_Impl + IWS
     fn BeginGetStatusForMultipleOperations(&self, poperations: *const WSD_OPERATION, dwoperationcount: u32, pany: *const WSDXML_ELEMENT, pasyncstate: &::core::option::Option<::windows::core::IUnknown>, pasynccallback: &::core::option::Option<IWSDAsyncCallback>) -> ::windows::core::Result<IWSDAsyncResult>;
     fn EndGetStatusForMultipleOperations(&self, poperations: *const WSD_OPERATION, dwoperationcount: u32, presult: &::core::option::Option<IWSDAsyncResult>, ppexpires: *mut *mut WSD_EVENTING_EXPIRES, ppany: *mut *mut WSDXML_ELEMENT) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IWSDServiceProxyEventing {}
 #[cfg(feature = "Win32_Foundation")]
 impl IWSDServiceProxyEventing_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWSDServiceProxyEventing_Impl, const OFFSET: isize>() -> IWSDServiceProxyEventing_Vtbl {
@@ -1159,6 +1189,8 @@ pub trait IWSDSignatureProperty_Impl: Sized {
     fn GetSignedInfoHash(&self, pbsignedinfohash: *mut u8, pdwhashsize: *mut u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IWSDSignatureProperty {}
+#[cfg(feature = "Win32_Foundation")]
 impl IWSDSignatureProperty_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWSDSignatureProperty_Impl, const OFFSET: isize>() -> IWSDSignatureProperty_Vtbl {
         unsafe extern "system" fn IsMessageSigned<Identity: ::windows::core::IUnknownImpl, Impl: IWSDSignatureProperty_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbsigned: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
@@ -1219,6 +1251,8 @@ pub trait IWSDTransportAddress_Impl: Sized + IWSDAddress_Impl {
     fn GetTransportAddressEx(&self, fsafe: super::super::Foundation::BOOL) -> ::windows::core::Result<::windows::core::PWSTR>;
     fn SetTransportAddress(&self, pszaddress: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IWSDTransportAddress {}
 #[cfg(feature = "Win32_Foundation")]
 impl IWSDTransportAddress_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWSDTransportAddress_Impl, const OFFSET: isize>() -> IWSDTransportAddress_Vtbl {
@@ -1291,6 +1325,8 @@ pub trait IWSDUdpAddress_Impl: Sized + IWSDAddress_Impl + IWSDTransportAddress_I
     fn SetAlias(&self, palias: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
     fn GetAlias(&self) -> ::windows::core::Result<::windows::core::GUID>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::windows::core::RuntimeName for IWSDUdpAddress {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl IWSDUdpAddress_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWSDUdpAddress_Impl, const OFFSET: isize>() -> IWSDUdpAddress_Vtbl {
@@ -1390,6 +1426,7 @@ pub trait IWSDUdpMessageParameters_Impl: Sized + IWSDMessageParameters_Impl {
     fn SetRetransmitParams(&self, pparams: *const WSDUdpRetransmitParams) -> ::windows::core::Result<()>;
     fn GetRetransmitParams(&self) -> ::windows::core::Result<WSDUdpRetransmitParams>;
 }
+impl ::windows::core::RuntimeName for IWSDUdpMessageParameters {}
 impl IWSDUdpMessageParameters_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWSDUdpMessageParameters_Impl, const OFFSET: isize>() -> IWSDUdpMessageParameters_Vtbl {
         unsafe extern "system" fn SetRetransmitParams<Identity: ::windows::core::IUnknownImpl, Impl: IWSDUdpMessageParameters_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pparams: *const WSDUdpRetransmitParams) -> ::windows::core::HRESULT {
@@ -1424,6 +1461,7 @@ pub trait IWSDXMLContext_Impl: Sized {
     fn SetNamespaces(&self, pnamespaces: *const *const WSDXML_NAMESPACE, wnamespacescount: u16, blayernumber: u8) -> ::windows::core::Result<()>;
     fn SetTypes(&self, ptypes: *const *const WSDXML_TYPE, dwtypescount: u32, blayernumber: u8) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IWSDXMLContext {}
 impl IWSDXMLContext_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWSDXMLContext_Impl, const OFFSET: isize>() -> IWSDXMLContext_Vtbl {
         unsafe extern "system" fn AddNamespace<Identity: ::windows::core::IUnknownImpl, Impl: IWSDXMLContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszuri: ::windows::core::PCWSTR, pszsuggestedprefix: ::windows::core::PCWSTR, ppnamespace: *mut *mut WSDXML_NAMESPACE) -> ::windows::core::HRESULT {
@@ -1483,6 +1521,7 @@ pub trait IWSDiscoveredService_Impl: Sized {
     fn GetLocalInterfaceGUID(&self) -> ::windows::core::Result<::windows::core::GUID>;
     fn GetInstanceId(&self) -> ::windows::core::Result<u64>;
 }
+impl ::windows::core::RuntimeName for IWSDiscoveredService {}
 impl IWSDiscoveredService_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWSDiscoveredService_Impl, const OFFSET: isize>() -> IWSDiscoveredService_Vtbl {
         unsafe extern "system" fn GetEndpointReference<Identity: ::windows::core::IUnknownImpl, Impl: IWSDiscoveredService_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppendpointreference: *mut *mut WSD_ENDPOINT_REFERENCE) -> ::windows::core::HRESULT {
@@ -1628,6 +1667,7 @@ pub trait IWSDiscoveryProvider_Impl: Sized {
     fn SearchByType(&self, ptypeslist: *const WSD_NAME_LIST, pscopeslist: *const WSD_URI_LIST, pszmatchby: &::windows::core::PCWSTR, psztag: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn GetXMLContext(&self) -> ::windows::core::Result<IWSDXMLContext>;
 }
+impl ::windows::core::RuntimeName for IWSDiscoveryProvider {}
 impl IWSDiscoveryProvider_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWSDiscoveryProvider_Impl, const OFFSET: isize>() -> IWSDiscoveryProvider_Vtbl {
         unsafe extern "system" fn SetAddressFamily<Identity: ::windows::core::IUnknownImpl, Impl: IWSDiscoveryProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwaddressfamily: u32) -> ::windows::core::HRESULT {
@@ -1692,6 +1732,7 @@ pub trait IWSDiscoveryProviderNotify_Impl: Sized {
     fn SearchFailed(&self, hr: ::windows::core::HRESULT, psztag: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn SearchComplete(&self, psztag: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IWSDiscoveryProviderNotify {}
 impl IWSDiscoveryProviderNotify_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWSDiscoveryProviderNotify_Impl, const OFFSET: isize>() -> IWSDiscoveryProviderNotify_Vtbl {
         unsafe extern "system" fn Add<Identity: ::windows::core::IUnknownImpl, Impl: IWSDiscoveryProviderNotify_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pservice: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -1741,6 +1782,7 @@ pub trait IWSDiscoveryPublisher_Impl: Sized {
     fn UnRegisterScopeMatchingRule(&self, pscopematchingrule: &::core::option::Option<IWSDScopeMatchingRule>) -> ::windows::core::Result<()>;
     fn GetXMLContext(&self) -> ::windows::core::Result<IWSDXMLContext>;
 }
+impl ::windows::core::RuntimeName for IWSDiscoveryPublisher {}
 impl IWSDiscoveryPublisher_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWSDiscoveryPublisher_Impl, const OFFSET: isize>() -> IWSDiscoveryPublisher_Vtbl {
         unsafe extern "system" fn SetAddressFamily<Identity: ::windows::core::IUnknownImpl, Impl: IWSDiscoveryPublisher_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwaddressfamily: u32) -> ::windows::core::HRESULT {
@@ -1891,6 +1933,7 @@ pub trait IWSDiscoveryPublisherNotify_Impl: Sized {
     fn ProbeHandler(&self, psoap: *const WSD_SOAP_MESSAGE, pmessageparameters: &::core::option::Option<IWSDMessageParameters>) -> ::windows::core::Result<()>;
     fn ResolveHandler(&self, psoap: *const WSD_SOAP_MESSAGE, pmessageparameters: &::core::option::Option<IWSDMessageParameters>) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IWSDiscoveryPublisherNotify {}
 impl IWSDiscoveryPublisherNotify_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWSDiscoveryPublisherNotify_Impl, const OFFSET: isize>() -> IWSDiscoveryPublisherNotify_Vtbl {
         unsafe extern "system" fn ProbeHandler<Identity: ::windows::core::IUnknownImpl, Impl: IWSDiscoveryPublisherNotify_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psoap: *const WSD_SOAP_MESSAGE, pmessageparameters: ::windows::core::RawPtr) -> ::windows::core::HRESULT {

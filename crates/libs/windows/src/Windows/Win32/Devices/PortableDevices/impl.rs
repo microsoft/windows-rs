@@ -1,6 +1,7 @@
 pub trait IConnectionRequestCallback_Impl: Sized {
     fn OnComplete(&self, hrstatus: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IConnectionRequestCallback {}
 impl IConnectionRequestCallback_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IConnectionRequestCallback_Impl, const OFFSET: isize>() -> IConnectionRequestCallback_Vtbl {
         unsafe extern "system" fn OnComplete<Identity: ::windows::core::IUnknownImpl, Impl: IConnectionRequestCallback_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hrstatus: ::windows::core::HRESULT) -> ::windows::core::HRESULT {
@@ -20,6 +21,7 @@ pub trait IEnumPortableDeviceConnectors_Impl: Sized {
     fn Reset(&self) -> ::windows::core::Result<()>;
     fn Clone(&self) -> ::windows::core::Result<IEnumPortableDeviceConnectors>;
 }
+impl ::windows::core::RuntimeName for IEnumPortableDeviceConnectors {}
 impl IEnumPortableDeviceConnectors_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEnumPortableDeviceConnectors_Impl, const OFFSET: isize>() -> IEnumPortableDeviceConnectors_Vtbl {
         unsafe extern "system" fn Next<Identity: ::windows::core::IUnknownImpl, Impl: IEnumPortableDeviceConnectors_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, crequested: u32, pconnectors: *mut ::windows::core::RawPtr, pcfetched: *mut u32) -> ::windows::core::HRESULT {
@@ -67,6 +69,7 @@ pub trait IEnumPortableDeviceObjectIDs_Impl: Sized {
     fn Clone(&self) -> ::windows::core::Result<IEnumPortableDeviceObjectIDs>;
     fn Cancel(&self) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IEnumPortableDeviceObjectIDs {}
 impl IEnumPortableDeviceObjectIDs_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEnumPortableDeviceObjectIDs_Impl, const OFFSET: isize>() -> IEnumPortableDeviceObjectIDs_Vtbl {
         unsafe extern "system" fn Next<Identity: ::windows::core::IUnknownImpl, Impl: IEnumPortableDeviceObjectIDs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cobjects: u32, pobjids: *mut ::windows::core::PWSTR, pcfetched: *mut u32) -> ::windows::core::HRESULT {
@@ -117,6 +120,7 @@ pub trait IMediaRadioManager_Impl: Sized {
     fn GetRadioInstances(&self) -> ::windows::core::Result<IRadioInstanceCollection>;
     fn OnSystemRadioStateChange(&self, sysradiostate: SYSTEM_RADIO_STATE, utimeoutsec: u32) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IMediaRadioManager {}
 impl IMediaRadioManager_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaRadioManager_Impl, const OFFSET: isize>() -> IMediaRadioManager_Vtbl {
         unsafe extern "system" fn GetRadioInstances<Identity: ::windows::core::IUnknownImpl, Impl: IMediaRadioManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppcollection: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -151,6 +155,8 @@ pub trait IMediaRadioManagerNotifySink_Impl: Sized {
     fn OnInstanceRemove(&self, bstrradioinstanceid: &super::super::Foundation::BSTR) -> ::windows::core::Result<()>;
     fn OnInstanceRadioChange(&self, bstrradioinstanceid: &super::super::Foundation::BSTR, radiostate: DEVICE_RADIO_STATE) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IMediaRadioManagerNotifySink {}
 #[cfg(feature = "Win32_Foundation")]
 impl IMediaRadioManagerNotifySink_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMediaRadioManagerNotifySink_Impl, const OFFSET: isize>() -> IMediaRadioManagerNotifySink_Vtbl {
@@ -191,6 +197,7 @@ pub trait IPortableDevice_Impl: Sized {
     fn Unadvise(&self, pszcookie: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn GetPnPDeviceID(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
 }
+impl ::windows::core::RuntimeName for IPortableDevice {}
 impl IPortableDevice_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPortableDevice_Impl, const OFFSET: isize>() -> IPortableDevice_Vtbl {
         unsafe extern "system" fn Open<Identity: ::windows::core::IUnknownImpl, Impl: IPortableDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszpnpdeviceid: ::windows::core::PCWSTR, pclientinfo: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -299,6 +306,8 @@ pub trait IPortableDeviceCapabilities_Impl: Sized {
     fn GetSupportedEvents(&self) -> ::windows::core::Result<IPortableDevicePropVariantCollection>;
     fn GetEventOptions(&self, event: *const ::windows::core::GUID) -> ::windows::core::Result<IPortableDeviceValues>;
 }
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+impl ::windows::core::RuntimeName for IPortableDeviceCapabilities {}
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 impl IPortableDeviceCapabilities_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPortableDeviceCapabilities_Impl, const OFFSET: isize>() -> IPortableDeviceCapabilities_Vtbl {
@@ -446,6 +455,8 @@ pub trait IPortableDeviceConnector_Impl: Sized {
     fn GetPnPID(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
 }
 #[cfg(feature = "Win32_Devices_Properties")]
+impl ::windows::core::RuntimeName for IPortableDeviceConnector {}
+#[cfg(feature = "Win32_Devices_Properties")]
 impl IPortableDeviceConnector_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPortableDeviceConnector_Impl, const OFFSET: isize>() -> IPortableDeviceConnector_Vtbl {
         unsafe extern "system" fn Connect<Identity: ::windows::core::IUnknownImpl, Impl: IPortableDeviceConnector_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcallback: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -511,6 +522,8 @@ pub trait IPortableDeviceContent_Impl: Sized {
     fn Move(&self, pobjectids: &::core::option::Option<IPortableDevicePropVariantCollection>, pszdestinationfolderobjectid: &::windows::core::PCWSTR, ppresults: *mut ::core::option::Option<IPortableDevicePropVariantCollection>) -> ::windows::core::Result<()>;
     fn Copy(&self, pobjectids: &::core::option::Option<IPortableDevicePropVariantCollection>, pszdestinationfolderobjectid: &::windows::core::PCWSTR, ppresults: *mut ::core::option::Option<IPortableDevicePropVariantCollection>) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_System_Com")]
+impl ::windows::core::RuntimeName for IPortableDeviceContent {}
 #[cfg(feature = "Win32_System_Com")]
 impl IPortableDeviceContent_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPortableDeviceContent_Impl, const OFFSET: isize>() -> IPortableDeviceContent_Vtbl {
@@ -611,6 +624,8 @@ pub trait IPortableDeviceContent2_Impl: Sized + IPortableDeviceContent_Impl {
     fn UpdateObjectWithPropertiesAndData(&self, pszobjectid: &::windows::core::PCWSTR, pproperties: &::core::option::Option<IPortableDeviceValues>, ppdata: *mut ::core::option::Option<super::super::System::Com::IStream>, pdwoptimalwritebuffersize: *mut u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
+impl ::windows::core::RuntimeName for IPortableDeviceContent2 {}
+#[cfg(feature = "Win32_System_Com")]
 impl IPortableDeviceContent2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPortableDeviceContent2_Impl, const OFFSET: isize>() -> IPortableDeviceContent2_Vtbl {
         unsafe extern "system" fn UpdateObjectWithPropertiesAndData<Identity: ::windows::core::IUnknownImpl, Impl: IPortableDeviceContent2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszobjectid: ::windows::core::PCWSTR, pproperties: ::windows::core::RawPtr, ppdata: *mut ::windows::core::RawPtr, pdwoptimalwritebuffersize: *mut u32) -> ::windows::core::HRESULT {
@@ -632,6 +647,8 @@ pub trait IPortableDeviceDataStream_Impl: Sized + super::super::System::Com::ISe
     fn GetObjectID(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
     fn Cancel(&self) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+impl ::windows::core::RuntimeName for IPortableDeviceDataStream {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 impl IPortableDeviceDataStream_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPortableDeviceDataStream_Impl, const OFFSET: isize>() -> IPortableDeviceDataStream_Vtbl {
@@ -666,6 +683,8 @@ pub trait IPortableDeviceDispatchFactory_Impl: Sized {
     fn GetDeviceDispatch(&self, pszpnpdeviceid: &::windows::core::PCWSTR) -> ::windows::core::Result<super::super::System::Com::IDispatch>;
 }
 #[cfg(feature = "Win32_System_Com")]
+impl ::windows::core::RuntimeName for IPortableDeviceDispatchFactory {}
+#[cfg(feature = "Win32_System_Com")]
 impl IPortableDeviceDispatchFactory_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPortableDeviceDispatchFactory_Impl, const OFFSET: isize>() -> IPortableDeviceDispatchFactory_Vtbl {
         unsafe extern "system" fn GetDeviceDispatch<Identity: ::windows::core::IUnknownImpl, Impl: IPortableDeviceDispatchFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszpnpdeviceid: ::windows::core::PCWSTR, ppdevicedispatch: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -688,6 +707,7 @@ impl IPortableDeviceDispatchFactory_Vtbl {
 pub trait IPortableDeviceEventCallback_Impl: Sized {
     fn OnEvent(&self, peventparameters: &::core::option::Option<IPortableDeviceValues>) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IPortableDeviceEventCallback {}
 impl IPortableDeviceEventCallback_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPortableDeviceEventCallback_Impl, const OFFSET: isize>() -> IPortableDeviceEventCallback_Vtbl {
         unsafe extern "system" fn OnEvent<Identity: ::windows::core::IUnknownImpl, Impl: IPortableDeviceEventCallback_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, peventparameters: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -709,6 +729,8 @@ pub trait IPortableDeviceKeyCollection_Impl: Sized {
     fn Clear(&self) -> ::windows::core::Result<()>;
     fn RemoveAt(&self, dwindex: u32) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+impl ::windows::core::RuntimeName for IPortableDeviceKeyCollection {}
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 impl IPortableDeviceKeyCollection_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPortableDeviceKeyCollection_Impl, const OFFSET: isize>() -> IPortableDeviceKeyCollection_Vtbl {
@@ -759,6 +781,7 @@ pub trait IPortableDeviceManager_Impl: Sized {
     fn GetDeviceProperty(&self, pszpnpdeviceid: &::windows::core::PCWSTR, pszdevicepropertyname: &::windows::core::PCWSTR, pdata: *mut u8, pcbdata: *mut u32, pdwtype: *mut u32) -> ::windows::core::Result<()>;
     fn GetPrivateDevices(&self, ppnpdeviceids: *mut ::windows::core::PWSTR, pcpnpdeviceids: *mut u32) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IPortableDeviceManager {}
 impl IPortableDeviceManager_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPortableDeviceManager_Impl, const OFFSET: isize>() -> IPortableDeviceManager_Vtbl {
         unsafe extern "system" fn GetDevices<Identity: ::windows::core::IUnknownImpl, Impl: IPortableDeviceManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppnpdeviceids: *mut ::windows::core::PWSTR, pcpnpdeviceids: *mut u32) -> ::windows::core::HRESULT {
@@ -821,6 +844,8 @@ pub trait IPortableDevicePropVariantCollection_Impl: Sized {
     fn Clear(&self) -> ::windows::core::Result<()>;
     fn RemoveAt(&self, dwindex: u32) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+impl ::windows::core::RuntimeName for IPortableDevicePropVariantCollection {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 impl IPortableDevicePropVariantCollection_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPortableDevicePropVariantCollection_Impl, const OFFSET: isize>() -> IPortableDevicePropVariantCollection_Vtbl {
@@ -889,6 +914,8 @@ pub trait IPortableDeviceProperties_Impl: Sized {
     fn Delete(&self, pszobjectid: &::windows::core::PCWSTR, pkeys: &::core::option::Option<IPortableDeviceKeyCollection>) -> ::windows::core::Result<()>;
     fn Cancel(&self) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+impl ::windows::core::RuntimeName for IPortableDeviceProperties {}
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 impl IPortableDeviceProperties_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPortableDeviceProperties_Impl, const OFFSET: isize>() -> IPortableDeviceProperties_Vtbl {
@@ -967,6 +994,7 @@ pub trait IPortableDevicePropertiesBulk_Impl: Sized {
     fn Start(&self, pcontext: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
     fn Cancel(&self, pcontext: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IPortableDevicePropertiesBulk {}
 impl IPortableDevicePropertiesBulk_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPortableDevicePropertiesBulk_Impl, const OFFSET: isize>() -> IPortableDevicePropertiesBulk_Vtbl {
         unsafe extern "system" fn QueueGetValuesByObjectList<Identity: ::windows::core::IUnknownImpl, Impl: IPortableDevicePropertiesBulk_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pobjectids: ::windows::core::RawPtr, pkeys: ::windows::core::RawPtr, pcallback: ::windows::core::RawPtr, pcontext: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
@@ -1030,6 +1058,7 @@ pub trait IPortableDevicePropertiesBulkCallback_Impl: Sized {
     fn OnProgress(&self, pcontext: *const ::windows::core::GUID, presults: &::core::option::Option<IPortableDeviceValuesCollection>) -> ::windows::core::Result<()>;
     fn OnEnd(&self, pcontext: *const ::windows::core::GUID, hrstatus: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IPortableDevicePropertiesBulkCallback {}
 impl IPortableDevicePropertiesBulkCallback_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPortableDevicePropertiesBulkCallback_Impl, const OFFSET: isize>() -> IPortableDevicePropertiesBulkCallback_Vtbl {
         unsafe extern "system" fn OnStart<Identity: ::windows::core::IUnknownImpl, Impl: IPortableDevicePropertiesBulkCallback_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcontext: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
@@ -1067,6 +1096,8 @@ pub trait IPortableDeviceResources_Impl: Sized {
     fn Cancel(&self) -> ::windows::core::Result<()>;
     fn CreateResource(&self, presourceattributes: &::core::option::Option<IPortableDeviceValues>, ppdata: *mut ::core::option::Option<super::super::System::Com::IStream>, pdwoptimalwritebuffersize: *mut u32, ppszcookie: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_PropertiesSystem"))]
+impl ::windows::core::RuntimeName for IPortableDeviceResources {}
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl IPortableDeviceResources_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPortableDeviceResources_Impl, const OFFSET: isize>() -> IPortableDeviceResources_Vtbl {
@@ -1139,6 +1170,7 @@ pub trait IPortableDeviceService_Impl: Sized {
     fn Unadvise(&self, pszcookie: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn SendCommand(&self, dwflags: u32, pparameters: &::core::option::Option<IPortableDeviceValues>) -> ::windows::core::Result<IPortableDeviceValues>;
 }
+impl ::windows::core::RuntimeName for IPortableDeviceService {}
 impl IPortableDeviceService_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPortableDeviceService_Impl, const OFFSET: isize>() -> IPortableDeviceService_Vtbl {
         unsafe extern "system" fn Open<Identity: ::windows::core::IUnknownImpl, Impl: IPortableDeviceService_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszpnpserviceid: ::windows::core::PCWSTR, pclientinfo: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -1261,6 +1293,7 @@ pub trait IPortableDeviceServiceActivation_Impl: Sized {
     fn OpenAsync(&self, pszpnpserviceid: &::windows::core::PCWSTR, pclientinfo: &::core::option::Option<IPortableDeviceValues>, pcallback: &::core::option::Option<IPortableDeviceServiceOpenCallback>) -> ::windows::core::Result<()>;
     fn CancelOpenAsync(&self) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IPortableDeviceServiceActivation {}
 impl IPortableDeviceServiceActivation_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPortableDeviceServiceActivation_Impl, const OFFSET: isize>() -> IPortableDeviceServiceActivation_Vtbl {
         unsafe extern "system" fn OpenAsync<Identity: ::windows::core::IUnknownImpl, Impl: IPortableDeviceServiceActivation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszpnpserviceid: ::windows::core::PCWSTR, pclientinfo: ::windows::core::RawPtr, pcallback: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -1302,6 +1335,8 @@ pub trait IPortableDeviceServiceCapabilities_Impl: Sized {
     fn GetCommandOptions(&self, command: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::Result<IPortableDeviceValues>;
     fn Cancel(&self) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+impl ::windows::core::RuntimeName for IPortableDeviceServiceCapabilities {}
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 impl IPortableDeviceServiceCapabilities_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPortableDeviceServiceCapabilities_Impl, const OFFSET: isize>() -> IPortableDeviceServiceCapabilities_Vtbl {
@@ -1503,6 +1538,7 @@ pub trait IPortableDeviceServiceManager_Impl: Sized {
     fn GetDeviceServices(&self, pszpnpdeviceid: &::windows::core::PCWSTR, guidservicecategory: *const ::windows::core::GUID, pservices: *mut ::windows::core::PWSTR, pcservices: *mut u32) -> ::windows::core::Result<()>;
     fn GetDeviceForService(&self, pszpnpserviceid: &::windows::core::PCWSTR) -> ::windows::core::Result<::windows::core::PWSTR>;
 }
+impl ::windows::core::RuntimeName for IPortableDeviceServiceManager {}
 impl IPortableDeviceServiceManager_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPortableDeviceServiceManager_Impl, const OFFSET: isize>() -> IPortableDeviceServiceManager_Vtbl {
         unsafe extern "system" fn GetDeviceServices<Identity: ::windows::core::IUnknownImpl, Impl: IPortableDeviceServiceManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszpnpdeviceid: ::windows::core::PCWSTR, guidservicecategory: *const ::windows::core::GUID, pservices: *mut ::windows::core::PWSTR, pcservices: *mut u32) -> ::windows::core::HRESULT {
@@ -1534,6 +1570,7 @@ impl IPortableDeviceServiceManager_Vtbl {
 pub trait IPortableDeviceServiceMethodCallback_Impl: Sized {
     fn OnComplete(&self, hrstatus: ::windows::core::HRESULT, presults: &::core::option::Option<IPortableDeviceValues>) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IPortableDeviceServiceMethodCallback {}
 impl IPortableDeviceServiceMethodCallback_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPortableDeviceServiceMethodCallback_Impl, const OFFSET: isize>() -> IPortableDeviceServiceMethodCallback_Vtbl {
         unsafe extern "system" fn OnComplete<Identity: ::windows::core::IUnknownImpl, Impl: IPortableDeviceServiceMethodCallback_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hrstatus: ::windows::core::HRESULT, presults: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -1552,6 +1589,7 @@ pub trait IPortableDeviceServiceMethods_Impl: Sized {
     fn InvokeAsync(&self, method: *const ::windows::core::GUID, pparameters: &::core::option::Option<IPortableDeviceValues>, pcallback: &::core::option::Option<IPortableDeviceServiceMethodCallback>) -> ::windows::core::Result<()>;
     fn Cancel(&self, pcallback: &::core::option::Option<IPortableDeviceServiceMethodCallback>) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IPortableDeviceServiceMethods {}
 impl IPortableDeviceServiceMethods_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPortableDeviceServiceMethods_Impl, const OFFSET: isize>() -> IPortableDeviceServiceMethods_Vtbl {
         unsafe extern "system" fn Invoke<Identity: ::windows::core::IUnknownImpl, Impl: IPortableDeviceServiceMethods_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, method: *const ::windows::core::GUID, pparameters: ::windows::core::RawPtr, ppresults: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -1583,6 +1621,7 @@ impl IPortableDeviceServiceMethods_Vtbl {
 pub trait IPortableDeviceServiceOpenCallback_Impl: Sized {
     fn OnComplete(&self, hrstatus: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IPortableDeviceServiceOpenCallback {}
 impl IPortableDeviceServiceOpenCallback_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPortableDeviceServiceOpenCallback_Impl, const OFFSET: isize>() -> IPortableDeviceServiceOpenCallback_Vtbl {
         unsafe extern "system" fn OnComplete<Identity: ::windows::core::IUnknownImpl, Impl: IPortableDeviceServiceOpenCallback_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hrstatus: ::windows::core::HRESULT) -> ::windows::core::HRESULT {
@@ -1600,6 +1639,7 @@ pub trait IPortableDeviceUnitsStream_Impl: Sized {
     fn SeekInUnits(&self, dlibmove: i64, units: WPD_STREAM_UNITS, dworigin: u32) -> ::windows::core::Result<u64>;
     fn Cancel(&self) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IPortableDeviceUnitsStream {}
 impl IPortableDeviceUnitsStream_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPortableDeviceUnitsStream_Impl, const OFFSET: isize>() -> IPortableDeviceUnitsStream_Vtbl {
         unsafe extern "system" fn SeekInUnits<Identity: ::windows::core::IUnknownImpl, Impl: IPortableDeviceUnitsStream_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dlibmove: i64, units: WPD_STREAM_UNITS, dworigin: u32, plibnewposition: *mut u64) -> ::windows::core::HRESULT {
@@ -1671,6 +1711,8 @@ pub trait IPortableDeviceValues_Impl: Sized {
     fn CopyValuesToPropertyStore(&self, pstore: &::core::option::Option<super::super::UI::Shell::PropertiesSystem::IPropertyStore>) -> ::windows::core::Result<()>;
     fn Clear(&self) -> ::windows::core::Result<()>;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
+impl ::windows::core::RuntimeName for IPortableDeviceValues {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl IPortableDeviceValues_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPortableDeviceValues_Impl, const OFFSET: isize>() -> IPortableDeviceValues_Vtbl {
@@ -2025,6 +2067,7 @@ pub trait IPortableDeviceValuesCollection_Impl: Sized {
     fn Clear(&self) -> ::windows::core::Result<()>;
     fn RemoveAt(&self, dwindex: u32) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IPortableDeviceValuesCollection {}
 impl IPortableDeviceValuesCollection_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPortableDeviceValuesCollection_Impl, const OFFSET: isize>() -> IPortableDeviceValuesCollection_Vtbl {
         unsafe extern "system" fn GetCount<Identity: ::windows::core::IUnknownImpl, Impl: IPortableDeviceValuesCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcelems: *const u32) -> ::windows::core::HRESULT {
@@ -2077,6 +2120,8 @@ pub trait IPortableDeviceWebControl_Impl: Sized + super::super::System::Com::IDi
     fn GetDeviceFromIdAsync(&self, deviceid: &super::super::Foundation::BSTR, pcompletionhandler: &::core::option::Option<super::super::System::Com::IDispatch>, perrorhandler: &::core::option::Option<super::super::System::Com::IDispatch>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::windows::core::RuntimeName for IPortableDeviceWebControl {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IPortableDeviceWebControl_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPortableDeviceWebControl_Impl, const OFFSET: isize>() -> IPortableDeviceWebControl_Vtbl {
         unsafe extern "system" fn GetDeviceFromId<Identity: ::windows::core::IUnknownImpl, Impl: IPortableDeviceWebControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deviceid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppdevice: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -2115,6 +2160,8 @@ pub trait IRadioInstance_Impl: Sized {
     fn IsMultiComm(&self) -> super::super::Foundation::BOOL;
     fn IsAssociatingDevice(&self) -> super::super::Foundation::BOOL;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IRadioInstance {}
 #[cfg(feature = "Win32_Foundation")]
 impl IRadioInstance_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRadioInstance_Impl, const OFFSET: isize>() -> IRadioInstance_Vtbl {
@@ -2196,6 +2243,7 @@ pub trait IRadioInstanceCollection_Impl: Sized {
     fn GetCount(&self) -> ::windows::core::Result<u32>;
     fn GetAt(&self, uindex: u32) -> ::windows::core::Result<IRadioInstance>;
 }
+impl ::windows::core::RuntimeName for IRadioInstanceCollection {}
 impl IRadioInstanceCollection_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRadioInstanceCollection_Impl, const OFFSET: isize>() -> IRadioInstanceCollection_Vtbl {
         unsafe extern "system" fn GetCount<Identity: ::windows::core::IUnknownImpl, Impl: IRadioInstanceCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcinstance: *mut u32) -> ::windows::core::HRESULT {
@@ -2236,6 +2284,7 @@ pub trait IWpdSerializer_Impl: Sized {
     fn GetBufferFromIPortableDeviceValues(&self, psource: &::core::option::Option<IPortableDeviceValues>, ppbuffer: *mut *mut u8, pdwbuffersize: *mut u32) -> ::windows::core::Result<()>;
     fn GetSerializedSize(&self, psource: &::core::option::Option<IPortableDeviceValues>) -> ::windows::core::Result<u32>;
 }
+impl ::windows::core::RuntimeName for IWpdSerializer {}
 impl IWpdSerializer_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWpdSerializer_Impl, const OFFSET: isize>() -> IWpdSerializer_Vtbl {
         unsafe extern "system" fn GetIPortableDeviceValuesFromBuffer<Identity: ::windows::core::IUnknownImpl, Impl: IWpdSerializer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbuffer: *const u8, dwinputbufferlength: u32, ppparams: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {

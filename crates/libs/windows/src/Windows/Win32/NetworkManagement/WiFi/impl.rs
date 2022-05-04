@@ -9,6 +9,7 @@ pub trait IDot11AdHocInterface_Impl: Sized {
     fn GetIEnumDot11AdHocNetworks(&self, pfilterguid: *const ::windows::core::GUID) -> ::windows::core::Result<IEnumDot11AdHocNetworks>;
     fn GetStatus(&self, pstate: *mut DOT11_ADHOC_NETWORK_CONNECTION_STATUS) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IDot11AdHocInterface {}
 impl IDot11AdHocInterface_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDot11AdHocInterface_Impl, const OFFSET: isize>() -> IDot11AdHocInterface_Vtbl {
         unsafe extern "system" fn GetDeviceSignature<Identity: ::windows::core::IUnknownImpl, Impl: IDot11AdHocInterface_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psignature: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
@@ -100,6 +101,7 @@ impl IDot11AdHocInterface_Vtbl {
 pub trait IDot11AdHocInterfaceNotificationSink_Impl: Sized {
     fn OnConnectionStatusChange(&self, estatus: DOT11_ADHOC_NETWORK_CONNECTION_STATUS) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IDot11AdHocInterfaceNotificationSink {}
 impl IDot11AdHocInterfaceNotificationSink_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDot11AdHocInterfaceNotificationSink_Impl, const OFFSET: isize>() -> IDot11AdHocInterfaceNotificationSink_Vtbl {
         unsafe extern "system" fn OnConnectionStatusChange<Identity: ::windows::core::IUnknownImpl, Impl: IDot11AdHocInterfaceNotificationSink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, estatus: DOT11_ADHOC_NETWORK_CONNECTION_STATUS) -> ::windows::core::HRESULT {
@@ -121,6 +123,8 @@ pub trait IDot11AdHocManager_Impl: Sized {
     fn GetIEnumDot11AdHocInterfaces(&self) -> ::windows::core::Result<IEnumDot11AdHocInterfaces>;
     fn GetNetwork(&self, networksignature: *const ::windows::core::GUID) -> ::windows::core::Result<IDot11AdHocNetwork>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IDot11AdHocManager {}
 #[cfg(feature = "Win32_Foundation")]
 impl IDot11AdHocManager_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDot11AdHocManager_Impl, const OFFSET: isize>() -> IDot11AdHocManager_Vtbl {
@@ -192,6 +196,7 @@ pub trait IDot11AdHocManagerNotificationSink_Impl: Sized {
     fn OnInterfaceAdd(&self, piadhocinterface: &::core::option::Option<IDot11AdHocInterface>) -> ::windows::core::Result<()>;
     fn OnInterfaceRemove(&self, signature: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IDot11AdHocManagerNotificationSink {}
 impl IDot11AdHocManagerNotificationSink_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDot11AdHocManagerNotificationSink_Impl, const OFFSET: isize>() -> IDot11AdHocManagerNotificationSink_Vtbl {
         unsafe extern "system" fn OnNetworkAdd<Identity: ::windows::core::IUnknownImpl, Impl: IDot11AdHocManagerNotificationSink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, piadhocnetwork: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -241,6 +246,8 @@ pub trait IDot11AdHocNetwork_Impl: Sized {
     fn Connect(&self, passphrase: &::windows::core::PCWSTR, geographicalid: i32, fsaveprofile: super::super::Foundation::BOOLEAN, fmakesavedprofileuserspecific: super::super::Foundation::BOOLEAN) -> ::windows::core::Result<()>;
     fn Disconnect(&self) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows::core::RuntimeName for IDot11AdHocNetwork {}
 #[cfg(feature = "Win32_Foundation")]
 impl IDot11AdHocNetwork_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDot11AdHocNetwork_Impl, const OFFSET: isize>() -> IDot11AdHocNetwork_Vtbl {
@@ -352,6 +359,7 @@ pub trait IDot11AdHocNetworkNotificationSink_Impl: Sized {
     fn OnStatusChange(&self, estatus: DOT11_ADHOC_NETWORK_CONNECTION_STATUS) -> ::windows::core::Result<()>;
     fn OnConnectFail(&self, efailreason: DOT11_ADHOC_CONNECT_FAIL_REASON) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IDot11AdHocNetworkNotificationSink {}
 impl IDot11AdHocNetworkNotificationSink_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDot11AdHocNetworkNotificationSink_Impl, const OFFSET: isize>() -> IDot11AdHocNetworkNotificationSink_Vtbl {
         unsafe extern "system" fn OnStatusChange<Identity: ::windows::core::IUnknownImpl, Impl: IDot11AdHocNetworkNotificationSink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, estatus: DOT11_ADHOC_NETWORK_CONNECTION_STATUS) -> ::windows::core::HRESULT {
@@ -378,6 +386,7 @@ pub trait IDot11AdHocSecuritySettings_Impl: Sized {
     fn GetDot11AuthAlgorithm(&self, pauth: *mut DOT11_ADHOC_AUTH_ALGORITHM) -> ::windows::core::Result<()>;
     fn GetDot11CipherAlgorithm(&self, pcipher: *mut DOT11_ADHOC_CIPHER_ALGORITHM) -> ::windows::core::Result<()>;
 }
+impl ::windows::core::RuntimeName for IDot11AdHocSecuritySettings {}
 impl IDot11AdHocSecuritySettings_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDot11AdHocSecuritySettings_Impl, const OFFSET: isize>() -> IDot11AdHocSecuritySettings_Vtbl {
         unsafe extern "system" fn GetDot11AuthAlgorithm<Identity: ::windows::core::IUnknownImpl, Impl: IDot11AdHocSecuritySettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pauth: *mut DOT11_ADHOC_AUTH_ALGORITHM) -> ::windows::core::HRESULT {
@@ -406,6 +415,7 @@ pub trait IEnumDot11AdHocInterfaces_Impl: Sized {
     fn Reset(&self) -> ::windows::core::Result<()>;
     fn Clone(&self) -> ::windows::core::Result<IEnumDot11AdHocInterfaces>;
 }
+impl ::windows::core::RuntimeName for IEnumDot11AdHocInterfaces {}
 impl IEnumDot11AdHocInterfaces_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEnumDot11AdHocInterfaces_Impl, const OFFSET: isize>() -> IEnumDot11AdHocInterfaces_Vtbl {
         unsafe extern "system" fn Next<Identity: ::windows::core::IUnknownImpl, Impl: IEnumDot11AdHocInterfaces_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, celt: u32, rgelt: *mut ::windows::core::RawPtr, pceltfetched: *mut u32) -> ::windows::core::HRESULT {
@@ -452,6 +462,7 @@ pub trait IEnumDot11AdHocNetworks_Impl: Sized {
     fn Reset(&self) -> ::windows::core::Result<()>;
     fn Clone(&self) -> ::windows::core::Result<IEnumDot11AdHocNetworks>;
 }
+impl ::windows::core::RuntimeName for IEnumDot11AdHocNetworks {}
 impl IEnumDot11AdHocNetworks_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEnumDot11AdHocNetworks_Impl, const OFFSET: isize>() -> IEnumDot11AdHocNetworks_Vtbl {
         unsafe extern "system" fn Next<Identity: ::windows::core::IUnknownImpl, Impl: IEnumDot11AdHocNetworks_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, celt: u32, rgelt: *mut ::windows::core::RawPtr, pceltfetched: *mut u32) -> ::windows::core::HRESULT {
@@ -498,6 +509,7 @@ pub trait IEnumDot11AdHocSecuritySettings_Impl: Sized {
     fn Reset(&self) -> ::windows::core::Result<()>;
     fn Clone(&self) -> ::windows::core::Result<IEnumDot11AdHocSecuritySettings>;
 }
+impl ::windows::core::RuntimeName for IEnumDot11AdHocSecuritySettings {}
 impl IEnumDot11AdHocSecuritySettings_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEnumDot11AdHocSecuritySettings_Impl, const OFFSET: isize>() -> IEnumDot11AdHocSecuritySettings_Vtbl {
         unsafe extern "system" fn Next<Identity: ::windows::core::IUnknownImpl, Impl: IEnumDot11AdHocSecuritySettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, celt: u32, rgelt: *mut ::windows::core::RawPtr, pceltfetched: *mut u32) -> ::windows::core::HRESULT {
