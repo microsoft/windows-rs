@@ -42,7 +42,7 @@ pub fn implement(attributes: proc_macro::TokenStream, original_type: proc_macro:
         let offset: TokenStream = format!("{}", count).into();
         quote! {
             else if #vtbl_ident::matches(iid) {
-                &mut self.vtables.#offset as *mut _ as _
+                &self.vtables.#offset as *const _ as *const _
             }
         }
     });
@@ -96,12 +96,12 @@ pub fn implement(attributes: proc_macro::TokenStream, original_type: proc_macro:
             fn get_impl(&mut self) -> ::windows::core::RawPtr {
                 &mut self.this as *mut _ as _
             }
-            unsafe fn QueryInterface(&mut self, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            unsafe fn QueryInterface(&self, iid: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
                 unsafe {
                     *interface = if iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID
                         || iid == &<::windows::core::IInspectable as ::windows::core::Interface>::IID
                         || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID {
-                            &mut self.identity as *mut _ as _
+                            &self.identity as *const _ as *const _
                     } #(#queries)* else {
                         ::core::ptr::null_mut()
                     };
@@ -111,7 +111,7 @@ pub fn implement(attributes: proc_macro::TokenStream, original_type: proc_macro:
                         return ::windows::core::HRESULT(0);
                     }
 
-                    *interface = self.count.query(iid, &mut self.identity as *mut _ as _);
+                    *interface = self.count.query(iid, &self.identity as *const _ as *mut _);
 
                     if (*interface).is_null() {
                         if let Some(base) = &self.base {

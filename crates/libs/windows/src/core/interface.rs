@@ -26,7 +26,7 @@ pub unsafe trait Interface: Sized {
     }
 
     #[doc(hidden)]
-    unsafe fn query(&self, iid: &GUID, interface: *mut RawPtr) -> HRESULT {
+    unsafe fn query(&self, iid: &GUID, interface: *mut *const core::ffi::c_void) -> HRESULT {
         (self.assume_vtable::<IUnknown>().QueryInterface)(core::mem::transmute_copy(self), iid, interface)
     }
 

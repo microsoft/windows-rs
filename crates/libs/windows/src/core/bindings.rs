@@ -2382,7 +2382,7 @@ unsafe impl ::windows::core::Interface for IWeakReference {
 #[doc(hidden)]
 pub struct IWeakReference_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
-    pub Resolve: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, objectreference: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Resolve: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, objectreference: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[repr(transparent)]
 pub struct IWeakReferenceSource(::windows::core::IUnknown);
