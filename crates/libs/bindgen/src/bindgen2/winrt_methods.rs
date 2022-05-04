@@ -190,7 +190,7 @@ pub fn gen_winrt_abi_args(gen: &Gen, params: &[SignatureParam]) -> TokenStream {
             quote! { #name.len() as u32, ::core::mem::transmute_copy(&#name) }
         } else if gen.reader.type_is_winrt_array_ref(&param.ty) {
             quote! { #name.set_abi_len(), #name as *mut _ as _ }
-        } else if gen.reader.type_is_blittable(&param.ty)  {
+        } else if gen.reader.type_is_blittable(&param.ty) {
             quote! { #name }
         } else {
             quote! { #name as *mut _ as _ }

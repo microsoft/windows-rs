@@ -46,7 +46,7 @@ impl<'a> Reader<'a> {
     }
     pub fn nested_types(&'a self, type_def: TypeDef) -> Vec<TypeDef> {
         // TODO: shouldn't have to collect, like we do in the `get` function below...
-        self.nested.get(&type_def).iter().map(|map|map.values()).flatten().copied().collect()
+        self.nested.get(&type_def).iter().map(|map| map.values()).flatten().copied().collect()
     }
     pub fn get(&self, type_name: TypeName) -> impl Iterator<Item = TypeDef> + '_ {
         if let Some(types) = self.types.get(type_name.namespace) {
@@ -228,13 +228,13 @@ impl<'a> Reader<'a> {
     pub fn field_is_blittable(&self, row: Field, enclosing: TypeDef) -> bool {
         self.type_is_blittable(&self.field_type(row, Some(enclosing)))
     }
-    fn field_cfg(&self, row:Field) -> Cfg {
+    fn field_cfg(&self, row: Field) -> Cfg {
         let mut cfg = Cfg::default();
         self.field_cfg_combine(row, None, &mut cfg);
         self.cfg_add_attributes(&mut cfg, self.field_attributes(row));
         cfg
     }
-    fn field_cfg_combine(&self, row:Field, enclosing: Option<TypeDef>, cfg: &mut Cfg) {
+    fn field_cfg_combine(&self, row: Field, enclosing: Option<TypeDef>, cfg: &mut Cfg) {
         self.type_cfg_combine(&self.field_type(row, enclosing), cfg)
     }
 
@@ -365,16 +365,19 @@ impl<'a> Reader<'a> {
         blob.read_usize();
 
         let return_type = self.type_from_blob(&mut blob, None, generics);
-        let mut params: Vec<SignatureParam> = self.method_def_params(row).filter_map(|param| {
-            if self.param_sequence(param) == 0 {
-                None
-            } else {
-                let ty = self.type_from_blob(&mut blob, None, generics).expect("Parameter type not found");
-                let ty = if !self.param_flags(param).output() { type_to_const(ty) } else { ty };
-                let array_info = self.param_array_info(param);
-                Some(SignatureParam{ def: param, ty, array_info })
-            }
-        }).collect();
+        let mut params: Vec<SignatureParam> = self
+            .method_def_params(row)
+            .filter_map(|param| {
+                if self.param_sequence(param) == 0 {
+                    None
+                } else {
+                    let ty = self.type_from_blob(&mut blob, None, generics).expect("Parameter type not found");
+                    let ty = if !self.param_flags(param).output() { type_to_const(ty) } else { ty };
+                    let array_info = self.param_array_info(param);
+                    Some(SignatureParam { def: param, ty, array_info })
+                }
+            })
+            .collect();
 
         for position in 0..params.len() {
             // Point len params back to the corresponding ptr params.
@@ -408,15 +411,15 @@ impl<'a> Reader<'a> {
             }
         }
 
-        Signature{ def:row, params, return_type }
+        Signature { def: row, params, return_type }
     }
-    pub fn method_def_cfg(&self, row:MethodDef) -> Cfg {
+    pub fn method_def_cfg(&self, row: MethodDef) -> Cfg {
         let mut cfg = Cfg::default();
         self.method_def_cfg_combine(row, &mut cfg);
         cfg
     }
     // TODO: maybe inline this at the callsite to avoid recalculating the method signature
-    fn method_def_cfg_combine(&self, row:MethodDef, cfg: &mut Cfg) {
+    fn method_def_cfg_combine(&self, row: MethodDef, cfg: &mut Cfg) {
         self.signature_cfg_combine(&self.method_def_signature(row, &[]), cfg);
     }
 
@@ -506,12 +509,12 @@ impl<'a> Reader<'a> {
         self.row_attributes(row.0, HasAttribute::TypeDef(row))
     }
     pub fn type_def_generics(&self, row: TypeDef) -> impl Iterator<Item = Type> {
-        self.row_equal_range(row.0, TABLE_GENERICPARAM, 2, TypeOrMethodDef::TypeDef(row).encode()).map(|row|Type::GenericParam(GenericParam(row)))
+        self.row_equal_range(row.0, TABLE_GENERICPARAM, 2, TypeOrMethodDef::TypeDef(row).encode()).map(|row| Type::GenericParam(GenericParam(row)))
     }
     pub fn type_def_interface_impls(&self, row: TypeDef) -> impl Iterator<Item = InterfaceImpl> {
         self.row_equal_range(row.0, TABLE_INTERFACEIMPL, 0, (row.0.row + 1) as _).map(InterfaceImpl)
     }
-    pub fn type_def_enclosing_type(&self, row:TypeDef) -> Option<TypeDef> {
+    pub fn type_def_enclosing_type(&self, row: TypeDef) -> Option<TypeDef> {
         self.row_equal_range(row.0, TABLE_NESTEDCLASS, 0, (row.0.row + 1) as _).next().map(|row| TypeDef(Row::new(self.files[row.file as usize].usize(row.row as _, row.table as _, 1) - 1, TABLE_TYPEDEF, row.file as _)))
     }
     pub fn type_def_class_layout(&self, row: TypeDef) -> Option<ClassLayout> {
@@ -583,8 +586,8 @@ impl<'a> Reader<'a> {
     pub fn type_def_interfaces(&'a self, row: TypeDef, generics: &'a [Type]) -> impl Iterator<Item = Interface> + '_ {
         self.type_def_interface_impls(row).map(move |row| self.interface_impl_type(row, generics))
     }
-    pub fn type_def_default_interface(&self, row:TypeDef) -> Option<Type> {
-        self.type_def_interfaces(row, &[]).find(|interface|interface.kind == InterfaceKind::Default).map(|interface|interface.ty)
+    pub fn type_def_default_interface(&self, row: TypeDef) -> Option<Type> {
+        self.type_def_interfaces(row, &[]).find(|interface| interface.kind == InterfaceKind::Default).map(|interface| interface.ty)
     }
     pub fn type_def_is_deprecated(&self, row: TypeDef) -> bool {
         self.type_def_attributes(row).any(|attribute| self.attribute_name(attribute) == "DeprecatedAttribute")
@@ -787,16 +790,16 @@ impl<'a> Reader<'a> {
             result
         }
     }
-    pub fn type_def_cfg(&self, row:TypeDef, generics:&[Type]) -> Cfg {
+    pub fn type_def_cfg(&self, row: TypeDef, generics: &[Type]) -> Cfg {
         let mut cfg = Cfg::default();
         self.type_def_cfg_combine(row, generics, &mut cfg);
         self.cfg_add_attributes(&mut cfg, self.type_def_attributes(row));
         cfg
     }
-    fn type_def_cfg_impl(&self, _row:TypeDef, _generics:&[Type]) -> Cfg {
+    fn type_def_cfg_impl(&self, _row: TypeDef, _generics: &[Type]) -> Cfg {
         todo!()
     }
-    fn type_def_cfg_combine(&self, _row:TypeDef, _generics:&[Type], _cfg: &mut Cfg) {
+    fn type_def_cfg_combine(&self, _row: TypeDef, _generics: &[Type], _cfg: &mut Cfg) {
         // for generic in &self.generics {
         //     self.type_cfg_combine(generic, cfg);
         // }
@@ -925,15 +928,15 @@ impl<'a> Reader<'a> {
             }
         }
     }
-    pub fn type_cfg(&self, ty:&Type) -> Cfg {
+    pub fn type_cfg(&self, ty: &Type) -> Cfg {
         let mut cfg = Cfg::default();
         self.type_cfg_combine(ty, &mut cfg);
         cfg
     }
-    fn type_cfg_combine(&self, ty:&Type, cfg: &mut Cfg) {
+    fn type_cfg_combine(&self, ty: &Type, cfg: &mut Cfg) {
         match ty {
             Type::MethodDef(row) => self.method_def_cfg_combine(*row, cfg),
-            Type::Field(row) => self.field_cfg_combine(*row, None,cfg),
+            Type::Field(row) => self.field_cfg_combine(*row, None, cfg),
             Type::TypeDef((row, generics)) => self.type_def_cfg_combine(*row, generics, cfg),
             Type::Win32Array((ty, _)) => self.type_cfg_combine(ty, cfg),
             Type::ConstPtr((ty, _)) => self.type_cfg_combine(ty, cfg),
@@ -1077,7 +1080,7 @@ impl<'a> Reader<'a> {
                 return Type::TypeDef((self.get_nested(outer, full_name.name), Vec::new()));
             }
         }
-        
+
         Type::TypeDef((self.get(full_name).next().expect("Type not found"), Vec::new()))
     }
     fn type_from_blob(&self, blob: &mut Blob, enclosing: Option<TypeDef>, generics: &[Type]) -> Option<Type> {
@@ -1250,11 +1253,11 @@ impl<'a> Reader<'a> {
     pub fn type_is_winrt_array(&self, ty: &Type) -> bool {
         matches!(ty, Type::WinrtArray(_))
     }
-    
+
     pub fn type_is_winrt_array_ref(&self, ty: &Type) -> bool {
         matches!(ty, Type::WinrtArrayRef(_))
     }
-    
+
     pub fn type_is_winrt_const_ref(&self, ty: &Type) -> bool {
         matches!(ty, Type::WinrtConstRef(_))
     }

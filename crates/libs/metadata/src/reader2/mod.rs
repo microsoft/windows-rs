@@ -164,8 +164,12 @@ impl<'a> Cfg<'a> {
     }
     pub fn union(&self, other: &Self) -> Self {
         let mut union = Self::default();
-        self.types.keys().for_each(|feature| {union.types.entry(feature).or_default();});
-        other.types.keys().for_each(|feature| {union.types.entry(feature).or_default();});
+        self.types.keys().for_each(|feature| {
+            union.types.entry(feature).or_default();
+        });
+        other.types.keys().for_each(|feature| {
+            union.types.entry(feature).or_default();
+        });
         self.arches.iter().for_each(|arch| {
             union.arches.insert(arch);
         });

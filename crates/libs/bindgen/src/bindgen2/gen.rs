@@ -191,7 +191,7 @@ impl<'a> Gen<'a> {
             _ => unimplemented!(),
         }
     }
-    pub fn type_vtbl_name(&self,ty:&Type) -> TokenStream {
+    pub fn type_vtbl_name(&self, ty: &Type) -> TokenStream {
         match ty {
             Type::TypeDef((def, generics)) => self.type_def_vtbl_name(*def, generics),
             _ => unimplemented!(),
@@ -242,7 +242,7 @@ impl<'a> Gen<'a> {
             }
             Type::WinrtArray(kind) => self.type_abi_name_imp(kind, ptr),
             Type::WinrtArrayRef(kind) => self.type_abi_name_imp(kind, ptr),
-            _ =>self.type_name(ty),
+            _ => self.type_name(ty),
         }
     }
 
@@ -260,12 +260,12 @@ impl<'a> Gen<'a> {
     }
     pub fn generic_named_phantoms(&self, generics: &[Type]) -> Vec<TokenStream> {
         generics
-        .iter()
-        .map(|generic| {
-            let generic = self.type_name(generic);
-            quote! { #generic: ::core::marker::PhantomData::<#generic>, }
-        })
-        .collect()
+            .iter()
+            .map(|generic| {
+                let generic = self.type_name(generic);
+                quote! { #generic: ::core::marker::PhantomData::<#generic>, }
+            })
+            .collect()
     }
     pub fn generic_constraints(&self, generics: &[Type]) -> TokenStream {
         let mut tokens = TokenStream::new();
@@ -290,7 +290,6 @@ impl<'a> Gen<'a> {
             tokens
         }
     }
-    
 
     //
     // Cfg
@@ -543,13 +542,13 @@ impl<'a> Gen<'a> {
                         } else {
                             None
                         };
-                
+
                         quote! {
                             .push_other(<#g as ::windows::core::RuntimeType>::SIGNATURE)
                             #semi
                         }
                     });
-                
+
                     quote! {
                         {
                             ::windows::core::ConstBuffer::new()
@@ -562,7 +561,7 @@ impl<'a> Gen<'a> {
                     }
                 }
             };
-    
+
             quote! {
                 #features
                 unsafe impl<#constraints> ::windows::core::RuntimeType for #ident {
@@ -577,7 +576,7 @@ impl<'a> Gen<'a> {
             quote! {}
         }
     }
-    pub fn interface_trait(&self, def: TypeDef, generics: &[Type], ident: &TokenStream, constraints: &TokenStream,  features: &TokenStream) -> TokenStream {
+    pub fn interface_trait(&self, def: TypeDef, generics: &[Type], ident: &TokenStream, constraints: &TokenStream, features: &TokenStream) -> TokenStream {
         if let Some(default) = self.reader.type_def_default_interface(def) {
             let default_name = self.type_name(&default);
             let vtbl = self.type_vtbl_name(&default);
@@ -603,7 +602,7 @@ impl<'a> Gen<'a> {
                 quote! {
                     ::windows::core::GUID::from_signature(<Self as ::windows::core::RuntimeType>::SIGNATURE)
                 }
-            };    
+            };
             quote! {
                 #features
                 unsafe impl<#constraints> ::windows::core::Interface for #ident {
@@ -619,7 +618,7 @@ impl<'a> Gen<'a> {
         let mut method_names = MethodNames::new();
         method_names.add_vtable_types(self, def);
         let phantoms = self.generic_named_phantoms(generics);
-    
+
         match self.reader.type_def_vtables(def).last() {
             Some(Type::IUnknown) => methods.combine(&quote! { pub base__: ::windows::core::IUnknownVtbl, }),
             Some(Type::IInspectable) => methods.combine(&quote! { pub base__: ::windows::core::IInspectableVtbl, }),
@@ -629,7 +628,7 @@ impl<'a> Gen<'a> {
             }
             _ => {}
         }
-    
+
         for method in self.reader.type_def_methods(def) {
             if self.reader.method_def_name(method) == ".ctor" {
                 continue;
@@ -640,9 +639,9 @@ impl<'a> Gen<'a> {
             cfg.add_feature(self.reader.type_def_namespace(def));
             let cfg_all = self.cfg_features(&cfg);
             let cfg_not = self.cfg_not_features(&cfg);
-    
+
             let signature = quote! { pub #name: unsafe extern "system" fn #signature, };
-    
+
             if cfg_all.is_empty() {
                 methods.combine(&signature);
             } else {
@@ -654,7 +653,7 @@ impl<'a> Gen<'a> {
                 });
             }
         }
-    
+
         quote! {
             #features
             #[repr(C)] #[doc(hidden)] pub struct #vtbl where #constraints {
@@ -667,7 +666,7 @@ impl<'a> Gen<'a> {
         let is_winrt = self.reader.type_def_flags(def).winrt();
         let signature = self.reader.method_def_signature(method, &generics);
         let hresult = self.type_name(&Type::HRESULT);
-    
+
         let (trailing_return_type, return_type, udt_return_type) = if is_winrt {
             if let Some(return_type) = &signature.return_type {
                 if let Type::WinrtArray(kind) = return_type {
@@ -691,13 +690,13 @@ impl<'a> Gen<'a> {
         } else {
             (quote! {}, quote! {}, quote! {})
         };
-    
+
         let params = signature.params.iter().map(|p| {
             let name = self.param_name(p.def);
             if is_winrt {
                 let abi = self.type_abi_name(&p.ty);
-                let abi_size_name : TokenStream= format!("{}_array_size", self.reader.param_name(p.def)).into();
-    
+                let abi_size_name: TokenStream = format!("{}_array_size", self.reader.param_name(p.def)).into();
+
                 if self.reader.param_flags(p.def).input() {
                     if self.reader.type_is_winrt_array(&p.ty) {
                         quote! { #abi_size_name: u32, #name: *const #abi, }
@@ -718,7 +717,7 @@ impl<'a> Gen<'a> {
                 quote! { #name: #abi, }
             }
         });
-    
+
         quote! { (this: *mut ::core::ffi::c_void, #udt_return_type #(#params)* #trailing_return_type) #return_type }
     }
     pub fn param_name(&self, param: Param) -> TokenStream {
