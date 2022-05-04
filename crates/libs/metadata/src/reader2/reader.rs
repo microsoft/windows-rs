@@ -46,7 +46,7 @@ impl<'a> Reader<'a> {
     }
     pub fn nested_types(&'a self, type_def: TypeDef) -> Vec<TypeDef> {
         // TODO: shouldn't have to collect, like we do in the `get` function below...
-        self.nested.get(&type_def).iter().map(|map| map.values()).flatten().copied().collect()
+        self.nested.get(&type_def).iter().flat_map(|map| map.values()).copied().collect()
     }
     pub fn get(&self, type_name: TypeName) -> impl Iterator<Item = TypeDef> + '_ {
         if let Some(types) = self.types.get(type_name.namespace) {
