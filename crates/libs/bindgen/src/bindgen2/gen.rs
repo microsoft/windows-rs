@@ -478,7 +478,7 @@ impl<'a> Gen<'a> {
     }
     pub fn interface_traits(&self, def: TypeDef, generics: &[Type], ident: &TokenStream, constraints: &TokenStream, phantoms: &TokenStream, features: &TokenStream) -> TokenStream {
         let name = ident.as_str();
-        quote! {
+        let mut tokens = quote! {
             #features
             impl<#constraints> ::core::clone::Clone for #ident {
                 fn clone(&self) -> Self {
@@ -499,7 +499,60 @@ impl<'a> Gen<'a> {
                     f.debug_tuple(#name).field(&self.0).finish()
                 }
             }
-        }
+        };
+        // tokens.combine(&if self.reader.type_def_flags(def).winrt() {
+        //     let type_signature = if self.reader.type_def_kind(def) == TypeKind::Class {
+        //         let type_signature = Literal::byte_string(self.reader.type_def_signature(def, generics).as_bytes());
+        //         quote! { ::windows::core::ConstBuffer::from_slice(#type_signature) }
+        //     } else {
+        //         let signature = Literal::byte_string(format!("{{{:#?}}}", self.reader.type_def_guid(def)).as_bytes());
+
+        //         if generics.is_empty() {
+        //             return quote! { ::windows::core::ConstBuffer::from_slice(#signature) };
+        //         }
+            
+        //         let generics = generics.iter().enumerate().map(|(index, g)| {
+        //             let g = self.type_name(g);
+        //             let semi = if index != generics.len() - 1 {
+        //                 Some(quote! {
+        //                     .push_slice(b";")
+        //                 })
+        //             } else {
+        //                 None
+        //             };
+            
+        //             quote! {
+        //                 .push_other(<#g as ::windows::core::RuntimeType>::SIGNATURE)
+        //                 #semi
+        //             }
+        //         });
+            
+        //         quote! {
+        //             {
+        //                 ::windows::core::ConstBuffer::new()
+        //                 .push_slice(b"pinterface(")
+        //                 .push_slice(#signature)
+        //                 .push_slice(b";")
+        //                 #(#generics)*
+        //                 .push_slice(b")")
+        //             }
+        //         }
+        //     };
+    
+        //     quote! {
+        //         #features
+        //         unsafe impl<#constraints> ::windows::core::RuntimeType for #ident {
+        //             const SIGNATURE: ::windows::core::ConstBuffer = #type_signature;
+        //             type DefaultType = ::core::option::Option<Self>;
+        //             fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        //                 from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+        //             }
+        //         }
+        //     }
+        // } else {
+        //     quote! {}
+        // });
+        tokens
     }
 }
 
