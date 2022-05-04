@@ -72,7 +72,7 @@ pub trait IUnknownImpl {
     fn AddRef(&self) -> u32;
     /// Decrements the reference count causing the interface's memory to be freed when the count is 0
     ///
-    /// # Safety 
+    /// # Safety
     ///
     /// This function should only be called when the interfacer pointer is no longer used as calling `Release`
     /// on a non-aliased interface pointer and then using that interface pointer may result in use after free.
