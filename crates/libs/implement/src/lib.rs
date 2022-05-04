@@ -96,7 +96,7 @@ pub fn implement(attributes: proc_macro::TokenStream, original_type: proc_macro:
             fn get_impl(&mut self) -> ::windows::core::RawPtr {
                 &mut self.this as *mut _ as _
             }
-            fn QueryInterface(&mut self, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            unsafe fn QueryInterface(&mut self, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
                 unsafe {
                     *interface = if iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID
                         || iid == &<::windows::core::IInspectable as ::windows::core::Interface>::IID
@@ -127,7 +127,7 @@ pub fn implement(attributes: proc_macro::TokenStream, original_type: proc_macro:
             fn AddRef(&mut self) -> u32 {
                 self.count.add_ref()
             }
-            fn Release(&mut self) -> u32 {
+            unsafe fn Release(&mut self) -> u32 {
                 let remaining = self.count.release();
                 if remaining == 0 {
                     unsafe {

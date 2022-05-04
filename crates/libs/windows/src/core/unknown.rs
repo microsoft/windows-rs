@@ -61,9 +61,22 @@ impl core::fmt::Debug for IUnknown {
 pub trait IUnknownImpl {
     fn get_impl(&mut self) -> RawPtr;
 
-    fn QueryInterface(&mut self, iid: &GUID, interface: *mut RawPtr) -> HRESULT;
+    /// The classic `QueryInterface` method from COM.
+    ///
+    /// # Safety
+    ///
+    /// This function is safe to call as long as the interface pointer is non-null and valid for writes
+    /// of an interface pointer.
+    unsafe fn QueryInterface(&mut self, iid: &GUID, interface: *mut RawPtr) -> HRESULT;
+    /// Increments the reference count of the interface
     fn AddRef(&mut self) -> u32;
-    fn Release(&mut self) -> u32;
+    /// Decrements the reference count causing the interface's memory to be freed when the count is 0
+    ///
+    /// # Safety 
+    ///
+    /// This function should only be called when the interfacer pointer is no longer used as calling `Release`
+    /// on a non-aliased interface pointer and then using that interface pointer may result in use after free.
+    unsafe fn Release(&mut self) -> u32;
 }
 
 #[cfg(any(feature = "interface", feature = "implement"))]
