@@ -69,14 +69,14 @@ pub trait IUnknownImpl {
     /// of an interface pointer.
     unsafe fn QueryInterface(&self, iid: &GUID, interface: *mut *const core::ffi::c_void) -> HRESULT;
     /// Increments the reference count of the interface
-    fn AddRef(&mut self) -> u32;
+    fn AddRef(&self) -> u32;
     /// Decrements the reference count causing the interface's memory to be freed when the count is 0
     ///
     /// # Safety 
     ///
     /// This function should only be called when the interfacer pointer is no longer used as calling `Release`
     /// on a non-aliased interface pointer and then using that interface pointer may result in use after free.
-    unsafe fn Release(&mut self) -> u32;
+    unsafe fn Release(&self) -> u32;
 }
 
 #[cfg(any(feature = "interface", feature = "implement"))]

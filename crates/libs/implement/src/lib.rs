@@ -124,14 +124,14 @@ pub fn implement(attributes: proc_macro::TokenStream, original_type: proc_macro:
                     }
                 }
             }
-            fn AddRef(&mut self) -> u32 {
+            fn AddRef(&self) -> u32 {
                 self.count.add_ref()
             }
-            unsafe fn Release(&mut self) -> u32 {
+            unsafe fn Release(&self) -> u32 {
                 let remaining = self.count.release();
                 if remaining == 0 {
                     unsafe {
-                        ::std::boxed::Box::from_raw(self);
+                        ::std::boxed::Box::from_raw(self as *const Self as *mut Self);
                     }
                 }
                 remaining
