@@ -12,7 +12,7 @@ The "RFC" (request for comments) process is intended to provide a consistent and
 [motivation]: #motivation
 
 The `windows` crate has experienced rapid change and experimentation in the past 2 years. This experimentation has been
-invaluable, but it is is important to start solidifying design. The outcome of following the RFC process should ultimately be:
+invaluable, but it is important to start solidifying design. The outcome of following the RFC process should ultimately be:
 
 - less churn - once features are integrated they typically change very little, especially to outside users
 - features are generally of higher quality
@@ -50,7 +50,7 @@ The RFC process require a certain amount of energy to maintain and also limits t
 # Rationale and alternatives
 [rationale-and-alternatives]: #rationale-and-alternatives
 
-The [RFC process](https://github.com/rust-lang/rfcs) has had proven success in the Rust community. While the Rust language RFC process is not perfect it has successfully ensured properties that we deem as desireable including stability, high-quality features, and wide consensus from many stakeholders.
+The [RFC process](https://github.com/rust-lang/rfcs) has had proven success in the Rust community. While the Rust language RFC process is not perfect it has successfully ensured properties that we deem as desirable including stability, high-quality features, and wide consensus from many stakeholders.
 
 As an alternative, we could continue to allow experimentation in code, discussing changes as PRs. However, such a process is generally much less rigorous than the RFC process and requires implementation work before ensuring that the design itself has wide support. Such a process is generally much more wasteful than trying to arrive on design consensus before implementation begins.
 
@@ -69,4 +69,4 @@ As discussed, the Rust language has used the RFC process to great success, and m
 # Future possibilities
 [future-possibilities]: #future-possibilities
 
-Much like the Rust project, we may in the future want to adopt additional processes around stabilization and lightweight process for internal changes (a la the MCP process in Rust). Whatever we may wish to adopt in the future, it should be compatible with this RFC proposal.
+Much like the Rust project, we may in the future want to adopt additional processes around stabilization and lightweight process for internal changes (e.g. [major change proposals](https://github.com/rust-lang/rfcs/blob/master/text/2904-compiler-major-change-process.md)). Whatever we may wish to adopt in the future, it should be compatible with this RFC proposal.
