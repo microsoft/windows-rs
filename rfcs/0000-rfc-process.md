@@ -1,7 +1,6 @@
 - Feature Name: `rfc_process`
 - Start Date: 2022-05-03
-- RFC PR: [microsoft/windows-rs#0000](https://github.com/microsoft/windows-rs/pull/0000)
-- Issue: [microsoft/windows-rs#0000](https://github.com/microsoft/windows-rs/issues/0000)
+- RFC PR: [microsoft/windows-rs#1731](https://github.com/microsoft/windows-rs/pull/1731)
 
 # Summary
 [summary]: #summary
