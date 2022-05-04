@@ -22,11 +22,11 @@ fn gen_sys_interface(gen: &Gen, def: TypeDef) -> TokenStream {
 }
 
 fn gen_win_interface(gen: &Gen, def: TypeDef) -> TokenStream {
-    let name = gen.reader.type_def_name(def);
-    let ident = to_ident(name);
+    let generics: &Vec<Type> = &gen.reader.type_def_generics(def).collect();
+    let ident = gen.type_def_name(def, generics);
 
     if gen.reader.type_def_methods(def).next().is_none() {
-        if name.starts_with("Disp") {
+        if gen.reader.type_def_name(def).starts_with("Disp") {
             if let Some(guid) = gen.reader.type_def_guid(def) {
                 let value = gen.guid(&guid);
                 let guid = gen.type_name(&Type::GUID);
@@ -36,7 +36,6 @@ fn gen_win_interface(gen: &Gen, def: TypeDef) -> TokenStream {
     }
 
     let is_exclusive = gen.reader.type_def_is_exclusive(def);
-    let generics: Vec<Type> = gen.reader.type_def_generics(def).collect();
     let phantoms = gen.generic_phantoms(&generics);
     let constraints = gen.generic_constraints(&generics);
     let cfg = gen.reader.type_def_cfg(def, &[]);

@@ -499,7 +499,7 @@ impl<'a> Gen<'a> {
         }
     }
     pub fn interface_core_traits(&self, def: TypeDef, generics: &[Type], ident: &TokenStream, constraints: &TokenStream, phantoms: &TokenStream, features: &TokenStream) -> TokenStream {
-        let name = ident.as_str();
+        let name = trim_tick(self.reader.type_def_name(def));
         quote! {
             #features
             impl<#constraints> ::core::clone::Clone for #ident {
