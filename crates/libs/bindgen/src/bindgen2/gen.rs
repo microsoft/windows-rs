@@ -497,7 +497,7 @@ impl<'a> Gen<'a> {
             format!("{}::from_u128(0x{:08x?}_{:04x?}_{:04x?}_{:02x?}{:02x?}_{:02x?}{:02x?}{:02x?}{:02x?}{:02x?}{:02x?})", guid.into_string(), value.0, value.1, value.2, value.3, value.4, value.5, value.6, value.7, value.8, value.9, value.10).into()
         }
     }
-    pub fn interface_core_traits(&self, def: TypeDef, generics: &[Type], ident: &TokenStream, constraints: &TokenStream, phantoms: &TokenStream, features: &TokenStream) -> TokenStream {
+    pub fn interface_core_traits(&self, def: TypeDef, _generics: &[Type], ident: &TokenStream, constraints: &TokenStream, phantoms: &TokenStream, features: &TokenStream) -> TokenStream {
         let name = trim_tick(self.reader.type_def_name(def));
         quote! {
             #features
@@ -522,7 +522,7 @@ impl<'a> Gen<'a> {
             }
         }
     }
-    pub fn interface_winrt_trait(&self, def: TypeDef, generics: &[Type], ident: &TokenStream, constraints: &TokenStream, phantoms: &TokenStream, features: &TokenStream) -> TokenStream {
+    pub fn interface_winrt_trait(&self, def: TypeDef, generics: &[Type], ident: &TokenStream, constraints: &TokenStream, _phantoms: &TokenStream, features: &TokenStream) -> TokenStream {
         if self.reader.type_def_flags(def).winrt() {
             let type_signature = if self.reader.type_def_kind(def) == TypeKind::Class {
                 let type_signature = Literal::byte_string(self.reader.type_def_signature(def, generics).as_bytes());
@@ -612,7 +612,7 @@ impl<'a> Gen<'a> {
             }
         }
     }
-    pub fn interface_vtbl(&self, def: TypeDef, generics: &[Type], ident: &TokenStream, constraints: &TokenStream, features: &TokenStream) -> TokenStream {
+    pub fn interface_vtbl(&self, def: TypeDef, generics: &[Type], _ident: &TokenStream, constraints: &TokenStream, features: &TokenStream) -> TokenStream {
         let vtbl = self.type_def_vtbl_name(def, generics);
         let mut methods = quote! {};
         let mut method_names = MethodNames::new();
@@ -664,7 +664,7 @@ impl<'a> Gen<'a> {
     }
     pub fn vtbl_signature(&self, def: TypeDef, generics: &[Type], method: MethodDef) -> TokenStream {
         let is_winrt = self.reader.type_def_flags(def).winrt();
-        let signature = self.reader.method_def_signature(method, &generics);
+        let signature = self.reader.method_def_signature(method, generics);
         let hresult = self.type_name(&Type::HRESULT);
 
         let (trailing_return_type, return_type, udt_return_type) = if is_winrt {

@@ -1,6 +1,6 @@
 use super::*;
 
-pub fn gen(gen: &Gen, def: TypeDef, kind: InterfaceKind, method: MethodDef, method_names: &mut MethodNames, virtual_names: &mut MethodNames, base_count: usize) -> TokenStream {
+pub fn gen(_gen: &Gen, _def: TypeDef, _kind: InterfaceKind, _method: MethodDef, _method_names: &mut MethodNames, _virtual_names: &mut MethodNames, _base_count: usize) -> TokenStream {
     // let signature = method.signature(&def.generics);
     // let name = method_names.add(method);
     // let vname = virtual_names.add(method);

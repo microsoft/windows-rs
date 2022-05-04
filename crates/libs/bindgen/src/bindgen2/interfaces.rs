@@ -25,19 +25,17 @@ fn gen_win_interface(gen: &Gen, def: TypeDef) -> TokenStream {
     let generics: &Vec<Type> = &gen.reader.type_def_generics(def).collect();
     let ident = gen.type_def_name(def, generics);
 
-    if gen.reader.type_def_methods(def).next().is_none() {
-        if gen.reader.type_def_name(def).starts_with("Disp") {
-            if let Some(guid) = gen.reader.type_def_guid(def) {
-                let value = gen.guid(&guid);
-                let guid = gen.type_name(&Type::GUID);
-                return quote! { pub const #ident: #guid = #value; };
-            }
+    if gen.reader.type_def_methods(def).next().is_none() && gen.reader.type_def_name(def).starts_with("Disp") {
+        if let Some(guid) = gen.reader.type_def_guid(def) {
+            let value = gen.guid(&guid);
+            let guid = gen.type_name(&Type::GUID);
+            return quote! { pub const #ident: #guid = #value; };
         }
     }
 
     let is_exclusive = gen.reader.type_def_is_exclusive(def);
-    let phantoms = gen.generic_phantoms(&generics);
-    let constraints = gen.generic_constraints(&generics);
+    let phantoms = gen.generic_phantoms(generics);
+    let constraints = gen.generic_constraints(generics);
     let cfg = gen.reader.type_def_cfg(def, &[]);
     let doc = gen.cfg_doc(&cfg);
     let features = gen.cfg_features(&cfg);
@@ -55,7 +53,7 @@ fn gen_win_interface(gen: &Gen, def: TypeDef) -> TokenStream {
     });
 
     if !is_exclusive {
-        let methods = gen_methods(gen, def, &generics);
+        let methods = gen_methods(gen, def, generics);
         tokens.combine(&quote! {
             #features
             impl<#constraints> #ident {
@@ -63,16 +61,16 @@ fn gen_win_interface(gen: &Gen, def: TypeDef) -> TokenStream {
             }
         });
 
-        tokens.combine(&gen_conversions(gen, def, &generics, &ident, &constraints, &cfg));
-        tokens.combine(&gen.interface_core_traits(def, &generics, &ident, &constraints, &phantoms, &features));
-        tokens.combine(&gen.interface_winrt_trait(def, &generics, &ident, &constraints, &phantoms, &features));
+        tokens.combine(&gen_conversions(gen, def, generics, &ident, &constraints, &cfg));
+        tokens.combine(&gen.interface_core_traits(def, generics, &ident, &constraints, &phantoms, &features));
+        tokens.combine(&gen.interface_winrt_trait(def, generics, &ident, &constraints, &phantoms, &features));
         //     tokens.combine(&gen_async(gen, def, &cfg, gen));
         //     tokens.combine(&gen_iterator(gen, def, &cfg, gen));
         //     tokens.combine(&gen_agile(gen, def, gen));
     }
 
-    tokens.combine(&gen.interface_trait(def, &generics, &ident, &constraints, &features));
-    tokens.combine(&gen.interface_vtbl(def, &generics, &ident, &constraints, &features));
+    tokens.combine(&gen.interface_trait(def, generics, &ident, &constraints, &features));
+    tokens.combine(&gen.interface_vtbl(def, generics, &ident, &constraints, &features));
     tokens
 }
 
