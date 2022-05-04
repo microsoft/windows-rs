@@ -8,6 +8,7 @@ mod method_names;
 mod replacements;
 mod structs;
 mod winrt_methods;
+mod classes;
 pub use gen::*;
 use metadata::reader2::*;
 use method_names::*;
