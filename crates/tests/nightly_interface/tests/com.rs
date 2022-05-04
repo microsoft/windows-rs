@@ -18,7 +18,7 @@ unsafe trait ICustomUri: IUnknown {
 
 /// A custom declaration of implementation of `IPersist`
 #[interface("0000010c-0000-0000-C000-000000000046")]
-unsafe trait ICustomPersist: IUnknown {
+unsafe trait ICustomPersist: windows::core::IUnknown {
     unsafe fn GetClassID(&self, clsid: *mut GUID) -> HRESULT;
 }
 
