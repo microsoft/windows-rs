@@ -14,17 +14,12 @@ use bindings::*;
 /// * the vtable is correctly structured beginning with the `IUnknown` function pointers
 /// * the vtable must be the correct vtable for the supplied IID
 pub unsafe trait Interface: Sized {
-    /// The interface's vtable
-    type Vtable;
-
     /// A unique identifier representing this interface.
     const IID: GUID;
 
-    /// A reference to the interface's vtable
-    fn vtable(&self) -> &Self::Vtable {
-        // SAFETY: the implementor of the trait guarantees that `Self` is castable to its vtable
-        unsafe { self.assume_vtable::<Self>() }
-    }
+    /// The interface's vtable
+    #[doc(hidden)]
+    type Vtable;
 
     /// Attempts to cast the current interface to another interface using `QueryInterface`.
     ///
@@ -48,6 +43,13 @@ pub unsafe trait Interface: Sized {
     /// Attempts to create a [`Weak`] reference to this object.
     fn downgrade(&self) -> Result<Weak<Self>> {
         self.cast::<IWeakReferenceSource>().and_then(|source| Weak::downgrade(&source))
+    }
+
+    /// A reference to the interface's vtable
+    #[doc(hidden)]
+    fn vtable(&self) -> &Self::Vtable {
+        // SAFETY: the implementor of the trait guarantees that `Self` is castable to its vtable
+        unsafe { self.assume_vtable::<Self>() }
     }
 
     /// Cast this interface as a reference to the supplied interfaces `Vtable`
