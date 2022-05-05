@@ -27,7 +27,7 @@ An RFC should be opened when the following criteria are met:
 - The author has a fully formed idea of the feature and can express in detail how it will work.
 - There has been at least some discussion of the feature beforehand (i.e., the RFC should not be a surprise to contributors).
 - The feature has far reaching consequences to users or contributors of the windows-rs ecosystem, and it would be difficult to reverse. This criterion should be applied more strongly for user facing changes than for internal architecture.
-- There is potential for disagreement among contributors or users for how the change should be architected.
+- There is potential for disagreement among contributors or users for how the change should be designed.
 
 The process for opening an RFC is simple:
 
