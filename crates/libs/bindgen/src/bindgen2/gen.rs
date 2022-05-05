@@ -741,6 +741,104 @@ impl<'a> Gen<'a> {
             quote! {}
         }
     }
+    pub fn win32_args(&self, params: &[SignatureParam]) -> TokenStream {
+        let mut tokens = quote! {};
+    
+        for param in params {
+            let name = self.param_name(param.def);
+    
+            if let Some(ArrayInfo::Fixed(fixed)) = param.array_info {
+                if fixed > 0 && self.reader.param_free_with(param.def).is_none() {
+                    let signature = if self.reader.param_flags(param.def).output() {
+                        quote! { ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(#name)), }
+                    } else {
+                        quote! { ::core::mem::transmute(::windows::core::as_ptr_or_null(#name)), }
+                    };
+    
+                    tokens.combine(&signature);
+                    continue;
+                }
+            }
+    
+            if let Some(ArrayInfo::RelativeLen(_)) = param.array_info {
+                let signature = if self.reader.param_flags(param.def).output() {
+                    quote! { ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(#name)), }
+                } else {
+                    quote! { ::core::mem::transmute(::windows::core::as_ptr_or_null(#name)), }
+                };
+    
+                tokens.combine(&signature);
+                continue;
+            }
+    
+            if let Some(ArrayInfo::RelativePtr(relative)) = param.array_info {
+                let name = self.param_name(params[relative].def);
+                tokens.combine(&quote! { #name.len() as _, });
+                continue;
+            }
+    
+            if self.reader.signature_param_is_convertible(param) {
+                tokens.combine(&quote! { #name.into_param().abi(), });
+                continue;
+            }
+    
+            tokens.combine(&quote! { ::core::mem::transmute(#name), });
+        }
+    
+        tokens
+    }
+    pub fn win32_params(&self, params: &[SignatureParam]) -> TokenStream {
+        let mut tokens = quote! {};
+    
+        for (position, param) in params.iter().enumerate() {
+            let name = self.param_name(param.def);
+    
+            if let Some(ArrayInfo::Fixed(fixed)) = param.array_info {
+                if fixed > 0 && self.reader.param_free_with(param.def).is_none() {
+                    let ty = type_deref(&param.ty);
+                    let ty = self.type_default_name(&ty);
+                    let len = Literal::u32_unsuffixed(fixed as _);
+    
+                    let ty = if self.reader.param_flags(param.def).output() {
+                        quote! { &mut [#ty; #len] }
+                    } else {
+                        quote! { &[#ty; #len] }
+                    };
+    
+                    tokens.combine(&quote! { #name: #ty, });
+                    continue;
+                }
+            }
+    
+            if let Some(ArrayInfo::RelativeLen(_)) = param.array_info {
+                let ty = type_deref(&param.ty);
+                let ty = self.type_default_name(&ty);
+                let ty = if self.reader.param_flags(param.def).output() {
+                    quote! { &mut [#ty] }
+                } else {
+                    quote! { &[#ty] }
+                };
+    
+                tokens.combine(&quote! { #name: #ty, });
+                continue;
+            }
+    
+            if let Some(ArrayInfo::RelativePtr(_)) = param.array_info {
+                continue;
+            }
+    
+            if self.reader.signature_param_is_convertible(param) {
+                let kind: TokenStream = format!("Param{}", position).into();
+                tokens.combine(&quote! { #name: #kind, });
+                continue;
+            }
+    
+            let kind = self.type_default_name(&param.ty);
+            tokens.combine(&quote! { #name: #kind, });
+        }
+    
+        tokens
+    }
 }
 
 pub fn to_ident(name: &str) -> TokenStream {

@@ -903,6 +903,46 @@ impl<'a> Reader<'a> {
     pub fn signature_param_is_convertible(&self, param: &SignatureParam) -> bool {
         self.param_flags(param.def).input() && !self.type_is_winrt_array(&param.ty) && !self.type_is_pointer(&param.ty) && self.type_is_convertible(&param.ty) && param.array_info.is_none()
     }
+    pub fn signature_kind(&self, signature:&Signature) -> SignatureKind {
+        if let Some(return_type) = &signature.return_type {
+            match return_type {
+                Type::HRESULT => {
+                    if signature.params.len() >= 2 {
+                        let guid = &signature.params[signature.params.len() - 2];
+                        let object = &signature.params[signature.params.len() - 1];
+
+                        if guid.ty == Type::ConstPtr((Box::new(Type::GUID), 1)) && !self.param_flags(guid.def).output() && object.ty == Type::MutPtr((Box::new(Type::Void), 2)) && self.param_is_com_out_ptr(object.def) {
+                            if self.param_flags(object.def).optional() {
+                                return SignatureKind::QueryOptional;
+                            } else {
+                                return SignatureKind::Query;
+                            }
+                        }
+                    }
+
+                    if signature.params.last().map_or(false, |param| self.param_is_retval(param.def))
+                        && signature.params[..signature.params.len() - 1].iter().all(|param| {
+                            let flags = self.param_flags(param.def);
+                            flags.input() && !flags.output()
+                        })
+                    {
+                        return SignatureKind::ResultValue;
+                    }
+
+                    return SignatureKind::ResultVoid;
+                }
+                Type::TypeDef((def, _)) if self.type_def_type_name(*def) == TypeName::NTSTATUS => {
+                    return SignatureKind::ResultVoid;
+                }
+                _ if self.type_is_udt(return_type) => {
+                    return SignatureKind::ReturnStruct;
+                }
+                _ => return SignatureKind::PreserveSig,
+            }
+        }
+
+        SignatureKind::ReturnVoid
+    }
 
     //
     // Other type queries

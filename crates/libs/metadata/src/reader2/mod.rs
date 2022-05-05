@@ -106,6 +106,17 @@ pub enum InterfaceKind {
 }
 
 #[derive(PartialEq)]
+pub enum SignatureKind {
+    Query,
+    QueryOptional,
+    ResultValue,
+    ResultVoid,
+    ReturnStruct,
+    ReturnVoid,
+    PreserveSig,
+}
+
+#[derive(PartialEq)]
 pub enum AsyncKind {
     None,
     Action,
