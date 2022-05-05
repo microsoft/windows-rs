@@ -580,6 +580,8 @@ impl<'a> Reader<'a> {
         }
         false
     }
+    // TODO: consider removing all the expects and just return Option<T> and let the bindgen crate expect it
+    // that way the metadata reader is a little more schema-agnostic...
     pub fn type_def_invoke_method(&self, row: TypeDef) -> MethodDef {
         self.type_def_methods(row).find(|method| self.method_def_name(*method) == "Invoke").expect("`Invoke` method not found")
     }

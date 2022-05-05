@@ -11,6 +11,7 @@ mod winrt_methods;
 mod classes;
 mod constants;
 mod functions;
+mod delegates;
 pub use gen::*;
 use metadata::reader2::*;
 use method_names::*;

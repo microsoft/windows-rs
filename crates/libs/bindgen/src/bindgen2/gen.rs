@@ -41,7 +41,7 @@ impl<'a> Gen<'a> {
             TypeKind::Interface => interfaces::gen(self, def),
             TypeKind::Enum => enums::gen(self, def),
             TypeKind::Struct => structs::gen(self, def),
-            TypeKind::Delegate => self.define_delegate(def),
+            TypeKind::Delegate => delegates::gen(self, def),
         }
     }
     fn define_delegate(&self, _def: TypeDef) -> TokenStream {
