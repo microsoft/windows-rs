@@ -206,7 +206,7 @@ impl TearOff {
         HRESULT(0)
     }
 
-    unsafe extern "system" fn WeakUpgrade(ptr: RawPtr, iid: *const GUID, interface: *mut *const core::ffi::c_void) -> HRESULT {
+    unsafe extern "system" fn WeakUpgrade(ptr: RawPtr, iid: *const GUID, interface: *mut *mut core::ffi::c_void) -> HRESULT {
         let this = Self::from_weak_ptr(ptr);
 
         this.strong_count
@@ -218,7 +218,7 @@ impl TearOff {
             })
             .map(|_| {
                 // Let the object respond to the upgrade query.
-                let result = this.query_interface(&*iid, interface);
+                let result = this.query_interface(&*iid, interface as *mut _);
                 // Decrement the temporary reference account used to stabilize the object.
                 this.strong_count.0.fetch_sub(1, Ordering::Relaxed);
                 // Return the result of the query.
