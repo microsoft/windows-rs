@@ -10,6 +10,7 @@ mod structs;
 mod winrt_methods;
 mod classes;
 mod constants;
+mod functions;
 pub use gen::*;
 use metadata::reader2::*;
 use method_names::*;
@@ -28,7 +29,7 @@ pub fn define(gen: &Gen, name: &str) -> String {
         if let Some(apis) = gen.reader.get(TypeName::new(type_name.namespace, "Apis")).next() {
             for method in gen.reader.type_def_methods(apis) {
                 if gen.reader.method_def_name(method) == type_name.name {
-                    tokens.push_str(gen.define_function(method).as_str());
+                    tokens.push_str(functions::gen(gen, method).as_str());
                 }
             }
             if tokens.is_empty() {

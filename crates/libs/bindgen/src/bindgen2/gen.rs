@@ -44,9 +44,6 @@ impl<'a> Gen<'a> {
             TypeKind::Delegate => self.define_delegate(def),
         }
     }
-    pub(crate) fn define_function(&self, _def: MethodDef) -> TokenStream {
-        " ".into()
-    }
     fn define_delegate(&self, _def: TypeDef) -> TokenStream {
         " ".into()
     }
@@ -735,6 +732,14 @@ impl<'a> Gen<'a> {
     }
     pub fn param_name(&self, param: Param) -> TokenStream {
         self.reader.param_name(param).to_lowercase().into()
+    }
+    pub fn return_sig(&self, signature: &Signature) -> TokenStream {
+        if let Some(return_type) = &signature.return_type {
+            let tokens = self.type_default_name(return_type);
+            quote! { -> #tokens }
+        } else {
+            quote! {}
+        }
     }
 }
 
