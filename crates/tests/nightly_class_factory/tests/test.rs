@@ -28,7 +28,7 @@ impl IClassFactory_Impl for Factory {
         assert!(outer.is_none());
         let unknown: IInspectable = Object().into();
         // TODO: https://github.com/microsoft/windows-rs/issues/1441
-        unsafe { unknown.query(&*iid, object).ok() }
+        unsafe { unknown.query(&*iid, object as *mut _).ok() }
     }
 
     fn LockServer(&self, lock: BOOL) -> Result<()> {
