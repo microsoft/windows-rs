@@ -905,6 +905,25 @@ impl<'a> Reader<'a> {
     pub fn signature_param_is_convertible(&self, param: &SignatureParam) -> bool {
         self.param_flags(param.def).input() && !self.type_is_winrt_array(&param.ty) && !self.type_is_pointer(&param.ty) && self.type_is_convertible(&param.ty) && param.array_info.is_none()
     }
+    pub fn signature_param_is_retval(&self, param: &SignatureParam) -> bool {
+        // The Win32 metadata uses `RetValAttribute` to call out retval methods but it is employed
+        // very sparingly, so this heuristic is used to apply the transformation more uniformly.
+        if self.param_is_retval(param.def) {
+            return true;
+        }
+        if !self.type_is_pointer(&param.ty) {
+            return false;
+        }
+        if self.type_is_void(&param.ty) {
+            return false;
+        }
+        let flags = self.param_flags(param.def);
+        if flags.input() || !flags.output() || param.array_info.is_some() {
+            return false;
+        }
+        // TODO: find a way to treat this like COM interface result values.
+        !self.type_is_callback(&param.ty)
+    }
     pub fn signature_kind(&self, signature:&Signature) -> SignatureKind {
         if let Some(return_type) = &signature.return_type {
             match return_type {
@@ -922,7 +941,7 @@ impl<'a> Reader<'a> {
                         }
                     }
 
-                    if signature.params.last().map_or(false, |param| self.param_is_retval(param.def))
+                    if signature.params.last().map_or(false, |param| self.signature_param_is_retval(param))
                         && signature.params[..signature.params.len() - 1].iter().all(|param| {
                             let flags = self.param_flags(param.def);
                             flags.input() && !flags.output()
