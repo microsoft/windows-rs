@@ -39,6 +39,7 @@ pub unsafe trait Interface: Sized {
     }
 
     /// Turn this interface into a raw pointer
+    #[inline(always)]
     fn as_raw(&self) -> RawPtr {
         // SAFETY: implementors of this trait must guarantee that the implementing type has a pointer in-memory representation
         unsafe { core::mem::transmute_copy(self) }
