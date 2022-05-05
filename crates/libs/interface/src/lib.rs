@@ -284,12 +284,7 @@ impl Interface {
     }
 
     fn parent_is_iunknown(&self) -> bool {
-        let end = self.parent.segments.last();
-        let end = match end {
-            Some(e) => e,
-            None => return false,
-        };
-        end.ident == "IUnknown"
+        self.parent_ident() == "IUnknown"
     }
 
     fn parent_ident(&self) -> &syn::Ident {
