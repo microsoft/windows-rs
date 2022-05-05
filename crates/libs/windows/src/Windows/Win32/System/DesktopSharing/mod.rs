@@ -413,32 +413,32 @@ impl IRDPSRAPIApplication {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Windows(&self) -> ::windows::core::Result<IRDPSRAPIWindowList> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Windows)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IRDPSRAPIWindowList>(result__)
+        (::windows::core::Interface::vtable(self).Windows)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IRDPSRAPIWindowList>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
     pub unsafe fn Id(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Id)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).Id)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
     pub unsafe fn Shared(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Shared)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).Shared)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
     pub unsafe fn SetShared(&self, newval: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetShared)(::core::mem::transmute_copy(self), ::core::mem::transmute(newval)).ok()
+        (::windows::core::Interface::vtable(self).SetShared)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(newval)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Name(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Name)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).Name)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
     pub unsafe fn Flags(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Flags)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).Flags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -542,22 +542,22 @@ impl IRDPSRAPIApplicationFilter {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Applications(&self) -> ::windows::core::Result<IRDPSRAPIApplicationList> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Applications)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IRDPSRAPIApplicationList>(result__)
+        (::windows::core::Interface::vtable(self).Applications)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IRDPSRAPIApplicationList>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Windows(&self) -> ::windows::core::Result<IRDPSRAPIWindowList> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Windows)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IRDPSRAPIWindowList>(result__)
+        (::windows::core::Interface::vtable(self).Windows)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IRDPSRAPIWindowList>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
     pub unsafe fn Enabled(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Enabled)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).Enabled)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
     pub unsafe fn SetEnabled(&self, newval: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetEnabled)(::core::mem::transmute_copy(self), ::core::mem::transmute(newval)).ok()
+        (::windows::core::Interface::vtable(self).SetEnabled)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(newval)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -658,13 +658,13 @@ impl IRDPSRAPIApplicationList {
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
     pub unsafe fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self)._NewEnum)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
+        (::windows::core::Interface::vtable(self)._NewEnum)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_Item(&self, item: i32) -> ::windows::core::Result<IRDPSRAPIApplication> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).get_Item)(::core::mem::transmute_copy(self), ::core::mem::transmute(item), ::core::mem::transmute(&mut result__)).from_abi::<IRDPSRAPIApplication>(result__)
+        (::windows::core::Interface::vtable(self).get_Item)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(item), ::core::mem::transmute(&mut result__)).from_abi::<IRDPSRAPIApplication>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -760,42 +760,42 @@ impl IRDPSRAPIAttendee {
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
     pub unsafe fn Id(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Id)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).Id)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RemoteName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).RemoteName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).RemoteName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
     pub unsafe fn ControlLevel(&self) -> ::windows::core::Result<CTRL_LEVEL> {
         let mut result__: CTRL_LEVEL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ControlLevel)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<CTRL_LEVEL>(result__)
+        (::windows::core::Interface::vtable(self).ControlLevel)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<CTRL_LEVEL>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
     pub unsafe fn SetControlLevel(&self, pnewval: CTRL_LEVEL) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetControlLevel)(::core::mem::transmute_copy(self), ::core::mem::transmute(pnewval)).ok()
+        (::windows::core::Interface::vtable(self).SetControlLevel)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pnewval)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Invitation(&self) -> ::windows::core::Result<IRDPSRAPIInvitation> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Invitation)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IRDPSRAPIInvitation>(result__)
+        (::windows::core::Interface::vtable(self).Invitation)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IRDPSRAPIInvitation>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
     pub unsafe fn TerminateConnection(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).TerminateConnection)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).TerminateConnection)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
     pub unsafe fn Flags(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Flags)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).Flags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
     pub unsafe fn ConnectivityInfo(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ConnectivityInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
+        (::windows::core::Interface::vtable(self).ConnectivityInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -901,17 +901,17 @@ impl IRDPSRAPIAttendeeDisconnectInfo {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Attendee(&self) -> ::windows::core::Result<IRDPSRAPIAttendee> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Attendee)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IRDPSRAPIAttendee>(result__)
+        (::windows::core::Interface::vtable(self).Attendee)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IRDPSRAPIAttendee>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
     pub unsafe fn Reason(&self) -> ::windows::core::Result<ATTENDEE_DISCONNECT_REASON> {
         let mut result__: ATTENDEE_DISCONNECT_REASON = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Reason)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ATTENDEE_DISCONNECT_REASON>(result__)
+        (::windows::core::Interface::vtable(self).Reason)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<ATTENDEE_DISCONNECT_REASON>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
     pub unsafe fn Code(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Code)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).Code)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1008,13 +1008,13 @@ impl IRDPSRAPIAttendeeManager {
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
     pub unsafe fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self)._NewEnum)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
+        (::windows::core::Interface::vtable(self)._NewEnum)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_Item(&self, id: i32) -> ::windows::core::Result<IRDPSRAPIAttendee> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).get_Item)(::core::mem::transmute_copy(self), ::core::mem::transmute(id), ::core::mem::transmute(&mut result__)).from_abi::<IRDPSRAPIAttendee>(result__)
+        (::windows::core::Interface::vtable(self).get_Item)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(id), ::core::mem::transmute(&mut result__)).from_abi::<IRDPSRAPIAttendee>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1108,23 +1108,23 @@ impl IRDPSRAPIAudioStream {
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
     pub unsafe fn Initialize(&self) -> ::windows::core::Result<i64> {
         let mut result__: i64 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Initialize)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i64>(result__)
+        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i64>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
     pub unsafe fn Start(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Start)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Start)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
     pub unsafe fn Stop(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Stop)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Stop)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
     pub unsafe fn GetBuffer(&self, ppbdata: *mut *mut u8, pcbdata: *mut u32, ptimestamp: *mut u64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetBuffer)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppbdata), ::core::mem::transmute(pcbdata), ::core::mem::transmute(ptimestamp)).ok()
+        (::windows::core::Interface::vtable(self).GetBuffer)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ppbdata), ::core::mem::transmute(pcbdata), ::core::mem::transmute(ptimestamp)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
     pub unsafe fn FreeBuffer(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FreeBuffer)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).FreeBuffer)(::windows::core::Interface::as_raw(self)).ok()
     }
 }
 impl ::core::convert::From<IRDPSRAPIAudioStream> for ::windows::core::IUnknown {
@@ -1185,7 +1185,7 @@ impl IRDPSRAPIClipboardUseEvents {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnPasteFromClipboard<'a, Param1: ::windows::core::IntoParam<'a, super::Com::IDispatch>>(&self, clipboardformat: u32, pattendee: Param1) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).OnPasteFromClipboard)(::core::mem::transmute_copy(self), ::core::mem::transmute(clipboardformat), pattendee.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).OnPasteFromClipboard)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(clipboardformat), pattendee.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
 }
 impl ::core::convert::From<IRDPSRAPIClipboardUseEvents> for ::windows::core::IUnknown {
@@ -1244,13 +1244,13 @@ impl IRDPSRAPIDebug {
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetCLXCmdLine<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, clxcmdline: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetCLXCmdLine)(::core::mem::transmute_copy(self), clxcmdline.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetCLXCmdLine)(::windows::core::Interface::as_raw(self), clxcmdline.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CLXCmdLine(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CLXCmdLine)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).CLXCmdLine)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
 }
 impl ::core::convert::From<IRDPSRAPIDebug> for ::windows::core::IUnknown {
@@ -1315,23 +1315,23 @@ impl IRDPSRAPIFrameBuffer {
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
     pub unsafe fn Width(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Width)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).Width)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
     pub unsafe fn Height(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Height)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).Height)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
     pub unsafe fn Bpp(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Bpp)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).Bpp)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetFrameBufferBits(&self, x: i32, y: i32, width: i32, heigth: i32) -> ::windows::core::Result<*mut super::Com::SAFEARRAY> {
         let mut result__: *mut super::Com::SAFEARRAY = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetFrameBufferBits)(::core::mem::transmute_copy(self), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(width), ::core::mem::transmute(heigth), ::core::mem::transmute(&mut result__)).from_abi::<*mut super::Com::SAFEARRAY>(result__)
+        (::windows::core::Interface::vtable(self).GetFrameBufferBits)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(width), ::core::mem::transmute(heigth), ::core::mem::transmute(&mut result__)).from_abi::<*mut super::Com::SAFEARRAY>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1430,37 +1430,37 @@ impl IRDPSRAPIInvitation {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ConnectionString(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ConnectionString)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).ConnectionString)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GroupName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GroupName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).GroupName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Password(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Password)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).Password)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
     pub unsafe fn AttendeeLimit(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).AttendeeLimit)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).AttendeeLimit)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
     pub unsafe fn SetAttendeeLimit(&self, newval: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAttendeeLimit)(::core::mem::transmute_copy(self), ::core::mem::transmute(newval)).ok()
+        (::windows::core::Interface::vtable(self).SetAttendeeLimit)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(newval)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
     pub unsafe fn Revoked(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Revoked)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).Revoked)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
     pub unsafe fn SetRevoked(&self, newval: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetRevoked)(::core::mem::transmute_copy(self), ::core::mem::transmute(newval)).ok()
+        (::windows::core::Interface::vtable(self).SetRevoked)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(newval)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1567,24 +1567,24 @@ impl IRDPSRAPIInvitationManager {
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
     pub unsafe fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self)._NewEnum)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
+        (::windows::core::Interface::vtable(self)._NewEnum)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn get_Item<'a, Param0: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, item: Param0) -> ::windows::core::Result<IRDPSRAPIInvitation> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).get_Item)(::core::mem::transmute_copy(self), item.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IRDPSRAPIInvitation>(result__)
+        (::windows::core::Interface::vtable(self).get_Item)(::windows::core::Interface::as_raw(self), item.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IRDPSRAPIInvitation>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
     pub unsafe fn Count(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Count)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).Count)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn CreateInvitation<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrauthstring: Param0, bstrgroupname: Param1, bstrpassword: Param2, attendeelimit: i32) -> ::windows::core::Result<IRDPSRAPIInvitation> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateInvitation)(::core::mem::transmute_copy(self), bstrauthstring.into_param().abi(), bstrgroupname.into_param().abi(), bstrpassword.into_param().abi(), ::core::mem::transmute(attendeelimit), ::core::mem::transmute(&mut result__)).from_abi::<IRDPSRAPIInvitation>(result__)
+        (::windows::core::Interface::vtable(self).CreateInvitation)(::windows::core::Interface::as_raw(self), bstrauthstring.into_param().abi(), bstrgroupname.into_param().abi(), bstrpassword.into_param().abi(), ::core::mem::transmute(attendeelimit), ::core::mem::transmute(&mut result__)).from_abi::<IRDPSRAPIInvitation>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1682,7 +1682,7 @@ pub struct IRDPSRAPIPerfCounterLogger(::windows::core::IUnknown);
 impl IRDPSRAPIPerfCounterLogger {
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
     pub unsafe fn LogValue(&self, lvalue: i64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).LogValue)(::core::mem::transmute_copy(self), ::core::mem::transmute(lvalue)).ok()
+        (::windows::core::Interface::vtable(self).LogValue)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lvalue)).ok()
     }
 }
 impl ::core::convert::From<IRDPSRAPIPerfCounterLogger> for ::windows::core::IUnknown {
@@ -1739,7 +1739,7 @@ impl IRDPSRAPIPerfCounterLoggingManager {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateLogger<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrcountername: Param0) -> ::windows::core::Result<IRDPSRAPIPerfCounterLogger> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateLogger)(::core::mem::transmute_copy(self), bstrcountername.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IRDPSRAPIPerfCounterLogger>(result__)
+        (::windows::core::Interface::vtable(self).CreateLogger)(::windows::core::Interface::as_raw(self), bstrcountername.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IRDPSRAPIPerfCounterLogger>(result__)
     }
 }
 impl ::core::convert::From<IRDPSRAPIPerfCounterLoggingManager> for ::windows::core::IUnknown {
@@ -1801,12 +1801,12 @@ impl IRDPSRAPISessionProperties {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn get_Property<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, propertyname: Param0) -> ::windows::core::Result<super::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).get_Property)(::core::mem::transmute_copy(self), propertyname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).get_Property)(::windows::core::Interface::as_raw(self), propertyname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn put_Property<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, propertyname: Param0, newval: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).put_Property)(::core::mem::transmute_copy(self), propertyname.into_param().abi(), newval.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).put_Property)(::windows::core::Interface::as_raw(self), propertyname.into_param().abi(), newval.into_param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1904,71 +1904,71 @@ pub struct IRDPSRAPISharingSession(::windows::core::IUnknown);
 impl IRDPSRAPISharingSession {
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
     pub unsafe fn Open(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Open)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Open)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
     pub unsafe fn Close(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Close)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Close)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
     pub unsafe fn SetColorDepth(&self, colordepth: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetColorDepth)(::core::mem::transmute_copy(self), ::core::mem::transmute(colordepth)).ok()
+        (::windows::core::Interface::vtable(self).SetColorDepth)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(colordepth)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
     pub unsafe fn ColorDepth(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ColorDepth)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).ColorDepth)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Properties(&self) -> ::windows::core::Result<IRDPSRAPISessionProperties> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Properties)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IRDPSRAPISessionProperties>(result__)
+        (::windows::core::Interface::vtable(self).Properties)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IRDPSRAPISessionProperties>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Attendees(&self) -> ::windows::core::Result<IRDPSRAPIAttendeeManager> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Attendees)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IRDPSRAPIAttendeeManager>(result__)
+        (::windows::core::Interface::vtable(self).Attendees)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IRDPSRAPIAttendeeManager>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Invitations(&self) -> ::windows::core::Result<IRDPSRAPIInvitationManager> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Invitations)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IRDPSRAPIInvitationManager>(result__)
+        (::windows::core::Interface::vtable(self).Invitations)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IRDPSRAPIInvitationManager>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ApplicationFilter(&self) -> ::windows::core::Result<IRDPSRAPIApplicationFilter> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ApplicationFilter)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IRDPSRAPIApplicationFilter>(result__)
+        (::windows::core::Interface::vtable(self).ApplicationFilter)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IRDPSRAPIApplicationFilter>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn VirtualChannelManager(&self) -> ::windows::core::Result<IRDPSRAPIVirtualChannelManager> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).VirtualChannelManager)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IRDPSRAPIVirtualChannelManager>(result__)
+        (::windows::core::Interface::vtable(self).VirtualChannelManager)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IRDPSRAPIVirtualChannelManager>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
     pub unsafe fn Pause(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Pause)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Pause)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
     pub unsafe fn Resume(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Resume)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Resume)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ConnectToClient<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrconnectionstring: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ConnectToClient)(::core::mem::transmute_copy(self), bstrconnectionstring.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).ConnectToClient)(::windows::core::Interface::as_raw(self), bstrconnectionstring.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
     pub unsafe fn SetDesktopSharedRect(&self, left: i32, top: i32, right: i32, bottom: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDesktopSharedRect)(::core::mem::transmute_copy(self), ::core::mem::transmute(left), ::core::mem::transmute(top), ::core::mem::transmute(right), ::core::mem::transmute(bottom)).ok()
+        (::windows::core::Interface::vtable(self).SetDesktopSharedRect)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(left), ::core::mem::transmute(top), ::core::mem::transmute(right), ::core::mem::transmute(bottom)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
     pub unsafe fn GetDesktopSharedRect(&self, pleft: *mut i32, ptop: *mut i32, pright: *mut i32, pbottom: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetDesktopSharedRect)(::core::mem::transmute_copy(self), ::core::mem::transmute(pleft), ::core::mem::transmute(ptop), ::core::mem::transmute(pright), ::core::mem::transmute(pbottom)).ok()
+        (::windows::core::Interface::vtable(self).GetDesktopSharedRect)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pleft), ::core::mem::transmute(ptop), ::core::mem::transmute(pright), ::core::mem::transmute(pbottom)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2090,87 +2090,87 @@ pub struct IRDPSRAPISharingSession2(::windows::core::IUnknown);
 impl IRDPSRAPISharingSession2 {
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
     pub unsafe fn Open(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Open)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.Open)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
     pub unsafe fn Close(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Close)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.Close)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
     pub unsafe fn SetColorDepth(&self, colordepth: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetColorDepth)(::core::mem::transmute_copy(self), ::core::mem::transmute(colordepth)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetColorDepth)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(colordepth)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
     pub unsafe fn ColorDepth(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.ColorDepth)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).base__.ColorDepth)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Properties(&self) -> ::windows::core::Result<IRDPSRAPISessionProperties> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Properties)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IRDPSRAPISessionProperties>(result__)
+        (::windows::core::Interface::vtable(self).base__.Properties)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IRDPSRAPISessionProperties>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Attendees(&self) -> ::windows::core::Result<IRDPSRAPIAttendeeManager> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Attendees)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IRDPSRAPIAttendeeManager>(result__)
+        (::windows::core::Interface::vtable(self).base__.Attendees)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IRDPSRAPIAttendeeManager>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Invitations(&self) -> ::windows::core::Result<IRDPSRAPIInvitationManager> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Invitations)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IRDPSRAPIInvitationManager>(result__)
+        (::windows::core::Interface::vtable(self).base__.Invitations)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IRDPSRAPIInvitationManager>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ApplicationFilter(&self) -> ::windows::core::Result<IRDPSRAPIApplicationFilter> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.ApplicationFilter)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IRDPSRAPIApplicationFilter>(result__)
+        (::windows::core::Interface::vtable(self).base__.ApplicationFilter)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IRDPSRAPIApplicationFilter>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn VirtualChannelManager(&self) -> ::windows::core::Result<IRDPSRAPIVirtualChannelManager> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.VirtualChannelManager)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IRDPSRAPIVirtualChannelManager>(result__)
+        (::windows::core::Interface::vtable(self).base__.VirtualChannelManager)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IRDPSRAPIVirtualChannelManager>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
     pub unsafe fn Pause(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Pause)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.Pause)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
     pub unsafe fn Resume(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Resume)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.Resume)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ConnectToClient<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrconnectionstring: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.ConnectToClient)(::core::mem::transmute_copy(self), bstrconnectionstring.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.ConnectToClient)(::windows::core::Interface::as_raw(self), bstrconnectionstring.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
     pub unsafe fn SetDesktopSharedRect(&self, left: i32, top: i32, right: i32, bottom: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetDesktopSharedRect)(::core::mem::transmute_copy(self), ::core::mem::transmute(left), ::core::mem::transmute(top), ::core::mem::transmute(right), ::core::mem::transmute(bottom)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetDesktopSharedRect)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(left), ::core::mem::transmute(top), ::core::mem::transmute(right), ::core::mem::transmute(bottom)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
     pub unsafe fn GetDesktopSharedRect(&self, pleft: *mut i32, ptop: *mut i32, pright: *mut i32, pbottom: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetDesktopSharedRect)(::core::mem::transmute_copy(self), ::core::mem::transmute(pleft), ::core::mem::transmute(ptop), ::core::mem::transmute(pright), ::core::mem::transmute(pbottom)).ok()
+        (::windows::core::Interface::vtable(self).base__.GetDesktopSharedRect)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pleft), ::core::mem::transmute(ptop), ::core::mem::transmute(pright), ::core::mem::transmute(pbottom)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ConnectUsingTransportStream<'a, Param0: ::windows::core::IntoParam<'a, IRDPSRAPITransportStream>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, pstream: Param0, bstrgroup: Param1, bstrauthenticatedattendeename: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ConnectUsingTransportStream)(::core::mem::transmute_copy(self), pstream.into_param().abi(), bstrgroup.into_param().abi(), bstrauthenticatedattendeename.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).ConnectUsingTransportStream)(::windows::core::Interface::as_raw(self), pstream.into_param().abi(), bstrgroup.into_param().abi(), bstrauthenticatedattendeename.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn FrameBuffer(&self) -> ::windows::core::Result<IRDPSRAPIFrameBuffer> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).FrameBuffer)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IRDPSRAPIFrameBuffer>(result__)
+        (::windows::core::Interface::vtable(self).FrameBuffer)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IRDPSRAPIFrameBuffer>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SendControlLevelChangeResponse<'a, Param0: ::windows::core::IntoParam<'a, IRDPSRAPIAttendee>>(&self, pattendee: Param0, requestedlevel: CTRL_LEVEL, reasoncode: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SendControlLevelChangeResponse)(::core::mem::transmute_copy(self), pattendee.into_param().abi(), ::core::mem::transmute(requestedlevel), ::core::mem::transmute(reasoncode)).ok()
+        (::windows::core::Interface::vtable(self).SendControlLevelChangeResponse)(::windows::core::Interface::as_raw(self), pattendee.into_param().abi(), ::core::mem::transmute(requestedlevel), ::core::mem::transmute(reasoncode)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2297,29 +2297,29 @@ impl IRDPSRAPITcpConnectionInfo {
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
     pub unsafe fn Protocol(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Protocol)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).Protocol)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
     pub unsafe fn LocalPort(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).LocalPort)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).LocalPort)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn LocalIP(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).LocalIP)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).LocalIP)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
     pub unsafe fn PeerPort(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).PeerPort)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).PeerPort)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn PeerIP(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).PeerIP)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).PeerIP)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2419,27 +2419,27 @@ impl IRDPSRAPITransportStream {
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
     pub unsafe fn AllocBuffer(&self, maxpayload: i32) -> ::windows::core::Result<IRDPSRAPITransportStreamBuffer> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).AllocBuffer)(::core::mem::transmute_copy(self), ::core::mem::transmute(maxpayload), ::core::mem::transmute(&mut result__)).from_abi::<IRDPSRAPITransportStreamBuffer>(result__)
+        (::windows::core::Interface::vtable(self).AllocBuffer)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(maxpayload), ::core::mem::transmute(&mut result__)).from_abi::<IRDPSRAPITransportStreamBuffer>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
     pub unsafe fn FreeBuffer<'a, Param0: ::windows::core::IntoParam<'a, IRDPSRAPITransportStreamBuffer>>(&self, pbuffer: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FreeBuffer)(::core::mem::transmute_copy(self), pbuffer.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).FreeBuffer)(::windows::core::Interface::as_raw(self), pbuffer.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
     pub unsafe fn WriteBuffer<'a, Param0: ::windows::core::IntoParam<'a, IRDPSRAPITransportStreamBuffer>>(&self, pbuffer: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).WriteBuffer)(::core::mem::transmute_copy(self), pbuffer.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).WriteBuffer)(::windows::core::Interface::as_raw(self), pbuffer.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
     pub unsafe fn ReadBuffer<'a, Param0: ::windows::core::IntoParam<'a, IRDPSRAPITransportStreamBuffer>>(&self, pbuffer: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ReadBuffer)(::core::mem::transmute_copy(self), pbuffer.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).ReadBuffer)(::windows::core::Interface::as_raw(self), pbuffer.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
     pub unsafe fn Open<'a, Param0: ::windows::core::IntoParam<'a, IRDPSRAPITransportStreamEvents>>(&self, pcallbacks: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Open)(::core::mem::transmute_copy(self), pcallbacks.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).Open)(::windows::core::Interface::as_raw(self), pcallbacks.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
     pub unsafe fn Close(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Close)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Close)(::windows::core::Interface::as_raw(self)).ok()
     }
 }
 impl ::core::convert::From<IRDPSRAPITransportStream> for ::windows::core::IUnknown {
@@ -2500,48 +2500,48 @@ impl IRDPSRAPITransportStreamBuffer {
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
     pub unsafe fn Storage(&self) -> ::windows::core::Result<*mut u8> {
         let mut result__: *mut u8 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Storage)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<*mut u8>(result__)
+        (::windows::core::Interface::vtable(self).Storage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<*mut u8>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
     pub unsafe fn StorageSize(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).StorageSize)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).StorageSize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
     pub unsafe fn PayloadSize(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).PayloadSize)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).PayloadSize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
     pub unsafe fn SetPayloadSize(&self, lval: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPayloadSize)(::core::mem::transmute_copy(self), ::core::mem::transmute(lval)).ok()
+        (::windows::core::Interface::vtable(self).SetPayloadSize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lval)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
     pub unsafe fn PayloadOffset(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).PayloadOffset)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).PayloadOffset)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
     pub unsafe fn SetPayloadOffset(&self, lretval: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPayloadOffset)(::core::mem::transmute_copy(self), ::core::mem::transmute(lretval)).ok()
+        (::windows::core::Interface::vtable(self).SetPayloadOffset)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lretval)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
     pub unsafe fn Flags(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Flags)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).Flags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
     pub unsafe fn SetFlags(&self, lflags: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetFlags)(::core::mem::transmute_copy(self), ::core::mem::transmute(lflags)).ok()
+        (::windows::core::Interface::vtable(self).SetFlags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lflags)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
     pub unsafe fn Context(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Context)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
+        (::windows::core::Interface::vtable(self).Context)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
     pub unsafe fn SetContext<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, pcontext: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetContext)(::core::mem::transmute_copy(self), pcontext.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetContext)(::windows::core::Interface::as_raw(self), pcontext.into_param().abi()).ok()
     }
 }
 impl ::core::convert::From<IRDPSRAPITransportStreamBuffer> for ::windows::core::IUnknown {
@@ -2605,15 +2605,15 @@ pub struct IRDPSRAPITransportStreamEvents(::windows::core::IUnknown);
 impl IRDPSRAPITransportStreamEvents {
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
     pub unsafe fn OnWriteCompleted<'a, Param0: ::windows::core::IntoParam<'a, IRDPSRAPITransportStreamBuffer>>(&self, pbuffer: Param0) {
-        (::windows::core::Interface::vtable(self).OnWriteCompleted)(::core::mem::transmute_copy(self), pbuffer.into_param().abi())
+        (::windows::core::Interface::vtable(self).OnWriteCompleted)(::windows::core::Interface::as_raw(self), pbuffer.into_param().abi())
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
     pub unsafe fn OnReadCompleted<'a, Param0: ::windows::core::IntoParam<'a, IRDPSRAPITransportStreamBuffer>>(&self, pbuffer: Param0) {
-        (::windows::core::Interface::vtable(self).OnReadCompleted)(::core::mem::transmute_copy(self), pbuffer.into_param().abi())
+        (::windows::core::Interface::vtable(self).OnReadCompleted)(::windows::core::Interface::as_raw(self), pbuffer.into_param().abi())
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
     pub unsafe fn OnStreamClosed(&self, hrreason: ::windows::core::HRESULT) {
-        (::windows::core::Interface::vtable(self).OnStreamClosed)(::core::mem::transmute_copy(self), ::core::mem::transmute(hrreason))
+        (::windows::core::Interface::vtable(self).OnStreamClosed)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hrreason))
     }
 }
 impl ::core::convert::From<IRDPSRAPITransportStreamEvents> for ::windows::core::IUnknown {
@@ -2673,75 +2673,75 @@ impl IRDPSRAPIViewer {
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Connect<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrconnectionstring: Param0, bstrname: Param1, bstrpassword: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Connect)(::core::mem::transmute_copy(self), bstrconnectionstring.into_param().abi(), bstrname.into_param().abi(), bstrpassword.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).Connect)(::windows::core::Interface::as_raw(self), bstrconnectionstring.into_param().abi(), bstrname.into_param().abi(), bstrpassword.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
     pub unsafe fn Disconnect(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Disconnect)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Disconnect)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Attendees(&self) -> ::windows::core::Result<IRDPSRAPIAttendeeManager> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Attendees)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IRDPSRAPIAttendeeManager>(result__)
+        (::windows::core::Interface::vtable(self).Attendees)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IRDPSRAPIAttendeeManager>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Invitations(&self) -> ::windows::core::Result<IRDPSRAPIInvitationManager> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Invitations)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IRDPSRAPIInvitationManager>(result__)
+        (::windows::core::Interface::vtable(self).Invitations)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IRDPSRAPIInvitationManager>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ApplicationFilter(&self) -> ::windows::core::Result<IRDPSRAPIApplicationFilter> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ApplicationFilter)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IRDPSRAPIApplicationFilter>(result__)
+        (::windows::core::Interface::vtable(self).ApplicationFilter)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IRDPSRAPIApplicationFilter>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn VirtualChannelManager(&self) -> ::windows::core::Result<IRDPSRAPIVirtualChannelManager> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).VirtualChannelManager)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IRDPSRAPIVirtualChannelManager>(result__)
+        (::windows::core::Interface::vtable(self).VirtualChannelManager)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IRDPSRAPIVirtualChannelManager>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
     pub unsafe fn SetSmartSizing(&self, vbsmartsizing: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSmartSizing)(::core::mem::transmute_copy(self), ::core::mem::transmute(vbsmartsizing)).ok()
+        (::windows::core::Interface::vtable(self).SetSmartSizing)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(vbsmartsizing)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
     pub unsafe fn SmartSizing(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).SmartSizing)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).SmartSizing)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
     pub unsafe fn RequestControl(&self, ctrllevel: CTRL_LEVEL) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RequestControl)(::core::mem::transmute_copy(self), ::core::mem::transmute(ctrllevel)).ok()
+        (::windows::core::Interface::vtable(self).RequestControl)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ctrllevel)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetDisconnectedText<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrdisconnectedtext: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDisconnectedText)(::core::mem::transmute_copy(self), bstrdisconnectedtext.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetDisconnectedText)(::windows::core::Interface::as_raw(self), bstrdisconnectedtext.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DisconnectedText(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).DisconnectedText)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).DisconnectedText)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
     pub unsafe fn RequestColorDepthChange(&self, bpp: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RequestColorDepthChange)(::core::mem::transmute_copy(self), ::core::mem::transmute(bpp)).ok()
+        (::windows::core::Interface::vtable(self).RequestColorDepthChange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(bpp)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Properties(&self) -> ::windows::core::Result<IRDPSRAPISessionProperties> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Properties)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IRDPSRAPISessionProperties>(result__)
+        (::windows::core::Interface::vtable(self).Properties)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IRDPSRAPISessionProperties>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn StartReverseConnectListener<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrconnectionstring: Param0, bstrusername: Param1, bstrpassword: Param2) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).StartReverseConnectListener)(::core::mem::transmute_copy(self), bstrconnectionstring.into_param().abi(), bstrusername.into_param().abi(), bstrpassword.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).StartReverseConnectListener)(::windows::core::Interface::as_raw(self), bstrconnectionstring.into_param().abi(), bstrusername.into_param().abi(), bstrpassword.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2873,27 +2873,27 @@ impl IRDPSRAPIVirtualChannel {
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SendData<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrdata: Param0, lattendeeid: i32, channelsendflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SendData)(::core::mem::transmute_copy(self), bstrdata.into_param().abi(), ::core::mem::transmute(lattendeeid), ::core::mem::transmute(channelsendflags)).ok()
+        (::windows::core::Interface::vtable(self).SendData)(::windows::core::Interface::as_raw(self), bstrdata.into_param().abi(), ::core::mem::transmute(lattendeeid), ::core::mem::transmute(channelsendflags)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
     pub unsafe fn SetAccess(&self, lattendeeid: i32, accesstype: CHANNEL_ACCESS_ENUM) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAccess)(::core::mem::transmute_copy(self), ::core::mem::transmute(lattendeeid), ::core::mem::transmute(accesstype)).ok()
+        (::windows::core::Interface::vtable(self).SetAccess)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lattendeeid), ::core::mem::transmute(accesstype)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Name(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Name)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).Name)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
     pub unsafe fn Flags(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Flags)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).Flags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
     pub unsafe fn Priority(&self) -> ::windows::core::Result<CHANNEL_PRIORITY> {
         let mut result__: CHANNEL_PRIORITY = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Priority)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<CHANNEL_PRIORITY>(result__)
+        (::windows::core::Interface::vtable(self).Priority)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<CHANNEL_PRIORITY>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2995,19 +2995,19 @@ impl IRDPSRAPIVirtualChannelManager {
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
     pub unsafe fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self)._NewEnum)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
+        (::windows::core::Interface::vtable(self)._NewEnum)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn get_Item<'a, Param0: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, item: Param0) -> ::windows::core::Result<IRDPSRAPIVirtualChannel> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).get_Item)(::core::mem::transmute_copy(self), item.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IRDPSRAPIVirtualChannel>(result__)
+        (::windows::core::Interface::vtable(self).get_Item)(::windows::core::Interface::as_raw(self), item.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IRDPSRAPIVirtualChannel>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn CreateVirtualChannel<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrchannelname: Param0, priority: CHANNEL_PRIORITY, channelflags: u32) -> ::windows::core::Result<IRDPSRAPIVirtualChannel> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateVirtualChannel)(::core::mem::transmute_copy(self), bstrchannelname.into_param().abi(), ::core::mem::transmute(priority), ::core::mem::transmute(channelflags), ::core::mem::transmute(&mut result__)).from_abi::<IRDPSRAPIVirtualChannel>(result__)
+        (::windows::core::Interface::vtable(self).CreateVirtualChannel)(::windows::core::Interface::as_raw(self), bstrchannelname.into_param().abi(), ::core::mem::transmute(priority), ::core::mem::transmute(channelflags), ::core::mem::transmute(&mut result__)).from_abi::<IRDPSRAPIVirtualChannel>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3107,37 +3107,37 @@ impl IRDPSRAPIWindow {
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
     pub unsafe fn Id(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Id)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).Id)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Application(&self) -> ::windows::core::Result<IRDPSRAPIApplication> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Application)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IRDPSRAPIApplication>(result__)
+        (::windows::core::Interface::vtable(self).Application)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IRDPSRAPIApplication>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
     pub unsafe fn Shared(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Shared)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).Shared)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
     pub unsafe fn SetShared(&self, newval: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetShared)(::core::mem::transmute_copy(self), ::core::mem::transmute(newval)).ok()
+        (::windows::core::Interface::vtable(self).SetShared)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(newval)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Name(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Name)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).Name)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
     pub unsafe fn Show(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Show)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Show)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
     pub unsafe fn Flags(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Flags)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).Flags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3241,13 +3241,13 @@ impl IRDPSRAPIWindowList {
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
     pub unsafe fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self)._NewEnum)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
+        (::windows::core::Interface::vtable(self)._NewEnum)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_Item(&self, item: i32) -> ::windows::core::Result<IRDPSRAPIWindow> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).get_Item)(::core::mem::transmute_copy(self), ::core::mem::transmute(item), ::core::mem::transmute(&mut result__)).from_abi::<IRDPSRAPIWindow>(result__)
+        (::windows::core::Interface::vtable(self).get_Item)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(item), ::core::mem::transmute(&mut result__)).from_abi::<IRDPSRAPIWindow>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3340,35 +3340,35 @@ pub struct IRDPViewerInputSink(::windows::core::IUnknown);
 impl IRDPViewerInputSink {
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
     pub unsafe fn SendMouseButtonEvent(&self, buttontype: RDPSRAPI_MOUSE_BUTTON_TYPE, vbbuttondown: i16, xpos: u32, ypos: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SendMouseButtonEvent)(::core::mem::transmute_copy(self), ::core::mem::transmute(buttontype), ::core::mem::transmute(vbbuttondown), ::core::mem::transmute(xpos), ::core::mem::transmute(ypos)).ok()
+        (::windows::core::Interface::vtable(self).SendMouseButtonEvent)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(buttontype), ::core::mem::transmute(vbbuttondown), ::core::mem::transmute(xpos), ::core::mem::transmute(ypos)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
     pub unsafe fn SendMouseMoveEvent(&self, xpos: u32, ypos: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SendMouseMoveEvent)(::core::mem::transmute_copy(self), ::core::mem::transmute(xpos), ::core::mem::transmute(ypos)).ok()
+        (::windows::core::Interface::vtable(self).SendMouseMoveEvent)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(xpos), ::core::mem::transmute(ypos)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
     pub unsafe fn SendMouseWheelEvent(&self, wheelrotation: u16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SendMouseWheelEvent)(::core::mem::transmute_copy(self), ::core::mem::transmute(wheelrotation)).ok()
+        (::windows::core::Interface::vtable(self).SendMouseWheelEvent)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wheelrotation)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
     pub unsafe fn SendKeyboardEvent(&self, codetype: RDPSRAPI_KBD_CODE_TYPE, keycode: u16, vbkeyup: i16, vbrepeat: i16, vbextended: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SendKeyboardEvent)(::core::mem::transmute_copy(self), ::core::mem::transmute(codetype), ::core::mem::transmute(keycode), ::core::mem::transmute(vbkeyup), ::core::mem::transmute(vbrepeat), ::core::mem::transmute(vbextended)).ok()
+        (::windows::core::Interface::vtable(self).SendKeyboardEvent)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(codetype), ::core::mem::transmute(keycode), ::core::mem::transmute(vbkeyup), ::core::mem::transmute(vbrepeat), ::core::mem::transmute(vbextended)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
     pub unsafe fn SendSyncEvent(&self, syncflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SendSyncEvent)(::core::mem::transmute_copy(self), ::core::mem::transmute(syncflags)).ok()
+        (::windows::core::Interface::vtable(self).SendSyncEvent)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(syncflags)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
     pub unsafe fn BeginTouchFrame(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).BeginTouchFrame)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).BeginTouchFrame)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
     pub unsafe fn AddTouchInput(&self, contactid: u32, event: u32, x: i32, y: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AddTouchInput)(::core::mem::transmute_copy(self), ::core::mem::transmute(contactid), ::core::mem::transmute(event), ::core::mem::transmute(x), ::core::mem::transmute(y)).ok()
+        (::windows::core::Interface::vtable(self).AddTouchInput)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(contactid), ::core::mem::transmute(event), ::core::mem::transmute(x), ::core::mem::transmute(y)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
     pub unsafe fn EndTouchFrame(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).EndTouchFrame)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).EndTouchFrame)(::windows::core::Interface::as_raw(self)).ok()
     }
 }
 impl ::core::convert::From<IRDPViewerInputSink> for ::windows::core::IUnknown {

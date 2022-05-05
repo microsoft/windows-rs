@@ -8,7 +8,7 @@ impl CustomDevice {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).InputStream)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IInputStream>(result__)
+            (::windows::core::Interface::vtable(this).InputStream)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Storage::Streams::IInputStream>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Custom\"`, `\"Storage_Streams\"`*"]
@@ -17,7 +17,7 @@ impl CustomDevice {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).OutputStream)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IOutputStream>(result__)
+            (::windows::core::Interface::vtable(this).OutputStream)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Storage::Streams::IOutputStream>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Custom\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
@@ -26,7 +26,7 @@ impl CustomDevice {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SendIOControlAsync)(::core::mem::transmute_copy(this), iocontrolcode.into_param().abi(), inputbuffer.into_param().abi(), outputbuffer.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<u32>>(result__)
+            (::windows::core::Interface::vtable(this).SendIOControlAsync)(::windows::core::Interface::as_raw(this), iocontrolcode.into_param().abi(), inputbuffer.into_param().abi(), outputbuffer.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<u32>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Custom\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
@@ -35,14 +35,14 @@ impl CustomDevice {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TrySendIOControlAsync)(::core::mem::transmute_copy(this), iocontrolcode.into_param().abi(), inputbuffer.into_param().abi(), outputbuffer.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Interface::vtable(this).TrySendIOControlAsync)(::windows::core::Interface::as_raw(this), iocontrolcode.into_param().abi(), inputbuffer.into_param().abi(), outputbuffer.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Custom\"`*"]
     pub fn GetDeviceSelector<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(classguid: Param0) -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::ICustomDeviceStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetDeviceSelector)(::core::mem::transmute_copy(this), classguid.into_param().abi(), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).GetDeviceSelector)(::windows::core::Interface::as_raw(this), classguid.into_param().abi(), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Custom\"`, `\"Foundation\"`*"]
@@ -50,7 +50,7 @@ impl CustomDevice {
     pub fn FromIdAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(deviceid: Param0, desiredaccess: DeviceAccessMode, sharingmode: DeviceSharingMode) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<CustomDevice>> {
         Self::ICustomDeviceStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FromIdAsync)(::core::mem::transmute_copy(this), deviceid.into_param().abi(), desiredaccess, sharingmode, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<CustomDevice>>(result__)
+            (::windows::core::Interface::vtable(this).FromIdAsync)(::windows::core::Interface::as_raw(this), deviceid.into_param().abi(), desiredaccess, sharingmode, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<CustomDevice>>(result__)
         })
     }
     #[doc(hidden)]
@@ -254,7 +254,7 @@ impl IIOControlCode {
         let this = self;
         unsafe {
             let mut result__: IOControlAccessMode = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AccessMode)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IOControlAccessMode>(result__)
+            (::windows::core::Interface::vtable(this).AccessMode)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<IOControlAccessMode>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Custom\"`*"]
@@ -262,7 +262,7 @@ impl IIOControlCode {
         let this = self;
         unsafe {
             let mut result__: IOControlBufferingMethod = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).BufferingMethod)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IOControlBufferingMethod>(result__)
+            (::windows::core::Interface::vtable(this).BufferingMethod)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<IOControlBufferingMethod>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Custom\"`*"]
@@ -270,7 +270,7 @@ impl IIOControlCode {
         let this = self;
         unsafe {
             let mut result__: u16 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Function)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
+            (::windows::core::Interface::vtable(this).Function)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u16>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Custom\"`*"]
@@ -278,7 +278,7 @@ impl IIOControlCode {
         let this = self;
         unsafe {
             let mut result__: u16 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DeviceType)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
+            (::windows::core::Interface::vtable(this).DeviceType)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u16>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Custom\"`*"]
@@ -286,7 +286,7 @@ impl IIOControlCode {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ControlCode)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).ControlCode)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u32>(result__)
         }
     }
 }
@@ -474,7 +474,7 @@ impl IOControlCode {
         let this = self;
         unsafe {
             let mut result__: IOControlAccessMode = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AccessMode)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IOControlAccessMode>(result__)
+            (::windows::core::Interface::vtable(this).AccessMode)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<IOControlAccessMode>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Custom\"`*"]
@@ -482,7 +482,7 @@ impl IOControlCode {
         let this = self;
         unsafe {
             let mut result__: IOControlBufferingMethod = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).BufferingMethod)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IOControlBufferingMethod>(result__)
+            (::windows::core::Interface::vtable(this).BufferingMethod)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<IOControlBufferingMethod>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Custom\"`*"]
@@ -490,7 +490,7 @@ impl IOControlCode {
         let this = self;
         unsafe {
             let mut result__: u16 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Function)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
+            (::windows::core::Interface::vtable(this).Function)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u16>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Custom\"`*"]
@@ -498,7 +498,7 @@ impl IOControlCode {
         let this = self;
         unsafe {
             let mut result__: u16 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DeviceType)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
+            (::windows::core::Interface::vtable(this).DeviceType)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u16>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Custom\"`*"]
@@ -506,14 +506,14 @@ impl IOControlCode {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ControlCode)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).ControlCode)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Custom\"`*"]
     pub fn CreateIOControlCode(devicetype: u16, function: u16, accessmode: IOControlAccessMode, bufferingmethod: IOControlBufferingMethod) -> ::windows::core::Result<IOControlCode> {
         Self::IIOControlCodeFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateIOControlCode)(::core::mem::transmute_copy(this), devicetype, function, accessmode, bufferingmethod, &mut result__).from_abi::<IOControlCode>(result__)
+            (::windows::core::Interface::vtable(this).CreateIOControlCode)(::windows::core::Interface::as_raw(this), devicetype, function, accessmode, bufferingmethod, &mut result__).from_abi::<IOControlCode>(result__)
         })
     }
     #[doc(hidden)]
@@ -623,7 +623,7 @@ impl KnownDeviceTypes {
     pub fn Unknown() -> ::windows::core::Result<u16> {
         Self::IKnownDeviceTypesStatics(|this| unsafe {
             let mut result__: u16 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Unknown)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
+            (::windows::core::Interface::vtable(this).Unknown)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u16>(result__)
         })
     }
     #[doc(hidden)]

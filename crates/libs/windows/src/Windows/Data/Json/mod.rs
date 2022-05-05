@@ -102,7 +102,7 @@ impl IJsonValue {
         let this = self;
         unsafe {
             let mut result__: JsonValueType = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ValueType)(::core::mem::transmute_copy(this), &mut result__).from_abi::<JsonValueType>(result__)
+            (::windows::core::Interface::vtable(this).ValueType)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<JsonValueType>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Json\"`*"]
@@ -110,7 +110,7 @@ impl IJsonValue {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Stringify)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Stringify)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Json\"`*"]
@@ -118,7 +118,7 @@ impl IJsonValue {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetString)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).GetString)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Json\"`*"]
@@ -126,7 +126,7 @@ impl IJsonValue {
         let this = self;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetNumber)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).GetNumber)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Json\"`*"]
@@ -134,7 +134,7 @@ impl IJsonValue {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetBoolean)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).GetBoolean)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Json\"`*"]
@@ -142,7 +142,7 @@ impl IJsonValue {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetArray)(::core::mem::transmute_copy(this), &mut result__).from_abi::<JsonArray>(result__)
+            (::windows::core::Interface::vtable(this).GetArray)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<JsonArray>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Json\"`*"]
@@ -150,7 +150,7 @@ impl IJsonValue {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetObject)(::core::mem::transmute_copy(this), &mut result__).from_abi::<JsonObject>(result__)
+            (::windows::core::Interface::vtable(this).GetObject)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<JsonObject>(result__)
         }
     }
 }
@@ -280,7 +280,7 @@ impl JsonArray {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IIterable<IJsonValue>>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).First)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IIterator<IJsonValue>>(result__)
+            (::windows::core::Interface::vtable(this).First)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IIterator<IJsonValue>>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Json\"`*"]
@@ -288,7 +288,7 @@ impl JsonArray {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetObjectAt)(::core::mem::transmute_copy(this), index, &mut result__).from_abi::<JsonObject>(result__)
+            (::windows::core::Interface::vtable(this).GetObjectAt)(::windows::core::Interface::as_raw(this), index, &mut result__).from_abi::<JsonObject>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Json\"`*"]
@@ -296,7 +296,7 @@ impl JsonArray {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetArrayAt)(::core::mem::transmute_copy(this), index, &mut result__).from_abi::<JsonArray>(result__)
+            (::windows::core::Interface::vtable(this).GetArrayAt)(::windows::core::Interface::as_raw(this), index, &mut result__).from_abi::<JsonArray>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Json\"`*"]
@@ -304,7 +304,7 @@ impl JsonArray {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetStringAt)(::core::mem::transmute_copy(this), index, &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).GetStringAt)(::windows::core::Interface::as_raw(this), index, &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Json\"`*"]
@@ -312,7 +312,7 @@ impl JsonArray {
         let this = self;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetNumberAt)(::core::mem::transmute_copy(this), index, &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).GetNumberAt)(::windows::core::Interface::as_raw(this), index, &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Json\"`*"]
@@ -320,21 +320,21 @@ impl JsonArray {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetBooleanAt)(::core::mem::transmute_copy(this), index, &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).GetBooleanAt)(::windows::core::Interface::as_raw(this), index, &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Json\"`*"]
     pub fn Parse<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(input: Param0) -> ::windows::core::Result<JsonArray> {
         Self::IJsonArrayStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Parse)(::core::mem::transmute_copy(this), input.into_param().abi(), &mut result__).from_abi::<JsonArray>(result__)
+            (::windows::core::Interface::vtable(this).Parse)(::windows::core::Interface::as_raw(this), input.into_param().abi(), &mut result__).from_abi::<JsonArray>(result__)
         })
     }
     #[doc = "*Required features: `\"Data_Json\"`*"]
     pub fn TryParse<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(input: Param0, result: &mut ::core::option::Option<JsonArray>) -> ::windows::core::Result<bool> {
         Self::IJsonArrayStatics(|this| unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TryParse)(::core::mem::transmute_copy(this), input.into_param().abi(), result as *mut _ as _, &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).TryParse)(::windows::core::Interface::as_raw(this), input.into_param().abi(), result as *mut _ as _, &mut result__).from_abi::<bool>(result__)
         })
     }
     #[doc = "*Required features: `\"Data_Json\"`*"]
@@ -342,7 +342,7 @@ impl JsonArray {
         let this = &::windows::core::Interface::cast::<IJsonValue>(self)?;
         unsafe {
             let mut result__: JsonValueType = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ValueType)(::core::mem::transmute_copy(this), &mut result__).from_abi::<JsonValueType>(result__)
+            (::windows::core::Interface::vtable(this).ValueType)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<JsonValueType>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Json\"`*"]
@@ -350,7 +350,7 @@ impl JsonArray {
         let this = &::windows::core::Interface::cast::<IJsonValue>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Stringify)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Stringify)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Json\"`*"]
@@ -358,7 +358,7 @@ impl JsonArray {
         let this = &::windows::core::Interface::cast::<IJsonValue>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetString)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).GetString)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Json\"`*"]
@@ -366,7 +366,7 @@ impl JsonArray {
         let this = &::windows::core::Interface::cast::<IJsonValue>(self)?;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetNumber)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).GetNumber)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Json\"`*"]
@@ -374,7 +374,7 @@ impl JsonArray {
         let this = &::windows::core::Interface::cast::<IJsonValue>(self)?;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetBoolean)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).GetBoolean)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Json\"`*"]
@@ -382,7 +382,7 @@ impl JsonArray {
         let this = &::windows::core::Interface::cast::<IJsonValue>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetArray)(::core::mem::transmute_copy(this), &mut result__).from_abi::<JsonArray>(result__)
+            (::windows::core::Interface::vtable(this).GetArray)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<JsonArray>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Json\"`*"]
@@ -390,7 +390,7 @@ impl JsonArray {
         let this = &::windows::core::Interface::cast::<IJsonValue>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetObject)(::core::mem::transmute_copy(this), &mut result__).from_abi::<JsonObject>(result__)
+            (::windows::core::Interface::vtable(this).GetObject)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<JsonObject>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Json\"`, `\"Foundation\"`*"]
@@ -399,7 +399,7 @@ impl JsonArray {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IStringable>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ToString)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).ToString)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Json\"`, `\"Foundation_Collections\"`*"]
@@ -408,7 +408,7 @@ impl JsonArray {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IVector<IJsonValue>>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetAt)(::core::mem::transmute_copy(this), index, &mut result__).from_abi::<IJsonValue>(result__)
+            (::windows::core::Interface::vtable(this).GetAt)(::windows::core::Interface::as_raw(this), index, &mut result__).from_abi::<IJsonValue>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Json\"`, `\"Foundation_Collections\"`*"]
@@ -417,7 +417,7 @@ impl JsonArray {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IVector<IJsonValue>>(self)?;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Size)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).Size)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Json\"`, `\"Foundation_Collections\"`*"]
@@ -426,7 +426,7 @@ impl JsonArray {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IVector<IJsonValue>>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetView)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<IJsonValue>>(result__)
+            (::windows::core::Interface::vtable(this).GetView)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<IJsonValue>>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Json\"`, `\"Foundation_Collections\"`*"]
@@ -435,44 +435,44 @@ impl JsonArray {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IVector<IJsonValue>>(self)?;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IndexOf)(::core::mem::transmute_copy(this), value.into_param().abi(), index, &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IndexOf)(::windows::core::Interface::as_raw(this), value.into_param().abi(), index, &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Json\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SetAt<'a, Param1: ::windows::core::IntoParam<'a, IJsonValue>>(&self, index: u32, value: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IVector<IJsonValue>>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetAt)(::core::mem::transmute_copy(this), index, value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetAt)(::windows::core::Interface::as_raw(this), index, value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Data_Json\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn InsertAt<'a, Param1: ::windows::core::IntoParam<'a, IJsonValue>>(&self, index: u32, value: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IVector<IJsonValue>>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).InsertAt)(::core::mem::transmute_copy(this), index, value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).InsertAt)(::windows::core::Interface::as_raw(this), index, value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Data_Json\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn RemoveAt(&self, index: u32) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IVector<IJsonValue>>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveAt)(::core::mem::transmute_copy(this), index).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveAt)(::windows::core::Interface::as_raw(this), index).ok() }
     }
     #[doc = "*Required features: `\"Data_Json\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Append<'a, Param0: ::windows::core::IntoParam<'a, IJsonValue>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IVector<IJsonValue>>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).Append)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Append)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Data_Json\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn RemoveAtEnd(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IVector<IJsonValue>>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveAtEnd)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveAtEnd)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Data_Json\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Clear(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IVector<IJsonValue>>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).Clear)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Clear)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Data_Json\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -480,14 +480,14 @@ impl JsonArray {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IVector<IJsonValue>>(self)?;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetMany)(::core::mem::transmute_copy(this), startindex, items.len() as u32, ::core::mem::transmute_copy(&items), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).GetMany)(::windows::core::Interface::as_raw(this), startindex, items.len() as u32, ::core::mem::transmute_copy(&items), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Json\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ReplaceAll(&self, items: &[::core::option::Option<IJsonValue>]) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IVector<IJsonValue>>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).ReplaceAll)(::core::mem::transmute_copy(this), items.len() as u32, ::core::mem::transmute(items.as_ptr())).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).ReplaceAll)(::windows::core::Interface::as_raw(this), items.len() as u32, ::core::mem::transmute(items.as_ptr())).ok() }
     }
     #[doc(hidden)]
     pub fn IJsonArrayStatics<R, F: FnOnce(&IJsonArrayStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
@@ -690,7 +690,7 @@ impl JsonError {
     pub fn GetJsonStatus(hresult: i32) -> ::windows::core::Result<JsonErrorStatus> {
         Self::IJsonErrorStatics2(|this| unsafe {
             let mut result__: JsonErrorStatus = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetJsonStatus)(::core::mem::transmute_copy(this), hresult, &mut result__).from_abi::<JsonErrorStatus>(result__)
+            (::windows::core::Interface::vtable(this).GetJsonStatus)(::windows::core::Interface::as_raw(this), hresult, &mut result__).from_abi::<JsonErrorStatus>(result__)
         })
     }
     #[doc(hidden)]
@@ -756,7 +756,7 @@ impl JsonObject {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, IJsonValue>>>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).First)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IIterator<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, IJsonValue>>>(result__)
+            (::windows::core::Interface::vtable(this).First)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IIterator<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, IJsonValue>>>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Json\"`*"]
@@ -764,20 +764,20 @@ impl JsonObject {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetNamedValue)(::core::mem::transmute_copy(this), name.into_param().abi(), &mut result__).from_abi::<JsonValue>(result__)
+            (::windows::core::Interface::vtable(this).GetNamedValue)(::windows::core::Interface::as_raw(this), name.into_param().abi(), &mut result__).from_abi::<JsonValue>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Json\"`*"]
     pub fn SetNamedValue<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, IJsonValue>>(&self, name: Param0, value: Param1) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetNamedValue)(::core::mem::transmute_copy(this), name.into_param().abi(), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetNamedValue)(::windows::core::Interface::as_raw(this), name.into_param().abi(), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Data_Json\"`*"]
     pub fn GetNamedObject<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0) -> ::windows::core::Result<JsonObject> {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetNamedObject)(::core::mem::transmute_copy(this), name.into_param().abi(), &mut result__).from_abi::<JsonObject>(result__)
+            (::windows::core::Interface::vtable(this).GetNamedObject)(::windows::core::Interface::as_raw(this), name.into_param().abi(), &mut result__).from_abi::<JsonObject>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Json\"`*"]
@@ -785,7 +785,7 @@ impl JsonObject {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetNamedArray)(::core::mem::transmute_copy(this), name.into_param().abi(), &mut result__).from_abi::<JsonArray>(result__)
+            (::windows::core::Interface::vtable(this).GetNamedArray)(::windows::core::Interface::as_raw(this), name.into_param().abi(), &mut result__).from_abi::<JsonArray>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Json\"`*"]
@@ -793,7 +793,7 @@ impl JsonObject {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetNamedString)(::core::mem::transmute_copy(this), name.into_param().abi(), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).GetNamedString)(::windows::core::Interface::as_raw(this), name.into_param().abi(), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Json\"`*"]
@@ -801,7 +801,7 @@ impl JsonObject {
         let this = self;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetNamedNumber)(::core::mem::transmute_copy(this), name.into_param().abi(), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).GetNamedNumber)(::windows::core::Interface::as_raw(this), name.into_param().abi(), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Json\"`*"]
@@ -809,21 +809,21 @@ impl JsonObject {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetNamedBoolean)(::core::mem::transmute_copy(this), name.into_param().abi(), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).GetNamedBoolean)(::windows::core::Interface::as_raw(this), name.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Json\"`*"]
     pub fn Parse<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(input: Param0) -> ::windows::core::Result<JsonObject> {
         Self::IJsonObjectStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Parse)(::core::mem::transmute_copy(this), input.into_param().abi(), &mut result__).from_abi::<JsonObject>(result__)
+            (::windows::core::Interface::vtable(this).Parse)(::windows::core::Interface::as_raw(this), input.into_param().abi(), &mut result__).from_abi::<JsonObject>(result__)
         })
     }
     #[doc = "*Required features: `\"Data_Json\"`*"]
     pub fn TryParse<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(input: Param0, result: &mut ::core::option::Option<JsonObject>) -> ::windows::core::Result<bool> {
         Self::IJsonObjectStatics(|this| unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TryParse)(::core::mem::transmute_copy(this), input.into_param().abi(), result as *mut _ as _, &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).TryParse)(::windows::core::Interface::as_raw(this), input.into_param().abi(), result as *mut _ as _, &mut result__).from_abi::<bool>(result__)
         })
     }
     #[doc = "*Required features: `\"Data_Json\"`*"]
@@ -831,7 +831,7 @@ impl JsonObject {
         let this = &::windows::core::Interface::cast::<IJsonObjectWithDefaultValues>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetNamedValueOrDefault)(::core::mem::transmute_copy(this), name.into_param().abi(), defaultvalue.into_param().abi(), &mut result__).from_abi::<JsonValue>(result__)
+            (::windows::core::Interface::vtable(this).GetNamedValueOrDefault)(::windows::core::Interface::as_raw(this), name.into_param().abi(), defaultvalue.into_param().abi(), &mut result__).from_abi::<JsonValue>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Json\"`*"]
@@ -839,7 +839,7 @@ impl JsonObject {
         let this = &::windows::core::Interface::cast::<IJsonObjectWithDefaultValues>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetNamedObjectOrDefault)(::core::mem::transmute_copy(this), name.into_param().abi(), defaultvalue.into_param().abi(), &mut result__).from_abi::<JsonObject>(result__)
+            (::windows::core::Interface::vtable(this).GetNamedObjectOrDefault)(::windows::core::Interface::as_raw(this), name.into_param().abi(), defaultvalue.into_param().abi(), &mut result__).from_abi::<JsonObject>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Json\"`*"]
@@ -847,7 +847,7 @@ impl JsonObject {
         let this = &::windows::core::Interface::cast::<IJsonObjectWithDefaultValues>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetNamedStringOrDefault)(::core::mem::transmute_copy(this), name.into_param().abi(), defaultvalue.into_param().abi(), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).GetNamedStringOrDefault)(::windows::core::Interface::as_raw(this), name.into_param().abi(), defaultvalue.into_param().abi(), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Json\"`*"]
@@ -855,7 +855,7 @@ impl JsonObject {
         let this = &::windows::core::Interface::cast::<IJsonObjectWithDefaultValues>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetNamedArrayOrDefault)(::core::mem::transmute_copy(this), name.into_param().abi(), defaultvalue.into_param().abi(), &mut result__).from_abi::<JsonArray>(result__)
+            (::windows::core::Interface::vtable(this).GetNamedArrayOrDefault)(::windows::core::Interface::as_raw(this), name.into_param().abi(), defaultvalue.into_param().abi(), &mut result__).from_abi::<JsonArray>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Json\"`*"]
@@ -863,7 +863,7 @@ impl JsonObject {
         let this = &::windows::core::Interface::cast::<IJsonObjectWithDefaultValues>(self)?;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetNamedNumberOrDefault)(::core::mem::transmute_copy(this), name.into_param().abi(), defaultvalue, &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).GetNamedNumberOrDefault)(::windows::core::Interface::as_raw(this), name.into_param().abi(), defaultvalue, &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Json\"`*"]
@@ -871,7 +871,7 @@ impl JsonObject {
         let this = &::windows::core::Interface::cast::<IJsonObjectWithDefaultValues>(self)?;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetNamedBooleanOrDefault)(::core::mem::transmute_copy(this), name.into_param().abi(), defaultvalue, &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).GetNamedBooleanOrDefault)(::windows::core::Interface::as_raw(this), name.into_param().abi(), defaultvalue, &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Json\"`*"]
@@ -879,7 +879,7 @@ impl JsonObject {
         let this = &::windows::core::Interface::cast::<IJsonValue>(self)?;
         unsafe {
             let mut result__: JsonValueType = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ValueType)(::core::mem::transmute_copy(this), &mut result__).from_abi::<JsonValueType>(result__)
+            (::windows::core::Interface::vtable(this).ValueType)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<JsonValueType>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Json\"`*"]
@@ -887,7 +887,7 @@ impl JsonObject {
         let this = &::windows::core::Interface::cast::<IJsonValue>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Stringify)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Stringify)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Json\"`*"]
@@ -895,7 +895,7 @@ impl JsonObject {
         let this = &::windows::core::Interface::cast::<IJsonValue>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetString)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).GetString)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Json\"`*"]
@@ -903,7 +903,7 @@ impl JsonObject {
         let this = &::windows::core::Interface::cast::<IJsonValue>(self)?;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetNumber)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).GetNumber)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Json\"`*"]
@@ -911,7 +911,7 @@ impl JsonObject {
         let this = &::windows::core::Interface::cast::<IJsonValue>(self)?;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetBoolean)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).GetBoolean)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Json\"`*"]
@@ -919,7 +919,7 @@ impl JsonObject {
         let this = &::windows::core::Interface::cast::<IJsonValue>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetArray)(::core::mem::transmute_copy(this), &mut result__).from_abi::<JsonArray>(result__)
+            (::windows::core::Interface::vtable(this).GetArray)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<JsonArray>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Json\"`*"]
@@ -927,7 +927,7 @@ impl JsonObject {
         let this = &::windows::core::Interface::cast::<IJsonValue>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetObject)(::core::mem::transmute_copy(this), &mut result__).from_abi::<JsonObject>(result__)
+            (::windows::core::Interface::vtable(this).GetObject)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<JsonObject>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Json\"`, `\"Foundation_Collections\"`*"]
@@ -936,7 +936,7 @@ impl JsonObject {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, IJsonValue>>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Lookup)(::core::mem::transmute_copy(this), key.into_param().abi(), &mut result__).from_abi::<IJsonValue>(result__)
+            (::windows::core::Interface::vtable(this).Lookup)(::windows::core::Interface::as_raw(this), key.into_param().abi(), &mut result__).from_abi::<IJsonValue>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Json\"`, `\"Foundation_Collections\"`*"]
@@ -945,7 +945,7 @@ impl JsonObject {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, IJsonValue>>(self)?;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Size)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).Size)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Json\"`, `\"Foundation_Collections\"`*"]
@@ -954,7 +954,7 @@ impl JsonObject {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, IJsonValue>>(self)?;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).HasKey)(::core::mem::transmute_copy(this), key.into_param().abi(), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).HasKey)(::windows::core::Interface::as_raw(this), key.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Json\"`, `\"Foundation_Collections\"`*"]
@@ -963,7 +963,7 @@ impl JsonObject {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, IJsonValue>>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetView)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, IJsonValue>>(result__)
+            (::windows::core::Interface::vtable(this).GetView)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, IJsonValue>>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Json\"`, `\"Foundation_Collections\"`*"]
@@ -972,20 +972,20 @@ impl JsonObject {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, IJsonValue>>(self)?;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Insert)(::core::mem::transmute_copy(this), key.into_param().abi(), value.into_param().abi(), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).Insert)(::windows::core::Interface::as_raw(this), key.into_param().abi(), value.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Json\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Remove<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, key: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, IJsonValue>>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).Remove)(::core::mem::transmute_copy(this), key.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Remove)(::windows::core::Interface::as_raw(this), key.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Data_Json\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Clear(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, IJsonValue>>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).Clear)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Clear)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Data_Json\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -993,7 +993,7 @@ impl JsonObject {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IStringable>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ToString)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).ToString)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc(hidden)]
@@ -1199,7 +1199,7 @@ impl JsonValue {
         let this = self;
         unsafe {
             let mut result__: JsonValueType = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ValueType)(::core::mem::transmute_copy(this), &mut result__).from_abi::<JsonValueType>(result__)
+            (::windows::core::Interface::vtable(this).ValueType)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<JsonValueType>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Json\"`*"]
@@ -1207,7 +1207,7 @@ impl JsonValue {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Stringify)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Stringify)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Json\"`*"]
@@ -1215,7 +1215,7 @@ impl JsonValue {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetString)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).GetString)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Json\"`*"]
@@ -1223,7 +1223,7 @@ impl JsonValue {
         let this = self;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetNumber)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).GetNumber)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Json\"`*"]
@@ -1231,7 +1231,7 @@ impl JsonValue {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetBoolean)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).GetBoolean)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Json\"`*"]
@@ -1239,7 +1239,7 @@ impl JsonValue {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetArray)(::core::mem::transmute_copy(this), &mut result__).from_abi::<JsonArray>(result__)
+            (::windows::core::Interface::vtable(this).GetArray)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<JsonArray>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Json\"`*"]
@@ -1247,49 +1247,49 @@ impl JsonValue {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetObject)(::core::mem::transmute_copy(this), &mut result__).from_abi::<JsonObject>(result__)
+            (::windows::core::Interface::vtable(this).GetObject)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<JsonObject>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Json\"`*"]
     pub fn Parse<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(input: Param0) -> ::windows::core::Result<JsonValue> {
         Self::IJsonValueStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Parse)(::core::mem::transmute_copy(this), input.into_param().abi(), &mut result__).from_abi::<JsonValue>(result__)
+            (::windows::core::Interface::vtable(this).Parse)(::windows::core::Interface::as_raw(this), input.into_param().abi(), &mut result__).from_abi::<JsonValue>(result__)
         })
     }
     #[doc = "*Required features: `\"Data_Json\"`*"]
     pub fn TryParse<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(input: Param0, result: &mut ::core::option::Option<JsonValue>) -> ::windows::core::Result<bool> {
         Self::IJsonValueStatics(|this| unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TryParse)(::core::mem::transmute_copy(this), input.into_param().abi(), result as *mut _ as _, &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).TryParse)(::windows::core::Interface::as_raw(this), input.into_param().abi(), result as *mut _ as _, &mut result__).from_abi::<bool>(result__)
         })
     }
     #[doc = "*Required features: `\"Data_Json\"`*"]
     pub fn CreateBooleanValue(input: bool) -> ::windows::core::Result<JsonValue> {
         Self::IJsonValueStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateBooleanValue)(::core::mem::transmute_copy(this), input, &mut result__).from_abi::<JsonValue>(result__)
+            (::windows::core::Interface::vtable(this).CreateBooleanValue)(::windows::core::Interface::as_raw(this), input, &mut result__).from_abi::<JsonValue>(result__)
         })
     }
     #[doc = "*Required features: `\"Data_Json\"`*"]
     pub fn CreateNumberValue(input: f64) -> ::windows::core::Result<JsonValue> {
         Self::IJsonValueStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateNumberValue)(::core::mem::transmute_copy(this), input, &mut result__).from_abi::<JsonValue>(result__)
+            (::windows::core::Interface::vtable(this).CreateNumberValue)(::windows::core::Interface::as_raw(this), input, &mut result__).from_abi::<JsonValue>(result__)
         })
     }
     #[doc = "*Required features: `\"Data_Json\"`*"]
     pub fn CreateStringValue<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(input: Param0) -> ::windows::core::Result<JsonValue> {
         Self::IJsonValueStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateStringValue)(::core::mem::transmute_copy(this), input.into_param().abi(), &mut result__).from_abi::<JsonValue>(result__)
+            (::windows::core::Interface::vtable(this).CreateStringValue)(::windows::core::Interface::as_raw(this), input.into_param().abi(), &mut result__).from_abi::<JsonValue>(result__)
         })
     }
     #[doc = "*Required features: `\"Data_Json\"`*"]
     pub fn CreateNullValue() -> ::windows::core::Result<JsonValue> {
         Self::IJsonValueStatics2(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateNullValue)(::core::mem::transmute_copy(this), &mut result__).from_abi::<JsonValue>(result__)
+            (::windows::core::Interface::vtable(this).CreateNullValue)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<JsonValue>(result__)
         })
     }
     #[doc = "*Required features: `\"Data_Json\"`, `\"Foundation\"`*"]
@@ -1298,7 +1298,7 @@ impl JsonValue {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IStringable>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ToString)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).ToString)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc(hidden)]

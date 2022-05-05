@@ -7319,20 +7319,20 @@ pub struct ICloneViewHelper(::windows::core::IUnknown);
 impl ICloneViewHelper {
     #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
     pub unsafe fn GetConnectedIDs<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, wszadaptorname: Param0, pulcount: *mut u32, pulid: *mut u32, ulflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetConnectedIDs)(::core::mem::transmute_copy(self), wszadaptorname.into_param().abi(), ::core::mem::transmute(pulcount), ::core::mem::transmute(pulid), ::core::mem::transmute(ulflags)).ok()
+        (::windows::core::Interface::vtable(self).GetConnectedIDs)(::windows::core::Interface::as_raw(self), wszadaptorname.into_param().abi(), ::core::mem::transmute(pulcount), ::core::mem::transmute(pulid), ::core::mem::transmute(ulflags)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
     pub unsafe fn GetActiveTopology<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, wszadaptorname: Param0, ulsourceid: u32, pulcount: *mut u32, pultargetid: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetActiveTopology)(::core::mem::transmute_copy(self), wszadaptorname.into_param().abi(), ::core::mem::transmute(ulsourceid), ::core::mem::transmute(pulcount), ::core::mem::transmute(pultargetid)).ok()
+        (::windows::core::Interface::vtable(self).GetActiveTopology)(::windows::core::Interface::as_raw(self), wszadaptorname.into_param().abi(), ::core::mem::transmute(ulsourceid), ::core::mem::transmute(pulcount), ::core::mem::transmute(pultargetid)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
     pub unsafe fn SetActiveTopology<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, wszadaptorname: Param0, ulsourceid: u32, ulcount: u32, pultargetid: *const u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetActiveTopology)(::core::mem::transmute_copy(self), wszadaptorname.into_param().abi(), ::core::mem::transmute(ulsourceid), ::core::mem::transmute(ulcount), ::core::mem::transmute(pultargetid)).ok()
+        (::windows::core::Interface::vtable(self).SetActiveTopology)(::windows::core::Interface::as_raw(self), wszadaptorname.into_param().abi(), ::core::mem::transmute(ulsourceid), ::core::mem::transmute(ulcount), ::core::mem::transmute(pultargetid)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Commit<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, ffinalcall: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Commit)(::core::mem::transmute_copy(self), ffinalcall.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).Commit)(::windows::core::Interface::as_raw(self), ffinalcall.into_param().abi()).ok()
     }
 }
 impl ::core::convert::From<ICloneViewHelper> for ::windows::core::IUnknown {
@@ -8151,29 +8151,29 @@ pub struct IViewHelper(::windows::core::IUnknown);
 impl IViewHelper {
     #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
     pub unsafe fn GetConnectedIDs<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, wszadaptorname: Param0, pulcount: *mut u32, pulid: *mut u32, ulflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetConnectedIDs)(::core::mem::transmute_copy(self), wszadaptorname.into_param().abi(), ::core::mem::transmute(pulcount), ::core::mem::transmute(pulid), ::core::mem::transmute(ulflags)).ok()
+        (::windows::core::Interface::vtable(self).GetConnectedIDs)(::windows::core::Interface::as_raw(self), wszadaptorname.into_param().abi(), ::core::mem::transmute(pulcount), ::core::mem::transmute(pulid), ::core::mem::transmute(ulflags)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
     pub unsafe fn GetActiveTopology<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, wszadaptorname: Param0, ulsourceid: u32, pulcount: *mut u32, pultargetid: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetActiveTopology)(::core::mem::transmute_copy(self), wszadaptorname.into_param().abi(), ::core::mem::transmute(ulsourceid), ::core::mem::transmute(pulcount), ::core::mem::transmute(pultargetid)).ok()
+        (::windows::core::Interface::vtable(self).GetActiveTopology)(::windows::core::Interface::as_raw(self), wszadaptorname.into_param().abi(), ::core::mem::transmute(ulsourceid), ::core::mem::transmute(pulcount), ::core::mem::transmute(pultargetid)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
     pub unsafe fn SetActiveTopology<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, wszadaptorname: Param0, ulsourceid: u32, ulcount: u32, pultargetid: *const u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetActiveTopology)(::core::mem::transmute_copy(self), wszadaptorname.into_param().abi(), ::core::mem::transmute(ulsourceid), ::core::mem::transmute(ulcount), ::core::mem::transmute(pultargetid)).ok()
+        (::windows::core::Interface::vtable(self).SetActiveTopology)(::windows::core::Interface::as_raw(self), wszadaptorname.into_param().abi(), ::core::mem::transmute(ulsourceid), ::core::mem::transmute(ulcount), ::core::mem::transmute(pultargetid)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
     pub unsafe fn Commit(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Commit)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Commit)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetConfiguration<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IStream>>(&self, pistream: Param0) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).SetConfiguration)(::core::mem::transmute_copy(self), pistream.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).SetConfiguration)(::windows::core::Interface::as_raw(self), pistream.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
     pub unsafe fn GetProceedOnNewConfiguration(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetProceedOnNewConfiguration)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).GetProceedOnNewConfiguration)(::windows::core::Interface::as_raw(self)).ok()
     }
 }
 impl ::core::convert::From<IViewHelper> for ::windows::core::IUnknown {

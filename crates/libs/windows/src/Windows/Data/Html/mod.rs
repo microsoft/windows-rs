@@ -5,7 +5,7 @@ impl HtmlUtilities {
     pub fn ConvertToText<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(html: Param0) -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IHtmlUtilities(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ConvertToText)(::core::mem::transmute_copy(this), html.into_param().abi(), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).ConvertToText)(::windows::core::Interface::as_raw(this), html.into_param().abi(), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc(hidden)]

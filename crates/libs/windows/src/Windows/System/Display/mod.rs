@@ -12,12 +12,12 @@ impl DisplayRequest {
     #[doc = "*Required features: `\"System_Display\"`*"]
     pub fn RequestActive(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RequestActive)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RequestActive)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"System_Display\"`*"]
     pub fn RequestRelease(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RequestRelease)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RequestRelease)(::windows::core::Interface::as_raw(this)).ok() }
     }
 }
 impl ::core::clone::Clone for DisplayRequest {

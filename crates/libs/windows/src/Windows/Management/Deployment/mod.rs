@@ -82,7 +82,7 @@ impl AddPackageOptions {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DependencyPackageUris)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<super::super::Foundation::Uri>>(result__)
+            (::windows::core::Interface::vtable(this).DependencyPackageUris)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<super::super::Foundation::Uri>>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
@@ -90,13 +90,13 @@ impl AddPackageOptions {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TargetVolume)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PackageVolume>(result__)
+            (::windows::core::Interface::vtable(this).TargetVolume)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<PackageVolume>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
     pub fn SetTargetVolume<'a, Param0: ::windows::core::IntoParam<'a, PackageVolume>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetTargetVolume)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetTargetVolume)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -104,7 +104,7 @@ impl AddPackageOptions {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).OptionalPackageFamilyNames)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>(result__)
+            (::windows::core::Interface::vtable(this).OptionalPackageFamilyNames)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"Foundation_Collections\"`*"]
@@ -113,7 +113,7 @@ impl AddPackageOptions {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).OptionalPackageUris)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<super::super::Foundation::Uri>>(result__)
+            (::windows::core::Interface::vtable(this).OptionalPackageUris)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<super::super::Foundation::Uri>>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"Foundation_Collections\"`*"]
@@ -122,7 +122,7 @@ impl AddPackageOptions {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RelatedPackageUris)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<super::super::Foundation::Uri>>(result__)
+            (::windows::core::Interface::vtable(this).RelatedPackageUris)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<super::super::Foundation::Uri>>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"Foundation\"`*"]
@@ -131,157 +131,157 @@ impl AddPackageOptions {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ExternalLocationUri)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Uri>(result__)
+            (::windows::core::Interface::vtable(this).ExternalLocationUri)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Uri>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetExternalLocationUri<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Uri>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetExternalLocationUri)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetExternalLocationUri)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
     pub fn StubPackageOption(&self) -> ::windows::core::Result<StubPackageOption> {
         let this = self;
         unsafe {
             let mut result__: StubPackageOption = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).StubPackageOption)(::core::mem::transmute_copy(this), &mut result__).from_abi::<StubPackageOption>(result__)
+            (::windows::core::Interface::vtable(this).StubPackageOption)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<StubPackageOption>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
     pub fn SetStubPackageOption(&self, value: StubPackageOption) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetStubPackageOption)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetStubPackageOption)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
     pub fn DeveloperMode(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DeveloperMode)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).DeveloperMode)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
     pub fn SetDeveloperMode(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetDeveloperMode)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDeveloperMode)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
     pub fn ForceAppShutdown(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ForceAppShutdown)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).ForceAppShutdown)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
     pub fn SetForceAppShutdown(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetForceAppShutdown)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetForceAppShutdown)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
     pub fn ForceTargetAppShutdown(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ForceTargetAppShutdown)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).ForceTargetAppShutdown)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
     pub fn SetForceTargetAppShutdown(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetForceTargetAppShutdown)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetForceTargetAppShutdown)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
     pub fn ForceUpdateFromAnyVersion(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ForceUpdateFromAnyVersion)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).ForceUpdateFromAnyVersion)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
     pub fn SetForceUpdateFromAnyVersion(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetForceUpdateFromAnyVersion)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetForceUpdateFromAnyVersion)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
     pub fn InstallAllResources(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).InstallAllResources)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).InstallAllResources)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
     pub fn SetInstallAllResources(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetInstallAllResources)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetInstallAllResources)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
     pub fn RequiredContentGroupOnly(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RequiredContentGroupOnly)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).RequiredContentGroupOnly)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
     pub fn SetRequiredContentGroupOnly(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetRequiredContentGroupOnly)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetRequiredContentGroupOnly)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
     pub fn RetainFilesOnFailure(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RetainFilesOnFailure)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).RetainFilesOnFailure)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
     pub fn SetRetainFilesOnFailure(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetRetainFilesOnFailure)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetRetainFilesOnFailure)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
     pub fn StageInPlace(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).StageInPlace)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).StageInPlace)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
     pub fn SetStageInPlace(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetStageInPlace)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetStageInPlace)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
     pub fn AllowUnsigned(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AllowUnsigned)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).AllowUnsigned)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
     pub fn SetAllowUnsigned(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetAllowUnsigned)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetAllowUnsigned)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
     pub fn DeferRegistrationWhenPackagesAreInUse(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DeferRegistrationWhenPackagesAreInUse)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).DeferRegistrationWhenPackagesAreInUse)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
     pub fn SetDeferRegistrationWhenPackagesAreInUse(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetDeferRegistrationWhenPackagesAreInUse)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDeferRegistrationWhenPackagesAreInUse)(::windows::core::Interface::as_raw(this), value).ok() }
     }
 }
 impl ::core::clone::Clone for AddPackageOptions {
@@ -363,31 +363,31 @@ impl AppInstallerManager {
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
     pub fn SetAutoUpdateSettings<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, AutoUpdateSettingsOptions>>(&self, packagefamilyname: Param0, appinstallerinfo: Param1) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetAutoUpdateSettings)(::core::mem::transmute_copy(this), packagefamilyname.into_param().abi(), appinstallerinfo.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetAutoUpdateSettings)(::windows::core::Interface::as_raw(this), packagefamilyname.into_param().abi(), appinstallerinfo.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
     pub fn ClearAutoUpdateSettings<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, packagefamilyname: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).ClearAutoUpdateSettings)(::core::mem::transmute_copy(this), packagefamilyname.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).ClearAutoUpdateSettings)(::windows::core::Interface::as_raw(this), packagefamilyname.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn PauseAutoUpdatesUntil<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::DateTime>>(&self, packagefamilyname: Param0, datetime: Param1) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).PauseAutoUpdatesUntil)(::core::mem::transmute_copy(this), packagefamilyname.into_param().abi(), datetime.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).PauseAutoUpdatesUntil)(::windows::core::Interface::as_raw(this), packagefamilyname.into_param().abi(), datetime.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
     pub fn GetDefault() -> ::windows::core::Result<AppInstallerManager> {
         Self::IAppInstallerManagerStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetDefault)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AppInstallerManager>(result__)
+            (::windows::core::Interface::vtable(this).GetDefault)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<AppInstallerManager>(result__)
         })
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
     pub fn GetForSystem() -> ::windows::core::Result<AppInstallerManager> {
         Self::IAppInstallerManagerStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetForSystem)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AppInstallerManager>(result__)
+            (::windows::core::Interface::vtable(this).GetForSystem)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<AppInstallerManager>(result__)
         })
     }
     #[doc(hidden)]
@@ -485,14 +485,14 @@ impl AutoUpdateSettingsOptions {
         let this = self;
         unsafe {
             let mut result__: super::super::ApplicationModel::PackageVersion = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Version)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::PackageVersion>(result__)
+            (::windows::core::Interface::vtable(this).Version)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::ApplicationModel::PackageVersion>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"ApplicationModel\"`*"]
     #[cfg(feature = "ApplicationModel")]
     pub fn SetVersion<'a, Param0: ::windows::core::IntoParam<'a, super::super::ApplicationModel::PackageVersion>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetVersion)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetVersion)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -500,105 +500,105 @@ impl AutoUpdateSettingsOptions {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AppInstallerUri)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Uri>(result__)
+            (::windows::core::Interface::vtable(this).AppInstallerUri)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Uri>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetAppInstallerUri<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Uri>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetAppInstallerUri)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetAppInstallerUri)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
     pub fn OnLaunch(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).OnLaunch)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).OnLaunch)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
     pub fn SetOnLaunch(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetOnLaunch)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetOnLaunch)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
     pub fn HoursBetweenUpdateChecks(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).HoursBetweenUpdateChecks)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).HoursBetweenUpdateChecks)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
     pub fn SetHoursBetweenUpdateChecks(&self, value: u32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetHoursBetweenUpdateChecks)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetHoursBetweenUpdateChecks)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
     pub fn ShowPrompt(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ShowPrompt)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).ShowPrompt)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
     pub fn SetShowPrompt(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetShowPrompt)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetShowPrompt)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
     pub fn UpdateBlocksActivation(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).UpdateBlocksActivation)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).UpdateBlocksActivation)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
     pub fn SetUpdateBlocksActivation(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetUpdateBlocksActivation)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetUpdateBlocksActivation)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
     pub fn AutomaticBackgroundTask(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AutomaticBackgroundTask)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).AutomaticBackgroundTask)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
     pub fn SetAutomaticBackgroundTask(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetAutomaticBackgroundTask)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetAutomaticBackgroundTask)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
     pub fn ForceUpdateFromAnyVersion(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ForceUpdateFromAnyVersion)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).ForceUpdateFromAnyVersion)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
     pub fn SetForceUpdateFromAnyVersion(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetForceUpdateFromAnyVersion)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetForceUpdateFromAnyVersion)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
     pub fn IsAutoRepairEnabled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsAutoRepairEnabled)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsAutoRepairEnabled)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
     pub fn SetIsAutoRepairEnabled(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetIsAutoRepairEnabled)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetIsAutoRepairEnabled)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -606,7 +606,7 @@ impl AutoUpdateSettingsOptions {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).UpdateUris)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<super::super::Foundation::Uri>>(result__)
+            (::windows::core::Interface::vtable(this).UpdateUris)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<super::super::Foundation::Uri>>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"Foundation_Collections\"`*"]
@@ -615,7 +615,7 @@ impl AutoUpdateSettingsOptions {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RepairUris)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<super::super::Foundation::Uri>>(result__)
+            (::windows::core::Interface::vtable(this).RepairUris)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<super::super::Foundation::Uri>>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"Foundation_Collections\"`*"]
@@ -624,7 +624,7 @@ impl AutoUpdateSettingsOptions {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DependencyPackageUris)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<super::super::Foundation::Uri>>(result__)
+            (::windows::core::Interface::vtable(this).DependencyPackageUris)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<super::super::Foundation::Uri>>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"Foundation_Collections\"`*"]
@@ -633,7 +633,7 @@ impl AutoUpdateSettingsOptions {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).OptionalPackageUris)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<super::super::Foundation::Uri>>(result__)
+            (::windows::core::Interface::vtable(this).OptionalPackageUris)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<super::super::Foundation::Uri>>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"ApplicationModel\"`*"]
@@ -641,7 +641,7 @@ impl AutoUpdateSettingsOptions {
     pub fn CreateFromAppInstallerInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::ApplicationModel::AppInstallerInfo>>(appinstallerinfo: Param0) -> ::windows::core::Result<AutoUpdateSettingsOptions> {
         Self::IAutoUpdateSettingsOptionsStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromAppInstallerInfo)(::core::mem::transmute_copy(this), appinstallerinfo.into_param().abi(), &mut result__).from_abi::<AutoUpdateSettingsOptions>(result__)
+            (::windows::core::Interface::vtable(this).CreateFromAppInstallerInfo)(::windows::core::Interface::as_raw(this), appinstallerinfo.into_param().abi(), &mut result__).from_abi::<AutoUpdateSettingsOptions>(result__)
         })
     }
     #[doc(hidden)]
@@ -739,7 +739,7 @@ impl CreateSharedPackageContainerOptions {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Members)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<SharedPackageContainerMember>>(result__)
+            (::windows::core::Interface::vtable(this).Members)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<SharedPackageContainerMember>>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
@@ -747,26 +747,26 @@ impl CreateSharedPackageContainerOptions {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ForceAppShutdown)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).ForceAppShutdown)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
     pub fn SetForceAppShutdown(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetForceAppShutdown)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetForceAppShutdown)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
     pub fn CreateCollisionOption(&self) -> ::windows::core::Result<SharedPackageContainerCreationCollisionOptions> {
         let this = self;
         unsafe {
             let mut result__: SharedPackageContainerCreationCollisionOptions = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateCollisionOption)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SharedPackageContainerCreationCollisionOptions>(result__)
+            (::windows::core::Interface::vtable(this).CreateCollisionOption)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SharedPackageContainerCreationCollisionOptions>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
     pub fn SetCreateCollisionOption(&self, value: SharedPackageContainerCreationCollisionOptions) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetCreateCollisionOption)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCreateCollisionOption)(::windows::core::Interface::as_raw(this), value).ok() }
     }
 }
 impl ::core::clone::Clone for CreateSharedPackageContainerOptions {
@@ -850,7 +850,7 @@ impl CreateSharedPackageContainerResult {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Container)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SharedPackageContainer>(result__)
+            (::windows::core::Interface::vtable(this).Container)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SharedPackageContainer>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
@@ -858,7 +858,7 @@ impl CreateSharedPackageContainerResult {
         let this = self;
         unsafe {
             let mut result__: SharedPackageContainerOperationStatus = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Status)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SharedPackageContainerOperationStatus>(result__)
+            (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SharedPackageContainerOperationStatus>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
@@ -866,7 +866,7 @@ impl CreateSharedPackageContainerResult {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::HRESULT = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ExtendedError)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HRESULT>(result__)
+            (::windows::core::Interface::vtable(this).ExtendedError)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HRESULT>(result__)
         }
     }
 }
@@ -958,26 +958,26 @@ impl DeleteSharedPackageContainerOptions {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ForceAppShutdown)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).ForceAppShutdown)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
     pub fn SetForceAppShutdown(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetForceAppShutdown)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetForceAppShutdown)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
     pub fn AllUsers(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AllUsers)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).AllUsers)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
     pub fn SetAllUsers(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetAllUsers)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetAllUsers)(::windows::core::Interface::as_raw(this), value).ok() }
     }
 }
 impl ::core::clone::Clone for DeleteSharedPackageContainerOptions {
@@ -1061,7 +1061,7 @@ impl DeleteSharedPackageContainerResult {
         let this = self;
         unsafe {
             let mut result__: SharedPackageContainerOperationStatus = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Status)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SharedPackageContainerOperationStatus>(result__)
+            (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SharedPackageContainerOperationStatus>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
@@ -1069,7 +1069,7 @@ impl DeleteSharedPackageContainerResult {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::HRESULT = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ExtendedError)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HRESULT>(result__)
+            (::windows::core::Interface::vtable(this).ExtendedError)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HRESULT>(result__)
         }
     }
 }
@@ -1295,7 +1295,7 @@ impl DeploymentResult {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ErrorText)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).ErrorText)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
@@ -1303,7 +1303,7 @@ impl DeploymentResult {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ActivityId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
+            (::windows::core::Interface::vtable(this).ActivityId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
@@ -1311,7 +1311,7 @@ impl DeploymentResult {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::HRESULT = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ExtendedErrorCode)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HRESULT>(result__)
+            (::windows::core::Interface::vtable(this).ExtendedErrorCode)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HRESULT>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
@@ -1319,7 +1319,7 @@ impl DeploymentResult {
         let this = &::windows::core::Interface::cast::<IDeploymentResult2>(self)?;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsRegistered)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsRegistered)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
 }
@@ -1411,26 +1411,26 @@ impl FindSharedPackageContainerOptions {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Name)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Name)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
     pub fn SetName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetName)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetName)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
     pub fn PackageFamilyName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PackageFamilyName)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).PackageFamilyName)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
     pub fn SetPackageFamilyName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetPackageFamilyName)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPackageFamilyName)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
 }
 impl ::core::clone::Clone for FindSharedPackageContainerOptions {
@@ -2496,7 +2496,7 @@ impl PackageAllUserProvisioningOptions {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).OptionalPackageFamilyNames)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>(result__)
+            (::windows::core::Interface::vtable(this).OptionalPackageFamilyNames)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"Foundation_Collections\"`*"]
@@ -2505,7 +2505,7 @@ impl PackageAllUserProvisioningOptions {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ProjectionOrderPackageFamilyNames)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>(result__)
+            (::windows::core::Interface::vtable(this).ProjectionOrderPackageFamilyNames)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>(result__)
         }
     }
 }
@@ -2634,7 +2634,7 @@ impl PackageManager {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AddPackageAsync)(::core::mem::transmute_copy(this), packageuri.into_param().abi(), dependencypackageuris.into_param().abi(), deploymentoptions, &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>(result__)
+            (::windows::core::Interface::vtable(this).AddPackageAsync)(::windows::core::Interface::as_raw(this), packageuri.into_param().abi(), dependencypackageuris.into_param().abi(), deploymentoptions, &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"Foundation_Collections\"`*"]
@@ -2643,7 +2643,7 @@ impl PackageManager {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).UpdatePackageAsync)(::core::mem::transmute_copy(this), packageuri.into_param().abi(), dependencypackageuris.into_param().abi(), deploymentoptions, &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>(result__)
+            (::windows::core::Interface::vtable(this).UpdatePackageAsync)(::windows::core::Interface::as_raw(this), packageuri.into_param().abi(), dependencypackageuris.into_param().abi(), deploymentoptions, &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"Foundation\"`*"]
@@ -2652,7 +2652,7 @@ impl PackageManager {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RemovePackageAsync)(::core::mem::transmute_copy(this), packagefullname.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>(result__)
+            (::windows::core::Interface::vtable(this).RemovePackageAsync)(::windows::core::Interface::as_raw(this), packagefullname.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"Foundation_Collections\"`*"]
@@ -2661,7 +2661,7 @@ impl PackageManager {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).StagePackageAsync)(::core::mem::transmute_copy(this), packageuri.into_param().abi(), dependencypackageuris.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>(result__)
+            (::windows::core::Interface::vtable(this).StagePackageAsync)(::windows::core::Interface::as_raw(this), packageuri.into_param().abi(), dependencypackageuris.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"Foundation_Collections\"`*"]
@@ -2670,7 +2670,7 @@ impl PackageManager {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RegisterPackageAsync)(::core::mem::transmute_copy(this), manifesturi.into_param().abi(), dependencypackageuris.into_param().abi(), deploymentoptions, &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>(result__)
+            (::windows::core::Interface::vtable(this).RegisterPackageAsync)(::windows::core::Interface::as_raw(this), manifesturi.into_param().abi(), dependencypackageuris.into_param().abi(), deploymentoptions, &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"ApplicationModel\"`, `\"Foundation_Collections\"`*"]
@@ -2679,7 +2679,7 @@ impl PackageManager {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FindPackages)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IIterable<super::super::ApplicationModel::Package>>(result__)
+            (::windows::core::Interface::vtable(this).FindPackages)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IIterable<super::super::ApplicationModel::Package>>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"ApplicationModel\"`, `\"Foundation_Collections\"`*"]
@@ -2688,7 +2688,7 @@ impl PackageManager {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FindPackagesByUserSecurityId)(::core::mem::transmute_copy(this), usersecurityid.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::Collections::IIterable<super::super::ApplicationModel::Package>>(result__)
+            (::windows::core::Interface::vtable(this).FindPackagesByUserSecurityId)(::windows::core::Interface::as_raw(this), usersecurityid.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::Collections::IIterable<super::super::ApplicationModel::Package>>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"ApplicationModel\"`, `\"Foundation_Collections\"`*"]
@@ -2697,7 +2697,7 @@ impl PackageManager {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FindPackagesByNamePublisher)(::core::mem::transmute_copy(this), packagename.into_param().abi(), packagepublisher.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::Collections::IIterable<super::super::ApplicationModel::Package>>(result__)
+            (::windows::core::Interface::vtable(this).FindPackagesByNamePublisher)(::windows::core::Interface::as_raw(this), packagename.into_param().abi(), packagepublisher.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::Collections::IIterable<super::super::ApplicationModel::Package>>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"ApplicationModel\"`, `\"Foundation_Collections\"`*"]
@@ -2706,7 +2706,7 @@ impl PackageManager {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FindPackagesByUserSecurityIdNamePublisher)(::core::mem::transmute_copy(this), usersecurityid.into_param().abi(), packagename.into_param().abi(), packagepublisher.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::Collections::IIterable<super::super::ApplicationModel::Package>>(result__)
+            (::windows::core::Interface::vtable(this).FindPackagesByUserSecurityIdNamePublisher)(::windows::core::Interface::as_raw(this), usersecurityid.into_param().abi(), packagename.into_param().abi(), packagepublisher.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::Collections::IIterable<super::super::ApplicationModel::Package>>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"Foundation_Collections\"`*"]
@@ -2715,13 +2715,13 @@ impl PackageManager {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FindUsers)(::core::mem::transmute_copy(this), packagefullname.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::Collections::IIterable<PackageUserInformation>>(result__)
+            (::windows::core::Interface::vtable(this).FindUsers)(::windows::core::Interface::as_raw(this), packagefullname.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::Collections::IIterable<PackageUserInformation>>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
     pub fn SetPackageState<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, packagefullname: Param0, packagestate: PackageState) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetPackageState)(::core::mem::transmute_copy(this), packagefullname.into_param().abi(), packagestate).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPackageState)(::windows::core::Interface::as_raw(this), packagefullname.into_param().abi(), packagestate).ok() }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"ApplicationModel\"`*"]
     #[cfg(feature = "ApplicationModel")]
@@ -2729,7 +2729,7 @@ impl PackageManager {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FindPackageByPackageFullName)(::core::mem::transmute_copy(this), packagefullname.into_param().abi(), &mut result__).from_abi::<super::super::ApplicationModel::Package>(result__)
+            (::windows::core::Interface::vtable(this).FindPackageByPackageFullName)(::windows::core::Interface::as_raw(this), packagefullname.into_param().abi(), &mut result__).from_abi::<super::super::ApplicationModel::Package>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"Foundation\"`*"]
@@ -2738,7 +2738,7 @@ impl PackageManager {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CleanupPackageForUserAsync)(::core::mem::transmute_copy(this), packagename.into_param().abi(), usersecurityid.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>(result__)
+            (::windows::core::Interface::vtable(this).CleanupPackageForUserAsync)(::windows::core::Interface::as_raw(this), packagename.into_param().abi(), usersecurityid.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"ApplicationModel\"`, `\"Foundation_Collections\"`*"]
@@ -2747,7 +2747,7 @@ impl PackageManager {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FindPackagesByPackageFamilyName)(::core::mem::transmute_copy(this), packagefamilyname.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::Collections::IIterable<super::super::ApplicationModel::Package>>(result__)
+            (::windows::core::Interface::vtable(this).FindPackagesByPackageFamilyName)(::windows::core::Interface::as_raw(this), packagefamilyname.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::Collections::IIterable<super::super::ApplicationModel::Package>>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"ApplicationModel\"`, `\"Foundation_Collections\"`*"]
@@ -2756,7 +2756,7 @@ impl PackageManager {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FindPackagesByUserSecurityIdPackageFamilyName)(::core::mem::transmute_copy(this), usersecurityid.into_param().abi(), packagefamilyname.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::Collections::IIterable<super::super::ApplicationModel::Package>>(result__)
+            (::windows::core::Interface::vtable(this).FindPackagesByUserSecurityIdPackageFamilyName)(::windows::core::Interface::as_raw(this), usersecurityid.into_param().abi(), packagefamilyname.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::Collections::IIterable<super::super::ApplicationModel::Package>>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"ApplicationModel\"`*"]
@@ -2765,7 +2765,7 @@ impl PackageManager {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FindPackageByUserSecurityIdPackageFullName)(::core::mem::transmute_copy(this), usersecurityid.into_param().abi(), packagefullname.into_param().abi(), &mut result__).from_abi::<super::super::ApplicationModel::Package>(result__)
+            (::windows::core::Interface::vtable(this).FindPackageByUserSecurityIdPackageFullName)(::windows::core::Interface::as_raw(this), usersecurityid.into_param().abi(), packagefullname.into_param().abi(), &mut result__).from_abi::<super::super::ApplicationModel::Package>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"Foundation\"`*"]
@@ -2774,7 +2774,7 @@ impl PackageManager {
         let this = &::windows::core::Interface::cast::<IPackageManager10>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ProvisionPackageForAllUsersWithOptionsAsync)(::core::mem::transmute_copy(this), mainpackagefamilyname.into_param().abi(), options.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>(result__)
+            (::windows::core::Interface::vtable(this).ProvisionPackageForAllUsersWithOptionsAsync)(::windows::core::Interface::as_raw(this), mainpackagefamilyname.into_param().abi(), options.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"Foundation\"`*"]
@@ -2783,7 +2783,7 @@ impl PackageManager {
         let this = &::windows::core::Interface::cast::<IPackageManager2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RemovePackageWithOptionsAsync)(::core::mem::transmute_copy(this), packagefullname.into_param().abi(), removaloptions, &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>(result__)
+            (::windows::core::Interface::vtable(this).RemovePackageWithOptionsAsync)(::windows::core::Interface::as_raw(this), packagefullname.into_param().abi(), removaloptions, &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"Foundation_Collections\"`*"]
@@ -2792,7 +2792,7 @@ impl PackageManager {
         let this = &::windows::core::Interface::cast::<IPackageManager2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).StagePackageWithOptionsAsync)(::core::mem::transmute_copy(this), packageuri.into_param().abi(), dependencypackageuris.into_param().abi(), deploymentoptions, &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>(result__)
+            (::windows::core::Interface::vtable(this).StagePackageWithOptionsAsync)(::windows::core::Interface::as_raw(this), packageuri.into_param().abi(), dependencypackageuris.into_param().abi(), deploymentoptions, &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"Foundation_Collections\"`*"]
@@ -2801,7 +2801,7 @@ impl PackageManager {
         let this = &::windows::core::Interface::cast::<IPackageManager2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RegisterPackageByFullNameAsync)(::core::mem::transmute_copy(this), mainpackagefullname.into_param().abi(), dependencypackagefullnames.into_param().abi(), deploymentoptions, &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>(result__)
+            (::windows::core::Interface::vtable(this).RegisterPackageByFullNameAsync)(::windows::core::Interface::as_raw(this), mainpackagefullname.into_param().abi(), dependencypackagefullnames.into_param().abi(), deploymentoptions, &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"ApplicationModel\"`, `\"Foundation_Collections\"`*"]
@@ -2810,7 +2810,7 @@ impl PackageManager {
         let this = &::windows::core::Interface::cast::<IPackageManager2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FindPackagesWithPackageTypes)(::core::mem::transmute_copy(this), packagetypes, &mut result__).from_abi::<super::super::Foundation::Collections::IIterable<super::super::ApplicationModel::Package>>(result__)
+            (::windows::core::Interface::vtable(this).FindPackagesWithPackageTypes)(::windows::core::Interface::as_raw(this), packagetypes, &mut result__).from_abi::<super::super::Foundation::Collections::IIterable<super::super::ApplicationModel::Package>>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"ApplicationModel\"`, `\"Foundation_Collections\"`*"]
@@ -2819,7 +2819,7 @@ impl PackageManager {
         let this = &::windows::core::Interface::cast::<IPackageManager2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FindPackagesByUserSecurityIdWithPackageTypes)(::core::mem::transmute_copy(this), usersecurityid.into_param().abi(), packagetypes, &mut result__).from_abi::<super::super::Foundation::Collections::IIterable<super::super::ApplicationModel::Package>>(result__)
+            (::windows::core::Interface::vtable(this).FindPackagesByUserSecurityIdWithPackageTypes)(::windows::core::Interface::as_raw(this), usersecurityid.into_param().abi(), packagetypes, &mut result__).from_abi::<super::super::Foundation::Collections::IIterable<super::super::ApplicationModel::Package>>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"ApplicationModel\"`, `\"Foundation_Collections\"`*"]
@@ -2828,7 +2828,7 @@ impl PackageManager {
         let this = &::windows::core::Interface::cast::<IPackageManager2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FindPackagesByNamePublisherWithPackageTypes)(::core::mem::transmute_copy(this), packagename.into_param().abi(), packagepublisher.into_param().abi(), packagetypes, &mut result__).from_abi::<super::super::Foundation::Collections::IIterable<super::super::ApplicationModel::Package>>(result__)
+            (::windows::core::Interface::vtable(this).FindPackagesByNamePublisherWithPackageTypes)(::windows::core::Interface::as_raw(this), packagename.into_param().abi(), packagepublisher.into_param().abi(), packagetypes, &mut result__).from_abi::<super::super::Foundation::Collections::IIterable<super::super::ApplicationModel::Package>>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"ApplicationModel\"`, `\"Foundation_Collections\"`*"]
@@ -2837,7 +2837,7 @@ impl PackageManager {
         let this = &::windows::core::Interface::cast::<IPackageManager2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FindPackagesByUserSecurityIdNamePublisherWithPackageTypes)(::core::mem::transmute_copy(this), usersecurityid.into_param().abi(), packagename.into_param().abi(), packagepublisher.into_param().abi(), packagetypes, &mut result__).from_abi::<super::super::Foundation::Collections::IIterable<super::super::ApplicationModel::Package>>(result__)
+            (::windows::core::Interface::vtable(this).FindPackagesByUserSecurityIdNamePublisherWithPackageTypes)(::windows::core::Interface::as_raw(this), usersecurityid.into_param().abi(), packagename.into_param().abi(), packagepublisher.into_param().abi(), packagetypes, &mut result__).from_abi::<super::super::Foundation::Collections::IIterable<super::super::ApplicationModel::Package>>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"ApplicationModel\"`, `\"Foundation_Collections\"`*"]
@@ -2846,7 +2846,7 @@ impl PackageManager {
         let this = &::windows::core::Interface::cast::<IPackageManager2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FindPackagesByPackageFamilyNameWithPackageTypes)(::core::mem::transmute_copy(this), packagefamilyname.into_param().abi(), packagetypes, &mut result__).from_abi::<super::super::Foundation::Collections::IIterable<super::super::ApplicationModel::Package>>(result__)
+            (::windows::core::Interface::vtable(this).FindPackagesByPackageFamilyNameWithPackageTypes)(::windows::core::Interface::as_raw(this), packagefamilyname.into_param().abi(), packagetypes, &mut result__).from_abi::<super::super::Foundation::Collections::IIterable<super::super::ApplicationModel::Package>>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"ApplicationModel\"`, `\"Foundation_Collections\"`*"]
@@ -2855,7 +2855,7 @@ impl PackageManager {
         let this = &::windows::core::Interface::cast::<IPackageManager2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FindPackagesByUserSecurityIdPackageFamilyNameWithPackageTypes)(::core::mem::transmute_copy(this), usersecurityid.into_param().abi(), packagefamilyname.into_param().abi(), packagetypes, &mut result__).from_abi::<super::super::Foundation::Collections::IIterable<super::super::ApplicationModel::Package>>(result__)
+            (::windows::core::Interface::vtable(this).FindPackagesByUserSecurityIdPackageFamilyNameWithPackageTypes)(::windows::core::Interface::as_raw(this), usersecurityid.into_param().abi(), packagefamilyname.into_param().abi(), packagetypes, &mut result__).from_abi::<super::super::Foundation::Collections::IIterable<super::super::ApplicationModel::Package>>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"Foundation\"`*"]
@@ -2864,7 +2864,7 @@ impl PackageManager {
         let this = &::windows::core::Interface::cast::<IPackageManager2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).StageUserDataAsync)(::core::mem::transmute_copy(this), packagefullname.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>(result__)
+            (::windows::core::Interface::vtable(this).StageUserDataAsync)(::windows::core::Interface::as_raw(this), packagefullname.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"Foundation\"`*"]
@@ -2873,7 +2873,7 @@ impl PackageManager {
         let this = &::windows::core::Interface::cast::<IPackageManager3>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AddPackageVolumeAsync)(::core::mem::transmute_copy(this), packagestorepath.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<PackageVolume>>(result__)
+            (::windows::core::Interface::vtable(this).AddPackageVolumeAsync)(::windows::core::Interface::as_raw(this), packagestorepath.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<PackageVolume>>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"Foundation_Collections\"`*"]
@@ -2882,13 +2882,13 @@ impl PackageManager {
         let this = &::windows::core::Interface::cast::<IPackageManager3>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AddPackageToVolumeAsync)(::core::mem::transmute_copy(this), packageuri.into_param().abi(), dependencypackageuris.into_param().abi(), deploymentoptions, targetvolume.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>(result__)
+            (::windows::core::Interface::vtable(this).AddPackageToVolumeAsync)(::windows::core::Interface::as_raw(this), packageuri.into_param().abi(), dependencypackageuris.into_param().abi(), deploymentoptions, targetvolume.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
     pub fn ClearPackageStatus<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, packagefullname: Param0, status: PackageStatus) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPackageManager3>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).ClearPackageStatus)(::core::mem::transmute_copy(this), packagefullname.into_param().abi(), status).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).ClearPackageStatus)(::windows::core::Interface::as_raw(this), packagefullname.into_param().abi(), status).ok() }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -2896,7 +2896,7 @@ impl PackageManager {
         let this = &::windows::core::Interface::cast::<IPackageManager3>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RegisterPackageWithAppDataVolumeAsync)(::core::mem::transmute_copy(this), manifesturi.into_param().abi(), dependencypackageuris.into_param().abi(), deploymentoptions, appdatavolume.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>(result__)
+            (::windows::core::Interface::vtable(this).RegisterPackageWithAppDataVolumeAsync)(::windows::core::Interface::as_raw(this), manifesturi.into_param().abi(), dependencypackageuris.into_param().abi(), deploymentoptions, appdatavolume.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
@@ -2904,7 +2904,7 @@ impl PackageManager {
         let this = &::windows::core::Interface::cast::<IPackageManager3>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FindPackageVolumeByName)(::core::mem::transmute_copy(this), volumename.into_param().abi(), &mut result__).from_abi::<PackageVolume>(result__)
+            (::windows::core::Interface::vtable(this).FindPackageVolumeByName)(::windows::core::Interface::as_raw(this), volumename.into_param().abi(), &mut result__).from_abi::<PackageVolume>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"Foundation_Collections\"`*"]
@@ -2913,7 +2913,7 @@ impl PackageManager {
         let this = &::windows::core::Interface::cast::<IPackageManager3>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FindPackageVolumes)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IIterable<PackageVolume>>(result__)
+            (::windows::core::Interface::vtable(this).FindPackageVolumes)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IIterable<PackageVolume>>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
@@ -2921,7 +2921,7 @@ impl PackageManager {
         let this = &::windows::core::Interface::cast::<IPackageManager3>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetDefaultPackageVolume)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PackageVolume>(result__)
+            (::windows::core::Interface::vtable(this).GetDefaultPackageVolume)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<PackageVolume>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"Foundation\"`*"]
@@ -2930,7 +2930,7 @@ impl PackageManager {
         let this = &::windows::core::Interface::cast::<IPackageManager3>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MovePackageToVolumeAsync)(::core::mem::transmute_copy(this), packagefullname.into_param().abi(), deploymentoptions, targetvolume.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>(result__)
+            (::windows::core::Interface::vtable(this).MovePackageToVolumeAsync)(::windows::core::Interface::as_raw(this), packagefullname.into_param().abi(), deploymentoptions, targetvolume.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"Foundation\"`*"]
@@ -2939,18 +2939,18 @@ impl PackageManager {
         let this = &::windows::core::Interface::cast::<IPackageManager3>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RemovePackageVolumeAsync)(::core::mem::transmute_copy(this), volume.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>(result__)
+            (::windows::core::Interface::vtable(this).RemovePackageVolumeAsync)(::windows::core::Interface::as_raw(this), volume.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
     pub fn SetDefaultPackageVolume<'a, Param0: ::windows::core::IntoParam<'a, PackageVolume>>(&self, volume: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPackageManager3>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetDefaultPackageVolume)(::core::mem::transmute_copy(this), volume.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDefaultPackageVolume)(::windows::core::Interface::as_raw(this), volume.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
     pub fn SetPackageStatus<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, packagefullname: Param0, status: PackageStatus) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPackageManager3>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetPackageStatus)(::core::mem::transmute_copy(this), packagefullname.into_param().abi(), status).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPackageStatus)(::windows::core::Interface::as_raw(this), packagefullname.into_param().abi(), status).ok() }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -2958,7 +2958,7 @@ impl PackageManager {
         let this = &::windows::core::Interface::cast::<IPackageManager3>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SetPackageVolumeOfflineAsync)(::core::mem::transmute_copy(this), packagevolume.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>(result__)
+            (::windows::core::Interface::vtable(this).SetPackageVolumeOfflineAsync)(::windows::core::Interface::as_raw(this), packagevolume.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"Foundation\"`*"]
@@ -2967,7 +2967,7 @@ impl PackageManager {
         let this = &::windows::core::Interface::cast::<IPackageManager3>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SetPackageVolumeOnlineAsync)(::core::mem::transmute_copy(this), packagevolume.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>(result__)
+            (::windows::core::Interface::vtable(this).SetPackageVolumeOnlineAsync)(::windows::core::Interface::as_raw(this), packagevolume.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"Foundation_Collections\"`*"]
@@ -2976,7 +2976,7 @@ impl PackageManager {
         let this = &::windows::core::Interface::cast::<IPackageManager3>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).StagePackageToVolumeAsync)(::core::mem::transmute_copy(this), packageuri.into_param().abi(), dependencypackageuris.into_param().abi(), deploymentoptions, targetvolume.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>(result__)
+            (::windows::core::Interface::vtable(this).StagePackageToVolumeAsync)(::windows::core::Interface::as_raw(this), packageuri.into_param().abi(), dependencypackageuris.into_param().abi(), deploymentoptions, targetvolume.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"Foundation\"`*"]
@@ -2985,7 +2985,7 @@ impl PackageManager {
         let this = &::windows::core::Interface::cast::<IPackageManager3>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).StageUserDataWithOptionsAsync)(::core::mem::transmute_copy(this), packagefullname.into_param().abi(), deploymentoptions, &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>(result__)
+            (::windows::core::Interface::vtable(this).StageUserDataWithOptionsAsync)(::windows::core::Interface::as_raw(this), packagefullname.into_param().abi(), deploymentoptions, &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"Foundation_Collections\"`*"]
@@ -2994,7 +2994,7 @@ impl PackageManager {
         let this = &::windows::core::Interface::cast::<IPackageManager4>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetPackageVolumesAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<PackageVolume>>>(result__)
+            (::windows::core::Interface::vtable(this).GetPackageVolumesAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<PackageVolume>>>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"Foundation_Collections\"`*"]
@@ -3011,7 +3011,7 @@ impl PackageManager {
         let this = &::windows::core::Interface::cast::<IPackageManager5>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AddPackageToVolumeAndOptionalPackagesAsync)(::core::mem::transmute_copy(this), packageuri.into_param().abi(), dependencypackageuris.into_param().abi(), deploymentoptions, targetvolume.into_param().abi(), optionalpackagefamilynames.into_param().abi(), externalpackageuris.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>(result__)
+            (::windows::core::Interface::vtable(this).AddPackageToVolumeAndOptionalPackagesAsync)(::windows::core::Interface::as_raw(this), packageuri.into_param().abi(), dependencypackageuris.into_param().abi(), deploymentoptions, targetvolume.into_param().abi(), optionalpackagefamilynames.into_param().abi(), externalpackageuris.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"Foundation_Collections\"`*"]
@@ -3028,7 +3028,7 @@ impl PackageManager {
         let this = &::windows::core::Interface::cast::<IPackageManager5>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).StagePackageToVolumeAndOptionalPackagesAsync)(::core::mem::transmute_copy(this), packageuri.into_param().abi(), dependencypackageuris.into_param().abi(), deploymentoptions, targetvolume.into_param().abi(), optionalpackagefamilynames.into_param().abi(), externalpackageuris.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>(result__)
+            (::windows::core::Interface::vtable(this).StagePackageToVolumeAndOptionalPackagesAsync)(::windows::core::Interface::as_raw(this), packageuri.into_param().abi(), dependencypackageuris.into_param().abi(), deploymentoptions, targetvolume.into_param().abi(), optionalpackagefamilynames.into_param().abi(), externalpackageuris.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"Foundation_Collections\"`*"]
@@ -3037,7 +3037,7 @@ impl PackageManager {
         let this = &::windows::core::Interface::cast::<IPackageManager5>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RegisterPackageByFamilyNameAndOptionalPackagesAsync)(::core::mem::transmute_copy(this), mainpackagefamilyname.into_param().abi(), dependencypackagefamilynames.into_param().abi(), deploymentoptions, appdatavolume.into_param().abi(), optionalpackagefamilynames.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>(result__)
+            (::windows::core::Interface::vtable(this).RegisterPackageByFamilyNameAndOptionalPackagesAsync)(::windows::core::Interface::as_raw(this), mainpackagefamilyname.into_param().abi(), dependencypackagefamilynames.into_param().abi(), deploymentoptions, appdatavolume.into_param().abi(), optionalpackagefamilynames.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
@@ -3045,7 +3045,7 @@ impl PackageManager {
         let this = &::windows::core::Interface::cast::<IPackageManager5>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DebugSettings)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PackageManagerDebugSettings>(result__)
+            (::windows::core::Interface::vtable(this).DebugSettings)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<PackageManagerDebugSettings>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"Foundation\"`*"]
@@ -3054,7 +3054,7 @@ impl PackageManager {
         let this = &::windows::core::Interface::cast::<IPackageManager6>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ProvisionPackageForAllUsersAsync)(::core::mem::transmute_copy(this), packagefamilyname.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>(result__)
+            (::windows::core::Interface::vtable(this).ProvisionPackageForAllUsersAsync)(::windows::core::Interface::as_raw(this), packagefamilyname.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"Foundation\"`*"]
@@ -3063,7 +3063,7 @@ impl PackageManager {
         let this = &::windows::core::Interface::cast::<IPackageManager6>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AddPackageByAppInstallerFileAsync)(::core::mem::transmute_copy(this), appinstallerfileuri.into_param().abi(), options, targetvolume.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>(result__)
+            (::windows::core::Interface::vtable(this).AddPackageByAppInstallerFileAsync)(::windows::core::Interface::as_raw(this), appinstallerfileuri.into_param().abi(), options, targetvolume.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"Foundation\"`*"]
@@ -3072,7 +3072,7 @@ impl PackageManager {
         let this = &::windows::core::Interface::cast::<IPackageManager6>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RequestAddPackageByAppInstallerFileAsync)(::core::mem::transmute_copy(this), appinstallerfileuri.into_param().abi(), options, targetvolume.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>(result__)
+            (::windows::core::Interface::vtable(this).RequestAddPackageByAppInstallerFileAsync)(::windows::core::Interface::as_raw(this), appinstallerfileuri.into_param().abi(), options, targetvolume.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"Foundation_Collections\"`*"]
@@ -3090,7 +3090,7 @@ impl PackageManager {
         let this = &::windows::core::Interface::cast::<IPackageManager6>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AddPackageToVolumeAndRelatedSetAsync)(::core::mem::transmute_copy(this), packageuri.into_param().abi(), dependencypackageuris.into_param().abi(), options, targetvolume.into_param().abi(), optionalpackagefamilynames.into_param().abi(), packageuristoinstall.into_param().abi(), relatedpackageuris.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>(result__)
+            (::windows::core::Interface::vtable(this).AddPackageToVolumeAndRelatedSetAsync)(::windows::core::Interface::as_raw(this), packageuri.into_param().abi(), dependencypackageuris.into_param().abi(), options, targetvolume.into_param().abi(), optionalpackagefamilynames.into_param().abi(), packageuristoinstall.into_param().abi(), relatedpackageuris.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"Foundation_Collections\"`*"]
@@ -3108,7 +3108,7 @@ impl PackageManager {
         let this = &::windows::core::Interface::cast::<IPackageManager6>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).StagePackageToVolumeAndRelatedSetAsync)(::core::mem::transmute_copy(this), packageuri.into_param().abi(), dependencypackageuris.into_param().abi(), options, targetvolume.into_param().abi(), optionalpackagefamilynames.into_param().abi(), packageuristoinstall.into_param().abi(), relatedpackageuris.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>(result__)
+            (::windows::core::Interface::vtable(this).StagePackageToVolumeAndRelatedSetAsync)(::windows::core::Interface::as_raw(this), packageuri.into_param().abi(), dependencypackageuris.into_param().abi(), options, targetvolume.into_param().abi(), optionalpackagefamilynames.into_param().abi(), packageuristoinstall.into_param().abi(), relatedpackageuris.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"Foundation_Collections\"`*"]
@@ -3125,7 +3125,7 @@ impl PackageManager {
         let this = &::windows::core::Interface::cast::<IPackageManager6>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RequestAddPackageAsync)(::core::mem::transmute_copy(this), packageuri.into_param().abi(), dependencypackageuris.into_param().abi(), deploymentoptions, targetvolume.into_param().abi(), optionalpackagefamilynames.into_param().abi(), relatedpackageuris.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>(result__)
+            (::windows::core::Interface::vtable(this).RequestAddPackageAsync)(::windows::core::Interface::as_raw(this), packageuri.into_param().abi(), dependencypackageuris.into_param().abi(), deploymentoptions, targetvolume.into_param().abi(), optionalpackagefamilynames.into_param().abi(), relatedpackageuris.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"Foundation_Collections\"`*"]
@@ -3143,7 +3143,7 @@ impl PackageManager {
         let this = &::windows::core::Interface::cast::<IPackageManager7>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RequestAddPackageAndRelatedSetAsync)(::core::mem::transmute_copy(this), packageuri.into_param().abi(), dependencypackageuris.into_param().abi(), deploymentoptions, targetvolume.into_param().abi(), optionalpackagefamilynames.into_param().abi(), relatedpackageuris.into_param().abi(), packageuristoinstall.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>(result__)
+            (::windows::core::Interface::vtable(this).RequestAddPackageAndRelatedSetAsync)(::windows::core::Interface::as_raw(this), packageuri.into_param().abi(), dependencypackageuris.into_param().abi(), deploymentoptions, targetvolume.into_param().abi(), optionalpackagefamilynames.into_param().abi(), relatedpackageuris.into_param().abi(), packageuristoinstall.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"Foundation\"`*"]
@@ -3152,7 +3152,7 @@ impl PackageManager {
         let this = &::windows::core::Interface::cast::<IPackageManager8>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DeprovisionPackageForAllUsersAsync)(::core::mem::transmute_copy(this), packagefamilyname.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>(result__)
+            (::windows::core::Interface::vtable(this).DeprovisionPackageForAllUsersAsync)(::windows::core::Interface::as_raw(this), packagefamilyname.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"ApplicationModel\"`, `\"Foundation_Collections\"`*"]
@@ -3161,7 +3161,7 @@ impl PackageManager {
         let this = &::windows::core::Interface::cast::<IPackageManager9>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FindProvisionedPackages)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<super::super::ApplicationModel::Package>>(result__)
+            (::windows::core::Interface::vtable(this).FindProvisionedPackages)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<super::super::ApplicationModel::Package>>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"Foundation\"`*"]
@@ -3170,7 +3170,7 @@ impl PackageManager {
         let this = &::windows::core::Interface::cast::<IPackageManager9>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AddPackageByUriAsync)(::core::mem::transmute_copy(this), packageuri.into_param().abi(), options.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>(result__)
+            (::windows::core::Interface::vtable(this).AddPackageByUriAsync)(::windows::core::Interface::as_raw(this), packageuri.into_param().abi(), options.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"Foundation\"`*"]
@@ -3179,7 +3179,7 @@ impl PackageManager {
         let this = &::windows::core::Interface::cast::<IPackageManager9>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).StagePackageByUriAsync)(::core::mem::transmute_copy(this), packageuri.into_param().abi(), options.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>(result__)
+            (::windows::core::Interface::vtable(this).StagePackageByUriAsync)(::windows::core::Interface::as_raw(this), packageuri.into_param().abi(), options.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"Foundation\"`*"]
@@ -3188,7 +3188,7 @@ impl PackageManager {
         let this = &::windows::core::Interface::cast::<IPackageManager9>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RegisterPackageByUriAsync)(::core::mem::transmute_copy(this), manifesturi.into_param().abi(), options.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>(result__)
+            (::windows::core::Interface::vtable(this).RegisterPackageByUriAsync)(::windows::core::Interface::as_raw(this), manifesturi.into_param().abi(), options.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"Foundation_Collections\"`*"]
@@ -3197,20 +3197,20 @@ impl PackageManager {
         let this = &::windows::core::Interface::cast::<IPackageManager9>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RegisterPackagesByFullNameAsync)(::core::mem::transmute_copy(this), packagefullnames.into_param().abi(), options.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>(result__)
+            (::windows::core::Interface::vtable(this).RegisterPackagesByFullNameAsync)(::windows::core::Interface::as_raw(this), packagefullnames.into_param().abi(), options.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
     pub fn SetPackageStubPreference<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, packagefamilyname: Param0, usestub: PackageStubPreference) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPackageManager9>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetPackageStubPreference)(::core::mem::transmute_copy(this), packagefamilyname.into_param().abi(), usestub).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPackageStubPreference)(::windows::core::Interface::as_raw(this), packagefamilyname.into_param().abi(), usestub).ok() }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
     pub fn GetPackageStubPreference<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, packagefamilyname: Param0) -> ::windows::core::Result<PackageStubPreference> {
         let this = &::windows::core::Interface::cast::<IPackageManager9>(self)?;
         unsafe {
             let mut result__: PackageStubPreference = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetPackageStubPreference)(::core::mem::transmute_copy(this), packagefamilyname.into_param().abi(), &mut result__).from_abi::<PackageStubPreference>(result__)
+            (::windows::core::Interface::vtable(this).GetPackageStubPreference)(::windows::core::Interface::as_raw(this), packagefamilyname.into_param().abi(), &mut result__).from_abi::<PackageStubPreference>(result__)
         }
     }
 }
@@ -3296,7 +3296,7 @@ impl PackageManagerDebugSettings {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SetContentGroupStateAsync)(::core::mem::transmute_copy(this), package.into_param().abi(), contentgroupname.into_param().abi(), state, &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).SetContentGroupStateAsync)(::windows::core::Interface::as_raw(this), package.into_param().abi(), contentgroupname.into_param().abi(), state, &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"ApplicationModel\"`, `\"Foundation\"`*"]
@@ -3305,7 +3305,7 @@ impl PackageManagerDebugSettings {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SetContentGroupStateWithPercentageAsync)(::core::mem::transmute_copy(this), package.into_param().abi(), contentgroupname.into_param().abi(), state, completionpercentage, &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).SetContentGroupStateWithPercentageAsync)(::windows::core::Interface::as_raw(this), package.into_param().abi(), contentgroupname.into_param().abi(), state, completionpercentage, &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
 }
@@ -3593,7 +3593,7 @@ impl PackageUserInformation {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).UserSecurityId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).UserSecurityId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
@@ -3601,7 +3601,7 @@ impl PackageUserInformation {
         let this = self;
         unsafe {
             let mut result__: PackageInstallState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).InstallState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PackageInstallState>(result__)
+            (::windows::core::Interface::vtable(this).InstallState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<PackageInstallState>(result__)
         }
     }
 }
@@ -3686,7 +3686,7 @@ impl PackageVolume {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsOffline)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsOffline)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
@@ -3694,7 +3694,7 @@ impl PackageVolume {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsSystemVolume)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsSystemVolume)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
@@ -3702,7 +3702,7 @@ impl PackageVolume {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MountPoint)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).MountPoint)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
@@ -3710,7 +3710,7 @@ impl PackageVolume {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Name)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Name)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
@@ -3718,7 +3718,7 @@ impl PackageVolume {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PackageStorePath)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).PackageStorePath)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
@@ -3726,7 +3726,7 @@ impl PackageVolume {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SupportsHardLinks)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).SupportsHardLinks)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"ApplicationModel\"`, `\"Foundation_Collections\"`*"]
@@ -3735,7 +3735,7 @@ impl PackageVolume {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FindPackages)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<super::super::ApplicationModel::Package>>(result__)
+            (::windows::core::Interface::vtable(this).FindPackages)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<super::super::ApplicationModel::Package>>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"ApplicationModel\"`, `\"Foundation_Collections\"`*"]
@@ -3744,7 +3744,7 @@ impl PackageVolume {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FindPackagesByNamePublisher)(::core::mem::transmute_copy(this), packagename.into_param().abi(), packagepublisher.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<super::super::ApplicationModel::Package>>(result__)
+            (::windows::core::Interface::vtable(this).FindPackagesByNamePublisher)(::windows::core::Interface::as_raw(this), packagename.into_param().abi(), packagepublisher.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<super::super::ApplicationModel::Package>>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"ApplicationModel\"`, `\"Foundation_Collections\"`*"]
@@ -3753,7 +3753,7 @@ impl PackageVolume {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FindPackagesByPackageFamilyName)(::core::mem::transmute_copy(this), packagefamilyname.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<super::super::ApplicationModel::Package>>(result__)
+            (::windows::core::Interface::vtable(this).FindPackagesByPackageFamilyName)(::windows::core::Interface::as_raw(this), packagefamilyname.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<super::super::ApplicationModel::Package>>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"ApplicationModel\"`, `\"Foundation_Collections\"`*"]
@@ -3762,7 +3762,7 @@ impl PackageVolume {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FindPackagesWithPackageTypes)(::core::mem::transmute_copy(this), packagetypes, &mut result__).from_abi::<super::super::Foundation::Collections::IVector<super::super::ApplicationModel::Package>>(result__)
+            (::windows::core::Interface::vtable(this).FindPackagesWithPackageTypes)(::windows::core::Interface::as_raw(this), packagetypes, &mut result__).from_abi::<super::super::Foundation::Collections::IVector<super::super::ApplicationModel::Package>>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"ApplicationModel\"`, `\"Foundation_Collections\"`*"]
@@ -3771,7 +3771,7 @@ impl PackageVolume {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FindPackagesByNamePublisherWithPackagesTypes)(::core::mem::transmute_copy(this), packagetypes, packagename.into_param().abi(), packagepublisher.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<super::super::ApplicationModel::Package>>(result__)
+            (::windows::core::Interface::vtable(this).FindPackagesByNamePublisherWithPackagesTypes)(::windows::core::Interface::as_raw(this), packagetypes, packagename.into_param().abi(), packagepublisher.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<super::super::ApplicationModel::Package>>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"ApplicationModel\"`, `\"Foundation_Collections\"`*"]
@@ -3780,7 +3780,7 @@ impl PackageVolume {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FindPackagesByPackageFamilyNameWithPackageTypes)(::core::mem::transmute_copy(this), packagetypes, packagefamilyname.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<super::super::ApplicationModel::Package>>(result__)
+            (::windows::core::Interface::vtable(this).FindPackagesByPackageFamilyNameWithPackageTypes)(::windows::core::Interface::as_raw(this), packagetypes, packagefamilyname.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<super::super::ApplicationModel::Package>>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"ApplicationModel\"`, `\"Foundation_Collections\"`*"]
@@ -3789,7 +3789,7 @@ impl PackageVolume {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FindPackageByPackageFullName)(::core::mem::transmute_copy(this), packagefullname.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<super::super::ApplicationModel::Package>>(result__)
+            (::windows::core::Interface::vtable(this).FindPackageByPackageFullName)(::windows::core::Interface::as_raw(this), packagefullname.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<super::super::ApplicationModel::Package>>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"ApplicationModel\"`, `\"Foundation_Collections\"`*"]
@@ -3798,7 +3798,7 @@ impl PackageVolume {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FindPackagesByUserSecurityId)(::core::mem::transmute_copy(this), usersecurityid.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<super::super::ApplicationModel::Package>>(result__)
+            (::windows::core::Interface::vtable(this).FindPackagesByUserSecurityId)(::windows::core::Interface::as_raw(this), usersecurityid.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<super::super::ApplicationModel::Package>>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"ApplicationModel\"`, `\"Foundation_Collections\"`*"]
@@ -3807,7 +3807,7 @@ impl PackageVolume {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FindPackagesByUserSecurityIdNamePublisher)(::core::mem::transmute_copy(this), usersecurityid.into_param().abi(), packagename.into_param().abi(), packagepublisher.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<super::super::ApplicationModel::Package>>(result__)
+            (::windows::core::Interface::vtable(this).FindPackagesByUserSecurityIdNamePublisher)(::windows::core::Interface::as_raw(this), usersecurityid.into_param().abi(), packagename.into_param().abi(), packagepublisher.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<super::super::ApplicationModel::Package>>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"ApplicationModel\"`, `\"Foundation_Collections\"`*"]
@@ -3816,7 +3816,7 @@ impl PackageVolume {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FindPackagesByUserSecurityIdPackageFamilyName)(::core::mem::transmute_copy(this), usersecurityid.into_param().abi(), packagefamilyname.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<super::super::ApplicationModel::Package>>(result__)
+            (::windows::core::Interface::vtable(this).FindPackagesByUserSecurityIdPackageFamilyName)(::windows::core::Interface::as_raw(this), usersecurityid.into_param().abi(), packagefamilyname.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<super::super::ApplicationModel::Package>>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"ApplicationModel\"`, `\"Foundation_Collections\"`*"]
@@ -3825,7 +3825,7 @@ impl PackageVolume {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FindPackagesByUserSecurityIdWithPackageTypes)(::core::mem::transmute_copy(this), usersecurityid.into_param().abi(), packagetypes, &mut result__).from_abi::<super::super::Foundation::Collections::IVector<super::super::ApplicationModel::Package>>(result__)
+            (::windows::core::Interface::vtable(this).FindPackagesByUserSecurityIdWithPackageTypes)(::windows::core::Interface::as_raw(this), usersecurityid.into_param().abi(), packagetypes, &mut result__).from_abi::<super::super::Foundation::Collections::IVector<super::super::ApplicationModel::Package>>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"ApplicationModel\"`, `\"Foundation_Collections\"`*"]
@@ -3834,7 +3834,7 @@ impl PackageVolume {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FindPackagesByUserSecurityIdNamePublisherWithPackageTypes)(::core::mem::transmute_copy(this), usersecurityid.into_param().abi(), packagetypes, packagename.into_param().abi(), packagepublisher.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<super::super::ApplicationModel::Package>>(result__)
+            (::windows::core::Interface::vtable(this).FindPackagesByUserSecurityIdNamePublisherWithPackageTypes)(::windows::core::Interface::as_raw(this), usersecurityid.into_param().abi(), packagetypes, packagename.into_param().abi(), packagepublisher.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<super::super::ApplicationModel::Package>>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"ApplicationModel\"`, `\"Foundation_Collections\"`*"]
@@ -3843,7 +3843,7 @@ impl PackageVolume {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FindPackagesByUserSecurityIdPackageFamilyNameWithPackagesTypes)(::core::mem::transmute_copy(this), usersecurityid.into_param().abi(), packagetypes, packagefamilyname.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<super::super::ApplicationModel::Package>>(result__)
+            (::windows::core::Interface::vtable(this).FindPackagesByUserSecurityIdPackageFamilyNameWithPackagesTypes)(::windows::core::Interface::as_raw(this), usersecurityid.into_param().abi(), packagetypes, packagefamilyname.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<super::super::ApplicationModel::Package>>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"ApplicationModel\"`, `\"Foundation_Collections\"`*"]
@@ -3852,7 +3852,7 @@ impl PackageVolume {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FindPackageByUserSecurityIdPackageFullName)(::core::mem::transmute_copy(this), usersecurityid.into_param().abi(), packagefullname.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<super::super::ApplicationModel::Package>>(result__)
+            (::windows::core::Interface::vtable(this).FindPackageByUserSecurityIdPackageFullName)(::windows::core::Interface::as_raw(this), usersecurityid.into_param().abi(), packagefullname.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<super::super::ApplicationModel::Package>>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
@@ -3860,7 +3860,7 @@ impl PackageVolume {
         let this = &::windows::core::Interface::cast::<IPackageVolume2>(self)?;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsFullTrustPackageSupported)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsFullTrustPackageSupported)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
@@ -3868,7 +3868,7 @@ impl PackageVolume {
         let this = &::windows::core::Interface::cast::<IPackageVolume2>(self)?;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsAppxInstallSupported)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsAppxInstallSupported)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"Foundation\"`*"]
@@ -3877,7 +3877,7 @@ impl PackageVolume {
         let this = &::windows::core::Interface::cast::<IPackageVolume2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetAvailableSpaceAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<u64>>(result__)
+            (::windows::core::Interface::vtable(this).GetAvailableSpaceAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<u64>>(result__)
         }
     }
 }
@@ -3970,7 +3970,7 @@ impl RegisterPackageOptions {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DependencyPackageUris)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<super::super::Foundation::Uri>>(result__)
+            (::windows::core::Interface::vtable(this).DependencyPackageUris)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<super::super::Foundation::Uri>>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
@@ -3978,13 +3978,13 @@ impl RegisterPackageOptions {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AppDataVolume)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PackageVolume>(result__)
+            (::windows::core::Interface::vtable(this).AppDataVolume)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<PackageVolume>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
     pub fn SetAppDataVolume<'a, Param0: ::windows::core::IntoParam<'a, PackageVolume>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetAppDataVolume)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetAppDataVolume)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -3992,7 +3992,7 @@ impl RegisterPackageOptions {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).OptionalPackageFamilyNames)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>(result__)
+            (::windows::core::Interface::vtable(this).OptionalPackageFamilyNames)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"Foundation\"`*"]
@@ -4001,118 +4001,118 @@ impl RegisterPackageOptions {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ExternalLocationUri)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Uri>(result__)
+            (::windows::core::Interface::vtable(this).ExternalLocationUri)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Uri>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetExternalLocationUri<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Uri>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetExternalLocationUri)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetExternalLocationUri)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
     pub fn DeveloperMode(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DeveloperMode)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).DeveloperMode)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
     pub fn SetDeveloperMode(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetDeveloperMode)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDeveloperMode)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
     pub fn ForceAppShutdown(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ForceAppShutdown)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).ForceAppShutdown)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
     pub fn SetForceAppShutdown(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetForceAppShutdown)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetForceAppShutdown)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
     pub fn ForceTargetAppShutdown(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ForceTargetAppShutdown)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).ForceTargetAppShutdown)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
     pub fn SetForceTargetAppShutdown(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetForceTargetAppShutdown)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetForceTargetAppShutdown)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
     pub fn ForceUpdateFromAnyVersion(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ForceUpdateFromAnyVersion)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).ForceUpdateFromAnyVersion)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
     pub fn SetForceUpdateFromAnyVersion(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetForceUpdateFromAnyVersion)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetForceUpdateFromAnyVersion)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
     pub fn InstallAllResources(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).InstallAllResources)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).InstallAllResources)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
     pub fn SetInstallAllResources(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetInstallAllResources)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetInstallAllResources)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
     pub fn StageInPlace(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).StageInPlace)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).StageInPlace)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
     pub fn SetStageInPlace(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetStageInPlace)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetStageInPlace)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
     pub fn AllowUnsigned(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AllowUnsigned)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).AllowUnsigned)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
     pub fn SetAllowUnsigned(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetAllowUnsigned)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetAllowUnsigned)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
     pub fn DeferRegistrationWhenPackagesAreInUse(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DeferRegistrationWhenPackagesAreInUse)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).DeferRegistrationWhenPackagesAreInUse)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
     pub fn SetDeferRegistrationWhenPackagesAreInUse(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetDeferRegistrationWhenPackagesAreInUse)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDeferRegistrationWhenPackagesAreInUse)(::windows::core::Interface::as_raw(this), value).ok() }
     }
 }
 impl ::core::clone::Clone for RegisterPackageOptions {
@@ -4260,7 +4260,7 @@ impl SharedPackageContainer {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Name)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Name)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
@@ -4268,7 +4268,7 @@ impl SharedPackageContainer {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Id)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Id)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"Foundation_Collections\"`*"]
@@ -4277,7 +4277,7 @@ impl SharedPackageContainer {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetMembers)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<SharedPackageContainerMember>>(result__)
+            (::windows::core::Interface::vtable(this).GetMembers)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<SharedPackageContainerMember>>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
@@ -4285,7 +4285,7 @@ impl SharedPackageContainer {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RemovePackageFamily)(::core::mem::transmute_copy(this), packagefamilyname.into_param().abi(), options.into_param().abi(), &mut result__).from_abi::<UpdateSharedPackageContainerResult>(result__)
+            (::windows::core::Interface::vtable(this).RemovePackageFamily)(::windows::core::Interface::as_raw(this), packagefamilyname.into_param().abi(), options.into_param().abi(), &mut result__).from_abi::<UpdateSharedPackageContainerResult>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
@@ -4293,7 +4293,7 @@ impl SharedPackageContainer {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ResetData)(::core::mem::transmute_copy(this), &mut result__).from_abi::<UpdateSharedPackageContainerResult>(result__)
+            (::windows::core::Interface::vtable(this).ResetData)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<UpdateSharedPackageContainerResult>(result__)
         }
     }
 }
@@ -4413,7 +4413,7 @@ impl SharedPackageContainerManager {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateContainer)(::core::mem::transmute_copy(this), name.into_param().abi(), options.into_param().abi(), &mut result__).from_abi::<CreateSharedPackageContainerResult>(result__)
+            (::windows::core::Interface::vtable(this).CreateContainer)(::windows::core::Interface::as_raw(this), name.into_param().abi(), options.into_param().abi(), &mut result__).from_abi::<CreateSharedPackageContainerResult>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
@@ -4421,7 +4421,7 @@ impl SharedPackageContainerManager {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DeleteContainer)(::core::mem::transmute_copy(this), id.into_param().abi(), options.into_param().abi(), &mut result__).from_abi::<DeleteSharedPackageContainerResult>(result__)
+            (::windows::core::Interface::vtable(this).DeleteContainer)(::windows::core::Interface::as_raw(this), id.into_param().abi(), options.into_param().abi(), &mut result__).from_abi::<DeleteSharedPackageContainerResult>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
@@ -4429,7 +4429,7 @@ impl SharedPackageContainerManager {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetContainer)(::core::mem::transmute_copy(this), id.into_param().abi(), &mut result__).from_abi::<SharedPackageContainer>(result__)
+            (::windows::core::Interface::vtable(this).GetContainer)(::windows::core::Interface::as_raw(this), id.into_param().abi(), &mut result__).from_abi::<SharedPackageContainer>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"Foundation_Collections\"`*"]
@@ -4438,7 +4438,7 @@ impl SharedPackageContainerManager {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FindContainers)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<SharedPackageContainer>>(result__)
+            (::windows::core::Interface::vtable(this).FindContainers)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<SharedPackageContainer>>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"Foundation_Collections\"`*"]
@@ -4447,28 +4447,28 @@ impl SharedPackageContainerManager {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FindContainersWithOptions)(::core::mem::transmute_copy(this), options.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<SharedPackageContainer>>(result__)
+            (::windows::core::Interface::vtable(this).FindContainersWithOptions)(::windows::core::Interface::as_raw(this), options.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<SharedPackageContainer>>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
     pub fn GetDefault() -> ::windows::core::Result<SharedPackageContainerManager> {
         Self::ISharedPackageContainerManagerStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetDefault)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SharedPackageContainerManager>(result__)
+            (::windows::core::Interface::vtable(this).GetDefault)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SharedPackageContainerManager>(result__)
         })
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
     pub fn GetForUser<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(usersid: Param0) -> ::windows::core::Result<SharedPackageContainerManager> {
         Self::ISharedPackageContainerManagerStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetForUser)(::core::mem::transmute_copy(this), usersid.into_param().abi(), &mut result__).from_abi::<SharedPackageContainerManager>(result__)
+            (::windows::core::Interface::vtable(this).GetForUser)(::windows::core::Interface::as_raw(this), usersid.into_param().abi(), &mut result__).from_abi::<SharedPackageContainerManager>(result__)
         })
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
     pub fn GetForProvisioning() -> ::windows::core::Result<SharedPackageContainerManager> {
         Self::ISharedPackageContainerManagerStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetForProvisioning)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SharedPackageContainerManager>(result__)
+            (::windows::core::Interface::vtable(this).GetForProvisioning)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SharedPackageContainerManager>(result__)
         })
     }
     #[doc(hidden)]
@@ -4558,14 +4558,14 @@ impl SharedPackageContainerMember {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PackageFamilyName)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).PackageFamilyName)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
     pub fn CreateInstance<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(packagefamilyname: Param0) -> ::windows::core::Result<SharedPackageContainerMember> {
         Self::ISharedPackageContainerMemberFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), packagefamilyname.into_param().abi(), &mut result__).from_abi::<SharedPackageContainerMember>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), packagefamilyname.into_param().abi(), &mut result__).from_abi::<SharedPackageContainerMember>(result__)
         })
     }
     #[doc(hidden)]
@@ -4701,7 +4701,7 @@ impl StagePackageOptions {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DependencyPackageUris)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<super::super::Foundation::Uri>>(result__)
+            (::windows::core::Interface::vtable(this).DependencyPackageUris)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<super::super::Foundation::Uri>>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
@@ -4709,13 +4709,13 @@ impl StagePackageOptions {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TargetVolume)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PackageVolume>(result__)
+            (::windows::core::Interface::vtable(this).TargetVolume)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<PackageVolume>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
     pub fn SetTargetVolume<'a, Param0: ::windows::core::IntoParam<'a, PackageVolume>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetTargetVolume)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetTargetVolume)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -4723,7 +4723,7 @@ impl StagePackageOptions {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).OptionalPackageFamilyNames)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>(result__)
+            (::windows::core::Interface::vtable(this).OptionalPackageFamilyNames)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"Foundation_Collections\"`*"]
@@ -4732,7 +4732,7 @@ impl StagePackageOptions {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).OptionalPackageUris)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<super::super::Foundation::Uri>>(result__)
+            (::windows::core::Interface::vtable(this).OptionalPackageUris)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<super::super::Foundation::Uri>>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"Foundation_Collections\"`*"]
@@ -4741,7 +4741,7 @@ impl StagePackageOptions {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RelatedPackageUris)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<super::super::Foundation::Uri>>(result__)
+            (::windows::core::Interface::vtable(this).RelatedPackageUris)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<super::super::Foundation::Uri>>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"Foundation\"`*"]
@@ -4750,105 +4750,105 @@ impl StagePackageOptions {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ExternalLocationUri)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Uri>(result__)
+            (::windows::core::Interface::vtable(this).ExternalLocationUri)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Uri>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetExternalLocationUri<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Uri>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetExternalLocationUri)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetExternalLocationUri)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
     pub fn StubPackageOption(&self) -> ::windows::core::Result<StubPackageOption> {
         let this = self;
         unsafe {
             let mut result__: StubPackageOption = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).StubPackageOption)(::core::mem::transmute_copy(this), &mut result__).from_abi::<StubPackageOption>(result__)
+            (::windows::core::Interface::vtable(this).StubPackageOption)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<StubPackageOption>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
     pub fn SetStubPackageOption(&self, value: StubPackageOption) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetStubPackageOption)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetStubPackageOption)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
     pub fn DeveloperMode(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DeveloperMode)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).DeveloperMode)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
     pub fn SetDeveloperMode(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetDeveloperMode)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDeveloperMode)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
     pub fn ForceUpdateFromAnyVersion(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ForceUpdateFromAnyVersion)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).ForceUpdateFromAnyVersion)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
     pub fn SetForceUpdateFromAnyVersion(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetForceUpdateFromAnyVersion)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetForceUpdateFromAnyVersion)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
     pub fn InstallAllResources(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).InstallAllResources)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).InstallAllResources)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
     pub fn SetInstallAllResources(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetInstallAllResources)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetInstallAllResources)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
     pub fn RequiredContentGroupOnly(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RequiredContentGroupOnly)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).RequiredContentGroupOnly)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
     pub fn SetRequiredContentGroupOnly(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetRequiredContentGroupOnly)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetRequiredContentGroupOnly)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
     pub fn StageInPlace(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).StageInPlace)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).StageInPlace)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
     pub fn SetStageInPlace(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetStageInPlace)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetStageInPlace)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
     pub fn AllowUnsigned(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AllowUnsigned)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).AllowUnsigned)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
     pub fn SetAllowUnsigned(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetAllowUnsigned)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetAllowUnsigned)(::windows::core::Interface::as_raw(this), value).ok() }
     }
 }
 impl ::core::clone::Clone for StagePackageOptions {
@@ -4975,26 +4975,26 @@ impl UpdateSharedPackageContainerOptions {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ForceAppShutdown)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).ForceAppShutdown)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
     pub fn SetForceAppShutdown(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetForceAppShutdown)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetForceAppShutdown)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
     pub fn RequirePackagesPresent(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RequirePackagesPresent)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).RequirePackagesPresent)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
     pub fn SetRequirePackagesPresent(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetRequirePackagesPresent)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetRequirePackagesPresent)(::windows::core::Interface::as_raw(this), value).ok() }
     }
 }
 impl ::core::clone::Clone for UpdateSharedPackageContainerOptions {
@@ -5078,7 +5078,7 @@ impl UpdateSharedPackageContainerResult {
         let this = self;
         unsafe {
             let mut result__: SharedPackageContainerOperationStatus = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Status)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SharedPackageContainerOperationStatus>(result__)
+            (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SharedPackageContainerOperationStatus>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Deployment\"`*"]
@@ -5086,7 +5086,7 @@ impl UpdateSharedPackageContainerResult {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::HRESULT = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ExtendedError)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HRESULT>(result__)
+            (::windows::core::Interface::vtable(this).ExtendedError)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HRESULT>(result__)
         }
     }
 }

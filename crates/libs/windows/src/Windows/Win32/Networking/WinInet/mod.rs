@@ -4582,13 +4582,13 @@ pub struct IDialBranding(::windows::core::IUnknown);
 impl IDialBranding {
     #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
     pub unsafe fn Initialize<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pwzconnectoid: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Initialize)(::core::mem::transmute_copy(self), pwzconnectoid.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), pwzconnectoid.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_WinInet\"`, `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn GetBitmap(&self, dwindex: u32) -> ::windows::core::Result<super::super::Graphics::Gdi::HBITMAP> {
         let mut result__: super::super::Graphics::Gdi::HBITMAP = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetBitmap)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwindex), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Graphics::Gdi::HBITMAP>(result__)
+        (::windows::core::Interface::vtable(self).GetBitmap)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwindex), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Graphics::Gdi::HBITMAP>(result__)
     }
 }
 impl ::core::convert::From<IDialBranding> for ::windows::core::IUnknown {
@@ -4647,33 +4647,33 @@ pub struct IDialEngine(::windows::core::IUnknown);
 impl IDialEngine {
     #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
     pub unsafe fn Initialize<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, IDialEventSink>>(&self, pwzconnectoid: Param0, pides: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Initialize)(::core::mem::transmute_copy(self), pwzconnectoid.into_param().abi(), pides.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), pwzconnectoid.into_param().abi(), pides.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
     pub unsafe fn GetProperty<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pwzproperty: Param0, pwzvalue: Param1, dwbufsize: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetProperty)(::core::mem::transmute_copy(self), pwzproperty.into_param().abi(), pwzvalue.into_param().abi(), ::core::mem::transmute(dwbufsize)).ok()
+        (::windows::core::Interface::vtable(self).GetProperty)(::windows::core::Interface::as_raw(self), pwzproperty.into_param().abi(), pwzvalue.into_param().abi(), ::core::mem::transmute(dwbufsize)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
     pub unsafe fn SetProperty<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pwzproperty: Param0, pwzvalue: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetProperty)(::core::mem::transmute_copy(self), pwzproperty.into_param().abi(), pwzvalue.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetProperty)(::windows::core::Interface::as_raw(self), pwzproperty.into_param().abi(), pwzvalue.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
     pub unsafe fn Dial(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Dial)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Dial)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
     pub unsafe fn HangUp(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).HangUp)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).HangUp)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
     pub unsafe fn GetConnectedState(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetConnectedState)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).GetConnectedState)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
     pub unsafe fn GetConnectHandle(&self) -> ::windows::core::Result<usize> {
         let mut result__: usize = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetConnectHandle)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<usize>(result__)
+        (::windows::core::Interface::vtable(self).GetConnectHandle)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<usize>(result__)
     }
 }
 impl ::core::convert::From<IDialEngine> for ::windows::core::IUnknown {
@@ -4734,7 +4734,7 @@ pub struct IDialEventSink(::windows::core::IUnknown);
 impl IDialEventSink {
     #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
     pub unsafe fn OnEvent(&self, dwevent: u32, dwstatus: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnEvent)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwevent), ::core::mem::transmute(dwstatus)).ok()
+        (::windows::core::Interface::vtable(self).OnEvent)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwevent), ::core::mem::transmute(dwstatus)).ok()
     }
 }
 impl ::core::convert::From<IDialEventSink> for ::windows::core::IUnknown {
@@ -7531,7 +7531,7 @@ pub struct IProofOfPossessionCookieInfoManager(::windows::core::IUnknown);
 impl IProofOfPossessionCookieInfoManager {
     #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
     pub unsafe fn GetCookieInfoForUri<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, uri: Param0, cookieinfocount: *mut u32, cookieinfo: *mut *mut ProofOfPossessionCookieInfo) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetCookieInfoForUri)(::core::mem::transmute_copy(self), uri.into_param().abi(), ::core::mem::transmute(cookieinfocount), ::core::mem::transmute(cookieinfo)).ok()
+        (::windows::core::Interface::vtable(self).GetCookieInfoForUri)(::windows::core::Interface::as_raw(self), uri.into_param().abi(), ::core::mem::transmute(cookieinfocount), ::core::mem::transmute(cookieinfo)).ok()
     }
 }
 impl ::core::convert::From<IProofOfPossessionCookieInfoManager> for ::windows::core::IUnknown {
@@ -7586,7 +7586,7 @@ pub struct IProofOfPossessionCookieInfoManager2(::windows::core::IUnknown);
 impl IProofOfPossessionCookieInfoManager2 {
     #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
     pub unsafe fn GetCookieInfoWithUriForAccount<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, webaccount: Param0, uri: Param1, cookieinfocount: *mut u32, cookieinfo: *mut *mut ProofOfPossessionCookieInfo) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetCookieInfoWithUriForAccount)(::core::mem::transmute_copy(self), webaccount.into_param().abi(), uri.into_param().abi(), ::core::mem::transmute(cookieinfocount), ::core::mem::transmute(cookieinfo)).ok()
+        (::windows::core::Interface::vtable(self).GetCookieInfoWithUriForAccount)(::windows::core::Interface::as_raw(self), webaccount.into_param().abi(), uri.into_param().abi(), ::core::mem::transmute(cookieinfocount), ::core::mem::transmute(cookieinfo)).ok()
     }
 }
 impl ::core::convert::From<IProofOfPossessionCookieInfoManager2> for ::windows::core::IUnknown {

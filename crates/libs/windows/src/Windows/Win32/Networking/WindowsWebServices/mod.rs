@@ -4,12 +4,12 @@ pub struct IContentPrefetcherTaskTrigger(::windows::core::IUnknown);
 impl IContentPrefetcherTaskTrigger {
     #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
     pub unsafe fn TriggerContentPrefetcherTask<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, packagefullname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).TriggerContentPrefetcherTask)(::core::mem::transmute_copy(self), packagefullname.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).TriggerContentPrefetcherTask)(::windows::core::Interface::as_raw(self), packagefullname.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
     pub unsafe fn IsRegisteredForContentPrefetch<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, packagefullname: Param0) -> ::windows::core::Result<u8> {
         let mut result__: u8 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).IsRegisteredForContentPrefetch)(::core::mem::transmute_copy(self), packagefullname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<u8>(result__)
+        (::windows::core::Interface::vtable(self).IsRegisteredForContentPrefetch)(::windows::core::Interface::as_raw(self), packagefullname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<u8>(result__)
     }
 }
 impl ::core::convert::From<IContentPrefetcherTaskTrigger> for ::windows::core::IUnknown {

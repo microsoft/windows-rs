@@ -1188,35 +1188,35 @@ impl ISdo {
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkPolicyServer\"`*"]
     pub unsafe fn GetPropertyInfo(&self, id: i32) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetPropertyInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(id), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
+        (::windows::core::Interface::vtable(self).GetPropertyInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(id), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkPolicyServer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetProperty(&self, id: i32) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetProperty)(::core::mem::transmute_copy(self), ::core::mem::transmute(id), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).GetProperty)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(id), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkPolicyServer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn PutProperty(&self, id: i32, pvalue: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).PutProperty)(::core::mem::transmute_copy(self), ::core::mem::transmute(id), ::core::mem::transmute(pvalue)).ok()
+        (::windows::core::Interface::vtable(self).PutProperty)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(id), ::core::mem::transmute(pvalue)).ok()
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkPolicyServer\"`*"]
     pub unsafe fn ResetProperty(&self, id: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ResetProperty)(::core::mem::transmute_copy(self), ::core::mem::transmute(id)).ok()
+        (::windows::core::Interface::vtable(self).ResetProperty)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(id)).ok()
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkPolicyServer\"`*"]
     pub unsafe fn Apply(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Apply)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Apply)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkPolicyServer\"`*"]
     pub unsafe fn Restore(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Restore)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Restore)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkPolicyServer\"`*"]
     pub unsafe fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self)._NewEnum)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
+        (::windows::core::Interface::vtable(self)._NewEnum)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1320,42 +1320,42 @@ impl ISdoCollection {
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkPolicyServer\"`*"]
     pub unsafe fn Count(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Count)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).Count)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkPolicyServer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn Add<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0, ppitem: *mut ::core::option::Option<super::super::System::Com::IDispatch>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Add)(::core::mem::transmute_copy(self), bstrname.into_param().abi(), ::core::mem::transmute(ppitem)).ok()
+        (::windows::core::Interface::vtable(self).Add)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), ::core::mem::transmute(ppitem)).ok()
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkPolicyServer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Remove<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch>>(&self, pitem: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Remove)(::core::mem::transmute_copy(self), pitem.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).Remove)(::windows::core::Interface::as_raw(self), pitem.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkPolicyServer\"`*"]
     pub unsafe fn RemoveAll(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RemoveAll)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).RemoveAll)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkPolicyServer\"`*"]
     pub unsafe fn Reload(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Reload)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Reload)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkPolicyServer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsNameUnique<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).IsNameUnique)(::core::mem::transmute_copy(self), bstrname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).IsNameUnique)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkPolicyServer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Item(&self, name: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<super::super::System::Com::IDispatch> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Item)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::IDispatch>(result__)
+        (::windows::core::Interface::vtable(self).Item)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::IDispatch>(result__)
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkPolicyServer\"`*"]
     pub unsafe fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self)._NewEnum)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
+        (::windows::core::Interface::vtable(self)._NewEnum)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1466,30 +1466,30 @@ impl ISdoDictionaryOld {
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkPolicyServer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn EnumAttributes(&self, id: *mut super::super::System::Com::VARIANT, pvalues: *mut super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).EnumAttributes)(::core::mem::transmute_copy(self), ::core::mem::transmute(id), ::core::mem::transmute(pvalues)).ok()
+        (::windows::core::Interface::vtable(self).EnumAttributes)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(id), ::core::mem::transmute(pvalues)).ok()
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkPolicyServer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetAttributeInfo(&self, id: ATTRIBUTEID, pinfoids: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetAttributeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(id), ::core::mem::transmute(pinfoids), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).GetAttributeInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(id), ::core::mem::transmute(pinfoids), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkPolicyServer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn EnumAttributeValues(&self, id: ATTRIBUTEID, pvalueids: *mut super::super::System::Com::VARIANT, pvaluesdesc: *mut super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).EnumAttributeValues)(::core::mem::transmute_copy(self), ::core::mem::transmute(id), ::core::mem::transmute(pvalueids), ::core::mem::transmute(pvaluesdesc)).ok()
+        (::windows::core::Interface::vtable(self).EnumAttributeValues)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(id), ::core::mem::transmute(pvalueids), ::core::mem::transmute(pvaluesdesc)).ok()
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkPolicyServer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateAttribute(&self, id: ATTRIBUTEID) -> ::windows::core::Result<super::super::System::Com::IDispatch> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateAttribute)(::core::mem::transmute_copy(self), ::core::mem::transmute(id), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::IDispatch>(result__)
+        (::windows::core::Interface::vtable(self).CreateAttribute)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(id), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::IDispatch>(result__)
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkPolicyServer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetAttributeID<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrattributename: Param0) -> ::windows::core::Result<ATTRIBUTEID> {
         let mut result__: ATTRIBUTEID = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetAttributeID)(::core::mem::transmute_copy(self), bstrattributename.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<ATTRIBUTEID>(result__)
+        (::windows::core::Interface::vtable(self).GetAttributeID)(::windows::core::Interface::as_raw(self), bstrattributename.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<ATTRIBUTEID>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1600,50 +1600,50 @@ impl ISdoMachine {
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkPolicyServer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Attach<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrcomputername: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Attach)(::core::mem::transmute_copy(self), bstrcomputername.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).Attach)(::windows::core::Interface::as_raw(self), bstrcomputername.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkPolicyServer\"`*"]
     pub unsafe fn GetDictionarySDO(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetDictionarySDO)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
+        (::windows::core::Interface::vtable(self).GetDictionarySDO)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkPolicyServer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetServiceSDO<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, edatastore: IASDATASTORE, bstrservicename: Param1) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetServiceSDO)(::core::mem::transmute_copy(self), ::core::mem::transmute(edatastore), bstrservicename.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
+        (::windows::core::Interface::vtable(self).GetServiceSDO)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(edatastore), bstrservicename.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkPolicyServer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetUserSDO<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, edatastore: IASDATASTORE, bstrusername: Param1) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetUserSDO)(::core::mem::transmute_copy(self), ::core::mem::transmute(edatastore), bstrusername.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
+        (::windows::core::Interface::vtable(self).GetUserSDO)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(edatastore), bstrusername.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkPolicyServer\"`*"]
     pub unsafe fn GetOSType(&self) -> ::windows::core::Result<IASOSTYPE> {
         let mut result__: IASOSTYPE = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetOSType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IASOSTYPE>(result__)
+        (::windows::core::Interface::vtable(self).GetOSType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IASOSTYPE>(result__)
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkPolicyServer\"`*"]
     pub unsafe fn GetDomainType(&self) -> ::windows::core::Result<IASDOMAINTYPE> {
         let mut result__: IASDOMAINTYPE = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetDomainType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IASDOMAINTYPE>(result__)
+        (::windows::core::Interface::vtable(self).GetDomainType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IASDOMAINTYPE>(result__)
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkPolicyServer\"`*"]
     pub unsafe fn IsDirectoryAvailable(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).IsDirectoryAvailable)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).IsDirectoryAvailable)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkPolicyServer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetAttachedComputer(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetAttachedComputer)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).GetAttachedComputer)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkPolicyServer\"`*"]
     pub unsafe fn GetSDOSchema(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetSDOSchema)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
+        (::windows::core::Interface::vtable(self).GetSDOSchema)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1755,74 +1755,74 @@ impl ISdoMachine2 {
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkPolicyServer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Attach<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrcomputername: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Attach)(::core::mem::transmute_copy(self), bstrcomputername.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.Attach)(::windows::core::Interface::as_raw(self), bstrcomputername.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkPolicyServer\"`*"]
     pub unsafe fn GetDictionarySDO(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetDictionarySDO)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetDictionarySDO)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkPolicyServer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetServiceSDO<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, edatastore: IASDATASTORE, bstrservicename: Param1) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetServiceSDO)(::core::mem::transmute_copy(self), ::core::mem::transmute(edatastore), bstrservicename.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetServiceSDO)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(edatastore), bstrservicename.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkPolicyServer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetUserSDO<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, edatastore: IASDATASTORE, bstrusername: Param1) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetUserSDO)(::core::mem::transmute_copy(self), ::core::mem::transmute(edatastore), bstrusername.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetUserSDO)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(edatastore), bstrusername.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkPolicyServer\"`*"]
     pub unsafe fn GetOSType(&self) -> ::windows::core::Result<IASOSTYPE> {
         let mut result__: IASOSTYPE = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetOSType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IASOSTYPE>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetOSType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IASOSTYPE>(result__)
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkPolicyServer\"`*"]
     pub unsafe fn GetDomainType(&self) -> ::windows::core::Result<IASDOMAINTYPE> {
         let mut result__: IASDOMAINTYPE = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetDomainType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IASDOMAINTYPE>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetDomainType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IASDOMAINTYPE>(result__)
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkPolicyServer\"`*"]
     pub unsafe fn IsDirectoryAvailable(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.IsDirectoryAvailable)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).base__.IsDirectoryAvailable)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkPolicyServer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetAttachedComputer(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetAttachedComputer)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetAttachedComputer)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkPolicyServer\"`*"]
     pub unsafe fn GetSDOSchema(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetSDOSchema)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetSDOSchema)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkPolicyServer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetTemplatesSDO<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrservicename: Param0) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetTemplatesSDO)(::core::mem::transmute_copy(self), bstrservicename.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
+        (::windows::core::Interface::vtable(self).GetTemplatesSDO)(::windows::core::Interface::as_raw(self), bstrservicename.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkPolicyServer\"`*"]
     pub unsafe fn EnableTemplates(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).EnableTemplates)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).EnableTemplates)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkPolicyServer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SyncConfigAgainstTemplates<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrservicename: Param0, ppconfigroot: *mut ::core::option::Option<::windows::core::IUnknown>, pptemplatesroot: *mut ::core::option::Option<::windows::core::IUnknown>, bforcedsync: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SyncConfigAgainstTemplates)(::core::mem::transmute_copy(self), bstrservicename.into_param().abi(), ::core::mem::transmute(ppconfigroot), ::core::mem::transmute(pptemplatesroot), ::core::mem::transmute(bforcedsync)).ok()
+        (::windows::core::Interface::vtable(self).SyncConfigAgainstTemplates)(::windows::core::Interface::as_raw(self), bstrservicename.into_param().abi(), ::core::mem::transmute(ppconfigroot), ::core::mem::transmute(pptemplatesroot), ::core::mem::transmute(bforcedsync)).ok()
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkPolicyServer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ImportRemoteTemplates<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, plocaltemplatesroot: Param0, bstrremotemachinename: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ImportRemoteTemplates)(::core::mem::transmute_copy(self), plocaltemplatesroot.into_param().abi(), bstrremotemachinename.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).ImportRemoteTemplates)(::windows::core::Interface::as_raw(self), plocaltemplatesroot.into_param().abi(), bstrremotemachinename.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkPolicyServer\"`*"]
     pub unsafe fn Reload(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Reload)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Reload)(::windows::core::Interface::as_raw(self)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1950,20 +1950,20 @@ pub struct ISdoServiceControl(::windows::core::IUnknown);
 impl ISdoServiceControl {
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkPolicyServer\"`*"]
     pub unsafe fn StartService(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).StartService)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).StartService)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkPolicyServer\"`*"]
     pub unsafe fn StopService(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).StopService)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).StopService)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkPolicyServer\"`*"]
     pub unsafe fn GetServiceStatus(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetServiceStatus)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).GetServiceStatus)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkPolicyServer\"`*"]
     pub unsafe fn ResetService(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ResetService)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).ResetService)(::windows::core::Interface::as_raw(self)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2058,50 +2058,50 @@ impl ITemplateSdo {
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkPolicyServer\"`*"]
     pub unsafe fn GetPropertyInfo(&self, id: i32) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetPropertyInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(id), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetPropertyInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(id), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkPolicyServer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetProperty(&self, id: i32) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetProperty)(::core::mem::transmute_copy(self), ::core::mem::transmute(id), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetProperty)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(id), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkPolicyServer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn PutProperty(&self, id: i32, pvalue: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.PutProperty)(::core::mem::transmute_copy(self), ::core::mem::transmute(id), ::core::mem::transmute(pvalue)).ok()
+        (::windows::core::Interface::vtable(self).base__.PutProperty)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(id), ::core::mem::transmute(pvalue)).ok()
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkPolicyServer\"`*"]
     pub unsafe fn ResetProperty(&self, id: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.ResetProperty)(::core::mem::transmute_copy(self), ::core::mem::transmute(id)).ok()
+        (::windows::core::Interface::vtable(self).base__.ResetProperty)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(id)).ok()
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkPolicyServer\"`*"]
     pub unsafe fn Apply(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Apply)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.Apply)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkPolicyServer\"`*"]
     pub unsafe fn Restore(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Restore)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.Restore)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkPolicyServer\"`*"]
     pub unsafe fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__._NewEnum)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
+        (::windows::core::Interface::vtable(self).base__._NewEnum)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkPolicyServer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn AddToCollection<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch>>(&self, bstrname: Param0, pcollection: Param1, ppitem: *mut ::core::option::Option<super::super::System::Com::IDispatch>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AddToCollection)(::core::mem::transmute_copy(self), bstrname.into_param().abi(), pcollection.into_param().abi(), ::core::mem::transmute(ppitem)).ok()
+        (::windows::core::Interface::vtable(self).AddToCollection)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), pcollection.into_param().abi(), ::core::mem::transmute(ppitem)).ok()
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkPolicyServer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn AddToSdo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch>>(&self, bstrname: Param0, psdotarget: Param1, ppitem: *mut ::core::option::Option<super::super::System::Com::IDispatch>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AddToSdo)(::core::mem::transmute_copy(self), bstrname.into_param().abi(), psdotarget.into_param().abi(), ::core::mem::transmute(ppitem)).ok()
+        (::windows::core::Interface::vtable(self).AddToSdo)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), psdotarget.into_param().abi(), ::core::mem::transmute(ppitem)).ok()
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkPolicyServer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AddToSdoAsProperty<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch>>(&self, psdotarget: Param0, id: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AddToSdoAsProperty)(::core::mem::transmute_copy(self), psdotarget.into_param().abi(), ::core::mem::transmute(id)).ok()
+        (::windows::core::Interface::vtable(self).AddToSdoAsProperty)(::windows::core::Interface::as_raw(self), psdotarget.into_param().abi(), ::core::mem::transmute(id)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]

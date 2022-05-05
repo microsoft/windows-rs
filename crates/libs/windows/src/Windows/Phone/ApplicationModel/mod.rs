@@ -5,7 +5,7 @@ impl ApplicationProfile {
     pub fn Modes() -> ::windows::core::Result<ApplicationProfileModes> {
         Self::IApplicationProfileStatics(|this| unsafe {
             let mut result__: ApplicationProfileModes = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Modes)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationProfileModes>(result__)
+            (::windows::core::Interface::vtable(this).Modes)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ApplicationProfileModes>(result__)
         })
     }
     #[doc(hidden)]

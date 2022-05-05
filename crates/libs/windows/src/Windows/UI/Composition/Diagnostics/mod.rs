@@ -5,22 +5,22 @@ impl CompositionDebugHeatMaps {
     #[doc = "*Required features: `\"UI_Composition_Diagnostics\"`*"]
     pub fn Hide<'a, Param0: ::windows::core::IntoParam<'a, super::Visual>>(&self, subtree: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Hide)(::core::mem::transmute_copy(this), subtree.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Hide)(::windows::core::Interface::as_raw(this), subtree.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Diagnostics\"`*"]
     pub fn ShowMemoryUsage<'a, Param0: ::windows::core::IntoParam<'a, super::Visual>>(&self, subtree: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).ShowMemoryUsage)(::core::mem::transmute_copy(this), subtree.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).ShowMemoryUsage)(::windows::core::Interface::as_raw(this), subtree.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Diagnostics\"`*"]
     pub fn ShowOverdraw<'a, Param0: ::windows::core::IntoParam<'a, super::Visual>>(&self, subtree: Param0, contentkinds: CompositionDebugOverdrawContentKinds) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).ShowOverdraw)(::core::mem::transmute_copy(this), subtree.into_param().abi(), contentkinds).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).ShowOverdraw)(::windows::core::Interface::as_raw(this), subtree.into_param().abi(), contentkinds).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Diagnostics\"`*"]
     pub fn ShowRedraw<'a, Param0: ::windows::core::IntoParam<'a, super::Visual>>(&self, subtree: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).ShowRedraw)(::core::mem::transmute_copy(this), subtree.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).ShowRedraw)(::windows::core::Interface::as_raw(this), subtree.into_param().abi()).ok() }
     }
 }
 impl ::core::clone::Clone for CompositionDebugHeatMaps {
@@ -173,14 +173,14 @@ impl CompositionDebugSettings {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).HeatMaps)(::core::mem::transmute_copy(this), &mut result__).from_abi::<CompositionDebugHeatMaps>(result__)
+            (::windows::core::Interface::vtable(this).HeatMaps)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<CompositionDebugHeatMaps>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Composition_Diagnostics\"`*"]
     pub fn TryGetSettings<'a, Param0: ::windows::core::IntoParam<'a, super::Compositor>>(compositor: Param0) -> ::windows::core::Result<CompositionDebugSettings> {
         Self::ICompositionDebugSettingsStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TryGetSettings)(::core::mem::transmute_copy(this), compositor.into_param().abi(), &mut result__).from_abi::<CompositionDebugSettings>(result__)
+            (::windows::core::Interface::vtable(this).TryGetSettings)(::windows::core::Interface::as_raw(this), compositor.into_param().abi(), &mut result__).from_abi::<CompositionDebugSettings>(result__)
         })
     }
     #[doc(hidden)]

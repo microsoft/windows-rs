@@ -37,14 +37,14 @@ impl InkWorkspaceHostedAppManager {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SetThumbnailAsync)(::core::mem::transmute_copy(this), bitmap.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).SetThumbnailAsync)(::windows::core::Interface::as_raw(this), bitmap.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Preview_InkWorkspace\"`*"]
     pub fn GetForCurrentApp() -> ::windows::core::Result<InkWorkspaceHostedAppManager> {
         Self::IInkWorkspaceHostedAppManagerStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetForCurrentApp)(::core::mem::transmute_copy(this), &mut result__).from_abi::<InkWorkspaceHostedAppManager>(result__)
+            (::windows::core::Interface::vtable(this).GetForCurrentApp)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<InkWorkspaceHostedAppManager>(result__)
         })
     }
     #[doc(hidden)]

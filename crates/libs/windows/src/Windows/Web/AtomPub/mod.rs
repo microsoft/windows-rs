@@ -15,7 +15,7 @@ impl AtomPubClient {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RetrieveServiceDocumentAsync)(::core::mem::transmute_copy(this), uri.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<ServiceDocument, super::Syndication::RetrievalProgress>>(result__)
+            (::windows::core::Interface::vtable(this).RetrieveServiceDocumentAsync)(::windows::core::Interface::as_raw(this), uri.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<ServiceDocument, super::Syndication::RetrievalProgress>>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_AtomPub\"`, `\"Foundation\"`, `\"Storage_Streams\"`, `\"Web_Syndication\"`*"]
@@ -24,7 +24,7 @@ impl AtomPubClient {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RetrieveMediaResourceAsync)(::core::mem::transmute_copy(this), uri.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<super::super::Storage::Streams::IInputStream, super::Syndication::RetrievalProgress>>(result__)
+            (::windows::core::Interface::vtable(this).RetrieveMediaResourceAsync)(::windows::core::Interface::as_raw(this), uri.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<super::super::Storage::Streams::IInputStream, super::Syndication::RetrievalProgress>>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_AtomPub\"`, `\"Foundation\"`, `\"Web_Syndication\"`*"]
@@ -33,7 +33,7 @@ impl AtomPubClient {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RetrieveResourceAsync)(::core::mem::transmute_copy(this), uri.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<super::Syndication::SyndicationItem, super::Syndication::RetrievalProgress>>(result__)
+            (::windows::core::Interface::vtable(this).RetrieveResourceAsync)(::windows::core::Interface::as_raw(this), uri.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<super::Syndication::SyndicationItem, super::Syndication::RetrievalProgress>>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_AtomPub\"`, `\"Foundation\"`, `\"Web_Syndication\"`*"]
@@ -42,7 +42,7 @@ impl AtomPubClient {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateResourceAsync)(::core::mem::transmute_copy(this), uri.into_param().abi(), description.into_param().abi(), item.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<super::Syndication::SyndicationItem, super::Syndication::TransferProgress>>(result__)
+            (::windows::core::Interface::vtable(this).CreateResourceAsync)(::windows::core::Interface::as_raw(this), uri.into_param().abi(), description.into_param().abi(), item.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<super::Syndication::SyndicationItem, super::Syndication::TransferProgress>>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_AtomPub\"`, `\"Foundation\"`, `\"Storage_Streams\"`, `\"Web_Syndication\"`*"]
@@ -51,7 +51,7 @@ impl AtomPubClient {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateMediaResourceAsync)(::core::mem::transmute_copy(this), uri.into_param().abi(), mediatype.into_param().abi(), description.into_param().abi(), mediastream.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<super::Syndication::SyndicationItem, super::Syndication::TransferProgress>>(result__)
+            (::windows::core::Interface::vtable(this).CreateMediaResourceAsync)(::windows::core::Interface::as_raw(this), uri.into_param().abi(), mediatype.into_param().abi(), description.into_param().abi(), mediastream.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<super::Syndication::SyndicationItem, super::Syndication::TransferProgress>>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_AtomPub\"`, `\"Foundation\"`, `\"Storage_Streams\"`, `\"Web_Syndication\"`*"]
@@ -60,7 +60,7 @@ impl AtomPubClient {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).UpdateMediaResourceAsync)(::core::mem::transmute_copy(this), uri.into_param().abi(), mediatype.into_param().abi(), mediastream.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncActionWithProgress<super::Syndication::TransferProgress>>(result__)
+            (::windows::core::Interface::vtable(this).UpdateMediaResourceAsync)(::windows::core::Interface::as_raw(this), uri.into_param().abi(), mediatype.into_param().abi(), mediastream.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncActionWithProgress<super::Syndication::TransferProgress>>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_AtomPub\"`, `\"Foundation\"`, `\"Web_Syndication\"`*"]
@@ -69,7 +69,7 @@ impl AtomPubClient {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).UpdateResourceAsync)(::core::mem::transmute_copy(this), uri.into_param().abi(), item.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncActionWithProgress<super::Syndication::TransferProgress>>(result__)
+            (::windows::core::Interface::vtable(this).UpdateResourceAsync)(::windows::core::Interface::as_raw(this), uri.into_param().abi(), item.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncActionWithProgress<super::Syndication::TransferProgress>>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_AtomPub\"`, `\"Foundation\"`, `\"Web_Syndication\"`*"]
@@ -78,7 +78,7 @@ impl AtomPubClient {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).UpdateResourceItemAsync)(::core::mem::transmute_copy(this), item.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncActionWithProgress<super::Syndication::TransferProgress>>(result__)
+            (::windows::core::Interface::vtable(this).UpdateResourceItemAsync)(::windows::core::Interface::as_raw(this), item.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncActionWithProgress<super::Syndication::TransferProgress>>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_AtomPub\"`, `\"Foundation\"`, `\"Web_Syndication\"`*"]
@@ -87,7 +87,7 @@ impl AtomPubClient {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DeleteResourceAsync)(::core::mem::transmute_copy(this), uri.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncActionWithProgress<super::Syndication::TransferProgress>>(result__)
+            (::windows::core::Interface::vtable(this).DeleteResourceAsync)(::windows::core::Interface::as_raw(this), uri.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncActionWithProgress<super::Syndication::TransferProgress>>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_AtomPub\"`, `\"Foundation\"`, `\"Web_Syndication\"`*"]
@@ -96,20 +96,20 @@ impl AtomPubClient {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DeleteResourceItemAsync)(::core::mem::transmute_copy(this), item.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncActionWithProgress<super::Syndication::TransferProgress>>(result__)
+            (::windows::core::Interface::vtable(this).DeleteResourceItemAsync)(::windows::core::Interface::as_raw(this), item.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncActionWithProgress<super::Syndication::TransferProgress>>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_AtomPub\"`*"]
     pub fn CancelAsyncOperations(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).CancelAsyncOperations)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).CancelAsyncOperations)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Web_AtomPub\"`, `\"Security_Credentials\"`*"]
     #[cfg(feature = "Security_Credentials")]
     pub fn CreateAtomPubClientWithCredentials<'a, Param0: ::windows::core::IntoParam<'a, super::super::Security::Credentials::PasswordCredential>>(servercredential: Param0) -> ::windows::core::Result<AtomPubClient> {
         Self::IAtomPubClientFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateAtomPubClientWithCredentials)(::core::mem::transmute_copy(this), servercredential.into_param().abi(), &mut result__).from_abi::<AtomPubClient>(result__)
+            (::windows::core::Interface::vtable(this).CreateAtomPubClientWithCredentials)(::windows::core::Interface::as_raw(this), servercredential.into_param().abi(), &mut result__).from_abi::<AtomPubClient>(result__)
         })
     }
     #[doc = "*Required features: `\"Web_AtomPub\"`, `\"Security_Credentials\"`, `\"Web_Syndication\"`*"]
@@ -118,14 +118,14 @@ impl AtomPubClient {
         let this = &::windows::core::Interface::cast::<super::Syndication::ISyndicationClient>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ServerCredential)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Security::Credentials::PasswordCredential>(result__)
+            (::windows::core::Interface::vtable(this).ServerCredential)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Security::Credentials::PasswordCredential>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_AtomPub\"`, `\"Security_Credentials\"`, `\"Web_Syndication\"`*"]
     #[cfg(all(feature = "Security_Credentials", feature = "Web_Syndication"))]
     pub fn SetServerCredential<'a, Param0: ::windows::core::IntoParam<'a, super::super::Security::Credentials::PasswordCredential>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::Syndication::ISyndicationClient>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetServerCredential)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetServerCredential)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Web_AtomPub\"`, `\"Security_Credentials\"`, `\"Web_Syndication\"`*"]
     #[cfg(all(feature = "Security_Credentials", feature = "Web_Syndication"))]
@@ -133,14 +133,14 @@ impl AtomPubClient {
         let this = &::windows::core::Interface::cast::<super::Syndication::ISyndicationClient>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ProxyCredential)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Security::Credentials::PasswordCredential>(result__)
+            (::windows::core::Interface::vtable(this).ProxyCredential)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Security::Credentials::PasswordCredential>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_AtomPub\"`, `\"Security_Credentials\"`, `\"Web_Syndication\"`*"]
     #[cfg(all(feature = "Security_Credentials", feature = "Web_Syndication"))]
     pub fn SetProxyCredential<'a, Param0: ::windows::core::IntoParam<'a, super::super::Security::Credentials::PasswordCredential>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::Syndication::ISyndicationClient>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetProxyCredential)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetProxyCredential)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Web_AtomPub\"`, `\"Web_Syndication\"`*"]
     #[cfg(feature = "Web_Syndication")]
@@ -148,14 +148,14 @@ impl AtomPubClient {
         let this = &::windows::core::Interface::cast::<super::Syndication::ISyndicationClient>(self)?;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MaxResponseBufferSize)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).MaxResponseBufferSize)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_AtomPub\"`, `\"Web_Syndication\"`*"]
     #[cfg(feature = "Web_Syndication")]
     pub fn SetMaxResponseBufferSize(&self, value: u32) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::Syndication::ISyndicationClient>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetMaxResponseBufferSize)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetMaxResponseBufferSize)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Web_AtomPub\"`, `\"Web_Syndication\"`*"]
     #[cfg(feature = "Web_Syndication")]
@@ -163,14 +163,14 @@ impl AtomPubClient {
         let this = &::windows::core::Interface::cast::<super::Syndication::ISyndicationClient>(self)?;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Timeout)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).Timeout)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_AtomPub\"`, `\"Web_Syndication\"`*"]
     #[cfg(feature = "Web_Syndication")]
     pub fn SetTimeout(&self, value: u32) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::Syndication::ISyndicationClient>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetTimeout)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetTimeout)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Web_AtomPub\"`, `\"Web_Syndication\"`*"]
     #[cfg(feature = "Web_Syndication")]
@@ -178,20 +178,20 @@ impl AtomPubClient {
         let this = &::windows::core::Interface::cast::<super::Syndication::ISyndicationClient>(self)?;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).BypassCacheOnRetrieve)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).BypassCacheOnRetrieve)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_AtomPub\"`, `\"Web_Syndication\"`*"]
     #[cfg(feature = "Web_Syndication")]
     pub fn SetBypassCacheOnRetrieve(&self, value: bool) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::Syndication::ISyndicationClient>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetBypassCacheOnRetrieve)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetBypassCacheOnRetrieve)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Web_AtomPub\"`, `\"Web_Syndication\"`*"]
     #[cfg(feature = "Web_Syndication")]
     pub fn SetRequestHeader<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0, value: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::Syndication::ISyndicationClient>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetRequestHeader)(::core::mem::transmute_copy(this), name.into_param().abi(), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetRequestHeader)(::windows::core::Interface::as_raw(this), name.into_param().abi(), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Web_AtomPub\"`, `\"Foundation\"`, `\"Web_Syndication\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Web_Syndication"))]
@@ -199,7 +199,7 @@ impl AtomPubClient {
         let this = &::windows::core::Interface::cast::<super::Syndication::ISyndicationClient>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RetrieveFeedAsync)(::core::mem::transmute_copy(this), uri.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<super::Syndication::SyndicationFeed, super::Syndication::RetrievalProgress>>(result__)
+            (::windows::core::Interface::vtable(this).RetrieveFeedAsync)(::windows::core::Interface::as_raw(this), uri.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<super::Syndication::SyndicationFeed, super::Syndication::RetrievalProgress>>(result__)
         }
     }
     #[doc(hidden)]
@@ -449,7 +449,7 @@ impl ResourceCollection {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Title)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Syndication::ISyndicationText>(result__)
+            (::windows::core::Interface::vtable(this).Title)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::Syndication::ISyndicationText>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_AtomPub\"`, `\"Foundation\"`*"]
@@ -458,7 +458,7 @@ impl ResourceCollection {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Uri)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Uri>(result__)
+            (::windows::core::Interface::vtable(this).Uri)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Uri>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_AtomPub\"`, `\"Foundation_Collections\"`, `\"Web_Syndication\"`*"]
@@ -467,7 +467,7 @@ impl ResourceCollection {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Categories)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<super::Syndication::SyndicationCategory>>(result__)
+            (::windows::core::Interface::vtable(this).Categories)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<super::Syndication::SyndicationCategory>>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_AtomPub\"`, `\"Foundation_Collections\"`*"]
@@ -476,7 +476,7 @@ impl ResourceCollection {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Accepts)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>(result__)
+            (::windows::core::Interface::vtable(this).Accepts)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_AtomPub\"`, `\"Web_Syndication\"`*"]
@@ -485,14 +485,14 @@ impl ResourceCollection {
         let this = &::windows::core::Interface::cast::<super::Syndication::ISyndicationNode>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).NodeName)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).NodeName)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_AtomPub\"`, `\"Web_Syndication\"`*"]
     #[cfg(feature = "Web_Syndication")]
     pub fn SetNodeName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::Syndication::ISyndicationNode>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetNodeName)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetNodeName)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Web_AtomPub\"`, `\"Web_Syndication\"`*"]
     #[cfg(feature = "Web_Syndication")]
@@ -500,14 +500,14 @@ impl ResourceCollection {
         let this = &::windows::core::Interface::cast::<super::Syndication::ISyndicationNode>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).NodeNamespace)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).NodeNamespace)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_AtomPub\"`, `\"Web_Syndication\"`*"]
     #[cfg(feature = "Web_Syndication")]
     pub fn SetNodeNamespace<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::Syndication::ISyndicationNode>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetNodeNamespace)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetNodeNamespace)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Web_AtomPub\"`, `\"Web_Syndication\"`*"]
     #[cfg(feature = "Web_Syndication")]
@@ -515,14 +515,14 @@ impl ResourceCollection {
         let this = &::windows::core::Interface::cast::<super::Syndication::ISyndicationNode>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).NodeValue)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).NodeValue)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_AtomPub\"`, `\"Web_Syndication\"`*"]
     #[cfg(feature = "Web_Syndication")]
     pub fn SetNodeValue<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::Syndication::ISyndicationNode>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetNodeValue)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetNodeValue)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Web_AtomPub\"`, `\"Web_Syndication\"`*"]
     #[cfg(feature = "Web_Syndication")]
@@ -530,14 +530,14 @@ impl ResourceCollection {
         let this = &::windows::core::Interface::cast::<super::Syndication::ISyndicationNode>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Language)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Language)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_AtomPub\"`, `\"Web_Syndication\"`*"]
     #[cfg(feature = "Web_Syndication")]
     pub fn SetLanguage<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::Syndication::ISyndicationNode>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetLanguage)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetLanguage)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Web_AtomPub\"`, `\"Foundation\"`, `\"Web_Syndication\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Web_Syndication"))]
@@ -545,14 +545,14 @@ impl ResourceCollection {
         let this = &::windows::core::Interface::cast::<super::Syndication::ISyndicationNode>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).BaseUri)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Uri>(result__)
+            (::windows::core::Interface::vtable(this).BaseUri)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Uri>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_AtomPub\"`, `\"Foundation\"`, `\"Web_Syndication\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Web_Syndication"))]
     pub fn SetBaseUri<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Uri>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::Syndication::ISyndicationNode>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetBaseUri)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetBaseUri)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Web_AtomPub\"`, `\"Foundation_Collections\"`, `\"Web_Syndication\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Web_Syndication"))]
@@ -560,7 +560,7 @@ impl ResourceCollection {
         let this = &::windows::core::Interface::cast::<super::Syndication::ISyndicationNode>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AttributeExtensions)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<super::Syndication::SyndicationAttribute>>(result__)
+            (::windows::core::Interface::vtable(this).AttributeExtensions)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<super::Syndication::SyndicationAttribute>>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_AtomPub\"`, `\"Foundation_Collections\"`, `\"Web_Syndication\"`*"]
@@ -569,7 +569,7 @@ impl ResourceCollection {
         let this = &::windows::core::Interface::cast::<super::Syndication::ISyndicationNode>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ElementExtensions)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<super::Syndication::ISyndicationNode>>(result__)
+            (::windows::core::Interface::vtable(this).ElementExtensions)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<super::Syndication::ISyndicationNode>>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_AtomPub\"`, `\"Data_Xml_Dom\"`, `\"Web_Syndication\"`*"]
@@ -578,7 +578,7 @@ impl ResourceCollection {
         let this = &::windows::core::Interface::cast::<super::Syndication::ISyndicationNode>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetXmlDocument)(::core::mem::transmute_copy(this), format, &mut result__).from_abi::<super::super::Data::Xml::Dom::XmlDocument>(result__)
+            (::windows::core::Interface::vtable(this).GetXmlDocument)(::windows::core::Interface::as_raw(this), format, &mut result__).from_abi::<super::super::Data::Xml::Dom::XmlDocument>(result__)
         }
     }
 }
@@ -690,7 +690,7 @@ impl ServiceDocument {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Workspaces)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<Workspace>>(result__)
+            (::windows::core::Interface::vtable(this).Workspaces)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<Workspace>>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_AtomPub\"`, `\"Web_Syndication\"`*"]
@@ -699,14 +699,14 @@ impl ServiceDocument {
         let this = &::windows::core::Interface::cast::<super::Syndication::ISyndicationNode>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).NodeName)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).NodeName)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_AtomPub\"`, `\"Web_Syndication\"`*"]
     #[cfg(feature = "Web_Syndication")]
     pub fn SetNodeName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::Syndication::ISyndicationNode>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetNodeName)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetNodeName)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Web_AtomPub\"`, `\"Web_Syndication\"`*"]
     #[cfg(feature = "Web_Syndication")]
@@ -714,14 +714,14 @@ impl ServiceDocument {
         let this = &::windows::core::Interface::cast::<super::Syndication::ISyndicationNode>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).NodeNamespace)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).NodeNamespace)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_AtomPub\"`, `\"Web_Syndication\"`*"]
     #[cfg(feature = "Web_Syndication")]
     pub fn SetNodeNamespace<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::Syndication::ISyndicationNode>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetNodeNamespace)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetNodeNamespace)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Web_AtomPub\"`, `\"Web_Syndication\"`*"]
     #[cfg(feature = "Web_Syndication")]
@@ -729,14 +729,14 @@ impl ServiceDocument {
         let this = &::windows::core::Interface::cast::<super::Syndication::ISyndicationNode>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).NodeValue)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).NodeValue)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_AtomPub\"`, `\"Web_Syndication\"`*"]
     #[cfg(feature = "Web_Syndication")]
     pub fn SetNodeValue<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::Syndication::ISyndicationNode>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetNodeValue)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetNodeValue)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Web_AtomPub\"`, `\"Web_Syndication\"`*"]
     #[cfg(feature = "Web_Syndication")]
@@ -744,14 +744,14 @@ impl ServiceDocument {
         let this = &::windows::core::Interface::cast::<super::Syndication::ISyndicationNode>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Language)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Language)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_AtomPub\"`, `\"Web_Syndication\"`*"]
     #[cfg(feature = "Web_Syndication")]
     pub fn SetLanguage<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::Syndication::ISyndicationNode>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetLanguage)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetLanguage)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Web_AtomPub\"`, `\"Foundation\"`, `\"Web_Syndication\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Web_Syndication"))]
@@ -759,14 +759,14 @@ impl ServiceDocument {
         let this = &::windows::core::Interface::cast::<super::Syndication::ISyndicationNode>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).BaseUri)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Uri>(result__)
+            (::windows::core::Interface::vtable(this).BaseUri)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Uri>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_AtomPub\"`, `\"Foundation\"`, `\"Web_Syndication\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Web_Syndication"))]
     pub fn SetBaseUri<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Uri>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::Syndication::ISyndicationNode>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetBaseUri)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetBaseUri)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Web_AtomPub\"`, `\"Foundation_Collections\"`, `\"Web_Syndication\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Web_Syndication"))]
@@ -774,7 +774,7 @@ impl ServiceDocument {
         let this = &::windows::core::Interface::cast::<super::Syndication::ISyndicationNode>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AttributeExtensions)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<super::Syndication::SyndicationAttribute>>(result__)
+            (::windows::core::Interface::vtable(this).AttributeExtensions)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<super::Syndication::SyndicationAttribute>>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_AtomPub\"`, `\"Foundation_Collections\"`, `\"Web_Syndication\"`*"]
@@ -783,7 +783,7 @@ impl ServiceDocument {
         let this = &::windows::core::Interface::cast::<super::Syndication::ISyndicationNode>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ElementExtensions)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<super::Syndication::ISyndicationNode>>(result__)
+            (::windows::core::Interface::vtable(this).ElementExtensions)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<super::Syndication::ISyndicationNode>>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_AtomPub\"`, `\"Data_Xml_Dom\"`, `\"Web_Syndication\"`*"]
@@ -792,7 +792,7 @@ impl ServiceDocument {
         let this = &::windows::core::Interface::cast::<super::Syndication::ISyndicationNode>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetXmlDocument)(::core::mem::transmute_copy(this), format, &mut result__).from_abi::<super::super::Data::Xml::Dom::XmlDocument>(result__)
+            (::windows::core::Interface::vtable(this).GetXmlDocument)(::windows::core::Interface::as_raw(this), format, &mut result__).from_abi::<super::super::Data::Xml::Dom::XmlDocument>(result__)
         }
     }
 }
@@ -904,14 +904,14 @@ impl Workspace {
         let this = &::windows::core::Interface::cast::<super::Syndication::ISyndicationNode>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).NodeName)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).NodeName)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_AtomPub\"`, `\"Web_Syndication\"`*"]
     #[cfg(feature = "Web_Syndication")]
     pub fn SetNodeName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::Syndication::ISyndicationNode>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetNodeName)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetNodeName)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Web_AtomPub\"`, `\"Web_Syndication\"`*"]
     #[cfg(feature = "Web_Syndication")]
@@ -919,14 +919,14 @@ impl Workspace {
         let this = &::windows::core::Interface::cast::<super::Syndication::ISyndicationNode>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).NodeNamespace)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).NodeNamespace)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_AtomPub\"`, `\"Web_Syndication\"`*"]
     #[cfg(feature = "Web_Syndication")]
     pub fn SetNodeNamespace<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::Syndication::ISyndicationNode>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetNodeNamespace)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetNodeNamespace)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Web_AtomPub\"`, `\"Web_Syndication\"`*"]
     #[cfg(feature = "Web_Syndication")]
@@ -934,14 +934,14 @@ impl Workspace {
         let this = &::windows::core::Interface::cast::<super::Syndication::ISyndicationNode>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).NodeValue)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).NodeValue)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_AtomPub\"`, `\"Web_Syndication\"`*"]
     #[cfg(feature = "Web_Syndication")]
     pub fn SetNodeValue<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::Syndication::ISyndicationNode>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetNodeValue)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetNodeValue)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Web_AtomPub\"`, `\"Web_Syndication\"`*"]
     #[cfg(feature = "Web_Syndication")]
@@ -949,14 +949,14 @@ impl Workspace {
         let this = &::windows::core::Interface::cast::<super::Syndication::ISyndicationNode>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Language)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Language)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_AtomPub\"`, `\"Web_Syndication\"`*"]
     #[cfg(feature = "Web_Syndication")]
     pub fn SetLanguage<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::Syndication::ISyndicationNode>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetLanguage)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetLanguage)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Web_AtomPub\"`, `\"Foundation\"`, `\"Web_Syndication\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Web_Syndication"))]
@@ -964,14 +964,14 @@ impl Workspace {
         let this = &::windows::core::Interface::cast::<super::Syndication::ISyndicationNode>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).BaseUri)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Uri>(result__)
+            (::windows::core::Interface::vtable(this).BaseUri)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Uri>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_AtomPub\"`, `\"Foundation\"`, `\"Web_Syndication\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Web_Syndication"))]
     pub fn SetBaseUri<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Uri>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::Syndication::ISyndicationNode>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetBaseUri)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetBaseUri)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Web_AtomPub\"`, `\"Foundation_Collections\"`, `\"Web_Syndication\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Web_Syndication"))]
@@ -979,7 +979,7 @@ impl Workspace {
         let this = &::windows::core::Interface::cast::<super::Syndication::ISyndicationNode>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AttributeExtensions)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<super::Syndication::SyndicationAttribute>>(result__)
+            (::windows::core::Interface::vtable(this).AttributeExtensions)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<super::Syndication::SyndicationAttribute>>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_AtomPub\"`, `\"Foundation_Collections\"`, `\"Web_Syndication\"`*"]
@@ -988,7 +988,7 @@ impl Workspace {
         let this = &::windows::core::Interface::cast::<super::Syndication::ISyndicationNode>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ElementExtensions)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<super::Syndication::ISyndicationNode>>(result__)
+            (::windows::core::Interface::vtable(this).ElementExtensions)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<super::Syndication::ISyndicationNode>>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_AtomPub\"`, `\"Data_Xml_Dom\"`, `\"Web_Syndication\"`*"]
@@ -997,7 +997,7 @@ impl Workspace {
         let this = &::windows::core::Interface::cast::<super::Syndication::ISyndicationNode>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetXmlDocument)(::core::mem::transmute_copy(this), format, &mut result__).from_abi::<super::super::Data::Xml::Dom::XmlDocument>(result__)
+            (::windows::core::Interface::vtable(this).GetXmlDocument)(::windows::core::Interface::as_raw(this), format, &mut result__).from_abi::<super::super::Data::Xml::Dom::XmlDocument>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_AtomPub\"`, `\"Web_Syndication\"`*"]
@@ -1006,7 +1006,7 @@ impl Workspace {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Title)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Syndication::ISyndicationText>(result__)
+            (::windows::core::Interface::vtable(this).Title)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::Syndication::ISyndicationText>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_AtomPub\"`, `\"Foundation_Collections\"`*"]
@@ -1015,7 +1015,7 @@ impl Workspace {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Collections)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<ResourceCollection>>(result__)
+            (::windows::core::Interface::vtable(this).Collections)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<ResourceCollection>>(result__)
         }
     }
 }

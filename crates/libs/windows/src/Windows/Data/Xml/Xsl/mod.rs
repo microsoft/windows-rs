@@ -56,7 +56,7 @@ impl XsltProcessor {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TransformToString)(::core::mem::transmute_copy(this), inputnode.into_param().abi(), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).TransformToString)(::windows::core::Interface::as_raw(this), inputnode.into_param().abi(), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Xsl\"`, `\"Data_Xml_Dom\"`*"]
@@ -65,7 +65,7 @@ impl XsltProcessor {
         let this = &::windows::core::Interface::cast::<IXsltProcessor2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TransformToDocument)(::core::mem::transmute_copy(this), inputnode.into_param().abi(), &mut result__).from_abi::<super::Dom::XmlDocument>(result__)
+            (::windows::core::Interface::vtable(this).TransformToDocument)(::windows::core::Interface::as_raw(this), inputnode.into_param().abi(), &mut result__).from_abi::<super::Dom::XmlDocument>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Xml_Xsl\"`, `\"Data_Xml_Dom\"`*"]
@@ -73,7 +73,7 @@ impl XsltProcessor {
     pub fn CreateInstance<'a, Param0: ::windows::core::IntoParam<'a, super::Dom::XmlDocument>>(document: Param0) -> ::windows::core::Result<XsltProcessor> {
         Self::IXsltProcessorFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), document.into_param().abi(), &mut result__).from_abi::<XsltProcessor>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), document.into_param().abi(), &mut result__).from_abi::<XsltProcessor>(result__)
         })
     }
     #[doc(hidden)]

@@ -13,7 +13,7 @@ impl DiagnosticActionResult {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::HRESULT = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ExtendedError)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HRESULT>(result__)
+            (::windows::core::Interface::vtable(this).ExtendedError)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HRESULT>(result__)
         }
     }
     #[doc = "*Required features: `\"System_Diagnostics\"`, `\"Foundation_Collections\"`*"]
@@ -22,7 +22,7 @@ impl DiagnosticActionResult {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Results)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::ValueSet>(result__)
+            (::windows::core::Interface::vtable(this).Results)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::ValueSet>(result__)
         }
     }
 }
@@ -147,7 +147,7 @@ impl DiagnosticInvoker {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RunDiagnosticActionAsync)(::core::mem::transmute_copy(this), context.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DiagnosticActionResult, DiagnosticActionState>>(result__)
+            (::windows::core::Interface::vtable(this).RunDiagnosticActionAsync)(::windows::core::Interface::as_raw(this), context.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DiagnosticActionResult, DiagnosticActionState>>(result__)
         }
     }
     #[doc = "*Required features: `\"System_Diagnostics\"`, `\"Foundation\"`*"]
@@ -156,28 +156,28 @@ impl DiagnosticInvoker {
         let this = &::windows::core::Interface::cast::<IDiagnosticInvoker2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RunDiagnosticActionFromStringAsync)(::core::mem::transmute_copy(this), context.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DiagnosticActionResult, DiagnosticActionState>>(result__)
+            (::windows::core::Interface::vtable(this).RunDiagnosticActionFromStringAsync)(::windows::core::Interface::as_raw(this), context.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DiagnosticActionResult, DiagnosticActionState>>(result__)
         }
     }
     #[doc = "*Required features: `\"System_Diagnostics\"`*"]
     pub fn GetDefault() -> ::windows::core::Result<DiagnosticInvoker> {
         Self::IDiagnosticInvokerStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetDefault)(::core::mem::transmute_copy(this), &mut result__).from_abi::<DiagnosticInvoker>(result__)
+            (::windows::core::Interface::vtable(this).GetDefault)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<DiagnosticInvoker>(result__)
         })
     }
     #[doc = "*Required features: `\"System_Diagnostics\"`*"]
     pub fn GetForUser<'a, Param0: ::windows::core::IntoParam<'a, super::User>>(user: Param0) -> ::windows::core::Result<DiagnosticInvoker> {
         Self::IDiagnosticInvokerStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetForUser)(::core::mem::transmute_copy(this), user.into_param().abi(), &mut result__).from_abi::<DiagnosticInvoker>(result__)
+            (::windows::core::Interface::vtable(this).GetForUser)(::windows::core::Interface::as_raw(this), user.into_param().abi(), &mut result__).from_abi::<DiagnosticInvoker>(result__)
         })
     }
     #[doc = "*Required features: `\"System_Diagnostics\"`*"]
     pub fn IsSupported() -> ::windows::core::Result<bool> {
         Self::IDiagnosticInvokerStatics(|this| unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsSupported)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsSupported)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         })
     }
     #[doc(hidden)]
@@ -607,7 +607,7 @@ impl ProcessCpuUsage {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetReport)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ProcessCpuUsageReport>(result__)
+            (::windows::core::Interface::vtable(this).GetReport)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ProcessCpuUsageReport>(result__)
         }
     }
 }
@@ -693,7 +693,7 @@ impl ProcessCpuUsageReport {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::TimeSpan = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).KernelTime)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
+            (::windows::core::Interface::vtable(this).KernelTime)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
     #[doc = "*Required features: `\"System_Diagnostics\"`, `\"Foundation\"`*"]
@@ -702,7 +702,7 @@ impl ProcessCpuUsageReport {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::TimeSpan = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).UserTime)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
+            (::windows::core::Interface::vtable(this).UserTime)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
 }
@@ -787,7 +787,7 @@ impl ProcessDiagnosticInfo {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ProcessId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).ProcessId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `\"System_Diagnostics\"`*"]
@@ -795,7 +795,7 @@ impl ProcessDiagnosticInfo {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ExecutableFileName)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).ExecutableFileName)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"System_Diagnostics\"`*"]
@@ -803,7 +803,7 @@ impl ProcessDiagnosticInfo {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Parent)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ProcessDiagnosticInfo>(result__)
+            (::windows::core::Interface::vtable(this).Parent)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ProcessDiagnosticInfo>(result__)
         }
     }
     #[doc = "*Required features: `\"System_Diagnostics\"`, `\"Foundation\"`*"]
@@ -812,7 +812,7 @@ impl ProcessDiagnosticInfo {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::DateTime = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ProcessStartTime)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::DateTime>(result__)
+            (::windows::core::Interface::vtable(this).ProcessStartTime)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::DateTime>(result__)
         }
     }
     #[doc = "*Required features: `\"System_Diagnostics\"`*"]
@@ -820,7 +820,7 @@ impl ProcessDiagnosticInfo {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DiskUsage)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ProcessDiskUsage>(result__)
+            (::windows::core::Interface::vtable(this).DiskUsage)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ProcessDiskUsage>(result__)
         }
     }
     #[doc = "*Required features: `\"System_Diagnostics\"`*"]
@@ -828,7 +828,7 @@ impl ProcessDiagnosticInfo {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MemoryUsage)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ProcessMemoryUsage>(result__)
+            (::windows::core::Interface::vtable(this).MemoryUsage)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ProcessMemoryUsage>(result__)
         }
     }
     #[doc = "*Required features: `\"System_Diagnostics\"`*"]
@@ -836,7 +836,7 @@ impl ProcessDiagnosticInfo {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CpuUsage)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ProcessCpuUsage>(result__)
+            (::windows::core::Interface::vtable(this).CpuUsage)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ProcessCpuUsage>(result__)
         }
     }
     #[doc = "*Required features: `\"System_Diagnostics\"`, `\"Foundation_Collections\"`*"]
@@ -845,7 +845,7 @@ impl ProcessDiagnosticInfo {
         let this = &::windows::core::Interface::cast::<IProcessDiagnosticInfo2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetAppDiagnosticInfos)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<super::AppDiagnosticInfo>>(result__)
+            (::windows::core::Interface::vtable(this).GetAppDiagnosticInfos)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<super::AppDiagnosticInfo>>(result__)
         }
     }
     #[doc = "*Required features: `\"System_Diagnostics\"`*"]
@@ -853,7 +853,7 @@ impl ProcessDiagnosticInfo {
         let this = &::windows::core::Interface::cast::<IProcessDiagnosticInfo2>(self)?;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsPackaged)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsPackaged)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"System_Diagnostics\"`, `\"Foundation_Collections\"`*"]
@@ -861,21 +861,21 @@ impl ProcessDiagnosticInfo {
     pub fn GetForProcesses() -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<ProcessDiagnosticInfo>> {
         Self::IProcessDiagnosticInfoStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetForProcesses)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<ProcessDiagnosticInfo>>(result__)
+            (::windows::core::Interface::vtable(this).GetForProcesses)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<ProcessDiagnosticInfo>>(result__)
         })
     }
     #[doc = "*Required features: `\"System_Diagnostics\"`*"]
     pub fn GetForCurrentProcess() -> ::windows::core::Result<ProcessDiagnosticInfo> {
         Self::IProcessDiagnosticInfoStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetForCurrentProcess)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ProcessDiagnosticInfo>(result__)
+            (::windows::core::Interface::vtable(this).GetForCurrentProcess)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ProcessDiagnosticInfo>(result__)
         })
     }
     #[doc = "*Required features: `\"System_Diagnostics\"`*"]
     pub fn TryGetForProcessId(processid: u32) -> ::windows::core::Result<ProcessDiagnosticInfo> {
         Self::IProcessDiagnosticInfoStatics2(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TryGetForProcessId)(::core::mem::transmute_copy(this), processid, &mut result__).from_abi::<ProcessDiagnosticInfo>(result__)
+            (::windows::core::Interface::vtable(this).TryGetForProcessId)(::windows::core::Interface::as_raw(this), processid, &mut result__).from_abi::<ProcessDiagnosticInfo>(result__)
         })
     }
     #[doc(hidden)]
@@ -970,7 +970,7 @@ impl ProcessDiskUsage {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetReport)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ProcessDiskUsageReport>(result__)
+            (::windows::core::Interface::vtable(this).GetReport)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ProcessDiskUsageReport>(result__)
         }
     }
 }
@@ -1055,7 +1055,7 @@ impl ProcessDiskUsageReport {
         let this = self;
         unsafe {
             let mut result__: i64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ReadOperationCount)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i64>(result__)
+            (::windows::core::Interface::vtable(this).ReadOperationCount)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<i64>(result__)
         }
     }
     #[doc = "*Required features: `\"System_Diagnostics\"`*"]
@@ -1063,7 +1063,7 @@ impl ProcessDiskUsageReport {
         let this = self;
         unsafe {
             let mut result__: i64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).WriteOperationCount)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i64>(result__)
+            (::windows::core::Interface::vtable(this).WriteOperationCount)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<i64>(result__)
         }
     }
     #[doc = "*Required features: `\"System_Diagnostics\"`*"]
@@ -1071,7 +1071,7 @@ impl ProcessDiskUsageReport {
         let this = self;
         unsafe {
             let mut result__: i64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).OtherOperationCount)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i64>(result__)
+            (::windows::core::Interface::vtable(this).OtherOperationCount)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<i64>(result__)
         }
     }
     #[doc = "*Required features: `\"System_Diagnostics\"`*"]
@@ -1079,7 +1079,7 @@ impl ProcessDiskUsageReport {
         let this = self;
         unsafe {
             let mut result__: i64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).BytesReadCount)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i64>(result__)
+            (::windows::core::Interface::vtable(this).BytesReadCount)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<i64>(result__)
         }
     }
     #[doc = "*Required features: `\"System_Diagnostics\"`*"]
@@ -1087,7 +1087,7 @@ impl ProcessDiskUsageReport {
         let this = self;
         unsafe {
             let mut result__: i64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).BytesWrittenCount)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i64>(result__)
+            (::windows::core::Interface::vtable(this).BytesWrittenCount)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<i64>(result__)
         }
     }
     #[doc = "*Required features: `\"System_Diagnostics\"`*"]
@@ -1095,7 +1095,7 @@ impl ProcessDiskUsageReport {
         let this = self;
         unsafe {
             let mut result__: i64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).OtherBytesCount)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i64>(result__)
+            (::windows::core::Interface::vtable(this).OtherBytesCount)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<i64>(result__)
         }
     }
 }
@@ -1180,7 +1180,7 @@ impl ProcessMemoryUsage {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetReport)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ProcessMemoryUsageReport>(result__)
+            (::windows::core::Interface::vtable(this).GetReport)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ProcessMemoryUsageReport>(result__)
         }
     }
 }
@@ -1265,7 +1265,7 @@ impl ProcessMemoryUsageReport {
         let this = self;
         unsafe {
             let mut result__: u64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).NonPagedPoolSizeInBytes)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
+            (::windows::core::Interface::vtable(this).NonPagedPoolSizeInBytes)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u64>(result__)
         }
     }
     #[doc = "*Required features: `\"System_Diagnostics\"`*"]
@@ -1273,7 +1273,7 @@ impl ProcessMemoryUsageReport {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PageFaultCount)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).PageFaultCount)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `\"System_Diagnostics\"`*"]
@@ -1281,7 +1281,7 @@ impl ProcessMemoryUsageReport {
         let this = self;
         unsafe {
             let mut result__: u64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PageFileSizeInBytes)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
+            (::windows::core::Interface::vtable(this).PageFileSizeInBytes)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u64>(result__)
         }
     }
     #[doc = "*Required features: `\"System_Diagnostics\"`*"]
@@ -1289,7 +1289,7 @@ impl ProcessMemoryUsageReport {
         let this = self;
         unsafe {
             let mut result__: u64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PagedPoolSizeInBytes)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
+            (::windows::core::Interface::vtable(this).PagedPoolSizeInBytes)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u64>(result__)
         }
     }
     #[doc = "*Required features: `\"System_Diagnostics\"`*"]
@@ -1297,7 +1297,7 @@ impl ProcessMemoryUsageReport {
         let this = self;
         unsafe {
             let mut result__: u64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PeakNonPagedPoolSizeInBytes)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
+            (::windows::core::Interface::vtable(this).PeakNonPagedPoolSizeInBytes)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u64>(result__)
         }
     }
     #[doc = "*Required features: `\"System_Diagnostics\"`*"]
@@ -1305,7 +1305,7 @@ impl ProcessMemoryUsageReport {
         let this = self;
         unsafe {
             let mut result__: u64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PeakPageFileSizeInBytes)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
+            (::windows::core::Interface::vtable(this).PeakPageFileSizeInBytes)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u64>(result__)
         }
     }
     #[doc = "*Required features: `\"System_Diagnostics\"`*"]
@@ -1313,7 +1313,7 @@ impl ProcessMemoryUsageReport {
         let this = self;
         unsafe {
             let mut result__: u64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PeakPagedPoolSizeInBytes)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
+            (::windows::core::Interface::vtable(this).PeakPagedPoolSizeInBytes)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u64>(result__)
         }
     }
     #[doc = "*Required features: `\"System_Diagnostics\"`*"]
@@ -1321,7 +1321,7 @@ impl ProcessMemoryUsageReport {
         let this = self;
         unsafe {
             let mut result__: u64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PeakVirtualMemorySizeInBytes)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
+            (::windows::core::Interface::vtable(this).PeakVirtualMemorySizeInBytes)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u64>(result__)
         }
     }
     #[doc = "*Required features: `\"System_Diagnostics\"`*"]
@@ -1329,7 +1329,7 @@ impl ProcessMemoryUsageReport {
         let this = self;
         unsafe {
             let mut result__: u64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PeakWorkingSetSizeInBytes)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
+            (::windows::core::Interface::vtable(this).PeakWorkingSetSizeInBytes)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u64>(result__)
         }
     }
     #[doc = "*Required features: `\"System_Diagnostics\"`*"]
@@ -1337,7 +1337,7 @@ impl ProcessMemoryUsageReport {
         let this = self;
         unsafe {
             let mut result__: u64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PrivatePageCount)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
+            (::windows::core::Interface::vtable(this).PrivatePageCount)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u64>(result__)
         }
     }
     #[doc = "*Required features: `\"System_Diagnostics\"`*"]
@@ -1345,7 +1345,7 @@ impl ProcessMemoryUsageReport {
         let this = self;
         unsafe {
             let mut result__: u64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).VirtualMemorySizeInBytes)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
+            (::windows::core::Interface::vtable(this).VirtualMemorySizeInBytes)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u64>(result__)
         }
     }
     #[doc = "*Required features: `\"System_Diagnostics\"`*"]
@@ -1353,7 +1353,7 @@ impl ProcessMemoryUsageReport {
         let this = self;
         unsafe {
             let mut result__: u64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).WorkingSetSizeInBytes)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
+            (::windows::core::Interface::vtable(this).WorkingSetSizeInBytes)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u64>(result__)
         }
     }
 }
@@ -1438,7 +1438,7 @@ impl SystemCpuUsage {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetReport)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SystemCpuUsageReport>(result__)
+            (::windows::core::Interface::vtable(this).GetReport)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SystemCpuUsageReport>(result__)
         }
     }
 }
@@ -1524,7 +1524,7 @@ impl SystemCpuUsageReport {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::TimeSpan = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).KernelTime)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
+            (::windows::core::Interface::vtable(this).KernelTime)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
     #[doc = "*Required features: `\"System_Diagnostics\"`, `\"Foundation\"`*"]
@@ -1533,7 +1533,7 @@ impl SystemCpuUsageReport {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::TimeSpan = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).UserTime)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
+            (::windows::core::Interface::vtable(this).UserTime)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
     #[doc = "*Required features: `\"System_Diagnostics\"`, `\"Foundation\"`*"]
@@ -1542,7 +1542,7 @@ impl SystemCpuUsageReport {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::TimeSpan = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IdleTime)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
+            (::windows::core::Interface::vtable(this).IdleTime)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
 }
@@ -1627,7 +1627,7 @@ impl SystemDiagnosticInfo {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MemoryUsage)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SystemMemoryUsage>(result__)
+            (::windows::core::Interface::vtable(this).MemoryUsage)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SystemMemoryUsage>(result__)
         }
     }
     #[doc = "*Required features: `\"System_Diagnostics\"`*"]
@@ -1635,28 +1635,28 @@ impl SystemDiagnosticInfo {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CpuUsage)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SystemCpuUsage>(result__)
+            (::windows::core::Interface::vtable(this).CpuUsage)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SystemCpuUsage>(result__)
         }
     }
     #[doc = "*Required features: `\"System_Diagnostics\"`*"]
     pub fn GetForCurrentSystem() -> ::windows::core::Result<SystemDiagnosticInfo> {
         Self::ISystemDiagnosticInfoStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetForCurrentSystem)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SystemDiagnosticInfo>(result__)
+            (::windows::core::Interface::vtable(this).GetForCurrentSystem)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SystemDiagnosticInfo>(result__)
         })
     }
     #[doc = "*Required features: `\"System_Diagnostics\"`*"]
     pub fn IsArchitectureSupported(r#type: super::ProcessorArchitecture) -> ::windows::core::Result<bool> {
         Self::ISystemDiagnosticInfoStatics2(|this| unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsArchitectureSupported)(::core::mem::transmute_copy(this), r#type, &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsArchitectureSupported)(::windows::core::Interface::as_raw(this), r#type, &mut result__).from_abi::<bool>(result__)
         })
     }
     #[doc = "*Required features: `\"System_Diagnostics\"`*"]
     pub fn PreferredArchitecture() -> ::windows::core::Result<super::ProcessorArchitecture> {
         Self::ISystemDiagnosticInfoStatics2(|this| unsafe {
             let mut result__: super::ProcessorArchitecture = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PreferredArchitecture)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::ProcessorArchitecture>(result__)
+            (::windows::core::Interface::vtable(this).PreferredArchitecture)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::ProcessorArchitecture>(result__)
         })
     }
     #[doc(hidden)]
@@ -1751,7 +1751,7 @@ impl SystemMemoryUsage {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetReport)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SystemMemoryUsageReport>(result__)
+            (::windows::core::Interface::vtable(this).GetReport)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SystemMemoryUsageReport>(result__)
         }
     }
 }
@@ -1836,7 +1836,7 @@ impl SystemMemoryUsageReport {
         let this = self;
         unsafe {
             let mut result__: u64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TotalPhysicalSizeInBytes)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
+            (::windows::core::Interface::vtable(this).TotalPhysicalSizeInBytes)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u64>(result__)
         }
     }
     #[doc = "*Required features: `\"System_Diagnostics\"`*"]
@@ -1844,7 +1844,7 @@ impl SystemMemoryUsageReport {
         let this = self;
         unsafe {
             let mut result__: u64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AvailableSizeInBytes)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
+            (::windows::core::Interface::vtable(this).AvailableSizeInBytes)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u64>(result__)
         }
     }
     #[doc = "*Required features: `\"System_Diagnostics\"`*"]
@@ -1852,7 +1852,7 @@ impl SystemMemoryUsageReport {
         let this = self;
         unsafe {
             let mut result__: u64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CommittedSizeInBytes)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
+            (::windows::core::Interface::vtable(this).CommittedSizeInBytes)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u64>(result__)
         }
     }
 }

@@ -56,7 +56,7 @@ impl RadialControllerIndependentInputSource {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Controller)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::RadialController>(result__)
+            (::windows::core::Interface::vtable(this).Controller)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::RadialController>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Core\"`, `\"UI_Core\"`*"]
@@ -65,7 +65,7 @@ impl RadialControllerIndependentInputSource {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Dispatcher)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Core::CoreDispatcher>(result__)
+            (::windows::core::Interface::vtable(this).Dispatcher)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Core::CoreDispatcher>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Core\"`, `\"System\"`*"]
@@ -74,7 +74,7 @@ impl RadialControllerIndependentInputSource {
         let this = &::windows::core::Interface::cast::<IRadialControllerIndependentInputSource2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DispatcherQueue)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::System::DispatcherQueue>(result__)
+            (::windows::core::Interface::vtable(this).DispatcherQueue)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::System::DispatcherQueue>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Core\"`, `\"ApplicationModel_Core\"`*"]
@@ -82,7 +82,7 @@ impl RadialControllerIndependentInputSource {
     pub fn CreateForView<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::ApplicationModel::Core::CoreApplicationView>>(view: Param0) -> ::windows::core::Result<RadialControllerIndependentInputSource> {
         Self::IRadialControllerIndependentInputSourceStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateForView)(::core::mem::transmute_copy(this), view.into_param().abi(), &mut result__).from_abi::<RadialControllerIndependentInputSource>(result__)
+            (::windows::core::Interface::vtable(this).CreateForView)(::windows::core::Interface::as_raw(this), view.into_param().abi(), &mut result__).from_abi::<RadialControllerIndependentInputSource>(result__)
         })
     }
     #[doc(hidden)]

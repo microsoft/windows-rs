@@ -7,7 +7,7 @@ impl ActivationSignalDetectionConfiguration {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SignalId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).SignalId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
@@ -15,7 +15,7 @@ impl ActivationSignalDetectionConfiguration {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ModelId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).ModelId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
@@ -23,7 +23,7 @@ impl ActivationSignalDetectionConfiguration {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DisplayName)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).DisplayName)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
@@ -31,13 +31,13 @@ impl ActivationSignalDetectionConfiguration {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsActive)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsActive)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
     pub fn SetEnabled(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetEnabled)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetEnabled)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -45,7 +45,7 @@ impl ActivationSignalDetectionConfiguration {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SetEnabledAsync)(::core::mem::transmute_copy(this), value, &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).SetEnabledAsync)(::windows::core::Interface::as_raw(this), value, &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
@@ -53,7 +53,7 @@ impl ActivationSignalDetectionConfiguration {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AvailabilityInfo)(::core::mem::transmute_copy(this), &mut result__).from_abi::<DetectionConfigurationAvailabilityInfo>(result__)
+            (::windows::core::Interface::vtable(this).AvailabilityInfo)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<DetectionConfigurationAvailabilityInfo>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`, `\"Foundation\"`*"]
@@ -62,20 +62,20 @@ impl ActivationSignalDetectionConfiguration {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AvailabilityChanged)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).AvailabilityChanged)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveAvailabilityChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveAvailabilityChanged)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveAvailabilityChanged)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn SetModelData<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IInputStream>>(&self, datatype: Param0, data: Param1) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetModelData)(::core::mem::transmute_copy(this), datatype.into_param().abi(), data.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetModelData)(::windows::core::Interface::as_raw(this), datatype.into_param().abi(), data.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
@@ -83,7 +83,7 @@ impl ActivationSignalDetectionConfiguration {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SetModelDataAsync)(::core::mem::transmute_copy(this), datatype.into_param().abi(), data.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).SetModelDataAsync)(::windows::core::Interface::as_raw(this), datatype.into_param().abi(), data.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
@@ -91,7 +91,7 @@ impl ActivationSignalDetectionConfiguration {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetModelDataType)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).GetModelDataType)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`, `\"Foundation\"`*"]
@@ -100,7 +100,7 @@ impl ActivationSignalDetectionConfiguration {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetModelDataTypeAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>(result__)
+            (::windows::core::Interface::vtable(this).GetModelDataTypeAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`, `\"Storage_Streams\"`*"]
@@ -109,7 +109,7 @@ impl ActivationSignalDetectionConfiguration {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetModelData)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IInputStream>(result__)
+            (::windows::core::Interface::vtable(this).GetModelData)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Storage::Streams::IInputStream>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
@@ -118,13 +118,13 @@ impl ActivationSignalDetectionConfiguration {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetModelDataAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IInputStream>>(result__)
+            (::windows::core::Interface::vtable(this).GetModelDataAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IInputStream>>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
     pub fn ClearModelData(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).ClearModelData)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).ClearModelData)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -132,7 +132,7 @@ impl ActivationSignalDetectionConfiguration {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ClearModelDataAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).ClearModelDataAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
@@ -140,7 +140,7 @@ impl ActivationSignalDetectionConfiguration {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TrainingStepsCompleted)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).TrainingStepsCompleted)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
@@ -148,7 +148,7 @@ impl ActivationSignalDetectionConfiguration {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TrainingStepsRemaining)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).TrainingStepsRemaining)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
@@ -156,7 +156,7 @@ impl ActivationSignalDetectionConfiguration {
         let this = self;
         unsafe {
             let mut result__: ActivationSignalDetectionTrainingDataFormat = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TrainingDataFormat)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationSignalDetectionTrainingDataFormat>(result__)
+            (::windows::core::Interface::vtable(this).TrainingDataFormat)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ActivationSignalDetectionTrainingDataFormat>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`, `\"Storage_Streams\"`*"]
@@ -165,7 +165,7 @@ impl ActivationSignalDetectionConfiguration {
         let this = self;
         unsafe {
             let mut result__: DetectionConfigurationTrainingStatus = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ApplyTrainingData)(::core::mem::transmute_copy(this), trainingdataformat, trainingdata.into_param().abi(), &mut result__).from_abi::<DetectionConfigurationTrainingStatus>(result__)
+            (::windows::core::Interface::vtable(this).ApplyTrainingData)(::windows::core::Interface::as_raw(this), trainingdataformat, trainingdata.into_param().abi(), &mut result__).from_abi::<DetectionConfigurationTrainingStatus>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
@@ -174,13 +174,13 @@ impl ActivationSignalDetectionConfiguration {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ApplyTrainingDataAsync)(::core::mem::transmute_copy(this), trainingdataformat, trainingdata.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<DetectionConfigurationTrainingStatus>>(result__)
+            (::windows::core::Interface::vtable(this).ApplyTrainingDataAsync)(::windows::core::Interface::as_raw(this), trainingdataformat, trainingdata.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<DetectionConfigurationTrainingStatus>>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
     pub fn ClearTrainingData(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).ClearTrainingData)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).ClearTrainingData)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -188,7 +188,7 @@ impl ActivationSignalDetectionConfiguration {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ClearTrainingDataAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).ClearTrainingDataAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`, `\"Storage_Streams\"`*"]
@@ -197,7 +197,7 @@ impl ActivationSignalDetectionConfiguration {
         let this = &::windows::core::Interface::cast::<IActivationSignalDetectionConfiguration2>(self)?;
         unsafe {
             let mut result__: ActivationSignalDetectionConfigurationSetModelDataResult = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SetModelDataWithResult)(::core::mem::transmute_copy(this), datatype.into_param().abi(), data.into_param().abi(), &mut result__).from_abi::<ActivationSignalDetectionConfigurationSetModelDataResult>(result__)
+            (::windows::core::Interface::vtable(this).SetModelDataWithResult)(::windows::core::Interface::as_raw(this), datatype.into_param().abi(), data.into_param().abi(), &mut result__).from_abi::<ActivationSignalDetectionConfigurationSetModelDataResult>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
@@ -206,7 +206,7 @@ impl ActivationSignalDetectionConfiguration {
         let this = &::windows::core::Interface::cast::<IActivationSignalDetectionConfiguration2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SetModelDataWithResultAsync)(::core::mem::transmute_copy(this), datatype.into_param().abi(), data.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<ActivationSignalDetectionConfigurationSetModelDataResult>>(result__)
+            (::windows::core::Interface::vtable(this).SetModelDataWithResultAsync)(::windows::core::Interface::as_raw(this), datatype.into_param().abi(), data.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<ActivationSignalDetectionConfigurationSetModelDataResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`, `\"Foundation\"`*"]
@@ -215,7 +215,7 @@ impl ActivationSignalDetectionConfiguration {
         let this = &::windows::core::Interface::cast::<IActivationSignalDetectionConfiguration2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SetEnabledWithResultAsync)(::core::mem::transmute_copy(this), value, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<ActivationSignalDetectionConfigurationStateChangeResult>>(result__)
+            (::windows::core::Interface::vtable(this).SetEnabledWithResultAsync)(::windows::core::Interface::as_raw(this), value, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<ActivationSignalDetectionConfigurationStateChangeResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
@@ -223,7 +223,7 @@ impl ActivationSignalDetectionConfiguration {
         let this = &::windows::core::Interface::cast::<IActivationSignalDetectionConfiguration2>(self)?;
         unsafe {
             let mut result__: ActivationSignalDetectionConfigurationStateChangeResult = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SetEnabledWithResult)(::core::mem::transmute_copy(this), value, &mut result__).from_abi::<ActivationSignalDetectionConfigurationStateChangeResult>(result__)
+            (::windows::core::Interface::vtable(this).SetEnabledWithResult)(::windows::core::Interface::as_raw(this), value, &mut result__).from_abi::<ActivationSignalDetectionConfigurationStateChangeResult>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
@@ -231,14 +231,14 @@ impl ActivationSignalDetectionConfiguration {
         let this = &::windows::core::Interface::cast::<IActivationSignalDetectionConfiguration2>(self)?;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TrainingStepCompletionMaxAllowedTime)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).TrainingStepCompletionMaxAllowedTime)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).Close)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
     }
 }
 impl ::core::clone::Clone for ActivationSignalDetectionConfiguration {
@@ -348,7 +348,7 @@ impl ActivationSignalDetectionConfigurationCreationResult {
         let this = self;
         unsafe {
             let mut result__: ActivationSignalDetectionConfigurationCreationStatus = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Status)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationSignalDetectionConfigurationCreationStatus>(result__)
+            (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ActivationSignalDetectionConfigurationCreationStatus>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
@@ -356,7 +356,7 @@ impl ActivationSignalDetectionConfigurationCreationResult {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Configuration)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationSignalDetectionConfiguration>(result__)
+            (::windows::core::Interface::vtable(this).Configuration)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ActivationSignalDetectionConfiguration>(result__)
         }
     }
 }
@@ -635,7 +635,7 @@ impl ActivationSignalDetector {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ProviderId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).ProviderId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
@@ -643,7 +643,7 @@ impl ActivationSignalDetector {
         let this = self;
         unsafe {
             let mut result__: ActivationSignalDetectorKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationSignalDetectorKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ActivationSignalDetectorKind>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
@@ -651,7 +651,7 @@ impl ActivationSignalDetector {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CanCreateConfigurations)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).CanCreateConfigurations)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`, `\"Foundation_Collections\"`*"]
@@ -660,7 +660,7 @@ impl ActivationSignalDetector {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SupportedModelDataTypes)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>(result__)
+            (::windows::core::Interface::vtable(this).SupportedModelDataTypes)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`, `\"Foundation_Collections\"`*"]
@@ -669,7 +669,7 @@ impl ActivationSignalDetector {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SupportedTrainingDataFormats)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<ActivationSignalDetectionTrainingDataFormat>>(result__)
+            (::windows::core::Interface::vtable(this).SupportedTrainingDataFormats)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<ActivationSignalDetectionTrainingDataFormat>>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`, `\"Foundation_Collections\"`*"]
@@ -678,7 +678,7 @@ impl ActivationSignalDetector {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SupportedPowerStates)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<ActivationSignalDetectorPowerState>>(result__)
+            (::windows::core::Interface::vtable(this).SupportedPowerStates)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<ActivationSignalDetectorPowerState>>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`, `\"Foundation_Collections\"`*"]
@@ -687,7 +687,7 @@ impl ActivationSignalDetector {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetSupportedModelIdsForSignalId)(::core::mem::transmute_copy(this), signalid.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>(result__)
+            (::windows::core::Interface::vtable(this).GetSupportedModelIdsForSignalId)(::windows::core::Interface::as_raw(this), signalid.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`, `\"Foundation_Collections\"`*"]
@@ -696,13 +696,13 @@ impl ActivationSignalDetector {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetSupportedModelIdsForSignalIdAsync)(::core::mem::transmute_copy(this), signalid.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>>(result__)
+            (::windows::core::Interface::vtable(this).GetSupportedModelIdsForSignalIdAsync)(::windows::core::Interface::as_raw(this), signalid.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
     pub fn CreateConfiguration<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, signalid: Param0, modelid: Param1, displayname: Param2) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).CreateConfiguration)(::core::mem::transmute_copy(this), signalid.into_param().abi(), modelid.into_param().abi(), displayname.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).CreateConfiguration)(::windows::core::Interface::as_raw(this), signalid.into_param().abi(), modelid.into_param().abi(), displayname.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -710,7 +710,7 @@ impl ActivationSignalDetector {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateConfigurationAsync)(::core::mem::transmute_copy(this), signalid.into_param().abi(), modelid.into_param().abi(), displayname.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).CreateConfigurationAsync)(::windows::core::Interface::as_raw(this), signalid.into_param().abi(), modelid.into_param().abi(), displayname.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`, `\"Foundation_Collections\"`*"]
@@ -719,7 +719,7 @@ impl ActivationSignalDetector {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetConfigurations)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<ActivationSignalDetectionConfiguration>>(result__)
+            (::windows::core::Interface::vtable(this).GetConfigurations)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<ActivationSignalDetectionConfiguration>>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`, `\"Foundation_Collections\"`*"]
@@ -728,7 +728,7 @@ impl ActivationSignalDetector {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetConfigurationsAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ActivationSignalDetectionConfiguration>>>(result__)
+            (::windows::core::Interface::vtable(this).GetConfigurationsAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ActivationSignalDetectionConfiguration>>>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
@@ -736,7 +736,7 @@ impl ActivationSignalDetector {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetConfiguration)(::core::mem::transmute_copy(this), signalid.into_param().abi(), modelid.into_param().abi(), &mut result__).from_abi::<ActivationSignalDetectionConfiguration>(result__)
+            (::windows::core::Interface::vtable(this).GetConfiguration)(::windows::core::Interface::as_raw(this), signalid.into_param().abi(), modelid.into_param().abi(), &mut result__).from_abi::<ActivationSignalDetectionConfiguration>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`, `\"Foundation\"`*"]
@@ -745,13 +745,13 @@ impl ActivationSignalDetector {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetConfigurationAsync)(::core::mem::transmute_copy(this), signalid.into_param().abi(), modelid.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<ActivationSignalDetectionConfiguration>>(result__)
+            (::windows::core::Interface::vtable(this).GetConfigurationAsync)(::windows::core::Interface::as_raw(this), signalid.into_param().abi(), modelid.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<ActivationSignalDetectionConfiguration>>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
     pub fn RemoveConfiguration<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, signalid: Param0, modelid: Param1) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveConfiguration)(::core::mem::transmute_copy(this), signalid.into_param().abi(), modelid.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveConfiguration)(::windows::core::Interface::as_raw(this), signalid.into_param().abi(), modelid.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -759,7 +759,7 @@ impl ActivationSignalDetector {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RemoveConfigurationAsync)(::core::mem::transmute_copy(this), signalid.into_param().abi(), modelid.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).RemoveConfigurationAsync)(::windows::core::Interface::as_raw(this), signalid.into_param().abi(), modelid.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`, `\"Foundation_Collections\"`*"]
@@ -768,7 +768,7 @@ impl ActivationSignalDetector {
         let this = &::windows::core::Interface::cast::<IActivationSignalDetector2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetAvailableModelIdsForSignalIdAsync)(::core::mem::transmute_copy(this), signalid.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>>(result__)
+            (::windows::core::Interface::vtable(this).GetAvailableModelIdsForSignalIdAsync)(::windows::core::Interface::as_raw(this), signalid.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`, `\"Foundation_Collections\"`*"]
@@ -777,7 +777,7 @@ impl ActivationSignalDetector {
         let this = &::windows::core::Interface::cast::<IActivationSignalDetector2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetAvailableModelIdsForSignalId)(::core::mem::transmute_copy(this), signalid.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>(result__)
+            (::windows::core::Interface::vtable(this).GetAvailableModelIdsForSignalId)(::windows::core::Interface::as_raw(this), signalid.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`, `\"Foundation\"`*"]
@@ -786,7 +786,7 @@ impl ActivationSignalDetector {
         let this = &::windows::core::Interface::cast::<IActivationSignalDetector2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateConfigurationWithResultAsync)(::core::mem::transmute_copy(this), signalid.into_param().abi(), modelid.into_param().abi(), displayname.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<ActivationSignalDetectionConfigurationCreationResult>>(result__)
+            (::windows::core::Interface::vtable(this).CreateConfigurationWithResultAsync)(::windows::core::Interface::as_raw(this), signalid.into_param().abi(), modelid.into_param().abi(), displayname.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<ActivationSignalDetectionConfigurationCreationResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
@@ -794,7 +794,7 @@ impl ActivationSignalDetector {
         let this = &::windows::core::Interface::cast::<IActivationSignalDetector2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateConfigurationWithResult)(::core::mem::transmute_copy(this), signalid.into_param().abi(), modelid.into_param().abi(), displayname.into_param().abi(), &mut result__).from_abi::<ActivationSignalDetectionConfigurationCreationResult>(result__)
+            (::windows::core::Interface::vtable(this).CreateConfigurationWithResult)(::windows::core::Interface::as_raw(this), signalid.into_param().abi(), modelid.into_param().abi(), displayname.into_param().abi(), &mut result__).from_abi::<ActivationSignalDetectionConfigurationCreationResult>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`, `\"Foundation\"`*"]
@@ -803,7 +803,7 @@ impl ActivationSignalDetector {
         let this = &::windows::core::Interface::cast::<IActivationSignalDetector2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RemoveConfigurationWithResultAsync)(::core::mem::transmute_copy(this), signalid.into_param().abi(), modelid.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<ActivationSignalDetectionConfigurationRemovalResult>>(result__)
+            (::windows::core::Interface::vtable(this).RemoveConfigurationWithResultAsync)(::windows::core::Interface::as_raw(this), signalid.into_param().abi(), modelid.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<ActivationSignalDetectionConfigurationRemovalResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
@@ -811,7 +811,7 @@ impl ActivationSignalDetector {
         let this = &::windows::core::Interface::cast::<IActivationSignalDetector2>(self)?;
         unsafe {
             let mut result__: ActivationSignalDetectionConfigurationRemovalResult = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RemoveConfigurationWithResult)(::core::mem::transmute_copy(this), signalid.into_param().abi(), modelid.into_param().abi(), &mut result__).from_abi::<ActivationSignalDetectionConfigurationRemovalResult>(result__)
+            (::windows::core::Interface::vtable(this).RemoveConfigurationWithResult)(::windows::core::Interface::as_raw(this), signalid.into_param().abi(), modelid.into_param().abi(), &mut result__).from_abi::<ActivationSignalDetectionConfigurationRemovalResult>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
@@ -819,7 +819,7 @@ impl ActivationSignalDetector {
         let this = &::windows::core::Interface::cast::<IActivationSignalDetector2>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DetectorId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).DetectorId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
 }
@@ -1045,7 +1045,7 @@ impl ConversationalAgentDetectorManager {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetAllActivationSignalDetectors)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<ActivationSignalDetector>>(result__)
+            (::windows::core::Interface::vtable(this).GetAllActivationSignalDetectors)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<ActivationSignalDetector>>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`, `\"Foundation_Collections\"`*"]
@@ -1054,7 +1054,7 @@ impl ConversationalAgentDetectorManager {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetAllActivationSignalDetectorsAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ActivationSignalDetector>>>(result__)
+            (::windows::core::Interface::vtable(this).GetAllActivationSignalDetectorsAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ActivationSignalDetector>>>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`, `\"Foundation_Collections\"`*"]
@@ -1063,7 +1063,7 @@ impl ConversationalAgentDetectorManager {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetActivationSignalDetectors)(::core::mem::transmute_copy(this), kind, &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<ActivationSignalDetector>>(result__)
+            (::windows::core::Interface::vtable(this).GetActivationSignalDetectors)(::windows::core::Interface::as_raw(this), kind, &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<ActivationSignalDetector>>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`, `\"Foundation_Collections\"`*"]
@@ -1072,7 +1072,7 @@ impl ConversationalAgentDetectorManager {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetActivationSignalDetectorsAsync)(::core::mem::transmute_copy(this), kind, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ActivationSignalDetector>>>(result__)
+            (::windows::core::Interface::vtable(this).GetActivationSignalDetectorsAsync)(::windows::core::Interface::as_raw(this), kind, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ActivationSignalDetector>>>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
@@ -1080,7 +1080,7 @@ impl ConversationalAgentDetectorManager {
         let this = &::windows::core::Interface::cast::<IConversationalAgentDetectorManager2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetActivationSignalDetectorFromId)(::core::mem::transmute_copy(this), detectorid.into_param().abi(), &mut result__).from_abi::<ActivationSignalDetector>(result__)
+            (::windows::core::Interface::vtable(this).GetActivationSignalDetectorFromId)(::windows::core::Interface::as_raw(this), detectorid.into_param().abi(), &mut result__).from_abi::<ActivationSignalDetector>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`, `\"Foundation\"`*"]
@@ -1089,14 +1089,14 @@ impl ConversationalAgentDetectorManager {
         let this = &::windows::core::Interface::cast::<IConversationalAgentDetectorManager2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetActivationSignalDetectorFromIdAsync)(::core::mem::transmute_copy(this), detectorid.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<ActivationSignalDetector>>(result__)
+            (::windows::core::Interface::vtable(this).GetActivationSignalDetectorFromIdAsync)(::windows::core::Interface::as_raw(this), detectorid.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<ActivationSignalDetector>>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
     pub fn Default() -> ::windows::core::Result<ConversationalAgentDetectorManager> {
         Self::IConversationalAgentDetectorManagerStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Default)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ConversationalAgentDetectorManager>(result__)
+            (::windows::core::Interface::vtable(this).Default)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ConversationalAgentDetectorManager>(result__)
         })
     }
     #[doc(hidden)]
@@ -1185,7 +1185,7 @@ impl ConversationalAgentSession {
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).Close)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -1193,14 +1193,14 @@ impl ConversationalAgentSession {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SessionInterrupted)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).SessionInterrupted)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveSessionInterrupted<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveSessionInterrupted)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveSessionInterrupted)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -1208,14 +1208,14 @@ impl ConversationalAgentSession {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SignalDetected)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).SignalDetected)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveSignalDetected<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveSignalDetected)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveSignalDetected)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -1223,21 +1223,21 @@ impl ConversationalAgentSession {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SystemStateChanged)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).SystemStateChanged)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveSystemStateChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveSystemStateChanged)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveSystemStateChanged)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
     pub fn AgentState(&self) -> ::windows::core::Result<ConversationalAgentState> {
         let this = self;
         unsafe {
             let mut result__: ConversationalAgentState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AgentState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ConversationalAgentState>(result__)
+            (::windows::core::Interface::vtable(this).AgentState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ConversationalAgentState>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
@@ -1245,7 +1245,7 @@ impl ConversationalAgentSession {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Signal)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ConversationalAgentSignal>(result__)
+            (::windows::core::Interface::vtable(this).Signal)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ConversationalAgentSignal>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
@@ -1253,7 +1253,7 @@ impl ConversationalAgentSession {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsIndicatorLightAvailable)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsIndicatorLightAvailable)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
@@ -1261,7 +1261,7 @@ impl ConversationalAgentSession {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsScreenAvailable)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsScreenAvailable)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
@@ -1269,7 +1269,7 @@ impl ConversationalAgentSession {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsUserAuthenticated)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsUserAuthenticated)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
@@ -1277,7 +1277,7 @@ impl ConversationalAgentSession {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsVoiceActivationAvailable)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsVoiceActivationAvailable)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
@@ -1285,7 +1285,7 @@ impl ConversationalAgentSession {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsInterruptible)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsInterruptible)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
@@ -1293,7 +1293,7 @@ impl ConversationalAgentSession {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsInterrupted)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsInterrupted)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`, `\"Foundation\"`*"]
@@ -1302,7 +1302,7 @@ impl ConversationalAgentSession {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RequestInterruptibleAsync)(::core::mem::transmute_copy(this), interruptible, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<ConversationalAgentSessionUpdateResponse>>(result__)
+            (::windows::core::Interface::vtable(this).RequestInterruptibleAsync)(::windows::core::Interface::as_raw(this), interruptible, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<ConversationalAgentSessionUpdateResponse>>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
@@ -1310,7 +1310,7 @@ impl ConversationalAgentSession {
         let this = self;
         unsafe {
             let mut result__: ConversationalAgentSessionUpdateResponse = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RequestInterruptible)(::core::mem::transmute_copy(this), interruptible, &mut result__).from_abi::<ConversationalAgentSessionUpdateResponse>(result__)
+            (::windows::core::Interface::vtable(this).RequestInterruptible)(::windows::core::Interface::as_raw(this), interruptible, &mut result__).from_abi::<ConversationalAgentSessionUpdateResponse>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`, `\"Foundation\"`*"]
@@ -1319,7 +1319,7 @@ impl ConversationalAgentSession {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RequestAgentStateChangeAsync)(::core::mem::transmute_copy(this), state, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<ConversationalAgentSessionUpdateResponse>>(result__)
+            (::windows::core::Interface::vtable(this).RequestAgentStateChangeAsync)(::windows::core::Interface::as_raw(this), state, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<ConversationalAgentSessionUpdateResponse>>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
@@ -1327,7 +1327,7 @@ impl ConversationalAgentSession {
         let this = self;
         unsafe {
             let mut result__: ConversationalAgentSessionUpdateResponse = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RequestAgentStateChange)(::core::mem::transmute_copy(this), state, &mut result__).from_abi::<ConversationalAgentSessionUpdateResponse>(result__)
+            (::windows::core::Interface::vtable(this).RequestAgentStateChange)(::windows::core::Interface::as_raw(this), state, &mut result__).from_abi::<ConversationalAgentSessionUpdateResponse>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`, `\"Foundation\"`*"]
@@ -1336,7 +1336,7 @@ impl ConversationalAgentSession {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RequestForegroundActivationAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<ConversationalAgentSessionUpdateResponse>>(result__)
+            (::windows::core::Interface::vtable(this).RequestForegroundActivationAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<ConversationalAgentSessionUpdateResponse>>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
@@ -1344,7 +1344,7 @@ impl ConversationalAgentSession {
         let this = self;
         unsafe {
             let mut result__: ConversationalAgentSessionUpdateResponse = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RequestForegroundActivation)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ConversationalAgentSessionUpdateResponse>(result__)
+            (::windows::core::Interface::vtable(this).RequestForegroundActivation)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ConversationalAgentSessionUpdateResponse>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`, `\"Foundation\"`*"]
@@ -1353,7 +1353,7 @@ impl ConversationalAgentSession {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetAudioClientAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<::windows::core::IInspectable>>(result__)
+            (::windows::core::Interface::vtable(this).GetAudioClientAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<::windows::core::IInspectable>>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
@@ -1361,7 +1361,7 @@ impl ConversationalAgentSession {
         let this = self;
         unsafe {
             let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetAudioClient)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
+            (::windows::core::Interface::vtable(this).GetAudioClient)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`, `\"Foundation\"`, `\"Media_Audio\"`*"]
@@ -1370,7 +1370,7 @@ impl ConversationalAgentSession {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateAudioDeviceInputNodeAsync)(::core::mem::transmute_copy(this), graph.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Media::Audio::AudioDeviceInputNode>>(result__)
+            (::windows::core::Interface::vtable(this).CreateAudioDeviceInputNodeAsync)(::windows::core::Interface::as_raw(this), graph.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Media::Audio::AudioDeviceInputNode>>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`, `\"Media_Audio\"`*"]
@@ -1379,7 +1379,7 @@ impl ConversationalAgentSession {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateAudioDeviceInputNode)(::core::mem::transmute_copy(this), graph.into_param().abi(), &mut result__).from_abi::<super::super::Media::Audio::AudioDeviceInputNode>(result__)
+            (::windows::core::Interface::vtable(this).CreateAudioDeviceInputNode)(::windows::core::Interface::as_raw(this), graph.into_param().abi(), &mut result__).from_abi::<super::super::Media::Audio::AudioDeviceInputNode>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`, `\"Foundation\"`*"]
@@ -1388,7 +1388,7 @@ impl ConversationalAgentSession {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetAudioCaptureDeviceIdAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>(result__)
+            (::windows::core::Interface::vtable(this).GetAudioCaptureDeviceIdAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
@@ -1396,7 +1396,7 @@ impl ConversationalAgentSession {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetAudioCaptureDeviceId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).GetAudioCaptureDeviceId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`, `\"Foundation\"`*"]
@@ -1405,7 +1405,7 @@ impl ConversationalAgentSession {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetAudioRenderDeviceIdAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>(result__)
+            (::windows::core::Interface::vtable(this).GetAudioRenderDeviceIdAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
@@ -1413,7 +1413,7 @@ impl ConversationalAgentSession {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetAudioRenderDeviceId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).GetAudioRenderDeviceId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`, `\"Foundation\"`*"]
@@ -1422,7 +1422,7 @@ impl ConversationalAgentSession {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetSignalModelIdAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<u32>>(result__)
+            (::windows::core::Interface::vtable(this).GetSignalModelIdAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<u32>>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
@@ -1430,7 +1430,7 @@ impl ConversationalAgentSession {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetSignalModelId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).GetSignalModelId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`, `\"Foundation\"`*"]
@@ -1439,7 +1439,7 @@ impl ConversationalAgentSession {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SetSignalModelIdAsync)(::core::mem::transmute_copy(this), signalmodelid, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Interface::vtable(this).SetSignalModelIdAsync)(::windows::core::Interface::as_raw(this), signalmodelid, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
@@ -1447,7 +1447,7 @@ impl ConversationalAgentSession {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SetSignalModelId)(::core::mem::transmute_copy(this), signalmodelid, &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).SetSignalModelId)(::windows::core::Interface::as_raw(this), signalmodelid, &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`, `\"Foundation_Collections\"`*"]
@@ -1456,7 +1456,7 @@ impl ConversationalAgentSession {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetSupportedSignalModelIdsAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<u32>>>(result__)
+            (::windows::core::Interface::vtable(this).GetSupportedSignalModelIdsAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<u32>>>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`, `\"Foundation_Collections\"`*"]
@@ -1465,7 +1465,7 @@ impl ConversationalAgentSession {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetSupportedSignalModelIds)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<u32>>(result__)
+            (::windows::core::Interface::vtable(this).GetSupportedSignalModelIds)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<u32>>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`, `\"Foundation\"`*"]
@@ -1474,7 +1474,7 @@ impl ConversationalAgentSession {
         let this = &::windows::core::Interface::cast::<IConversationalAgentSession2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RequestActivationAsync)(::core::mem::transmute_copy(this), activationkind, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<ConversationalAgentActivationResult>>(result__)
+            (::windows::core::Interface::vtable(this).RequestActivationAsync)(::windows::core::Interface::as_raw(this), activationkind, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<ConversationalAgentActivationResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
@@ -1482,7 +1482,7 @@ impl ConversationalAgentSession {
         let this = &::windows::core::Interface::cast::<IConversationalAgentSession2>(self)?;
         unsafe {
             let mut result__: ConversationalAgentActivationResult = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RequestActivation)(::core::mem::transmute_copy(this), activationkind, &mut result__).from_abi::<ConversationalAgentActivationResult>(result__)
+            (::windows::core::Interface::vtable(this).RequestActivation)(::windows::core::Interface::as_raw(this), activationkind, &mut result__).from_abi::<ConversationalAgentActivationResult>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`, `\"Foundation\"`*"]
@@ -1491,13 +1491,13 @@ impl ConversationalAgentSession {
         let this = &::windows::core::Interface::cast::<IConversationalAgentSession2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SetSupportLockScreenActivationAsync)(::core::mem::transmute_copy(this), lockscreenactivationsupported, &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).SetSupportLockScreenActivationAsync)(::windows::core::Interface::as_raw(this), lockscreenactivationsupported, &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
     pub fn SetSupportLockScreenActivation(&self, lockscreenactivationsupported: bool) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IConversationalAgentSession2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetSupportLockScreenActivation)(::core::mem::transmute_copy(this), lockscreenactivationsupported).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSupportLockScreenActivation)(::windows::core::Interface::as_raw(this), lockscreenactivationsupported).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -1505,7 +1505,7 @@ impl ConversationalAgentSession {
         let this = &::windows::core::Interface::cast::<IConversationalAgentSession2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetMissingPrerequisites)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<ConversationalAgentVoiceActivationPrerequisiteKind>>(result__)
+            (::windows::core::Interface::vtable(this).GetMissingPrerequisites)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<ConversationalAgentVoiceActivationPrerequisiteKind>>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`, `\"Foundation_Collections\"`*"]
@@ -1514,7 +1514,7 @@ impl ConversationalAgentSession {
         let this = &::windows::core::Interface::cast::<IConversationalAgentSession2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetMissingPrerequisitesAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ConversationalAgentVoiceActivationPrerequisiteKind>>>(result__)
+            (::windows::core::Interface::vtable(this).GetMissingPrerequisitesAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ConversationalAgentVoiceActivationPrerequisiteKind>>>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`, `\"Foundation\"`*"]
@@ -1522,14 +1522,14 @@ impl ConversationalAgentSession {
     pub fn GetCurrentSessionAsync() -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ConversationalAgentSession>> {
         Self::IConversationalAgentSessionStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetCurrentSessionAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<ConversationalAgentSession>>(result__)
+            (::windows::core::Interface::vtable(this).GetCurrentSessionAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<ConversationalAgentSession>>(result__)
         })
     }
     #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
     pub fn GetCurrentSessionSync() -> ::windows::core::Result<ConversationalAgentSession> {
         Self::IConversationalAgentSessionStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetCurrentSessionSync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ConversationalAgentSession>(result__)
+            (::windows::core::Interface::vtable(this).GetCurrentSessionSync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ConversationalAgentSession>(result__)
         })
     }
     #[doc(hidden)]
@@ -1755,52 +1755,52 @@ impl ConversationalAgentSignal {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsSignalVerificationRequired)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsSignalVerificationRequired)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
     pub fn SetIsSignalVerificationRequired(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetIsSignalVerificationRequired)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetIsSignalVerificationRequired)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
     pub fn SignalId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SignalId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).SignalId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
     pub fn SetSignalId<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetSignalId)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSignalId)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
     pub fn SignalName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SignalName)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).SignalName)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
     pub fn SetSignalName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetSignalName)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSignalName)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
     pub fn SignalContext(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = self;
         unsafe {
             let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SignalContext)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
+            (::windows::core::Interface::vtable(this).SignalContext)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
     pub fn SetSignalContext<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetSignalContext)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSignalContext)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -1808,14 +1808,14 @@ impl ConversationalAgentSignal {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::TimeSpan = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SignalStart)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
+            (::windows::core::Interface::vtable(this).SignalStart)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetSignalStart<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TimeSpan>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetSignalStart)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSignalStart)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -1823,21 +1823,21 @@ impl ConversationalAgentSignal {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::TimeSpan = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SignalEnd)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
+            (::windows::core::Interface::vtable(this).SignalEnd)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetSignalEnd<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TimeSpan>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetSignalEnd)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSignalEnd)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
     pub fn DetectorId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IConversationalAgentSignal2>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DetectorId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).DetectorId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
@@ -1845,7 +1845,7 @@ impl ConversationalAgentSignal {
         let this = &::windows::core::Interface::cast::<IConversationalAgentSignal2>(self)?;
         unsafe {
             let mut result__: ActivationSignalDetectorKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DetectorKind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationSignalDetectorKind>(result__)
+            (::windows::core::Interface::vtable(this).DetectorKind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ActivationSignalDetectorKind>(result__)
         }
     }
 }
@@ -2080,7 +2080,7 @@ impl ConversationalAgentSystemStateChangedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ConversationalAgentSystemStateChangeType = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SystemStateChangeType)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ConversationalAgentSystemStateChangeType>(result__)
+            (::windows::core::Interface::vtable(this).SystemStateChangeType)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ConversationalAgentSystemStateChangeType>(result__)
         }
     }
 }
@@ -2238,7 +2238,7 @@ impl DetectionConfigurationAvailabilityChangedEventArgs {
         let this = self;
         unsafe {
             let mut result__: DetectionConfigurationAvailabilityChangeKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<DetectionConfigurationAvailabilityChangeKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<DetectionConfigurationAvailabilityChangeKind>(result__)
         }
     }
 }
@@ -2323,7 +2323,7 @@ impl DetectionConfigurationAvailabilityInfo {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsEnabled)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsEnabled)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
@@ -2331,7 +2331,7 @@ impl DetectionConfigurationAvailabilityInfo {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).HasSystemResourceAccess)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).HasSystemResourceAccess)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
@@ -2339,7 +2339,7 @@ impl DetectionConfigurationAvailabilityInfo {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).HasPermission)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).HasPermission)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
@@ -2347,7 +2347,7 @@ impl DetectionConfigurationAvailabilityInfo {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).HasLockScreenPermission)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).HasLockScreenPermission)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`, `\"Foundation_Collections\"`*"]
@@ -2356,7 +2356,7 @@ impl DetectionConfigurationAvailabilityInfo {
         let this = &::windows::core::Interface::cast::<IDetectionConfigurationAvailabilityInfo2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).UnavailableSystemResources)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<SignalDetectorResourceKind>>(result__)
+            (::windows::core::Interface::vtable(this).UnavailableSystemResources)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<SignalDetectorResourceKind>>(result__)
         }
     }
 }

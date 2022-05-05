@@ -1289,31 +1289,31 @@ pub struct ID2D1SimplifiedGeometrySink(::windows::core::IUnknown);
 impl ID2D1SimplifiedGeometrySink {
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
     pub unsafe fn SetFillMode(&self, fillmode: D2D1_FILL_MODE) {
-        (::windows::core::Interface::vtable(self).SetFillMode)(::core::mem::transmute_copy(self), ::core::mem::transmute(fillmode))
+        (::windows::core::Interface::vtable(self).SetFillMode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fillmode))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
     pub unsafe fn SetSegmentFlags(&self, vertexflags: D2D1_PATH_SEGMENT) {
-        (::windows::core::Interface::vtable(self).SetSegmentFlags)(::core::mem::transmute_copy(self), ::core::mem::transmute(vertexflags))
+        (::windows::core::Interface::vtable(self).SetSegmentFlags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(vertexflags))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
     pub unsafe fn BeginFigure<'a, Param0: ::windows::core::IntoParam<'a, D2D_POINT_2F>>(&self, startpoint: Param0, figurebegin: D2D1_FIGURE_BEGIN) {
-        (::windows::core::Interface::vtable(self).BeginFigure)(::core::mem::transmute_copy(self), startpoint.into_param().abi(), ::core::mem::transmute(figurebegin))
+        (::windows::core::Interface::vtable(self).BeginFigure)(::windows::core::Interface::as_raw(self), startpoint.into_param().abi(), ::core::mem::transmute(figurebegin))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
     pub unsafe fn AddLines(&self, points: &[D2D_POINT_2F]) {
-        (::windows::core::Interface::vtable(self).AddLines)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(points)), points.len() as _)
+        (::windows::core::Interface::vtable(self).AddLines)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(points)), points.len() as _)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
     pub unsafe fn AddBeziers(&self, beziers: &[D2D1_BEZIER_SEGMENT]) {
-        (::windows::core::Interface::vtable(self).AddBeziers)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(beziers)), beziers.len() as _)
+        (::windows::core::Interface::vtable(self).AddBeziers)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(beziers)), beziers.len() as _)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
     pub unsafe fn EndFigure(&self, figureend: D2D1_FIGURE_END) {
-        (::windows::core::Interface::vtable(self).EndFigure)(::core::mem::transmute_copy(self), ::core::mem::transmute(figureend))
+        (::windows::core::Interface::vtable(self).EndFigure)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(figureend))
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
     pub unsafe fn Close(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Close)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Close)(::windows::core::Interface::as_raw(self)).ok()
     }
 }
 impl ::core::convert::From<ID2D1SimplifiedGeometrySink> for ::windows::core::IUnknown {

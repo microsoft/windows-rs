@@ -43,7 +43,7 @@ impl AppBarButtonTemplateSettings {
         let this = self;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).KeyboardAcceleratorTextMinWidth)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).KeyboardAcceleratorTextMinWidth)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
 }
@@ -149,7 +149,7 @@ impl AppBarTemplateSettings {
         let this = self;
         unsafe {
             let mut result__: super::super::super::super::Foundation::Rect = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ClipRect)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Rect>(result__)
+            (::windows::core::Interface::vtable(this).ClipRect)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::super::Foundation::Rect>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
@@ -157,7 +157,7 @@ impl AppBarTemplateSettings {
         let this = self;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CompactVerticalDelta)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).CompactVerticalDelta)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
@@ -165,7 +165,7 @@ impl AppBarTemplateSettings {
         let this = self;
         unsafe {
             let mut result__: super::super::Thickness = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CompactRootMargin)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Thickness>(result__)
+            (::windows::core::Interface::vtable(this).CompactRootMargin)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Thickness>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
@@ -173,7 +173,7 @@ impl AppBarTemplateSettings {
         let this = self;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MinimalVerticalDelta)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).MinimalVerticalDelta)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
@@ -181,7 +181,7 @@ impl AppBarTemplateSettings {
         let this = self;
         unsafe {
             let mut result__: super::super::Thickness = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MinimalRootMargin)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Thickness>(result__)
+            (::windows::core::Interface::vtable(this).MinimalRootMargin)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Thickness>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
@@ -189,7 +189,7 @@ impl AppBarTemplateSettings {
         let this = self;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).HiddenVerticalDelta)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).HiddenVerticalDelta)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
@@ -197,7 +197,7 @@ impl AppBarTemplateSettings {
         let this = self;
         unsafe {
             let mut result__: super::super::Thickness = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).HiddenRootMargin)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Thickness>(result__)
+            (::windows::core::Interface::vtable(this).HiddenRootMargin)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Thickness>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
@@ -205,7 +205,7 @@ impl AppBarTemplateSettings {
         let this = &::windows::core::Interface::cast::<IAppBarTemplateSettings2>(self)?;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).NegativeCompactVerticalDelta)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).NegativeCompactVerticalDelta)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
@@ -213,7 +213,7 @@ impl AppBarTemplateSettings {
         let this = &::windows::core::Interface::cast::<IAppBarTemplateSettings2>(self)?;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).NegativeMinimalVerticalDelta)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).NegativeMinimalVerticalDelta)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
@@ -221,7 +221,7 @@ impl AppBarTemplateSettings {
         let this = &::windows::core::Interface::cast::<IAppBarTemplateSettings2>(self)?;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).NegativeHiddenVerticalDelta)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).NegativeHiddenVerticalDelta)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
 }
@@ -326,7 +326,7 @@ impl AppBarToggleButtonTemplateSettings {
         let this = self;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).KeyboardAcceleratorTextMinWidth)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).KeyboardAcceleratorTextMinWidth)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
 }
@@ -431,20 +431,20 @@ impl ButtonBase {
         let this = self;
         unsafe {
             let mut result__: super::ClickMode = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ClickMode)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::ClickMode>(result__)
+            (::windows::core::Interface::vtable(this).ClickMode)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::ClickMode>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SetClickMode(&self, value: super::ClickMode) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetClickMode)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetClickMode)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn IsPointerOver(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsPointerOver)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsPointerOver)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
@@ -452,7 +452,7 @@ impl ButtonBase {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsPressed)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsPressed)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"UI_Xaml_Input\"`*"]
@@ -461,27 +461,27 @@ impl ButtonBase {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Command)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Input::ICommand>(result__)
+            (::windows::core::Interface::vtable(this).Command)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Input::ICommand>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"UI_Xaml_Input\"`*"]
     #[cfg(feature = "UI_Xaml_Input")]
     pub fn SetCommand<'a, Param0: ::windows::core::IntoParam<'a, super::super::Input::ICommand>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetCommand)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCommand)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn CommandParameter(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = self;
         unsafe {
             let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CommandParameter)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
+            (::windows::core::Interface::vtable(this).CommandParameter)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SetCommandParameter<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetCommandParameter)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCommandParameter)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -489,48 +489,48 @@ impl ButtonBase {
         let this = self;
         unsafe {
             let mut result__: super::super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Click)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).Click)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveClick<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveClick)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveClick)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn ClickModeProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IButtonBaseStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ClickModeProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).ClickModeProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn IsPointerOverProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IButtonBaseStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsPointerOverProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).IsPointerOverProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn IsPressedProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IButtonBaseStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsPressedProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).IsPressedProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn CommandProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IButtonBaseStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CommandProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).CommandProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn CommandParameterProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IButtonBaseStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CommandParameterProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).CommandParameterProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc(hidden)]
@@ -988,7 +988,7 @@ impl CalendarViewTemplateSettings {
         let this = self;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MinViewWidth)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).MinViewWidth)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
@@ -996,7 +996,7 @@ impl CalendarViewTemplateSettings {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).HeaderText)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).HeaderText)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
@@ -1004,7 +1004,7 @@ impl CalendarViewTemplateSettings {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).WeekDay1)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).WeekDay1)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
@@ -1012,7 +1012,7 @@ impl CalendarViewTemplateSettings {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).WeekDay2)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).WeekDay2)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
@@ -1020,7 +1020,7 @@ impl CalendarViewTemplateSettings {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).WeekDay3)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).WeekDay3)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
@@ -1028,7 +1028,7 @@ impl CalendarViewTemplateSettings {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).WeekDay4)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).WeekDay4)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
@@ -1036,7 +1036,7 @@ impl CalendarViewTemplateSettings {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).WeekDay5)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).WeekDay5)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
@@ -1044,7 +1044,7 @@ impl CalendarViewTemplateSettings {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).WeekDay6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).WeekDay6)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
@@ -1052,7 +1052,7 @@ impl CalendarViewTemplateSettings {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).WeekDay7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).WeekDay7)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
@@ -1060,7 +1060,7 @@ impl CalendarViewTemplateSettings {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).HasMoreContentAfter)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).HasMoreContentAfter)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
@@ -1068,7 +1068,7 @@ impl CalendarViewTemplateSettings {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).HasMoreContentBefore)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).HasMoreContentBefore)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
@@ -1076,7 +1076,7 @@ impl CalendarViewTemplateSettings {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).HasMoreViews)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).HasMoreViews)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"Foundation\"`*"]
@@ -1085,7 +1085,7 @@ impl CalendarViewTemplateSettings {
         let this = self;
         unsafe {
             let mut result__: super::super::super::super::Foundation::Rect = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ClipRect)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Rect>(result__)
+            (::windows::core::Interface::vtable(this).ClipRect)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::super::Foundation::Rect>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
@@ -1093,7 +1093,7 @@ impl CalendarViewTemplateSettings {
         let this = self;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CenterX)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).CenterX)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
@@ -1101,7 +1101,7 @@ impl CalendarViewTemplateSettings {
         let this = self;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CenterY)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).CenterY)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
 }
@@ -1206,33 +1206,33 @@ impl CarouselPanel {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CanVerticallyScroll)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).CanVerticallyScroll)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SetCanVerticallyScroll(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetCanVerticallyScroll)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCanVerticallyScroll)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn CanHorizontallyScroll(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CanHorizontallyScroll)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).CanHorizontallyScroll)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SetCanHorizontallyScroll(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetCanHorizontallyScroll)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCanHorizontallyScroll)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn ExtentWidth(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ExtentWidth)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).ExtentWidth)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
@@ -1240,7 +1240,7 @@ impl CarouselPanel {
         let this = self;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ExtentHeight)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).ExtentHeight)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
@@ -1248,7 +1248,7 @@ impl CarouselPanel {
         let this = self;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ViewportWidth)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).ViewportWidth)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
@@ -1256,7 +1256,7 @@ impl CarouselPanel {
         let this = self;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ViewportHeight)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).ViewportHeight)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
@@ -1264,7 +1264,7 @@ impl CarouselPanel {
         let this = self;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).HorizontalOffset)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).HorizontalOffset)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
@@ -1272,7 +1272,7 @@ impl CarouselPanel {
         let this = self;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).VerticalOffset)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).VerticalOffset)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
@@ -1280,83 +1280,83 @@ impl CarouselPanel {
         let this = self;
         unsafe {
             let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ScrollOwner)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
+            (::windows::core::Interface::vtable(this).ScrollOwner)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SetScrollOwner<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetScrollOwner)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetScrollOwner)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn LineUp(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).LineUp)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).LineUp)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn LineDown(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).LineDown)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).LineDown)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn LineLeft(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).LineLeft)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).LineLeft)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn LineRight(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).LineRight)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).LineRight)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn PageUp(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).PageUp)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).PageUp)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn PageDown(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).PageDown)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).PageDown)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn PageLeft(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).PageLeft)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).PageLeft)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn PageRight(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).PageRight)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).PageRight)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn MouseWheelUp(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).MouseWheelUp)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).MouseWheelUp)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn MouseWheelDown(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).MouseWheelDown)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).MouseWheelDown)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn MouseWheelLeft(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).MouseWheelLeft)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).MouseWheelLeft)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn MouseWheelRight(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).MouseWheelRight)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).MouseWheelRight)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SetHorizontalOffset(&self, offset: f64) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetHorizontalOffset)(::core::mem::transmute_copy(this), offset).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetHorizontalOffset)(::windows::core::Interface::as_raw(this), offset).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SetVerticalOffset(&self, offset: f64) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetVerticalOffset)(::core::mem::transmute_copy(this), offset).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetVerticalOffset)(::windows::core::Interface::as_raw(this), offset).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -1364,14 +1364,14 @@ impl CarouselPanel {
         let this = self;
         unsafe {
             let mut result__: super::super::super::super::Foundation::Rect = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MakeVisible)(::core::mem::transmute_copy(this), visual.into_param().abi(), rectangle.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::Rect>(result__)
+            (::windows::core::Interface::vtable(this).MakeVisible)(::windows::core::Interface::as_raw(this), visual.into_param().abi(), rectangle.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::Rect>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn new() -> ::windows::core::Result<CarouselPanel> {
         Self::ICarouselPanelFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<CarouselPanel>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<CarouselPanel>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
@@ -1379,7 +1379,7 @@ impl CarouselPanel {
         Self::ICarouselPanelFactory(|this| unsafe {
             let (derived__, base__) = ::windows::core::Compose::compose(compose);
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<CarouselPanel>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<CarouselPanel>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
@@ -1387,7 +1387,7 @@ impl CarouselPanel {
         let this = &::windows::core::Interface::cast::<IScrollSnapPointsInfo>(self)?;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AreHorizontalSnapPointsRegular)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).AreHorizontalSnapPointsRegular)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
@@ -1395,7 +1395,7 @@ impl CarouselPanel {
         let this = &::windows::core::Interface::cast::<IScrollSnapPointsInfo>(self)?;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AreVerticalSnapPointsRegular)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).AreVerticalSnapPointsRegular)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"Foundation\"`*"]
@@ -1404,14 +1404,14 @@ impl CarouselPanel {
         let this = &::windows::core::Interface::cast::<IScrollSnapPointsInfo>(self)?;
         unsafe {
             let mut result__: super::super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).HorizontalSnapPointsChanged)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).HorizontalSnapPointsChanged)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveHorizontalSnapPointsChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IScrollSnapPointsInfo>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveHorizontalSnapPointsChanged)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveHorizontalSnapPointsChanged)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -1419,14 +1419,14 @@ impl CarouselPanel {
         let this = &::windows::core::Interface::cast::<IScrollSnapPointsInfo>(self)?;
         unsafe {
             let mut result__: super::super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).VerticalSnapPointsChanged)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).VerticalSnapPointsChanged)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveVerticalSnapPointsChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IScrollSnapPointsInfo>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveVerticalSnapPointsChanged)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveVerticalSnapPointsChanged)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -1434,7 +1434,7 @@ impl CarouselPanel {
         let this = &::windows::core::Interface::cast::<IScrollSnapPointsInfo>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetIrregularSnapPoints)(::core::mem::transmute_copy(this), orientation, alignment, &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<f32>>(result__)
+            (::windows::core::Interface::vtable(this).GetIrregularSnapPoints)(::windows::core::Interface::as_raw(this), orientation, alignment, &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<f32>>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
@@ -1442,7 +1442,7 @@ impl CarouselPanel {
         let this = &::windows::core::Interface::cast::<IScrollSnapPointsInfo>(self)?;
         unsafe {
             let mut result__: f32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetRegularSnapPoints)(::core::mem::transmute_copy(this), orientation, alignment, offset, &mut result__).from_abi::<f32>(result__)
+            (::windows::core::Interface::vtable(this).GetRegularSnapPoints)(::windows::core::Interface::as_raw(this), orientation, alignment, offset, &mut result__).from_abi::<f32>(result__)
         }
     }
     #[doc(hidden)]
@@ -1706,19 +1706,19 @@ impl ColorPickerSlider {
         let this = self;
         unsafe {
             let mut result__: super::ColorPickerHsvChannel = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ColorChannel)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::ColorPickerHsvChannel>(result__)
+            (::windows::core::Interface::vtable(this).ColorChannel)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::ColorPickerHsvChannel>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SetColorChannel(&self, value: super::ColorPickerHsvChannel) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetColorChannel)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetColorChannel)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn new() -> ::windows::core::Result<ColorPickerSlider> {
         Self::IColorPickerSliderFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<ColorPickerSlider>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<ColorPickerSlider>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
@@ -1726,14 +1726,14 @@ impl ColorPickerSlider {
         Self::IColorPickerSliderFactory(|this| unsafe {
             let (derived__, base__) = ::windows::core::Compose::compose(compose);
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<ColorPickerSlider>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<ColorPickerSlider>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn ColorChannelProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IColorPickerSliderStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ColorChannelProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).ColorChannelProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc(hidden)]
@@ -2000,13 +2000,13 @@ impl ColorSpectrum {
         let this = self;
         unsafe {
             let mut result__: super::super::super::Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Color)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Color>(result__)
+            (::windows::core::Interface::vtable(this).Color)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Color>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SetColor<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Color>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetColor)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetColor)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
@@ -2014,118 +2014,118 @@ impl ColorSpectrum {
         let this = self;
         unsafe {
             let mut result__: super::super::super::super::Foundation::Numerics::Vector4 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).HsvColor)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Numerics::Vector4>(result__)
+            (::windows::core::Interface::vtable(this).HsvColor)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::super::Foundation::Numerics::Vector4>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetHsvColor<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::Numerics::Vector4>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetHsvColor)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetHsvColor)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn MinHue(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
             let mut result__: i32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MinHue)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            (::windows::core::Interface::vtable(this).MinHue)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SetMinHue(&self, value: i32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetMinHue)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetMinHue)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn MaxHue(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
             let mut result__: i32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MaxHue)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            (::windows::core::Interface::vtable(this).MaxHue)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SetMaxHue(&self, value: i32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetMaxHue)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetMaxHue)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn MinSaturation(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
             let mut result__: i32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MinSaturation)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            (::windows::core::Interface::vtable(this).MinSaturation)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SetMinSaturation(&self, value: i32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetMinSaturation)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetMinSaturation)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn MaxSaturation(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
             let mut result__: i32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MaxSaturation)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            (::windows::core::Interface::vtable(this).MaxSaturation)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SetMaxSaturation(&self, value: i32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetMaxSaturation)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetMaxSaturation)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn MinValue(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
             let mut result__: i32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MinValue)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            (::windows::core::Interface::vtable(this).MinValue)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SetMinValue(&self, value: i32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetMinValue)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetMinValue)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn MaxValue(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
             let mut result__: i32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MaxValue)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            (::windows::core::Interface::vtable(this).MaxValue)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SetMaxValue(&self, value: i32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetMaxValue)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetMaxValue)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn Shape(&self) -> ::windows::core::Result<super::ColorSpectrumShape> {
         let this = self;
         unsafe {
             let mut result__: super::ColorSpectrumShape = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Shape)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::ColorSpectrumShape>(result__)
+            (::windows::core::Interface::vtable(this).Shape)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::ColorSpectrumShape>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SetShape(&self, value: super::ColorSpectrumShape) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetShape)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetShape)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn Components(&self) -> ::windows::core::Result<super::ColorSpectrumComponents> {
         let this = self;
         unsafe {
             let mut result__: super::ColorSpectrumComponents = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Components)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::ColorSpectrumComponents>(result__)
+            (::windows::core::Interface::vtable(this).Components)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::ColorSpectrumComponents>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SetComponents(&self, value: super::ColorSpectrumComponents) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetComponents)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetComponents)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -2133,20 +2133,20 @@ impl ColorSpectrum {
         let this = self;
         unsafe {
             let mut result__: super::super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ColorChanged)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).ColorChanged)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveColorChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveColorChanged)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveColorChanged)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn new() -> ::windows::core::Result<ColorSpectrum> {
         Self::IColorSpectrumFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<ColorSpectrum>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<ColorSpectrum>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
@@ -2154,77 +2154,77 @@ impl ColorSpectrum {
         Self::IColorSpectrumFactory(|this| unsafe {
             let (derived__, base__) = ::windows::core::Compose::compose(compose);
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<ColorSpectrum>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<ColorSpectrum>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn ColorProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IColorSpectrumStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ColorProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).ColorProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn HsvColorProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IColorSpectrumStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).HsvColorProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).HsvColorProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn MinHueProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IColorSpectrumStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MinHueProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).MinHueProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn MaxHueProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IColorSpectrumStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MaxHueProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).MaxHueProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn MinSaturationProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IColorSpectrumStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MinSaturationProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).MinSaturationProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn MaxSaturationProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IColorSpectrumStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MaxSaturationProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).MaxSaturationProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn MinValueProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IColorSpectrumStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MinValueProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).MinValueProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn MaxValueProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IColorSpectrumStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MaxValueProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).MaxValueProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn ShapeProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IColorSpectrumStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ShapeProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).ShapeProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn ComponentsProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IColorSpectrumStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ComponentsProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).ComponentsProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc(hidden)]
@@ -2451,7 +2451,7 @@ impl ComboBoxTemplateSettings {
         let this = self;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DropDownOpenedHeight)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).DropDownOpenedHeight)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
@@ -2459,7 +2459,7 @@ impl ComboBoxTemplateSettings {
         let this = self;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DropDownClosedHeight)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).DropDownClosedHeight)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
@@ -2467,7 +2467,7 @@ impl ComboBoxTemplateSettings {
         let this = self;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DropDownOffset)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).DropDownOffset)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
@@ -2475,7 +2475,7 @@ impl ComboBoxTemplateSettings {
         let this = self;
         unsafe {
             let mut result__: AnimationDirection = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SelectedItemDirection)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AnimationDirection>(result__)
+            (::windows::core::Interface::vtable(this).SelectedItemDirection)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<AnimationDirection>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
@@ -2483,7 +2483,7 @@ impl ComboBoxTemplateSettings {
         let this = &::windows::core::Interface::cast::<IComboBoxTemplateSettings2>(self)?;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DropDownContentMinWidth)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).DropDownContentMinWidth)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
 }
@@ -2588,14 +2588,14 @@ impl CommandBarFlyoutCommandBar {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FlyoutTemplateSettings)(::core::mem::transmute_copy(this), &mut result__).from_abi::<CommandBarFlyoutCommandBarTemplateSettings>(result__)
+            (::windows::core::Interface::vtable(this).FlyoutTemplateSettings)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<CommandBarFlyoutCommandBarTemplateSettings>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn new() -> ::windows::core::Result<CommandBarFlyoutCommandBar> {
         Self::ICommandBarFlyoutCommandBarFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<CommandBarFlyoutCommandBar>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<CommandBarFlyoutCommandBar>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
@@ -2603,7 +2603,7 @@ impl CommandBarFlyoutCommandBar {
         Self::ICommandBarFlyoutCommandBarFactory(|this| unsafe {
             let (derived__, base__) = ::windows::core::Compose::compose(compose);
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<CommandBarFlyoutCommandBar>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<CommandBarFlyoutCommandBar>(result__)
         })
     }
     #[doc(hidden)]
@@ -2885,7 +2885,7 @@ impl CommandBarFlyoutCommandBarTemplateSettings {
         let this = self;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).OpenAnimationStartPosition)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).OpenAnimationStartPosition)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
@@ -2893,7 +2893,7 @@ impl CommandBarFlyoutCommandBarTemplateSettings {
         let this = self;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).OpenAnimationEndPosition)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).OpenAnimationEndPosition)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
@@ -2901,7 +2901,7 @@ impl CommandBarFlyoutCommandBarTemplateSettings {
         let this = self;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CloseAnimationEndPosition)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).CloseAnimationEndPosition)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
@@ -2909,7 +2909,7 @@ impl CommandBarFlyoutCommandBarTemplateSettings {
         let this = self;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CurrentWidth)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).CurrentWidth)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
@@ -2917,7 +2917,7 @@ impl CommandBarFlyoutCommandBarTemplateSettings {
         let this = self;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ExpandedWidth)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).ExpandedWidth)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
@@ -2925,7 +2925,7 @@ impl CommandBarFlyoutCommandBarTemplateSettings {
         let this = self;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).WidthExpansionDelta)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).WidthExpansionDelta)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
@@ -2933,7 +2933,7 @@ impl CommandBarFlyoutCommandBarTemplateSettings {
         let this = self;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).WidthExpansionAnimationStartPosition)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).WidthExpansionAnimationStartPosition)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
@@ -2941,7 +2941,7 @@ impl CommandBarFlyoutCommandBarTemplateSettings {
         let this = self;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).WidthExpansionAnimationEndPosition)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).WidthExpansionAnimationEndPosition)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
@@ -2949,7 +2949,7 @@ impl CommandBarFlyoutCommandBarTemplateSettings {
         let this = self;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).WidthExpansionMoreButtonAnimationStartPosition)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).WidthExpansionMoreButtonAnimationStartPosition)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
@@ -2957,7 +2957,7 @@ impl CommandBarFlyoutCommandBarTemplateSettings {
         let this = self;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).WidthExpansionMoreButtonAnimationEndPosition)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).WidthExpansionMoreButtonAnimationEndPosition)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
@@ -2965,7 +2965,7 @@ impl CommandBarFlyoutCommandBarTemplateSettings {
         let this = self;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ExpandUpOverflowVerticalPosition)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).ExpandUpOverflowVerticalPosition)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
@@ -2973,7 +2973,7 @@ impl CommandBarFlyoutCommandBarTemplateSettings {
         let this = self;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ExpandDownOverflowVerticalPosition)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).ExpandDownOverflowVerticalPosition)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
@@ -2981,7 +2981,7 @@ impl CommandBarFlyoutCommandBarTemplateSettings {
         let this = self;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ExpandUpAnimationStartPosition)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).ExpandUpAnimationStartPosition)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
@@ -2989,7 +2989,7 @@ impl CommandBarFlyoutCommandBarTemplateSettings {
         let this = self;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ExpandUpAnimationEndPosition)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).ExpandUpAnimationEndPosition)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
@@ -2997,7 +2997,7 @@ impl CommandBarFlyoutCommandBarTemplateSettings {
         let this = self;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ExpandUpAnimationHoldPosition)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).ExpandUpAnimationHoldPosition)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
@@ -3005,7 +3005,7 @@ impl CommandBarFlyoutCommandBarTemplateSettings {
         let this = self;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ExpandDownAnimationStartPosition)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).ExpandDownAnimationStartPosition)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
@@ -3013,7 +3013,7 @@ impl CommandBarFlyoutCommandBarTemplateSettings {
         let this = self;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ExpandDownAnimationEndPosition)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).ExpandDownAnimationEndPosition)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
@@ -3021,7 +3021,7 @@ impl CommandBarFlyoutCommandBarTemplateSettings {
         let this = self;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ExpandDownAnimationHoldPosition)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).ExpandDownAnimationHoldPosition)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"Foundation\"`*"]
@@ -3030,7 +3030,7 @@ impl CommandBarFlyoutCommandBarTemplateSettings {
         let this = self;
         unsafe {
             let mut result__: super::super::super::super::Foundation::Rect = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ContentClipRect)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Rect>(result__)
+            (::windows::core::Interface::vtable(this).ContentClipRect)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::super::Foundation::Rect>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"Foundation\"`*"]
@@ -3039,7 +3039,7 @@ impl CommandBarFlyoutCommandBarTemplateSettings {
         let this = self;
         unsafe {
             let mut result__: super::super::super::super::Foundation::Rect = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).OverflowContentClipRect)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Rect>(result__)
+            (::windows::core::Interface::vtable(this).OverflowContentClipRect)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::super::Foundation::Rect>(result__)
         }
     }
 }
@@ -3144,7 +3144,7 @@ impl CommandBarTemplateSettings {
         let this = self;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ContentHeight)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).ContentHeight)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"Foundation\"`*"]
@@ -3153,7 +3153,7 @@ impl CommandBarTemplateSettings {
         let this = self;
         unsafe {
             let mut result__: super::super::super::super::Foundation::Rect = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).OverflowContentClipRect)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Rect>(result__)
+            (::windows::core::Interface::vtable(this).OverflowContentClipRect)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::super::Foundation::Rect>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
@@ -3161,7 +3161,7 @@ impl CommandBarTemplateSettings {
         let this = self;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).OverflowContentMinWidth)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).OverflowContentMinWidth)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
@@ -3169,7 +3169,7 @@ impl CommandBarTemplateSettings {
         let this = self;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).OverflowContentMaxHeight)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).OverflowContentMaxHeight)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
@@ -3177,7 +3177,7 @@ impl CommandBarTemplateSettings {
         let this = self;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).OverflowContentHorizontalOffset)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).OverflowContentHorizontalOffset)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
@@ -3185,7 +3185,7 @@ impl CommandBarTemplateSettings {
         let this = self;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).OverflowContentHeight)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).OverflowContentHeight)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
@@ -3193,7 +3193,7 @@ impl CommandBarTemplateSettings {
         let this = self;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).NegativeOverflowContentHeight)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).NegativeOverflowContentHeight)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
@@ -3201,7 +3201,7 @@ impl CommandBarTemplateSettings {
         let this = &::windows::core::Interface::cast::<ICommandBarTemplateSettings2>(self)?;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).OverflowContentMaxWidth)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).OverflowContentMaxWidth)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
@@ -3209,7 +3209,7 @@ impl CommandBarTemplateSettings {
         let this = &::windows::core::Interface::cast::<ICommandBarTemplateSettings3>(self)?;
         unsafe {
             let mut result__: super::super::Visibility = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).EffectiveOverflowButtonVisibility)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Visibility>(result__)
+            (::windows::core::Interface::vtable(this).EffectiveOverflowButtonVisibility)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Visibility>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
@@ -3217,7 +3217,7 @@ impl CommandBarTemplateSettings {
         let this = &::windows::core::Interface::cast::<ICommandBarTemplateSettings4>(self)?;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).OverflowContentCompactYTranslation)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).OverflowContentCompactYTranslation)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
@@ -3225,7 +3225,7 @@ impl CommandBarTemplateSettings {
         let this = &::windows::core::Interface::cast::<ICommandBarTemplateSettings4>(self)?;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).OverflowContentMinimalYTranslation)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).OverflowContentMinimalYTranslation)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
@@ -3233,7 +3233,7 @@ impl CommandBarTemplateSettings {
         let this = &::windows::core::Interface::cast::<ICommandBarTemplateSettings4>(self)?;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).OverflowContentHiddenYTranslation)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).OverflowContentHiddenYTranslation)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
 }
@@ -3372,7 +3372,7 @@ impl DragCompletedEventArgs {
         let this = self;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).HorizontalChange)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).HorizontalChange)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
@@ -3380,7 +3380,7 @@ impl DragCompletedEventArgs {
         let this = self;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).VerticalChange)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).VerticalChange)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
@@ -3388,14 +3388,14 @@ impl DragCompletedEventArgs {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Canceled)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).Canceled)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn CreateInstanceWithHorizontalChangeVerticalChangeAndCanceled(horizontalchange: f64, verticalchange: f64, canceled: bool) -> ::windows::core::Result<DragCompletedEventArgs> {
         Self::IDragCompletedEventArgsFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstanceWithHorizontalChangeVerticalChangeAndCanceled)(::core::mem::transmute_copy(this), horizontalchange, verticalchange, canceled, ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<DragCompletedEventArgs>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstanceWithHorizontalChangeVerticalChangeAndCanceled)(::windows::core::Interface::as_raw(this), horizontalchange, verticalchange, canceled, ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<DragCompletedEventArgs>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
@@ -3403,7 +3403,7 @@ impl DragCompletedEventArgs {
         Self::IDragCompletedEventArgsFactory(|this| unsafe {
             let (derived__, base__) = ::windows::core::Compose::compose(compose);
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstanceWithHorizontalChangeVerticalChangeAndCanceled)(::core::mem::transmute_copy(this), horizontalchange, verticalchange, canceled, ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<DragCompletedEventArgs>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstanceWithHorizontalChangeVerticalChangeAndCanceled)(::windows::core::Interface::as_raw(this), horizontalchange, verticalchange, canceled, ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<DragCompletedEventArgs>(result__)
         })
     }
     #[doc(hidden)]
@@ -3515,7 +3515,7 @@ impl DragCompletedEventHandler {
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn Invoke<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, Param1: ::windows::core::IntoParam<'a, DragCompletedEventArgs>>(&self, sender: Param0, e: Param1) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Invoke)(::core::mem::transmute_copy(this), sender.into_param().abi(), e.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Invoke)(::windows::core::Interface::as_raw(this), sender.into_param().abi(), e.into_param().abi()).ok() }
     }
 }
 #[repr(C)]
@@ -3598,7 +3598,7 @@ impl DragDeltaEventArgs {
         let this = self;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).HorizontalChange)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).HorizontalChange)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
@@ -3606,14 +3606,14 @@ impl DragDeltaEventArgs {
         let this = self;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).VerticalChange)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).VerticalChange)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn CreateInstanceWithHorizontalChangeAndVerticalChange(horizontalchange: f64, verticalchange: f64) -> ::windows::core::Result<DragDeltaEventArgs> {
         Self::IDragDeltaEventArgsFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstanceWithHorizontalChangeAndVerticalChange)(::core::mem::transmute_copy(this), horizontalchange, verticalchange, ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<DragDeltaEventArgs>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstanceWithHorizontalChangeAndVerticalChange)(::windows::core::Interface::as_raw(this), horizontalchange, verticalchange, ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<DragDeltaEventArgs>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
@@ -3621,7 +3621,7 @@ impl DragDeltaEventArgs {
         Self::IDragDeltaEventArgsFactory(|this| unsafe {
             let (derived__, base__) = ::windows::core::Compose::compose(compose);
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstanceWithHorizontalChangeAndVerticalChange)(::core::mem::transmute_copy(this), horizontalchange, verticalchange, ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<DragDeltaEventArgs>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstanceWithHorizontalChangeAndVerticalChange)(::windows::core::Interface::as_raw(this), horizontalchange, verticalchange, ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<DragDeltaEventArgs>(result__)
         })
     }
     #[doc(hidden)]
@@ -3733,7 +3733,7 @@ impl DragDeltaEventHandler {
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn Invoke<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, Param1: ::windows::core::IntoParam<'a, DragDeltaEventArgs>>(&self, sender: Param0, e: Param1) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Invoke)(::core::mem::transmute_copy(this), sender.into_param().abi(), e.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Invoke)(::windows::core::Interface::as_raw(this), sender.into_param().abi(), e.into_param().abi()).ok() }
     }
 }
 #[repr(C)]
@@ -3816,7 +3816,7 @@ impl DragStartedEventArgs {
         let this = self;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).HorizontalOffset)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).HorizontalOffset)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
@@ -3824,14 +3824,14 @@ impl DragStartedEventArgs {
         let this = self;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).VerticalOffset)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).VerticalOffset)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn CreateInstanceWithHorizontalOffsetAndVerticalOffset(horizontaloffset: f64, verticaloffset: f64) -> ::windows::core::Result<DragStartedEventArgs> {
         Self::IDragStartedEventArgsFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstanceWithHorizontalOffsetAndVerticalOffset)(::core::mem::transmute_copy(this), horizontaloffset, verticaloffset, ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<DragStartedEventArgs>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstanceWithHorizontalOffsetAndVerticalOffset)(::windows::core::Interface::as_raw(this), horizontaloffset, verticaloffset, ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<DragStartedEventArgs>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
@@ -3839,7 +3839,7 @@ impl DragStartedEventArgs {
         Self::IDragStartedEventArgsFactory(|this| unsafe {
             let (derived__, base__) = ::windows::core::Compose::compose(compose);
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstanceWithHorizontalOffsetAndVerticalOffset)(::core::mem::transmute_copy(this), horizontaloffset, verticaloffset, ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<DragStartedEventArgs>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstanceWithHorizontalOffsetAndVerticalOffset)(::windows::core::Interface::as_raw(this), horizontaloffset, verticaloffset, ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<DragStartedEventArgs>(result__)
         })
     }
     #[doc(hidden)]
@@ -3951,7 +3951,7 @@ impl DragStartedEventHandler {
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn Invoke<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, Param1: ::windows::core::IntoParam<'a, DragStartedEventArgs>>(&self, sender: Param0, e: Param1) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Invoke)(::core::mem::transmute_copy(this), sender.into_param().abi(), e.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Invoke)(::windows::core::Interface::as_raw(this), sender.into_param().abi(), e.into_param().abi()).ok() }
     }
 }
 #[repr(C)]
@@ -4070,13 +4070,13 @@ impl FlyoutBase {
         let this = self;
         unsafe {
             let mut result__: FlyoutPlacementMode = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Placement)(::core::mem::transmute_copy(this), &mut result__).from_abi::<FlyoutPlacementMode>(result__)
+            (::windows::core::Interface::vtable(this).Placement)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<FlyoutPlacementMode>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SetPlacement(&self, value: FlyoutPlacementMode) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetPlacement)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPlacement)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -4084,14 +4084,14 @@ impl FlyoutBase {
         let this = self;
         unsafe {
             let mut result__: super::super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Opened)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).Opened)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveOpened<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveOpened)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveOpened)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -4099,14 +4099,14 @@ impl FlyoutBase {
         let this = self;
         unsafe {
             let mut result__: super::super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Closed)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).Closed)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveClosed<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveClosed)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveClosed)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -4114,31 +4114,31 @@ impl FlyoutBase {
         let this = self;
         unsafe {
             let mut result__: super::super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Opening)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).Opening)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveOpening<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveOpening)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveOpening)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn ShowAt<'a, Param0: ::windows::core::IntoParam<'a, super::super::FrameworkElement>>(&self, placementtarget: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).ShowAt)(::core::mem::transmute_copy(this), placementtarget.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).ShowAt)(::windows::core::Interface::as_raw(this), placementtarget.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn Hide(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Hide)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Hide)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn Target(&self) -> ::windows::core::Result<super::super::FrameworkElement> {
         let this = &::windows::core::Interface::cast::<IFlyoutBase2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Target)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::FrameworkElement>(result__)
+            (::windows::core::Interface::vtable(this).Target)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::FrameworkElement>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
@@ -4146,52 +4146,52 @@ impl FlyoutBase {
         let this = &::windows::core::Interface::cast::<IFlyoutBase2>(self)?;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AllowFocusOnInteraction)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).AllowFocusOnInteraction)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SetAllowFocusOnInteraction(&self, value: bool) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IFlyoutBase2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetAllowFocusOnInteraction)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetAllowFocusOnInteraction)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn LightDismissOverlayMode(&self) -> ::windows::core::Result<super::LightDismissOverlayMode> {
         let this = &::windows::core::Interface::cast::<IFlyoutBase2>(self)?;
         unsafe {
             let mut result__: super::LightDismissOverlayMode = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).LightDismissOverlayMode)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::LightDismissOverlayMode>(result__)
+            (::windows::core::Interface::vtable(this).LightDismissOverlayMode)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::LightDismissOverlayMode>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SetLightDismissOverlayMode(&self, value: super::LightDismissOverlayMode) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IFlyoutBase2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetLightDismissOverlayMode)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetLightDismissOverlayMode)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn AllowFocusWhenDisabled(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IFlyoutBase2>(self)?;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AllowFocusWhenDisabled)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).AllowFocusWhenDisabled)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SetAllowFocusWhenDisabled(&self, value: bool) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IFlyoutBase2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetAllowFocusWhenDisabled)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetAllowFocusWhenDisabled)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn ElementSoundMode(&self) -> ::windows::core::Result<super::super::ElementSoundMode> {
         let this = &::windows::core::Interface::cast::<IFlyoutBase2>(self)?;
         unsafe {
             let mut result__: super::super::ElementSoundMode = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ElementSoundMode)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ElementSoundMode>(result__)
+            (::windows::core::Interface::vtable(this).ElementSoundMode)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::ElementSoundMode>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SetElementSoundMode(&self, value: super::super::ElementSoundMode) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IFlyoutBase2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetElementSoundMode)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetElementSoundMode)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -4199,53 +4199,53 @@ impl FlyoutBase {
         let this = &::windows::core::Interface::cast::<IFlyoutBase2>(self)?;
         unsafe {
             let mut result__: super::super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Closing)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).Closing)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveClosing<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IFlyoutBase2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveClosing)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveClosing)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn OverlayInputPassThroughElement(&self) -> ::windows::core::Result<super::super::DependencyObject> {
         let this = &::windows::core::Interface::cast::<IFlyoutBase3>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).OverlayInputPassThroughElement)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyObject>(result__)
+            (::windows::core::Interface::vtable(this).OverlayInputPassThroughElement)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyObject>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SetOverlayInputPassThroughElement<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyObject>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IFlyoutBase3>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetOverlayInputPassThroughElement)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetOverlayInputPassThroughElement)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"UI_Xaml_Input\"`*"]
     #[cfg(feature = "UI_Xaml_Input")]
     pub fn TryInvokeKeyboardAccelerator<'a, Param0: ::windows::core::IntoParam<'a, super::super::Input::ProcessKeyboardAcceleratorEventArgs>>(&self, args: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IFlyoutBase4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).TryInvokeKeyboardAccelerator)(::core::mem::transmute_copy(this), args.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).TryInvokeKeyboardAccelerator)(::windows::core::Interface::as_raw(this), args.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn ShowMode(&self) -> ::windows::core::Result<FlyoutShowMode> {
         let this = &::windows::core::Interface::cast::<IFlyoutBase5>(self)?;
         unsafe {
             let mut result__: FlyoutShowMode = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ShowMode)(::core::mem::transmute_copy(this), &mut result__).from_abi::<FlyoutShowMode>(result__)
+            (::windows::core::Interface::vtable(this).ShowMode)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<FlyoutShowMode>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SetShowMode(&self, value: FlyoutShowMode) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IFlyoutBase5>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetShowMode)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetShowMode)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn InputDevicePrefersPrimaryCommands(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IFlyoutBase5>(self)?;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).InputDevicePrefersPrimaryCommands)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).InputDevicePrefersPrimaryCommands)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
@@ -4253,46 +4253,46 @@ impl FlyoutBase {
         let this = &::windows::core::Interface::cast::<IFlyoutBase5>(self)?;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AreOpenCloseAnimationsEnabled)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).AreOpenCloseAnimationsEnabled)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SetAreOpenCloseAnimationsEnabled(&self, value: bool) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IFlyoutBase5>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetAreOpenCloseAnimationsEnabled)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetAreOpenCloseAnimationsEnabled)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn IsOpen(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IFlyoutBase5>(self)?;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsOpen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsOpen)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn ShowAt2<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyObject>, Param1: ::windows::core::IntoParam<'a, FlyoutShowOptions>>(&self, placementtarget: Param0, showoptions: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IFlyoutBase5>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).ShowAt)(::core::mem::transmute_copy(this), placementtarget.into_param().abi(), showoptions.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).ShowAt)(::windows::core::Interface::as_raw(this), placementtarget.into_param().abi(), showoptions.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn ShouldConstrainToRootBounds(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IFlyoutBase6>(self)?;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ShouldConstrainToRootBounds)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).ShouldConstrainToRootBounds)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SetShouldConstrainToRootBounds(&self, value: bool) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IFlyoutBase6>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetShouldConstrainToRootBounds)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetShouldConstrainToRootBounds)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn IsConstrainedToRootBounds(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IFlyoutBase6>(self)?;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsConstrainedToRootBounds)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsConstrainedToRootBounds)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
@@ -4300,118 +4300,118 @@ impl FlyoutBase {
         let this = &::windows::core::Interface::cast::<IFlyoutBase6>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).XamlRoot)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::XamlRoot>(result__)
+            (::windows::core::Interface::vtable(this).XamlRoot)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::XamlRoot>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SetXamlRoot<'a, Param0: ::windows::core::IntoParam<'a, super::super::XamlRoot>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IFlyoutBase6>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetXamlRoot)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetXamlRoot)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn PlacementProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IFlyoutBaseStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PlacementProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).PlacementProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn AttachedFlyoutProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IFlyoutBaseStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AttachedFlyoutProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).AttachedFlyoutProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn GetAttachedFlyout<'a, Param0: ::windows::core::IntoParam<'a, super::super::FrameworkElement>>(element: Param0) -> ::windows::core::Result<FlyoutBase> {
         Self::IFlyoutBaseStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetAttachedFlyout)(::core::mem::transmute_copy(this), element.into_param().abi(), &mut result__).from_abi::<FlyoutBase>(result__)
+            (::windows::core::Interface::vtable(this).GetAttachedFlyout)(::windows::core::Interface::as_raw(this), element.into_param().abi(), &mut result__).from_abi::<FlyoutBase>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SetAttachedFlyout<'a, Param0: ::windows::core::IntoParam<'a, super::super::FrameworkElement>, Param1: ::windows::core::IntoParam<'a, FlyoutBase>>(element: Param0, value: Param1) -> ::windows::core::Result<()> {
-        Self::IFlyoutBaseStatics(|this| unsafe { (::windows::core::Interface::vtable(this).SetAttachedFlyout)(::core::mem::transmute_copy(this), element.into_param().abi(), value.into_param().abi()).ok() })
+        Self::IFlyoutBaseStatics(|this| unsafe { (::windows::core::Interface::vtable(this).SetAttachedFlyout)(::windows::core::Interface::as_raw(this), element.into_param().abi(), value.into_param().abi()).ok() })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn ShowAttachedFlyout<'a, Param0: ::windows::core::IntoParam<'a, super::super::FrameworkElement>>(flyoutowner: Param0) -> ::windows::core::Result<()> {
-        Self::IFlyoutBaseStatics(|this| unsafe { (::windows::core::Interface::vtable(this).ShowAttachedFlyout)(::core::mem::transmute_copy(this), flyoutowner.into_param().abi()).ok() })
+        Self::IFlyoutBaseStatics(|this| unsafe { (::windows::core::Interface::vtable(this).ShowAttachedFlyout)(::windows::core::Interface::as_raw(this), flyoutowner.into_param().abi()).ok() })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn AllowFocusOnInteractionProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IFlyoutBaseStatics2(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AllowFocusOnInteractionProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).AllowFocusOnInteractionProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn LightDismissOverlayModeProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IFlyoutBaseStatics2(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).LightDismissOverlayModeProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).LightDismissOverlayModeProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn AllowFocusWhenDisabledProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IFlyoutBaseStatics2(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AllowFocusWhenDisabledProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).AllowFocusWhenDisabledProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn ElementSoundModeProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IFlyoutBaseStatics2(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ElementSoundModeProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).ElementSoundModeProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn OverlayInputPassThroughElementProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IFlyoutBaseStatics3(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).OverlayInputPassThroughElementProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).OverlayInputPassThroughElementProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn TargetProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IFlyoutBaseStatics5(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TargetProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).TargetProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn ShowModeProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IFlyoutBaseStatics5(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ShowModeProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).ShowModeProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn InputDevicePrefersPrimaryCommandsProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IFlyoutBaseStatics5(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).InputDevicePrefersPrimaryCommandsProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).InputDevicePrefersPrimaryCommandsProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn AreOpenCloseAnimationsEnabledProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IFlyoutBaseStatics5(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AreOpenCloseAnimationsEnabledProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).AreOpenCloseAnimationsEnabledProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn IsOpenProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IFlyoutBaseStatics5(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsOpenProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).IsOpenProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn ShouldConstrainToRootBoundsProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IFlyoutBaseStatics6(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ShouldConstrainToRootBoundsProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).ShouldConstrainToRootBoundsProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc(hidden)]
@@ -4541,13 +4541,13 @@ impl FlyoutBaseClosingEventArgs {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Cancel)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).Cancel)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SetCancel(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetCancel)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCancel)(::windows::core::Interface::as_raw(this), value).ok() }
     }
 }
 impl ::core::clone::Clone for FlyoutBaseClosingEventArgs {
@@ -4714,14 +4714,14 @@ impl FlyoutShowOptions {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Position)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::IReference<super::super::super::super::Foundation::Point>>(result__)
+            (::windows::core::Interface::vtable(this).Position)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::super::Foundation::IReference<super::super::super::super::Foundation::Point>>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetPosition<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::IReference<super::super::super::super::Foundation::Point>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetPosition)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPosition)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -4729,46 +4729,46 @@ impl FlyoutShowOptions {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ExclusionRect)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::IReference<super::super::super::super::Foundation::Rect>>(result__)
+            (::windows::core::Interface::vtable(this).ExclusionRect)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::super::Foundation::IReference<super::super::super::super::Foundation::Rect>>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetExclusionRect<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::IReference<super::super::super::super::Foundation::Rect>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetExclusionRect)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetExclusionRect)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn ShowMode(&self) -> ::windows::core::Result<FlyoutShowMode> {
         let this = self;
         unsafe {
             let mut result__: FlyoutShowMode = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ShowMode)(::core::mem::transmute_copy(this), &mut result__).from_abi::<FlyoutShowMode>(result__)
+            (::windows::core::Interface::vtable(this).ShowMode)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<FlyoutShowMode>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SetShowMode(&self, value: FlyoutShowMode) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetShowMode)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetShowMode)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn Placement(&self) -> ::windows::core::Result<FlyoutPlacementMode> {
         let this = self;
         unsafe {
             let mut result__: FlyoutPlacementMode = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Placement)(::core::mem::transmute_copy(this), &mut result__).from_abi::<FlyoutPlacementMode>(result__)
+            (::windows::core::Interface::vtable(this).Placement)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<FlyoutPlacementMode>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SetPlacement(&self, value: FlyoutPlacementMode) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetPlacement)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPlacement)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn new() -> ::windows::core::Result<FlyoutShowOptions> {
         Self::IFlyoutShowOptionsFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<FlyoutShowOptions>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<FlyoutShowOptions>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
@@ -4776,7 +4776,7 @@ impl FlyoutShowOptions {
         Self::IFlyoutShowOptionsFactory(|this| unsafe {
             let (derived__, base__) = ::windows::core::Compose::compose(compose);
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<FlyoutShowOptions>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<FlyoutShowOptions>(result__)
         })
     }
     #[doc(hidden)]
@@ -4937,7 +4937,7 @@ impl GeneratorPositionHelper {
     pub fn FromIndexAndOffset(index: i32, offset: i32) -> ::windows::core::Result<GeneratorPosition> {
         Self::IGeneratorPositionHelperStatics(|this| unsafe {
             let mut result__: GeneratorPosition = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FromIndexAndOffset)(::core::mem::transmute_copy(this), index, offset, &mut result__).from_abi::<GeneratorPosition>(result__)
+            (::windows::core::Interface::vtable(this).FromIndexAndOffset)(::windows::core::Interface::as_raw(this), index, offset, &mut result__).from_abi::<GeneratorPosition>(result__)
         })
     }
     #[doc(hidden)]
@@ -5027,13 +5027,13 @@ impl GridViewItemPresenter {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SelectionCheckMarkVisualEnabled)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).SelectionCheckMarkVisualEnabled)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SetSelectionCheckMarkVisualEnabled(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetSelectionCheckMarkVisualEnabled)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSelectionCheckMarkVisualEnabled)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"UI_Xaml_Media\"`*"]
     #[cfg(feature = "UI_Xaml_Media")]
@@ -5041,14 +5041,14 @@ impl GridViewItemPresenter {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CheckHintBrush)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Media::Brush>(result__)
+            (::windows::core::Interface::vtable(this).CheckHintBrush)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Media::Brush>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"UI_Xaml_Media\"`*"]
     #[cfg(feature = "UI_Xaml_Media")]
     pub fn SetCheckHintBrush<'a, Param0: ::windows::core::IntoParam<'a, super::super::Media::Brush>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetCheckHintBrush)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCheckHintBrush)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"UI_Xaml_Media\"`*"]
     #[cfg(feature = "UI_Xaml_Media")]
@@ -5056,14 +5056,14 @@ impl GridViewItemPresenter {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CheckSelectingBrush)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Media::Brush>(result__)
+            (::windows::core::Interface::vtable(this).CheckSelectingBrush)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Media::Brush>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"UI_Xaml_Media\"`*"]
     #[cfg(feature = "UI_Xaml_Media")]
     pub fn SetCheckSelectingBrush<'a, Param0: ::windows::core::IntoParam<'a, super::super::Media::Brush>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetCheckSelectingBrush)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCheckSelectingBrush)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"UI_Xaml_Media\"`*"]
     #[cfg(feature = "UI_Xaml_Media")]
@@ -5071,14 +5071,14 @@ impl GridViewItemPresenter {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CheckBrush)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Media::Brush>(result__)
+            (::windows::core::Interface::vtable(this).CheckBrush)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Media::Brush>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"UI_Xaml_Media\"`*"]
     #[cfg(feature = "UI_Xaml_Media")]
     pub fn SetCheckBrush<'a, Param0: ::windows::core::IntoParam<'a, super::super::Media::Brush>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetCheckBrush)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCheckBrush)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"UI_Xaml_Media\"`*"]
     #[cfg(feature = "UI_Xaml_Media")]
@@ -5086,14 +5086,14 @@ impl GridViewItemPresenter {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DragBackground)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Media::Brush>(result__)
+            (::windows::core::Interface::vtable(this).DragBackground)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Media::Brush>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"UI_Xaml_Media\"`*"]
     #[cfg(feature = "UI_Xaml_Media")]
     pub fn SetDragBackground<'a, Param0: ::windows::core::IntoParam<'a, super::super::Media::Brush>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetDragBackground)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDragBackground)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"UI_Xaml_Media\"`*"]
     #[cfg(feature = "UI_Xaml_Media")]
@@ -5101,14 +5101,14 @@ impl GridViewItemPresenter {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DragForeground)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Media::Brush>(result__)
+            (::windows::core::Interface::vtable(this).DragForeground)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Media::Brush>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"UI_Xaml_Media\"`*"]
     #[cfg(feature = "UI_Xaml_Media")]
     pub fn SetDragForeground<'a, Param0: ::windows::core::IntoParam<'a, super::super::Media::Brush>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetDragForeground)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDragForeground)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"UI_Xaml_Media\"`*"]
     #[cfg(feature = "UI_Xaml_Media")]
@@ -5116,14 +5116,14 @@ impl GridViewItemPresenter {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FocusBorderBrush)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Media::Brush>(result__)
+            (::windows::core::Interface::vtable(this).FocusBorderBrush)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Media::Brush>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"UI_Xaml_Media\"`*"]
     #[cfg(feature = "UI_Xaml_Media")]
     pub fn SetFocusBorderBrush<'a, Param0: ::windows::core::IntoParam<'a, super::super::Media::Brush>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetFocusBorderBrush)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetFocusBorderBrush)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"UI_Xaml_Media\"`*"]
     #[cfg(feature = "UI_Xaml_Media")]
@@ -5131,14 +5131,14 @@ impl GridViewItemPresenter {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PlaceholderBackground)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Media::Brush>(result__)
+            (::windows::core::Interface::vtable(this).PlaceholderBackground)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Media::Brush>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"UI_Xaml_Media\"`*"]
     #[cfg(feature = "UI_Xaml_Media")]
     pub fn SetPlaceholderBackground<'a, Param0: ::windows::core::IntoParam<'a, super::super::Media::Brush>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetPlaceholderBackground)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPlaceholderBackground)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"UI_Xaml_Media\"`*"]
     #[cfg(feature = "UI_Xaml_Media")]
@@ -5146,14 +5146,14 @@ impl GridViewItemPresenter {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PointerOverBackground)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Media::Brush>(result__)
+            (::windows::core::Interface::vtable(this).PointerOverBackground)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Media::Brush>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"UI_Xaml_Media\"`*"]
     #[cfg(feature = "UI_Xaml_Media")]
     pub fn SetPointerOverBackground<'a, Param0: ::windows::core::IntoParam<'a, super::super::Media::Brush>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetPointerOverBackground)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPointerOverBackground)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"UI_Xaml_Media\"`*"]
     #[cfg(feature = "UI_Xaml_Media")]
@@ -5161,14 +5161,14 @@ impl GridViewItemPresenter {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SelectedBackground)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Media::Brush>(result__)
+            (::windows::core::Interface::vtable(this).SelectedBackground)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Media::Brush>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"UI_Xaml_Media\"`*"]
     #[cfg(feature = "UI_Xaml_Media")]
     pub fn SetSelectedBackground<'a, Param0: ::windows::core::IntoParam<'a, super::super::Media::Brush>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetSelectedBackground)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSelectedBackground)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"UI_Xaml_Media\"`*"]
     #[cfg(feature = "UI_Xaml_Media")]
@@ -5176,14 +5176,14 @@ impl GridViewItemPresenter {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SelectedForeground)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Media::Brush>(result__)
+            (::windows::core::Interface::vtable(this).SelectedForeground)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Media::Brush>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"UI_Xaml_Media\"`*"]
     #[cfg(feature = "UI_Xaml_Media")]
     pub fn SetSelectedForeground<'a, Param0: ::windows::core::IntoParam<'a, super::super::Media::Brush>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetSelectedForeground)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSelectedForeground)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"UI_Xaml_Media\"`*"]
     #[cfg(feature = "UI_Xaml_Media")]
@@ -5191,14 +5191,14 @@ impl GridViewItemPresenter {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SelectedPointerOverBackground)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Media::Brush>(result__)
+            (::windows::core::Interface::vtable(this).SelectedPointerOverBackground)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Media::Brush>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"UI_Xaml_Media\"`*"]
     #[cfg(feature = "UI_Xaml_Media")]
     pub fn SetSelectedPointerOverBackground<'a, Param0: ::windows::core::IntoParam<'a, super::super::Media::Brush>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetSelectedPointerOverBackground)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSelectedPointerOverBackground)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"UI_Xaml_Media\"`*"]
     #[cfg(feature = "UI_Xaml_Media")]
@@ -5206,66 +5206,66 @@ impl GridViewItemPresenter {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SelectedPointerOverBorderBrush)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Media::Brush>(result__)
+            (::windows::core::Interface::vtable(this).SelectedPointerOverBorderBrush)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Media::Brush>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"UI_Xaml_Media\"`*"]
     #[cfg(feature = "UI_Xaml_Media")]
     pub fn SetSelectedPointerOverBorderBrush<'a, Param0: ::windows::core::IntoParam<'a, super::super::Media::Brush>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetSelectedPointerOverBorderBrush)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSelectedPointerOverBorderBrush)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SelectedBorderThickness(&self) -> ::windows::core::Result<super::super::Thickness> {
         let this = self;
         unsafe {
             let mut result__: super::super::Thickness = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SelectedBorderThickness)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Thickness>(result__)
+            (::windows::core::Interface::vtable(this).SelectedBorderThickness)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Thickness>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SetSelectedBorderThickness<'a, Param0: ::windows::core::IntoParam<'a, super::super::Thickness>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetSelectedBorderThickness)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSelectedBorderThickness)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn DisabledOpacity(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DisabledOpacity)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).DisabledOpacity)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SetDisabledOpacity(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetDisabledOpacity)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDisabledOpacity)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn DragOpacity(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DragOpacity)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).DragOpacity)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SetDragOpacity(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetDragOpacity)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDragOpacity)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn ReorderHintOffset(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ReorderHintOffset)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).ReorderHintOffset)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SetReorderHintOffset(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetReorderHintOffset)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetReorderHintOffset)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
@@ -5273,14 +5273,14 @@ impl GridViewItemPresenter {
         let this = self;
         unsafe {
             let mut result__: super::super::HorizontalAlignment = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GridViewItemPresenterHorizontalContentAlignment)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::HorizontalAlignment>(result__)
+            (::windows::core::Interface::vtable(this).GridViewItemPresenterHorizontalContentAlignment)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::HorizontalAlignment>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn SetGridViewItemPresenterHorizontalContentAlignment(&self, value: super::super::HorizontalAlignment) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetGridViewItemPresenterHorizontalContentAlignment)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetGridViewItemPresenterHorizontalContentAlignment)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
@@ -5288,14 +5288,14 @@ impl GridViewItemPresenter {
         let this = self;
         unsafe {
             let mut result__: super::super::VerticalAlignment = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GridViewItemPresenterVerticalContentAlignment)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::VerticalAlignment>(result__)
+            (::windows::core::Interface::vtable(this).GridViewItemPresenterVerticalContentAlignment)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::VerticalAlignment>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn SetGridViewItemPresenterVerticalContentAlignment(&self, value: super::super::VerticalAlignment) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetGridViewItemPresenterVerticalContentAlignment)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetGridViewItemPresenterVerticalContentAlignment)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
@@ -5303,46 +5303,46 @@ impl GridViewItemPresenter {
         let this = self;
         unsafe {
             let mut result__: super::super::Thickness = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GridViewItemPresenterPadding)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Thickness>(result__)
+            (::windows::core::Interface::vtable(this).GridViewItemPresenterPadding)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Thickness>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn SetGridViewItemPresenterPadding<'a, Param0: ::windows::core::IntoParam<'a, super::super::Thickness>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetGridViewItemPresenterPadding)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetGridViewItemPresenterPadding)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn PointerOverBackgroundMargin(&self) -> ::windows::core::Result<super::super::Thickness> {
         let this = self;
         unsafe {
             let mut result__: super::super::Thickness = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PointerOverBackgroundMargin)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Thickness>(result__)
+            (::windows::core::Interface::vtable(this).PointerOverBackgroundMargin)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Thickness>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SetPointerOverBackgroundMargin<'a, Param0: ::windows::core::IntoParam<'a, super::super::Thickness>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetPointerOverBackgroundMargin)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPointerOverBackgroundMargin)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn ContentMargin(&self) -> ::windows::core::Result<super::super::Thickness> {
         let this = self;
         unsafe {
             let mut result__: super::super::Thickness = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ContentMargin)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Thickness>(result__)
+            (::windows::core::Interface::vtable(this).ContentMargin)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Thickness>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SetContentMargin<'a, Param0: ::windows::core::IntoParam<'a, super::super::Thickness>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetContentMargin)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetContentMargin)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn new() -> ::windows::core::Result<GridViewItemPresenter> {
         Self::IGridViewItemPresenterFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<GridViewItemPresenter>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<GridViewItemPresenter>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
@@ -5350,126 +5350,126 @@ impl GridViewItemPresenter {
         Self::IGridViewItemPresenterFactory(|this| unsafe {
             let (derived__, base__) = ::windows::core::Compose::compose(compose);
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<GridViewItemPresenter>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<GridViewItemPresenter>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SelectionCheckMarkVisualEnabledProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IGridViewItemPresenterStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SelectionCheckMarkVisualEnabledProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).SelectionCheckMarkVisualEnabledProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn CheckHintBrushProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IGridViewItemPresenterStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CheckHintBrushProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).CheckHintBrushProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn CheckSelectingBrushProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IGridViewItemPresenterStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CheckSelectingBrushProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).CheckSelectingBrushProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn CheckBrushProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IGridViewItemPresenterStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CheckBrushProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).CheckBrushProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn DragBackgroundProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IGridViewItemPresenterStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DragBackgroundProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).DragBackgroundProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn DragForegroundProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IGridViewItemPresenterStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DragForegroundProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).DragForegroundProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn FocusBorderBrushProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IGridViewItemPresenterStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FocusBorderBrushProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).FocusBorderBrushProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn PlaceholderBackgroundProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IGridViewItemPresenterStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PlaceholderBackgroundProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).PlaceholderBackgroundProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn PointerOverBackgroundProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IGridViewItemPresenterStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PointerOverBackgroundProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).PointerOverBackgroundProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SelectedBackgroundProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IGridViewItemPresenterStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SelectedBackgroundProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).SelectedBackgroundProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SelectedForegroundProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IGridViewItemPresenterStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SelectedForegroundProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).SelectedForegroundProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SelectedPointerOverBackgroundProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IGridViewItemPresenterStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SelectedPointerOverBackgroundProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).SelectedPointerOverBackgroundProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SelectedPointerOverBorderBrushProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IGridViewItemPresenterStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SelectedPointerOverBorderBrushProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).SelectedPointerOverBorderBrushProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SelectedBorderThicknessProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IGridViewItemPresenterStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SelectedBorderThicknessProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).SelectedBorderThicknessProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn DisabledOpacityProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IGridViewItemPresenterStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DisabledOpacityProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).DisabledOpacityProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn DragOpacityProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IGridViewItemPresenterStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DragOpacityProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).DragOpacityProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn ReorderHintOffsetProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IGridViewItemPresenterStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ReorderHintOffsetProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).ReorderHintOffsetProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"deprecated\"`*"]
@@ -5477,7 +5477,7 @@ impl GridViewItemPresenter {
     pub fn GridViewItemPresenterHorizontalContentAlignmentProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IGridViewItemPresenterStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GridViewItemPresenterHorizontalContentAlignmentProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).GridViewItemPresenterHorizontalContentAlignmentProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"deprecated\"`*"]
@@ -5485,7 +5485,7 @@ impl GridViewItemPresenter {
     pub fn GridViewItemPresenterVerticalContentAlignmentProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IGridViewItemPresenterStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GridViewItemPresenterVerticalContentAlignmentProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).GridViewItemPresenterVerticalContentAlignmentProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"deprecated\"`*"]
@@ -5493,21 +5493,21 @@ impl GridViewItemPresenter {
     pub fn GridViewItemPresenterPaddingProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IGridViewItemPresenterStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GridViewItemPresenterPaddingProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).GridViewItemPresenterPaddingProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn PointerOverBackgroundMarginProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IGridViewItemPresenterStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PointerOverBackgroundMarginProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).PointerOverBackgroundMarginProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn ContentMarginProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IGridViewItemPresenterStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ContentMarginProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).ContentMarginProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc(hidden)]
@@ -5734,7 +5734,7 @@ impl GridViewItemTemplateSettings {
         let this = self;
         unsafe {
             let mut result__: i32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DragItemsCount)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            (::windows::core::Interface::vtable(this).DragItemsCount)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<i32>(result__)
         }
     }
 }
@@ -8404,7 +8404,7 @@ impl IScrollSnapPointsInfo {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AreHorizontalSnapPointsRegular)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).AreHorizontalSnapPointsRegular)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
@@ -8412,7 +8412,7 @@ impl IScrollSnapPointsInfo {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AreVerticalSnapPointsRegular)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).AreVerticalSnapPointsRegular)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"Foundation\"`*"]
@@ -8421,14 +8421,14 @@ impl IScrollSnapPointsInfo {
         let this = self;
         unsafe {
             let mut result__: super::super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).HorizontalSnapPointsChanged)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).HorizontalSnapPointsChanged)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveHorizontalSnapPointsChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveHorizontalSnapPointsChanged)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveHorizontalSnapPointsChanged)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -8436,14 +8436,14 @@ impl IScrollSnapPointsInfo {
         let this = self;
         unsafe {
             let mut result__: super::super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).VerticalSnapPointsChanged)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).VerticalSnapPointsChanged)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveVerticalSnapPointsChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveVerticalSnapPointsChanged)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveVerticalSnapPointsChanged)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -8451,7 +8451,7 @@ impl IScrollSnapPointsInfo {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetIrregularSnapPoints)(::core::mem::transmute_copy(this), orientation, alignment, &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<f32>>(result__)
+            (::windows::core::Interface::vtable(this).GetIrregularSnapPoints)(::windows::core::Interface::as_raw(this), orientation, alignment, &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<f32>>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
@@ -8459,7 +8459,7 @@ impl IScrollSnapPointsInfo {
         let this = self;
         unsafe {
             let mut result__: f32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetRegularSnapPoints)(::core::mem::transmute_copy(this), orientation, alignment, offset, &mut result__).from_abi::<f32>(result__)
+            (::windows::core::Interface::vtable(this).GetRegularSnapPoints)(::windows::core::Interface::as_raw(this), orientation, alignment, offset, &mut result__).from_abi::<f32>(result__)
         }
     }
 }
@@ -8928,7 +8928,7 @@ impl ItemsChangedEventArgs {
         let this = self;
         unsafe {
             let mut result__: i32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Action)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            (::windows::core::Interface::vtable(this).Action)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
@@ -8936,7 +8936,7 @@ impl ItemsChangedEventArgs {
         let this = self;
         unsafe {
             let mut result__: GeneratorPosition = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Position)(::core::mem::transmute_copy(this), &mut result__).from_abi::<GeneratorPosition>(result__)
+            (::windows::core::Interface::vtable(this).Position)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<GeneratorPosition>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
@@ -8944,7 +8944,7 @@ impl ItemsChangedEventArgs {
         let this = self;
         unsafe {
             let mut result__: GeneratorPosition = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).OldPosition)(::core::mem::transmute_copy(this), &mut result__).from_abi::<GeneratorPosition>(result__)
+            (::windows::core::Interface::vtable(this).OldPosition)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<GeneratorPosition>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
@@ -8952,7 +8952,7 @@ impl ItemsChangedEventArgs {
         let this = self;
         unsafe {
             let mut result__: i32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ItemCount)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            (::windows::core::Interface::vtable(this).ItemCount)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
@@ -8960,7 +8960,7 @@ impl ItemsChangedEventArgs {
         let this = self;
         unsafe {
             let mut result__: i32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ItemUICount)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            (::windows::core::Interface::vtable(this).ItemUICount)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<i32>(result__)
         }
     }
 }
@@ -9047,7 +9047,7 @@ impl ItemsChangedEventHandler {
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn Invoke<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, Param1: ::windows::core::IntoParam<'a, ItemsChangedEventArgs>>(&self, sender: Param0, e: Param1) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Invoke)(::core::mem::transmute_copy(this), sender.into_param().abi(), e.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Invoke)(::windows::core::Interface::as_raw(this), sender.into_param().abi(), e.into_param().abi()).ok() }
     }
 }
 #[repr(C)]
@@ -9138,14 +9138,14 @@ impl JumpListItemBackgroundConverter {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Enabled)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Media::Brush>(result__)
+            (::windows::core::Interface::vtable(this).Enabled)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Media::Brush>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"UI_Xaml_Media\"`*"]
     #[cfg(feature = "UI_Xaml_Media")]
     pub fn SetEnabled<'a, Param0: ::windows::core::IntoParam<'a, super::super::Media::Brush>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetEnabled)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetEnabled)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"UI_Xaml_Media\"`*"]
     #[cfg(feature = "UI_Xaml_Media")]
@@ -9153,27 +9153,27 @@ impl JumpListItemBackgroundConverter {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Disabled)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Media::Brush>(result__)
+            (::windows::core::Interface::vtable(this).Disabled)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Media::Brush>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"UI_Xaml_Media\"`*"]
     #[cfg(feature = "UI_Xaml_Media")]
     pub fn SetDisabled<'a, Param0: ::windows::core::IntoParam<'a, super::super::Media::Brush>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetDisabled)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDisabled)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn EnabledProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IJumpListItemBackgroundConverterStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).EnabledProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).EnabledProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn DisabledProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IJumpListItemBackgroundConverterStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DisabledProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).DisabledProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"UI_Xaml_Data\"`, `\"UI_Xaml_Interop\"`*"]
@@ -9182,7 +9182,7 @@ impl JumpListItemBackgroundConverter {
         let this = &::windows::core::Interface::cast::<super::super::Data::IValueConverter>(self)?;
         unsafe {
             let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Convert)(::core::mem::transmute_copy(this), value.into_param().abi(), targettype.into_param().abi(), parameter.into_param().abi(), language.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
+            (::windows::core::Interface::vtable(this).Convert)(::windows::core::Interface::as_raw(this), value.into_param().abi(), targettype.into_param().abi(), parameter.into_param().abi(), language.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"UI_Xaml_Data\"`, `\"UI_Xaml_Interop\"`*"]
@@ -9191,7 +9191,7 @@ impl JumpListItemBackgroundConverter {
         let this = &::windows::core::Interface::cast::<super::super::Data::IValueConverter>(self)?;
         unsafe {
             let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ConvertBack)(::core::mem::transmute_copy(this), value.into_param().abi(), targettype.into_param().abi(), parameter.into_param().abi(), language.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
+            (::windows::core::Interface::vtable(this).ConvertBack)(::windows::core::Interface::as_raw(this), value.into_param().abi(), targettype.into_param().abi(), parameter.into_param().abi(), language.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
     #[doc(hidden)]
@@ -9335,14 +9335,14 @@ impl JumpListItemForegroundConverter {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Enabled)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Media::Brush>(result__)
+            (::windows::core::Interface::vtable(this).Enabled)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Media::Brush>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"UI_Xaml_Media\"`*"]
     #[cfg(feature = "UI_Xaml_Media")]
     pub fn SetEnabled<'a, Param0: ::windows::core::IntoParam<'a, super::super::Media::Brush>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetEnabled)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetEnabled)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"UI_Xaml_Media\"`*"]
     #[cfg(feature = "UI_Xaml_Media")]
@@ -9350,27 +9350,27 @@ impl JumpListItemForegroundConverter {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Disabled)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Media::Brush>(result__)
+            (::windows::core::Interface::vtable(this).Disabled)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Media::Brush>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"UI_Xaml_Media\"`*"]
     #[cfg(feature = "UI_Xaml_Media")]
     pub fn SetDisabled<'a, Param0: ::windows::core::IntoParam<'a, super::super::Media::Brush>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetDisabled)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDisabled)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn EnabledProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IJumpListItemForegroundConverterStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).EnabledProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).EnabledProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn DisabledProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IJumpListItemForegroundConverterStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DisabledProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).DisabledProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"UI_Xaml_Data\"`, `\"UI_Xaml_Interop\"`*"]
@@ -9379,7 +9379,7 @@ impl JumpListItemForegroundConverter {
         let this = &::windows::core::Interface::cast::<super::super::Data::IValueConverter>(self)?;
         unsafe {
             let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Convert)(::core::mem::transmute_copy(this), value.into_param().abi(), targettype.into_param().abi(), parameter.into_param().abi(), language.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
+            (::windows::core::Interface::vtable(this).Convert)(::windows::core::Interface::as_raw(this), value.into_param().abi(), targettype.into_param().abi(), parameter.into_param().abi(), language.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"UI_Xaml_Data\"`, `\"UI_Xaml_Interop\"`*"]
@@ -9388,7 +9388,7 @@ impl JumpListItemForegroundConverter {
         let this = &::windows::core::Interface::cast::<super::super::Data::IValueConverter>(self)?;
         unsafe {
             let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ConvertBack)(::core::mem::transmute_copy(this), value.into_param().abi(), targettype.into_param().abi(), parameter.into_param().abi(), language.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
+            (::windows::core::Interface::vtable(this).ConvertBack)(::windows::core::Interface::as_raw(this), value.into_param().abi(), targettype.into_param().abi(), parameter.into_param().abi(), language.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
     #[doc(hidden)]
@@ -9523,7 +9523,7 @@ impl LayoutInformation {
     pub fn GetLayoutExceptionElement<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(dispatcher: Param0) -> ::windows::core::Result<super::super::UIElement> {
         Self::ILayoutInformationStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetLayoutExceptionElement)(::core::mem::transmute_copy(this), dispatcher.into_param().abi(), &mut result__).from_abi::<super::super::UIElement>(result__)
+            (::windows::core::Interface::vtable(this).GetLayoutExceptionElement)(::windows::core::Interface::as_raw(this), dispatcher.into_param().abi(), &mut result__).from_abi::<super::super::UIElement>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"Foundation\"`*"]
@@ -9531,7 +9531,7 @@ impl LayoutInformation {
     pub fn GetLayoutSlot<'a, Param0: ::windows::core::IntoParam<'a, super::super::FrameworkElement>>(element: Param0) -> ::windows::core::Result<super::super::super::super::Foundation::Rect> {
         Self::ILayoutInformationStatics(|this| unsafe {
             let mut result__: super::super::super::super::Foundation::Rect = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetLayoutSlot)(::core::mem::transmute_copy(this), element.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::Rect>(result__)
+            (::windows::core::Interface::vtable(this).GetLayoutSlot)(::windows::core::Interface::as_raw(this), element.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::Rect>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"Foundation\"`*"]
@@ -9539,7 +9539,7 @@ impl LayoutInformation {
     pub fn GetAvailableSize<'a, Param0: ::windows::core::IntoParam<'a, super::super::UIElement>>(element: Param0) -> ::windows::core::Result<super::super::super::super::Foundation::Size> {
         Self::ILayoutInformationStatics2(|this| unsafe {
             let mut result__: super::super::super::super::Foundation::Size = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetAvailableSize)(::core::mem::transmute_copy(this), element.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::Size>(result__)
+            (::windows::core::Interface::vtable(this).GetAvailableSize)(::windows::core::Interface::as_raw(this), element.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::Size>(result__)
         })
     }
     #[doc(hidden)]
@@ -9634,13 +9634,13 @@ impl ListViewItemPresenter {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SelectionCheckMarkVisualEnabled)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).SelectionCheckMarkVisualEnabled)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SetSelectionCheckMarkVisualEnabled(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetSelectionCheckMarkVisualEnabled)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSelectionCheckMarkVisualEnabled)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"UI_Xaml_Media\"`*"]
     #[cfg(feature = "UI_Xaml_Media")]
@@ -9648,14 +9648,14 @@ impl ListViewItemPresenter {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CheckHintBrush)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Media::Brush>(result__)
+            (::windows::core::Interface::vtable(this).CheckHintBrush)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Media::Brush>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"UI_Xaml_Media\"`*"]
     #[cfg(feature = "UI_Xaml_Media")]
     pub fn SetCheckHintBrush<'a, Param0: ::windows::core::IntoParam<'a, super::super::Media::Brush>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetCheckHintBrush)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCheckHintBrush)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"UI_Xaml_Media\"`*"]
     #[cfg(feature = "UI_Xaml_Media")]
@@ -9663,14 +9663,14 @@ impl ListViewItemPresenter {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CheckSelectingBrush)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Media::Brush>(result__)
+            (::windows::core::Interface::vtable(this).CheckSelectingBrush)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Media::Brush>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"UI_Xaml_Media\"`*"]
     #[cfg(feature = "UI_Xaml_Media")]
     pub fn SetCheckSelectingBrush<'a, Param0: ::windows::core::IntoParam<'a, super::super::Media::Brush>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetCheckSelectingBrush)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCheckSelectingBrush)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"UI_Xaml_Media\"`*"]
     #[cfg(feature = "UI_Xaml_Media")]
@@ -9678,14 +9678,14 @@ impl ListViewItemPresenter {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CheckBrush)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Media::Brush>(result__)
+            (::windows::core::Interface::vtable(this).CheckBrush)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Media::Brush>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"UI_Xaml_Media\"`*"]
     #[cfg(feature = "UI_Xaml_Media")]
     pub fn SetCheckBrush<'a, Param0: ::windows::core::IntoParam<'a, super::super::Media::Brush>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetCheckBrush)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCheckBrush)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"UI_Xaml_Media\"`*"]
     #[cfg(feature = "UI_Xaml_Media")]
@@ -9693,14 +9693,14 @@ impl ListViewItemPresenter {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DragBackground)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Media::Brush>(result__)
+            (::windows::core::Interface::vtable(this).DragBackground)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Media::Brush>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"UI_Xaml_Media\"`*"]
     #[cfg(feature = "UI_Xaml_Media")]
     pub fn SetDragBackground<'a, Param0: ::windows::core::IntoParam<'a, super::super::Media::Brush>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetDragBackground)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDragBackground)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"UI_Xaml_Media\"`*"]
     #[cfg(feature = "UI_Xaml_Media")]
@@ -9708,14 +9708,14 @@ impl ListViewItemPresenter {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DragForeground)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Media::Brush>(result__)
+            (::windows::core::Interface::vtable(this).DragForeground)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Media::Brush>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"UI_Xaml_Media\"`*"]
     #[cfg(feature = "UI_Xaml_Media")]
     pub fn SetDragForeground<'a, Param0: ::windows::core::IntoParam<'a, super::super::Media::Brush>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetDragForeground)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDragForeground)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"UI_Xaml_Media\"`*"]
     #[cfg(feature = "UI_Xaml_Media")]
@@ -9723,14 +9723,14 @@ impl ListViewItemPresenter {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FocusBorderBrush)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Media::Brush>(result__)
+            (::windows::core::Interface::vtable(this).FocusBorderBrush)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Media::Brush>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"UI_Xaml_Media\"`*"]
     #[cfg(feature = "UI_Xaml_Media")]
     pub fn SetFocusBorderBrush<'a, Param0: ::windows::core::IntoParam<'a, super::super::Media::Brush>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetFocusBorderBrush)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetFocusBorderBrush)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"UI_Xaml_Media\"`*"]
     #[cfg(feature = "UI_Xaml_Media")]
@@ -9738,14 +9738,14 @@ impl ListViewItemPresenter {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PlaceholderBackground)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Media::Brush>(result__)
+            (::windows::core::Interface::vtable(this).PlaceholderBackground)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Media::Brush>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"UI_Xaml_Media\"`*"]
     #[cfg(feature = "UI_Xaml_Media")]
     pub fn SetPlaceholderBackground<'a, Param0: ::windows::core::IntoParam<'a, super::super::Media::Brush>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetPlaceholderBackground)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPlaceholderBackground)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"UI_Xaml_Media\"`*"]
     #[cfg(feature = "UI_Xaml_Media")]
@@ -9753,14 +9753,14 @@ impl ListViewItemPresenter {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PointerOverBackground)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Media::Brush>(result__)
+            (::windows::core::Interface::vtable(this).PointerOverBackground)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Media::Brush>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"UI_Xaml_Media\"`*"]
     #[cfg(feature = "UI_Xaml_Media")]
     pub fn SetPointerOverBackground<'a, Param0: ::windows::core::IntoParam<'a, super::super::Media::Brush>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetPointerOverBackground)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPointerOverBackground)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"UI_Xaml_Media\"`*"]
     #[cfg(feature = "UI_Xaml_Media")]
@@ -9768,14 +9768,14 @@ impl ListViewItemPresenter {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SelectedBackground)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Media::Brush>(result__)
+            (::windows::core::Interface::vtable(this).SelectedBackground)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Media::Brush>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"UI_Xaml_Media\"`*"]
     #[cfg(feature = "UI_Xaml_Media")]
     pub fn SetSelectedBackground<'a, Param0: ::windows::core::IntoParam<'a, super::super::Media::Brush>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetSelectedBackground)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSelectedBackground)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"UI_Xaml_Media\"`*"]
     #[cfg(feature = "UI_Xaml_Media")]
@@ -9783,14 +9783,14 @@ impl ListViewItemPresenter {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SelectedForeground)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Media::Brush>(result__)
+            (::windows::core::Interface::vtable(this).SelectedForeground)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Media::Brush>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"UI_Xaml_Media\"`*"]
     #[cfg(feature = "UI_Xaml_Media")]
     pub fn SetSelectedForeground<'a, Param0: ::windows::core::IntoParam<'a, super::super::Media::Brush>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetSelectedForeground)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSelectedForeground)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"UI_Xaml_Media\"`*"]
     #[cfg(feature = "UI_Xaml_Media")]
@@ -9798,14 +9798,14 @@ impl ListViewItemPresenter {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SelectedPointerOverBackground)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Media::Brush>(result__)
+            (::windows::core::Interface::vtable(this).SelectedPointerOverBackground)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Media::Brush>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"UI_Xaml_Media\"`*"]
     #[cfg(feature = "UI_Xaml_Media")]
     pub fn SetSelectedPointerOverBackground<'a, Param0: ::windows::core::IntoParam<'a, super::super::Media::Brush>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetSelectedPointerOverBackground)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSelectedPointerOverBackground)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"UI_Xaml_Media\"`*"]
     #[cfg(feature = "UI_Xaml_Media")]
@@ -9813,66 +9813,66 @@ impl ListViewItemPresenter {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SelectedPointerOverBorderBrush)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Media::Brush>(result__)
+            (::windows::core::Interface::vtable(this).SelectedPointerOverBorderBrush)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Media::Brush>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"UI_Xaml_Media\"`*"]
     #[cfg(feature = "UI_Xaml_Media")]
     pub fn SetSelectedPointerOverBorderBrush<'a, Param0: ::windows::core::IntoParam<'a, super::super::Media::Brush>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetSelectedPointerOverBorderBrush)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSelectedPointerOverBorderBrush)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SelectedBorderThickness(&self) -> ::windows::core::Result<super::super::Thickness> {
         let this = self;
         unsafe {
             let mut result__: super::super::Thickness = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SelectedBorderThickness)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Thickness>(result__)
+            (::windows::core::Interface::vtable(this).SelectedBorderThickness)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Thickness>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SetSelectedBorderThickness<'a, Param0: ::windows::core::IntoParam<'a, super::super::Thickness>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetSelectedBorderThickness)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSelectedBorderThickness)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn DisabledOpacity(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DisabledOpacity)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).DisabledOpacity)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SetDisabledOpacity(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetDisabledOpacity)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDisabledOpacity)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn DragOpacity(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DragOpacity)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).DragOpacity)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SetDragOpacity(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetDragOpacity)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDragOpacity)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn ReorderHintOffset(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ReorderHintOffset)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).ReorderHintOffset)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SetReorderHintOffset(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetReorderHintOffset)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetReorderHintOffset)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
@@ -9880,14 +9880,14 @@ impl ListViewItemPresenter {
         let this = self;
         unsafe {
             let mut result__: super::super::HorizontalAlignment = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ListViewItemPresenterHorizontalContentAlignment)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::HorizontalAlignment>(result__)
+            (::windows::core::Interface::vtable(this).ListViewItemPresenterHorizontalContentAlignment)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::HorizontalAlignment>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn SetListViewItemPresenterHorizontalContentAlignment(&self, value: super::super::HorizontalAlignment) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetListViewItemPresenterHorizontalContentAlignment)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetListViewItemPresenterHorizontalContentAlignment)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
@@ -9895,14 +9895,14 @@ impl ListViewItemPresenter {
         let this = self;
         unsafe {
             let mut result__: super::super::VerticalAlignment = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ListViewItemPresenterVerticalContentAlignment)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::VerticalAlignment>(result__)
+            (::windows::core::Interface::vtable(this).ListViewItemPresenterVerticalContentAlignment)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::VerticalAlignment>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn SetListViewItemPresenterVerticalContentAlignment(&self, value: super::super::VerticalAlignment) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetListViewItemPresenterVerticalContentAlignment)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetListViewItemPresenterVerticalContentAlignment)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
@@ -9910,40 +9910,40 @@ impl ListViewItemPresenter {
         let this = self;
         unsafe {
             let mut result__: super::super::Thickness = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ListViewItemPresenterPadding)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Thickness>(result__)
+            (::windows::core::Interface::vtable(this).ListViewItemPresenterPadding)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Thickness>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn SetListViewItemPresenterPadding<'a, Param0: ::windows::core::IntoParam<'a, super::super::Thickness>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetListViewItemPresenterPadding)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetListViewItemPresenterPadding)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn PointerOverBackgroundMargin(&self) -> ::windows::core::Result<super::super::Thickness> {
         let this = self;
         unsafe {
             let mut result__: super::super::Thickness = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PointerOverBackgroundMargin)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Thickness>(result__)
+            (::windows::core::Interface::vtable(this).PointerOverBackgroundMargin)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Thickness>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SetPointerOverBackgroundMargin<'a, Param0: ::windows::core::IntoParam<'a, super::super::Thickness>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetPointerOverBackgroundMargin)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPointerOverBackgroundMargin)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn ContentMargin(&self) -> ::windows::core::Result<super::super::Thickness> {
         let this = self;
         unsafe {
             let mut result__: super::super::Thickness = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ContentMargin)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Thickness>(result__)
+            (::windows::core::Interface::vtable(this).ContentMargin)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Thickness>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SetContentMargin<'a, Param0: ::windows::core::IntoParam<'a, super::super::Thickness>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetContentMargin)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetContentMargin)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"UI_Xaml_Media\"`*"]
     #[cfg(feature = "UI_Xaml_Media")]
@@ -9951,14 +9951,14 @@ impl ListViewItemPresenter {
         let this = &::windows::core::Interface::cast::<IListViewItemPresenter2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SelectedPressedBackground)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Media::Brush>(result__)
+            (::windows::core::Interface::vtable(this).SelectedPressedBackground)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Media::Brush>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"UI_Xaml_Media\"`*"]
     #[cfg(feature = "UI_Xaml_Media")]
     pub fn SetSelectedPressedBackground<'a, Param0: ::windows::core::IntoParam<'a, super::super::Media::Brush>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IListViewItemPresenter2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetSelectedPressedBackground)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSelectedPressedBackground)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"UI_Xaml_Media\"`*"]
     #[cfg(feature = "UI_Xaml_Media")]
@@ -9966,14 +9966,14 @@ impl ListViewItemPresenter {
         let this = &::windows::core::Interface::cast::<IListViewItemPresenter2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PressedBackground)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Media::Brush>(result__)
+            (::windows::core::Interface::vtable(this).PressedBackground)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Media::Brush>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"UI_Xaml_Media\"`*"]
     #[cfg(feature = "UI_Xaml_Media")]
     pub fn SetPressedBackground<'a, Param0: ::windows::core::IntoParam<'a, super::super::Media::Brush>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IListViewItemPresenter2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetPressedBackground)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPressedBackground)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"UI_Xaml_Media\"`*"]
     #[cfg(feature = "UI_Xaml_Media")]
@@ -9981,14 +9981,14 @@ impl ListViewItemPresenter {
         let this = &::windows::core::Interface::cast::<IListViewItemPresenter2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CheckBoxBrush)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Media::Brush>(result__)
+            (::windows::core::Interface::vtable(this).CheckBoxBrush)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Media::Brush>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"UI_Xaml_Media\"`*"]
     #[cfg(feature = "UI_Xaml_Media")]
     pub fn SetCheckBoxBrush<'a, Param0: ::windows::core::IntoParam<'a, super::super::Media::Brush>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IListViewItemPresenter2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetCheckBoxBrush)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCheckBoxBrush)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"UI_Xaml_Media\"`*"]
     #[cfg(feature = "UI_Xaml_Media")]
@@ -9996,27 +9996,27 @@ impl ListViewItemPresenter {
         let this = &::windows::core::Interface::cast::<IListViewItemPresenter2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FocusSecondaryBorderBrush)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Media::Brush>(result__)
+            (::windows::core::Interface::vtable(this).FocusSecondaryBorderBrush)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Media::Brush>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"UI_Xaml_Media\"`*"]
     #[cfg(feature = "UI_Xaml_Media")]
     pub fn SetFocusSecondaryBorderBrush<'a, Param0: ::windows::core::IntoParam<'a, super::super::Media::Brush>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IListViewItemPresenter2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetFocusSecondaryBorderBrush)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetFocusSecondaryBorderBrush)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn CheckMode(&self) -> ::windows::core::Result<ListViewItemPresenterCheckMode> {
         let this = &::windows::core::Interface::cast::<IListViewItemPresenter2>(self)?;
         unsafe {
             let mut result__: ListViewItemPresenterCheckMode = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CheckMode)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ListViewItemPresenterCheckMode>(result__)
+            (::windows::core::Interface::vtable(this).CheckMode)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ListViewItemPresenterCheckMode>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SetCheckMode(&self, value: ListViewItemPresenterCheckMode) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IListViewItemPresenter2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetCheckMode)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCheckMode)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"UI_Xaml_Media\"`*"]
     #[cfg(feature = "UI_Xaml_Media")]
@@ -10024,14 +10024,14 @@ impl ListViewItemPresenter {
         let this = &::windows::core::Interface::cast::<IListViewItemPresenter2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PointerOverForeground)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Media::Brush>(result__)
+            (::windows::core::Interface::vtable(this).PointerOverForeground)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Media::Brush>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"UI_Xaml_Media\"`*"]
     #[cfg(feature = "UI_Xaml_Media")]
     pub fn SetPointerOverForeground<'a, Param0: ::windows::core::IntoParam<'a, super::super::Media::Brush>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IListViewItemPresenter2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetPointerOverForeground)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPointerOverForeground)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"UI_Xaml_Media\"`*"]
     #[cfg(feature = "UI_Xaml_Media")]
@@ -10039,14 +10039,14 @@ impl ListViewItemPresenter {
         let this = &::windows::core::Interface::cast::<IListViewItemPresenter3>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RevealBackground)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Media::Brush>(result__)
+            (::windows::core::Interface::vtable(this).RevealBackground)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Media::Brush>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"UI_Xaml_Media\"`*"]
     #[cfg(feature = "UI_Xaml_Media")]
     pub fn SetRevealBackground<'a, Param0: ::windows::core::IntoParam<'a, super::super::Media::Brush>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IListViewItemPresenter3>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetRevealBackground)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetRevealBackground)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"UI_Xaml_Media\"`*"]
     #[cfg(feature = "UI_Xaml_Media")]
@@ -10054,40 +10054,40 @@ impl ListViewItemPresenter {
         let this = &::windows::core::Interface::cast::<IListViewItemPresenter3>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RevealBorderBrush)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Media::Brush>(result__)
+            (::windows::core::Interface::vtable(this).RevealBorderBrush)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Media::Brush>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"UI_Xaml_Media\"`*"]
     #[cfg(feature = "UI_Xaml_Media")]
     pub fn SetRevealBorderBrush<'a, Param0: ::windows::core::IntoParam<'a, super::super::Media::Brush>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IListViewItemPresenter3>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetRevealBorderBrush)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetRevealBorderBrush)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn RevealBorderThickness(&self) -> ::windows::core::Result<super::super::Thickness> {
         let this = &::windows::core::Interface::cast::<IListViewItemPresenter3>(self)?;
         unsafe {
             let mut result__: super::super::Thickness = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RevealBorderThickness)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Thickness>(result__)
+            (::windows::core::Interface::vtable(this).RevealBorderThickness)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Thickness>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SetRevealBorderThickness<'a, Param0: ::windows::core::IntoParam<'a, super::super::Thickness>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IListViewItemPresenter3>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetRevealBorderThickness)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetRevealBorderThickness)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn RevealBackgroundShowsAboveContent(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IListViewItemPresenter3>(self)?;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RevealBackgroundShowsAboveContent)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).RevealBackgroundShowsAboveContent)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SetRevealBackgroundShowsAboveContent(&self, value: bool) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IListViewItemPresenter3>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetRevealBackgroundShowsAboveContent)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetRevealBackgroundShowsAboveContent)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"UI_Xaml_Media\"`*"]
     #[cfg(feature = "UI_Xaml_Media")]
@@ -10095,14 +10095,14 @@ impl ListViewItemPresenter {
         let this = &::windows::core::Interface::cast::<IListViewItemPresenter4>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SelectedDisabledBackground)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Media::Brush>(result__)
+            (::windows::core::Interface::vtable(this).SelectedDisabledBackground)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Media::Brush>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"UI_Xaml_Media\"`*"]
     #[cfg(feature = "UI_Xaml_Media")]
     pub fn SetSelectedDisabledBackground<'a, Param0: ::windows::core::IntoParam<'a, super::super::Media::Brush>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IListViewItemPresenter4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetSelectedDisabledBackground)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSelectedDisabledBackground)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"UI_Xaml_Media\"`*"]
     #[cfg(feature = "UI_Xaml_Media")]
@@ -10110,14 +10110,14 @@ impl ListViewItemPresenter {
         let this = &::windows::core::Interface::cast::<IListViewItemPresenter4>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CheckPressedBrush)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Media::Brush>(result__)
+            (::windows::core::Interface::vtable(this).CheckPressedBrush)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Media::Brush>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"UI_Xaml_Media\"`*"]
     #[cfg(feature = "UI_Xaml_Media")]
     pub fn SetCheckPressedBrush<'a, Param0: ::windows::core::IntoParam<'a, super::super::Media::Brush>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IListViewItemPresenter4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetCheckPressedBrush)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCheckPressedBrush)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"UI_Xaml_Media\"`*"]
     #[cfg(feature = "UI_Xaml_Media")]
@@ -10125,14 +10125,14 @@ impl ListViewItemPresenter {
         let this = &::windows::core::Interface::cast::<IListViewItemPresenter4>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CheckDisabledBrush)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Media::Brush>(result__)
+            (::windows::core::Interface::vtable(this).CheckDisabledBrush)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Media::Brush>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"UI_Xaml_Media\"`*"]
     #[cfg(feature = "UI_Xaml_Media")]
     pub fn SetCheckDisabledBrush<'a, Param0: ::windows::core::IntoParam<'a, super::super::Media::Brush>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IListViewItemPresenter4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetCheckDisabledBrush)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCheckDisabledBrush)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"UI_Xaml_Media\"`*"]
     #[cfg(feature = "UI_Xaml_Media")]
@@ -10140,14 +10140,14 @@ impl ListViewItemPresenter {
         let this = &::windows::core::Interface::cast::<IListViewItemPresenter4>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CheckBoxPointerOverBrush)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Media::Brush>(result__)
+            (::windows::core::Interface::vtable(this).CheckBoxPointerOverBrush)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Media::Brush>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"UI_Xaml_Media\"`*"]
     #[cfg(feature = "UI_Xaml_Media")]
     pub fn SetCheckBoxPointerOverBrush<'a, Param0: ::windows::core::IntoParam<'a, super::super::Media::Brush>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IListViewItemPresenter4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetCheckBoxPointerOverBrush)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCheckBoxPointerOverBrush)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"UI_Xaml_Media\"`*"]
     #[cfg(feature = "UI_Xaml_Media")]
@@ -10155,14 +10155,14 @@ impl ListViewItemPresenter {
         let this = &::windows::core::Interface::cast::<IListViewItemPresenter4>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CheckBoxPressedBrush)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Media::Brush>(result__)
+            (::windows::core::Interface::vtable(this).CheckBoxPressedBrush)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Media::Brush>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"UI_Xaml_Media\"`*"]
     #[cfg(feature = "UI_Xaml_Media")]
     pub fn SetCheckBoxPressedBrush<'a, Param0: ::windows::core::IntoParam<'a, super::super::Media::Brush>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IListViewItemPresenter4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetCheckBoxPressedBrush)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCheckBoxPressedBrush)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"UI_Xaml_Media\"`*"]
     #[cfg(feature = "UI_Xaml_Media")]
@@ -10170,14 +10170,14 @@ impl ListViewItemPresenter {
         let this = &::windows::core::Interface::cast::<IListViewItemPresenter4>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CheckBoxDisabledBrush)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Media::Brush>(result__)
+            (::windows::core::Interface::vtable(this).CheckBoxDisabledBrush)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Media::Brush>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"UI_Xaml_Media\"`*"]
     #[cfg(feature = "UI_Xaml_Media")]
     pub fn SetCheckBoxDisabledBrush<'a, Param0: ::windows::core::IntoParam<'a, super::super::Media::Brush>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IListViewItemPresenter4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetCheckBoxDisabledBrush)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCheckBoxDisabledBrush)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"UI_Xaml_Media\"`*"]
     #[cfg(feature = "UI_Xaml_Media")]
@@ -10185,14 +10185,14 @@ impl ListViewItemPresenter {
         let this = &::windows::core::Interface::cast::<IListViewItemPresenter4>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CheckBoxSelectedBrush)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Media::Brush>(result__)
+            (::windows::core::Interface::vtable(this).CheckBoxSelectedBrush)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Media::Brush>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"UI_Xaml_Media\"`*"]
     #[cfg(feature = "UI_Xaml_Media")]
     pub fn SetCheckBoxSelectedBrush<'a, Param0: ::windows::core::IntoParam<'a, super::super::Media::Brush>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IListViewItemPresenter4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetCheckBoxSelectedBrush)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCheckBoxSelectedBrush)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"UI_Xaml_Media\"`*"]
     #[cfg(feature = "UI_Xaml_Media")]
@@ -10200,14 +10200,14 @@ impl ListViewItemPresenter {
         let this = &::windows::core::Interface::cast::<IListViewItemPresenter4>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CheckBoxSelectedPointerOverBrush)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Media::Brush>(result__)
+            (::windows::core::Interface::vtable(this).CheckBoxSelectedPointerOverBrush)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Media::Brush>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"UI_Xaml_Media\"`*"]
     #[cfg(feature = "UI_Xaml_Media")]
     pub fn SetCheckBoxSelectedPointerOverBrush<'a, Param0: ::windows::core::IntoParam<'a, super::super::Media::Brush>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IListViewItemPresenter4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetCheckBoxSelectedPointerOverBrush)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCheckBoxSelectedPointerOverBrush)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"UI_Xaml_Media\"`*"]
     #[cfg(feature = "UI_Xaml_Media")]
@@ -10215,14 +10215,14 @@ impl ListViewItemPresenter {
         let this = &::windows::core::Interface::cast::<IListViewItemPresenter4>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CheckBoxSelectedPressedBrush)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Media::Brush>(result__)
+            (::windows::core::Interface::vtable(this).CheckBoxSelectedPressedBrush)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Media::Brush>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"UI_Xaml_Media\"`*"]
     #[cfg(feature = "UI_Xaml_Media")]
     pub fn SetCheckBoxSelectedPressedBrush<'a, Param0: ::windows::core::IntoParam<'a, super::super::Media::Brush>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IListViewItemPresenter4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetCheckBoxSelectedPressedBrush)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCheckBoxSelectedPressedBrush)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"UI_Xaml_Media\"`*"]
     #[cfg(feature = "UI_Xaml_Media")]
@@ -10230,14 +10230,14 @@ impl ListViewItemPresenter {
         let this = &::windows::core::Interface::cast::<IListViewItemPresenter4>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CheckBoxSelectedDisabledBrush)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Media::Brush>(result__)
+            (::windows::core::Interface::vtable(this).CheckBoxSelectedDisabledBrush)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Media::Brush>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"UI_Xaml_Media\"`*"]
     #[cfg(feature = "UI_Xaml_Media")]
     pub fn SetCheckBoxSelectedDisabledBrush<'a, Param0: ::windows::core::IntoParam<'a, super::super::Media::Brush>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IListViewItemPresenter4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetCheckBoxSelectedDisabledBrush)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCheckBoxSelectedDisabledBrush)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"UI_Xaml_Media\"`*"]
     #[cfg(feature = "UI_Xaml_Media")]
@@ -10245,14 +10245,14 @@ impl ListViewItemPresenter {
         let this = &::windows::core::Interface::cast::<IListViewItemPresenter4>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CheckBoxBorderBrush)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Media::Brush>(result__)
+            (::windows::core::Interface::vtable(this).CheckBoxBorderBrush)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Media::Brush>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"UI_Xaml_Media\"`*"]
     #[cfg(feature = "UI_Xaml_Media")]
     pub fn SetCheckBoxBorderBrush<'a, Param0: ::windows::core::IntoParam<'a, super::super::Media::Brush>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IListViewItemPresenter4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetCheckBoxBorderBrush)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCheckBoxBorderBrush)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"UI_Xaml_Media\"`*"]
     #[cfg(feature = "UI_Xaml_Media")]
@@ -10260,14 +10260,14 @@ impl ListViewItemPresenter {
         let this = &::windows::core::Interface::cast::<IListViewItemPresenter4>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CheckBoxPointerOverBorderBrush)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Media::Brush>(result__)
+            (::windows::core::Interface::vtable(this).CheckBoxPointerOverBorderBrush)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Media::Brush>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"UI_Xaml_Media\"`*"]
     #[cfg(feature = "UI_Xaml_Media")]
     pub fn SetCheckBoxPointerOverBorderBrush<'a, Param0: ::windows::core::IntoParam<'a, super::super::Media::Brush>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IListViewItemPresenter4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetCheckBoxPointerOverBorderBrush)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCheckBoxPointerOverBorderBrush)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"UI_Xaml_Media\"`*"]
     #[cfg(feature = "UI_Xaml_Media")]
@@ -10275,14 +10275,14 @@ impl ListViewItemPresenter {
         let this = &::windows::core::Interface::cast::<IListViewItemPresenter4>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CheckBoxPressedBorderBrush)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Media::Brush>(result__)
+            (::windows::core::Interface::vtable(this).CheckBoxPressedBorderBrush)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Media::Brush>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"UI_Xaml_Media\"`*"]
     #[cfg(feature = "UI_Xaml_Media")]
     pub fn SetCheckBoxPressedBorderBrush<'a, Param0: ::windows::core::IntoParam<'a, super::super::Media::Brush>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IListViewItemPresenter4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetCheckBoxPressedBorderBrush)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCheckBoxPressedBorderBrush)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"UI_Xaml_Media\"`*"]
     #[cfg(feature = "UI_Xaml_Media")]
@@ -10290,66 +10290,66 @@ impl ListViewItemPresenter {
         let this = &::windows::core::Interface::cast::<IListViewItemPresenter4>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CheckBoxDisabledBorderBrush)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Media::Brush>(result__)
+            (::windows::core::Interface::vtable(this).CheckBoxDisabledBorderBrush)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Media::Brush>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"UI_Xaml_Media\"`*"]
     #[cfg(feature = "UI_Xaml_Media")]
     pub fn SetCheckBoxDisabledBorderBrush<'a, Param0: ::windows::core::IntoParam<'a, super::super::Media::Brush>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IListViewItemPresenter4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetCheckBoxDisabledBorderBrush)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCheckBoxDisabledBorderBrush)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn CheckBoxCornerRadius(&self) -> ::windows::core::Result<super::super::CornerRadius> {
         let this = &::windows::core::Interface::cast::<IListViewItemPresenter4>(self)?;
         unsafe {
             let mut result__: super::super::CornerRadius = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CheckBoxCornerRadius)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::CornerRadius>(result__)
+            (::windows::core::Interface::vtable(this).CheckBoxCornerRadius)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::CornerRadius>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SetCheckBoxCornerRadius<'a, Param0: ::windows::core::IntoParam<'a, super::super::CornerRadius>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IListViewItemPresenter4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetCheckBoxCornerRadius)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCheckBoxCornerRadius)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SelectionIndicatorCornerRadius(&self) -> ::windows::core::Result<super::super::CornerRadius> {
         let this = &::windows::core::Interface::cast::<IListViewItemPresenter4>(self)?;
         unsafe {
             let mut result__: super::super::CornerRadius = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SelectionIndicatorCornerRadius)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::CornerRadius>(result__)
+            (::windows::core::Interface::vtable(this).SelectionIndicatorCornerRadius)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::CornerRadius>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SetSelectionIndicatorCornerRadius<'a, Param0: ::windows::core::IntoParam<'a, super::super::CornerRadius>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IListViewItemPresenter4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetSelectionIndicatorCornerRadius)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSelectionIndicatorCornerRadius)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SelectionIndicatorVisualEnabled(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IListViewItemPresenter4>(self)?;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SelectionIndicatorVisualEnabled)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).SelectionIndicatorVisualEnabled)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SetSelectionIndicatorVisualEnabled(&self, value: bool) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IListViewItemPresenter4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetSelectionIndicatorVisualEnabled)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSelectionIndicatorVisualEnabled)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SelectionIndicatorMode(&self) -> ::windows::core::Result<ListViewItemPresenterSelectionIndicatorMode> {
         let this = &::windows::core::Interface::cast::<IListViewItemPresenter4>(self)?;
         unsafe {
             let mut result__: ListViewItemPresenterSelectionIndicatorMode = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SelectionIndicatorMode)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ListViewItemPresenterSelectionIndicatorMode>(result__)
+            (::windows::core::Interface::vtable(this).SelectionIndicatorMode)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ListViewItemPresenterSelectionIndicatorMode>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SetSelectionIndicatorMode(&self, value: ListViewItemPresenterSelectionIndicatorMode) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IListViewItemPresenter4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetSelectionIndicatorMode)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSelectionIndicatorMode)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"UI_Xaml_Media\"`*"]
     #[cfg(feature = "UI_Xaml_Media")]
@@ -10357,14 +10357,14 @@ impl ListViewItemPresenter {
         let this = &::windows::core::Interface::cast::<IListViewItemPresenter4>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SelectionIndicatorBrush)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Media::Brush>(result__)
+            (::windows::core::Interface::vtable(this).SelectionIndicatorBrush)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Media::Brush>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"UI_Xaml_Media\"`*"]
     #[cfg(feature = "UI_Xaml_Media")]
     pub fn SetSelectionIndicatorBrush<'a, Param0: ::windows::core::IntoParam<'a, super::super::Media::Brush>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IListViewItemPresenter4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetSelectionIndicatorBrush)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSelectionIndicatorBrush)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"UI_Xaml_Media\"`*"]
     #[cfg(feature = "UI_Xaml_Media")]
@@ -10372,14 +10372,14 @@ impl ListViewItemPresenter {
         let this = &::windows::core::Interface::cast::<IListViewItemPresenter4>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SelectionIndicatorPointerOverBrush)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Media::Brush>(result__)
+            (::windows::core::Interface::vtable(this).SelectionIndicatorPointerOverBrush)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Media::Brush>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"UI_Xaml_Media\"`*"]
     #[cfg(feature = "UI_Xaml_Media")]
     pub fn SetSelectionIndicatorPointerOverBrush<'a, Param0: ::windows::core::IntoParam<'a, super::super::Media::Brush>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IListViewItemPresenter4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetSelectionIndicatorPointerOverBrush)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSelectionIndicatorPointerOverBrush)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"UI_Xaml_Media\"`*"]
     #[cfg(feature = "UI_Xaml_Media")]
@@ -10387,14 +10387,14 @@ impl ListViewItemPresenter {
         let this = &::windows::core::Interface::cast::<IListViewItemPresenter4>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SelectionIndicatorPressedBrush)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Media::Brush>(result__)
+            (::windows::core::Interface::vtable(this).SelectionIndicatorPressedBrush)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Media::Brush>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"UI_Xaml_Media\"`*"]
     #[cfg(feature = "UI_Xaml_Media")]
     pub fn SetSelectionIndicatorPressedBrush<'a, Param0: ::windows::core::IntoParam<'a, super::super::Media::Brush>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IListViewItemPresenter4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetSelectionIndicatorPressedBrush)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSelectionIndicatorPressedBrush)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"UI_Xaml_Media\"`*"]
     #[cfg(feature = "UI_Xaml_Media")]
@@ -10402,14 +10402,14 @@ impl ListViewItemPresenter {
         let this = &::windows::core::Interface::cast::<IListViewItemPresenter4>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SelectionIndicatorDisabledBrush)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Media::Brush>(result__)
+            (::windows::core::Interface::vtable(this).SelectionIndicatorDisabledBrush)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Media::Brush>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"UI_Xaml_Media\"`*"]
     #[cfg(feature = "UI_Xaml_Media")]
     pub fn SetSelectionIndicatorDisabledBrush<'a, Param0: ::windows::core::IntoParam<'a, super::super::Media::Brush>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IListViewItemPresenter4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetSelectionIndicatorDisabledBrush)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSelectionIndicatorDisabledBrush)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"UI_Xaml_Media\"`*"]
     #[cfg(feature = "UI_Xaml_Media")]
@@ -10417,14 +10417,14 @@ impl ListViewItemPresenter {
         let this = &::windows::core::Interface::cast::<IListViewItemPresenter4>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SelectedBorderBrush)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Media::Brush>(result__)
+            (::windows::core::Interface::vtable(this).SelectedBorderBrush)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Media::Brush>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"UI_Xaml_Media\"`*"]
     #[cfg(feature = "UI_Xaml_Media")]
     pub fn SetSelectedBorderBrush<'a, Param0: ::windows::core::IntoParam<'a, super::super::Media::Brush>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IListViewItemPresenter4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetSelectedBorderBrush)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSelectedBorderBrush)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"UI_Xaml_Media\"`*"]
     #[cfg(feature = "UI_Xaml_Media")]
@@ -10432,14 +10432,14 @@ impl ListViewItemPresenter {
         let this = &::windows::core::Interface::cast::<IListViewItemPresenter4>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SelectedPressedBorderBrush)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Media::Brush>(result__)
+            (::windows::core::Interface::vtable(this).SelectedPressedBorderBrush)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Media::Brush>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"UI_Xaml_Media\"`*"]
     #[cfg(feature = "UI_Xaml_Media")]
     pub fn SetSelectedPressedBorderBrush<'a, Param0: ::windows::core::IntoParam<'a, super::super::Media::Brush>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IListViewItemPresenter4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetSelectedPressedBorderBrush)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSelectedPressedBorderBrush)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"UI_Xaml_Media\"`*"]
     #[cfg(feature = "UI_Xaml_Media")]
@@ -10447,14 +10447,14 @@ impl ListViewItemPresenter {
         let this = &::windows::core::Interface::cast::<IListViewItemPresenter4>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SelectedDisabledBorderBrush)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Media::Brush>(result__)
+            (::windows::core::Interface::vtable(this).SelectedDisabledBorderBrush)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Media::Brush>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"UI_Xaml_Media\"`*"]
     #[cfg(feature = "UI_Xaml_Media")]
     pub fn SetSelectedDisabledBorderBrush<'a, Param0: ::windows::core::IntoParam<'a, super::super::Media::Brush>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IListViewItemPresenter4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetSelectedDisabledBorderBrush)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSelectedDisabledBorderBrush)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"UI_Xaml_Media\"`*"]
     #[cfg(feature = "UI_Xaml_Media")]
@@ -10462,14 +10462,14 @@ impl ListViewItemPresenter {
         let this = &::windows::core::Interface::cast::<IListViewItemPresenter4>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SelectedInnerBorderBrush)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Media::Brush>(result__)
+            (::windows::core::Interface::vtable(this).SelectedInnerBorderBrush)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Media::Brush>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"UI_Xaml_Media\"`*"]
     #[cfg(feature = "UI_Xaml_Media")]
     pub fn SetSelectedInnerBorderBrush<'a, Param0: ::windows::core::IntoParam<'a, super::super::Media::Brush>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IListViewItemPresenter4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetSelectedInnerBorderBrush)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSelectedInnerBorderBrush)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"UI_Xaml_Media\"`*"]
     #[cfg(feature = "UI_Xaml_Media")]
@@ -10477,20 +10477,20 @@ impl ListViewItemPresenter {
         let this = &::windows::core::Interface::cast::<IListViewItemPresenter4>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PointerOverBorderBrush)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Media::Brush>(result__)
+            (::windows::core::Interface::vtable(this).PointerOverBorderBrush)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Media::Brush>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"UI_Xaml_Media\"`*"]
     #[cfg(feature = "UI_Xaml_Media")]
     pub fn SetPointerOverBorderBrush<'a, Param0: ::windows::core::IntoParam<'a, super::super::Media::Brush>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IListViewItemPresenter4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetPointerOverBorderBrush)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPointerOverBorderBrush)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn new() -> ::windows::core::Result<ListViewItemPresenter> {
         Self::IListViewItemPresenterFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<ListViewItemPresenter>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<ListViewItemPresenter>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
@@ -10498,126 +10498,126 @@ impl ListViewItemPresenter {
         Self::IListViewItemPresenterFactory(|this| unsafe {
             let (derived__, base__) = ::windows::core::Compose::compose(compose);
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<ListViewItemPresenter>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<ListViewItemPresenter>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SelectionCheckMarkVisualEnabledProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IListViewItemPresenterStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SelectionCheckMarkVisualEnabledProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).SelectionCheckMarkVisualEnabledProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn CheckHintBrushProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IListViewItemPresenterStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CheckHintBrushProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).CheckHintBrushProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn CheckSelectingBrushProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IListViewItemPresenterStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CheckSelectingBrushProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).CheckSelectingBrushProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn CheckBrushProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IListViewItemPresenterStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CheckBrushProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).CheckBrushProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn DragBackgroundProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IListViewItemPresenterStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DragBackgroundProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).DragBackgroundProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn DragForegroundProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IListViewItemPresenterStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DragForegroundProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).DragForegroundProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn FocusBorderBrushProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IListViewItemPresenterStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FocusBorderBrushProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).FocusBorderBrushProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn PlaceholderBackgroundProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IListViewItemPresenterStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PlaceholderBackgroundProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).PlaceholderBackgroundProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn PointerOverBackgroundProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IListViewItemPresenterStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PointerOverBackgroundProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).PointerOverBackgroundProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SelectedBackgroundProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IListViewItemPresenterStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SelectedBackgroundProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).SelectedBackgroundProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SelectedForegroundProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IListViewItemPresenterStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SelectedForegroundProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).SelectedForegroundProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SelectedPointerOverBackgroundProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IListViewItemPresenterStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SelectedPointerOverBackgroundProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).SelectedPointerOverBackgroundProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SelectedPointerOverBorderBrushProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IListViewItemPresenterStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SelectedPointerOverBorderBrushProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).SelectedPointerOverBorderBrushProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SelectedBorderThicknessProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IListViewItemPresenterStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SelectedBorderThicknessProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).SelectedBorderThicknessProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn DisabledOpacityProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IListViewItemPresenterStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DisabledOpacityProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).DisabledOpacityProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn DragOpacityProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IListViewItemPresenterStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DragOpacityProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).DragOpacityProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn ReorderHintOffsetProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IListViewItemPresenterStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ReorderHintOffsetProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).ReorderHintOffsetProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"deprecated\"`*"]
@@ -10625,7 +10625,7 @@ impl ListViewItemPresenter {
     pub fn ListViewItemPresenterHorizontalContentAlignmentProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IListViewItemPresenterStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ListViewItemPresenterHorizontalContentAlignmentProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).ListViewItemPresenterHorizontalContentAlignmentProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"deprecated\"`*"]
@@ -10633,7 +10633,7 @@ impl ListViewItemPresenter {
     pub fn ListViewItemPresenterVerticalContentAlignmentProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IListViewItemPresenterStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ListViewItemPresenterVerticalContentAlignmentProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).ListViewItemPresenterVerticalContentAlignmentProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"deprecated\"`*"]
@@ -10641,280 +10641,280 @@ impl ListViewItemPresenter {
     pub fn ListViewItemPresenterPaddingProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IListViewItemPresenterStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ListViewItemPresenterPaddingProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).ListViewItemPresenterPaddingProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn PointerOverBackgroundMarginProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IListViewItemPresenterStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PointerOverBackgroundMarginProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).PointerOverBackgroundMarginProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn ContentMarginProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IListViewItemPresenterStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ContentMarginProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).ContentMarginProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SelectedPressedBackgroundProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IListViewItemPresenterStatics2(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SelectedPressedBackgroundProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).SelectedPressedBackgroundProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn PressedBackgroundProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IListViewItemPresenterStatics2(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PressedBackgroundProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).PressedBackgroundProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn CheckBoxBrushProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IListViewItemPresenterStatics2(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CheckBoxBrushProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).CheckBoxBrushProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn FocusSecondaryBorderBrushProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IListViewItemPresenterStatics2(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FocusSecondaryBorderBrushProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).FocusSecondaryBorderBrushProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn CheckModeProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IListViewItemPresenterStatics2(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CheckModeProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).CheckModeProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn PointerOverForegroundProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IListViewItemPresenterStatics2(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PointerOverForegroundProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).PointerOverForegroundProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn RevealBackgroundProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IListViewItemPresenterStatics3(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RevealBackgroundProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).RevealBackgroundProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn RevealBorderBrushProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IListViewItemPresenterStatics3(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RevealBorderBrushProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).RevealBorderBrushProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn RevealBorderThicknessProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IListViewItemPresenterStatics3(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RevealBorderThicknessProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).RevealBorderThicknessProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn RevealBackgroundShowsAboveContentProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IListViewItemPresenterStatics3(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RevealBackgroundShowsAboveContentProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).RevealBackgroundShowsAboveContentProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SelectedDisabledBackgroundProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IListViewItemPresenterStatics4(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SelectedDisabledBackgroundProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).SelectedDisabledBackgroundProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn CheckPressedBrushProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IListViewItemPresenterStatics4(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CheckPressedBrushProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).CheckPressedBrushProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn CheckDisabledBrushProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IListViewItemPresenterStatics4(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CheckDisabledBrushProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).CheckDisabledBrushProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn CheckBoxPointerOverBrushProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IListViewItemPresenterStatics4(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CheckBoxPointerOverBrushProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).CheckBoxPointerOverBrushProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn CheckBoxPressedBrushProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IListViewItemPresenterStatics4(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CheckBoxPressedBrushProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).CheckBoxPressedBrushProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn CheckBoxDisabledBrushProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IListViewItemPresenterStatics4(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CheckBoxDisabledBrushProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).CheckBoxDisabledBrushProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn CheckBoxSelectedBrushProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IListViewItemPresenterStatics4(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CheckBoxSelectedBrushProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).CheckBoxSelectedBrushProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn CheckBoxSelectedPointerOverBrushProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IListViewItemPresenterStatics4(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CheckBoxSelectedPointerOverBrushProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).CheckBoxSelectedPointerOverBrushProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn CheckBoxSelectedPressedBrushProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IListViewItemPresenterStatics4(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CheckBoxSelectedPressedBrushProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).CheckBoxSelectedPressedBrushProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn CheckBoxSelectedDisabledBrushProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IListViewItemPresenterStatics4(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CheckBoxSelectedDisabledBrushProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).CheckBoxSelectedDisabledBrushProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn CheckBoxBorderBrushProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IListViewItemPresenterStatics4(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CheckBoxBorderBrushProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).CheckBoxBorderBrushProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn CheckBoxPointerOverBorderBrushProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IListViewItemPresenterStatics4(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CheckBoxPointerOverBorderBrushProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).CheckBoxPointerOverBorderBrushProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn CheckBoxPressedBorderBrushProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IListViewItemPresenterStatics4(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CheckBoxPressedBorderBrushProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).CheckBoxPressedBorderBrushProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn CheckBoxDisabledBorderBrushProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IListViewItemPresenterStatics4(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CheckBoxDisabledBorderBrushProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).CheckBoxDisabledBorderBrushProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn CheckBoxCornerRadiusProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IListViewItemPresenterStatics4(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CheckBoxCornerRadiusProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).CheckBoxCornerRadiusProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SelectionIndicatorCornerRadiusProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IListViewItemPresenterStatics4(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SelectionIndicatorCornerRadiusProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).SelectionIndicatorCornerRadiusProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SelectionIndicatorVisualEnabledProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IListViewItemPresenterStatics4(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SelectionIndicatorVisualEnabledProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).SelectionIndicatorVisualEnabledProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SelectionIndicatorModeProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IListViewItemPresenterStatics4(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SelectionIndicatorModeProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).SelectionIndicatorModeProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SelectionIndicatorBrushProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IListViewItemPresenterStatics4(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SelectionIndicatorBrushProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).SelectionIndicatorBrushProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SelectionIndicatorPointerOverBrushProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IListViewItemPresenterStatics4(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SelectionIndicatorPointerOverBrushProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).SelectionIndicatorPointerOverBrushProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SelectionIndicatorPressedBrushProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IListViewItemPresenterStatics4(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SelectionIndicatorPressedBrushProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).SelectionIndicatorPressedBrushProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SelectionIndicatorDisabledBrushProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IListViewItemPresenterStatics4(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SelectionIndicatorDisabledBrushProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).SelectionIndicatorDisabledBrushProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SelectedBorderBrushProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IListViewItemPresenterStatics4(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SelectedBorderBrushProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).SelectedBorderBrushProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SelectedPressedBorderBrushProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IListViewItemPresenterStatics4(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SelectedPressedBorderBrushProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).SelectedPressedBorderBrushProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SelectedDisabledBorderBrushProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IListViewItemPresenterStatics4(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SelectedDisabledBorderBrushProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).SelectedDisabledBorderBrushProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SelectedInnerBorderBrushProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IListViewItemPresenterStatics4(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SelectedInnerBorderBrushProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).SelectedInnerBorderBrushProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn PointerOverBorderBrushProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IListViewItemPresenterStatics4(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PointerOverBorderBrushProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).PointerOverBorderBrushProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc(hidden)]
@@ -11224,7 +11224,7 @@ impl ListViewItemTemplateSettings {
         let this = self;
         unsafe {
             let mut result__: i32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DragItemsCount)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            (::windows::core::Interface::vtable(this).DragItemsCount)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<i32>(result__)
         }
     }
 }
@@ -11329,13 +11329,13 @@ impl LoopingSelector {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ShouldLoop)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).ShouldLoop)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SetShouldLoop(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetShouldLoop)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetShouldLoop)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -11343,79 +11343,79 @@ impl LoopingSelector {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Items)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVector<::windows::core::IInspectable>>(result__)
+            (::windows::core::Interface::vtable(this).Items)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVector<::windows::core::IInspectable>>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SetItems<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::Collections::IVector<::windows::core::IInspectable>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetItems)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetItems)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SelectedIndex(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
             let mut result__: i32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SelectedIndex)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            (::windows::core::Interface::vtable(this).SelectedIndex)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SetSelectedIndex(&self, value: i32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetSelectedIndex)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSelectedIndex)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SelectedItem(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = self;
         unsafe {
             let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SelectedItem)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
+            (::windows::core::Interface::vtable(this).SelectedItem)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SetSelectedItem<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetSelectedItem)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSelectedItem)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn ItemWidth(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
             let mut result__: i32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ItemWidth)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            (::windows::core::Interface::vtable(this).ItemWidth)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SetItemWidth(&self, value: i32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetItemWidth)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetItemWidth)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn ItemHeight(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
             let mut result__: i32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ItemHeight)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            (::windows::core::Interface::vtable(this).ItemHeight)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SetItemHeight(&self, value: i32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetItemHeight)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetItemHeight)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn ItemTemplate(&self) -> ::windows::core::Result<super::super::DataTemplate> {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ItemTemplate)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DataTemplate>(result__)
+            (::windows::core::Interface::vtable(this).ItemTemplate)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DataTemplate>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SetItemTemplate<'a, Param0: ::windows::core::IntoParam<'a, super::super::DataTemplate>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetItemTemplate)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetItemTemplate)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -11423,62 +11423,62 @@ impl LoopingSelector {
         let this = self;
         unsafe {
             let mut result__: super::super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SelectionChanged)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).SelectionChanged)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveSelectionChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveSelectionChanged)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveSelectionChanged)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn ShouldLoopProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::ILoopingSelectorStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ShouldLoopProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).ShouldLoopProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn ItemsProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::ILoopingSelectorStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ItemsProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).ItemsProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SelectedIndexProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::ILoopingSelectorStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SelectedIndexProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).SelectedIndexProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SelectedItemProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::ILoopingSelectorStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SelectedItemProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).SelectedItemProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn ItemWidthProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::ILoopingSelectorStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ItemWidthProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).ItemWidthProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn ItemHeightProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::ILoopingSelectorStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ItemHeightProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).ItemHeightProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn ItemTemplateProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::ILoopingSelectorStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ItemTemplateProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).ItemTemplateProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc(hidden)]
@@ -11928,7 +11928,7 @@ impl LoopingSelectorPanel {
         let this = &::windows::core::Interface::cast::<IScrollSnapPointsInfo>(self)?;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AreHorizontalSnapPointsRegular)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).AreHorizontalSnapPointsRegular)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
@@ -11936,7 +11936,7 @@ impl LoopingSelectorPanel {
         let this = &::windows::core::Interface::cast::<IScrollSnapPointsInfo>(self)?;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AreVerticalSnapPointsRegular)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).AreVerticalSnapPointsRegular)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"Foundation\"`*"]
@@ -11945,14 +11945,14 @@ impl LoopingSelectorPanel {
         let this = &::windows::core::Interface::cast::<IScrollSnapPointsInfo>(self)?;
         unsafe {
             let mut result__: super::super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).HorizontalSnapPointsChanged)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).HorizontalSnapPointsChanged)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveHorizontalSnapPointsChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IScrollSnapPointsInfo>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveHorizontalSnapPointsChanged)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveHorizontalSnapPointsChanged)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -11960,14 +11960,14 @@ impl LoopingSelectorPanel {
         let this = &::windows::core::Interface::cast::<IScrollSnapPointsInfo>(self)?;
         unsafe {
             let mut result__: super::super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).VerticalSnapPointsChanged)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).VerticalSnapPointsChanged)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveVerticalSnapPointsChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IScrollSnapPointsInfo>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveVerticalSnapPointsChanged)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveVerticalSnapPointsChanged)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -11975,7 +11975,7 @@ impl LoopingSelectorPanel {
         let this = &::windows::core::Interface::cast::<IScrollSnapPointsInfo>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetIrregularSnapPoints)(::core::mem::transmute_copy(this), orientation, alignment, &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<f32>>(result__)
+            (::windows::core::Interface::vtable(this).GetIrregularSnapPoints)(::windows::core::Interface::as_raw(this), orientation, alignment, &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<f32>>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
@@ -11983,7 +11983,7 @@ impl LoopingSelectorPanel {
         let this = &::windows::core::Interface::cast::<IScrollSnapPointsInfo>(self)?;
         unsafe {
             let mut result__: f32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetRegularSnapPoints)(::core::mem::transmute_copy(this), orientation, alignment, offset, &mut result__).from_abi::<f32>(result__)
+            (::windows::core::Interface::vtable(this).GetRegularSnapPoints)(::windows::core::Interface::as_raw(this), orientation, alignment, offset, &mut result__).from_abi::<f32>(result__)
         }
     }
 }
@@ -12242,7 +12242,7 @@ impl MenuFlyoutItemTemplateSettings {
         let this = self;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).KeyboardAcceleratorTextMinWidth)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).KeyboardAcceleratorTextMinWidth)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
 }
@@ -12347,7 +12347,7 @@ impl MenuFlyoutPresenterTemplateSettings {
         let this = self;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FlyoutContentMinWidth)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).FlyoutContentMinWidth)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
 }
@@ -12452,19 +12452,19 @@ impl NavigationViewItemPresenter {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Icon)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::IconElement>(result__)
+            (::windows::core::Interface::vtable(this).Icon)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::IconElement>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SetIcon<'a, Param0: ::windows::core::IntoParam<'a, super::IconElement>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetIcon)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetIcon)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn new() -> ::windows::core::Result<NavigationViewItemPresenter> {
         Self::INavigationViewItemPresenterFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<NavigationViewItemPresenter>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<NavigationViewItemPresenter>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
@@ -12472,14 +12472,14 @@ impl NavigationViewItemPresenter {
         Self::INavigationViewItemPresenterFactory(|this| unsafe {
             let (derived__, base__) = ::windows::core::Compose::compose(compose);
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<NavigationViewItemPresenter>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<NavigationViewItemPresenter>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn IconProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::INavigationViewItemPresenterStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IconProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).IconProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc(hidden)]
@@ -12725,40 +12725,40 @@ impl OrientedVirtualizingPanel {
     #[cfg(feature = "Foundation")]
     pub fn GetInsertionIndexes<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::Point>>(&self, position: Param0, first: &mut i32, second: &mut i32) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::IInsertionPanel>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).GetInsertionIndexes)(::core::mem::transmute_copy(this), position.into_param().abi(), first, second).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).GetInsertionIndexes)(::windows::core::Interface::as_raw(this), position.into_param().abi(), first, second).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn CanVerticallyScroll(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CanVerticallyScroll)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).CanVerticallyScroll)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SetCanVerticallyScroll(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetCanVerticallyScroll)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCanVerticallyScroll)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn CanHorizontallyScroll(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CanHorizontallyScroll)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).CanHorizontallyScroll)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SetCanHorizontallyScroll(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetCanHorizontallyScroll)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCanHorizontallyScroll)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn ExtentWidth(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ExtentWidth)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).ExtentWidth)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
@@ -12766,7 +12766,7 @@ impl OrientedVirtualizingPanel {
         let this = self;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ExtentHeight)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).ExtentHeight)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
@@ -12774,7 +12774,7 @@ impl OrientedVirtualizingPanel {
         let this = self;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ViewportWidth)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).ViewportWidth)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
@@ -12782,7 +12782,7 @@ impl OrientedVirtualizingPanel {
         let this = self;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ViewportHeight)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).ViewportHeight)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
@@ -12790,7 +12790,7 @@ impl OrientedVirtualizingPanel {
         let this = self;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).HorizontalOffset)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).HorizontalOffset)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
@@ -12798,7 +12798,7 @@ impl OrientedVirtualizingPanel {
         let this = self;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).VerticalOffset)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).VerticalOffset)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
@@ -12806,83 +12806,83 @@ impl OrientedVirtualizingPanel {
         let this = self;
         unsafe {
             let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ScrollOwner)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
+            (::windows::core::Interface::vtable(this).ScrollOwner)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SetScrollOwner<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetScrollOwner)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetScrollOwner)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn LineUp(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).LineUp)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).LineUp)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn LineDown(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).LineDown)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).LineDown)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn LineLeft(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).LineLeft)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).LineLeft)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn LineRight(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).LineRight)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).LineRight)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn PageUp(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).PageUp)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).PageUp)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn PageDown(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).PageDown)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).PageDown)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn PageLeft(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).PageLeft)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).PageLeft)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn PageRight(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).PageRight)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).PageRight)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn MouseWheelUp(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).MouseWheelUp)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).MouseWheelUp)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn MouseWheelDown(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).MouseWheelDown)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).MouseWheelDown)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn MouseWheelLeft(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).MouseWheelLeft)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).MouseWheelLeft)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn MouseWheelRight(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).MouseWheelRight)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).MouseWheelRight)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SetHorizontalOffset(&self, offset: f64) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetHorizontalOffset)(::core::mem::transmute_copy(this), offset).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetHorizontalOffset)(::windows::core::Interface::as_raw(this), offset).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SetVerticalOffset(&self, offset: f64) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetVerticalOffset)(::core::mem::transmute_copy(this), offset).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetVerticalOffset)(::windows::core::Interface::as_raw(this), offset).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -12890,7 +12890,7 @@ impl OrientedVirtualizingPanel {
         let this = self;
         unsafe {
             let mut result__: super::super::super::super::Foundation::Rect = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MakeVisible)(::core::mem::transmute_copy(this), visual.into_param().abi(), rectangle.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::Rect>(result__)
+            (::windows::core::Interface::vtable(this).MakeVisible)(::windows::core::Interface::as_raw(this), visual.into_param().abi(), rectangle.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::Rect>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
@@ -12898,7 +12898,7 @@ impl OrientedVirtualizingPanel {
         let this = &::windows::core::Interface::cast::<IScrollSnapPointsInfo>(self)?;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AreHorizontalSnapPointsRegular)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).AreHorizontalSnapPointsRegular)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
@@ -12906,7 +12906,7 @@ impl OrientedVirtualizingPanel {
         let this = &::windows::core::Interface::cast::<IScrollSnapPointsInfo>(self)?;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AreVerticalSnapPointsRegular)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).AreVerticalSnapPointsRegular)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"Foundation\"`*"]
@@ -12915,14 +12915,14 @@ impl OrientedVirtualizingPanel {
         let this = &::windows::core::Interface::cast::<IScrollSnapPointsInfo>(self)?;
         unsafe {
             let mut result__: super::super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).HorizontalSnapPointsChanged)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).HorizontalSnapPointsChanged)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveHorizontalSnapPointsChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IScrollSnapPointsInfo>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveHorizontalSnapPointsChanged)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveHorizontalSnapPointsChanged)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -12930,14 +12930,14 @@ impl OrientedVirtualizingPanel {
         let this = &::windows::core::Interface::cast::<IScrollSnapPointsInfo>(self)?;
         unsafe {
             let mut result__: super::super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).VerticalSnapPointsChanged)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).VerticalSnapPointsChanged)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveVerticalSnapPointsChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IScrollSnapPointsInfo>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveVerticalSnapPointsChanged)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveVerticalSnapPointsChanged)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -12945,7 +12945,7 @@ impl OrientedVirtualizingPanel {
         let this = &::windows::core::Interface::cast::<IScrollSnapPointsInfo>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetIrregularSnapPoints)(::core::mem::transmute_copy(this), orientation, alignment, &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<f32>>(result__)
+            (::windows::core::Interface::vtable(this).GetIrregularSnapPoints)(::windows::core::Interface::as_raw(this), orientation, alignment, &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<f32>>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
@@ -12953,7 +12953,7 @@ impl OrientedVirtualizingPanel {
         let this = &::windows::core::Interface::cast::<IScrollSnapPointsInfo>(self)?;
         unsafe {
             let mut result__: f32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetRegularSnapPoints)(::core::mem::transmute_copy(this), orientation, alignment, offset, &mut result__).from_abi::<f32>(result__)
+            (::windows::core::Interface::vtable(this).GetRegularSnapPoints)(::windows::core::Interface::as_raw(this), orientation, alignment, offset, &mut result__).from_abi::<f32>(result__)
         }
     }
 }
@@ -13233,19 +13233,19 @@ impl PickerFlyoutBase {
     pub fn TitleProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IPickerFlyoutBaseStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TitleProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).TitleProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn GetTitle<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyObject>>(element: Param0) -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IPickerFlyoutBaseStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetTitle)(::core::mem::transmute_copy(this), element.into_param().abi(), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).GetTitle)(::windows::core::Interface::as_raw(this), element.into_param().abi(), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SetTitle<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyObject>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(element: Param0, value: Param1) -> ::windows::core::Result<()> {
-        Self::IPickerFlyoutBaseStatics(|this| unsafe { (::windows::core::Interface::vtable(this).SetTitle)(::core::mem::transmute_copy(this), element.into_param().abi(), value.into_param().abi()).ok() })
+        Self::IPickerFlyoutBaseStatics(|this| unsafe { (::windows::core::Interface::vtable(this).SetTitle)(::windows::core::Interface::as_raw(this), element.into_param().abi(), value.into_param().abi()).ok() })
     }
     #[doc(hidden)]
     pub fn IPickerFlyoutBaseStatics<R, F: FnOnce(&IPickerFlyoutBaseStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
@@ -13373,7 +13373,7 @@ impl PivotHeaderItem {
     pub fn new() -> ::windows::core::Result<PivotHeaderItem> {
         Self::IPivotHeaderItemFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<PivotHeaderItem>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<PivotHeaderItem>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
@@ -13381,7 +13381,7 @@ impl PivotHeaderItem {
         Self::IPivotHeaderItemFactory(|this| unsafe {
             let (derived__, base__) = ::windows::core::Compose::compose(compose);
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<PivotHeaderItem>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<PivotHeaderItem>(result__)
         })
     }
     #[doc(hidden)]
@@ -13866,7 +13866,7 @@ impl PivotPanel {
         let this = &::windows::core::Interface::cast::<IScrollSnapPointsInfo>(self)?;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AreHorizontalSnapPointsRegular)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).AreHorizontalSnapPointsRegular)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
@@ -13874,7 +13874,7 @@ impl PivotPanel {
         let this = &::windows::core::Interface::cast::<IScrollSnapPointsInfo>(self)?;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AreVerticalSnapPointsRegular)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).AreVerticalSnapPointsRegular)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"Foundation\"`*"]
@@ -13883,14 +13883,14 @@ impl PivotPanel {
         let this = &::windows::core::Interface::cast::<IScrollSnapPointsInfo>(self)?;
         unsafe {
             let mut result__: super::super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).HorizontalSnapPointsChanged)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).HorizontalSnapPointsChanged)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveHorizontalSnapPointsChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IScrollSnapPointsInfo>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveHorizontalSnapPointsChanged)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveHorizontalSnapPointsChanged)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -13898,14 +13898,14 @@ impl PivotPanel {
         let this = &::windows::core::Interface::cast::<IScrollSnapPointsInfo>(self)?;
         unsafe {
             let mut result__: super::super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).VerticalSnapPointsChanged)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).VerticalSnapPointsChanged)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveVerticalSnapPointsChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IScrollSnapPointsInfo>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveVerticalSnapPointsChanged)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveVerticalSnapPointsChanged)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -13913,7 +13913,7 @@ impl PivotPanel {
         let this = &::windows::core::Interface::cast::<IScrollSnapPointsInfo>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetIrregularSnapPoints)(::core::mem::transmute_copy(this), orientation, alignment, &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<f32>>(result__)
+            (::windows::core::Interface::vtable(this).GetIrregularSnapPoints)(::windows::core::Interface::as_raw(this), orientation, alignment, &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<f32>>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
@@ -13921,7 +13921,7 @@ impl PivotPanel {
         let this = &::windows::core::Interface::cast::<IScrollSnapPointsInfo>(self)?;
         unsafe {
             let mut result__: f32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetRegularSnapPoints)(::core::mem::transmute_copy(this), orientation, alignment, offset, &mut result__).from_abi::<f32>(result__)
+            (::windows::core::Interface::vtable(this).GetRegularSnapPoints)(::windows::core::Interface::as_raw(this), orientation, alignment, offset, &mut result__).from_abi::<f32>(result__)
         }
     }
 }
@@ -14204,52 +14204,52 @@ impl Popup {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Child)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::UIElement>(result__)
+            (::windows::core::Interface::vtable(this).Child)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::UIElement>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SetChild<'a, Param0: ::windows::core::IntoParam<'a, super::super::UIElement>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetChild)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetChild)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn IsOpen(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsOpen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsOpen)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SetIsOpen(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetIsOpen)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetIsOpen)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn HorizontalOffset(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).HorizontalOffset)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).HorizontalOffset)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SetHorizontalOffset(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetHorizontalOffset)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetHorizontalOffset)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn VerticalOffset(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).VerticalOffset)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).VerticalOffset)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SetVerticalOffset(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetVerticalOffset)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetVerticalOffset)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"Foundation_Collections\"`, `\"UI_Xaml_Media_Animation\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "UI_Xaml_Media_Animation"))]
@@ -14257,27 +14257,27 @@ impl Popup {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ChildTransitions)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Media::Animation::TransitionCollection>(result__)
+            (::windows::core::Interface::vtable(this).ChildTransitions)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Media::Animation::TransitionCollection>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"Foundation_Collections\"`, `\"UI_Xaml_Media_Animation\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "UI_Xaml_Media_Animation"))]
     pub fn SetChildTransitions<'a, Param0: ::windows::core::IntoParam<'a, super::super::Media::Animation::TransitionCollection>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetChildTransitions)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetChildTransitions)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn IsLightDismissEnabled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsLightDismissEnabled)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsLightDismissEnabled)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SetIsLightDismissEnabled(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetIsLightDismissEnabled)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetIsLightDismissEnabled)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -14285,14 +14285,14 @@ impl Popup {
         let this = self;
         unsafe {
             let mut result__: super::super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Opened)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).Opened)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveOpened<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveOpened)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveOpened)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -14300,47 +14300,47 @@ impl Popup {
         let this = self;
         unsafe {
             let mut result__: super::super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Closed)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).Closed)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveClosed<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveClosed)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveClosed)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn LightDismissOverlayMode(&self) -> ::windows::core::Result<super::LightDismissOverlayMode> {
         let this = &::windows::core::Interface::cast::<IPopup2>(self)?;
         unsafe {
             let mut result__: super::LightDismissOverlayMode = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).LightDismissOverlayMode)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::LightDismissOverlayMode>(result__)
+            (::windows::core::Interface::vtable(this).LightDismissOverlayMode)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::LightDismissOverlayMode>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SetLightDismissOverlayMode(&self, value: super::LightDismissOverlayMode) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPopup2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetLightDismissOverlayMode)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetLightDismissOverlayMode)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn ShouldConstrainToRootBounds(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IPopup3>(self)?;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ShouldConstrainToRootBounds)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).ShouldConstrainToRootBounds)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SetShouldConstrainToRootBounds(&self, value: bool) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPopup3>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetShouldConstrainToRootBounds)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetShouldConstrainToRootBounds)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn IsConstrainedToRootBounds(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IPopup3>(self)?;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsConstrainedToRootBounds)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsConstrainedToRootBounds)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
@@ -14348,33 +14348,33 @@ impl Popup {
         let this = &::windows::core::Interface::cast::<IPopup4>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PlacementTarget)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::FrameworkElement>(result__)
+            (::windows::core::Interface::vtable(this).PlacementTarget)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::FrameworkElement>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SetPlacementTarget<'a, Param0: ::windows::core::IntoParam<'a, super::super::FrameworkElement>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPopup4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetPlacementTarget)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPlacementTarget)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn DesiredPlacement(&self) -> ::windows::core::Result<PopupPlacementMode> {
         let this = &::windows::core::Interface::cast::<IPopup4>(self)?;
         unsafe {
             let mut result__: PopupPlacementMode = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DesiredPlacement)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PopupPlacementMode>(result__)
+            (::windows::core::Interface::vtable(this).DesiredPlacement)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<PopupPlacementMode>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SetDesiredPlacement(&self, value: PopupPlacementMode) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPopup4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetDesiredPlacement)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDesiredPlacement)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn ActualPlacement(&self) -> ::windows::core::Result<PopupPlacementMode> {
         let this = &::windows::core::Interface::cast::<IPopup4>(self)?;
         unsafe {
             let mut result__: PopupPlacementMode = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ActualPlacement)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PopupPlacementMode>(result__)
+            (::windows::core::Interface::vtable(this).ActualPlacement)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<PopupPlacementMode>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"Foundation\"`*"]
@@ -14383,83 +14383,83 @@ impl Popup {
         let this = &::windows::core::Interface::cast::<IPopup4>(self)?;
         unsafe {
             let mut result__: super::super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ActualPlacementChanged)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).ActualPlacementChanged)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveActualPlacementChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPopup4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveActualPlacementChanged)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveActualPlacementChanged)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn ChildProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IPopupStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ChildProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).ChildProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn IsOpenProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IPopupStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsOpenProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).IsOpenProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn HorizontalOffsetProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IPopupStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).HorizontalOffsetProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).HorizontalOffsetProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn VerticalOffsetProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IPopupStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).VerticalOffsetProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).VerticalOffsetProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn ChildTransitionsProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IPopupStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ChildTransitionsProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).ChildTransitionsProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn IsLightDismissEnabledProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IPopupStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsLightDismissEnabledProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).IsLightDismissEnabledProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn LightDismissOverlayModeProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IPopupStatics2(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).LightDismissOverlayModeProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).LightDismissOverlayModeProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn ShouldConstrainToRootBoundsProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IPopupStatics3(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ShouldConstrainToRootBoundsProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).ShouldConstrainToRootBoundsProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn PlacementTargetProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IPopupStatics4(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PlacementTargetProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).PlacementTargetProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn DesiredPlacementProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IPopupStatics4(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DesiredPlacementProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).DesiredPlacementProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc(hidden)]
@@ -14721,7 +14721,7 @@ impl ProgressBarTemplateSettings {
         let this = self;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).EllipseDiameter)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).EllipseDiameter)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
@@ -14729,7 +14729,7 @@ impl ProgressBarTemplateSettings {
         let this = self;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).EllipseOffset)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).EllipseOffset)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
@@ -14737,7 +14737,7 @@ impl ProgressBarTemplateSettings {
         let this = self;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).EllipseAnimationWellPosition)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).EllipseAnimationWellPosition)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
@@ -14745,7 +14745,7 @@ impl ProgressBarTemplateSettings {
         let this = self;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).EllipseAnimationEndPosition)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).EllipseAnimationEndPosition)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
@@ -14753,7 +14753,7 @@ impl ProgressBarTemplateSettings {
         let this = self;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ContainerAnimationStartPosition)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).ContainerAnimationStartPosition)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
@@ -14761,7 +14761,7 @@ impl ProgressBarTemplateSettings {
         let this = self;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ContainerAnimationEndPosition)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).ContainerAnimationEndPosition)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
@@ -14769,7 +14769,7 @@ impl ProgressBarTemplateSettings {
         let this = self;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IndicatorLengthDelta)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).IndicatorLengthDelta)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
 }
@@ -14874,7 +14874,7 @@ impl ProgressRingTemplateSettings {
         let this = self;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).EllipseDiameter)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).EllipseDiameter)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
@@ -14882,7 +14882,7 @@ impl ProgressRingTemplateSettings {
         let this = self;
         unsafe {
             let mut result__: super::super::Thickness = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).EllipseOffset)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Thickness>(result__)
+            (::windows::core::Interface::vtable(this).EllipseOffset)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Thickness>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
@@ -14890,7 +14890,7 @@ impl ProgressRingTemplateSettings {
         let this = self;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MaxSideLength)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).MaxSideLength)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
 }
@@ -14995,65 +14995,65 @@ impl RangeBase {
         let this = self;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Minimum)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).Minimum)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SetMinimum(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetMinimum)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetMinimum)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn Maximum(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Maximum)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).Maximum)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SetMaximum(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetMaximum)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetMaximum)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SmallChange(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SmallChange)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).SmallChange)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SetSmallChange(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetSmallChange)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSmallChange)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn LargeChange(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).LargeChange)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).LargeChange)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SetLargeChange(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetLargeChange)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetLargeChange)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn Value(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Value)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).Value)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SetValue(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetValue)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetValue)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -15061,48 +15061,48 @@ impl RangeBase {
         let this = self;
         unsafe {
             let mut result__: super::super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ValueChanged)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).ValueChanged)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveValueChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveValueChanged)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveValueChanged)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn MinimumProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IRangeBaseStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MinimumProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).MinimumProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn MaximumProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IRangeBaseStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MaximumProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).MaximumProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SmallChangeProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IRangeBaseStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SmallChangeProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).SmallChangeProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn LargeChangeProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IRangeBaseStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).LargeChangeProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).LargeChangeProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn ValueProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IRangeBaseStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ValueProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).ValueProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc(hidden)]
@@ -15324,7 +15324,7 @@ impl RangeBaseValueChangedEventArgs {
         let this = self;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).OldValue)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).OldValue)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
@@ -15332,7 +15332,7 @@ impl RangeBaseValueChangedEventArgs {
         let this = self;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).NewValue)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).NewValue)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
 }
@@ -15439,7 +15439,7 @@ impl RangeBaseValueChangedEventHandler {
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn Invoke<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, Param1: ::windows::core::IntoParam<'a, RangeBaseValueChangedEventArgs>>(&self, sender: Param0, e: Param1) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Invoke)(::core::mem::transmute_copy(this), sender.into_param().abi(), e.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Invoke)(::windows::core::Interface::as_raw(this), sender.into_param().abi(), e.into_param().abi()).ok() }
     }
 }
 #[repr(C)]
@@ -15529,39 +15529,39 @@ impl RepeatButton {
         let this = self;
         unsafe {
             let mut result__: i32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Delay)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            (::windows::core::Interface::vtable(this).Delay)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SetDelay(&self, value: i32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetDelay)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDelay)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn Interval(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
             let mut result__: i32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Interval)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            (::windows::core::Interface::vtable(this).Interval)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SetInterval(&self, value: i32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetInterval)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetInterval)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn DelayProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IRepeatButtonStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DelayProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).DelayProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn IntervalProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IRepeatButtonStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IntervalProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).IntervalProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc(hidden)]
@@ -15830,39 +15830,39 @@ impl ScrollBar {
         let this = self;
         unsafe {
             let mut result__: super::Orientation = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Orientation)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Orientation>(result__)
+            (::windows::core::Interface::vtable(this).Orientation)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::Orientation>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SetOrientation(&self, value: super::Orientation) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetOrientation)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetOrientation)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn ViewportSize(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ViewportSize)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).ViewportSize)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SetViewportSize(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetViewportSize)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetViewportSize)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn IndicatorMode(&self) -> ::windows::core::Result<ScrollingIndicatorMode> {
         let this = self;
         unsafe {
             let mut result__: ScrollingIndicatorMode = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IndicatorMode)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ScrollingIndicatorMode>(result__)
+            (::windows::core::Interface::vtable(this).IndicatorMode)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ScrollingIndicatorMode>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SetIndicatorMode(&self, value: ScrollingIndicatorMode) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetIndicatorMode)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetIndicatorMode)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -15870,34 +15870,34 @@ impl ScrollBar {
         let this = self;
         unsafe {
             let mut result__: super::super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Scroll)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).Scroll)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveScroll<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveScroll)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveScroll)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn OrientationProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IScrollBarStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).OrientationProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).OrientationProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn ViewportSizeProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IScrollBarStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ViewportSizeProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).ViewportSizeProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn IndicatorModeProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IScrollBarStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IndicatorModeProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).IndicatorModeProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc(hidden)]
@@ -16146,7 +16146,7 @@ impl ScrollEventArgs {
         let this = self;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).NewValue)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).NewValue)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
@@ -16154,7 +16154,7 @@ impl ScrollEventArgs {
         let this = self;
         unsafe {
             let mut result__: ScrollEventType = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ScrollEventType)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ScrollEventType>(result__)
+            (::windows::core::Interface::vtable(this).ScrollEventType)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ScrollEventType>(result__)
         }
     }
 }
@@ -16261,7 +16261,7 @@ impl ScrollEventHandler {
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn Invoke<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, Param1: ::windows::core::IntoParam<'a, ScrollEventArgs>>(&self, sender: Param0, e: Param1) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Invoke)(::core::mem::transmute_copy(this), sender.into_param().abi(), e.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Invoke)(::windows::core::Interface::as_raw(this), sender.into_param().abi(), e.into_param().abi()).ok() }
     }
 }
 #[repr(C)]
@@ -16420,52 +16420,52 @@ impl Selector {
         let this = self;
         unsafe {
             let mut result__: i32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SelectedIndex)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            (::windows::core::Interface::vtable(this).SelectedIndex)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SetSelectedIndex(&self, value: i32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetSelectedIndex)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSelectedIndex)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SelectedItem(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = self;
         unsafe {
             let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SelectedItem)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
+            (::windows::core::Interface::vtable(this).SelectedItem)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SetSelectedItem<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetSelectedItem)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSelectedItem)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SelectedValue(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = self;
         unsafe {
             let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SelectedValue)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
+            (::windows::core::Interface::vtable(this).SelectedValue)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SetSelectedValue<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetSelectedValue)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSelectedValue)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SelectedValuePath(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SelectedValuePath)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).SelectedValuePath)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SetSelectedValuePath<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetSelectedValuePath)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSelectedValuePath)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -16473,14 +16473,14 @@ impl Selector {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsSynchronizedWithCurrentItem)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::IReference<bool>>(result__)
+            (::windows::core::Interface::vtable(this).IsSynchronizedWithCurrentItem)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::super::Foundation::IReference<bool>>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetIsSynchronizedWithCurrentItem<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::IReference<bool>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetIsSynchronizedWithCurrentItem)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetIsSynchronizedWithCurrentItem)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -16488,55 +16488,55 @@ impl Selector {
         let this = self;
         unsafe {
             let mut result__: super::super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SelectionChanged)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).SelectionChanged)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveSelectionChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveSelectionChanged)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveSelectionChanged)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SelectedIndexProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::ISelectorStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SelectedIndexProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).SelectedIndexProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SelectedItemProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::ISelectorStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SelectedItemProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).SelectedItemProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SelectedValueProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::ISelectorStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SelectedValueProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).SelectedValueProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SelectedValuePathProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::ISelectorStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SelectedValuePathProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).SelectedValuePathProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn IsSynchronizedWithCurrentItemProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::ISelectorStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsSynchronizedWithCurrentItemProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).IsSynchronizedWithCurrentItemProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn GetIsSelectionActive<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyObject>>(element: Param0) -> ::windows::core::Result<bool> {
         Self::ISelectorStatics(|this| unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetIsSelectionActive)(::core::mem::transmute_copy(this), element.into_param().abi(), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).GetIsSelectionActive)(::windows::core::Interface::as_raw(this), element.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         })
     }
     #[doc(hidden)]
@@ -16800,19 +16800,19 @@ impl SelectorItem {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsSelected)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsSelected)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SetIsSelected(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetIsSelected)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetIsSelected)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn IsSelectedProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::ISelectorItemStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsSelectedProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).IsSelectedProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc(hidden)]
@@ -17055,7 +17055,7 @@ impl SettingsFlyoutTemplateSettings {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).HeaderBackground)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Media::Brush>(result__)
+            (::windows::core::Interface::vtable(this).HeaderBackground)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Media::Brush>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"UI_Xaml_Media\"`*"]
@@ -17064,7 +17064,7 @@ impl SettingsFlyoutTemplateSettings {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).HeaderForeground)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Media::Brush>(result__)
+            (::windows::core::Interface::vtable(this).HeaderForeground)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Media::Brush>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"UI_Xaml_Media\"`*"]
@@ -17073,7 +17073,7 @@ impl SettingsFlyoutTemplateSettings {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).BorderBrush)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Media::Brush>(result__)
+            (::windows::core::Interface::vtable(this).BorderBrush)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Media::Brush>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
@@ -17081,7 +17081,7 @@ impl SettingsFlyoutTemplateSettings {
         let this = self;
         unsafe {
             let mut result__: super::super::Thickness = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).BorderThickness)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Thickness>(result__)
+            (::windows::core::Interface::vtable(this).BorderThickness)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Thickness>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"UI_Xaml_Media\"`*"]
@@ -17090,7 +17090,7 @@ impl SettingsFlyoutTemplateSettings {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IconSource)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Media::ImageSource>(result__)
+            (::windows::core::Interface::vtable(this).IconSource)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Media::ImageSource>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"Foundation_Collections\"`, `\"UI_Xaml_Media_Animation\"`*"]
@@ -17099,7 +17099,7 @@ impl SettingsFlyoutTemplateSettings {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ContentTransitions)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Media::Animation::TransitionCollection>(result__)
+            (::windows::core::Interface::vtable(this).ContentTransitions)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Media::Animation::TransitionCollection>(result__)
         }
     }
 }
@@ -17273,7 +17273,7 @@ impl SplitViewTemplateSettings {
         let this = self;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).OpenPaneLength)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).OpenPaneLength)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
@@ -17281,7 +17281,7 @@ impl SplitViewTemplateSettings {
         let this = self;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).NegativeOpenPaneLength)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).NegativeOpenPaneLength)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
@@ -17289,7 +17289,7 @@ impl SplitViewTemplateSettings {
         let this = self;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).OpenPaneLengthMinusCompactLength)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).OpenPaneLengthMinusCompactLength)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
@@ -17297,7 +17297,7 @@ impl SplitViewTemplateSettings {
         let this = self;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).NegativeOpenPaneLengthMinusCompactLength)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).NegativeOpenPaneLengthMinusCompactLength)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
@@ -17305,7 +17305,7 @@ impl SplitViewTemplateSettings {
         let this = self;
         unsafe {
             let mut result__: super::super::GridLength = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).OpenPaneGridLength)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::GridLength>(result__)
+            (::windows::core::Interface::vtable(this).OpenPaneGridLength)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::GridLength>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
@@ -17313,7 +17313,7 @@ impl SplitViewTemplateSettings {
         let this = self;
         unsafe {
             let mut result__: super::super::GridLength = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CompactPaneGridLength)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::GridLength>(result__)
+            (::windows::core::Interface::vtable(this).CompactPaneGridLength)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::GridLength>(result__)
         }
     }
 }
@@ -17425,7 +17425,7 @@ impl Thumb {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsDragging)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsDragging)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"Foundation\"`*"]
@@ -17434,14 +17434,14 @@ impl Thumb {
         let this = self;
         unsafe {
             let mut result__: super::super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DragStarted)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).DragStarted)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveDragStarted<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveDragStarted)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveDragStarted)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -17449,14 +17449,14 @@ impl Thumb {
         let this = self;
         unsafe {
             let mut result__: super::super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DragDelta)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).DragDelta)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveDragDelta<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveDragDelta)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveDragDelta)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -17464,25 +17464,25 @@ impl Thumb {
         let this = self;
         unsafe {
             let mut result__: super::super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DragCompleted)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).DragCompleted)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveDragCompleted<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveDragCompleted)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveDragCompleted)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn CancelDrag(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).CancelDrag)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).CancelDrag)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn IsDraggingProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IThumbStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsDraggingProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).IsDraggingProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc(hidden)]
@@ -17712,20 +17712,20 @@ impl TickBar {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Fill)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Media::Brush>(result__)
+            (::windows::core::Interface::vtable(this).Fill)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Media::Brush>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"UI_Xaml_Media\"`*"]
     #[cfg(feature = "UI_Xaml_Media")]
     pub fn SetFill<'a, Param0: ::windows::core::IntoParam<'a, super::super::Media::Brush>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetFill)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetFill)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn FillProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::ITickBarStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FillProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).FillProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc(hidden)]
@@ -17965,27 +17965,27 @@ impl ToggleButton {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsChecked)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::IReference<bool>>(result__)
+            (::windows::core::Interface::vtable(this).IsChecked)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::super::Foundation::IReference<bool>>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetIsChecked<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::IReference<bool>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetIsChecked)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetIsChecked)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn IsThreeState(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsThreeState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsThreeState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn SetIsThreeState(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetIsThreeState)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetIsThreeState)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -17993,14 +17993,14 @@ impl ToggleButton {
         let this = self;
         unsafe {
             let mut result__: super::super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Checked)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).Checked)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveChecked<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveChecked)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveChecked)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -18008,14 +18008,14 @@ impl ToggleButton {
         let this = self;
         unsafe {
             let mut result__: super::super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Unchecked)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).Unchecked)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveUnchecked<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveUnchecked)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveUnchecked)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -18023,20 +18023,20 @@ impl ToggleButton {
         let this = self;
         unsafe {
             let mut result__: super::super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Indeterminate)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).Indeterminate)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveIndeterminate<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveIndeterminate)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveIndeterminate)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn new() -> ::windows::core::Result<ToggleButton> {
         Self::IToggleButtonFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<ToggleButton>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<ToggleButton>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
@@ -18044,21 +18044,21 @@ impl ToggleButton {
         Self::IToggleButtonFactory(|this| unsafe {
             let (derived__, base__) = ::windows::core::Compose::compose(compose);
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<ToggleButton>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<ToggleButton>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn IsCheckedProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IToggleButtonStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsCheckedProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).IsCheckedProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
     pub fn IsThreeStateProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IToggleButtonStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsThreeStateProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).IsThreeStateProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc(hidden)]
@@ -18325,7 +18325,7 @@ impl ToggleSwitchTemplateSettings {
         let this = self;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).KnobCurrentToOnOffset)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).KnobCurrentToOnOffset)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
@@ -18333,7 +18333,7 @@ impl ToggleSwitchTemplateSettings {
         let this = self;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).KnobCurrentToOffOffset)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).KnobCurrentToOffOffset)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
@@ -18341,7 +18341,7 @@ impl ToggleSwitchTemplateSettings {
         let this = self;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).KnobOnToOffOffset)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).KnobOnToOffOffset)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
@@ -18349,7 +18349,7 @@ impl ToggleSwitchTemplateSettings {
         let this = self;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).KnobOffToOnOffset)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).KnobOffToOnOffset)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
@@ -18357,7 +18357,7 @@ impl ToggleSwitchTemplateSettings {
         let this = self;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CurtainCurrentToOnOffset)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).CurtainCurrentToOnOffset)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
@@ -18365,7 +18365,7 @@ impl ToggleSwitchTemplateSettings {
         let this = self;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CurtainCurrentToOffOffset)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).CurtainCurrentToOffOffset)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
@@ -18373,7 +18373,7 @@ impl ToggleSwitchTemplateSettings {
         let this = self;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CurtainOnToOffOffset)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).CurtainOnToOffOffset)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
@@ -18381,7 +18381,7 @@ impl ToggleSwitchTemplateSettings {
         let this = self;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CurtainOffToOnOffset)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).CurtainOffToOnOffset)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
 }
@@ -18486,7 +18486,7 @@ impl ToolTipTemplateSettings {
         let this = self;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FromHorizontalOffset)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).FromHorizontalOffset)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Primitives\"`*"]
@@ -18494,7 +18494,7 @@ impl ToolTipTemplateSettings {
         let this = self;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FromVerticalOffset)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).FromVerticalOffset)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
 }

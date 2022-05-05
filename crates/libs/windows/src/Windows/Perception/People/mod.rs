@@ -7,7 +7,7 @@ impl EyesPose {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsCalibrationValid)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsCalibrationValid)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Perception_People\"`, `\"Foundation_Numerics\"`, `\"Perception_Spatial\"`*"]
@@ -16,7 +16,7 @@ impl EyesPose {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Gaze)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<super::Spatial::SpatialRay>>(result__)
+            (::windows::core::Interface::vtable(this).Gaze)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IReference<super::Spatial::SpatialRay>>(result__)
         }
     }
     #[doc = "*Required features: `\"Perception_People\"`*"]
@@ -24,14 +24,14 @@ impl EyesPose {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).UpdateTimestamp)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::PerceptionTimestamp>(result__)
+            (::windows::core::Interface::vtable(this).UpdateTimestamp)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::PerceptionTimestamp>(result__)
         }
     }
     #[doc = "*Required features: `\"Perception_People\"`*"]
     pub fn IsSupported() -> ::windows::core::Result<bool> {
         Self::IEyesPoseStatics(|this| unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsSupported)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsSupported)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         })
     }
     #[doc = "*Required features: `\"Perception_People\"`, `\"Foundation\"`, `\"UI_Input\"`*"]
@@ -39,7 +39,7 @@ impl EyesPose {
     pub fn RequestAccessAsync() -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::UI::Input::GazeInputAccessStatus>> {
         Self::IEyesPoseStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RequestAccessAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::UI::Input::GazeInputAccessStatus>>(result__)
+            (::windows::core::Interface::vtable(this).RequestAccessAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::UI::Input::GazeInputAccessStatus>>(result__)
         })
     }
     #[doc(hidden)]
@@ -188,7 +188,7 @@ impl HandMeshObserver {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Source)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::UI::Input::Spatial::SpatialInteractionSource>(result__)
+            (::windows::core::Interface::vtable(this).Source)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::UI::Input::Spatial::SpatialInteractionSource>(result__)
         }
     }
     #[doc = "*Required features: `\"Perception_People\"`*"]
@@ -196,7 +196,7 @@ impl HandMeshObserver {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TriangleIndexCount)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).TriangleIndexCount)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `\"Perception_People\"`*"]
@@ -204,20 +204,20 @@ impl HandMeshObserver {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).VertexCount)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).VertexCount)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `\"Perception_People\"`*"]
     pub fn GetTriangleIndices(&self, indices: &mut [u16]) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).GetTriangleIndices)(::core::mem::transmute_copy(this), indices.len() as u32, ::core::mem::transmute_copy(&indices)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).GetTriangleIndices)(::windows::core::Interface::as_raw(this), indices.len() as u32, ::core::mem::transmute_copy(&indices)).ok() }
     }
     #[doc = "*Required features: `\"Perception_People\"`*"]
     pub fn GetVertexStateForPose<'a, Param0: ::windows::core::IntoParam<'a, HandPose>>(&self, handpose: Param0) -> ::windows::core::Result<HandMeshVertexState> {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetVertexStateForPose)(::core::mem::transmute_copy(this), handpose.into_param().abi(), &mut result__).from_abi::<HandMeshVertexState>(result__)
+            (::windows::core::Interface::vtable(this).GetVertexStateForPose)(::windows::core::Interface::as_raw(this), handpose.into_param().abi(), &mut result__).from_abi::<HandMeshVertexState>(result__)
         }
     }
     #[doc = "*Required features: `\"Perception_People\"`*"]
@@ -225,7 +225,7 @@ impl HandMeshObserver {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).NeutralPose)(::core::mem::transmute_copy(this), &mut result__).from_abi::<HandPose>(result__)
+            (::windows::core::Interface::vtable(this).NeutralPose)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<HandPose>(result__)
         }
     }
     #[doc = "*Required features: `\"Perception_People\"`*"]
@@ -233,7 +233,7 @@ impl HandMeshObserver {
         let this = self;
         unsafe {
             let mut result__: i32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).NeutralPoseVersion)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            (::windows::core::Interface::vtable(this).NeutralPoseVersion)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: `\"Perception_People\"`*"]
@@ -241,7 +241,7 @@ impl HandMeshObserver {
         let this = self;
         unsafe {
             let mut result__: i32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ModelId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            (::windows::core::Interface::vtable(this).ModelId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<i32>(result__)
         }
     }
 }
@@ -374,21 +374,21 @@ impl HandMeshVertexState {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CoordinateSystem)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Spatial::SpatialCoordinateSystem>(result__)
+            (::windows::core::Interface::vtable(this).CoordinateSystem)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::Spatial::SpatialCoordinateSystem>(result__)
         }
     }
     #[doc = "*Required features: `\"Perception_People\"`, `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn GetVertices(&self, vertices: &mut [HandMeshVertex]) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).GetVertices)(::core::mem::transmute_copy(this), vertices.len() as u32, ::core::mem::transmute_copy(&vertices)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).GetVertices)(::windows::core::Interface::as_raw(this), vertices.len() as u32, ::core::mem::transmute_copy(&vertices)).ok() }
     }
     #[doc = "*Required features: `\"Perception_People\"`*"]
     pub fn UpdateTimestamp(&self) -> ::windows::core::Result<super::PerceptionTimestamp> {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).UpdateTimestamp)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::PerceptionTimestamp>(result__)
+            (::windows::core::Interface::vtable(this).UpdateTimestamp)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::PerceptionTimestamp>(result__)
         }
     }
 }
@@ -474,7 +474,7 @@ impl HandPose {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TryGetJoint)(::core::mem::transmute_copy(this), coordinatesystem.into_param().abi(), joint, jointpose, &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).TryGetJoint)(::windows::core::Interface::as_raw(this), coordinatesystem.into_param().abi(), joint, jointpose, &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Perception_People\"`, `\"Foundation_Numerics\"`, `\"Perception_Spatial\"`*"]
@@ -483,7 +483,7 @@ impl HandPose {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TryGetJoints)(::core::mem::transmute_copy(this), coordinatesystem.into_param().abi(), joints.len() as u32, ::core::mem::transmute(joints.as_ptr()), jointposes.len() as u32, ::core::mem::transmute_copy(&jointposes), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).TryGetJoints)(::windows::core::Interface::as_raw(this), coordinatesystem.into_param().abi(), joints.len() as u32, ::core::mem::transmute(joints.as_ptr()), jointposes.len() as u32, ::core::mem::transmute_copy(&jointposes), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Perception_People\"`, `\"Foundation_Numerics\"`*"]
@@ -492,14 +492,14 @@ impl HandPose {
         let this = self;
         unsafe {
             let mut result__: JointPose = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetRelativeJoint)(::core::mem::transmute_copy(this), joint, referencejoint, &mut result__).from_abi::<JointPose>(result__)
+            (::windows::core::Interface::vtable(this).GetRelativeJoint)(::windows::core::Interface::as_raw(this), joint, referencejoint, &mut result__).from_abi::<JointPose>(result__)
         }
     }
     #[doc = "*Required features: `\"Perception_People\"`, `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn GetRelativeJoints(&self, joints: &[HandJointKind], referencejoints: &[HandJointKind], jointposes: &mut [JointPose]) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).GetRelativeJoints)(::core::mem::transmute_copy(this), joints.len() as u32, ::core::mem::transmute(joints.as_ptr()), referencejoints.len() as u32, ::core::mem::transmute(referencejoints.as_ptr()), jointposes.len() as u32, ::core::mem::transmute_copy(&jointposes)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).GetRelativeJoints)(::windows::core::Interface::as_raw(this), joints.len() as u32, ::core::mem::transmute(joints.as_ptr()), referencejoints.len() as u32, ::core::mem::transmute(referencejoints.as_ptr()), jointposes.len() as u32, ::core::mem::transmute_copy(&jointposes)).ok() }
     }
 }
 impl ::core::clone::Clone for HandPose {
@@ -584,7 +584,7 @@ impl HeadPose {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::Numerics::Vector3 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Position)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Numerics::Vector3>(result__)
+            (::windows::core::Interface::vtable(this).Position)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Numerics::Vector3>(result__)
         }
     }
     #[doc = "*Required features: `\"Perception_People\"`, `\"Foundation_Numerics\"`*"]
@@ -593,7 +593,7 @@ impl HeadPose {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::Numerics::Vector3 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ForwardDirection)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Numerics::Vector3>(result__)
+            (::windows::core::Interface::vtable(this).ForwardDirection)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Numerics::Vector3>(result__)
         }
     }
     #[doc = "*Required features: `\"Perception_People\"`, `\"Foundation_Numerics\"`*"]
@@ -602,7 +602,7 @@ impl HeadPose {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::Numerics::Vector3 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).UpDirection)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Numerics::Vector3>(result__)
+            (::windows::core::Interface::vtable(this).UpDirection)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Numerics::Vector3>(result__)
         }
     }
 }

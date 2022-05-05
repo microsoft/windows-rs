@@ -120,7 +120,7 @@ impl AppointmentsProviderAddAppointmentActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -128,7 +128,7 @@ impl AppointmentsProviderAddAppointmentActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -136,7 +136,7 @@ impl AppointmentsProviderAddAppointmentActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SplashScreen>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"System\"`*"]
@@ -145,7 +145,7 @@ impl AppointmentsProviderAddAppointmentActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).User)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
+            (::windows::core::Interface::vtable(this).User)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::System::User>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -153,7 +153,7 @@ impl AppointmentsProviderAddAppointmentActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IAppointmentsProviderActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Verb)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Verb)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"ApplicationModel_Appointments_AppointmentsProvider\"`*"]
@@ -162,7 +162,7 @@ impl AppointmentsProviderAddAppointmentActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AddAppointmentOperation)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Appointments::AppointmentsProvider::AddAppointmentOperation>(result__)
+            (::windows::core::Interface::vtable(this).AddAppointmentOperation)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::Appointments::AppointmentsProvider::AddAppointmentOperation>(result__)
         }
     }
 }
@@ -335,7 +335,7 @@ impl AppointmentsProviderRemoveAppointmentActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -343,7 +343,7 @@ impl AppointmentsProviderRemoveAppointmentActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -351,7 +351,7 @@ impl AppointmentsProviderRemoveAppointmentActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SplashScreen>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"System\"`*"]
@@ -360,7 +360,7 @@ impl AppointmentsProviderRemoveAppointmentActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).User)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
+            (::windows::core::Interface::vtable(this).User)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::System::User>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -368,7 +368,7 @@ impl AppointmentsProviderRemoveAppointmentActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IAppointmentsProviderActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Verb)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Verb)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"ApplicationModel_Appointments_AppointmentsProvider\"`*"]
@@ -377,7 +377,7 @@ impl AppointmentsProviderRemoveAppointmentActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RemoveAppointmentOperation)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Appointments::AppointmentsProvider::RemoveAppointmentOperation>(result__)
+            (::windows::core::Interface::vtable(this).RemoveAppointmentOperation)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::Appointments::AppointmentsProvider::RemoveAppointmentOperation>(result__)
         }
     }
 }
@@ -550,7 +550,7 @@ impl AppointmentsProviderReplaceAppointmentActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -558,7 +558,7 @@ impl AppointmentsProviderReplaceAppointmentActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -566,7 +566,7 @@ impl AppointmentsProviderReplaceAppointmentActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SplashScreen>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"System\"`*"]
@@ -575,7 +575,7 @@ impl AppointmentsProviderReplaceAppointmentActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).User)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
+            (::windows::core::Interface::vtable(this).User)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::System::User>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -583,7 +583,7 @@ impl AppointmentsProviderReplaceAppointmentActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IAppointmentsProviderActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Verb)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Verb)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"ApplicationModel_Appointments_AppointmentsProvider\"`*"]
@@ -592,7 +592,7 @@ impl AppointmentsProviderReplaceAppointmentActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ReplaceAppointmentOperation)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Appointments::AppointmentsProvider::ReplaceAppointmentOperation>(result__)
+            (::windows::core::Interface::vtable(this).ReplaceAppointmentOperation)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::Appointments::AppointmentsProvider::ReplaceAppointmentOperation>(result__)
         }
     }
 }
@@ -765,7 +765,7 @@ impl AppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -773,7 +773,7 @@ impl AppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -781,7 +781,7 @@ impl AppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SplashScreen>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"System\"`*"]
@@ -790,7 +790,7 @@ impl AppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).User)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
+            (::windows::core::Interface::vtable(this).User)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::System::User>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -798,7 +798,7 @@ impl AppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IAppointmentsProviderActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Verb)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Verb)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"Foundation\"`*"]
@@ -807,7 +807,7 @@ impl AppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).InstanceStartDate)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<super::super::Foundation::DateTime>>(result__)
+            (::windows::core::Interface::vtable(this).InstanceStartDate)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IReference<super::super::Foundation::DateTime>>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -815,7 +815,7 @@ impl AppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).LocalId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).LocalId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -823,7 +823,7 @@ impl AppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RoamingId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).RoamingId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
 }
@@ -996,7 +996,7 @@ impl AppointmentsProviderShowTimeFrameActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -1004,7 +1004,7 @@ impl AppointmentsProviderShowTimeFrameActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -1012,7 +1012,7 @@ impl AppointmentsProviderShowTimeFrameActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SplashScreen>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"System\"`*"]
@@ -1021,7 +1021,7 @@ impl AppointmentsProviderShowTimeFrameActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).User)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
+            (::windows::core::Interface::vtable(this).User)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::System::User>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -1029,7 +1029,7 @@ impl AppointmentsProviderShowTimeFrameActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IAppointmentsProviderActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Verb)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Verb)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"Foundation\"`*"]
@@ -1038,7 +1038,7 @@ impl AppointmentsProviderShowTimeFrameActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::DateTime = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TimeToShow)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::DateTime>(result__)
+            (::windows::core::Interface::vtable(this).TimeToShow)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::DateTime>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"Foundation\"`*"]
@@ -1047,7 +1047,7 @@ impl AppointmentsProviderShowTimeFrameActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::TimeSpan = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Duration)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
+            (::windows::core::Interface::vtable(this).Duration)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
 }
@@ -1221,7 +1221,7 @@ impl BackgroundActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TaskInstance)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Background::IBackgroundTaskInstance>(result__)
+            (::windows::core::Interface::vtable(this).TaskInstance)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::Background::IBackgroundTaskInstance>(result__)
         }
     }
 }
@@ -1328,7 +1328,7 @@ impl BarcodeScannerPreviewActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -1336,7 +1336,7 @@ impl BarcodeScannerPreviewActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -1344,7 +1344,7 @@ impl BarcodeScannerPreviewActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SplashScreen>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"System\"`*"]
@@ -1353,7 +1353,7 @@ impl BarcodeScannerPreviewActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).User)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
+            (::windows::core::Interface::vtable(this).User)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::System::User>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -1361,7 +1361,7 @@ impl BarcodeScannerPreviewActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ConnectionId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).ConnectionId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
 }
@@ -1512,7 +1512,7 @@ impl CachedFileUpdaterActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -1520,7 +1520,7 @@ impl CachedFileUpdaterActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -1528,7 +1528,7 @@ impl CachedFileUpdaterActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SplashScreen>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"System\"`*"]
@@ -1537,7 +1537,7 @@ impl CachedFileUpdaterActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).User)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
+            (::windows::core::Interface::vtable(this).User)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::System::User>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"Storage_Provider\"`*"]
@@ -1546,7 +1546,7 @@ impl CachedFileUpdaterActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CachedFileUpdaterUI)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Provider::CachedFileUpdaterUI>(result__)
+            (::windows::core::Interface::vtable(this).CachedFileUpdaterUI)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Storage::Provider::CachedFileUpdaterUI>(result__)
         }
     }
 }
@@ -1697,7 +1697,7 @@ impl CameraSettingsActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -1705,7 +1705,7 @@ impl CameraSettingsActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -1713,7 +1713,7 @@ impl CameraSettingsActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SplashScreen>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -1721,7 +1721,7 @@ impl CameraSettingsActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).VideoDeviceController)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
+            (::windows::core::Interface::vtable(this).VideoDeviceController)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -1729,7 +1729,7 @@ impl CameraSettingsActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).VideoDeviceExtension)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
+            (::windows::core::Interface::vtable(this).VideoDeviceExtension)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
 }
@@ -1858,7 +1858,7 @@ impl CommandLineActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -1866,7 +1866,7 @@ impl CommandLineActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -1874,7 +1874,7 @@ impl CommandLineActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SplashScreen>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"System\"`*"]
@@ -1883,7 +1883,7 @@ impl CommandLineActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).User)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
+            (::windows::core::Interface::vtable(this).User)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::System::User>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -1891,7 +1891,7 @@ impl CommandLineActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Operation)(::core::mem::transmute_copy(this), &mut result__).from_abi::<CommandLineActivationOperation>(result__)
+            (::windows::core::Interface::vtable(this).Operation)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<CommandLineActivationOperation>(result__)
         }
     }
 }
@@ -2042,7 +2042,7 @@ impl CommandLineActivationOperation {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Arguments)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Arguments)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -2050,20 +2050,20 @@ impl CommandLineActivationOperation {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CurrentDirectoryPath)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).CurrentDirectoryPath)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
     pub fn SetExitCode(&self, value: i32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetExitCode)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetExitCode)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
     pub fn ExitCode(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
             let mut result__: i32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ExitCode)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            (::windows::core::Interface::vtable(this).ExitCode)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"Foundation\"`*"]
@@ -2072,7 +2072,7 @@ impl CommandLineActivationOperation {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetDeferral)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Deferral>(result__)
+            (::windows::core::Interface::vtable(this).GetDeferral)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Deferral>(result__)
         }
     }
 }
@@ -2157,7 +2157,7 @@ impl ContactCallActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -2165,7 +2165,7 @@ impl ContactCallActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -2173,7 +2173,7 @@ impl ContactCallActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SplashScreen>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -2181,7 +2181,7 @@ impl ContactCallActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IContactActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Verb)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Verb)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -2189,7 +2189,7 @@ impl ContactCallActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ServiceId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).ServiceId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -2197,7 +2197,7 @@ impl ContactCallActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ServiceUserId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).ServiceUserId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"ApplicationModel_Contacts\"`*"]
@@ -2206,7 +2206,7 @@ impl ContactCallActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Contact)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Contacts::Contact>(result__)
+            (::windows::core::Interface::vtable(this).Contact)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::Contacts::Contact>(result__)
         }
     }
 }
@@ -2357,7 +2357,7 @@ impl ContactMapActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -2365,7 +2365,7 @@ impl ContactMapActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -2373,7 +2373,7 @@ impl ContactMapActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SplashScreen>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -2381,7 +2381,7 @@ impl ContactMapActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IContactActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Verb)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Verb)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"ApplicationModel_Contacts\"`*"]
@@ -2390,7 +2390,7 @@ impl ContactMapActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Address)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Contacts::ContactAddress>(result__)
+            (::windows::core::Interface::vtable(this).Address)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::Contacts::ContactAddress>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"ApplicationModel_Contacts\"`*"]
@@ -2399,7 +2399,7 @@ impl ContactMapActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Contact)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Contacts::Contact>(result__)
+            (::windows::core::Interface::vtable(this).Contact)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::Contacts::Contact>(result__)
         }
     }
 }
@@ -2550,7 +2550,7 @@ impl ContactMessageActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -2558,7 +2558,7 @@ impl ContactMessageActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -2566,7 +2566,7 @@ impl ContactMessageActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SplashScreen>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -2574,7 +2574,7 @@ impl ContactMessageActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IContactActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Verb)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Verb)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -2582,7 +2582,7 @@ impl ContactMessageActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ServiceId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).ServiceId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -2590,7 +2590,7 @@ impl ContactMessageActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ServiceUserId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).ServiceUserId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"ApplicationModel_Contacts\"`*"]
@@ -2599,7 +2599,7 @@ impl ContactMessageActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Contact)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Contacts::Contact>(result__)
+            (::windows::core::Interface::vtable(this).Contact)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::Contacts::Contact>(result__)
         }
     }
 }
@@ -2750,7 +2750,7 @@ impl ContactPanelActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -2758,7 +2758,7 @@ impl ContactPanelActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -2766,7 +2766,7 @@ impl ContactPanelActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SplashScreen>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"System\"`*"]
@@ -2775,7 +2775,7 @@ impl ContactPanelActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).User)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
+            (::windows::core::Interface::vtable(this).User)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::System::User>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"ApplicationModel_Contacts\"`*"]
@@ -2784,7 +2784,7 @@ impl ContactPanelActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ContactPanel)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Contacts::ContactPanel>(result__)
+            (::windows::core::Interface::vtable(this).ContactPanel)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::Contacts::ContactPanel>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"ApplicationModel_Contacts\"`*"]
@@ -2793,7 +2793,7 @@ impl ContactPanelActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Contact)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Contacts::Contact>(result__)
+            (::windows::core::Interface::vtable(this).Contact)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::Contacts::Contact>(result__)
         }
     }
 }
@@ -2944,7 +2944,7 @@ impl ContactPickerActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -2952,7 +2952,7 @@ impl ContactPickerActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -2960,7 +2960,7 @@ impl ContactPickerActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SplashScreen>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"ApplicationModel_Contacts_Provider\"`*"]
@@ -2969,7 +2969,7 @@ impl ContactPickerActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ContactPickerUI)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Contacts::Provider::ContactPickerUI>(result__)
+            (::windows::core::Interface::vtable(this).ContactPickerUI)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::Contacts::Provider::ContactPickerUI>(result__)
         }
     }
 }
@@ -3098,7 +3098,7 @@ impl ContactPostActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -3106,7 +3106,7 @@ impl ContactPostActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -3114,7 +3114,7 @@ impl ContactPostActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SplashScreen>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -3122,7 +3122,7 @@ impl ContactPostActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IContactActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Verb)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Verb)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -3130,7 +3130,7 @@ impl ContactPostActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ServiceId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).ServiceId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -3138,7 +3138,7 @@ impl ContactPostActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ServiceUserId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).ServiceUserId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"ApplicationModel_Contacts\"`*"]
@@ -3147,7 +3147,7 @@ impl ContactPostActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Contact)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Contacts::Contact>(result__)
+            (::windows::core::Interface::vtable(this).Contact)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::Contacts::Contact>(result__)
         }
     }
 }
@@ -3298,7 +3298,7 @@ impl ContactVideoCallActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -3306,7 +3306,7 @@ impl ContactVideoCallActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -3314,7 +3314,7 @@ impl ContactVideoCallActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SplashScreen>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -3322,7 +3322,7 @@ impl ContactVideoCallActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IContactActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Verb)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Verb)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -3330,7 +3330,7 @@ impl ContactVideoCallActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ServiceId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).ServiceId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -3338,7 +3338,7 @@ impl ContactVideoCallActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ServiceUserId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).ServiceUserId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"ApplicationModel_Contacts\"`*"]
@@ -3347,7 +3347,7 @@ impl ContactVideoCallActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Contact)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Contacts::Contact>(result__)
+            (::windows::core::Interface::vtable(this).Contact)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::Contacts::Contact>(result__)
         }
     }
 }
@@ -3498,7 +3498,7 @@ impl DeviceActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -3506,7 +3506,7 @@ impl DeviceActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -3514,7 +3514,7 @@ impl DeviceActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SplashScreen>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"System\"`*"]
@@ -3523,7 +3523,7 @@ impl DeviceActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).User)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
+            (::windows::core::Interface::vtable(this).User)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::System::User>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -3531,7 +3531,7 @@ impl DeviceActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IApplicationViewActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: i32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CurrentlyShownApplicationViewId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            (::windows::core::Interface::vtable(this).CurrentlyShownApplicationViewId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -3539,7 +3539,7 @@ impl DeviceActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DeviceInformationId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).DeviceInformationId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -3547,7 +3547,7 @@ impl DeviceActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Verb)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Verb)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"UI_ViewManagement\"`*"]
@@ -3556,7 +3556,7 @@ impl DeviceActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IViewSwitcherProvider>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ViewSwitcher)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::UI::ViewManagement::ActivationViewSwitcher>(result__)
+            (::windows::core::Interface::vtable(this).ViewSwitcher)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::UI::ViewManagement::ActivationViewSwitcher>(result__)
         }
     }
 }
@@ -3751,7 +3751,7 @@ impl DevicePairingActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -3759,7 +3759,7 @@ impl DevicePairingActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -3767,7 +3767,7 @@ impl DevicePairingActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SplashScreen>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"System\"`*"]
@@ -3776,7 +3776,7 @@ impl DevicePairingActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).User)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
+            (::windows::core::Interface::vtable(this).User)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::System::User>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"Devices_Enumeration\"`*"]
@@ -3785,7 +3785,7 @@ impl DevicePairingActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DeviceInformation)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Devices::Enumeration::DeviceInformation>(result__)
+            (::windows::core::Interface::vtable(this).DeviceInformation)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Devices::Enumeration::DeviceInformation>(result__)
         }
     }
 }
@@ -3936,7 +3936,7 @@ impl DialReceiverActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -3944,7 +3944,7 @@ impl DialReceiverActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -3952,7 +3952,7 @@ impl DialReceiverActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SplashScreen>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"System\"`*"]
@@ -3961,7 +3961,7 @@ impl DialReceiverActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).User)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
+            (::windows::core::Interface::vtable(this).User)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::System::User>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -3969,7 +3969,7 @@ impl DialReceiverActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IApplicationViewActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: i32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CurrentlyShownApplicationViewId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            (::windows::core::Interface::vtable(this).CurrentlyShownApplicationViewId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -3977,7 +3977,7 @@ impl DialReceiverActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AppName)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).AppName)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -3985,7 +3985,7 @@ impl DialReceiverActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<ILaunchActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Arguments)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Arguments)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -3993,7 +3993,7 @@ impl DialReceiverActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<ILaunchActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TileId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).TileId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"UI_ViewManagement\"`*"]
@@ -4002,7 +4002,7 @@ impl DialReceiverActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IViewSwitcherProvider>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ViewSwitcher)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::UI::ViewManagement::ActivationViewSwitcher>(result__)
+            (::windows::core::Interface::vtable(this).ViewSwitcher)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::UI::ViewManagement::ActivationViewSwitcher>(result__)
         }
     }
 }
@@ -4219,7 +4219,7 @@ impl FileActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -4227,7 +4227,7 @@ impl FileActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -4235,7 +4235,7 @@ impl FileActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SplashScreen>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"System\"`*"]
@@ -4244,7 +4244,7 @@ impl FileActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).User)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
+            (::windows::core::Interface::vtable(this).User)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::System::User>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -4252,7 +4252,7 @@ impl FileActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IApplicationViewActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: i32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CurrentlyShownApplicationViewId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            (::windows::core::Interface::vtable(this).CurrentlyShownApplicationViewId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"Foundation_Collections\"`, `\"Storage\"`*"]
@@ -4261,7 +4261,7 @@ impl FileActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Files)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<super::super::Storage::IStorageItem>>(result__)
+            (::windows::core::Interface::vtable(this).Files)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<super::super::Storage::IStorageItem>>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -4269,7 +4269,7 @@ impl FileActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Verb)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Verb)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -4277,7 +4277,7 @@ impl FileActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IFileActivatedEventArgsWithCallerPackageFamilyName>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CallerPackageFamilyName)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).CallerPackageFamilyName)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"Storage_Search\"`*"]
@@ -4286,7 +4286,7 @@ impl FileActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IFileActivatedEventArgsWithNeighboringFiles>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).NeighboringFilesQuery)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Search::StorageFileQueryResult>(result__)
+            (::windows::core::Interface::vtable(this).NeighboringFilesQuery)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Storage::Search::StorageFileQueryResult>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"UI_ViewManagement\"`*"]
@@ -4295,7 +4295,7 @@ impl FileActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IViewSwitcherProvider>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ViewSwitcher)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::UI::ViewManagement::ActivationViewSwitcher>(result__)
+            (::windows::core::Interface::vtable(this).ViewSwitcher)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::UI::ViewManagement::ActivationViewSwitcher>(result__)
         }
     }
 }
@@ -4534,7 +4534,7 @@ impl FileOpenPickerActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -4542,7 +4542,7 @@ impl FileOpenPickerActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -4550,7 +4550,7 @@ impl FileOpenPickerActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SplashScreen>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"System\"`*"]
@@ -4559,7 +4559,7 @@ impl FileOpenPickerActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).User)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
+            (::windows::core::Interface::vtable(this).User)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::System::User>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"Storage_Pickers_Provider\"`*"]
@@ -4568,7 +4568,7 @@ impl FileOpenPickerActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FileOpenPickerUI)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Pickers::Provider::FileOpenPickerUI>(result__)
+            (::windows::core::Interface::vtable(this).FileOpenPickerUI)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Storage::Pickers::Provider::FileOpenPickerUI>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -4576,7 +4576,7 @@ impl FileOpenPickerActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IFileOpenPickerActivatedEventArgs2>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CallerPackageFamilyName)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).CallerPackageFamilyName)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
 }
@@ -4751,7 +4751,7 @@ impl FileOpenPickerContinuationEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -4759,7 +4759,7 @@ impl FileOpenPickerContinuationEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -4767,7 +4767,7 @@ impl FileOpenPickerContinuationEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SplashScreen>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"System\"`*"]
@@ -4776,7 +4776,7 @@ impl FileOpenPickerContinuationEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).User)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
+            (::windows::core::Interface::vtable(this).User)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::System::User>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"Foundation_Collections\"`*"]
@@ -4785,7 +4785,7 @@ impl FileOpenPickerContinuationEventArgs {
         let this = &::windows::core::Interface::cast::<IContinuationActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ContinuationData)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::ValueSet>(result__)
+            (::windows::core::Interface::vtable(this).ContinuationData)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::ValueSet>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"Foundation_Collections\"`, `\"Storage\"`, `\"deprecated\"`*"]
@@ -4794,7 +4794,7 @@ impl FileOpenPickerContinuationEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Files)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<super::super::Storage::StorageFile>>(result__)
+            (::windows::core::Interface::vtable(this).Files)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<super::super::Storage::StorageFile>>(result__)
         }
     }
 }
@@ -5000,7 +5000,7 @@ impl FileSavePickerActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -5008,7 +5008,7 @@ impl FileSavePickerActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -5016,7 +5016,7 @@ impl FileSavePickerActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SplashScreen>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"System\"`*"]
@@ -5025,7 +5025,7 @@ impl FileSavePickerActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).User)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
+            (::windows::core::Interface::vtable(this).User)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::System::User>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"Storage_Pickers_Provider\"`*"]
@@ -5034,7 +5034,7 @@ impl FileSavePickerActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FileSavePickerUI)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Pickers::Provider::FileSavePickerUI>(result__)
+            (::windows::core::Interface::vtable(this).FileSavePickerUI)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Storage::Pickers::Provider::FileSavePickerUI>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -5042,7 +5042,7 @@ impl FileSavePickerActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IFileSavePickerActivatedEventArgs2>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CallerPackageFamilyName)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).CallerPackageFamilyName)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -5050,7 +5050,7 @@ impl FileSavePickerActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IFileSavePickerActivatedEventArgs2>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).EnterpriseId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).EnterpriseId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
 }
@@ -5225,7 +5225,7 @@ impl FileSavePickerContinuationEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -5233,7 +5233,7 @@ impl FileSavePickerContinuationEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -5241,7 +5241,7 @@ impl FileSavePickerContinuationEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SplashScreen>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"System\"`*"]
@@ -5250,7 +5250,7 @@ impl FileSavePickerContinuationEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).User)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
+            (::windows::core::Interface::vtable(this).User)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::System::User>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"Foundation_Collections\"`*"]
@@ -5259,7 +5259,7 @@ impl FileSavePickerContinuationEventArgs {
         let this = &::windows::core::Interface::cast::<IContinuationActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ContinuationData)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::ValueSet>(result__)
+            (::windows::core::Interface::vtable(this).ContinuationData)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::ValueSet>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"Storage\"`, `\"deprecated\"`*"]
@@ -5268,7 +5268,7 @@ impl FileSavePickerContinuationEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).File)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::StorageFile>(result__)
+            (::windows::core::Interface::vtable(this).File)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Storage::StorageFile>(result__)
         }
     }
 }
@@ -5476,7 +5476,7 @@ impl FolderPickerContinuationEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -5484,7 +5484,7 @@ impl FolderPickerContinuationEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -5492,7 +5492,7 @@ impl FolderPickerContinuationEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SplashScreen>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"System\"`*"]
@@ -5501,7 +5501,7 @@ impl FolderPickerContinuationEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).User)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
+            (::windows::core::Interface::vtable(this).User)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::System::User>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"Foundation_Collections\"`*"]
@@ -5510,7 +5510,7 @@ impl FolderPickerContinuationEventArgs {
         let this = &::windows::core::Interface::cast::<IContinuationActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ContinuationData)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::ValueSet>(result__)
+            (::windows::core::Interface::vtable(this).ContinuationData)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::ValueSet>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"Storage\"`, `\"deprecated\"`*"]
@@ -5519,7 +5519,7 @@ impl FolderPickerContinuationEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Folder)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::StorageFolder>(result__)
+            (::windows::core::Interface::vtable(this).Folder)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Storage::StorageFolder>(result__)
         }
     }
 }
@@ -5725,7 +5725,7 @@ impl IActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -5733,7 +5733,7 @@ impl IActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -5741,7 +5741,7 @@ impl IActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SplashScreen>(result__)
         }
     }
 }
@@ -5830,7 +5830,7 @@ impl IActivatedEventArgsWithUser {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).User)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
+            (::windows::core::Interface::vtable(this).User)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::System::User>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -5838,7 +5838,7 @@ impl IActivatedEventArgsWithUser {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -5846,7 +5846,7 @@ impl IActivatedEventArgsWithUser {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -5854,7 +5854,7 @@ impl IActivatedEventArgsWithUser {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SplashScreen>(result__)
         }
     }
 }
@@ -5965,7 +5965,7 @@ impl IApplicationViewActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: i32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CurrentlyShownApplicationViewId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            (::windows::core::Interface::vtable(this).CurrentlyShownApplicationViewId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -5973,7 +5973,7 @@ impl IApplicationViewActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -5981,7 +5981,7 @@ impl IApplicationViewActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -5989,7 +5989,7 @@ impl IApplicationViewActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SplashScreen>(result__)
         }
     }
 }
@@ -6097,7 +6097,7 @@ impl IAppointmentsProviderActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Verb)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Verb)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -6105,7 +6105,7 @@ impl IAppointmentsProviderActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -6113,7 +6113,7 @@ impl IAppointmentsProviderActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -6121,7 +6121,7 @@ impl IAppointmentsProviderActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SplashScreen>(result__)
         }
     }
 }
@@ -6230,7 +6230,7 @@ impl IAppointmentsProviderAddAppointmentActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AddAppointmentOperation)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Appointments::AppointmentsProvider::AddAppointmentOperation>(result__)
+            (::windows::core::Interface::vtable(this).AddAppointmentOperation)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::Appointments::AppointmentsProvider::AddAppointmentOperation>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -6238,7 +6238,7 @@ impl IAppointmentsProviderAddAppointmentActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -6246,7 +6246,7 @@ impl IAppointmentsProviderAddAppointmentActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -6254,7 +6254,7 @@ impl IAppointmentsProviderAddAppointmentActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SplashScreen>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -6262,7 +6262,7 @@ impl IAppointmentsProviderAddAppointmentActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IAppointmentsProviderActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Verb)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Verb)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
 }
@@ -6396,7 +6396,7 @@ impl IAppointmentsProviderRemoveAppointmentActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RemoveAppointmentOperation)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Appointments::AppointmentsProvider::RemoveAppointmentOperation>(result__)
+            (::windows::core::Interface::vtable(this).RemoveAppointmentOperation)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::Appointments::AppointmentsProvider::RemoveAppointmentOperation>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -6404,7 +6404,7 @@ impl IAppointmentsProviderRemoveAppointmentActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -6412,7 +6412,7 @@ impl IAppointmentsProviderRemoveAppointmentActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -6420,7 +6420,7 @@ impl IAppointmentsProviderRemoveAppointmentActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SplashScreen>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -6428,7 +6428,7 @@ impl IAppointmentsProviderRemoveAppointmentActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IAppointmentsProviderActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Verb)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Verb)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
 }
@@ -6562,7 +6562,7 @@ impl IAppointmentsProviderReplaceAppointmentActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ReplaceAppointmentOperation)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Appointments::AppointmentsProvider::ReplaceAppointmentOperation>(result__)
+            (::windows::core::Interface::vtable(this).ReplaceAppointmentOperation)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::Appointments::AppointmentsProvider::ReplaceAppointmentOperation>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -6570,7 +6570,7 @@ impl IAppointmentsProviderReplaceAppointmentActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -6578,7 +6578,7 @@ impl IAppointmentsProviderReplaceAppointmentActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -6586,7 +6586,7 @@ impl IAppointmentsProviderReplaceAppointmentActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SplashScreen>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -6594,7 +6594,7 @@ impl IAppointmentsProviderReplaceAppointmentActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IAppointmentsProviderActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Verb)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Verb)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
 }
@@ -6728,7 +6728,7 @@ impl IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).InstanceStartDate)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<super::super::Foundation::DateTime>>(result__)
+            (::windows::core::Interface::vtable(this).InstanceStartDate)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IReference<super::super::Foundation::DateTime>>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -6736,7 +6736,7 @@ impl IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).LocalId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).LocalId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -6744,7 +6744,7 @@ impl IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RoamingId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).RoamingId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -6752,7 +6752,7 @@ impl IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -6760,7 +6760,7 @@ impl IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -6768,7 +6768,7 @@ impl IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SplashScreen>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -6776,7 +6776,7 @@ impl IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IAppointmentsProviderActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Verb)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Verb)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
 }
@@ -6912,7 +6912,7 @@ impl IAppointmentsProviderShowTimeFrameActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::DateTime = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TimeToShow)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::DateTime>(result__)
+            (::windows::core::Interface::vtable(this).TimeToShow)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::DateTime>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"Foundation\"`*"]
@@ -6921,7 +6921,7 @@ impl IAppointmentsProviderShowTimeFrameActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::TimeSpan = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Duration)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
+            (::windows::core::Interface::vtable(this).Duration)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -6929,7 +6929,7 @@ impl IAppointmentsProviderShowTimeFrameActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -6937,7 +6937,7 @@ impl IAppointmentsProviderShowTimeFrameActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -6945,7 +6945,7 @@ impl IAppointmentsProviderShowTimeFrameActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SplashScreen>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -6953,7 +6953,7 @@ impl IAppointmentsProviderShowTimeFrameActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IAppointmentsProviderActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Verb)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Verb)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
 }
@@ -7091,7 +7091,7 @@ impl IBackgroundActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TaskInstance)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Background::IBackgroundTaskInstance>(result__)
+            (::windows::core::Interface::vtable(this).TaskInstance)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::Background::IBackgroundTaskInstance>(result__)
         }
     }
 }
@@ -7180,7 +7180,7 @@ impl IBarcodeScannerPreviewActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ConnectionId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).ConnectionId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -7188,7 +7188,7 @@ impl IBarcodeScannerPreviewActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -7196,7 +7196,7 @@ impl IBarcodeScannerPreviewActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -7204,7 +7204,7 @@ impl IBarcodeScannerPreviewActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SplashScreen>(result__)
         }
     }
 }
@@ -7313,7 +7313,7 @@ impl ICachedFileUpdaterActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CachedFileUpdaterUI)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Provider::CachedFileUpdaterUI>(result__)
+            (::windows::core::Interface::vtable(this).CachedFileUpdaterUI)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Storage::Provider::CachedFileUpdaterUI>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -7321,7 +7321,7 @@ impl ICachedFileUpdaterActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -7329,7 +7329,7 @@ impl ICachedFileUpdaterActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -7337,7 +7337,7 @@ impl ICachedFileUpdaterActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SplashScreen>(result__)
         }
     }
 }
@@ -7448,7 +7448,7 @@ impl ICameraSettingsActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).VideoDeviceController)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
+            (::windows::core::Interface::vtable(this).VideoDeviceController)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -7456,7 +7456,7 @@ impl ICameraSettingsActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).VideoDeviceExtension)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
+            (::windows::core::Interface::vtable(this).VideoDeviceExtension)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -7464,7 +7464,7 @@ impl ICameraSettingsActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -7472,7 +7472,7 @@ impl ICameraSettingsActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -7480,7 +7480,7 @@ impl ICameraSettingsActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SplashScreen>(result__)
         }
     }
 }
@@ -7589,7 +7589,7 @@ impl ICommandLineActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Operation)(::core::mem::transmute_copy(this), &mut result__).from_abi::<CommandLineActivationOperation>(result__)
+            (::windows::core::Interface::vtable(this).Operation)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<CommandLineActivationOperation>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -7597,7 +7597,7 @@ impl ICommandLineActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -7605,7 +7605,7 @@ impl ICommandLineActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -7613,7 +7613,7 @@ impl ICommandLineActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SplashScreen>(result__)
         }
     }
 }
@@ -7741,7 +7741,7 @@ impl IContactActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Verb)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Verb)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -7749,7 +7749,7 @@ impl IContactActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -7757,7 +7757,7 @@ impl IContactActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -7765,7 +7765,7 @@ impl IContactActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SplashScreen>(result__)
         }
     }
 }
@@ -7873,7 +7873,7 @@ impl IContactCallActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ServiceId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).ServiceId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -7881,7 +7881,7 @@ impl IContactCallActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ServiceUserId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).ServiceUserId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"ApplicationModel_Contacts\"`*"]
@@ -7890,7 +7890,7 @@ impl IContactCallActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Contact)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Contacts::Contact>(result__)
+            (::windows::core::Interface::vtable(this).Contact)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::Contacts::Contact>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -7898,7 +7898,7 @@ impl IContactCallActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -7906,7 +7906,7 @@ impl IContactCallActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -7914,7 +7914,7 @@ impl IContactCallActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SplashScreen>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -7922,7 +7922,7 @@ impl IContactCallActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IContactActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Verb)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Verb)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
 }
@@ -8058,7 +8058,7 @@ impl IContactMapActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Address)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Contacts::ContactAddress>(result__)
+            (::windows::core::Interface::vtable(this).Address)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::Contacts::ContactAddress>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"ApplicationModel_Contacts\"`*"]
@@ -8067,7 +8067,7 @@ impl IContactMapActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Contact)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Contacts::Contact>(result__)
+            (::windows::core::Interface::vtable(this).Contact)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::Contacts::Contact>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -8075,7 +8075,7 @@ impl IContactMapActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -8083,7 +8083,7 @@ impl IContactMapActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -8091,7 +8091,7 @@ impl IContactMapActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SplashScreen>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -8099,7 +8099,7 @@ impl IContactMapActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IContactActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Verb)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Verb)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
 }
@@ -8236,7 +8236,7 @@ impl IContactMessageActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ServiceId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).ServiceId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -8244,7 +8244,7 @@ impl IContactMessageActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ServiceUserId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).ServiceUserId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"ApplicationModel_Contacts\"`*"]
@@ -8253,7 +8253,7 @@ impl IContactMessageActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Contact)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Contacts::Contact>(result__)
+            (::windows::core::Interface::vtable(this).Contact)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::Contacts::Contact>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -8261,7 +8261,7 @@ impl IContactMessageActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -8269,7 +8269,7 @@ impl IContactMessageActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -8277,7 +8277,7 @@ impl IContactMessageActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SplashScreen>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -8285,7 +8285,7 @@ impl IContactMessageActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IContactActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Verb)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Verb)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
 }
@@ -8421,7 +8421,7 @@ impl IContactPanelActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ContactPanel)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Contacts::ContactPanel>(result__)
+            (::windows::core::Interface::vtable(this).ContactPanel)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::Contacts::ContactPanel>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"ApplicationModel_Contacts\"`*"]
@@ -8430,7 +8430,7 @@ impl IContactPanelActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Contact)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Contacts::Contact>(result__)
+            (::windows::core::Interface::vtable(this).Contact)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::Contacts::Contact>(result__)
         }
     }
 }
@@ -8524,7 +8524,7 @@ impl IContactPickerActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ContactPickerUI)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Contacts::Provider::ContactPickerUI>(result__)
+            (::windows::core::Interface::vtable(this).ContactPickerUI)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::Contacts::Provider::ContactPickerUI>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -8532,7 +8532,7 @@ impl IContactPickerActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -8540,7 +8540,7 @@ impl IContactPickerActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -8548,7 +8548,7 @@ impl IContactPickerActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SplashScreen>(result__)
         }
     }
 }
@@ -8659,7 +8659,7 @@ impl IContactPostActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ServiceId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).ServiceId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -8667,7 +8667,7 @@ impl IContactPostActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ServiceUserId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).ServiceUserId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"ApplicationModel_Contacts\"`*"]
@@ -8676,7 +8676,7 @@ impl IContactPostActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Contact)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Contacts::Contact>(result__)
+            (::windows::core::Interface::vtable(this).Contact)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::Contacts::Contact>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -8684,7 +8684,7 @@ impl IContactPostActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -8692,7 +8692,7 @@ impl IContactPostActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -8700,7 +8700,7 @@ impl IContactPostActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SplashScreen>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -8708,7 +8708,7 @@ impl IContactPostActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IContactActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Verb)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Verb)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
 }
@@ -8843,7 +8843,7 @@ impl IContactVideoCallActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ServiceId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).ServiceId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -8851,7 +8851,7 @@ impl IContactVideoCallActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ServiceUserId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).ServiceUserId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"ApplicationModel_Contacts\"`*"]
@@ -8860,7 +8860,7 @@ impl IContactVideoCallActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Contact)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Contacts::Contact>(result__)
+            (::windows::core::Interface::vtable(this).Contact)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::Contacts::Contact>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -8868,7 +8868,7 @@ impl IContactVideoCallActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -8876,7 +8876,7 @@ impl IContactVideoCallActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -8884,7 +8884,7 @@ impl IContactVideoCallActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SplashScreen>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -8892,7 +8892,7 @@ impl IContactVideoCallActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IContactActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Verb)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Verb)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
 }
@@ -9027,7 +9027,7 @@ impl IContactsProviderActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Verb)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Verb)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -9035,7 +9035,7 @@ impl IContactsProviderActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -9043,7 +9043,7 @@ impl IContactsProviderActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -9051,7 +9051,7 @@ impl IContactsProviderActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SplashScreen>(result__)
         }
     }
 }
@@ -9160,7 +9160,7 @@ impl IContinuationActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ContinuationData)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::ValueSet>(result__)
+            (::windows::core::Interface::vtable(this).ContinuationData)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::ValueSet>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -9168,7 +9168,7 @@ impl IContinuationActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -9176,7 +9176,7 @@ impl IContinuationActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -9184,7 +9184,7 @@ impl IContinuationActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SplashScreen>(result__)
         }
     }
 }
@@ -9295,7 +9295,7 @@ impl IDeviceActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DeviceInformationId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).DeviceInformationId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -9303,7 +9303,7 @@ impl IDeviceActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Verb)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Verb)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -9311,7 +9311,7 @@ impl IDeviceActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -9319,7 +9319,7 @@ impl IDeviceActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -9327,7 +9327,7 @@ impl IDeviceActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SplashScreen>(result__)
         }
     }
 }
@@ -9437,7 +9437,7 @@ impl IDevicePairingActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DeviceInformation)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Devices::Enumeration::DeviceInformation>(result__)
+            (::windows::core::Interface::vtable(this).DeviceInformation)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Devices::Enumeration::DeviceInformation>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -9445,7 +9445,7 @@ impl IDevicePairingActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -9453,7 +9453,7 @@ impl IDevicePairingActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -9461,7 +9461,7 @@ impl IDevicePairingActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SplashScreen>(result__)
         }
     }
 }
@@ -9572,7 +9572,7 @@ impl IDialReceiverActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AppName)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).AppName)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -9580,7 +9580,7 @@ impl IDialReceiverActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -9588,7 +9588,7 @@ impl IDialReceiverActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -9596,7 +9596,7 @@ impl IDialReceiverActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SplashScreen>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -9604,7 +9604,7 @@ impl IDialReceiverActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<ILaunchActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Arguments)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Arguments)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -9612,7 +9612,7 @@ impl IDialReceiverActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<ILaunchActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TileId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).TileId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
 }
@@ -9743,7 +9743,7 @@ impl IFileActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Files)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<super::super::Storage::IStorageItem>>(result__)
+            (::windows::core::Interface::vtable(this).Files)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<super::super::Storage::IStorageItem>>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -9751,7 +9751,7 @@ impl IFileActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Verb)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Verb)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -9759,7 +9759,7 @@ impl IFileActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -9767,7 +9767,7 @@ impl IFileActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -9775,7 +9775,7 @@ impl IFileActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SplashScreen>(result__)
         }
     }
 }
@@ -9887,7 +9887,7 @@ impl IFileActivatedEventArgsWithCallerPackageFamilyName {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CallerPackageFamilyName)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).CallerPackageFamilyName)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -9895,7 +9895,7 @@ impl IFileActivatedEventArgsWithCallerPackageFamilyName {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -9903,7 +9903,7 @@ impl IFileActivatedEventArgsWithCallerPackageFamilyName {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -9911,7 +9911,7 @@ impl IFileActivatedEventArgsWithCallerPackageFamilyName {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SplashScreen>(result__)
         }
     }
 }
@@ -10020,7 +10020,7 @@ impl IFileActivatedEventArgsWithNeighboringFiles {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).NeighboringFilesQuery)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Search::StorageFileQueryResult>(result__)
+            (::windows::core::Interface::vtable(this).NeighboringFilesQuery)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Storage::Search::StorageFileQueryResult>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -10028,7 +10028,7 @@ impl IFileActivatedEventArgsWithNeighboringFiles {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -10036,7 +10036,7 @@ impl IFileActivatedEventArgsWithNeighboringFiles {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -10044,7 +10044,7 @@ impl IFileActivatedEventArgsWithNeighboringFiles {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SplashScreen>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"Foundation_Collections\"`, `\"Storage\"`*"]
@@ -10053,7 +10053,7 @@ impl IFileActivatedEventArgsWithNeighboringFiles {
         let this = &::windows::core::Interface::cast::<IFileActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Files)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<super::super::Storage::IStorageItem>>(result__)
+            (::windows::core::Interface::vtable(this).Files)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<super::super::Storage::IStorageItem>>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -10061,7 +10061,7 @@ impl IFileActivatedEventArgsWithNeighboringFiles {
         let this = &::windows::core::Interface::cast::<IFileActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Verb)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Verb)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
 }
@@ -10195,7 +10195,7 @@ impl IFileOpenPickerActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FileOpenPickerUI)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Pickers::Provider::FileOpenPickerUI>(result__)
+            (::windows::core::Interface::vtable(this).FileOpenPickerUI)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Storage::Pickers::Provider::FileOpenPickerUI>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -10203,7 +10203,7 @@ impl IFileOpenPickerActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -10211,7 +10211,7 @@ impl IFileOpenPickerActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -10219,7 +10219,7 @@ impl IFileOpenPickerActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SplashScreen>(result__)
         }
     }
 }
@@ -10330,7 +10330,7 @@ impl IFileOpenPickerActivatedEventArgs2 {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CallerPackageFamilyName)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).CallerPackageFamilyName)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
 }
@@ -10419,7 +10419,7 @@ impl IFileOpenPickerContinuationEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Files)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<super::super::Storage::StorageFile>>(result__)
+            (::windows::core::Interface::vtable(this).Files)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<super::super::Storage::StorageFile>>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -10427,7 +10427,7 @@ impl IFileOpenPickerContinuationEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -10435,7 +10435,7 @@ impl IFileOpenPickerContinuationEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -10443,7 +10443,7 @@ impl IFileOpenPickerContinuationEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SplashScreen>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"Foundation_Collections\"`*"]
@@ -10452,7 +10452,7 @@ impl IFileOpenPickerContinuationEventArgs {
         let this = &::windows::core::Interface::cast::<IContinuationActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ContinuationData)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::ValueSet>(result__)
+            (::windows::core::Interface::vtable(this).ContinuationData)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::ValueSet>(result__)
         }
     }
 }
@@ -10609,7 +10609,7 @@ impl IFileSavePickerActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FileSavePickerUI)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Pickers::Provider::FileSavePickerUI>(result__)
+            (::windows::core::Interface::vtable(this).FileSavePickerUI)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Storage::Pickers::Provider::FileSavePickerUI>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -10617,7 +10617,7 @@ impl IFileSavePickerActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -10625,7 +10625,7 @@ impl IFileSavePickerActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -10633,7 +10633,7 @@ impl IFileSavePickerActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SplashScreen>(result__)
         }
     }
 }
@@ -10744,7 +10744,7 @@ impl IFileSavePickerActivatedEventArgs2 {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CallerPackageFamilyName)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).CallerPackageFamilyName)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -10752,7 +10752,7 @@ impl IFileSavePickerActivatedEventArgs2 {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).EnterpriseId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).EnterpriseId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
 }
@@ -10842,7 +10842,7 @@ impl IFileSavePickerContinuationEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).File)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::StorageFile>(result__)
+            (::windows::core::Interface::vtable(this).File)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Storage::StorageFile>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -10850,7 +10850,7 @@ impl IFileSavePickerContinuationEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -10858,7 +10858,7 @@ impl IFileSavePickerContinuationEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -10866,7 +10866,7 @@ impl IFileSavePickerContinuationEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SplashScreen>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"Foundation_Collections\"`*"]
@@ -10875,7 +10875,7 @@ impl IFileSavePickerContinuationEventArgs {
         let this = &::windows::core::Interface::cast::<IContinuationActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ContinuationData)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::ValueSet>(result__)
+            (::windows::core::Interface::vtable(this).ContinuationData)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::ValueSet>(result__)
         }
     }
 }
@@ -11034,7 +11034,7 @@ impl IFolderPickerContinuationEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Folder)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::StorageFolder>(result__)
+            (::windows::core::Interface::vtable(this).Folder)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Storage::StorageFolder>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -11042,7 +11042,7 @@ impl IFolderPickerContinuationEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -11050,7 +11050,7 @@ impl IFolderPickerContinuationEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -11058,7 +11058,7 @@ impl IFolderPickerContinuationEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SplashScreen>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"Foundation_Collections\"`*"]
@@ -11067,7 +11067,7 @@ impl IFolderPickerContinuationEventArgs {
         let this = &::windows::core::Interface::cast::<IContinuationActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ContinuationData)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::ValueSet>(result__)
+            (::windows::core::Interface::vtable(this).ContinuationData)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::ValueSet>(result__)
         }
     }
 }
@@ -11223,7 +11223,7 @@ impl ILaunchActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Arguments)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Arguments)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -11231,7 +11231,7 @@ impl ILaunchActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TileId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).TileId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -11239,7 +11239,7 @@ impl ILaunchActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -11247,7 +11247,7 @@ impl ILaunchActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -11255,7 +11255,7 @@ impl ILaunchActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SplashScreen>(result__)
         }
     }
 }
@@ -11364,7 +11364,7 @@ impl ILaunchActivatedEventArgs2 {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TileActivatedInfo)(::core::mem::transmute_copy(this), &mut result__).from_abi::<TileActivatedInfo>(result__)
+            (::windows::core::Interface::vtable(this).TileActivatedInfo)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<TileActivatedInfo>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -11372,7 +11372,7 @@ impl ILaunchActivatedEventArgs2 {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -11380,7 +11380,7 @@ impl ILaunchActivatedEventArgs2 {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -11388,7 +11388,7 @@ impl ILaunchActivatedEventArgs2 {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SplashScreen>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -11396,7 +11396,7 @@ impl ILaunchActivatedEventArgs2 {
         let this = &::windows::core::Interface::cast::<ILaunchActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Arguments)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Arguments)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -11404,7 +11404,7 @@ impl ILaunchActivatedEventArgs2 {
         let this = &::windows::core::Interface::cast::<ILaunchActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TileId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).TileId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
 }
@@ -11534,7 +11534,7 @@ impl ILockScreenActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Info)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
+            (::windows::core::Interface::vtable(this).Info)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -11542,7 +11542,7 @@ impl ILockScreenActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -11550,7 +11550,7 @@ impl ILockScreenActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -11558,7 +11558,7 @@ impl ILockScreenActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SplashScreen>(result__)
         }
     }
 }
@@ -11667,7 +11667,7 @@ impl ILockScreenCallActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CallUI)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Calls::LockScreenCallUI>(result__)
+            (::windows::core::Interface::vtable(this).CallUI)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::Calls::LockScreenCallUI>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -11675,7 +11675,7 @@ impl ILockScreenCallActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -11683,7 +11683,7 @@ impl ILockScreenCallActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -11691,7 +11691,7 @@ impl ILockScreenCallActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SplashScreen>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -11699,7 +11699,7 @@ impl ILockScreenCallActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<ILaunchActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Arguments)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Arguments)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -11707,7 +11707,7 @@ impl ILockScreenCallActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<ILaunchActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TileId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).TileId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
 }
@@ -11840,7 +11840,7 @@ impl IPhoneCallActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).LineId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
+            (::windows::core::Interface::vtable(this).LineId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -11848,7 +11848,7 @@ impl IPhoneCallActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -11856,7 +11856,7 @@ impl IPhoneCallActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -11864,7 +11864,7 @@ impl IPhoneCallActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SplashScreen>(result__)
         }
     }
 }
@@ -11972,7 +11972,7 @@ impl IPickerReturnedActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PickerOperationId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).PickerOperationId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -11980,7 +11980,7 @@ impl IPickerReturnedActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -11988,7 +11988,7 @@ impl IPickerReturnedActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -11996,7 +11996,7 @@ impl IPickerReturnedActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SplashScreen>(result__)
         }
     }
 }
@@ -12104,7 +12104,7 @@ impl IPrelaunchActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PrelaunchActivated)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).PrelaunchActivated)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -12112,7 +12112,7 @@ impl IPrelaunchActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -12120,7 +12120,7 @@ impl IPrelaunchActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -12128,7 +12128,7 @@ impl IPrelaunchActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SplashScreen>(result__)
         }
     }
 }
@@ -12237,7 +12237,7 @@ impl IPrint3DWorkflowActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Workflow)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Devices::Printers::Extensions::Print3DWorkflow>(result__)
+            (::windows::core::Interface::vtable(this).Workflow)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Devices::Printers::Extensions::Print3DWorkflow>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -12245,7 +12245,7 @@ impl IPrint3DWorkflowActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -12253,7 +12253,7 @@ impl IPrint3DWorkflowActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -12261,7 +12261,7 @@ impl IPrint3DWorkflowActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SplashScreen>(result__)
         }
     }
 }
@@ -12373,7 +12373,7 @@ impl IPrintTaskSettingsActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Configuration)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Devices::Printers::Extensions::PrintTaskConfiguration>(result__)
+            (::windows::core::Interface::vtable(this).Configuration)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Devices::Printers::Extensions::PrintTaskConfiguration>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -12381,7 +12381,7 @@ impl IPrintTaskSettingsActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -12389,7 +12389,7 @@ impl IPrintTaskSettingsActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -12397,7 +12397,7 @@ impl IPrintTaskSettingsActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SplashScreen>(result__)
         }
     }
 }
@@ -12509,7 +12509,7 @@ impl IProtocolActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Uri)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Uri>(result__)
+            (::windows::core::Interface::vtable(this).Uri)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Uri>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -12517,7 +12517,7 @@ impl IProtocolActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -12525,7 +12525,7 @@ impl IProtocolActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -12533,7 +12533,7 @@ impl IProtocolActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SplashScreen>(result__)
         }
     }
 }
@@ -12644,7 +12644,7 @@ impl IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CallerPackageFamilyName)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).CallerPackageFamilyName)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"Foundation_Collections\"`*"]
@@ -12653,7 +12653,7 @@ impl IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Data)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::ValueSet>(result__)
+            (::windows::core::Interface::vtable(this).Data)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::ValueSet>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -12661,7 +12661,7 @@ impl IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -12669,7 +12669,7 @@ impl IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -12677,7 +12677,7 @@ impl IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SplashScreen>(result__)
         }
     }
 }
@@ -12790,7 +12790,7 @@ impl IProtocolForResultsActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ProtocolForResultsOperation)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::ProtocolForResultsOperation>(result__)
+            (::windows::core::Interface::vtable(this).ProtocolForResultsOperation)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::System::ProtocolForResultsOperation>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -12798,7 +12798,7 @@ impl IProtocolForResultsActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -12806,7 +12806,7 @@ impl IProtocolForResultsActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -12814,7 +12814,7 @@ impl IProtocolForResultsActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SplashScreen>(result__)
         }
     }
 }
@@ -12925,7 +12925,7 @@ impl IRestrictedLaunchActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SharedContext)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
+            (::windows::core::Interface::vtable(this).SharedContext)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -12933,7 +12933,7 @@ impl IRestrictedLaunchActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -12941,7 +12941,7 @@ impl IRestrictedLaunchActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -12949,7 +12949,7 @@ impl IRestrictedLaunchActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SplashScreen>(result__)
         }
     }
 }
@@ -13057,7 +13057,7 @@ impl ISearchActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).QueryText)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).QueryText)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -13065,7 +13065,7 @@ impl ISearchActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Language)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Language)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -13073,7 +13073,7 @@ impl ISearchActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -13081,7 +13081,7 @@ impl ISearchActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -13089,7 +13089,7 @@ impl ISearchActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SplashScreen>(result__)
         }
     }
 }
@@ -13199,7 +13199,7 @@ impl ISearchActivatedEventArgsWithLinguisticDetails {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).LinguisticDetails)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Search::SearchPaneQueryLinguisticDetails>(result__)
+            (::windows::core::Interface::vtable(this).LinguisticDetails)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::Search::SearchPaneQueryLinguisticDetails>(result__)
         }
     }
 }
@@ -13289,7 +13289,7 @@ impl IShareTargetActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ShareOperation)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DataTransfer::ShareTarget::ShareOperation>(result__)
+            (::windows::core::Interface::vtable(this).ShareOperation)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::DataTransfer::ShareTarget::ShareOperation>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -13297,7 +13297,7 @@ impl IShareTargetActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -13305,7 +13305,7 @@ impl IShareTargetActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -13313,7 +13313,7 @@ impl IShareTargetActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SplashScreen>(result__)
         }
     }
 }
@@ -13448,7 +13448,7 @@ impl IStartupTaskActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TaskId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).TaskId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -13456,7 +13456,7 @@ impl IStartupTaskActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -13464,7 +13464,7 @@ impl IStartupTaskActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -13472,7 +13472,7 @@ impl IStartupTaskActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SplashScreen>(result__)
         }
     }
 }
@@ -13596,7 +13596,7 @@ impl IToastNotificationActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Argument)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Argument)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"Foundation_Collections\"`*"]
@@ -13605,7 +13605,7 @@ impl IToastNotificationActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).UserInput)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::ValueSet>(result__)
+            (::windows::core::Interface::vtable(this).UserInput)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::ValueSet>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -13613,7 +13613,7 @@ impl IToastNotificationActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -13621,7 +13621,7 @@ impl IToastNotificationActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -13629,7 +13629,7 @@ impl IToastNotificationActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SplashScreen>(result__)
         }
     }
 }
@@ -13742,7 +13742,7 @@ impl IUserDataAccountProviderActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Operation)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::UserDataAccounts::Provider::IUserDataAccountProviderOperation>(result__)
+            (::windows::core::Interface::vtable(this).Operation)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::UserDataAccounts::Provider::IUserDataAccountProviderOperation>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -13750,7 +13750,7 @@ impl IUserDataAccountProviderActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -13758,7 +13758,7 @@ impl IUserDataAccountProviderActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -13766,7 +13766,7 @@ impl IUserDataAccountProviderActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SplashScreen>(result__)
         }
     }
 }
@@ -13878,7 +13878,7 @@ impl IViewSwitcherProvider {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ViewSwitcher)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::UI::ViewManagement::ActivationViewSwitcher>(result__)
+            (::windows::core::Interface::vtable(this).ViewSwitcher)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::UI::ViewManagement::ActivationViewSwitcher>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -13886,7 +13886,7 @@ impl IViewSwitcherProvider {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -13894,7 +13894,7 @@ impl IViewSwitcherProvider {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -13902,7 +13902,7 @@ impl IViewSwitcherProvider {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SplashScreen>(result__)
         }
     }
 }
@@ -14014,7 +14014,7 @@ impl IVoiceCommandActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Result)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Media::SpeechRecognition::SpeechRecognitionResult>(result__)
+            (::windows::core::Interface::vtable(this).Result)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Media::SpeechRecognition::SpeechRecognitionResult>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -14022,7 +14022,7 @@ impl IVoiceCommandActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -14030,7 +14030,7 @@ impl IVoiceCommandActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -14038,7 +14038,7 @@ impl IVoiceCommandActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SplashScreen>(result__)
         }
     }
 }
@@ -14149,7 +14149,7 @@ impl IWalletActionActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ItemId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).ItemId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"ApplicationModel_Wallet\"`*"]
@@ -14158,7 +14158,7 @@ impl IWalletActionActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: super::Wallet::WalletActionKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ActionKind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Wallet::WalletActionKind>(result__)
+            (::windows::core::Interface::vtable(this).ActionKind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::Wallet::WalletActionKind>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -14166,7 +14166,7 @@ impl IWalletActionActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ActionId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).ActionId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -14174,7 +14174,7 @@ impl IWalletActionActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -14182,7 +14182,7 @@ impl IWalletActionActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -14190,7 +14190,7 @@ impl IWalletActionActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SplashScreen>(result__)
         }
     }
 }
@@ -14304,7 +14304,7 @@ impl IWebAccountProviderActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Operation)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Security::Authentication::Web::Provider::IWebAccountProviderOperation>(result__)
+            (::windows::core::Interface::vtable(this).Operation)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Security::Authentication::Web::Provider::IWebAccountProviderOperation>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -14312,7 +14312,7 @@ impl IWebAccountProviderActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -14320,7 +14320,7 @@ impl IWebAccountProviderActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -14328,7 +14328,7 @@ impl IWebAccountProviderActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SplashScreen>(result__)
         }
     }
 }
@@ -14440,7 +14440,7 @@ impl IWebAuthenticationBrokerContinuationEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).WebAuthenticationResult)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Security::Authentication::Web::WebAuthenticationResult>(result__)
+            (::windows::core::Interface::vtable(this).WebAuthenticationResult)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Security::Authentication::Web::WebAuthenticationResult>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -14448,7 +14448,7 @@ impl IWebAuthenticationBrokerContinuationEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -14456,7 +14456,7 @@ impl IWebAuthenticationBrokerContinuationEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -14464,7 +14464,7 @@ impl IWebAuthenticationBrokerContinuationEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SplashScreen>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"Foundation_Collections\"`*"]
@@ -14473,7 +14473,7 @@ impl IWebAuthenticationBrokerContinuationEventArgs {
         let this = &::windows::core::Interface::cast::<IContinuationActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ContinuationData)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::ValueSet>(result__)
+            (::windows::core::Interface::vtable(this).ContinuationData)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::ValueSet>(result__)
         }
     }
 }
@@ -14606,7 +14606,7 @@ impl LaunchActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -14614,7 +14614,7 @@ impl LaunchActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -14622,7 +14622,7 @@ impl LaunchActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SplashScreen>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"System\"`*"]
@@ -14631,7 +14631,7 @@ impl LaunchActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).User)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
+            (::windows::core::Interface::vtable(this).User)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::System::User>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -14639,7 +14639,7 @@ impl LaunchActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IApplicationViewActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: i32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CurrentlyShownApplicationViewId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            (::windows::core::Interface::vtable(this).CurrentlyShownApplicationViewId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -14647,7 +14647,7 @@ impl LaunchActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Arguments)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Arguments)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -14655,7 +14655,7 @@ impl LaunchActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TileId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).TileId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -14663,7 +14663,7 @@ impl LaunchActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<ILaunchActivatedEventArgs2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TileActivatedInfo)(::core::mem::transmute_copy(this), &mut result__).from_abi::<TileActivatedInfo>(result__)
+            (::windows::core::Interface::vtable(this).TileActivatedInfo)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<TileActivatedInfo>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -14671,7 +14671,7 @@ impl LaunchActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IPrelaunchActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PrelaunchActivated)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).PrelaunchActivated)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"UI_ViewManagement\"`*"]
@@ -14680,7 +14680,7 @@ impl LaunchActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IViewSwitcherProvider>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ViewSwitcher)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::UI::ViewManagement::ActivationViewSwitcher>(result__)
+            (::windows::core::Interface::vtable(this).ViewSwitcher)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::UI::ViewManagement::ActivationViewSwitcher>(result__)
         }
     }
 }
@@ -14919,7 +14919,7 @@ impl LockScreenActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -14927,7 +14927,7 @@ impl LockScreenActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -14935,7 +14935,7 @@ impl LockScreenActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SplashScreen>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"System\"`*"]
@@ -14944,7 +14944,7 @@ impl LockScreenActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).User)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
+            (::windows::core::Interface::vtable(this).User)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::System::User>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -14952,7 +14952,7 @@ impl LockScreenActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Info)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
+            (::windows::core::Interface::vtable(this).Info)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
 }
@@ -15103,7 +15103,7 @@ impl LockScreenCallActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -15111,7 +15111,7 @@ impl LockScreenCallActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -15119,7 +15119,7 @@ impl LockScreenCallActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SplashScreen>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -15127,7 +15127,7 @@ impl LockScreenCallActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IApplicationViewActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: i32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CurrentlyShownApplicationViewId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            (::windows::core::Interface::vtable(this).CurrentlyShownApplicationViewId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -15135,7 +15135,7 @@ impl LockScreenCallActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<ILaunchActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Arguments)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Arguments)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -15143,7 +15143,7 @@ impl LockScreenCallActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<ILaunchActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TileId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).TileId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"ApplicationModel_Calls\"`*"]
@@ -15152,7 +15152,7 @@ impl LockScreenCallActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CallUI)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Calls::LockScreenCallUI>(result__)
+            (::windows::core::Interface::vtable(this).CallUI)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::Calls::LockScreenCallUI>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"UI_ViewManagement\"`*"]
@@ -15161,7 +15161,7 @@ impl LockScreenCallActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IViewSwitcherProvider>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ViewSwitcher)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::UI::ViewManagement::ActivationViewSwitcher>(result__)
+            (::windows::core::Interface::vtable(this).ViewSwitcher)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::UI::ViewManagement::ActivationViewSwitcher>(result__)
         }
     }
 }
@@ -15356,7 +15356,7 @@ impl LockScreenComponentActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -15364,7 +15364,7 @@ impl LockScreenComponentActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -15372,7 +15372,7 @@ impl LockScreenComponentActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SplashScreen>(result__)
         }
     }
 }
@@ -15479,7 +15479,7 @@ impl PhoneCallActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -15487,7 +15487,7 @@ impl PhoneCallActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -15495,7 +15495,7 @@ impl PhoneCallActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SplashScreen>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"System\"`*"]
@@ -15504,7 +15504,7 @@ impl PhoneCallActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).User)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
+            (::windows::core::Interface::vtable(this).User)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::System::User>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -15512,7 +15512,7 @@ impl PhoneCallActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).LineId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
+            (::windows::core::Interface::vtable(this).LineId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         }
     }
 }
@@ -15663,7 +15663,7 @@ impl PickerReturnedActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -15671,7 +15671,7 @@ impl PickerReturnedActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -15679,7 +15679,7 @@ impl PickerReturnedActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SplashScreen>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -15687,7 +15687,7 @@ impl PickerReturnedActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PickerOperationId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).PickerOperationId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
 }
@@ -15816,7 +15816,7 @@ impl Print3DWorkflowActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -15824,7 +15824,7 @@ impl Print3DWorkflowActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -15832,7 +15832,7 @@ impl Print3DWorkflowActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SplashScreen>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"Devices_Printers_Extensions\"`*"]
@@ -15841,7 +15841,7 @@ impl Print3DWorkflowActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Workflow)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Devices::Printers::Extensions::Print3DWorkflow>(result__)
+            (::windows::core::Interface::vtable(this).Workflow)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Devices::Printers::Extensions::Print3DWorkflow>(result__)
         }
     }
 }
@@ -15970,7 +15970,7 @@ impl PrintTaskSettingsActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -15978,7 +15978,7 @@ impl PrintTaskSettingsActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -15986,7 +15986,7 @@ impl PrintTaskSettingsActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SplashScreen>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"Devices_Printers_Extensions\"`*"]
@@ -15995,7 +15995,7 @@ impl PrintTaskSettingsActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Configuration)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Devices::Printers::Extensions::PrintTaskConfiguration>(result__)
+            (::windows::core::Interface::vtable(this).Configuration)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Devices::Printers::Extensions::PrintTaskConfiguration>(result__)
         }
     }
 }
@@ -16124,7 +16124,7 @@ impl ProtocolActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -16132,7 +16132,7 @@ impl ProtocolActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -16140,7 +16140,7 @@ impl ProtocolActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SplashScreen>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"System\"`*"]
@@ -16149,7 +16149,7 @@ impl ProtocolActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).User)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
+            (::windows::core::Interface::vtable(this).User)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::System::User>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -16157,7 +16157,7 @@ impl ProtocolActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IApplicationViewActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: i32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CurrentlyShownApplicationViewId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            (::windows::core::Interface::vtable(this).CurrentlyShownApplicationViewId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"Foundation\"`*"]
@@ -16166,7 +16166,7 @@ impl ProtocolActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Uri)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Uri>(result__)
+            (::windows::core::Interface::vtable(this).Uri)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Uri>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -16174,7 +16174,7 @@ impl ProtocolActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CallerPackageFamilyName)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).CallerPackageFamilyName)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"Foundation_Collections\"`*"]
@@ -16183,7 +16183,7 @@ impl ProtocolActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Data)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::ValueSet>(result__)
+            (::windows::core::Interface::vtable(this).Data)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::ValueSet>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"UI_ViewManagement\"`*"]
@@ -16192,7 +16192,7 @@ impl ProtocolActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IViewSwitcherProvider>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ViewSwitcher)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::UI::ViewManagement::ActivationViewSwitcher>(result__)
+            (::windows::core::Interface::vtable(this).ViewSwitcher)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::UI::ViewManagement::ActivationViewSwitcher>(result__)
         }
     }
 }
@@ -16409,7 +16409,7 @@ impl ProtocolForResultsActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -16417,7 +16417,7 @@ impl ProtocolForResultsActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -16425,7 +16425,7 @@ impl ProtocolForResultsActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SplashScreen>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"System\"`*"]
@@ -16434,7 +16434,7 @@ impl ProtocolForResultsActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).User)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
+            (::windows::core::Interface::vtable(this).User)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::System::User>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -16442,7 +16442,7 @@ impl ProtocolForResultsActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IApplicationViewActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: i32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CurrentlyShownApplicationViewId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            (::windows::core::Interface::vtable(this).CurrentlyShownApplicationViewId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"Foundation\"`*"]
@@ -16451,7 +16451,7 @@ impl ProtocolForResultsActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IProtocolActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Uri)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Uri>(result__)
+            (::windows::core::Interface::vtable(this).Uri)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Uri>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -16459,7 +16459,7 @@ impl ProtocolForResultsActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CallerPackageFamilyName)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).CallerPackageFamilyName)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"Foundation_Collections\"`*"]
@@ -16468,7 +16468,7 @@ impl ProtocolForResultsActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Data)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::ValueSet>(result__)
+            (::windows::core::Interface::vtable(this).Data)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::ValueSet>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"System\"`*"]
@@ -16477,7 +16477,7 @@ impl ProtocolForResultsActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ProtocolForResultsOperation)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::ProtocolForResultsOperation>(result__)
+            (::windows::core::Interface::vtable(this).ProtocolForResultsOperation)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::System::ProtocolForResultsOperation>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"UI_ViewManagement\"`*"]
@@ -16486,7 +16486,7 @@ impl ProtocolForResultsActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IViewSwitcherProvider>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ViewSwitcher)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::UI::ViewManagement::ActivationViewSwitcher>(result__)
+            (::windows::core::Interface::vtable(this).ViewSwitcher)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::UI::ViewManagement::ActivationViewSwitcher>(result__)
         }
     }
 }
@@ -16725,7 +16725,7 @@ impl RestrictedLaunchActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -16733,7 +16733,7 @@ impl RestrictedLaunchActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -16741,7 +16741,7 @@ impl RestrictedLaunchActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SplashScreen>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"System\"`*"]
@@ -16750,7 +16750,7 @@ impl RestrictedLaunchActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).User)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
+            (::windows::core::Interface::vtable(this).User)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::System::User>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -16758,7 +16758,7 @@ impl RestrictedLaunchActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SharedContext)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
+            (::windows::core::Interface::vtable(this).SharedContext)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
 }
@@ -16909,7 +16909,7 @@ impl SearchActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -16917,7 +16917,7 @@ impl SearchActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -16925,7 +16925,7 @@ impl SearchActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SplashScreen>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"System\"`*"]
@@ -16934,7 +16934,7 @@ impl SearchActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).User)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
+            (::windows::core::Interface::vtable(this).User)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::System::User>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -16942,7 +16942,7 @@ impl SearchActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IApplicationViewActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: i32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CurrentlyShownApplicationViewId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            (::windows::core::Interface::vtable(this).CurrentlyShownApplicationViewId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -16950,7 +16950,7 @@ impl SearchActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).QueryText)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).QueryText)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -16958,7 +16958,7 @@ impl SearchActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Language)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Language)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"ApplicationModel_Search\"`*"]
@@ -16967,7 +16967,7 @@ impl SearchActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<ISearchActivatedEventArgsWithLinguisticDetails>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).LinguisticDetails)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Search::SearchPaneQueryLinguisticDetails>(result__)
+            (::windows::core::Interface::vtable(this).LinguisticDetails)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::Search::SearchPaneQueryLinguisticDetails>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"UI_ViewManagement\"`*"]
@@ -16976,7 +16976,7 @@ impl SearchActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IViewSwitcherProvider>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ViewSwitcher)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::UI::ViewManagement::ActivationViewSwitcher>(result__)
+            (::windows::core::Interface::vtable(this).ViewSwitcher)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::UI::ViewManagement::ActivationViewSwitcher>(result__)
         }
     }
 }
@@ -17193,7 +17193,7 @@ impl ShareTargetActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -17201,7 +17201,7 @@ impl ShareTargetActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -17209,7 +17209,7 @@ impl ShareTargetActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SplashScreen>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"System\"`*"]
@@ -17218,7 +17218,7 @@ impl ShareTargetActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).User)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
+            (::windows::core::Interface::vtable(this).User)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::System::User>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"ApplicationModel_DataTransfer_ShareTarget\"`*"]
@@ -17227,7 +17227,7 @@ impl ShareTargetActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ShareOperation)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DataTransfer::ShareTarget::ShareOperation>(result__)
+            (::windows::core::Interface::vtable(this).ShareOperation)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::DataTransfer::ShareTarget::ShareOperation>(result__)
         }
     }
 }
@@ -17379,7 +17379,7 @@ impl SplashScreen {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::Rect = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ImageLocation)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Rect>(result__)
+            (::windows::core::Interface::vtable(this).ImageLocation)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Rect>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"Foundation\"`*"]
@@ -17388,14 +17388,14 @@ impl SplashScreen {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Dismissed)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).Dismissed)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveDismissed<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveDismissed)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveDismissed)(::windows::core::Interface::as_raw(this), cookie.into_param().abi()).ok() }
     }
 }
 impl ::core::clone::Clone for SplashScreen {
@@ -17477,7 +17477,7 @@ impl StartupTaskActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -17485,7 +17485,7 @@ impl StartupTaskActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -17493,7 +17493,7 @@ impl StartupTaskActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SplashScreen>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"System\"`*"]
@@ -17502,7 +17502,7 @@ impl StartupTaskActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).User)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
+            (::windows::core::Interface::vtable(this).User)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::System::User>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -17510,7 +17510,7 @@ impl StartupTaskActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TaskId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).TaskId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
 }
@@ -17662,7 +17662,7 @@ impl TileActivatedInfo {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RecentlyShownNotifications)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<super::super::UI::Notifications::ShownTileNotification>>(result__)
+            (::windows::core::Interface::vtable(this).RecentlyShownNotifications)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<super::super::UI::Notifications::ShownTileNotification>>(result__)
         }
     }
 }
@@ -17747,7 +17747,7 @@ impl ToastNotificationActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -17755,7 +17755,7 @@ impl ToastNotificationActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -17763,7 +17763,7 @@ impl ToastNotificationActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SplashScreen>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"System\"`*"]
@@ -17772,7 +17772,7 @@ impl ToastNotificationActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).User)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
+            (::windows::core::Interface::vtable(this).User)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::System::User>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -17780,7 +17780,7 @@ impl ToastNotificationActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IApplicationViewActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: i32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CurrentlyShownApplicationViewId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            (::windows::core::Interface::vtable(this).CurrentlyShownApplicationViewId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -17788,7 +17788,7 @@ impl ToastNotificationActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Argument)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Argument)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"Foundation_Collections\"`*"]
@@ -17797,7 +17797,7 @@ impl ToastNotificationActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).UserInput)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::ValueSet>(result__)
+            (::windows::core::Interface::vtable(this).UserInput)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::ValueSet>(result__)
         }
     }
 }
@@ -17970,7 +17970,7 @@ impl UserDataAccountProviderActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -17978,7 +17978,7 @@ impl UserDataAccountProviderActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -17986,7 +17986,7 @@ impl UserDataAccountProviderActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SplashScreen>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"ApplicationModel_UserDataAccounts_Provider\"`*"]
@@ -17995,7 +17995,7 @@ impl UserDataAccountProviderActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Operation)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::UserDataAccounts::Provider::IUserDataAccountProviderOperation>(result__)
+            (::windows::core::Interface::vtable(this).Operation)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::UserDataAccounts::Provider::IUserDataAccountProviderOperation>(result__)
         }
     }
 }
@@ -18124,7 +18124,7 @@ impl VoiceCommandActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -18132,7 +18132,7 @@ impl VoiceCommandActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -18140,7 +18140,7 @@ impl VoiceCommandActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SplashScreen>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"System\"`*"]
@@ -18149,7 +18149,7 @@ impl VoiceCommandActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).User)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
+            (::windows::core::Interface::vtable(this).User)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::System::User>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"Media_SpeechRecognition\"`*"]
@@ -18158,7 +18158,7 @@ impl VoiceCommandActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Result)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Media::SpeechRecognition::SpeechRecognitionResult>(result__)
+            (::windows::core::Interface::vtable(this).Result)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Media::SpeechRecognition::SpeechRecognitionResult>(result__)
         }
     }
 }
@@ -18309,7 +18309,7 @@ impl WalletActionActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -18317,7 +18317,7 @@ impl WalletActionActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -18325,7 +18325,7 @@ impl WalletActionActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SplashScreen>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -18333,7 +18333,7 @@ impl WalletActionActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ItemId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).ItemId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"ApplicationModel_Wallet\"`*"]
@@ -18342,7 +18342,7 @@ impl WalletActionActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: super::Wallet::WalletActionKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ActionKind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Wallet::WalletActionKind>(result__)
+            (::windows::core::Interface::vtable(this).ActionKind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::Wallet::WalletActionKind>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -18350,7 +18350,7 @@ impl WalletActionActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ActionId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).ActionId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
 }
@@ -18479,7 +18479,7 @@ impl WebAccountProviderActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -18487,7 +18487,7 @@ impl WebAccountProviderActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -18495,7 +18495,7 @@ impl WebAccountProviderActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SplashScreen>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"System\"`*"]
@@ -18504,7 +18504,7 @@ impl WebAccountProviderActivatedEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).User)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
+            (::windows::core::Interface::vtable(this).User)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::System::User>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"Security_Authentication_Web_Provider\"`*"]
@@ -18513,7 +18513,7 @@ impl WebAccountProviderActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Operation)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Security::Authentication::Web::Provider::IWebAccountProviderOperation>(result__)
+            (::windows::core::Interface::vtable(this).Operation)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Security::Authentication::Web::Provider::IWebAccountProviderOperation>(result__)
         }
     }
 }
@@ -18664,7 +18664,7 @@ impl WebAuthenticationBrokerContinuationEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ActivationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ActivationKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ActivationKind>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -18672,7 +18672,7 @@ impl WebAuthenticationBrokerContinuationEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ApplicationExecutionState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ApplicationExecutionState>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -18680,7 +18680,7 @@ impl WebAuthenticationBrokerContinuationEventArgs {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SplashScreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SplashScreen>(result__)
+            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SplashScreen>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"Foundation_Collections\"`*"]
@@ -18689,7 +18689,7 @@ impl WebAuthenticationBrokerContinuationEventArgs {
         let this = &::windows::core::Interface::cast::<IContinuationActivatedEventArgs>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ContinuationData)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::ValueSet>(result__)
+            (::windows::core::Interface::vtable(this).ContinuationData)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::ValueSet>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"Security_Authentication_Web\"`*"]
@@ -18698,7 +18698,7 @@ impl WebAuthenticationBrokerContinuationEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).WebAuthenticationResult)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Security::Authentication::Web::WebAuthenticationResult>(result__)
+            (::windows::core::Interface::vtable(this).WebAuthenticationResult)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Security::Authentication::Web::WebAuthenticationResult>(result__)
         }
     }
 }

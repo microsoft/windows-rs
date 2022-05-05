@@ -44,7 +44,7 @@ impl Compressor {
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).Close)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Storage_Compression\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -52,7 +52,7 @@ impl Compressor {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FinishAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Interface::vtable(this).FinishAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[doc = "*Required features: `\"Storage_Compression\"`, `\"Storage_Streams\"`*"]
@@ -61,7 +61,7 @@ impl Compressor {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DetachStream)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Streams::IOutputStream>(result__)
+            (::windows::core::Interface::vtable(this).DetachStream)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::Streams::IOutputStream>(result__)
         }
     }
     #[doc = "*Required features: `\"Storage_Compression\"`, `\"Storage_Streams\"`*"]
@@ -69,7 +69,7 @@ impl Compressor {
     pub fn CreateCompressor<'a, Param0: ::windows::core::IntoParam<'a, super::Streams::IOutputStream>>(underlyingstream: Param0) -> ::windows::core::Result<Compressor> {
         Self::ICompressorFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateCompressor)(::core::mem::transmute_copy(this), underlyingstream.into_param().abi(), &mut result__).from_abi::<Compressor>(result__)
+            (::windows::core::Interface::vtable(this).CreateCompressor)(::windows::core::Interface::as_raw(this), underlyingstream.into_param().abi(), &mut result__).from_abi::<Compressor>(result__)
         })
     }
     #[doc = "*Required features: `\"Storage_Compression\"`, `\"Storage_Streams\"`*"]
@@ -77,7 +77,7 @@ impl Compressor {
     pub fn CreateCompressorEx<'a, Param0: ::windows::core::IntoParam<'a, super::Streams::IOutputStream>>(underlyingstream: Param0, algorithm: CompressAlgorithm, blocksize: u32) -> ::windows::core::Result<Compressor> {
         Self::ICompressorFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateCompressorEx)(::core::mem::transmute_copy(this), underlyingstream.into_param().abi(), algorithm, blocksize, &mut result__).from_abi::<Compressor>(result__)
+            (::windows::core::Interface::vtable(this).CreateCompressorEx)(::windows::core::Interface::as_raw(this), underlyingstream.into_param().abi(), algorithm, blocksize, &mut result__).from_abi::<Compressor>(result__)
         })
     }
     #[doc = "*Required features: `\"Storage_Compression\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
@@ -86,7 +86,7 @@ impl Compressor {
         let this = &::windows::core::Interface::cast::<super::Streams::IOutputStream>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).WriteAsync)(::core::mem::transmute_copy(this), buffer.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>(result__)
+            (::windows::core::Interface::vtable(this).WriteAsync)(::windows::core::Interface::as_raw(this), buffer.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>(result__)
         }
     }
     #[doc = "*Required features: `\"Storage_Compression\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
@@ -95,7 +95,7 @@ impl Compressor {
         let this = &::windows::core::Interface::cast::<super::Streams::IOutputStream>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FlushAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Interface::vtable(this).FlushAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[doc(hidden)]
@@ -236,7 +236,7 @@ impl Decompressor {
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).Close)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Storage_Compression\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
@@ -244,7 +244,7 @@ impl Decompressor {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DetachStream)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Streams::IInputStream>(result__)
+            (::windows::core::Interface::vtable(this).DetachStream)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::Streams::IInputStream>(result__)
         }
     }
     #[doc = "*Required features: `\"Storage_Compression\"`, `\"Storage_Streams\"`*"]
@@ -252,7 +252,7 @@ impl Decompressor {
     pub fn CreateDecompressor<'a, Param0: ::windows::core::IntoParam<'a, super::Streams::IInputStream>>(underlyingstream: Param0) -> ::windows::core::Result<Decompressor> {
         Self::IDecompressorFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateDecompressor)(::core::mem::transmute_copy(this), underlyingstream.into_param().abi(), &mut result__).from_abi::<Decompressor>(result__)
+            (::windows::core::Interface::vtable(this).CreateDecompressor)(::windows::core::Interface::as_raw(this), underlyingstream.into_param().abi(), &mut result__).from_abi::<Decompressor>(result__)
         })
     }
     #[doc = "*Required features: `\"Storage_Compression\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
@@ -261,7 +261,7 @@ impl Decompressor {
         let this = &::windows::core::Interface::cast::<super::Streams::IInputStream>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ReadAsync)(::core::mem::transmute_copy(this), buffer.into_param().abi(), count, options, &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<super::Streams::IBuffer, u32>>(result__)
+            (::windows::core::Interface::vtable(this).ReadAsync)(::windows::core::Interface::as_raw(this), buffer.into_param().abi(), count, options, &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<super::Streams::IBuffer, u32>>(result__)
         }
     }
     #[doc(hidden)]

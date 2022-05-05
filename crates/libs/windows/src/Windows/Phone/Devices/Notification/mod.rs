@@ -36,18 +36,18 @@ impl VibrationDevice {
     #[cfg(feature = "Foundation")]
     pub fn Vibrate<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TimeSpan>>(&self, duration: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Vibrate)(::core::mem::transmute_copy(this), duration.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Vibrate)(::windows::core::Interface::as_raw(this), duration.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Phone_Devices_Notification\"`*"]
     pub fn Cancel(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Cancel)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Cancel)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Phone_Devices_Notification\"`*"]
     pub fn GetDefault() -> ::windows::core::Result<VibrationDevice> {
         Self::IVibrationDeviceStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetDefault)(::core::mem::transmute_copy(this), &mut result__).from_abi::<VibrationDevice>(result__)
+            (::windows::core::Interface::vtable(this).GetDefault)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<VibrationDevice>(result__)
         })
     }
     #[doc(hidden)]

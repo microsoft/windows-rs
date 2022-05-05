@@ -5,7 +5,7 @@ impl IDummyHICONIncluder {
     #[doc = "*Required features: `\"Win32_System_Com_UI\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
     #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
     pub unsafe fn Dummy<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::UI::WindowsAndMessaging::HICON>, Param1: ::windows::core::IntoParam<'a, super::super::super::Graphics::Gdi::HDC>>(&self, h1: Param0, h2: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Dummy)(::core::mem::transmute_copy(self), h1.into_param().abi(), h2.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).Dummy)(::windows::core::Interface::as_raw(self), h1.into_param().abi(), h2.into_param().abi()).ok()
     }
 }
 impl ::core::convert::From<IDummyHICONIncluder> for ::windows::core::IUnknown {
@@ -64,12 +64,12 @@ impl IThumbnailExtractor {
     #[doc = "*Required features: `\"Win32_System_Com_UI\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn ExtractThumbnail<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::IStorage>>(&self, pstg: Param0, ullength: u32, ulheight: u32, puloutputlength: *mut u32, puloutputheight: *mut u32, phoutputbitmap: *mut super::super::super::Graphics::Gdi::HBITMAP) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ExtractThumbnail)(::core::mem::transmute_copy(self), pstg.into_param().abi(), ::core::mem::transmute(ullength), ::core::mem::transmute(ulheight), ::core::mem::transmute(puloutputlength), ::core::mem::transmute(puloutputheight), ::core::mem::transmute(phoutputbitmap)).ok()
+        (::windows::core::Interface::vtable(self).ExtractThumbnail)(::windows::core::Interface::as_raw(self), pstg.into_param().abi(), ::core::mem::transmute(ullength), ::core::mem::transmute(ulheight), ::core::mem::transmute(puloutputlength), ::core::mem::transmute(puloutputheight), ::core::mem::transmute(phoutputbitmap)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com_UI\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
     pub unsafe fn OnFileUpdated<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::IStorage>>(&self, pstg: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnFileUpdated)(::core::mem::transmute_copy(self), pstg.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).OnFileUpdated)(::windows::core::Interface::as_raw(self), pstg.into_param().abi()).ok()
     }
 }
 impl ::core::convert::From<IThumbnailExtractor> for ::windows::core::IUnknown {

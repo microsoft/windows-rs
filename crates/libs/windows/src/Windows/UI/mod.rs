@@ -76,14 +76,14 @@ impl ColorHelper {
     pub fn FromArgb(a: u8, r: u8, g: u8, b: u8) -> ::windows::core::Result<Color> {
         Self::IColorHelperStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FromArgb)(::core::mem::transmute_copy(this), a, r, g, b, &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).FromArgb)(::windows::core::Interface::as_raw(this), a, r, g, b, &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `\"UI\"`*"]
     pub fn ToDisplayName<'a, Param0: ::windows::core::IntoParam<'a, Color>>(color: Param0) -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IColorHelperStatics2(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ToDisplayName)(::core::mem::transmute_copy(this), color.into_param().abi(), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).ToDisplayName)(::windows::core::Interface::as_raw(this), color.into_param().abi(), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc(hidden)]
@@ -177,987 +177,987 @@ impl Colors {
     pub fn AliceBlue() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AliceBlue)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).AliceBlue)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `\"UI\"`*"]
     pub fn AntiqueWhite() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AntiqueWhite)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).AntiqueWhite)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `\"UI\"`*"]
     pub fn Aqua() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Aqua)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).Aqua)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `\"UI\"`*"]
     pub fn Aquamarine() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Aquamarine)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).Aquamarine)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `\"UI\"`*"]
     pub fn Azure() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Azure)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).Azure)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `\"UI\"`*"]
     pub fn Beige() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Beige)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).Beige)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `\"UI\"`*"]
     pub fn Bisque() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Bisque)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).Bisque)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `\"UI\"`*"]
     pub fn Black() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Black)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).Black)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `\"UI\"`*"]
     pub fn BlanchedAlmond() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).BlanchedAlmond)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).BlanchedAlmond)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `\"UI\"`*"]
     pub fn Blue() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Blue)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).Blue)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `\"UI\"`*"]
     pub fn BlueViolet() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).BlueViolet)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).BlueViolet)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `\"UI\"`*"]
     pub fn Brown() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Brown)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).Brown)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `\"UI\"`*"]
     pub fn BurlyWood() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).BurlyWood)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).BurlyWood)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `\"UI\"`*"]
     pub fn CadetBlue() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CadetBlue)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).CadetBlue)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `\"UI\"`*"]
     pub fn Chartreuse() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Chartreuse)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).Chartreuse)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `\"UI\"`*"]
     pub fn Chocolate() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Chocolate)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).Chocolate)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `\"UI\"`*"]
     pub fn Coral() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Coral)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).Coral)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `\"UI\"`*"]
     pub fn CornflowerBlue() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CornflowerBlue)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).CornflowerBlue)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `\"UI\"`*"]
     pub fn Cornsilk() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Cornsilk)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).Cornsilk)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `\"UI\"`*"]
     pub fn Crimson() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Crimson)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).Crimson)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `\"UI\"`*"]
     pub fn Cyan() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Cyan)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).Cyan)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `\"UI\"`*"]
     pub fn DarkBlue() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DarkBlue)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).DarkBlue)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `\"UI\"`*"]
     pub fn DarkCyan() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DarkCyan)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).DarkCyan)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `\"UI\"`*"]
     pub fn DarkGoldenrod() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DarkGoldenrod)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).DarkGoldenrod)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `\"UI\"`*"]
     pub fn DarkGray() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DarkGray)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).DarkGray)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `\"UI\"`*"]
     pub fn DarkGreen() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DarkGreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).DarkGreen)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `\"UI\"`*"]
     pub fn DarkKhaki() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DarkKhaki)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).DarkKhaki)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `\"UI\"`*"]
     pub fn DarkMagenta() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DarkMagenta)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).DarkMagenta)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `\"UI\"`*"]
     pub fn DarkOliveGreen() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DarkOliveGreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).DarkOliveGreen)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `\"UI\"`*"]
     pub fn DarkOrange() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DarkOrange)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).DarkOrange)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `\"UI\"`*"]
     pub fn DarkOrchid() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DarkOrchid)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).DarkOrchid)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `\"UI\"`*"]
     pub fn DarkRed() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DarkRed)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).DarkRed)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `\"UI\"`*"]
     pub fn DarkSalmon() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DarkSalmon)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).DarkSalmon)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `\"UI\"`*"]
     pub fn DarkSeaGreen() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DarkSeaGreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).DarkSeaGreen)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `\"UI\"`*"]
     pub fn DarkSlateBlue() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DarkSlateBlue)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).DarkSlateBlue)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `\"UI\"`*"]
     pub fn DarkSlateGray() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DarkSlateGray)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).DarkSlateGray)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `\"UI\"`*"]
     pub fn DarkTurquoise() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DarkTurquoise)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).DarkTurquoise)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `\"UI\"`*"]
     pub fn DarkViolet() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DarkViolet)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).DarkViolet)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `\"UI\"`*"]
     pub fn DeepPink() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DeepPink)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).DeepPink)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `\"UI\"`*"]
     pub fn DeepSkyBlue() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DeepSkyBlue)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).DeepSkyBlue)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `\"UI\"`*"]
     pub fn DimGray() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DimGray)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).DimGray)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `\"UI\"`*"]
     pub fn DodgerBlue() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DodgerBlue)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).DodgerBlue)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `\"UI\"`*"]
     pub fn Firebrick() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Firebrick)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).Firebrick)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `\"UI\"`*"]
     pub fn FloralWhite() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FloralWhite)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).FloralWhite)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `\"UI\"`*"]
     pub fn ForestGreen() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ForestGreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).ForestGreen)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `\"UI\"`*"]
     pub fn Fuchsia() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Fuchsia)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).Fuchsia)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `\"UI\"`*"]
     pub fn Gainsboro() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Gainsboro)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).Gainsboro)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `\"UI\"`*"]
     pub fn GhostWhite() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GhostWhite)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).GhostWhite)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `\"UI\"`*"]
     pub fn Gold() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Gold)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).Gold)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `\"UI\"`*"]
     pub fn Goldenrod() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Goldenrod)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).Goldenrod)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `\"UI\"`*"]
     pub fn Gray() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Gray)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).Gray)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `\"UI\"`*"]
     pub fn Green() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Green)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).Green)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `\"UI\"`*"]
     pub fn GreenYellow() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GreenYellow)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).GreenYellow)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `\"UI\"`*"]
     pub fn Honeydew() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Honeydew)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).Honeydew)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `\"UI\"`*"]
     pub fn HotPink() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).HotPink)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).HotPink)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `\"UI\"`*"]
     pub fn IndianRed() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IndianRed)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).IndianRed)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `\"UI\"`*"]
     pub fn Indigo() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Indigo)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).Indigo)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `\"UI\"`*"]
     pub fn Ivory() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Ivory)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).Ivory)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `\"UI\"`*"]
     pub fn Khaki() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Khaki)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).Khaki)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `\"UI\"`*"]
     pub fn Lavender() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Lavender)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).Lavender)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `\"UI\"`*"]
     pub fn LavenderBlush() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).LavenderBlush)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).LavenderBlush)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `\"UI\"`*"]
     pub fn LawnGreen() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).LawnGreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).LawnGreen)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `\"UI\"`*"]
     pub fn LemonChiffon() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).LemonChiffon)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).LemonChiffon)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `\"UI\"`*"]
     pub fn LightBlue() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).LightBlue)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).LightBlue)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `\"UI\"`*"]
     pub fn LightCoral() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).LightCoral)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).LightCoral)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `\"UI\"`*"]
     pub fn LightCyan() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).LightCyan)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).LightCyan)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `\"UI\"`*"]
     pub fn LightGoldenrodYellow() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).LightGoldenrodYellow)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).LightGoldenrodYellow)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `\"UI\"`*"]
     pub fn LightGreen() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).LightGreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).LightGreen)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `\"UI\"`*"]
     pub fn LightGray() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).LightGray)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).LightGray)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `\"UI\"`*"]
     pub fn LightPink() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).LightPink)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).LightPink)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `\"UI\"`*"]
     pub fn LightSalmon() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).LightSalmon)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).LightSalmon)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `\"UI\"`*"]
     pub fn LightSeaGreen() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).LightSeaGreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).LightSeaGreen)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `\"UI\"`*"]
     pub fn LightSkyBlue() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).LightSkyBlue)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).LightSkyBlue)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `\"UI\"`*"]
     pub fn LightSlateGray() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).LightSlateGray)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).LightSlateGray)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `\"UI\"`*"]
     pub fn LightSteelBlue() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).LightSteelBlue)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).LightSteelBlue)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `\"UI\"`*"]
     pub fn LightYellow() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).LightYellow)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).LightYellow)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `\"UI\"`*"]
     pub fn Lime() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Lime)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).Lime)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `\"UI\"`*"]
     pub fn LimeGreen() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).LimeGreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).LimeGreen)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `\"UI\"`*"]
     pub fn Linen() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Linen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).Linen)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `\"UI\"`*"]
     pub fn Magenta() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Magenta)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).Magenta)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `\"UI\"`*"]
     pub fn Maroon() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Maroon)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).Maroon)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `\"UI\"`*"]
     pub fn MediumAquamarine() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MediumAquamarine)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).MediumAquamarine)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `\"UI\"`*"]
     pub fn MediumBlue() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MediumBlue)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).MediumBlue)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `\"UI\"`*"]
     pub fn MediumOrchid() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MediumOrchid)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).MediumOrchid)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `\"UI\"`*"]
     pub fn MediumPurple() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MediumPurple)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).MediumPurple)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `\"UI\"`*"]
     pub fn MediumSeaGreen() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MediumSeaGreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).MediumSeaGreen)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `\"UI\"`*"]
     pub fn MediumSlateBlue() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MediumSlateBlue)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).MediumSlateBlue)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `\"UI\"`*"]
     pub fn MediumSpringGreen() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MediumSpringGreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).MediumSpringGreen)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `\"UI\"`*"]
     pub fn MediumTurquoise() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MediumTurquoise)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).MediumTurquoise)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `\"UI\"`*"]
     pub fn MediumVioletRed() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MediumVioletRed)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).MediumVioletRed)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `\"UI\"`*"]
     pub fn MidnightBlue() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MidnightBlue)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).MidnightBlue)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `\"UI\"`*"]
     pub fn MintCream() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MintCream)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).MintCream)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `\"UI\"`*"]
     pub fn MistyRose() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MistyRose)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).MistyRose)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `\"UI\"`*"]
     pub fn Moccasin() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Moccasin)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).Moccasin)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `\"UI\"`*"]
     pub fn NavajoWhite() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).NavajoWhite)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).NavajoWhite)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `\"UI\"`*"]
     pub fn Navy() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Navy)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).Navy)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `\"UI\"`*"]
     pub fn OldLace() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).OldLace)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).OldLace)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `\"UI\"`*"]
     pub fn Olive() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Olive)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).Olive)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `\"UI\"`*"]
     pub fn OliveDrab() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).OliveDrab)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).OliveDrab)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `\"UI\"`*"]
     pub fn Orange() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Orange)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).Orange)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `\"UI\"`*"]
     pub fn OrangeRed() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).OrangeRed)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).OrangeRed)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `\"UI\"`*"]
     pub fn Orchid() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Orchid)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).Orchid)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `\"UI\"`*"]
     pub fn PaleGoldenrod() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PaleGoldenrod)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).PaleGoldenrod)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `\"UI\"`*"]
     pub fn PaleGreen() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PaleGreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).PaleGreen)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `\"UI\"`*"]
     pub fn PaleTurquoise() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PaleTurquoise)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).PaleTurquoise)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `\"UI\"`*"]
     pub fn PaleVioletRed() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PaleVioletRed)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).PaleVioletRed)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `\"UI\"`*"]
     pub fn PapayaWhip() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PapayaWhip)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).PapayaWhip)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `\"UI\"`*"]
     pub fn PeachPuff() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PeachPuff)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).PeachPuff)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `\"UI\"`*"]
     pub fn Peru() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Peru)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).Peru)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `\"UI\"`*"]
     pub fn Pink() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Pink)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).Pink)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `\"UI\"`*"]
     pub fn Plum() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Plum)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).Plum)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `\"UI\"`*"]
     pub fn PowderBlue() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PowderBlue)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).PowderBlue)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `\"UI\"`*"]
     pub fn Purple() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Purple)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).Purple)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `\"UI\"`*"]
     pub fn Red() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Red)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).Red)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `\"UI\"`*"]
     pub fn RosyBrown() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RosyBrown)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).RosyBrown)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `\"UI\"`*"]
     pub fn RoyalBlue() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RoyalBlue)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).RoyalBlue)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `\"UI\"`*"]
     pub fn SaddleBrown() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SaddleBrown)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).SaddleBrown)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `\"UI\"`*"]
     pub fn Salmon() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Salmon)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).Salmon)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `\"UI\"`*"]
     pub fn SandyBrown() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SandyBrown)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).SandyBrown)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `\"UI\"`*"]
     pub fn SeaGreen() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SeaGreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).SeaGreen)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `\"UI\"`*"]
     pub fn SeaShell() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SeaShell)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).SeaShell)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `\"UI\"`*"]
     pub fn Sienna() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Sienna)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).Sienna)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `\"UI\"`*"]
     pub fn Silver() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Silver)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).Silver)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `\"UI\"`*"]
     pub fn SkyBlue() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SkyBlue)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).SkyBlue)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `\"UI\"`*"]
     pub fn SlateBlue() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SlateBlue)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).SlateBlue)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `\"UI\"`*"]
     pub fn SlateGray() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SlateGray)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).SlateGray)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `\"UI\"`*"]
     pub fn Snow() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Snow)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).Snow)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `\"UI\"`*"]
     pub fn SpringGreen() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SpringGreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).SpringGreen)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `\"UI\"`*"]
     pub fn SteelBlue() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SteelBlue)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).SteelBlue)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `\"UI\"`*"]
     pub fn Tan() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Tan)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).Tan)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `\"UI\"`*"]
     pub fn Teal() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Teal)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).Teal)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `\"UI\"`*"]
     pub fn Thistle() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Thistle)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).Thistle)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `\"UI\"`*"]
     pub fn Tomato() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Tomato)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).Tomato)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `\"UI\"`*"]
     pub fn Transparent() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Transparent)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).Transparent)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `\"UI\"`*"]
     pub fn Turquoise() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Turquoise)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).Turquoise)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `\"UI\"`*"]
     pub fn Violet() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Violet)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).Violet)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `\"UI\"`*"]
     pub fn Wheat() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Wheat)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).Wheat)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `\"UI\"`*"]
     pub fn White() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).White)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).White)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `\"UI\"`*"]
     pub fn WhiteSmoke() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).WhiteSmoke)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).WhiteSmoke)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `\"UI\"`*"]
     pub fn Yellow() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Yellow)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).Yellow)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc = "*Required features: `\"UI\"`*"]
     pub fn YellowGreen() -> ::windows::core::Result<Color> {
         Self::IColorsStatics(|this| unsafe {
             let mut result__: Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).YellowGreen)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Color>(result__)
+            (::windows::core::Interface::vtable(this).YellowGreen)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Color>(result__)
         })
     }
     #[doc(hidden)]
@@ -1475,7 +1475,7 @@ impl UIContentRoot {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).UIContext)(::core::mem::transmute_copy(this), &mut result__).from_abi::<UIContext>(result__)
+            (::windows::core::Interface::vtable(this).UIContext)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<UIContext>(result__)
         }
     }
 }

@@ -47,13 +47,13 @@ impl AudioRoutingManager {
         let this = self;
         unsafe {
             let mut result__: AudioRoutingEndpoint = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetAudioEndpoint)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AudioRoutingEndpoint>(result__)
+            (::windows::core::Interface::vtable(this).GetAudioEndpoint)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<AudioRoutingEndpoint>(result__)
         }
     }
     #[doc = "*Required features: `\"Phone_Media_Devices\"`*"]
     pub fn SetAudioEndpoint(&self, endpoint: AudioRoutingEndpoint) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetAudioEndpoint)(::core::mem::transmute_copy(this), endpoint).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetAudioEndpoint)(::windows::core::Interface::as_raw(this), endpoint).ok() }
     }
     #[doc = "*Required features: `\"Phone_Media_Devices\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -61,28 +61,28 @@ impl AudioRoutingManager {
         let this = self;
         unsafe {
             let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AudioEndpointChanged)(::core::mem::transmute_copy(this), endpointchangehandler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).AudioEndpointChanged)(::windows::core::Interface::as_raw(this), endpointchangehandler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Phone_Media_Devices\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveAudioEndpointChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveAudioEndpointChanged)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveAudioEndpointChanged)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Phone_Media_Devices\"`*"]
     pub fn AvailableAudioEndpoints(&self) -> ::windows::core::Result<AvailableAudioRoutingEndpoints> {
         let this = self;
         unsafe {
             let mut result__: AvailableAudioRoutingEndpoints = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AvailableAudioEndpoints)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AvailableAudioRoutingEndpoints>(result__)
+            (::windows::core::Interface::vtable(this).AvailableAudioEndpoints)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<AvailableAudioRoutingEndpoints>(result__)
         }
     }
     #[doc = "*Required features: `\"Phone_Media_Devices\"`*"]
     pub fn GetDefault() -> ::windows::core::Result<AudioRoutingManager> {
         Self::IAudioRoutingManagerStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetDefault)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AudioRoutingManager>(result__)
+            (::windows::core::Interface::vtable(this).GetDefault)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<AudioRoutingManager>(result__)
         })
     }
     #[doc(hidden)]

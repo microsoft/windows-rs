@@ -322,7 +322,7 @@ impl ILearningModelVariableDescriptorPreview {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Name)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Name)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"AI_MachineLearning_Preview\"`, `\"deprecated\"`*"]
@@ -331,7 +331,7 @@ impl ILearningModelVariableDescriptorPreview {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Description)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Description)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"AI_MachineLearning_Preview\"`, `\"deprecated\"`*"]
@@ -340,7 +340,7 @@ impl ILearningModelVariableDescriptorPreview {
         let this = self;
         unsafe {
             let mut result__: LearningModelFeatureKindPreview = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ModelFeatureKind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<LearningModelFeatureKindPreview>(result__)
+            (::windows::core::Interface::vtable(this).ModelFeatureKind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<LearningModelFeatureKindPreview>(result__)
         }
     }
     #[doc = "*Required features: `\"AI_MachineLearning_Preview\"`, `\"deprecated\"`*"]
@@ -349,7 +349,7 @@ impl ILearningModelVariableDescriptorPreview {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsRequired)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsRequired)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
 }
@@ -541,7 +541,7 @@ impl ImageVariableDescriptorPreview {
         let this = self;
         unsafe {
             let mut result__: super::super::super::Graphics::Imaging::BitmapPixelFormat = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).BitmapPixelFormat)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Graphics::Imaging::BitmapPixelFormat>(result__)
+            (::windows::core::Interface::vtable(this).BitmapPixelFormat)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Graphics::Imaging::BitmapPixelFormat>(result__)
         }
     }
     #[doc = "*Required features: `\"AI_MachineLearning_Preview\"`, `\"deprecated\"`*"]
@@ -550,7 +550,7 @@ impl ImageVariableDescriptorPreview {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Width)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).Width)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `\"AI_MachineLearning_Preview\"`, `\"deprecated\"`*"]
@@ -559,7 +559,7 @@ impl ImageVariableDescriptorPreview {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Height)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).Height)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `\"AI_MachineLearning_Preview\"`, `\"deprecated\"`*"]
@@ -568,7 +568,7 @@ impl ImageVariableDescriptorPreview {
         let this = &::windows::core::Interface::cast::<ILearningModelVariableDescriptorPreview>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Name)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Name)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"AI_MachineLearning_Preview\"`, `\"deprecated\"`*"]
@@ -577,7 +577,7 @@ impl ImageVariableDescriptorPreview {
         let this = &::windows::core::Interface::cast::<ILearningModelVariableDescriptorPreview>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Description)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Description)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"AI_MachineLearning_Preview\"`, `\"deprecated\"`*"]
@@ -586,7 +586,7 @@ impl ImageVariableDescriptorPreview {
         let this = &::windows::core::Interface::cast::<ILearningModelVariableDescriptorPreview>(self)?;
         unsafe {
             let mut result__: LearningModelFeatureKindPreview = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ModelFeatureKind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<LearningModelFeatureKindPreview>(result__)
+            (::windows::core::Interface::vtable(this).ModelFeatureKind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<LearningModelFeatureKindPreview>(result__)
         }
     }
     #[doc = "*Required features: `\"AI_MachineLearning_Preview\"`, `\"deprecated\"`*"]
@@ -595,7 +595,7 @@ impl ImageVariableDescriptorPreview {
         let this = &::windows::core::Interface::cast::<ILearningModelVariableDescriptorPreview>(self)?;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsRequired)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsRequired)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
 }
@@ -722,14 +722,14 @@ impl InferencingOptionsPreview {
         let this = self;
         unsafe {
             let mut result__: LearningModelDeviceKindPreview = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PreferredDeviceKind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<LearningModelDeviceKindPreview>(result__)
+            (::windows::core::Interface::vtable(this).PreferredDeviceKind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<LearningModelDeviceKindPreview>(result__)
         }
     }
     #[doc = "*Required features: `\"AI_MachineLearning_Preview\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn SetPreferredDeviceKind(&self, value: LearningModelDeviceKindPreview) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetPreferredDeviceKind)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPreferredDeviceKind)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"AI_MachineLearning_Preview\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
@@ -737,14 +737,14 @@ impl InferencingOptionsPreview {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsTracingEnabled)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsTracingEnabled)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"AI_MachineLearning_Preview\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn SetIsTracingEnabled(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetIsTracingEnabled)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetIsTracingEnabled)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"AI_MachineLearning_Preview\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
@@ -752,14 +752,14 @@ impl InferencingOptionsPreview {
         let this = self;
         unsafe {
             let mut result__: i32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MaxBatchSize)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            (::windows::core::Interface::vtable(this).MaxBatchSize)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: `\"AI_MachineLearning_Preview\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn SetMaxBatchSize(&self, value: i32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetMaxBatchSize)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetMaxBatchSize)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"AI_MachineLearning_Preview\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
@@ -767,14 +767,14 @@ impl InferencingOptionsPreview {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MinimizeMemoryAllocation)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).MinimizeMemoryAllocation)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"AI_MachineLearning_Preview\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn SetMinimizeMemoryAllocation(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetMinimizeMemoryAllocation)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetMinimizeMemoryAllocation)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"AI_MachineLearning_Preview\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
@@ -782,14 +782,14 @@ impl InferencingOptionsPreview {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ReclaimMemoryAfterEvaluation)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).ReclaimMemoryAfterEvaluation)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"AI_MachineLearning_Preview\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn SetReclaimMemoryAfterEvaluation(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetReclaimMemoryAfterEvaluation)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetReclaimMemoryAfterEvaluation)(::windows::core::Interface::as_raw(this), value).ok() }
     }
 }
 #[cfg(feature = "deprecated")]
@@ -889,33 +889,33 @@ impl LearningModelBindingPreview {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>>>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).First)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IIterator<super::super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>>>(result__)
+            (::windows::core::Interface::vtable(this).First)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IIterator<super::super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>>>(result__)
         }
     }
     #[doc = "*Required features: `\"AI_MachineLearning_Preview\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn Bind<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, name: Param0, value: Param1) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Bind)(::core::mem::transmute_copy(this), name.into_param().abi(), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Bind)(::windows::core::Interface::as_raw(this), name.into_param().abi(), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"AI_MachineLearning_Preview\"`, `\"Foundation_Collections\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
     pub fn BindWithProperties<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IPropertySet>>(&self, name: Param0, value: Param1, metadata: Param2) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).BindWithProperties)(::core::mem::transmute_copy(this), name.into_param().abi(), value.into_param().abi(), metadata.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).BindWithProperties)(::windows::core::Interface::as_raw(this), name.into_param().abi(), value.into_param().abi(), metadata.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"AI_MachineLearning_Preview\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn Clear(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Clear)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Clear)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"AI_MachineLearning_Preview\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn CreateFromModel<'a, Param0: ::windows::core::IntoParam<'a, LearningModelPreview>>(model: Param0) -> ::windows::core::Result<LearningModelBindingPreview> {
         Self::ILearningModelBindingPreviewFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromModel)(::core::mem::transmute_copy(this), model.into_param().abi(), &mut result__).from_abi::<LearningModelBindingPreview>(result__)
+            (::windows::core::Interface::vtable(this).CreateFromModel)(::windows::core::Interface::as_raw(this), model.into_param().abi(), &mut result__).from_abi::<LearningModelBindingPreview>(result__)
         })
     }
     #[doc = "*Required features: `\"AI_MachineLearning_Preview\"`, `\"Foundation_Collections\"`*"]
@@ -924,7 +924,7 @@ impl LearningModelBindingPreview {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>(self)?;
         unsafe {
             let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Lookup)(::core::mem::transmute_copy(this), key.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
+            (::windows::core::Interface::vtable(this).Lookup)(::windows::core::Interface::as_raw(this), key.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
     #[doc = "*Required features: `\"AI_MachineLearning_Preview\"`, `\"Foundation_Collections\"`*"]
@@ -933,7 +933,7 @@ impl LearningModelBindingPreview {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>(self)?;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Size)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).Size)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `\"AI_MachineLearning_Preview\"`, `\"Foundation_Collections\"`*"]
@@ -942,14 +942,14 @@ impl LearningModelBindingPreview {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>(self)?;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).HasKey)(::core::mem::transmute_copy(this), key.into_param().abi(), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).HasKey)(::windows::core::Interface::as_raw(this), key.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"AI_MachineLearning_Preview\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Split(&self, first: &mut ::core::option::Option<super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>, second: &mut ::core::option::Option<super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).Split)(::core::mem::transmute_copy(this), first as *mut _ as _, second as *mut _ as _).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Split)(::windows::core::Interface::as_raw(this), first as *mut _ as _, second as *mut _ as _).ok() }
     }
     #[doc(hidden)]
     #[cfg(feature = "deprecated")]
@@ -1123,7 +1123,7 @@ impl LearningModelDescriptionPreview {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Author)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Author)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"AI_MachineLearning_Preview\"`, `\"deprecated\"`*"]
@@ -1132,7 +1132,7 @@ impl LearningModelDescriptionPreview {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Name)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Name)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"AI_MachineLearning_Preview\"`, `\"deprecated\"`*"]
@@ -1141,7 +1141,7 @@ impl LearningModelDescriptionPreview {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Domain)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Domain)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"AI_MachineLearning_Preview\"`, `\"deprecated\"`*"]
@@ -1150,7 +1150,7 @@ impl LearningModelDescriptionPreview {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Description)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Description)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"AI_MachineLearning_Preview\"`, `\"deprecated\"`*"]
@@ -1159,7 +1159,7 @@ impl LearningModelDescriptionPreview {
         let this = self;
         unsafe {
             let mut result__: i64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Version)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i64>(result__)
+            (::windows::core::Interface::vtable(this).Version)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<i64>(result__)
         }
     }
     #[doc = "*Required features: `\"AI_MachineLearning_Preview\"`, `\"Foundation_Collections\"`, `\"deprecated\"`*"]
@@ -1168,7 +1168,7 @@ impl LearningModelDescriptionPreview {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Metadata)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::HSTRING>>(result__)
+            (::windows::core::Interface::vtable(this).Metadata)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::HSTRING>>(result__)
         }
     }
     #[doc = "*Required features: `\"AI_MachineLearning_Preview\"`, `\"Foundation_Collections\"`, `\"deprecated\"`*"]
@@ -1177,7 +1177,7 @@ impl LearningModelDescriptionPreview {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).InputFeatures)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IIterable<ILearningModelVariableDescriptorPreview>>(result__)
+            (::windows::core::Interface::vtable(this).InputFeatures)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IIterable<ILearningModelVariableDescriptorPreview>>(result__)
         }
     }
     #[doc = "*Required features: `\"AI_MachineLearning_Preview\"`, `\"Foundation_Collections\"`, `\"deprecated\"`*"]
@@ -1186,7 +1186,7 @@ impl LearningModelDescriptionPreview {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).OutputFeatures)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IIterable<ILearningModelVariableDescriptorPreview>>(result__)
+            (::windows::core::Interface::vtable(this).OutputFeatures)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IIterable<ILearningModelVariableDescriptorPreview>>(result__)
         }
     }
 }
@@ -1333,7 +1333,7 @@ impl LearningModelEvaluationResultPreview {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CorrelationId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).CorrelationId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"AI_MachineLearning_Preview\"`, `\"Foundation_Collections\"`, `\"deprecated\"`*"]
@@ -1342,7 +1342,7 @@ impl LearningModelEvaluationResultPreview {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Outputs)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>(result__)
+            (::windows::core::Interface::vtable(this).Outputs)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>(result__)
         }
     }
 }
@@ -1488,7 +1488,7 @@ impl LearningModelPreview {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).EvaluateAsync)(::core::mem::transmute_copy(this), binding.into_param().abi(), correlationid.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<LearningModelEvaluationResultPreview>>(result__)
+            (::windows::core::Interface::vtable(this).EvaluateAsync)(::windows::core::Interface::as_raw(this), binding.into_param().abi(), correlationid.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<LearningModelEvaluationResultPreview>>(result__)
         }
     }
     #[doc = "*Required features: `\"AI_MachineLearning_Preview\"`, `\"Foundation_Collections\"`, `\"deprecated\"`*"]
@@ -1497,7 +1497,7 @@ impl LearningModelPreview {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).EvaluateFeaturesAsync)(::core::mem::transmute_copy(this), features.into_param().abi(), correlationid.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<LearningModelEvaluationResultPreview>>(result__)
+            (::windows::core::Interface::vtable(this).EvaluateFeaturesAsync)(::windows::core::Interface::as_raw(this), features.into_param().abi(), correlationid.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<LearningModelEvaluationResultPreview>>(result__)
         }
     }
     #[doc = "*Required features: `\"AI_MachineLearning_Preview\"`, `\"deprecated\"`*"]
@@ -1506,7 +1506,7 @@ impl LearningModelPreview {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Description)(::core::mem::transmute_copy(this), &mut result__).from_abi::<LearningModelDescriptionPreview>(result__)
+            (::windows::core::Interface::vtable(this).Description)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<LearningModelDescriptionPreview>(result__)
         }
     }
     #[doc = "*Required features: `\"AI_MachineLearning_Preview\"`, `\"deprecated\"`*"]
@@ -1515,21 +1515,21 @@ impl LearningModelPreview {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).InferencingOptions)(::core::mem::transmute_copy(this), &mut result__).from_abi::<InferencingOptionsPreview>(result__)
+            (::windows::core::Interface::vtable(this).InferencingOptions)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<InferencingOptionsPreview>(result__)
         }
     }
     #[doc = "*Required features: `\"AI_MachineLearning_Preview\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn SetInferencingOptions<'a, Param0: ::windows::core::IntoParam<'a, InferencingOptionsPreview>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetInferencingOptions)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetInferencingOptions)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"AI_MachineLearning_Preview\"`, `\"Foundation\"`, `\"Storage\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage", feature = "deprecated"))]
     pub fn LoadModelFromStorageFileAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Storage::IStorageFile>>(modelfile: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<LearningModelPreview>> {
         Self::ILearningModelPreviewStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).LoadModelFromStorageFileAsync)(::core::mem::transmute_copy(this), modelfile.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<LearningModelPreview>>(result__)
+            (::windows::core::Interface::vtable(this).LoadModelFromStorageFileAsync)(::windows::core::Interface::as_raw(this), modelfile.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<LearningModelPreview>>(result__)
         })
     }
     #[doc = "*Required features: `\"AI_MachineLearning_Preview\"`, `\"Foundation\"`, `\"Storage_Streams\"`, `\"deprecated\"`*"]
@@ -1537,7 +1537,7 @@ impl LearningModelPreview {
     pub fn LoadModelFromStreamAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Storage::Streams::IRandomAccessStreamReference>>(modelstream: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<LearningModelPreview>> {
         Self::ILearningModelPreviewStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).LoadModelFromStreamAsync)(::core::mem::transmute_copy(this), modelstream.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<LearningModelPreview>>(result__)
+            (::windows::core::Interface::vtable(this).LoadModelFromStreamAsync)(::windows::core::Interface::as_raw(this), modelstream.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<LearningModelPreview>>(result__)
         })
     }
     #[doc(hidden)]
@@ -1644,7 +1644,7 @@ impl LearningModelVariableDescriptorPreview {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Name)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Name)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"AI_MachineLearning_Preview\"`, `\"deprecated\"`*"]
@@ -1653,7 +1653,7 @@ impl LearningModelVariableDescriptorPreview {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Description)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Description)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"AI_MachineLearning_Preview\"`, `\"deprecated\"`*"]
@@ -1662,7 +1662,7 @@ impl LearningModelVariableDescriptorPreview {
         let this = self;
         unsafe {
             let mut result__: LearningModelFeatureKindPreview = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ModelFeatureKind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<LearningModelFeatureKindPreview>(result__)
+            (::windows::core::Interface::vtable(this).ModelFeatureKind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<LearningModelFeatureKindPreview>(result__)
         }
     }
     #[doc = "*Required features: `\"AI_MachineLearning_Preview\"`, `\"deprecated\"`*"]
@@ -1671,7 +1671,7 @@ impl LearningModelVariableDescriptorPreview {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsRequired)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsRequired)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
 }
@@ -1798,7 +1798,7 @@ impl MapVariableDescriptorPreview {
         let this = &::windows::core::Interface::cast::<ILearningModelVariableDescriptorPreview>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Name)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Name)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"AI_MachineLearning_Preview\"`, `\"deprecated\"`*"]
@@ -1807,7 +1807,7 @@ impl MapVariableDescriptorPreview {
         let this = &::windows::core::Interface::cast::<ILearningModelVariableDescriptorPreview>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Description)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Description)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"AI_MachineLearning_Preview\"`, `\"deprecated\"`*"]
@@ -1816,7 +1816,7 @@ impl MapVariableDescriptorPreview {
         let this = &::windows::core::Interface::cast::<ILearningModelVariableDescriptorPreview>(self)?;
         unsafe {
             let mut result__: LearningModelFeatureKindPreview = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ModelFeatureKind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<LearningModelFeatureKindPreview>(result__)
+            (::windows::core::Interface::vtable(this).ModelFeatureKind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<LearningModelFeatureKindPreview>(result__)
         }
     }
     #[doc = "*Required features: `\"AI_MachineLearning_Preview\"`, `\"deprecated\"`*"]
@@ -1825,7 +1825,7 @@ impl MapVariableDescriptorPreview {
         let this = &::windows::core::Interface::cast::<ILearningModelVariableDescriptorPreview>(self)?;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsRequired)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsRequired)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"AI_MachineLearning_Preview\"`, `\"deprecated\"`*"]
@@ -1834,7 +1834,7 @@ impl MapVariableDescriptorPreview {
         let this = self;
         unsafe {
             let mut result__: FeatureElementKindPreview = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).KeyKind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<FeatureElementKindPreview>(result__)
+            (::windows::core::Interface::vtable(this).KeyKind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<FeatureElementKindPreview>(result__)
         }
     }
     #[doc = "*Required features: `\"AI_MachineLearning_Preview\"`, `\"Foundation_Collections\"`, `\"deprecated\"`*"]
@@ -1843,7 +1843,7 @@ impl MapVariableDescriptorPreview {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ValidStringKeys)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>(result__)
+            (::windows::core::Interface::vtable(this).ValidStringKeys)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>(result__)
         }
     }
     #[doc = "*Required features: `\"AI_MachineLearning_Preview\"`, `\"Foundation_Collections\"`, `\"deprecated\"`*"]
@@ -1852,7 +1852,7 @@ impl MapVariableDescriptorPreview {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ValidIntegerKeys)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IIterable<i64>>(result__)
+            (::windows::core::Interface::vtable(this).ValidIntegerKeys)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IIterable<i64>>(result__)
         }
     }
     #[doc = "*Required features: `\"AI_MachineLearning_Preview\"`, `\"deprecated\"`*"]
@@ -1861,7 +1861,7 @@ impl MapVariableDescriptorPreview {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Fields)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ILearningModelVariableDescriptorPreview>(result__)
+            (::windows::core::Interface::vtable(this).Fields)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ILearningModelVariableDescriptorPreview>(result__)
         }
     }
 }
@@ -1988,7 +1988,7 @@ impl SequenceVariableDescriptorPreview {
         let this = &::windows::core::Interface::cast::<ILearningModelVariableDescriptorPreview>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Name)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Name)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"AI_MachineLearning_Preview\"`, `\"deprecated\"`*"]
@@ -1997,7 +1997,7 @@ impl SequenceVariableDescriptorPreview {
         let this = &::windows::core::Interface::cast::<ILearningModelVariableDescriptorPreview>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Description)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Description)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"AI_MachineLearning_Preview\"`, `\"deprecated\"`*"]
@@ -2006,7 +2006,7 @@ impl SequenceVariableDescriptorPreview {
         let this = &::windows::core::Interface::cast::<ILearningModelVariableDescriptorPreview>(self)?;
         unsafe {
             let mut result__: LearningModelFeatureKindPreview = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ModelFeatureKind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<LearningModelFeatureKindPreview>(result__)
+            (::windows::core::Interface::vtable(this).ModelFeatureKind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<LearningModelFeatureKindPreview>(result__)
         }
     }
     #[doc = "*Required features: `\"AI_MachineLearning_Preview\"`, `\"deprecated\"`*"]
@@ -2015,7 +2015,7 @@ impl SequenceVariableDescriptorPreview {
         let this = &::windows::core::Interface::cast::<ILearningModelVariableDescriptorPreview>(self)?;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsRequired)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsRequired)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"AI_MachineLearning_Preview\"`, `\"deprecated\"`*"]
@@ -2024,7 +2024,7 @@ impl SequenceVariableDescriptorPreview {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ElementType)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ILearningModelVariableDescriptorPreview>(result__)
+            (::windows::core::Interface::vtable(this).ElementType)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ILearningModelVariableDescriptorPreview>(result__)
         }
     }
 }
@@ -2151,7 +2151,7 @@ impl TensorVariableDescriptorPreview {
         let this = &::windows::core::Interface::cast::<ILearningModelVariableDescriptorPreview>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Name)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Name)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"AI_MachineLearning_Preview\"`, `\"deprecated\"`*"]
@@ -2160,7 +2160,7 @@ impl TensorVariableDescriptorPreview {
         let this = &::windows::core::Interface::cast::<ILearningModelVariableDescriptorPreview>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Description)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Description)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"AI_MachineLearning_Preview\"`, `\"deprecated\"`*"]
@@ -2169,7 +2169,7 @@ impl TensorVariableDescriptorPreview {
         let this = &::windows::core::Interface::cast::<ILearningModelVariableDescriptorPreview>(self)?;
         unsafe {
             let mut result__: LearningModelFeatureKindPreview = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ModelFeatureKind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<LearningModelFeatureKindPreview>(result__)
+            (::windows::core::Interface::vtable(this).ModelFeatureKind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<LearningModelFeatureKindPreview>(result__)
         }
     }
     #[doc = "*Required features: `\"AI_MachineLearning_Preview\"`, `\"deprecated\"`*"]
@@ -2178,7 +2178,7 @@ impl TensorVariableDescriptorPreview {
         let this = &::windows::core::Interface::cast::<ILearningModelVariableDescriptorPreview>(self)?;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsRequired)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsRequired)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"AI_MachineLearning_Preview\"`, `\"deprecated\"`*"]
@@ -2187,7 +2187,7 @@ impl TensorVariableDescriptorPreview {
         let this = self;
         unsafe {
             let mut result__: FeatureElementKindPreview = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DataType)(::core::mem::transmute_copy(this), &mut result__).from_abi::<FeatureElementKindPreview>(result__)
+            (::windows::core::Interface::vtable(this).DataType)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<FeatureElementKindPreview>(result__)
         }
     }
     #[doc = "*Required features: `\"AI_MachineLearning_Preview\"`, `\"Foundation_Collections\"`, `\"deprecated\"`*"]
@@ -2196,7 +2196,7 @@ impl TensorVariableDescriptorPreview {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Shape)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IIterable<i64>>(result__)
+            (::windows::core::Interface::vtable(this).Shape)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IIterable<i64>>(result__)
         }
     }
 }
