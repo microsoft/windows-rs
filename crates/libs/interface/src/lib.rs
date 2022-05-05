@@ -115,7 +115,7 @@ impl Interface {
                 let ret = &m.ret;
                 quote! {
                     #vis unsafe fn #name(&self, #(#args),*) #ret {
-                        (::windows::core::Interface::vtable(self).#name)(::core::mem::transmute_copy(self), #(#params),*)
+                        (::windows::core::Interface::vtable(self).#name)(::windows::core::Interface::as_raw(self), #(#params),*)
                     }
                 }
             })

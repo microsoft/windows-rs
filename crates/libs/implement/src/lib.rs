@@ -62,7 +62,7 @@ pub fn implement(attributes: proc_macro::TokenStream, original_type: proc_macro:
             }
             impl <#constraints> ::windows::core::ToImpl<#interface_ident> for #original_ident::<#(#generics,)*> {
                 unsafe fn to_impl(interface: &#interface_ident) -> &mut Self {
-                    let this: ::windows::core::RawPtr = ::core::mem::transmute_copy(interface);
+                    let this: ::windows::core::RawPtr = ::windows::core::Interface::as_raw(interface);
                     let this = (this as *mut ::windows::core::RawPtr).sub(2 + #offset) as *mut #impl_ident::<#(#generics,)*>;
                     &mut (*this).this
                 }
@@ -149,7 +149,7 @@ pub fn implement(attributes: proc_macro::TokenStream, original_type: proc_macro:
         impl <#constraints> ::windows::core::Compose for #original_ident::<#(#generics,)*> {
             unsafe fn compose<'a>(implementation: Self) -> (::windows::core::IInspectable, &'a mut ::core::option::Option<::windows::core::IInspectable>) {
                 let inspectable: ::windows::core::IInspectable = implementation.into();
-                let this: ::windows::core::RawPtr = ::core::mem::transmute_copy(&inspectable);
+                let this: ::windows::core::RawPtr = ::windows::core::Interface::as_raw(&inspectable);
                 let this = (this as *mut ::windows::core::RawPtr).sub(1) as *mut #impl_ident::<#(#generics,)*>;
                 (inspectable, &mut (*this).base)
             }
