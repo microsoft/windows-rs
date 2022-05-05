@@ -142,7 +142,7 @@ pub fn implement(attributes: proc_macro::TokenStream, original_type: proc_macro:
                 unsafe {
                     let boxed = (self as *const #original_ident::<#(#generics,)*> as *mut #original_ident::<#(#generics,)*> as *mut ::windows::core::RawPtr).sub(2 + #interfaces_len) as *mut #impl_ident::<#(#generics,)*>;
                     let mut result = None;
-                    <#impl_ident::<#(#generics,)*> as ::windows::core::IUnknownImpl>::QueryInterface(&mut *boxed, &ResultType::IID, &mut result as *mut _ as _).and_some(result)
+                    <#impl_ident::<#(#generics,)*> as ::windows::core::IUnknownImpl>::QueryInterface(&*boxed, &ResultType::IID, &mut result as *mut _ as _).and_some(result)
                 }
             }
         }
