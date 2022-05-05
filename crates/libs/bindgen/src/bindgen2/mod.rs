@@ -9,6 +9,7 @@ mod replacements;
 mod structs;
 mod winrt_methods;
 mod classes;
+mod constants;
 pub use gen::*;
 use metadata::reader2::*;
 use method_names::*;
@@ -33,7 +34,7 @@ pub fn define(gen: &Gen, name: &str) -> String {
             if tokens.is_empty() {
                 for field in gen.reader.type_def_fields(apis) {
                     if gen.reader.field_name(field) == type_name.name {
-                        tokens.push_str(gen.define_constant(field).as_str());
+                        tokens.push_str(constants::gen(gen, field).as_str());
                     }
                 }
             }

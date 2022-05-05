@@ -47,9 +47,6 @@ impl<'a> Gen<'a> {
     pub(crate) fn define_function(&self, _def: MethodDef) -> TokenStream {
         " ".into()
     }
-    pub(crate) fn define_constant(&self, _def: Field) -> TokenStream {
-        " ".into()
-    }
     fn define_delegate(&self, _def: TypeDef) -> TokenStream {
         " ".into()
     }

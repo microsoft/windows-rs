@@ -228,7 +228,7 @@ impl<'a> Reader<'a> {
     pub fn field_is_blittable(&self, row: Field, enclosing: TypeDef) -> bool {
         self.type_is_blittable(&self.field_type(row, Some(enclosing)))
     }
-    fn field_cfg(&self, row: Field) -> Cfg {
+    pub fn field_cfg(&self, row: Field) -> Cfg {
         let mut cfg = Cfg::default();
         self.field_cfg_combine(row, None, &mut cfg);
         self.cfg_add_attributes(&mut cfg, self.field_attributes(row));
@@ -1288,7 +1288,7 @@ fn type_from_code(code: usize) -> Option<Type> {
         _ => None,
     }
 }
-fn type_to_const(ty: Type) -> Type {
+pub fn type_to_const(ty: Type) -> Type {
     match ty {
         Type::MutPtr((kind, pointers)) => Type::ConstPtr((kind, pointers)),
         Type::PSTR => Type::PCSTR,
