@@ -1,6 +1,6 @@
 use super::*;
 
-pub fn gen(gen:&Gen, def: MethodDef) -> TokenStream {
+pub fn gen(gen: &Gen, def: MethodDef) -> TokenStream {
     if gen.sys {
         let function = gen_sys_function(gen, def);
 
@@ -40,10 +40,10 @@ fn gen_sys_function(gen: &Gen, def: MethodDef) -> TokenStream {
     }
 }
 
- fn gen_win_function(gen: &Gen, def: MethodDef) -> TokenStream {
-     let name = to_ident(gen.reader.method_def_name(def));
-     let signature = gen.reader.method_def_signature(def, &[]);
-     let constraints = gen.param_constraints(&signature.params);
+fn gen_win_function(gen: &Gen, def: MethodDef) -> TokenStream {
+    let name = to_ident(gen.reader.method_def_name(def));
+    let signature = gen.reader.method_def_signature(def, &[]);
+    let constraints = gen.param_constraints(&signature.params);
 
     let abi_params = signature.params.iter().map(|p| {
         let name = gen.param_name(p.def);
@@ -51,7 +51,7 @@ fn gen_sys_function(gen: &Gen, def: MethodDef) -> TokenStream {
         quote! { #name: #tokens }
     });
 
-     let abi_return_type = gen.return_sig(&signature);
+    let abi_return_type = gen.return_sig(&signature);
 
     let link_attr = match gen.reader.method_def_static_lib(def) {
         Some(link) => quote! { #[link(name = #link, kind = "static")] },
@@ -61,17 +61,17 @@ fn gen_sys_function(gen: &Gen, def: MethodDef) -> TokenStream {
             } else {
                 let impl_map = gen.reader.method_def_impl_map(def).expect("ImplMap not found");
                 let scope = gen.reader.impl_map_scope(impl_map);
-                let link =  gen.reader.module_ref_name(scope).to_lowercase();
+                let link = gen.reader.module_ref_name(scope).to_lowercase();
                 quote! { #[link(name = #link)] }
             }
         }
     };
 
-     let cfg = gen.reader.method_def_cfg(def);
-     let doc = gen.cfg_doc(&cfg);
-     let features = gen.cfg_features(&cfg);
+    let cfg = gen.reader.method_def_cfg(def);
+    let doc = gen.cfg_doc(&cfg);
+    let features = gen.cfg_features(&cfg);
 
-     match gen.reader.signature_kind(&signature) {
+    match gen.reader.signature_kind(&signature) {
         SignatureKind::Query => {
             let leading_params = &signature.params[..signature.params.len() - 2];
             let args = gen.win32_args(leading_params);
@@ -239,7 +239,7 @@ fn gen_sys_function(gen: &Gen, def: MethodDef) -> TokenStream {
             }
         }
     }
- }
+}
 
 fn does_not_return(gen: &Gen, def: MethodDef) -> TokenStream {
     if gen.reader.method_def_does_not_return(def) {

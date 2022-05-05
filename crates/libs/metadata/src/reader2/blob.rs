@@ -58,7 +58,7 @@ impl<'a> Blob<'a> {
         let len = self.read_usize();
         let value = unsafe { std::str::from_utf8_unchecked(&self.slice[..len]) };
         self.offset(len);
-        value        
+        value
     }
     pub fn read_string(self) -> String {
         let slice = self.slice;

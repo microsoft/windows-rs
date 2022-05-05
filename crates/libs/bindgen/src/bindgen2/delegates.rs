@@ -31,7 +31,6 @@ fn gen_callback(gen: &Gen, def: TypeDef) -> TokenStream {
     }
 }
 
-fn gen_delegate(gen: &Gen, def: TypeDef) -> TokenStream {
+fn gen_delegate(_gen: &Gen, _def: TypeDef) -> TokenStream {
     " ".into()
 }
-

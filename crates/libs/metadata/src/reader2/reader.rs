@@ -592,7 +592,7 @@ impl<'a> Reader<'a> {
         self.type_def_interfaces(row, &[]).find(|interface| interface.kind == InterfaceKind::Default).map(|interface| interface.ty)
     }
     pub fn type_def_has_default_interface(&self, row: TypeDef) -> bool {
-        self.type_def_interface_impls(row).any(|imp|self.interface_impl_is_default(imp))
+        self.type_def_interface_impls(row).any(|imp| self.interface_impl_is_default(imp))
     }
     pub fn type_def_is_deprecated(&self, row: TypeDef) -> bool {
         self.type_def_attributes(row).any(|attribute| self.attribute_name(attribute) == "DeprecatedAttribute")
@@ -924,7 +924,7 @@ impl<'a> Reader<'a> {
         // TODO: find a way to treat this like COM interface result values.
         !self.type_is_callback(&param.ty)
     }
-    pub fn signature_kind(&self, signature:&Signature) -> SignatureKind {
+    pub fn signature_kind(&self, signature: &Signature) -> SignatureKind {
         if let Some(return_type) = &signature.return_type {
             match return_type {
                 Type::HRESULT => {

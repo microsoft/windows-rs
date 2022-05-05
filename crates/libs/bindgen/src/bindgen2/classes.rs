@@ -35,7 +35,7 @@ fn gen_class(gen: &Gen, def: TypeDef) -> TokenStream {
             let mut virtual_names = MethodNames::new();
 
             for method in gen.reader.type_def_methods(*def) {
-                methods.combine(&winrt_methods::gen(gen, *def, &generics, interface.kind, method, &mut method_names, &mut virtual_names));
+                methods.combine(&winrt_methods::gen(gen, *def, generics, interface.kind, method, &mut method_names, &mut virtual_names));
             }
         }
     }
@@ -63,11 +63,10 @@ fn gen_class(gen: &Gen, def: TypeDef) -> TokenStream {
                                 ::windows::core::FactoryCache::new();
                             unsafe { SHARED.call(callback) }
                         }
-                    })
-                } 
+                    });
+                }
             }
-                None
-            
+            None
         }
         _ => None,
     });
@@ -103,9 +102,9 @@ fn gen_class(gen: &Gen, def: TypeDef) -> TokenStream {
             }
         };
 
-        tokens.combine(&gen.interface_core_traits(def, &[], &name, &TokenStream::new(),&TokenStream::new(),&features));
-        tokens.combine(&gen.interface_winrt_trait(def, &[], &name, &TokenStream::new(),&TokenStream::new(),&features));
-        tokens.combine(&gen.interface_trait(def, &[], &name, &TokenStream::new(),&features));
+        tokens.combine(&gen.interface_core_traits(def, &[], &name, &TokenStream::new(), &TokenStream::new(), &features));
+        tokens.combine(&gen.interface_winrt_trait(def, &[], &name, &TokenStream::new(), &TokenStream::new(), &features));
+        tokens.combine(&gen.interface_trait(def, &[], &name, &TokenStream::new(), &features));
         tokens.combine(&gen.runtime_name_trait(def, &[], &name, &TokenStream::new(), &features));
         // tokens.combine(&gen_async(def, &cfg, gen));
         // tokens.combine(&gen_iterator(def, &cfg, gen));
