@@ -10,11 +10,11 @@ impl ::windows::core::RuntimeName for IBrushOverrides2 {
 }
 #[cfg(feature = "UI_Composition")]
 impl IBrushOverrides2_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBrushOverrides2_Impl, const OFFSET: isize>() -> IBrushOverrides2_Vtbl {
-        unsafe extern "system" fn PopulatePropertyInfoOverride<Identity: ::windows::core::IUnknownImpl, Impl: IBrushOverrides2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, animationpropertyinfo: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            (*this).PopulatePropertyInfoOverride(::core::mem::transmute(&propertyname), ::core::mem::transmute(&animationpropertyinfo)).into()
+    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IBrushOverrides2_Impl, const OFFSET: isize>() -> IBrushOverrides2_Vtbl {
+        unsafe extern "system" fn PopulatePropertyInfoOverride<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IBrushOverrides2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, animationpropertyinfo: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.PopulatePropertyInfoOverride(::core::mem::transmute(&propertyname), ::core::mem::transmute(&animationpropertyinfo)).into()
         }
         Self {
             base__: ::windows::core::IInspectableVtbl::new::<Identity, IBrushOverrides2, OFFSET>(),
@@ -37,11 +37,11 @@ impl ::windows::core::RuntimeName for IGeneralTransformOverrides {
 }
 #[cfg(feature = "Foundation")]
 impl IGeneralTransformOverrides_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGeneralTransformOverrides_Impl, const OFFSET: isize>() -> IGeneralTransformOverrides_Vtbl {
-        unsafe extern "system" fn InverseCore<Identity: ::windows::core::IUnknownImpl, Impl: IGeneralTransformOverrides_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).InverseCore() {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IGeneralTransformOverrides_Impl, const OFFSET: isize>() -> IGeneralTransformOverrides_Vtbl {
+        unsafe extern "system" fn InverseCore<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IGeneralTransformOverrides_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            match this.InverseCore() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
                     ::core::mem::forget(ok__);
@@ -50,10 +50,10 @@ impl IGeneralTransformOverrides_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TryTransformCore<Identity: ::windows::core::IUnknownImpl, Impl: IGeneralTransformOverrides_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, inpoint: super::super::super::Foundation::Point, outpoint: *mut super::super::super::Foundation::Point, result__: *mut bool) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).TryTransformCore(::core::mem::transmute(&inpoint), ::core::mem::transmute_copy(&outpoint)) {
+        unsafe extern "system" fn TryTransformCore<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IGeneralTransformOverrides_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, inpoint: super::super::super::Foundation::Point, outpoint: *mut super::super::super::Foundation::Point, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            match this.TryTransformCore(::core::mem::transmute(&inpoint), ::core::mem::transmute_copy(&outpoint)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
                     ::core::mem::forget(ok__);
@@ -62,10 +62,10 @@ impl IGeneralTransformOverrides_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TransformBoundsCore<Identity: ::windows::core::IUnknownImpl, Impl: IGeneralTransformOverrides_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rect: super::super::super::Foundation::Rect, result__: *mut super::super::super::Foundation::Rect) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).TransformBoundsCore(::core::mem::transmute(&rect)) {
+        unsafe extern "system" fn TransformBoundsCore<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IGeneralTransformOverrides_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rect: super::super::super::Foundation::Rect, result__: *mut super::super::super::Foundation::Rect) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            match this.TransformBoundsCore(::core::mem::transmute(&rect)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
                     ::core::mem::forget(ok__);
@@ -97,16 +97,16 @@ impl ::windows::core::RuntimeName for IXamlCompositionBrushBaseOverrides {
     const NAME: &'static str = "Windows.UI.Xaml.Media.IXamlCompositionBrushBaseOverrides";
 }
 impl IXamlCompositionBrushBaseOverrides_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXamlCompositionBrushBaseOverrides_Impl, const OFFSET: isize>() -> IXamlCompositionBrushBaseOverrides_Vtbl {
-        unsafe extern "system" fn OnConnected<Identity: ::windows::core::IUnknownImpl, Impl: IXamlCompositionBrushBaseOverrides_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            (*this).OnConnected().into()
+    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXamlCompositionBrushBaseOverrides_Impl, const OFFSET: isize>() -> IXamlCompositionBrushBaseOverrides_Vtbl {
+        unsafe extern "system" fn OnConnected<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXamlCompositionBrushBaseOverrides_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.OnConnected().into()
         }
-        unsafe extern "system" fn OnDisconnected<Identity: ::windows::core::IUnknownImpl, Impl: IXamlCompositionBrushBaseOverrides_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            (*this).OnDisconnected().into()
+        unsafe extern "system" fn OnDisconnected<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXamlCompositionBrushBaseOverrides_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.OnDisconnected().into()
         }
         Self {
             base__: ::windows::core::IInspectableVtbl::new::<Identity, IXamlCompositionBrushBaseOverrides, OFFSET>(),
@@ -131,11 +131,11 @@ impl ::windows::core::RuntimeName for IXamlLightOverrides {
     const NAME: &'static str = "Windows.UI.Xaml.Media.IXamlLightOverrides";
 }
 impl IXamlLightOverrides_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IXamlLightOverrides_Impl, const OFFSET: isize>() -> IXamlLightOverrides_Vtbl {
-        unsafe extern "system" fn GetId<Identity: ::windows::core::IUnknownImpl, Impl: IXamlLightOverrides_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetId() {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXamlLightOverrides_Impl, const OFFSET: isize>() -> IXamlLightOverrides_Vtbl {
+        unsafe extern "system" fn GetId<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXamlLightOverrides_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            match this.GetId() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
                     ::core::mem::forget(ok__);
@@ -144,15 +144,15 @@ impl IXamlLightOverrides_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn OnConnected<Identity: ::windows::core::IUnknownImpl, Impl: IXamlLightOverrides_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, newelement: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            (*this).OnConnected(::core::mem::transmute(&newelement)).into()
+        unsafe extern "system" fn OnConnected<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXamlLightOverrides_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, newelement: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.OnConnected(::core::mem::transmute(&newelement)).into()
         }
-        unsafe extern "system" fn OnDisconnected<Identity: ::windows::core::IUnknownImpl, Impl: IXamlLightOverrides_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, oldelement: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            (*this).OnDisconnected(::core::mem::transmute(&oldelement)).into()
+        unsafe extern "system" fn OnDisconnected<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXamlLightOverrides_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, oldelement: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.OnDisconnected(::core::mem::transmute(&oldelement)).into()
         }
         Self {
             base__: ::windows::core::IInspectableVtbl::new::<Identity, IXamlLightOverrides, OFFSET>(),

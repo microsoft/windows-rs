@@ -59,7 +59,9 @@ impl core::fmt::Debug for IUnknown {
 
 #[doc(hidden)]
 pub trait IUnknownImpl {
-    fn get_impl(&mut self) -> RawPtr;
+    type Impl;
+    /// Get a reference to the backing implementation.
+    fn get_impl(&self) -> &Self::Impl;
 
     /// The classic `QueryInterface` method from COM.
     ///

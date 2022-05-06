@@ -189,10 +189,10 @@ impl Interface {
                     .collect::<Vec<_>>();
                 let ret = &m.ret;
                 quote! {
-                    unsafe extern "system" fn #name<Identity: ::windows::core::IUnknownImpl, Impl: #trait_name, const OFFSET: isize>(this: *mut ::core::ffi::c_void, #(#args),*) #ret {
-                        let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-                        let this = (*this).get_impl() as *mut Impl;
-                        (*this).#name(#(#params),*).into()
+                    unsafe extern "system" fn #name<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: #trait_name, const OFFSET: isize>(this: *mut ::core::ffi::c_void, #(#args),*) #ret {
+                        let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+                        let this = (*this).get_impl();
+                        this.#name(#(#params),*).into()
                     }
                 }
             })
@@ -216,7 +216,7 @@ impl Interface {
             }
 
             impl #vtable_name {
-                pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: #trait_name, const OFFSET: isize>() -> Self {
+                pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: #trait_name, const OFFSET: isize>() -> Self {
                     #(#functions)*
                     Self { base__: #parent_vtable::new::<#parent_vtable_generics>(), #(#entries),* }
                 }

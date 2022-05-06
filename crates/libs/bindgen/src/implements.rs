@@ -77,12 +77,13 @@ pub fn gen(def: &TypeDef, gen: &Gen) -> TokenStream {
         let signature = method.signature(&def.generics);
         let vtbl_signature = gen_vtbl_signature(def, &method, gen);
 
-        let invoke_upcall = if def.is_winrt() { gen_winrt_upcall(&signature, quote! { (*this).#name }) } else { gen_win32_upcall(&signature, quote! { (*this).#name }) };
+        let invoke_upcall = if def.is_winrt() { gen_winrt_upcall(&signature, quote! { this.#name }) } else { gen_win32_upcall(&signature, quote! { this.#name }) };
 
         quote! {
-            unsafe extern "system" fn #name<#(#constraints)* Identity: ::windows::core::IUnknownImpl, Impl: #impl_ident<#(#generics)*>, const OFFSET: isize> #vtbl_signature {
-                let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-                let this = (*this).get_impl() as *mut Impl;
+            unsafe extern "system" fn #name<#(#constraints)* Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: #impl_ident<#(#generics)*>, const OFFSET: isize> #vtbl_signature {
+                // offset the `this` pointer by `OFFSET` times the size of a pointer and cast it as an IUnknown implementation
+                let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+                let this = (*this).get_impl();
                 #invoke_upcall
             }
         }
@@ -117,7 +118,7 @@ pub fn gen(def: &TypeDef, gen: &Gen) -> TokenStream {
         #runtime_name
         #cfg
         impl<#(#constraints)*> #vtbl_ident<#(#generics)*> {
-            pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: #impl_ident<#(#generics)*>, const OFFSET: isize>() -> #vtbl_ident<#(#generics)*> {
+            pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: #impl_ident<#(#generics)*>, const OFFSET: isize>() -> #vtbl_ident<#(#generics)*> {
                 #(#method_impls)*
                 Self{
                     #methods

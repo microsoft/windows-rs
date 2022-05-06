@@ -93,8 +93,9 @@ pub fn implement(attributes: proc_macro::TokenStream, original_type: proc_macro:
             }
         }
         impl <#constraints> ::windows::core::IUnknownImpl for #impl_ident::<#(#generics,)*> {
-            fn get_impl(&mut self) -> ::windows::core::RawPtr {
-                &mut self.this as *mut _ as _
+            type Impl = #original_ident::<#(#generics,)*>;
+            fn get_impl(&self) -> &Self::Impl {
+                &self.this
             }
             unsafe fn QueryInterface(&self, iid: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
                 unsafe {
