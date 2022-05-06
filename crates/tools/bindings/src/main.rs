@@ -70,7 +70,9 @@ fn main() -> std::io::Result<()> {
         let reader = &metadata::reader2::Reader::new(&files);
 
     let gen = &mut bindgen::bindgen2::Gen::new(reader);
-    gen.namespace = "Windows."; // TODO: why? this seems like a hack
+    // TODO: this just ensures that the bindings use the windows.lib rather than the function-specific DLL names
+    // but this is a bit of a hacky way to get the intended result.
+    gen.namespace = "Windows.";
     gen.min_enum = true;
     gen.min_inherit = true;
     gen.flatten = true;
