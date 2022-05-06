@@ -93,7 +93,8 @@ EXPORTS
         let mut buffer = format!("void __stdcall {}(", function);
 
         for param in 0..*params {
-            buffer.push_str(&format!("int p{}, ", param));
+            use std::fmt::Write;
+            write!(&mut buffer, "int p{}, ", param).unwrap();
         }
 
         if buffer.ends_with(' ') {
