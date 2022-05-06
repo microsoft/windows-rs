@@ -44,9 +44,6 @@ impl<'a> Gen<'a> {
             TypeKind::Delegate => delegates::gen(self, def),
         }
     }
-    fn define_delegate(&self, _def: TypeDef) -> TokenStream {
-        " ".into()
-    }
 
     //
     // TypeDef
