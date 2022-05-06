@@ -1,3 +1,5 @@
+use std::fmt::Write;
+
 fn main() {
     test_yml();
     build_yml();
@@ -92,7 +94,7 @@ jobs:
 
     for name in crates() {
         if !requires_nightly(&name) {
-            yml.push_str(&format!("\n        cargo test --target ${{{{ matrix.target }}}} -p {} &&", name));
+            write!(&mut yml, "\n        cargo test --target ${{{{ matrix.target }}}} -p {} &&", name).unwrap();
         }
     }
 
@@ -109,7 +111,7 @@ jobs:
 
     for name in crates() {
         if requires_nightly(&name) {
-            yml.push_str(&format!("\n        cargo test --target ${{{{ matrix.target }}}} -p {} &&", name));
+            write!(&mut yml, "\n        cargo test --target ${{{{ matrix.target }}}} -p {} &&", name).unwrap();
         }
     }
 
@@ -246,7 +248,7 @@ jobs:
         .to_string();
 
     for name in crates() {
-        yml.push_str(&format!("\n        cargo clippy -p {} &&", name));
+        write!(&mut yml, "\n        cargo clippy -p {} &&", name).unwrap();
     }
 
     yml.truncate(yml.len() - 2);
