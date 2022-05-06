@@ -108,8 +108,8 @@ pub fn factory<C: RuntimeName, I: Interface>() -> Result<I> {
 unsafe fn get_activation_factory(library: &[u8], name: &HSTRING) -> Result<IGenericFactory> {
     let function = delay_load(library, b"DllGetActivationFactory\0")?;
     let function: DllGetActivationFactory = core::mem::transmute(function);
-    let mut abi = core::ptr::null_mut();
-    function(core::mem::transmute_copy(name), &mut abi).from_abi(abi)
+    let mut abi = core::mem::MaybeUninit::zeroed();
+    function(core::mem::transmute_copy(name), abi.as_mut_ptr()).from_abi(abi)
 }
 
 type CoIncrementMTAUsage = extern "system" fn(cookie: *mut RawPtr) -> HRESULT;

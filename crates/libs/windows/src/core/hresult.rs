@@ -70,10 +70,12 @@ impl HRESULT {
     ///
     /// # Safety
     ///
-    /// Safe to call if `abi` can be safely transmuted to `T`
-    pub unsafe fn from_abi<T: Abi>(self, abi: T::Abi) -> Result<T> {
+    /// Safe to call if 
+    /// * `abi` is initialized if `self` is `Ok`
+    /// * `abi` can be safely transmuted to `T`
+    pub unsafe fn from_abi<T: Abi>(self, abi: core::mem::MaybeUninit<T::Abi>) -> Result<T> {
         if self.is_ok() {
-            T::from_abi(abi)
+            T::from_abi(abi.assume_init())
         } else {
             Err(Error::from(self))
         }
