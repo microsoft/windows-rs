@@ -81,7 +81,7 @@ pub fn gen(def: &TypeDef, gen: &Gen) -> TokenStream {
 
         quote! {
             unsafe extern "system" fn #name<#(#constraints)* Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: #impl_ident<#(#generics)*>, const OFFSET: isize> #vtbl_signature {
-                let this = this.offset(OFFSET) as *const Identity;
+                let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
                 let this = (*this).get_impl();
                 #invoke_upcall
             }

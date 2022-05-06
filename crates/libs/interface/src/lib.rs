@@ -190,7 +190,7 @@ impl Interface {
                 let ret = &m.ret;
                 quote! {
                     unsafe extern "system" fn #name<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: #trait_name, const OFFSET: isize>(this: *mut ::core::ffi::c_void, #(#args),*) #ret {
-                        let this = this.offset(OFFSET) as *const Identity;
+                        let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
                         let this = (*this).get_impl();
                         this.#name(#(#params),*).into()
                     }
