@@ -66,7 +66,7 @@ fn gen_win_interface(gen: &Gen, def: TypeDef) -> TokenStream {
         tokens.combine(&gen.interface_winrt_trait(def, generics, &ident, &constraints, &phantoms, &features));
         //     tokens.combine(&gen_async(gen, def, &cfg, gen));
         //     tokens.combine(&gen_iterator(gen, def, &cfg, gen));
-        //     tokens.combine(&gen_agile(gen, def, gen));
+        tokens.combine(&gen.type_def_agile(def, &ident, &constraints, &features));
     }
 
     tokens.combine(&gen.interface_trait(def, generics, &ident, &constraints, &features));
@@ -190,16 +190,3 @@ fn gen_conversions(gen: &Gen, def: TypeDef, generics: &[Type], name: &TokenStrea
 
     tokens
 }
-
-// fn gen_agile(gen: &Gen, def: TypeDef) -> TokenStream {
-//     if def.type_name() == TypeName::IRestrictedErrorInfo || def.async_kind() != AsyncKind::None {
-//         let name = gen_type_ident(def, gen);
-//         let constraints = gen_type_constraints(def, gen);
-//         quote! {
-//             unsafe impl<#constraints> ::core::marker::Send for #name {}
-//             unsafe impl<#constraints> ::core::marker::Sync for #name {}
-//         }
-//     } else {
-//         TokenStream::new()
-//     }
-// }

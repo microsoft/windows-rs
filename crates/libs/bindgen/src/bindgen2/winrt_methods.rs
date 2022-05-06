@@ -56,7 +56,7 @@ pub fn gen(gen: &Gen, def: TypeDef, generics: &[Type], kind: InterfaceKind, meth
             (
                 quote! {
                     let mut result__: #return_type_tokens = ::core::mem::zeroed();
-                    (::windows::core::Interface::vtable(this).#vname)(::core::mem::transmute_copy(this), #args #composable_args #return_arg)
+                    (::windows::core::Interface::vtable(this).#vname)(::windows::core::Interface::as_raw(this), #args #composable_args #return_arg)
                         .and_then(|| result__ )
                 },
                 quote! {},
@@ -67,12 +67,12 @@ pub fn gen(gen: &Gen, def: TypeDef, generics: &[Type], kind: InterfaceKind, meth
             (
                 quote! {
                     let mut result__: #abi_type_name = ::core::mem::zeroed();
-                        (::windows::core::Interface::vtable(this).#vname)(::core::mem::transmute_copy(this), #args #composable_args #return_arg)
+                        (::windows::core::Interface::vtable(this).#vname)(::windows::core::Interface::as_raw(this), #args #composable_args #return_arg)
                             .from_abi::<#return_type_tokens>(result__ )
                 },
                 quote! {
                     let mut result__: #abi_type_name = ::core::mem::zeroed();
-                        (::windows::core::Interface::vtable(this).#vname)(::core::mem::transmute_copy(this), #args ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, #return_arg)
+                        (::windows::core::Interface::vtable(this).#vname)(::windows::core::Interface::as_raw(this), #args ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, #return_arg)
                             .from_abi::<#return_type_tokens>(result__ )
                 },
             )
@@ -80,7 +80,7 @@ pub fn gen(gen: &Gen, def: TypeDef, generics: &[Type], kind: InterfaceKind, meth
     } else {
         (
             quote! {
-                (::windows::core::Interface::vtable(this).#vname)(::core::mem::transmute_copy(this), #args #composable_args).ok()
+                (::windows::core::Interface::vtable(this).#vname)(::windows::core::Interface::as_raw(this), #args #composable_args).ok()
             },
             quote! {},
         )
