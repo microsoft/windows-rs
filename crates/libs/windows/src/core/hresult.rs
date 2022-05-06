@@ -66,8 +66,11 @@ impl HRESULT {
         Ok(op())
     }
 
-    /// # Safety
     /// If the [`Result`] is [`Ok`] converts the `T::Abi` into `T`.
+    ///
+    /// # Safety
+    ///
+    /// Safe to call if `abi` can be safely transmuted to `T`
     pub unsafe fn from_abi<T: Abi>(self, abi: T::Abi) -> Result<T> {
         if self.is_ok() {
             T::from_abi(abi)
