@@ -5,7 +5,7 @@ impl ::windows::core::RuntimeName for IWebApplicationActivation {}
 impl IWebApplicationActivation_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWebApplicationActivation_Impl, const OFFSET: isize>() -> IWebApplicationActivation_Vtbl {
         unsafe extern "system" fn CancelPendingActivation<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWebApplicationActivation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *const Identity;
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.CancelPendingActivation().into()
         }
@@ -25,7 +25,7 @@ impl ::windows::core::RuntimeName for IWebApplicationAuthoringMode {}
 impl IWebApplicationAuthoringMode_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWebApplicationAuthoringMode_Impl, const OFFSET: isize>() -> IWebApplicationAuthoringMode_Vtbl {
         unsafe extern "system" fn AuthoringClientBinary<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWebApplicationAuthoringMode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, designmodedllpath: *mut super::super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *const Identity;
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.AuthoringClientBinary() {
                 ::core::result::Result::Ok(ok__) => {
@@ -58,12 +58,12 @@ impl ::windows::core::RuntimeName for IWebApplicationHost {}
 impl IWebApplicationHost_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWebApplicationHost_Impl, const OFFSET: isize>() -> IWebApplicationHost_Vtbl {
         unsafe extern "system" fn HWND<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWebApplicationHost_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hwnd: *mut super::super::super::super::Foundation::HWND) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *const Identity;
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.HWND(::core::mem::transmute_copy(&hwnd)).into()
         }
         unsafe extern "system" fn Document<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWebApplicationHost_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, htmldocument: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *const Identity;
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Document() {
                 ::core::result::Result::Ok(ok__) => {
@@ -74,17 +74,17 @@ impl IWebApplicationHost_Vtbl {
             }
         }
         unsafe extern "system" fn Refresh<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWebApplicationHost_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *const Identity;
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Refresh().into()
         }
         unsafe extern "system" fn Advise<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWebApplicationHost_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, interfaceid: *const ::windows::core::GUID, callback: *mut ::core::ffi::c_void, cookie: *mut u32) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *const Identity;
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Advise(::core::mem::transmute_copy(&interfaceid), ::core::mem::transmute(&callback), ::core::mem::transmute_copy(&cookie)).into()
         }
         unsafe extern "system" fn Unadvise<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWebApplicationHost_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cookie: u32) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *const Identity;
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Unadvise(::core::mem::transmute_copy(&cookie)).into()
         }
@@ -116,32 +116,32 @@ impl ::windows::core::RuntimeName for IWebApplicationNavigationEvents {}
 impl IWebApplicationNavigationEvents_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWebApplicationNavigationEvents_Impl, const OFFSET: isize>() -> IWebApplicationNavigationEvents_Vtbl {
         unsafe extern "system" fn BeforeNavigate<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWebApplicationNavigationEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, htmlwindow: ::windows::core::RawPtr, url: ::windows::core::PCWSTR, navigationflags: u32, targetframename: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *const Identity;
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.BeforeNavigate(::core::mem::transmute(&htmlwindow), ::core::mem::transmute(&url), ::core::mem::transmute_copy(&navigationflags), ::core::mem::transmute(&targetframename)).into()
         }
         unsafe extern "system" fn NavigateComplete<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWebApplicationNavigationEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, htmlwindow: ::windows::core::RawPtr, url: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *const Identity;
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.NavigateComplete(::core::mem::transmute(&htmlwindow), ::core::mem::transmute(&url)).into()
         }
         unsafe extern "system" fn NavigateError<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWebApplicationNavigationEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, htmlwindow: ::windows::core::RawPtr, url: ::windows::core::PCWSTR, targetframename: ::windows::core::PCWSTR, statuscode: u32) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *const Identity;
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.NavigateError(::core::mem::transmute(&htmlwindow), ::core::mem::transmute(&url), ::core::mem::transmute(&targetframename), ::core::mem::transmute_copy(&statuscode)).into()
         }
         unsafe extern "system" fn DocumentComplete<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWebApplicationNavigationEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, htmlwindow: ::windows::core::RawPtr, url: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *const Identity;
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.DocumentComplete(::core::mem::transmute(&htmlwindow), ::core::mem::transmute(&url)).into()
         }
         unsafe extern "system" fn DownloadBegin<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWebApplicationNavigationEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *const Identity;
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.DownloadBegin().into()
         }
         unsafe extern "system" fn DownloadComplete<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWebApplicationNavigationEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *const Identity;
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.DownloadComplete().into()
         }
@@ -170,12 +170,12 @@ impl ::windows::core::RuntimeName for IWebApplicationScriptEvents {}
 impl IWebApplicationScriptEvents_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWebApplicationScriptEvents_Impl, const OFFSET: isize>() -> IWebApplicationScriptEvents_Vtbl {
         unsafe extern "system" fn BeforeScriptExecute<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWebApplicationScriptEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, htmlwindow: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *const Identity;
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.BeforeScriptExecute(::core::mem::transmute(&htmlwindow)).into()
         }
         unsafe extern "system" fn ScriptError<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWebApplicationScriptEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, htmlwindow: ::windows::core::RawPtr, scripterror: ::windows::core::RawPtr, url: ::windows::core::PCWSTR, errorhandled: super::super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *const Identity;
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.ScriptError(::core::mem::transmute(&htmlwindow), ::core::mem::transmute(&scripterror), ::core::mem::transmute(&url), ::core::mem::transmute_copy(&errorhandled)).into()
         }
@@ -196,7 +196,7 @@ impl ::windows::core::RuntimeName for IWebApplicationUIEvents {}
 impl IWebApplicationUIEvents_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWebApplicationUIEvents_Impl, const OFFSET: isize>() -> IWebApplicationUIEvents_Vtbl {
         unsafe extern "system" fn SecurityProblem<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWebApplicationUIEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, securityproblem: u32, result: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *const Identity;
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SecurityProblem(::core::mem::transmute_copy(&securityproblem), ::core::mem::transmute_copy(&result)).into()
         }
@@ -214,12 +214,12 @@ impl ::windows::core::RuntimeName for IWebApplicationUpdateEvents {}
 impl IWebApplicationUpdateEvents_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWebApplicationUpdateEvents_Impl, const OFFSET: isize>() -> IWebApplicationUpdateEvents_Vtbl {
         unsafe extern "system" fn OnPaint<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWebApplicationUpdateEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *const Identity;
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.OnPaint().into()
         }
         unsafe extern "system" fn OnCssChanged<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWebApplicationUpdateEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *const Identity;
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.OnCssChanged().into()
         }

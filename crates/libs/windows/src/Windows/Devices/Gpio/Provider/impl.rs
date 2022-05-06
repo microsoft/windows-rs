@@ -8,7 +8,7 @@ impl ::windows::core::RuntimeName for IGpioControllerProvider {
 impl IGpioControllerProvider_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IGpioControllerProvider_Impl, const OFFSET: isize>() -> IGpioControllerProvider_Vtbl {
         unsafe extern "system" fn PinCount<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IGpioControllerProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *const Identity;
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.PinCount() {
                 ::core::result::Result::Ok(ok__) => {
@@ -20,7 +20,7 @@ impl IGpioControllerProvider_Vtbl {
             }
         }
         unsafe extern "system" fn OpenPinProvider<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IGpioControllerProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pin: i32, sharingmode: ProviderGpioSharingMode, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *const Identity;
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.OpenPinProvider(pin, sharingmode) {
                 ::core::result::Result::Ok(ok__) => {
@@ -63,7 +63,7 @@ impl ::windows::core::RuntimeName for IGpioPinProvider {
 impl IGpioPinProvider_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IGpioPinProvider_Impl, const OFFSET: isize>() -> IGpioPinProvider_Vtbl {
         unsafe extern "system" fn ValueChanged<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IGpioPinProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *const Identity;
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.ValueChanged(::core::mem::transmute(&handler)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -75,12 +75,12 @@ impl IGpioPinProvider_Vtbl {
             }
         }
         unsafe extern "system" fn RemoveValueChanged<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IGpioPinProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *const Identity;
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.RemoveValueChanged(::core::mem::transmute(&token)).into()
         }
         unsafe extern "system" fn DebounceTimeout<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IGpioPinProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *const Identity;
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.DebounceTimeout() {
                 ::core::result::Result::Ok(ok__) => {
@@ -92,12 +92,12 @@ impl IGpioPinProvider_Vtbl {
             }
         }
         unsafe extern "system" fn SetDebounceTimeout<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IGpioPinProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *const Identity;
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetDebounceTimeout(::core::mem::transmute(&value)).into()
         }
         unsafe extern "system" fn PinNumber<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IGpioPinProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *const Identity;
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.PinNumber() {
                 ::core::result::Result::Ok(ok__) => {
@@ -109,7 +109,7 @@ impl IGpioPinProvider_Vtbl {
             }
         }
         unsafe extern "system" fn SharingMode<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IGpioPinProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ProviderGpioSharingMode) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *const Identity;
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.SharingMode() {
                 ::core::result::Result::Ok(ok__) => {
@@ -121,7 +121,7 @@ impl IGpioPinProvider_Vtbl {
             }
         }
         unsafe extern "system" fn IsDriveModeSupported<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IGpioPinProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, drivemode: ProviderGpioPinDriveMode, result__: *mut bool) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *const Identity;
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.IsDriveModeSupported(drivemode) {
                 ::core::result::Result::Ok(ok__) => {
@@ -133,7 +133,7 @@ impl IGpioPinProvider_Vtbl {
             }
         }
         unsafe extern "system" fn GetDriveMode<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IGpioPinProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ProviderGpioPinDriveMode) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *const Identity;
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetDriveMode() {
                 ::core::result::Result::Ok(ok__) => {
@@ -145,17 +145,17 @@ impl IGpioPinProvider_Vtbl {
             }
         }
         unsafe extern "system" fn SetDriveMode<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IGpioPinProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ProviderGpioPinDriveMode) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *const Identity;
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetDriveMode(value).into()
         }
         unsafe extern "system" fn Write<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IGpioPinProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ProviderGpioPinValue) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *const Identity;
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Write(value).into()
         }
         unsafe extern "system" fn Read<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IGpioPinProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ProviderGpioPinValue) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *const Identity;
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Read() {
                 ::core::result::Result::Ok(ok__) => {
@@ -197,7 +197,7 @@ impl ::windows::core::RuntimeName for IGpioProvider {
 impl IGpioProvider_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IGpioProvider_Impl, const OFFSET: isize>() -> IGpioProvider_Vtbl {
         unsafe extern "system" fn GetControllers<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IGpioProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *const Identity;
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetControllers() {
                 ::core::result::Result::Ok(ok__) => {

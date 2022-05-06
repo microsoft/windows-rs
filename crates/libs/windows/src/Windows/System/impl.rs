@@ -11,7 +11,7 @@ impl ::windows::core::RuntimeName for ILauncherViewOptions {
 impl ILauncherViewOptions_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ILauncherViewOptions_Impl, const OFFSET: isize>() -> ILauncherViewOptions_Vtbl {
         unsafe extern "system" fn DesiredRemainingView<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ILauncherViewOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::UI::ViewManagement::ViewSizePreference) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *const Identity;
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.DesiredRemainingView() {
                 ::core::result::Result::Ok(ok__) => {
@@ -23,7 +23,7 @@ impl ILauncherViewOptions_Vtbl {
             }
         }
         unsafe extern "system" fn SetDesiredRemainingView<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ILauncherViewOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::UI::ViewManagement::ViewSizePreference) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *const Identity;
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetDesiredRemainingView(value).into()
         }

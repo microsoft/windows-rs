@@ -12,7 +12,7 @@ impl ::windows::core::RuntimeName for IXamlRenderingBackgroundTaskOverrides {
 impl IXamlRenderingBackgroundTaskOverrides_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXamlRenderingBackgroundTaskOverrides_Impl, const OFFSET: isize>() -> IXamlRenderingBackgroundTaskOverrides_Vtbl {
         unsafe extern "system" fn OnRun<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXamlRenderingBackgroundTaskOverrides_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, taskinstance: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *const Identity;
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.OnRun(::core::mem::transmute(&taskinstance)).into()
         }

@@ -22,7 +22,7 @@ impl ::windows::core::RuntimeName for IPrintTaskOptionsCore {
 impl IPrintTaskOptionsCore_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPrintTaskOptionsCore_Impl, const OFFSET: isize>() -> IPrintTaskOptionsCore_Vtbl {
         unsafe extern "system" fn GetPageDescription<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPrintTaskOptionsCore_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, jobpagenumber: u32, result__: *mut PrintPageDescription) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *const Identity;
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetPageDescription(jobpagenumber) {
                 ::core::result::Result::Ok(ok__) => {
@@ -74,12 +74,12 @@ impl ::windows::core::RuntimeName for IPrintTaskOptionsCoreProperties {
 impl IPrintTaskOptionsCoreProperties_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPrintTaskOptionsCoreProperties_Impl, const OFFSET: isize>() -> IPrintTaskOptionsCoreProperties_Vtbl {
         unsafe extern "system" fn SetMediaSize<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPrintTaskOptionsCoreProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: PrintMediaSize) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *const Identity;
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetMediaSize(value).into()
         }
         unsafe extern "system" fn MediaSize<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPrintTaskOptionsCoreProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PrintMediaSize) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *const Identity;
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.MediaSize() {
                 ::core::result::Result::Ok(ok__) => {
@@ -91,12 +91,12 @@ impl IPrintTaskOptionsCoreProperties_Vtbl {
             }
         }
         unsafe extern "system" fn SetMediaType<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPrintTaskOptionsCoreProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: PrintMediaType) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *const Identity;
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetMediaType(value).into()
         }
         unsafe extern "system" fn MediaType<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPrintTaskOptionsCoreProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PrintMediaType) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *const Identity;
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.MediaType() {
                 ::core::result::Result::Ok(ok__) => {
@@ -108,12 +108,12 @@ impl IPrintTaskOptionsCoreProperties_Vtbl {
             }
         }
         unsafe extern "system" fn SetOrientation<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPrintTaskOptionsCoreProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: PrintOrientation) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *const Identity;
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetOrientation(value).into()
         }
         unsafe extern "system" fn Orientation<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPrintTaskOptionsCoreProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PrintOrientation) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *const Identity;
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Orientation() {
                 ::core::result::Result::Ok(ok__) => {
@@ -125,12 +125,12 @@ impl IPrintTaskOptionsCoreProperties_Vtbl {
             }
         }
         unsafe extern "system" fn SetPrintQuality<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPrintTaskOptionsCoreProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: PrintQuality) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *const Identity;
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetPrintQuality(value).into()
         }
         unsafe extern "system" fn PrintQuality<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPrintTaskOptionsCoreProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PrintQuality) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *const Identity;
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.PrintQuality() {
                 ::core::result::Result::Ok(ok__) => {
@@ -142,12 +142,12 @@ impl IPrintTaskOptionsCoreProperties_Vtbl {
             }
         }
         unsafe extern "system" fn SetColorMode<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPrintTaskOptionsCoreProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: PrintColorMode) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *const Identity;
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetColorMode(value).into()
         }
         unsafe extern "system" fn ColorMode<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPrintTaskOptionsCoreProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PrintColorMode) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *const Identity;
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.ColorMode() {
                 ::core::result::Result::Ok(ok__) => {
@@ -159,12 +159,12 @@ impl IPrintTaskOptionsCoreProperties_Vtbl {
             }
         }
         unsafe extern "system" fn SetDuplex<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPrintTaskOptionsCoreProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: PrintDuplex) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *const Identity;
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetDuplex(value).into()
         }
         unsafe extern "system" fn Duplex<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPrintTaskOptionsCoreProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PrintDuplex) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *const Identity;
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Duplex() {
                 ::core::result::Result::Ok(ok__) => {
@@ -176,12 +176,12 @@ impl IPrintTaskOptionsCoreProperties_Vtbl {
             }
         }
         unsafe extern "system" fn SetCollation<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPrintTaskOptionsCoreProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: PrintCollation) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *const Identity;
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetCollation(value).into()
         }
         unsafe extern "system" fn Collation<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPrintTaskOptionsCoreProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PrintCollation) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *const Identity;
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Collation() {
                 ::core::result::Result::Ok(ok__) => {
@@ -193,12 +193,12 @@ impl IPrintTaskOptionsCoreProperties_Vtbl {
             }
         }
         unsafe extern "system" fn SetStaple<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPrintTaskOptionsCoreProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: PrintStaple) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *const Identity;
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetStaple(value).into()
         }
         unsafe extern "system" fn Staple<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPrintTaskOptionsCoreProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PrintStaple) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *const Identity;
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Staple() {
                 ::core::result::Result::Ok(ok__) => {
@@ -210,12 +210,12 @@ impl IPrintTaskOptionsCoreProperties_Vtbl {
             }
         }
         unsafe extern "system" fn SetHolePunch<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPrintTaskOptionsCoreProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: PrintHolePunch) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *const Identity;
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetHolePunch(value).into()
         }
         unsafe extern "system" fn HolePunch<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPrintTaskOptionsCoreProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PrintHolePunch) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *const Identity;
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.HolePunch() {
                 ::core::result::Result::Ok(ok__) => {
@@ -227,12 +227,12 @@ impl IPrintTaskOptionsCoreProperties_Vtbl {
             }
         }
         unsafe extern "system" fn SetBinding<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPrintTaskOptionsCoreProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: PrintBinding) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *const Identity;
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetBinding(value).into()
         }
         unsafe extern "system" fn Binding<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPrintTaskOptionsCoreProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut PrintBinding) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *const Identity;
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Binding() {
                 ::core::result::Result::Ok(ok__) => {
@@ -244,7 +244,7 @@ impl IPrintTaskOptionsCoreProperties_Vtbl {
             }
         }
         unsafe extern "system" fn MinCopies<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPrintTaskOptionsCoreProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *const Identity;
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.MinCopies() {
                 ::core::result::Result::Ok(ok__) => {
@@ -256,7 +256,7 @@ impl IPrintTaskOptionsCoreProperties_Vtbl {
             }
         }
         unsafe extern "system" fn MaxCopies<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPrintTaskOptionsCoreProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *const Identity;
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.MaxCopies() {
                 ::core::result::Result::Ok(ok__) => {
@@ -268,12 +268,12 @@ impl IPrintTaskOptionsCoreProperties_Vtbl {
             }
         }
         unsafe extern "system" fn SetNumberOfCopies<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPrintTaskOptionsCoreProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *const Identity;
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetNumberOfCopies(value).into()
         }
         unsafe extern "system" fn NumberOfCopies<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPrintTaskOptionsCoreProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *const Identity;
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.NumberOfCopies() {
                 ::core::result::Result::Ok(ok__) => {
@@ -328,7 +328,7 @@ impl ::windows::core::RuntimeName for IPrintTaskOptionsCoreUIConfiguration {
 impl IPrintTaskOptionsCoreUIConfiguration_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPrintTaskOptionsCoreUIConfiguration_Impl, const OFFSET: isize>() -> IPrintTaskOptionsCoreUIConfiguration_Vtbl {
         unsafe extern "system" fn DisplayedOptions<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPrintTaskOptionsCoreUIConfiguration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *const Identity;
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.DisplayedOptions() {
                 ::core::result::Result::Ok(ok__) => {

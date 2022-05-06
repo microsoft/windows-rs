@@ -10,7 +10,7 @@ impl ::windows::core::RuntimeName for IUriToStreamResolver {
 impl IUriToStreamResolver_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IUriToStreamResolver_Impl, const OFFSET: isize>() -> IUriToStreamResolver_Vtbl {
         unsafe extern "system" fn UriToStreamAsync<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IUriToStreamResolver_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uri: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *const Identity;
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.UriToStreamAsync(::core::mem::transmute(&uri)) {
                 ::core::result::Result::Ok(ok__) => {

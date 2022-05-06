@@ -15,7 +15,7 @@ impl ::windows::core::RuntimeName for IAccessoryNotificationTriggerDetails {
 impl IAccessoryNotificationTriggerDetails_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAccessoryNotificationTriggerDetails_Impl, const OFFSET: isize>() -> IAccessoryNotificationTriggerDetails_Vtbl {
         unsafe extern "system" fn TimeCreated<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAccessoryNotificationTriggerDetails_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::DateTime) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *const Identity;
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.TimeCreated() {
                 ::core::result::Result::Ok(ok__) => {
@@ -27,7 +27,7 @@ impl IAccessoryNotificationTriggerDetails_Vtbl {
             }
         }
         unsafe extern "system" fn AppDisplayName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAccessoryNotificationTriggerDetails_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *const Identity;
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.AppDisplayName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -39,7 +39,7 @@ impl IAccessoryNotificationTriggerDetails_Vtbl {
             }
         }
         unsafe extern "system" fn AppId<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAccessoryNotificationTriggerDetails_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *const Identity;
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.AppId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -51,7 +51,7 @@ impl IAccessoryNotificationTriggerDetails_Vtbl {
             }
         }
         unsafe extern "system" fn AccessoryNotificationType<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAccessoryNotificationTriggerDetails_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut AccessoryNotificationType) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *const Identity;
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.AccessoryNotificationType() {
                 ::core::result::Result::Ok(ok__) => {
@@ -63,7 +63,7 @@ impl IAccessoryNotificationTriggerDetails_Vtbl {
             }
         }
         unsafe extern "system" fn StartedProcessing<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAccessoryNotificationTriggerDetails_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *const Identity;
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.StartedProcessing() {
                 ::core::result::Result::Ok(ok__) => {
@@ -75,7 +75,7 @@ impl IAccessoryNotificationTriggerDetails_Vtbl {
             }
         }
         unsafe extern "system" fn SetStartedProcessing<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAccessoryNotificationTriggerDetails_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *const Identity;
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetStartedProcessing(value).into()
         }

@@ -7,7 +7,7 @@ impl ::windows::core::RuntimeName for IAnimationObject {
 impl IAnimationObject_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAnimationObject_Impl, const OFFSET: isize>() -> IAnimationObject_Vtbl {
         unsafe extern "system" fn PopulatePropertyInfo<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAnimationObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, propertyinfo: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *const Identity;
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.PopulatePropertyInfo(::core::mem::transmute(&propertyname), ::core::mem::transmute(&propertyinfo)).into()
         }
@@ -42,7 +42,7 @@ impl ::windows::core::RuntimeName for ICompositionSupportsSystemBackdrop {
 impl ICompositionSupportsSystemBackdrop_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICompositionSupportsSystemBackdrop_Impl, const OFFSET: isize>() -> ICompositionSupportsSystemBackdrop_Vtbl {
         unsafe extern "system" fn SystemBackdrop<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICompositionSupportsSystemBackdrop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *const Identity;
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.SystemBackdrop() {
                 ::core::result::Result::Ok(ok__) => {
@@ -54,7 +54,7 @@ impl ICompositionSupportsSystemBackdrop_Vtbl {
             }
         }
         unsafe extern "system" fn SetSystemBackdrop<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICompositionSupportsSystemBackdrop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *const Identity;
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetSystemBackdrop(::core::mem::transmute(&value)).into()
         }
@@ -89,7 +89,7 @@ impl ::windows::core::RuntimeName for ICompositionSurfaceFacade {
 impl ICompositionSurfaceFacade_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICompositionSurfaceFacade_Impl, const OFFSET: isize>() -> ICompositionSurfaceFacade_Vtbl {
         unsafe extern "system" fn GetRealSurface<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICompositionSurfaceFacade_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *const Identity;
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetRealSurface() {
                 ::core::result::Result::Ok(ok__) => {
@@ -130,7 +130,7 @@ impl ::windows::core::RuntimeName for IVisualElement2 {
 impl IVisualElement2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVisualElement2_Impl, const OFFSET: isize>() -> IVisualElement2_Vtbl {
         unsafe extern "system" fn GetVisualInternal<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVisualElement2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *const Identity;
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetVisualInternal() {
                 ::core::result::Result::Ok(ok__) => {

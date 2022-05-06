@@ -12,7 +12,7 @@ impl ::windows::core::RuntimeName for IStorageItemExtraProperties {
 impl IStorageItemExtraProperties_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStorageItemExtraProperties_Impl, const OFFSET: isize>() -> IStorageItemExtraProperties_Vtbl {
         unsafe extern "system" fn RetrievePropertiesAsync<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStorageItemExtraProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertiestoretrieve: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *const Identity;
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.RetrievePropertiesAsync(::core::mem::transmute(&propertiestoretrieve)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -24,7 +24,7 @@ impl IStorageItemExtraProperties_Vtbl {
             }
         }
         unsafe extern "system" fn SavePropertiesAsync<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStorageItemExtraProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertiestosave: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *const Identity;
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.SavePropertiesAsync(::core::mem::transmute(&propertiestosave)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -36,7 +36,7 @@ impl IStorageItemExtraProperties_Vtbl {
             }
         }
         unsafe extern "system" fn SavePropertiesAsyncOverloadDefault<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStorageItemExtraProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *const Identity;
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.SavePropertiesAsyncOverloadDefault() {
                 ::core::result::Result::Ok(ok__) => {
