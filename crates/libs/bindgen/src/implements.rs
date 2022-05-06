@@ -81,6 +81,7 @@ pub fn gen(def: &TypeDef, gen: &Gen) -> TokenStream {
 
         quote! {
             unsafe extern "system" fn #name<#(#constraints)* Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: #impl_ident<#(#generics)*>, const OFFSET: isize> #vtbl_signature {
+                // offset the `this` pointer by `OFFSET` times the size of a pointer and cast it as an IUnknown implementation
                 let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
                 let this = (*this).get_impl();
                 #invoke_upcall
