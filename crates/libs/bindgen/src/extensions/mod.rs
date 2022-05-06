@@ -1,4 +1,6 @@
 use super::*;
+mod in6_addr;
+mod in_addr;
 mod matrix3x2;
 mod matrix4x4;
 mod timespan;
@@ -17,6 +19,7 @@ pub fn gen(def: &TypeDef) -> TokenStream {
         TypeName::Matrix4x4 => matrix4x4::gen(),
         TypeName::WIN32_ERROR => win32_error::gen(),
         TypeName::IN_ADDR => in_addr::gen(),
+        TypeName::IN6_ADDR => in6_addr::gen(),
         _ => quote! {},
     }
 }

@@ -1833,6 +1833,26 @@ impl ::core::default::Default for IN6_ADDR {
         unsafe { ::core::mem::zeroed() }
     }
 }
+impl ::core::convert::From<::std::net::Ipv6Addr> for IN6_ADDR {
+    fn from(addr: ::std::net::Ipv6Addr) -> Self {
+        Self { u: IN6_ADDR_0 { Byte: addr.octets() } }
+    }
+}
+impl ::core::convert::From<&::std::net::Ipv6Addr> for IN6_ADDR {
+    fn from(addr: &::std::net::Ipv6Addr) -> Self {
+        Self { u: IN6_ADDR_0 { Byte: addr.octets() } }
+    }
+}
+impl ::core::convert::Into<::std::net::Ipv6Addr> for &IN6_ADDR {
+    fn into(self) -> ::std::net::Ipv6Addr {
+        ::std::net::Ipv6Addr::from(unsafe { self.u.Byte })
+    }
+}
+impl ::core::convert::Into<::std::net::Ipv6Addr> for IN6_ADDR {
+    fn into(self) -> ::std::net::Ipv6Addr {
+        ::std::net::Ipv6Addr::from(unsafe { self.u.Byte })
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub union IN6_ADDR_0 {
@@ -2120,6 +2140,26 @@ impl ::core::cmp::Eq for IN_ADDR {}
 impl ::core::default::Default for IN_ADDR {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::convert::From<::std::net::Ipv4Addr> for IN_ADDR {
+    fn from(addr: ::std::net::Ipv4Addr) -> Self {
+        Self { S_un: IN_ADDR_0 { S_addr: u32::from(addr) } }
+    }
+}
+impl ::core::convert::From<&::std::net::Ipv4Addr> for IN_ADDR {
+    fn from(addr: &::std::net::Ipv4Addr) -> Self {
+        Self { S_un: IN_ADDR_0 { S_addr: u32::from(*addr) } }
+    }
+}
+impl ::core::convert::Into<::std::net::Ipv4Addr> for &IN_ADDR {
+    fn into(self) -> ::std::net::Ipv4Addr {
+        ::std::net::Ipv4Addr::from(unsafe { self.S_un.S_addr })
+    }
+}
+impl ::core::convert::Into<::std::net::Ipv4Addr> for IN_ADDR {
+    fn into(self) -> ::std::net::Ipv4Addr {
+        ::std::net::Ipv4Addr::from(unsafe { self.S_un.S_addr })
     }
 }
 #[repr(C)]

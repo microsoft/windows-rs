@@ -12,3 +12,16 @@ fn from_ipv4addr() {
     }
 }
 
+#[test]
+fn from_ipv6addr() {
+    let ipv6addr = std::net::Ipv6Addr::new(0x0011, 0x2233, 0x4455, 0x6677, 0x8899, 0xaabb, 0xccdd, 0xeeff);
+    let in6_addr: IN6_ADDR = ipv6addr.into();
+    unsafe {
+        assert!(in6_addr.u.Byte == ipv6addr.octets());
+    }
+
+    let ipv6addr: std::net::Ipv6Addr = in6_addr.into();
+    unsafe {
+        assert!(in6_addr.u.Byte == ipv6addr.octets());
+    }
+}
