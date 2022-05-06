@@ -797,11 +797,11 @@ pub struct IKsAggregateControl(::windows::core::IUnknown);
 impl IKsAggregateControl {
     #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
     pub unsafe fn KsAddAggregate(&self, aggregateclass: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).KsAddAggregate)(::core::mem::transmute_copy(self), ::core::mem::transmute(aggregateclass)).ok()
+        (::windows::core::Interface::vtable(self).KsAddAggregate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(aggregateclass)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
     pub unsafe fn KsRemoveAggregate(&self, aggregateclass: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).KsRemoveAggregate)(::core::mem::transmute_copy(self), ::core::mem::transmute(aggregateclass)).ok()
+        (::windows::core::Interface::vtable(self).KsRemoveAggregate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(aggregateclass)).ok()
     }
 }
 impl ::core::convert::From<IKsAggregateControl> for ::windows::core::IUnknown {
@@ -861,15 +861,15 @@ pub struct IKsControl(::windows::core::IUnknown);
 impl IKsControl {
     #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
     pub unsafe fn KsProperty(&self, property: *const KSIDENTIFIER, propertylength: u32, propertydata: *mut ::core::ffi::c_void, datalength: u32, bytesreturned: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).KsProperty)(::core::mem::transmute_copy(self), ::core::mem::transmute(property), ::core::mem::transmute(propertylength), ::core::mem::transmute(propertydata), ::core::mem::transmute(datalength), ::core::mem::transmute(bytesreturned)).ok()
+        (::windows::core::Interface::vtable(self).KsProperty)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(property), ::core::mem::transmute(propertylength), ::core::mem::transmute(propertydata), ::core::mem::transmute(datalength), ::core::mem::transmute(bytesreturned)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
     pub unsafe fn KsMethod(&self, method: *const KSIDENTIFIER, methodlength: u32, methoddata: *mut ::core::ffi::c_void, datalength: u32, bytesreturned: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).KsMethod)(::core::mem::transmute_copy(self), ::core::mem::transmute(method), ::core::mem::transmute(methodlength), ::core::mem::transmute(methoddata), ::core::mem::transmute(datalength), ::core::mem::transmute(bytesreturned)).ok()
+        (::windows::core::Interface::vtable(self).KsMethod)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(method), ::core::mem::transmute(methodlength), ::core::mem::transmute(methoddata), ::core::mem::transmute(datalength), ::core::mem::transmute(bytesreturned)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
     pub unsafe fn KsEvent(&self, event: *const KSIDENTIFIER, eventlength: u32, eventdata: *mut ::core::ffi::c_void, datalength: u32, bytesreturned: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).KsEvent)(::core::mem::transmute_copy(self), ::core::mem::transmute(event), ::core::mem::transmute(eventlength), ::core::mem::transmute(eventdata), ::core::mem::transmute(datalength), ::core::mem::transmute(bytesreturned)).ok()
+        (::windows::core::Interface::vtable(self).KsEvent)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(event), ::core::mem::transmute(eventlength), ::core::mem::transmute(eventdata), ::core::mem::transmute(datalength), ::core::mem::transmute(bytesreturned)).ok()
     }
 }
 impl ::core::convert::From<IKsControl> for ::windows::core::IUnknown {
@@ -927,12 +927,12 @@ impl IKsFormatSupport {
     #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsFormatSupported(&self, pksformat: *mut KSDATAFORMAT, cbformat: u32, pbsupported: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).IsFormatSupported)(::core::mem::transmute_copy(self), ::core::mem::transmute(pksformat), ::core::mem::transmute(cbformat), ::core::mem::transmute(pbsupported)).ok()
+        (::windows::core::Interface::vtable(self).IsFormatSupported)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pksformat), ::core::mem::transmute(cbformat), ::core::mem::transmute(pbsupported)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
     pub unsafe fn GetDevicePreferredFormat(&self) -> ::windows::core::Result<*mut KSDATAFORMAT> {
         let mut result__: *mut KSDATAFORMAT = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetDevicePreferredFormat)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<*mut KSDATAFORMAT>(result__)
+        (::windows::core::Interface::vtable(self).GetDevicePreferredFormat)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<*mut KSDATAFORMAT>(result__)
     }
 }
 impl ::core::convert::From<IKsFormatSupport> for ::windows::core::IUnknown {
@@ -992,7 +992,7 @@ impl IKsJackContainerId {
     #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
     pub unsafe fn GetJackContainerId(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetJackContainerId)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
+        (::windows::core::Interface::vtable(self).GetJackContainerId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
     }
 }
 impl ::core::convert::From<IKsJackContainerId> for ::windows::core::IUnknown {
@@ -1048,13 +1048,13 @@ impl IKsJackDescription {
     #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
     pub unsafe fn GetJackCount(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetJackCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).GetJackCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetJackDescription(&self, njack: u32) -> ::windows::core::Result<KSJACK_DESCRIPTION> {
         let mut result__: KSJACK_DESCRIPTION = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetJackDescription)(::core::mem::transmute_copy(self), ::core::mem::transmute(njack), ::core::mem::transmute(&mut result__)).from_abi::<KSJACK_DESCRIPTION>(result__)
+        (::windows::core::Interface::vtable(self).GetJackDescription)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(njack), ::core::mem::transmute(&mut result__)).from_abi::<KSJACK_DESCRIPTION>(result__)
     }
 }
 impl ::core::convert::From<IKsJackDescription> for ::windows::core::IUnknown {
@@ -1114,12 +1114,12 @@ impl IKsJackDescription2 {
     #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
     pub unsafe fn GetJackCount(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetJackCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).GetJackCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
     pub unsafe fn GetJackDescription2(&self, njack: u32) -> ::windows::core::Result<KSJACK_DESCRIPTION2> {
         let mut result__: KSJACK_DESCRIPTION2 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetJackDescription2)(::core::mem::transmute_copy(self), ::core::mem::transmute(njack), ::core::mem::transmute(&mut result__)).from_abi::<KSJACK_DESCRIPTION2>(result__)
+        (::windows::core::Interface::vtable(self).GetJackDescription2)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(njack), ::core::mem::transmute(&mut result__)).from_abi::<KSJACK_DESCRIPTION2>(result__)
     }
 }
 impl ::core::convert::From<IKsJackDescription2> for ::windows::core::IUnknown {
@@ -1177,7 +1177,7 @@ impl IKsJackSinkInformation {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetJackSinkInformation(&self) -> ::windows::core::Result<KSJACK_SINK_INFORMATION> {
         let mut result__: KSJACK_SINK_INFORMATION = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetJackSinkInformation)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<KSJACK_SINK_INFORMATION>(result__)
+        (::windows::core::Interface::vtable(self).GetJackSinkInformation)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<KSJACK_SINK_INFORMATION>(result__)
     }
 }
 impl ::core::convert::From<IKsJackSinkInformation> for ::windows::core::IUnknown {
@@ -1237,16 +1237,16 @@ pub struct IKsPropertySet(::windows::core::IUnknown);
 impl IKsPropertySet {
     #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
     pub unsafe fn Set(&self, propset: *const ::windows::core::GUID, id: u32, instancedata: *const ::core::ffi::c_void, instancelength: u32, propertydata: *const ::core::ffi::c_void, datalength: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Set)(::core::mem::transmute_copy(self), ::core::mem::transmute(propset), ::core::mem::transmute(id), ::core::mem::transmute(instancedata), ::core::mem::transmute(instancelength), ::core::mem::transmute(propertydata), ::core::mem::transmute(datalength)).ok()
+        (::windows::core::Interface::vtable(self).Set)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(propset), ::core::mem::transmute(id), ::core::mem::transmute(instancedata), ::core::mem::transmute(instancelength), ::core::mem::transmute(propertydata), ::core::mem::transmute(datalength)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
     pub unsafe fn Get(&self, propset: *const ::windows::core::GUID, id: u32, instancedata: *const ::core::ffi::c_void, instancelength: u32, propertydata: *mut ::core::ffi::c_void, datalength: u32, bytesreturned: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Get)(::core::mem::transmute_copy(self), ::core::mem::transmute(propset), ::core::mem::transmute(id), ::core::mem::transmute(instancedata), ::core::mem::transmute(instancelength), ::core::mem::transmute(propertydata), ::core::mem::transmute(datalength), ::core::mem::transmute(bytesreturned)).ok()
+        (::windows::core::Interface::vtable(self).Get)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(propset), ::core::mem::transmute(id), ::core::mem::transmute(instancedata), ::core::mem::transmute(instancelength), ::core::mem::transmute(propertydata), ::core::mem::transmute(datalength), ::core::mem::transmute(bytesreturned)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
     pub unsafe fn QuerySupported(&self, propset: *const ::windows::core::GUID, id: u32) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).QuerySupported)(::core::mem::transmute_copy(self), ::core::mem::transmute(propset), ::core::mem::transmute(id), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).QuerySupported)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(propset), ::core::mem::transmute(id), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
 }
 impl ::core::convert::From<IKsPropertySet> for ::windows::core::IUnknown {
@@ -1303,7 +1303,7 @@ pub struct IKsTopology(::windows::core::IUnknown);
 impl IKsTopology {
     #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
     pub unsafe fn CreateNodeInstance<'a, Param3: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, nodeid: u32, flags: u32, desiredaccess: u32, unkouter: Param3, interfaceid: *const ::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CreateNodeInstance)(::core::mem::transmute_copy(self), ::core::mem::transmute(nodeid), ::core::mem::transmute(flags), ::core::mem::transmute(desiredaccess), unkouter.into_param().abi(), ::core::mem::transmute(interfaceid), ::core::mem::transmute(interface)).ok()
+        (::windows::core::Interface::vtable(self).CreateNodeInstance)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(nodeid), ::core::mem::transmute(flags), ::core::mem::transmute(desiredaccess), unkouter.into_param().abi(), ::core::mem::transmute(interfaceid), ::core::mem::transmute(interface)).ok()
     }
 }
 impl ::core::convert::From<IKsTopology> for ::windows::core::IUnknown {

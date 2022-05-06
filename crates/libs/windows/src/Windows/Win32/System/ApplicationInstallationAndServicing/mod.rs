@@ -2122,24 +2122,24 @@ pub struct IAssemblyCache(::windows::core::IUnknown);
 impl IAssemblyCache {
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
     pub unsafe fn UninstallAssembly<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, dwflags: u32, pszassemblyname: Param1, prefdata: *mut FUSION_INSTALL_REFERENCE, puldisposition: *mut IASSEMBLYCACHE_UNINSTALL_DISPOSITION) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).UninstallAssembly)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwflags), pszassemblyname.into_param().abi(), ::core::mem::transmute(prefdata), ::core::mem::transmute(puldisposition)).ok()
+        (::windows::core::Interface::vtable(self).UninstallAssembly)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwflags), pszassemblyname.into_param().abi(), ::core::mem::transmute(prefdata), ::core::mem::transmute(puldisposition)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
     pub unsafe fn QueryAssemblyInfo<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, dwflags: QUERYASMINFO_FLAGS, pszassemblyname: Param1, pasminfo: *mut ASSEMBLY_INFO) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).QueryAssemblyInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwflags), pszassemblyname.into_param().abi(), ::core::mem::transmute(pasminfo)).ok()
+        (::windows::core::Interface::vtable(self).QueryAssemblyInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwflags), pszassemblyname.into_param().abi(), ::core::mem::transmute(pasminfo)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
     pub unsafe fn CreateAssemblyCacheItem<'a, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, dwflags: u32, pvreserved: *mut ::core::ffi::c_void, ppasmitem: *mut ::core::option::Option<IAssemblyCacheItem>, pszassemblyname: Param3) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CreateAssemblyCacheItem)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwflags), ::core::mem::transmute(pvreserved), ::core::mem::transmute(ppasmitem), pszassemblyname.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).CreateAssemblyCacheItem)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwflags), ::core::mem::transmute(pvreserved), ::core::mem::transmute(ppasmitem), pszassemblyname.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
     pub unsafe fn Reserved(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Reserved)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
+        (::windows::core::Interface::vtable(self).Reserved)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
     pub unsafe fn InstallAssembly<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, dwflags: u32, pszmanifestfilepath: Param1, prefdata: *mut FUSION_INSTALL_REFERENCE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).InstallAssembly)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwflags), pszmanifestfilepath.into_param().abi(), ::core::mem::transmute(prefdata)).ok()
+        (::windows::core::Interface::vtable(self).InstallAssembly)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwflags), pszmanifestfilepath.into_param().abi(), ::core::mem::transmute(prefdata)).ok()
     }
 }
 impl ::core::convert::From<IAssemblyCache> for ::windows::core::IUnknown {
@@ -2199,15 +2199,15 @@ impl IAssemblyCacheItem {
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateStream<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, dwflags: u32, pszstreamname: Param1, dwformat: u32, dwformatflags: u32, ppistream: *mut ::core::option::Option<super::Com::IStream>, pulimaxsize: *mut u64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CreateStream)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwflags), pszstreamname.into_param().abi(), ::core::mem::transmute(dwformat), ::core::mem::transmute(dwformatflags), ::core::mem::transmute(ppistream), ::core::mem::transmute(pulimaxsize)).ok()
+        (::windows::core::Interface::vtable(self).CreateStream)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwflags), pszstreamname.into_param().abi(), ::core::mem::transmute(dwformat), ::core::mem::transmute(dwformatflags), ::core::mem::transmute(ppistream), ::core::mem::transmute(pulimaxsize)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
     pub unsafe fn Commit(&self, dwflags: u32, puldisposition: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Commit)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwflags), ::core::mem::transmute(puldisposition)).ok()
+        (::windows::core::Interface::vtable(self).Commit)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwflags), ::core::mem::transmute(puldisposition)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
     pub unsafe fn AbortItem(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AbortItem)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).AbortItem)(::windows::core::Interface::as_raw(self)).ok()
     }
 }
 impl ::core::convert::From<IAssemblyCacheItem> for ::windows::core::IUnknown {
@@ -2267,40 +2267,40 @@ pub struct IAssemblyName(::windows::core::IUnknown);
 impl IAssemblyName {
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
     pub unsafe fn SetProperty(&self, propertyid: u32, pvproperty: *mut ::core::ffi::c_void, cbproperty: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetProperty)(::core::mem::transmute_copy(self), ::core::mem::transmute(propertyid), ::core::mem::transmute(pvproperty), ::core::mem::transmute(cbproperty)).ok()
+        (::windows::core::Interface::vtable(self).SetProperty)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(propertyid), ::core::mem::transmute(pvproperty), ::core::mem::transmute(cbproperty)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
     pub unsafe fn GetProperty(&self, propertyid: u32, pvproperty: *mut ::core::ffi::c_void, pcbproperty: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetProperty)(::core::mem::transmute_copy(self), ::core::mem::transmute(propertyid), ::core::mem::transmute(pvproperty), ::core::mem::transmute(pcbproperty)).ok()
+        (::windows::core::Interface::vtable(self).GetProperty)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(propertyid), ::core::mem::transmute(pvproperty), ::core::mem::transmute(pcbproperty)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
     pub unsafe fn Finalize(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Finalize)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Finalize)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
     pub unsafe fn GetDisplayName(&self, szdisplayname: ::windows::core::PWSTR, pccdisplayname: *mut u32, dwdisplayflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetDisplayName)(::core::mem::transmute_copy(self), ::core::mem::transmute(szdisplayname), ::core::mem::transmute(pccdisplayname), ::core::mem::transmute(dwdisplayflags)).ok()
+        (::windows::core::Interface::vtable(self).GetDisplayName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(szdisplayname), ::core::mem::transmute(pccdisplayname), ::core::mem::transmute(dwdisplayflags)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
     pub unsafe fn Reserved<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param2: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, refiid: *const ::windows::core::GUID, punkreserved1: Param1, punkreserved2: Param2, szreserved: Param3, llreserved: i64, pvreserved: *mut ::core::ffi::c_void, cbreserved: u32, ppreserved: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Reserved)(::core::mem::transmute_copy(self), ::core::mem::transmute(refiid), punkreserved1.into_param().abi(), punkreserved2.into_param().abi(), szreserved.into_param().abi(), ::core::mem::transmute(llreserved), ::core::mem::transmute(pvreserved), ::core::mem::transmute(cbreserved), ::core::mem::transmute(ppreserved)).ok()
+        (::windows::core::Interface::vtable(self).Reserved)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(refiid), punkreserved1.into_param().abi(), punkreserved2.into_param().abi(), szreserved.into_param().abi(), ::core::mem::transmute(llreserved), ::core::mem::transmute(pvreserved), ::core::mem::transmute(cbreserved), ::core::mem::transmute(ppreserved)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
     pub unsafe fn GetName(&self, lpcwbuffer: *mut u32, pwzname: ::windows::core::PWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetName)(::core::mem::transmute_copy(self), ::core::mem::transmute(lpcwbuffer), ::core::mem::transmute(pwzname)).ok()
+        (::windows::core::Interface::vtable(self).GetName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lpcwbuffer), ::core::mem::transmute(pwzname)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
     pub unsafe fn GetVersion(&self, pdwversionhi: *mut u32, pdwversionlow: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetVersion)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdwversionhi), ::core::mem::transmute(pdwversionlow)).ok()
+        (::windows::core::Interface::vtable(self).GetVersion)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdwversionhi), ::core::mem::transmute(pdwversionlow)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
     pub unsafe fn IsEqual<'a, Param0: ::windows::core::IntoParam<'a, IAssemblyName>>(&self, pname: Param0, dwcmpflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).IsEqual)(::core::mem::transmute_copy(self), pname.into_param().abi(), ::core::mem::transmute(dwcmpflags)).ok()
+        (::windows::core::Interface::vtable(self).IsEqual)(::windows::core::Interface::as_raw(self), pname.into_param().abi(), ::core::mem::transmute(dwcmpflags)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IAssemblyName> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Clone)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IAssemblyName>(result__)
+        (::windows::core::Interface::vtable(self).Clone)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IAssemblyName>(result__)
     }
 }
 impl ::core::convert::From<IAssemblyName> for ::windows::core::IUnknown {
@@ -2364,20 +2364,20 @@ impl IEnumMsmDependency {
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Next(&self, cfetch: u32, rgmsmdependencies: *mut ::core::option::Option<IMsmDependency>, pcfetched: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Next)(::core::mem::transmute_copy(self), ::core::mem::transmute(cfetch), ::core::mem::transmute(rgmsmdependencies), ::core::mem::transmute(pcfetched)).ok()
+        (::windows::core::Interface::vtable(self).Next)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(cfetch), ::core::mem::transmute(rgmsmdependencies), ::core::mem::transmute(pcfetched)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
     pub unsafe fn Skip(&self, cskip: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Skip)(::core::mem::transmute_copy(self), ::core::mem::transmute(cskip)).ok()
+        (::windows::core::Interface::vtable(self).Skip)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(cskip)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
     pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Reset)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Reset)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IEnumMsmDependency> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Clone)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IEnumMsmDependency>(result__)
+        (::windows::core::Interface::vtable(self).Clone)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IEnumMsmDependency>(result__)
     }
 }
 impl ::core::convert::From<IEnumMsmDependency> for ::windows::core::IUnknown {
@@ -2439,20 +2439,20 @@ impl IEnumMsmError {
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Next(&self, cfetch: u32, rgmsmerrors: *mut ::core::option::Option<IMsmError>, pcfetched: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Next)(::core::mem::transmute_copy(self), ::core::mem::transmute(cfetch), ::core::mem::transmute(rgmsmerrors), ::core::mem::transmute(pcfetched)).ok()
+        (::windows::core::Interface::vtable(self).Next)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(cfetch), ::core::mem::transmute(rgmsmerrors), ::core::mem::transmute(pcfetched)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
     pub unsafe fn Skip(&self, cskip: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Skip)(::core::mem::transmute_copy(self), ::core::mem::transmute(cskip)).ok()
+        (::windows::core::Interface::vtable(self).Skip)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(cskip)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
     pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Reset)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Reset)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IEnumMsmError> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Clone)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IEnumMsmError>(result__)
+        (::windows::core::Interface::vtable(self).Clone)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IEnumMsmError>(result__)
     }
 }
 impl ::core::convert::From<IEnumMsmError> for ::windows::core::IUnknown {
@@ -2514,20 +2514,20 @@ impl IEnumMsmString {
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Next(&self, cfetch: u32, rgbstrstrings: *mut super::super::Foundation::BSTR, pcfetched: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Next)(::core::mem::transmute_copy(self), ::core::mem::transmute(cfetch), ::core::mem::transmute(rgbstrstrings), ::core::mem::transmute(pcfetched)).ok()
+        (::windows::core::Interface::vtable(self).Next)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(cfetch), ::core::mem::transmute(rgbstrstrings), ::core::mem::transmute(pcfetched)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
     pub unsafe fn Skip(&self, cskip: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Skip)(::core::mem::transmute_copy(self), ::core::mem::transmute(cskip)).ok()
+        (::windows::core::Interface::vtable(self).Skip)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(cskip)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
     pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Reset)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Reset)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IEnumMsmString> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Clone)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IEnumMsmString>(result__)
+        (::windows::core::Interface::vtable(self).Clone)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IEnumMsmString>(result__)
     }
 }
 impl ::core::convert::From<IEnumMsmString> for ::windows::core::IUnknown {
@@ -2592,16 +2592,16 @@ impl IMsmDependencies {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_Item(&self, item: i32) -> ::windows::core::Result<IMsmDependency> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).get_Item)(::core::mem::transmute_copy(self), ::core::mem::transmute(item), ::core::mem::transmute(&mut result__)).from_abi::<IMsmDependency>(result__)
+        (::windows::core::Interface::vtable(self).get_Item)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(item), ::core::mem::transmute(&mut result__)).from_abi::<IMsmDependency>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
     pub unsafe fn Count(&self, count: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Count)(::core::mem::transmute_copy(self), ::core::mem::transmute(count)).ok()
+        (::windows::core::Interface::vtable(self).Count)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(count)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
     pub unsafe fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self)._NewEnum)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
+        (::windows::core::Interface::vtable(self)._NewEnum)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2698,16 +2698,16 @@ impl IMsmDependency {
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Module(&self, module: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Module)(::core::mem::transmute_copy(self), ::core::mem::transmute(module)).ok()
+        (::windows::core::Interface::vtable(self).Module)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(module)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
     pub unsafe fn Language(&self, language: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Language)(::core::mem::transmute_copy(self), ::core::mem::transmute(language)).ok()
+        (::windows::core::Interface::vtable(self).Language)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(language)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Version(&self, version: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Version)(::core::mem::transmute_copy(self), ::core::mem::transmute(version)).ok()
+        (::windows::core::Interface::vtable(self).Version)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(version)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2806,38 +2806,38 @@ pub struct IMsmError(::windows::core::IUnknown);
 impl IMsmError {
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
     pub unsafe fn Type(&self, errortype: *mut msmErrorType) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Type)(::core::mem::transmute_copy(self), ::core::mem::transmute(errortype)).ok()
+        (::windows::core::Interface::vtable(self).Type)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(errortype)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Path(&self, errorpath: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Path)(::core::mem::transmute_copy(self), ::core::mem::transmute(errorpath)).ok()
+        (::windows::core::Interface::vtable(self).Path)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(errorpath)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
     pub unsafe fn Language(&self, errorlanguage: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Language)(::core::mem::transmute_copy(self), ::core::mem::transmute(errorlanguage)).ok()
+        (::windows::core::Interface::vtable(self).Language)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(errorlanguage)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DatabaseTable(&self, errortable: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DatabaseTable)(::core::mem::transmute_copy(self), ::core::mem::transmute(errortable)).ok()
+        (::windows::core::Interface::vtable(self).DatabaseTable)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(errortable)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DatabaseKeys(&self) -> ::windows::core::Result<IMsmStrings> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).DatabaseKeys)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IMsmStrings>(result__)
+        (::windows::core::Interface::vtable(self).DatabaseKeys)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IMsmStrings>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ModuleTable(&self, errortable: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ModuleTable)(::core::mem::transmute_copy(self), ::core::mem::transmute(errortable)).ok()
+        (::windows::core::Interface::vtable(self).ModuleTable)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(errortable)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ModuleKeys(&self) -> ::windows::core::Result<IMsmStrings> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ModuleKeys)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IMsmStrings>(result__)
+        (::windows::core::Interface::vtable(self).ModuleKeys)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IMsmStrings>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2951,16 +2951,16 @@ impl IMsmErrors {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_Item(&self, item: i32) -> ::windows::core::Result<IMsmError> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).get_Item)(::core::mem::transmute_copy(self), ::core::mem::transmute(item), ::core::mem::transmute(&mut result__)).from_abi::<IMsmError>(result__)
+        (::windows::core::Interface::vtable(self).get_Item)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(item), ::core::mem::transmute(&mut result__)).from_abi::<IMsmError>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
     pub unsafe fn Count(&self, count: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Count)(::core::mem::transmute_copy(self), ::core::mem::transmute(count)).ok()
+        (::windows::core::Interface::vtable(self).Count)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(count)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
     pub unsafe fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self)._NewEnum)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
+        (::windows::core::Interface::vtable(self)._NewEnum)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3058,7 +3058,7 @@ impl IMsmGetFiles {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ModuleFiles(&self) -> ::windows::core::Result<IMsmStrings> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ModuleFiles)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IMsmStrings>(result__)
+        (::windows::core::Interface::vtable(self).ModuleFiles)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IMsmStrings>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3153,66 +3153,66 @@ impl IMsmMerge {
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OpenDatabase<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, path: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OpenDatabase)(::core::mem::transmute_copy(self), path.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).OpenDatabase)(::windows::core::Interface::as_raw(self), path.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OpenModule<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, path: Param0, language: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OpenModule)(::core::mem::transmute_copy(self), path.into_param().abi(), ::core::mem::transmute(language)).ok()
+        (::windows::core::Interface::vtable(self).OpenModule)(::windows::core::Interface::as_raw(self), path.into_param().abi(), ::core::mem::transmute(language)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
     pub unsafe fn CloseDatabase(&self, commit: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CloseDatabase)(::core::mem::transmute_copy(self), ::core::mem::transmute(commit)).ok()
+        (::windows::core::Interface::vtable(self).CloseDatabase)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(commit)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
     pub unsafe fn CloseModule(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CloseModule)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).CloseModule)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OpenLog<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, path: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OpenLog)(::core::mem::transmute_copy(self), path.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).OpenLog)(::windows::core::Interface::as_raw(self), path.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
     pub unsafe fn CloseLog(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CloseLog)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).CloseLog)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Log<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, message: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Log)(::core::mem::transmute_copy(self), message.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).Log)(::windows::core::Interface::as_raw(self), message.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Errors(&self) -> ::windows::core::Result<IMsmErrors> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Errors)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IMsmErrors>(result__)
+        (::windows::core::Interface::vtable(self).Errors)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IMsmErrors>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Dependencies(&self) -> ::windows::core::Result<IMsmDependencies> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Dependencies)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IMsmDependencies>(result__)
+        (::windows::core::Interface::vtable(self).Dependencies)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IMsmDependencies>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Merge<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, feature: Param0, redirectdir: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Merge)(::core::mem::transmute_copy(self), feature.into_param().abi(), redirectdir.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).Merge)(::windows::core::Interface::as_raw(self), feature.into_param().abi(), redirectdir.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Connect<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, feature: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Connect)(::core::mem::transmute_copy(self), feature.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).Connect)(::windows::core::Interface::as_raw(self), feature.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ExtractCAB<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, filename: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ExtractCAB)(::core::mem::transmute_copy(self), filename.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).ExtractCAB)(::windows::core::Interface::as_raw(self), filename.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ExtractFiles<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, path: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ExtractFiles)(::core::mem::transmute_copy(self), path.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).ExtractFiles)(::windows::core::Interface::as_raw(self), path.into_param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3346,16 +3346,16 @@ impl IMsmStrings {
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_Item(&self, item: i32, r#return: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).get_Item)(::core::mem::transmute_copy(self), ::core::mem::transmute(item), ::core::mem::transmute(r#return)).ok()
+        (::windows::core::Interface::vtable(self).get_Item)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(item), ::core::mem::transmute(r#return)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
     pub unsafe fn Count(&self, count: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Count)(::core::mem::transmute_copy(self), ::core::mem::transmute(count)).ok()
+        (::windows::core::Interface::vtable(self).Count)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(count)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
     pub unsafe fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self)._NewEnum)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
+        (::windows::core::Interface::vtable(self)._NewEnum)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3949,299 +3949,299 @@ impl IPMApplicationInfo {
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
     pub unsafe fn ProductID(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ProductID)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
+        (::windows::core::Interface::vtable(self).ProductID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
     pub unsafe fn InstanceID(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).InstanceID)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
+        (::windows::core::Interface::vtable(self).InstanceID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
     pub unsafe fn OfferID(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).OfferID)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
+        (::windows::core::Interface::vtable(self).OfferID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DefaultTask(&self, pdefaulttask: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DefaultTask)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdefaulttask)).ok()
+        (::windows::core::Interface::vtable(self).DefaultTask)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdefaulttask)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AppTitle(&self, papptitle: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AppTitle)(::core::mem::transmute_copy(self), ::core::mem::transmute(papptitle)).ok()
+        (::windows::core::Interface::vtable(self).AppTitle)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(papptitle)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IconPath(&self, pappiconpath: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).IconPath)(::core::mem::transmute_copy(self), ::core::mem::transmute(pappiconpath)).ok()
+        (::windows::core::Interface::vtable(self).IconPath)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pappiconpath)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn NotificationState(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).NotificationState)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+        (::windows::core::Interface::vtable(self).NotificationState)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
     pub unsafe fn AppInstallType(&self) -> ::windows::core::Result<PM_APPLICATION_INSTALL_TYPE> {
         let mut result__: PM_APPLICATION_INSTALL_TYPE = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).AppInstallType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<PM_APPLICATION_INSTALL_TYPE>(result__)
+        (::windows::core::Interface::vtable(self).AppInstallType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<PM_APPLICATION_INSTALL_TYPE>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
     pub unsafe fn State(&self) -> ::windows::core::Result<PM_APPLICATION_STATE> {
         let mut result__: PM_APPLICATION_STATE = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).State)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<PM_APPLICATION_STATE>(result__)
+        (::windows::core::Interface::vtable(self).State)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<PM_APPLICATION_STATE>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsRevoked(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).IsRevoked)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+        (::windows::core::Interface::vtable(self).IsRevoked)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn UpdateAvailable(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).UpdateAvailable)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+        (::windows::core::Interface::vtable(self).UpdateAvailable)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn InstallDate(&self) -> ::windows::core::Result<super::super::Foundation::FILETIME> {
         let mut result__: super::super::Foundation::FILETIME = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).InstallDate)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::FILETIME>(result__)
+        (::windows::core::Interface::vtable(self).InstallDate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::FILETIME>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsUninstallable(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).IsUninstallable)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+        (::windows::core::Interface::vtable(self).IsUninstallable)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsThemable(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).IsThemable)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+        (::windows::core::Interface::vtable(self).IsThemable)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsTrial(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).IsTrial)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+        (::windows::core::Interface::vtable(self).IsTrial)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn InstallPath(&self, pinstallpath: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).InstallPath)(::core::mem::transmute_copy(self), ::core::mem::transmute(pinstallpath)).ok()
+        (::windows::core::Interface::vtable(self).InstallPath)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinstallpath)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DataRoot(&self, pdataroot: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DataRoot)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdataroot)).ok()
+        (::windows::core::Interface::vtable(self).DataRoot)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdataroot)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
     pub unsafe fn Genre(&self) -> ::windows::core::Result<PM_APP_GENRE> {
         let mut result__: PM_APP_GENRE = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Genre)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<PM_APP_GENRE>(result__)
+        (::windows::core::Interface::vtable(self).Genre)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<PM_APP_GENRE>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Publisher(&self, ppublisher: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Publisher)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppublisher)).ok()
+        (::windows::core::Interface::vtable(self).Publisher)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ppublisher)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Author(&self, pauthor: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Author)(::core::mem::transmute_copy(self), ::core::mem::transmute(pauthor)).ok()
+        (::windows::core::Interface::vtable(self).Author)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pauthor)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Description(&self, pdescription: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Description)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdescription)).ok()
+        (::windows::core::Interface::vtable(self).Description)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdescription)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Version(&self, pversion: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Version)(::core::mem::transmute_copy(self), ::core::mem::transmute(pversion)).ok()
+        (::windows::core::Interface::vtable(self).Version)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pversion)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_InvocationInfo(&self, pimageurn: *mut super::super::Foundation::BSTR, pparameters: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).get_InvocationInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(pimageurn), ::core::mem::transmute(pparameters)).ok()
+        (::windows::core::Interface::vtable(self).get_InvocationInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pimageurn), ::core::mem::transmute(pparameters)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
     pub unsafe fn AppPlatMajorVersion(&self) -> ::windows::core::Result<u8> {
         let mut result__: u8 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).AppPlatMajorVersion)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u8>(result__)
+        (::windows::core::Interface::vtable(self).AppPlatMajorVersion)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u8>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
     pub unsafe fn AppPlatMinorVersion(&self) -> ::windows::core::Result<u8> {
         let mut result__: u8 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).AppPlatMinorVersion)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u8>(result__)
+        (::windows::core::Interface::vtable(self).AppPlatMinorVersion)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u8>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
     pub unsafe fn PublisherID(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).PublisherID)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
+        (::windows::core::Interface::vtable(self).PublisherID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsMultiCore(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).IsMultiCore)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+        (::windows::core::Interface::vtable(self).IsMultiCore)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SID(&self, psid: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SID)(::core::mem::transmute_copy(self), ::core::mem::transmute(psid)).ok()
+        (::windows::core::Interface::vtable(self).SID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(psid)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
     pub unsafe fn AppPlatMajorVersionLightUp(&self) -> ::windows::core::Result<u8> {
         let mut result__: u8 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).AppPlatMajorVersionLightUp)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u8>(result__)
+        (::windows::core::Interface::vtable(self).AppPlatMajorVersionLightUp)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u8>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
     pub unsafe fn AppPlatMinorVersionLightUp(&self) -> ::windows::core::Result<u8> {
         let mut result__: u8 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).AppPlatMinorVersionLightUp)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u8>(result__)
+        (::windows::core::Interface::vtable(self).AppPlatMinorVersionLightUp)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u8>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn set_UpdateAvailable<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, isupdateavailable: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).set_UpdateAvailable)(::core::mem::transmute_copy(self), isupdateavailable.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).set_UpdateAvailable)(::windows::core::Interface::as_raw(self), isupdateavailable.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn set_NotificationState<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, isnotified: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).set_NotificationState)(::core::mem::transmute_copy(self), isnotified.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).set_NotificationState)(::windows::core::Interface::as_raw(self), isnotified.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn set_IconPath<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, appiconpath: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).set_IconPath)(::core::mem::transmute_copy(self), appiconpath.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).set_IconPath)(::windows::core::Interface::as_raw(self), appiconpath.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn set_UninstallableState<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, isuninstallable: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).set_UninstallableState)(::core::mem::transmute_copy(self), isuninstallable.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).set_UninstallableState)(::windows::core::Interface::as_raw(self), isuninstallable.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsPinableOnKidZone(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).IsPinableOnKidZone)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+        (::windows::core::Interface::vtable(self).IsPinableOnKidZone)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsOriginallyPreInstalled(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).IsOriginallyPreInstalled)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+        (::windows::core::Interface::vtable(self).IsOriginallyPreInstalled)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsInstallOnSD(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).IsInstallOnSD)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+        (::windows::core::Interface::vtable(self).IsInstallOnSD)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsOptoutOnSD(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).IsOptoutOnSD)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+        (::windows::core::Interface::vtable(self).IsOptoutOnSD)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsOptoutBackupRestore(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).IsOptoutBackupRestore)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+        (::windows::core::Interface::vtable(self).IsOptoutBackupRestore)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn set_EnterpriseDisabled<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, isdisabled: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).set_EnterpriseDisabled)(::core::mem::transmute_copy(self), isdisabled.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).set_EnterpriseDisabled)(::windows::core::Interface::as_raw(self), isdisabled.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn set_EnterpriseUninstallable<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, isuninstallable: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).set_EnterpriseUninstallable)(::core::mem::transmute_copy(self), isuninstallable.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).set_EnterpriseUninstallable)(::windows::core::Interface::as_raw(self), isuninstallable.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnterpriseDisabled(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).EnterpriseDisabled)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+        (::windows::core::Interface::vtable(self).EnterpriseDisabled)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnterpriseUninstallable(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).EnterpriseUninstallable)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+        (::windows::core::Interface::vtable(self).EnterpriseUninstallable)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsVisibleOnAppList(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).IsVisibleOnAppList)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+        (::windows::core::Interface::vtable(self).IsVisibleOnAppList)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsInboxApp(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).IsInboxApp)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+        (::windows::core::Interface::vtable(self).IsInboxApp)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
     pub unsafe fn StorageID(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).StorageID)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
+        (::windows::core::Interface::vtable(self).StorageID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn StartAppBlob(&self, pblob: *mut PM_STARTAPPBLOB) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).StartAppBlob)(::core::mem::transmute_copy(self), ::core::mem::transmute(pblob)).ok()
+        (::windows::core::Interface::vtable(self).StartAppBlob)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pblob)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsMovable(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).IsMovable)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+        (::windows::core::Interface::vtable(self).IsMovable)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
     pub unsafe fn DeploymentAppEnumerationHubFilter(&self) -> ::windows::core::Result<PM_TILE_HUBTYPE> {
         let mut result__: PM_TILE_HUBTYPE = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).DeploymentAppEnumerationHubFilter)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<PM_TILE_HUBTYPE>(result__)
+        (::windows::core::Interface::vtable(self).DeploymentAppEnumerationHubFilter)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<PM_TILE_HUBTYPE>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ModifiedDate(&self) -> ::windows::core::Result<super::super::Foundation::FILETIME> {
         let mut result__: super::super::Foundation::FILETIME = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ModifiedDate)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::FILETIME>(result__)
+        (::windows::core::Interface::vtable(self).ModifiedDate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::FILETIME>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsOriginallyRestored(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).IsOriginallyRestored)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+        (::windows::core::Interface::vtable(self).IsOriginallyRestored)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ShouldDeferMdilBind(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ShouldDeferMdilBind)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+        (::windows::core::Interface::vtable(self).ShouldDeferMdilBind)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsFullyPreInstall(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).IsFullyPreInstall)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+        (::windows::core::Interface::vtable(self).IsFullyPreInstall)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn set_IsMdilMaintenanceNeeded<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fismdilmaintenanceneeded: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).set_IsMdilMaintenanceNeeded)(::core::mem::transmute_copy(self), fismdilmaintenanceneeded.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).set_IsMdilMaintenanceNeeded)(::windows::core::Interface::as_raw(self), fismdilmaintenanceneeded.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn set_Title<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, apptitle: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).set_Title)(::core::mem::transmute_copy(self), apptitle.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).set_Title)(::windows::core::Interface::as_raw(self), apptitle.into_param().abi()).ok()
     }
 }
 impl ::core::convert::From<IPMApplicationInfo> for ::windows::core::IUnknown {
@@ -4477,7 +4477,7 @@ impl IPMApplicationInfoEnumerator {
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
     pub unsafe fn Next(&self) -> ::windows::core::Result<IPMApplicationInfo> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Next)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IPMApplicationInfo>(result__)
+        (::windows::core::Interface::vtable(self).Next)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IPMApplicationInfo>(result__)
     }
 }
 impl ::core::convert::From<IPMApplicationInfoEnumerator> for ::windows::core::IUnknown {
@@ -4533,76 +4533,76 @@ impl IPMBackgroundServiceAgentInfo {
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
     pub unsafe fn ProductID(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ProductID)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
+        (::windows::core::Interface::vtable(self).ProductID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn TaskID(&self, ptaskid: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).TaskID)(::core::mem::transmute_copy(self), ::core::mem::transmute(ptaskid)).ok()
+        (::windows::core::Interface::vtable(self).TaskID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ptaskid)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
     pub unsafe fn BSAID(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).BSAID)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).BSAID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn BGSpecifier(&self, pbgspecifier: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).BGSpecifier)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbgspecifier)).ok()
+        (::windows::core::Interface::vtable(self).BGSpecifier)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbgspecifier)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn BGName(&self, pbgname: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).BGName)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbgname)).ok()
+        (::windows::core::Interface::vtable(self).BGName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbgname)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn BGSource(&self, pbgsource: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).BGSource)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbgsource)).ok()
+        (::windows::core::Interface::vtable(self).BGSource)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbgsource)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn BGType(&self, pbgtype: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).BGType)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbgtype)).ok()
+        (::windows::core::Interface::vtable(self).BGType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbgtype)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsPeriodic(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).IsPeriodic)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+        (::windows::core::Interface::vtable(self).IsPeriodic)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsScheduled(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).IsScheduled)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+        (::windows::core::Interface::vtable(self).IsScheduled)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsScheduleAllowed(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).IsScheduleAllowed)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+        (::windows::core::Interface::vtable(self).IsScheduleAllowed)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Description(&self, pdescription: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Description)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdescription)).ok()
+        (::windows::core::Interface::vtable(self).Description)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdescription)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsLaunchOnBoot(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).IsLaunchOnBoot)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+        (::windows::core::Interface::vtable(self).IsLaunchOnBoot)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn set_IsScheduled<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, isscheduled: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).set_IsScheduled)(::core::mem::transmute_copy(self), isscheduled.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).set_IsScheduled)(::windows::core::Interface::as_raw(self), isscheduled.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn set_IsScheduleAllowed<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, isscheduleallowed: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).set_IsScheduleAllowed)(::core::mem::transmute_copy(self), isscheduleallowed.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).set_IsScheduleAllowed)(::windows::core::Interface::as_raw(self), isscheduleallowed.into_param().abi()).ok()
     }
 }
 impl ::core::convert::From<IPMBackgroundServiceAgentInfo> for ::windows::core::IUnknown {
@@ -4707,7 +4707,7 @@ impl IPMBackgroundServiceAgentInfoEnumerator {
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
     pub unsafe fn Next(&self) -> ::windows::core::Result<IPMBackgroundServiceAgentInfo> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Next)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IPMBackgroundServiceAgentInfo>(result__)
+        (::windows::core::Interface::vtable(self).Next)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IPMBackgroundServiceAgentInfo>(result__)
     }
 }
 impl ::core::convert::From<IPMBackgroundServiceAgentInfoEnumerator> for ::windows::core::IUnknown {
@@ -4763,33 +4763,33 @@ impl IPMBackgroundWorkerInfo {
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
     pub unsafe fn ProductID(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ProductID)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
+        (::windows::core::Interface::vtable(self).ProductID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn TaskID(&self, ptaskid: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).TaskID)(::core::mem::transmute_copy(self), ::core::mem::transmute(ptaskid)).ok()
+        (::windows::core::Interface::vtable(self).TaskID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ptaskid)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn BGName(&self, pbgname: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).BGName)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbgname)).ok()
+        (::windows::core::Interface::vtable(self).BGName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbgname)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
     pub unsafe fn MaxStartupLatency(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).MaxStartupLatency)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).MaxStartupLatency)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
     pub unsafe fn ExpectedRuntime(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ExpectedRuntime)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).ExpectedRuntime)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsBootWorker(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).IsBootWorker)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+        (::windows::core::Interface::vtable(self).IsBootWorker)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
     }
 }
 impl ::core::convert::From<IPMBackgroundWorkerInfo> for ::windows::core::IUnknown {
@@ -4859,7 +4859,7 @@ impl IPMBackgroundWorkerInfoEnumerator {
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
     pub unsafe fn Next(&self) -> ::windows::core::Result<IPMBackgroundWorkerInfo> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Next)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IPMBackgroundWorkerInfo>(result__)
+        (::windows::core::Interface::vtable(self).Next)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IPMBackgroundWorkerInfo>(result__)
     }
 }
 impl ::core::convert::From<IPMBackgroundWorkerInfoEnumerator> for ::windows::core::IUnknown {
@@ -4914,159 +4914,159 @@ pub struct IPMDeploymentManager(::windows::core::IUnknown);
 impl IPMDeploymentManager {
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
     pub unsafe fn ReportDownloadBegin<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, productid: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ReportDownloadBegin)(::core::mem::transmute_copy(self), productid.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).ReportDownloadBegin)(::windows::core::Interface::as_raw(self), productid.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
     pub unsafe fn ReportDownloadProgress<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, productid: Param0, usprogress: u16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ReportDownloadProgress)(::core::mem::transmute_copy(self), productid.into_param().abi(), ::core::mem::transmute(usprogress)).ok()
+        (::windows::core::Interface::vtable(self).ReportDownloadProgress)(::windows::core::Interface::as_raw(self), productid.into_param().abi(), ::core::mem::transmute(usprogress)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
     pub unsafe fn ReportDownloadComplete<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, productid: Param0, hrresult: ::windows::core::HRESULT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ReportDownloadComplete)(::core::mem::transmute_copy(self), productid.into_param().abi(), ::core::mem::transmute(hrresult)).ok()
+        (::windows::core::Interface::vtable(self).ReportDownloadComplete)(::windows::core::Interface::as_raw(self), productid.into_param().abi(), ::core::mem::transmute(hrresult)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn BeginInstall(&self, pinstallinfo: *const PM_INSTALLINFO) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).BeginInstall)(::core::mem::transmute_copy(self), ::core::mem::transmute(pinstallinfo)).ok()
+        (::windows::core::Interface::vtable(self).BeginInstall)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinstallinfo)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn BeginUpdate(&self, pupdateinfo: *const PM_UPDATEINFO) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).BeginUpdate)(::core::mem::transmute_copy(self), ::core::mem::transmute(pupdateinfo)).ok()
+        (::windows::core::Interface::vtable(self).BeginUpdate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pupdateinfo)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn BeginDeployPackage(&self, pinstallinfo: *const PM_INSTALLINFO) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).BeginDeployPackage)(::core::mem::transmute_copy(self), ::core::mem::transmute(pinstallinfo)).ok()
+        (::windows::core::Interface::vtable(self).BeginDeployPackage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinstallinfo)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn BeginUpdateDeployedPackageLegacy(&self, pupdateinfo: *const PM_UPDATEINFO_LEGACY) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).BeginUpdateDeployedPackageLegacy)(::core::mem::transmute_copy(self), ::core::mem::transmute(pupdateinfo)).ok()
+        (::windows::core::Interface::vtable(self).BeginUpdateDeployedPackageLegacy)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pupdateinfo)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
     pub unsafe fn BeginUninstall<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, productid: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).BeginUninstall)(::core::mem::transmute_copy(self), productid.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).BeginUninstall)(::windows::core::Interface::as_raw(self), productid.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn BeginEnterpriseAppInstall(&self, pinstallinfo: *const PM_INSTALLINFO) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).BeginEnterpriseAppInstall)(::core::mem::transmute_copy(self), ::core::mem::transmute(pinstallinfo)).ok()
+        (::windows::core::Interface::vtable(self).BeginEnterpriseAppInstall)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinstallinfo)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn BeginEnterpriseAppUpdate(&self, pupdateinfo: *const PM_UPDATEINFO) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).BeginEnterpriseAppUpdate)(::core::mem::transmute_copy(self), ::core::mem::transmute(pupdateinfo)).ok()
+        (::windows::core::Interface::vtable(self).BeginEnterpriseAppUpdate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pupdateinfo)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
     pub unsafe fn BeginUpdateLicense<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param1: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, productid: Param0, offerid: Param1, pblicense: &[u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).BeginUpdateLicense)(::core::mem::transmute_copy(self), productid.into_param().abi(), offerid.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(pblicense)), pblicense.len() as _).ok()
+        (::windows::core::Interface::vtable(self).BeginUpdateLicense)(::windows::core::Interface::as_raw(self), productid.into_param().abi(), offerid.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(pblicense)), pblicense.len() as _).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetLicenseChallenge<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, packagepath: Param0, ppbchallenge: *mut *mut u8, pcbchallenge: *mut u32, ppbkid: *mut *mut u8, pcbkid: *mut u32, ppbdeviceid: *mut *mut u8, pcbdeviceid: *mut u32, ppbsaltvalue: *mut *mut u8, pcbsaltvalue: *mut u32, ppbkgvvalue: *mut *mut u8, pcbkgvvalue: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetLicenseChallenge)(::core::mem::transmute_copy(self), packagepath.into_param().abi(), ::core::mem::transmute(ppbchallenge), ::core::mem::transmute(pcbchallenge), ::core::mem::transmute(ppbkid), ::core::mem::transmute(pcbkid), ::core::mem::transmute(ppbdeviceid), ::core::mem::transmute(pcbdeviceid), ::core::mem::transmute(ppbsaltvalue), ::core::mem::transmute(pcbsaltvalue), ::core::mem::transmute(ppbkgvvalue), ::core::mem::transmute(pcbkgvvalue)).ok()
+        (::windows::core::Interface::vtable(self).GetLicenseChallenge)(::windows::core::Interface::as_raw(self), packagepath.into_param().abi(), ::core::mem::transmute(ppbchallenge), ::core::mem::transmute(pcbchallenge), ::core::mem::transmute(ppbkid), ::core::mem::transmute(pcbkid), ::core::mem::transmute(ppbdeviceid), ::core::mem::transmute(pcbdeviceid), ::core::mem::transmute(ppbsaltvalue), ::core::mem::transmute(pcbsaltvalue), ::core::mem::transmute(ppbkgvvalue), ::core::mem::transmute(pcbkgvvalue)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
     pub unsafe fn GetLicenseChallengeByProductID<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, productid: Param0, ppbchallenge: *mut *mut u8, pcblicense: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetLicenseChallengeByProductID)(::core::mem::transmute_copy(self), productid.into_param().abi(), ::core::mem::transmute(ppbchallenge), ::core::mem::transmute(pcblicense)).ok()
+        (::windows::core::Interface::vtable(self).GetLicenseChallengeByProductID)(::windows::core::Interface::as_raw(self), productid.into_param().abi(), ::core::mem::transmute(ppbchallenge), ::core::mem::transmute(pcblicense)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
     pub unsafe fn GetLicenseChallengeByProductID2<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, productid: Param0, ppbchallenge: *mut *mut u8, pcblicense: *mut u32, ppbkid: *mut *mut u8, pcbkid: *mut u32, ppbdeviceid: *mut *mut u8, pcbdeviceid: *mut u32, ppbsaltvalue: *mut *mut u8, pcbsaltvalue: *mut u32, ppbkgvvalue: *mut *mut u8, pcbkgvvalue: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetLicenseChallengeByProductID2)(::core::mem::transmute_copy(self), productid.into_param().abi(), ::core::mem::transmute(ppbchallenge), ::core::mem::transmute(pcblicense), ::core::mem::transmute(ppbkid), ::core::mem::transmute(pcbkid), ::core::mem::transmute(ppbdeviceid), ::core::mem::transmute(pcbdeviceid), ::core::mem::transmute(ppbsaltvalue), ::core::mem::transmute(pcbsaltvalue), ::core::mem::transmute(ppbkgvvalue), ::core::mem::transmute(pcbkgvvalue)).ok()
+        (::windows::core::Interface::vtable(self).GetLicenseChallengeByProductID2)(::windows::core::Interface::as_raw(self), productid.into_param().abi(), ::core::mem::transmute(ppbchallenge), ::core::mem::transmute(pcblicense), ::core::mem::transmute(ppbkid), ::core::mem::transmute(pcbkid), ::core::mem::transmute(ppbdeviceid), ::core::mem::transmute(pcbdeviceid), ::core::mem::transmute(ppbsaltvalue), ::core::mem::transmute(pcbsaltvalue), ::core::mem::transmute(ppbkgvvalue), ::core::mem::transmute(pcbkgvvalue)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
     pub unsafe fn RevokeLicense<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, productid: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RevokeLicense)(::core::mem::transmute_copy(self), productid.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).RevokeLicense)(::windows::core::Interface::as_raw(self), productid.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn RebindMdilBinaries<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, productid: Param0, filenames: *const super::Com::SAFEARRAY) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RebindMdilBinaries)(::core::mem::transmute_copy(self), productid.into_param().abi(), ::core::mem::transmute(filenames)).ok()
+        (::windows::core::Interface::vtable(self).RebindMdilBinaries)(::windows::core::Interface::as_raw(self), productid.into_param().abi(), ::core::mem::transmute(filenames)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
     pub unsafe fn RebindAllMdilBinaries<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param1: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, productid: Param0, instanceid: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RebindAllMdilBinaries)(::core::mem::transmute_copy(self), productid.into_param().abi(), instanceid.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).RebindAllMdilBinaries)(::windows::core::Interface::as_raw(self), productid.into_param().abi(), instanceid.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn RegenerateXbf<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, productid: Param0, assemblypaths: *const super::Com::SAFEARRAY) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RegenerateXbf)(::core::mem::transmute_copy(self), productid.into_param().abi(), ::core::mem::transmute(assemblypaths)).ok()
+        (::windows::core::Interface::vtable(self).RegenerateXbf)(::windows::core::Interface::as_raw(self), productid.into_param().abi(), ::core::mem::transmute(assemblypaths)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
     pub unsafe fn GenerateXbfForCurrentLocale<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, productid: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GenerateXbfForCurrentLocale)(::core::mem::transmute_copy(self), productid.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).GenerateXbfForCurrentLocale)(::windows::core::Interface::as_raw(self), productid.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn BeginProvision<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, productid: Param0, xmlpath: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).BeginProvision)(::core::mem::transmute_copy(self), productid.into_param().abi(), xmlpath.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).BeginProvision)(::windows::core::Interface::as_raw(self), productid.into_param().abi(), xmlpath.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
     pub unsafe fn BeginDeprovision<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, productid: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).BeginDeprovision)(::core::mem::transmute_copy(self), productid.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).BeginDeprovision)(::windows::core::Interface::as_raw(self), productid.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
     pub unsafe fn ReindexSQLCEDatabases<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, productid: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ReindexSQLCEDatabases)(::core::mem::transmute_copy(self), productid.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).ReindexSQLCEDatabases)(::windows::core::Interface::as_raw(self), productid.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
     pub unsafe fn SetApplicationsNeedMaintenance(&self, requiredmaintenanceoperations: u32) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).SetApplicationsNeedMaintenance)(::core::mem::transmute_copy(self), ::core::mem::transmute(requiredmaintenanceoperations), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).SetApplicationsNeedMaintenance)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(requiredmaintenanceoperations), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
     pub unsafe fn UpdateChamberProfile<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, productid: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).UpdateChamberProfile)(::core::mem::transmute_copy(self), productid.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).UpdateChamberProfile)(::windows::core::Interface::as_raw(self), productid.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnterprisePolicyIsApplicationAllowed<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, productid: Param0, publishername: Param1) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).EnterprisePolicyIsApplicationAllowed)(::core::mem::transmute_copy(self), productid.into_param().abi(), publishername.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+        (::windows::core::Interface::vtable(self).EnterprisePolicyIsApplicationAllowed)(::windows::core::Interface::as_raw(self), productid.into_param().abi(), publishername.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn BeginUpdateDeployedPackage(&self, pupdateinfo: *const PM_UPDATEINFO) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).BeginUpdateDeployedPackage)(::core::mem::transmute_copy(self), ::core::mem::transmute(pupdateinfo)).ok()
+        (::windows::core::Interface::vtable(self).BeginUpdateDeployedPackage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pupdateinfo)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
     pub unsafe fn ReportRestoreCancelled<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, productid: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ReportRestoreCancelled)(::core::mem::transmute_copy(self), productid.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).ReportRestoreCancelled)(::windows::core::Interface::as_raw(self), productid.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ResolveResourceString<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, resourcestring: Param0, presolvedresourcestring: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ResolveResourceString)(::core::mem::transmute_copy(self), resourcestring.into_param().abi(), ::core::mem::transmute(presolvedresourcestring)).ok()
+        (::windows::core::Interface::vtable(self).ResolveResourceString)(::windows::core::Interface::as_raw(self), resourcestring.into_param().abi(), ::core::mem::transmute(presolvedresourcestring)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
     pub unsafe fn UpdateCapabilitiesForModernApps(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).UpdateCapabilitiesForModernApps)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).UpdateCapabilitiesForModernApps)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
     pub unsafe fn ReportDownloadStatusUpdate<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, productid: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ReportDownloadStatusUpdate)(::core::mem::transmute_copy(self), productid.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).ReportDownloadStatusUpdate)(::windows::core::Interface::as_raw(self), productid.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
     pub unsafe fn BeginUninstallWithOptions<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, productid: Param0, removaloptions: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).BeginUninstallWithOptions)(::core::mem::transmute_copy(self), productid.into_param().abi(), ::core::mem::transmute(removaloptions)).ok()
+        (::windows::core::Interface::vtable(self).BeginUninstallWithOptions)(::windows::core::Interface::as_raw(self), productid.into_param().abi(), ::core::mem::transmute(removaloptions)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
     pub unsafe fn BindDeferredMdilBinaries(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).BindDeferredMdilBinaries)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).BindDeferredMdilBinaries)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GenerateXamlLightupXbfForCurrentLocale<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, packagefamilyname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GenerateXamlLightupXbfForCurrentLocale)(::core::mem::transmute_copy(self), packagefamilyname.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).GenerateXamlLightupXbfForCurrentLocale)(::windows::core::Interface::as_raw(self), packagefamilyname.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
     pub unsafe fn AddLicenseForAppx<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, productid: Param0, pblicense: &[u8], pbplayreadyheader: &[u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AddLicenseForAppx)(::core::mem::transmute_copy(self), productid.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(pblicense)), pblicense.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pbplayreadyheader)), pbplayreadyheader.len() as _).ok()
+        (::windows::core::Interface::vtable(self).AddLicenseForAppx)(::windows::core::Interface::as_raw(self), productid.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(pblicense)), pblicense.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pbplayreadyheader)), pbplayreadyheader.len() as _).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
     pub unsafe fn FixJunctionsForAppsOnSDCard(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FixJunctionsForAppsOnSDCard)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).FixJunctionsForAppsOnSDCard)(::windows::core::Interface::as_raw(self)).ok()
     }
 }
 impl ::core::convert::From<IPMDeploymentManager> for ::windows::core::IUnknown {
@@ -5198,96 +5198,96 @@ impl IPMEnumerationManager {
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_AllApplications<'a, Param1: ::windows::core::IntoParam<'a, PM_ENUM_FILTER>>(&self, ppappenum: *mut ::core::option::Option<IPMApplicationInfoEnumerator>, filter: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).get_AllApplications)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppappenum), filter.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).get_AllApplications)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ppappenum), filter.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_AllTiles<'a, Param1: ::windows::core::IntoParam<'a, PM_ENUM_FILTER>>(&self, pptileenum: *mut ::core::option::Option<IPMTileInfoEnumerator>, filter: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).get_AllTiles)(::core::mem::transmute_copy(self), ::core::mem::transmute(pptileenum), filter.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).get_AllTiles)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pptileenum), filter.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_AllTasks<'a, Param1: ::windows::core::IntoParam<'a, PM_ENUM_FILTER>>(&self, pptaskenum: *mut ::core::option::Option<IPMTaskInfoEnumerator>, filter: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).get_AllTasks)(::core::mem::transmute_copy(self), ::core::mem::transmute(pptaskenum), filter.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).get_AllTasks)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pptaskenum), filter.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_AllExtensions<'a, Param1: ::windows::core::IntoParam<'a, PM_ENUM_FILTER>>(&self, ppextensionenum: *mut ::core::option::Option<IPMExtensionInfoEnumerator>, filter: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).get_AllExtensions)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppextensionenum), filter.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).get_AllExtensions)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ppextensionenum), filter.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_AllBackgroundServiceAgents<'a, Param1: ::windows::core::IntoParam<'a, PM_ENUM_FILTER>>(&self, ppbsaenum: *mut ::core::option::Option<IPMBackgroundServiceAgentInfoEnumerator>, filter: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).get_AllBackgroundServiceAgents)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppbsaenum), filter.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).get_AllBackgroundServiceAgents)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ppbsaenum), filter.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_AllBackgroundWorkers<'a, Param1: ::windows::core::IntoParam<'a, PM_ENUM_FILTER>>(&self, ppbswenum: *mut ::core::option::Option<IPMBackgroundWorkerInfoEnumerator>, filter: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).get_AllBackgroundWorkers)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppbswenum), filter.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).get_AllBackgroundWorkers)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ppbswenum), filter.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
     pub unsafe fn get_ApplicationInfo<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, productid: Param0) -> ::windows::core::Result<IPMApplicationInfo> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).get_ApplicationInfo)(::core::mem::transmute_copy(self), productid.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IPMApplicationInfo>(result__)
+        (::windows::core::Interface::vtable(self).get_ApplicationInfo)(::windows::core::Interface::as_raw(self), productid.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IPMApplicationInfo>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_TileInfo<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, productid: Param0, tileid: Param1) -> ::windows::core::Result<IPMTileInfo> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).get_TileInfo)(::core::mem::transmute_copy(self), productid.into_param().abi(), tileid.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IPMTileInfo>(result__)
+        (::windows::core::Interface::vtable(self).get_TileInfo)(::windows::core::Interface::as_raw(self), productid.into_param().abi(), tileid.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IPMTileInfo>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_TaskInfo<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, productid: Param0, taskid: Param1) -> ::windows::core::Result<IPMTaskInfo> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).get_TaskInfo)(::core::mem::transmute_copy(self), productid.into_param().abi(), taskid.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IPMTaskInfo>(result__)
+        (::windows::core::Interface::vtable(self).get_TaskInfo)(::windows::core::Interface::as_raw(self), productid.into_param().abi(), taskid.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IPMTaskInfo>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
     pub unsafe fn get_TaskInfoEx<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, productid: Param0, taskid: Param1) -> ::windows::core::Result<IPMTaskInfo> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).get_TaskInfoEx)(::core::mem::transmute_copy(self), productid.into_param().abi(), taskid.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IPMTaskInfo>(result__)
+        (::windows::core::Interface::vtable(self).get_TaskInfoEx)(::windows::core::Interface::as_raw(self), productid.into_param().abi(), taskid.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IPMTaskInfo>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
     pub unsafe fn get_BackgroundServiceAgentInfo(&self, bsaid: u32) -> ::windows::core::Result<IPMBackgroundServiceAgentInfo> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).get_BackgroundServiceAgentInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(bsaid), ::core::mem::transmute(&mut result__)).from_abi::<IPMBackgroundServiceAgentInfo>(result__)
+        (::windows::core::Interface::vtable(self).get_BackgroundServiceAgentInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(bsaid), ::core::mem::transmute(&mut result__)).from_abi::<IPMBackgroundServiceAgentInfo>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
     pub unsafe fn AllLiveTileJobs(&self) -> ::windows::core::Result<IPMLiveTileJobInfoEnumerator> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).AllLiveTileJobs)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IPMLiveTileJobInfoEnumerator>(result__)
+        (::windows::core::Interface::vtable(self).AllLiveTileJobs)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IPMLiveTileJobInfoEnumerator>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_LiveTileJob<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, productid: Param0, tileid: Param1, recurrencetype: PM_LIVETILE_RECURRENCE_TYPE) -> ::windows::core::Result<IPMLiveTileJobInfo> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).get_LiveTileJob)(::core::mem::transmute_copy(self), productid.into_param().abi(), tileid.into_param().abi(), ::core::mem::transmute(recurrencetype), ::core::mem::transmute(&mut result__)).from_abi::<IPMLiveTileJobInfo>(result__)
+        (::windows::core::Interface::vtable(self).get_LiveTileJob)(::windows::core::Interface::as_raw(self), productid.into_param().abi(), tileid.into_param().abi(), ::core::mem::transmute(recurrencetype), ::core::mem::transmute(&mut result__)).from_abi::<IPMLiveTileJobInfo>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
     pub unsafe fn get_ApplicationInfoExternal<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, productid: Param0) -> ::windows::core::Result<IPMApplicationInfo> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).get_ApplicationInfoExternal)(::core::mem::transmute_copy(self), productid.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IPMApplicationInfo>(result__)
+        (::windows::core::Interface::vtable(self).get_ApplicationInfoExternal)(::windows::core::Interface::as_raw(self), productid.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IPMApplicationInfo>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_FileHandlerGenericLogo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, filetype: Param0, logosize: PM_LOGO_SIZE, plogo: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).get_FileHandlerGenericLogo)(::core::mem::transmute_copy(self), filetype.into_param().abi(), ::core::mem::transmute(logosize), ::core::mem::transmute(plogo)).ok()
+        (::windows::core::Interface::vtable(self).get_FileHandlerGenericLogo)(::windows::core::Interface::as_raw(self), filetype.into_param().abi(), ::core::mem::transmute(logosize), ::core::mem::transmute(plogo)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_ApplicationInfoFromAccessClaims<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, sysappid0: Param0, sysappid1: Param1) -> ::windows::core::Result<IPMApplicationInfo> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).get_ApplicationInfoFromAccessClaims)(::core::mem::transmute_copy(self), sysappid0.into_param().abi(), sysappid1.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IPMApplicationInfo>(result__)
+        (::windows::core::Interface::vtable(self).get_ApplicationInfoFromAccessClaims)(::windows::core::Interface::as_raw(self), sysappid0.into_param().abi(), sysappid1.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IPMApplicationInfo>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_StartTileEnumeratorBlob<'a, Param0: ::windows::core::IntoParam<'a, PM_ENUM_FILTER>>(&self, filter: Param0, pctiles: *mut u32, pptileblobs: *mut *mut PM_STARTTILEBLOB) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).get_StartTileEnumeratorBlob)(::core::mem::transmute_copy(self), filter.into_param().abi(), ::core::mem::transmute(pctiles), ::core::mem::transmute(pptileblobs)).ok()
+        (::windows::core::Interface::vtable(self).get_StartTileEnumeratorBlob)(::windows::core::Interface::as_raw(self), filter.into_param().abi(), ::core::mem::transmute(pctiles), ::core::mem::transmute(pptileblobs)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_StartAppEnumeratorBlob<'a, Param0: ::windows::core::IntoParam<'a, PM_ENUM_FILTER>>(&self, filter: Param0, pcapps: *mut u32, ppappblobs: *mut *mut PM_STARTAPPBLOB) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).get_StartAppEnumeratorBlob)(::core::mem::transmute_copy(self), filter.into_param().abi(), ::core::mem::transmute(pcapps), ::core::mem::transmute(ppappblobs)).ok()
+        (::windows::core::Interface::vtable(self).get_StartAppEnumeratorBlob)(::windows::core::Interface::as_raw(self), filter.into_param().abi(), ::core::mem::transmute(pcapps), ::core::mem::transmute(ppappblobs)).ok()
     }
 }
 impl ::core::convert::From<IPMEnumerationManager> for ::windows::core::IUnknown {
@@ -5400,7 +5400,7 @@ impl IPMExtensionCachedFileUpdaterInfo {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SupportsUpdates(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).SupportsUpdates)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+        (::windows::core::Interface::vtable(self).SupportsUpdates)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
     }
 }
 impl ::core::convert::From<IPMExtensionCachedFileUpdaterInfo> for ::windows::core::IUnknown {
@@ -5459,7 +5459,7 @@ impl IPMExtensionContractInfo {
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_InvocationInfo(&self, paumid: *mut super::super::Foundation::BSTR, pargs: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).get_InvocationInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(paumid), ::core::mem::transmute(pargs)).ok()
+        (::windows::core::Interface::vtable(self).get_InvocationInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(paumid), ::core::mem::transmute(pargs)).ok()
     }
 }
 impl ::core::convert::From<IPMExtensionContractInfo> for ::windows::core::IUnknown {
@@ -5518,37 +5518,37 @@ impl IPMExtensionFileExtensionInfo {
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Name(&self, pname: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Name)(::core::mem::transmute_copy(self), ::core::mem::transmute(pname)).ok()
+        (::windows::core::Interface::vtable(self).Name)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pname)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DisplayName(&self, pdisplayname: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DisplayName)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdisplayname)).ok()
+        (::windows::core::Interface::vtable(self).DisplayName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdisplayname)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_Logo(&self, logosize: PM_LOGO_SIZE, plogo: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).get_Logo)(::core::mem::transmute_copy(self), ::core::mem::transmute(logosize), ::core::mem::transmute(plogo)).ok()
+        (::windows::core::Interface::vtable(self).get_Logo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(logosize), ::core::mem::transmute(plogo)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_ContentType<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, filetype: Param0, pcontenttype: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).get_ContentType)(::core::mem::transmute_copy(self), filetype.into_param().abi(), ::core::mem::transmute(pcontenttype)).ok()
+        (::windows::core::Interface::vtable(self).get_ContentType)(::windows::core::Interface::as_raw(self), filetype.into_param().abi(), ::core::mem::transmute(pcontenttype)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_FileType<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, contenttype: Param0, pfiletype: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).get_FileType)(::core::mem::transmute_copy(self), contenttype.into_param().abi(), ::core::mem::transmute(pfiletype)).ok()
+        (::windows::core::Interface::vtable(self).get_FileType)(::windows::core::Interface::as_raw(self), contenttype.into_param().abi(), ::core::mem::transmute(pfiletype)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_InvocationInfo(&self, pimageurn: *mut super::super::Foundation::BSTR, pparameters: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).get_InvocationInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(pimageurn), ::core::mem::transmute(pparameters)).ok()
+        (::windows::core::Interface::vtable(self).get_InvocationInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pimageurn), ::core::mem::transmute(pparameters)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_AllFileTypes(&self, pcbtypes: *mut u32, pptypes: *mut *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).get_AllFileTypes)(::core::mem::transmute_copy(self), ::core::mem::transmute(pcbtypes), ::core::mem::transmute(pptypes)).ok()
+        (::windows::core::Interface::vtable(self).get_AllFileTypes)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pcbtypes), ::core::mem::transmute(pptypes)).ok()
     }
 }
 impl ::core::convert::From<IPMExtensionFileExtensionInfo> for ::windows::core::IUnknown {
@@ -5631,13 +5631,13 @@ impl IPMExtensionFileOpenPickerInfo {
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_AllFileTypes(&self, pctypes: *mut u32, pptypes: *mut *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).get_AllFileTypes)(::core::mem::transmute_copy(self), ::core::mem::transmute(pctypes), ::core::mem::transmute(pptypes)).ok()
+        (::windows::core::Interface::vtable(self).get_AllFileTypes)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pctypes), ::core::mem::transmute(pptypes)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SupportsAllFileTypes(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).SupportsAllFileTypes)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+        (::windows::core::Interface::vtable(self).SupportsAllFileTypes)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
     }
 }
 impl ::core::convert::From<IPMExtensionFileOpenPickerInfo> for ::windows::core::IUnknown {
@@ -5700,13 +5700,13 @@ impl IPMExtensionFileSavePickerInfo {
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_AllFileTypes(&self, pctypes: *mut u32, pptypes: *mut *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).get_AllFileTypes)(::core::mem::transmute_copy(self), ::core::mem::transmute(pctypes), ::core::mem::transmute(pptypes)).ok()
+        (::windows::core::Interface::vtable(self).get_AllFileTypes)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pctypes), ::core::mem::transmute(pptypes)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SupportsAllFileTypes(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).SupportsAllFileTypes)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+        (::windows::core::Interface::vtable(self).SupportsAllFileTypes)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
     }
 }
 impl ::core::convert::From<IPMExtensionFileSavePickerInfo> for ::windows::core::IUnknown {
@@ -5769,32 +5769,32 @@ impl IPMExtensionInfo {
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
     pub unsafe fn SupplierPID(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).SupplierPID)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
+        (::windows::core::Interface::vtable(self).SupplierPID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SupplierTaskID(&self, psuppliertid: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SupplierTaskID)(::core::mem::transmute_copy(self), ::core::mem::transmute(psuppliertid)).ok()
+        (::windows::core::Interface::vtable(self).SupplierTaskID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(psuppliertid)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Title(&self, ptitle: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Title)(::core::mem::transmute_copy(self), ::core::mem::transmute(ptitle)).ok()
+        (::windows::core::Interface::vtable(self).Title)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ptitle)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IconPath(&self, piconpath: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).IconPath)(::core::mem::transmute_copy(self), ::core::mem::transmute(piconpath)).ok()
+        (::windows::core::Interface::vtable(self).IconPath)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(piconpath)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ExtraFile(&self, pfilepath: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ExtraFile)(::core::mem::transmute_copy(self), ::core::mem::transmute(pfilepath)).ok()
+        (::windows::core::Interface::vtable(self).ExtraFile)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pfilepath)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_InvocationInfo(&self, pimageurn: *mut super::super::Foundation::BSTR, pparameters: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).get_InvocationInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(pimageurn), ::core::mem::transmute(pparameters)).ok()
+        (::windows::core::Interface::vtable(self).get_InvocationInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pimageurn), ::core::mem::transmute(pparameters)).ok()
     }
 }
 impl ::core::convert::From<IPMExtensionInfo> for ::windows::core::IUnknown {
@@ -5870,7 +5870,7 @@ impl IPMExtensionInfoEnumerator {
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
     pub unsafe fn Next(&self) -> ::windows::core::Result<IPMExtensionInfo> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Next)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IPMExtensionInfo>(result__)
+        (::windows::core::Interface::vtable(self).Next)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IPMExtensionInfo>(result__)
     }
 }
 impl ::core::convert::From<IPMExtensionInfoEnumerator> for ::windows::core::IUnknown {
@@ -5926,12 +5926,12 @@ impl IPMExtensionProtocolInfo {
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Protocol(&self, pprotocol: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Protocol)(::core::mem::transmute_copy(self), ::core::mem::transmute(pprotocol)).ok()
+        (::windows::core::Interface::vtable(self).Protocol)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pprotocol)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_InvocationInfo(&self, pimageurn: *mut super::super::Foundation::BSTR, pparameters: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).get_InvocationInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(pimageurn), ::core::mem::transmute(pparameters)).ok()
+        (::windows::core::Interface::vtable(self).get_InvocationInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pimageurn), ::core::mem::transmute(pparameters)).ok()
     }
 }
 impl ::core::convert::From<IPMExtensionProtocolInfo> for ::windows::core::IUnknown {
@@ -5994,18 +5994,18 @@ impl IPMExtensionShareTargetInfo {
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_AllFileTypes(&self, pctypes: *mut u32, pptypes: *mut *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).get_AllFileTypes)(::core::mem::transmute_copy(self), ::core::mem::transmute(pctypes), ::core::mem::transmute(pptypes)).ok()
+        (::windows::core::Interface::vtable(self).get_AllFileTypes)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pctypes), ::core::mem::transmute(pptypes)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_AllDataFormats(&self, pcdataformats: *mut u32, ppdataformats: *mut *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).get_AllDataFormats)(::core::mem::transmute_copy(self), ::core::mem::transmute(pcdataformats), ::core::mem::transmute(ppdataformats)).ok()
+        (::windows::core::Interface::vtable(self).get_AllDataFormats)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pcdataformats), ::core::mem::transmute(ppdataformats)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SupportsAllFileTypes(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).SupportsAllFileTypes)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+        (::windows::core::Interface::vtable(self).SupportsAllFileTypes)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
     }
 }
 impl ::core::convert::From<IPMExtensionShareTargetInfo> for ::windows::core::IUnknown {
@@ -6072,115 +6072,115 @@ impl IPMLiveTileJobInfo {
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
     pub unsafe fn ProductID(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ProductID)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
+        (::windows::core::Interface::vtable(self).ProductID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn TileID(&self, ptileid: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).TileID)(::core::mem::transmute_copy(self), ::core::mem::transmute(ptileid)).ok()
+        (::windows::core::Interface::vtable(self).TileID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ptileid)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn NextSchedule(&self) -> ::windows::core::Result<super::super::Foundation::FILETIME> {
         let mut result__: super::super::Foundation::FILETIME = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).NextSchedule)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::FILETIME>(result__)
+        (::windows::core::Interface::vtable(self).NextSchedule)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::FILETIME>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn set_NextSchedule<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::FILETIME>>(&self, ftnextschedule: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).set_NextSchedule)(::core::mem::transmute_copy(self), ftnextschedule.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).set_NextSchedule)(::windows::core::Interface::as_raw(self), ftnextschedule.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn StartSchedule(&self) -> ::windows::core::Result<super::super::Foundation::FILETIME> {
         let mut result__: super::super::Foundation::FILETIME = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).StartSchedule)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::FILETIME>(result__)
+        (::windows::core::Interface::vtable(self).StartSchedule)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::FILETIME>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn set_StartSchedule<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::FILETIME>>(&self, ftstartschedule: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).set_StartSchedule)(::core::mem::transmute_copy(self), ftstartschedule.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).set_StartSchedule)(::windows::core::Interface::as_raw(self), ftstartschedule.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
     pub unsafe fn IntervalDuration(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).IntervalDuration)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).IntervalDuration)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
     pub unsafe fn set_IntervalDuration(&self, ulintervalduration: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).set_IntervalDuration)(::core::mem::transmute_copy(self), ::core::mem::transmute(ulintervalduration)).ok()
+        (::windows::core::Interface::vtable(self).set_IntervalDuration)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ulintervalduration)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RunForever(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).RunForever)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+        (::windows::core::Interface::vtable(self).RunForever)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn set_RunForever<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, frunforever: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).set_RunForever)(::core::mem::transmute_copy(self), frunforever.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).set_RunForever)(::windows::core::Interface::as_raw(self), frunforever.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
     pub unsafe fn MaxRunCount(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).MaxRunCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).MaxRunCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
     pub unsafe fn set_MaxRunCount(&self, ulmaxruncount: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).set_MaxRunCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(ulmaxruncount)).ok()
+        (::windows::core::Interface::vtable(self).set_MaxRunCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ulmaxruncount)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
     pub unsafe fn RunCount(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).RunCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).RunCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
     pub unsafe fn set_RunCount(&self, ulruncount: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).set_RunCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(ulruncount)).ok()
+        (::windows::core::Interface::vtable(self).set_RunCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ulruncount)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
     pub unsafe fn RecurrenceType(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).RecurrenceType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).RecurrenceType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
     pub unsafe fn set_RecurrenceType(&self, ulrecurrencetype: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).set_RecurrenceType)(::core::mem::transmute_copy(self), ::core::mem::transmute(ulrecurrencetype)).ok()
+        (::windows::core::Interface::vtable(self).set_RecurrenceType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ulrecurrencetype)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
     pub unsafe fn get_TileXML(&self, ptilexml: *mut *mut u8, pcbtilexml: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).get_TileXML)(::core::mem::transmute_copy(self), ::core::mem::transmute(ptilexml), ::core::mem::transmute(pcbtilexml)).ok()
+        (::windows::core::Interface::vtable(self).get_TileXML)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ptilexml), ::core::mem::transmute(pcbtilexml)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
     pub unsafe fn set_TileXML(&self, ptilexml: &[u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).set_TileXML)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(ptilexml)), ptilexml.len() as _).ok()
+        (::windows::core::Interface::vtable(self).set_TileXML)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(ptilexml)), ptilexml.len() as _).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
     pub unsafe fn get_UrlXML(&self, purlxml: *mut *mut u8, pcburlxml: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).get_UrlXML)(::core::mem::transmute_copy(self), ::core::mem::transmute(purlxml), ::core::mem::transmute(pcburlxml)).ok()
+        (::windows::core::Interface::vtable(self).get_UrlXML)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(purlxml), ::core::mem::transmute(pcburlxml)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
     pub unsafe fn set_UrlXML(&self, purlxml: &[u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).set_UrlXML)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(purlxml)), purlxml.len() as _).ok()
+        (::windows::core::Interface::vtable(self).set_UrlXML)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(purlxml)), purlxml.len() as _).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
     pub unsafe fn AttemptCount(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).AttemptCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).AttemptCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
     pub unsafe fn set_AttemptCount(&self, ulattemptcount: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).set_AttemptCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(ulattemptcount)).ok()
+        (::windows::core::Interface::vtable(self).set_AttemptCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ulattemptcount)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
     pub unsafe fn DownloadState(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).DownloadState)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).DownloadState)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
     pub unsafe fn set_DownloadState(&self, uldownloadstate: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).set_DownloadState)(::core::mem::transmute_copy(self), ::core::mem::transmute(uldownloadstate)).ok()
+        (::windows::core::Interface::vtable(self).set_DownloadState)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(uldownloadstate)).ok()
     }
 }
 impl ::core::convert::From<IPMLiveTileJobInfo> for ::windows::core::IUnknown {
@@ -6280,7 +6280,7 @@ impl IPMLiveTileJobInfoEnumerator {
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
     pub unsafe fn Next(&self) -> ::windows::core::Result<IPMLiveTileJobInfo> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Next)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IPMLiveTileJobInfo>(result__)
+        (::windows::core::Interface::vtable(self).Next)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IPMLiveTileJobInfo>(result__)
     }
 }
 impl ::core::convert::From<IPMLiveTileJobInfoEnumerator> for ::windows::core::IUnknown {
@@ -6336,110 +6336,110 @@ impl IPMTaskInfo {
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
     pub unsafe fn ProductID(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ProductID)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
+        (::windows::core::Interface::vtable(self).ProductID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn TaskID(&self, ptaskid: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).TaskID)(::core::mem::transmute_copy(self), ::core::mem::transmute(ptaskid)).ok()
+        (::windows::core::Interface::vtable(self).TaskID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ptaskid)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn NavigationPage(&self, pnavigationpage: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).NavigationPage)(::core::mem::transmute_copy(self), ::core::mem::transmute(pnavigationpage)).ok()
+        (::windows::core::Interface::vtable(self).NavigationPage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pnavigationpage)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
     pub unsafe fn TaskTransition(&self) -> ::windows::core::Result<PM_TASK_TRANSITION> {
         let mut result__: PM_TASK_TRANSITION = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).TaskTransition)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<PM_TASK_TRANSITION>(result__)
+        (::windows::core::Interface::vtable(self).TaskTransition)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<PM_TASK_TRANSITION>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
     pub unsafe fn RuntimeType(&self) -> ::windows::core::Result<PACKMAN_RUNTIME> {
         let mut result__: PACKMAN_RUNTIME = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).RuntimeType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<PACKMAN_RUNTIME>(result__)
+        (::windows::core::Interface::vtable(self).RuntimeType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<PACKMAN_RUNTIME>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
     pub unsafe fn ActivationPolicy(&self) -> ::windows::core::Result<PM_ACTIVATION_POLICY> {
         let mut result__: PM_ACTIVATION_POLICY = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ActivationPolicy)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<PM_ACTIVATION_POLICY>(result__)
+        (::windows::core::Interface::vtable(self).ActivationPolicy)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<PM_ACTIVATION_POLICY>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
     pub unsafe fn TaskType(&self) -> ::windows::core::Result<PM_TASK_TYPE> {
         let mut result__: PM_TASK_TYPE = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).TaskType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<PM_TASK_TYPE>(result__)
+        (::windows::core::Interface::vtable(self).TaskType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<PM_TASK_TYPE>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_InvocationInfo(&self, pimageurn: *mut super::super::Foundation::BSTR, pparameters: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).get_InvocationInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(pimageurn), ::core::mem::transmute(pparameters)).ok()
+        (::windows::core::Interface::vtable(self).get_InvocationInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pimageurn), ::core::mem::transmute(pparameters)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ImagePath(&self, pimagepath: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ImagePath)(::core::mem::transmute_copy(self), ::core::mem::transmute(pimagepath)).ok()
+        (::windows::core::Interface::vtable(self).ImagePath)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pimagepath)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ImageParams(&self, pimageparams: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ImageParams)(::core::mem::transmute_copy(self), ::core::mem::transmute(pimageparams)).ok()
+        (::windows::core::Interface::vtable(self).ImageParams)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pimageparams)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn InstallRootFolder(&self, pinstallrootfolder: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).InstallRootFolder)(::core::mem::transmute_copy(self), ::core::mem::transmute(pinstallrootfolder)).ok()
+        (::windows::core::Interface::vtable(self).InstallRootFolder)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinstallrootfolder)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DataRootFolder(&self, pdatarootfolder: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DataRootFolder)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdatarootfolder)).ok()
+        (::windows::core::Interface::vtable(self).DataRootFolder)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdatarootfolder)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsSingleInstanceHost(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).IsSingleInstanceHost)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+        (::windows::core::Interface::vtable(self).IsSingleInstanceHost)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsInteropEnabled(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).IsInteropEnabled)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+        (::windows::core::Interface::vtable(self).IsInteropEnabled)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
     pub unsafe fn ApplicationState(&self) -> ::windows::core::Result<PM_APPLICATION_STATE> {
         let mut result__: PM_APPLICATION_STATE = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ApplicationState)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<PM_APPLICATION_STATE>(result__)
+        (::windows::core::Interface::vtable(self).ApplicationState)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<PM_APPLICATION_STATE>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
     pub unsafe fn InstallType(&self) -> ::windows::core::Result<PM_APPLICATION_INSTALL_TYPE> {
         let mut result__: PM_APPLICATION_INSTALL_TYPE = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).InstallType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<PM_APPLICATION_INSTALL_TYPE>(result__)
+        (::windows::core::Interface::vtable(self).InstallType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<PM_APPLICATION_INSTALL_TYPE>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
     pub unsafe fn get_Version(&self, ptargetmajorversion: *mut u8, ptargetminorversion: *mut u8) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).get_Version)(::core::mem::transmute_copy(self), ::core::mem::transmute(ptargetmajorversion), ::core::mem::transmute(ptargetminorversion)).ok()
+        (::windows::core::Interface::vtable(self).get_Version)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ptargetmajorversion), ::core::mem::transmute(ptargetminorversion)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
     pub unsafe fn BitsPerPixel(&self) -> ::windows::core::Result<u16> {
         let mut result__: u16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).BitsPerPixel)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u16>(result__)
+        (::windows::core::Interface::vtable(self).BitsPerPixel)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SuppressesDehydration(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).SuppressesDehydration)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+        (::windows::core::Interface::vtable(self).SuppressesDehydration)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn BackgroundExecutionAbilities(&self, pbackgroundexecutionabilities: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).BackgroundExecutionAbilities)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbackgroundexecutionabilities)).ok()
+        (::windows::core::Interface::vtable(self).BackgroundExecutionAbilities)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbackgroundexecutionabilities)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsOptedForExtendedMem(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).IsOptedForExtendedMem)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+        (::windows::core::Interface::vtable(self).IsOptedForExtendedMem)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
     }
 }
 impl ::core::convert::From<IPMTaskInfo> for ::windows::core::IUnknown {
@@ -6551,7 +6551,7 @@ impl IPMTaskInfoEnumerator {
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
     pub unsafe fn Next(&self) -> ::windows::core::Result<IPMTaskInfo> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Next)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IPMTaskInfo>(result__)
+        (::windows::core::Interface::vtable(self).Next)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IPMTaskInfo>(result__)
     }
 }
 impl ::core::convert::From<IPMTaskInfoEnumerator> for ::windows::core::IUnknown {
@@ -6607,126 +6607,126 @@ impl IPMTileInfo {
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
     pub unsafe fn ProductID(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ProductID)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
+        (::windows::core::Interface::vtable(self).ProductID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn TileID(&self, ptileid: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).TileID)(::core::mem::transmute_copy(self), ::core::mem::transmute(ptileid)).ok()
+        (::windows::core::Interface::vtable(self).TileID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ptileid)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
     pub unsafe fn TemplateType(&self) -> ::windows::core::Result<TILE_TEMPLATE_TYPE> {
         let mut result__: TILE_TEMPLATE_TYPE = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).TemplateType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<TILE_TEMPLATE_TYPE>(result__)
+        (::windows::core::Interface::vtable(self).TemplateType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<TILE_TEMPLATE_TYPE>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_HubPinnedState(&self, hubtype: PM_TILE_HUBTYPE) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).get_HubPinnedState)(::core::mem::transmute_copy(self), ::core::mem::transmute(hubtype), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+        (::windows::core::Interface::vtable(self).get_HubPinnedState)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hubtype), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
     pub unsafe fn get_HubPosition(&self, hubtype: PM_TILE_HUBTYPE) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).get_HubPosition)(::core::mem::transmute_copy(self), ::core::mem::transmute(hubtype), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).get_HubPosition)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hubtype), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsNotified(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).IsNotified)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+        (::windows::core::Interface::vtable(self).IsNotified)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsDefault(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).IsDefault)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+        (::windows::core::Interface::vtable(self).IsDefault)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn TaskID(&self, ptaskid: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).TaskID)(::core::mem::transmute_copy(self), ::core::mem::transmute(ptaskid)).ok()
+        (::windows::core::Interface::vtable(self).TaskID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ptaskid)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
     pub unsafe fn TileType(&self) -> ::windows::core::Result<PM_STARTTILE_TYPE> {
         let mut result__: PM_STARTTILE_TYPE = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).TileType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<PM_STARTTILE_TYPE>(result__)
+        (::windows::core::Interface::vtable(self).TileType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<PM_STARTTILE_TYPE>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsThemable(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).IsThemable)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+        (::windows::core::Interface::vtable(self).IsThemable)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
     pub unsafe fn get_PropertyById(&self, propid: u32) -> ::windows::core::Result<IPMTilePropertyInfo> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).get_PropertyById)(::core::mem::transmute_copy(self), ::core::mem::transmute(propid), ::core::mem::transmute(&mut result__)).from_abi::<IPMTilePropertyInfo>(result__)
+        (::windows::core::Interface::vtable(self).get_PropertyById)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(propid), ::core::mem::transmute(&mut result__)).from_abi::<IPMTilePropertyInfo>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_InvocationInfo(&self, pimageurn: *mut super::super::Foundation::BSTR, pparameters: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).get_InvocationInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(pimageurn), ::core::mem::transmute(pparameters)).ok()
+        (::windows::core::Interface::vtable(self).get_InvocationInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pimageurn), ::core::mem::transmute(pparameters)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
     pub unsafe fn PropertyEnum(&self) -> ::windows::core::Result<IPMTilePropertyEnumerator> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).PropertyEnum)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IPMTilePropertyEnumerator>(result__)
+        (::windows::core::Interface::vtable(self).PropertyEnum)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IPMTilePropertyEnumerator>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
     pub unsafe fn get_HubTileSize(&self, hubtype: PM_TILE_HUBTYPE) -> ::windows::core::Result<PM_TILE_SIZE> {
         let mut result__: PM_TILE_SIZE = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).get_HubTileSize)(::core::mem::transmute_copy(self), ::core::mem::transmute(hubtype), ::core::mem::transmute(&mut result__)).from_abi::<PM_TILE_SIZE>(result__)
+        (::windows::core::Interface::vtable(self).get_HubTileSize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hubtype), ::core::mem::transmute(&mut result__)).from_abi::<PM_TILE_SIZE>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
     pub unsafe fn set_HubPosition(&self, hubtype: PM_TILE_HUBTYPE, position: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).set_HubPosition)(::core::mem::transmute_copy(self), ::core::mem::transmute(hubtype), ::core::mem::transmute(position)).ok()
+        (::windows::core::Interface::vtable(self).set_HubPosition)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hubtype), ::core::mem::transmute(position)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn set_NotifiedState<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, notified: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).set_NotifiedState)(::core::mem::transmute_copy(self), notified.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).set_NotifiedState)(::windows::core::Interface::as_raw(self), notified.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn set_HubPinnedState<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, hubtype: PM_TILE_HUBTYPE, pinned: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).set_HubPinnedState)(::core::mem::transmute_copy(self), ::core::mem::transmute(hubtype), pinned.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).set_HubPinnedState)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hubtype), pinned.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
     pub unsafe fn set_HubTileSize(&self, hubtype: PM_TILE_HUBTYPE, size: PM_TILE_SIZE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).set_HubTileSize)(::core::mem::transmute_copy(self), ::core::mem::transmute(hubtype), ::core::mem::transmute(size)).ok()
+        (::windows::core::Interface::vtable(self).set_HubTileSize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hubtype), ::core::mem::transmute(size)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn set_InvocationInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, taskname: Param0, taskparameters: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).set_InvocationInfo)(::core::mem::transmute_copy(self), taskname.into_param().abi(), taskparameters.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).set_InvocationInfo)(::windows::core::Interface::as_raw(self), taskname.into_param().abi(), taskparameters.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn StartTileBlob(&self, pblob: *mut PM_STARTTILEBLOB) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).StartTileBlob)(::core::mem::transmute_copy(self), ::core::mem::transmute(pblob)).ok()
+        (::windows::core::Interface::vtable(self).StartTileBlob)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pblob)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsRestoring(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).IsRestoring)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+        (::windows::core::Interface::vtable(self).IsRestoring)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsAutoRestoreDisabled(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).IsAutoRestoreDisabled)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+        (::windows::core::Interface::vtable(self).IsAutoRestoreDisabled)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn set_IsRestoring<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, restoring: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).set_IsRestoring)(::core::mem::transmute_copy(self), restoring.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).set_IsRestoring)(::windows::core::Interface::as_raw(self), restoring.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn set_IsAutoRestoreDisabled<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, autorestoredisabled: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).set_IsAutoRestoreDisabled)(::core::mem::transmute_copy(self), autorestoredisabled.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).set_IsAutoRestoreDisabled)(::windows::core::Interface::as_raw(self), autorestoredisabled.into_param().abi()).ok()
     }
 }
 impl ::core::convert::From<IPMTileInfo> for ::windows::core::IUnknown {
@@ -6850,7 +6850,7 @@ impl IPMTileInfoEnumerator {
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
     pub unsafe fn Next(&self) -> ::windows::core::Result<IPMTileInfo> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Next)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IPMTileInfo>(result__)
+        (::windows::core::Interface::vtable(self).Next)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IPMTileInfo>(result__)
     }
 }
 impl ::core::convert::From<IPMTileInfoEnumerator> for ::windows::core::IUnknown {
@@ -6906,7 +6906,7 @@ impl IPMTilePropertyEnumerator {
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
     pub unsafe fn Next(&self) -> ::windows::core::Result<IPMTilePropertyInfo> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Next)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IPMTilePropertyInfo>(result__)
+        (::windows::core::Interface::vtable(self).Next)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IPMTilePropertyInfo>(result__)
     }
 }
 impl ::core::convert::From<IPMTilePropertyEnumerator> for ::windows::core::IUnknown {
@@ -6962,17 +6962,17 @@ impl IPMTilePropertyInfo {
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
     pub unsafe fn PropertyID(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).PropertyID)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).PropertyID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn PropertyValue(&self, ppropvalue: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).PropertyValue)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppropvalue)).ok()
+        (::windows::core::Interface::vtable(self).PropertyValue)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ppropvalue)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn set_Property<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, propvalue: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).set_Property)(::core::mem::transmute_copy(self), propvalue.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).set_Property)(::windows::core::Interface::as_raw(self), propvalue.into_param().abi()).ok()
     }
 }
 impl ::core::convert::From<IPMTilePropertyInfo> for ::windows::core::IUnknown {
@@ -7473,33 +7473,33 @@ pub struct IValidate(::windows::core::IUnknown);
 impl IValidate {
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
     pub unsafe fn OpenDatabase<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, szdatabase: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OpenDatabase)(::core::mem::transmute_copy(self), szdatabase.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).OpenDatabase)(::windows::core::Interface::as_raw(self), szdatabase.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
     pub unsafe fn OpenCUB<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, szcubfile: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OpenCUB)(::core::mem::transmute_copy(self), szcubfile.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).OpenCUB)(::windows::core::Interface::as_raw(self), szcubfile.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
     pub unsafe fn CloseDatabase(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CloseDatabase)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).CloseDatabase)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
     pub unsafe fn CloseCUB(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CloseCUB)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).CloseCUB)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetDisplay(&self, pdisplayfunction: LPDISPLAYVAL, pcontext: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDisplay)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdisplayfunction), ::core::mem::transmute(pcontext)).ok()
+        (::windows::core::Interface::vtable(self).SetDisplay)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdisplayfunction), ::core::mem::transmute(pcontext)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetStatus(&self, pstatusfunction: LPEVALCOMCALLBACK, pcontext: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetStatus)(::core::mem::transmute_copy(self), ::core::mem::transmute(pstatusfunction), ::core::mem::transmute(pcontext)).ok()
+        (::windows::core::Interface::vtable(self).SetStatus)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pstatusfunction), ::core::mem::transmute(pcontext)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
     pub unsafe fn Validate<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, wzices: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Validate)(::core::mem::transmute_copy(self), wzices.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).Validate)(::windows::core::Interface::as_raw(self), wzices.into_param().abi()).ok()
     }
 }
 impl ::core::convert::From<IValidate> for ::windows::core::IUnknown {

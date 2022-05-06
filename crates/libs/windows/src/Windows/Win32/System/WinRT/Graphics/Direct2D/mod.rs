@@ -51,13 +51,13 @@ impl IGeometrySource2DInterop {
     #[cfg(feature = "Win32_Graphics_Direct2D")]
     pub unsafe fn GetGeometry(&self) -> ::windows::core::Result<super::super::super::super::Graphics::Direct2D::ID2D1Geometry> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetGeometry)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::super::Graphics::Direct2D::ID2D1Geometry>(result__)
+        (::windows::core::Interface::vtable(self).GetGeometry)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::super::Graphics::Direct2D::ID2D1Geometry>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_WinRT_Graphics_Direct2D\"`, `\"Win32_Graphics_Direct2D\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct2D")]
     pub unsafe fn TryGetGeometryUsingFactory<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Graphics::Direct2D::ID2D1Factory>>(&self, factory: Param0) -> ::windows::core::Result<super::super::super::super::Graphics::Direct2D::ID2D1Geometry> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).TryGetGeometryUsingFactory)(::core::mem::transmute_copy(self), factory.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::super::Graphics::Direct2D::ID2D1Geometry>(result__)
+        (::windows::core::Interface::vtable(self).TryGetGeometryUsingFactory)(::windows::core::Interface::as_raw(self), factory.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::super::Graphics::Direct2D::ID2D1Geometry>(result__)
     }
 }
 impl ::core::convert::From<IGeometrySource2DInterop> for ::windows::core::IUnknown {
@@ -120,33 +120,33 @@ impl IGraphicsEffectD2D1Interop {
     #[doc = "*Required features: `\"Win32_System_WinRT_Graphics_Direct2D\"`*"]
     pub unsafe fn GetEffectId(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetEffectId)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
+        (::windows::core::Interface::vtable(self).GetEffectId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_WinRT_Graphics_Direct2D\"`*"]
     pub unsafe fn GetNamedPropertyMapping<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, name: Param0, index: *mut u32, mapping: *mut GRAPHICS_EFFECT_PROPERTY_MAPPING) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetNamedPropertyMapping)(::core::mem::transmute_copy(self), name.into_param().abi(), ::core::mem::transmute(index), ::core::mem::transmute(mapping)).ok()
+        (::windows::core::Interface::vtable(self).GetNamedPropertyMapping)(::windows::core::Interface::as_raw(self), name.into_param().abi(), ::core::mem::transmute(index), ::core::mem::transmute(mapping)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WinRT_Graphics_Direct2D\"`*"]
     pub unsafe fn GetPropertyCount(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetPropertyCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).GetPropertyCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_WinRT_Graphics_Direct2D\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub unsafe fn GetProperty(&self, index: u32) -> ::windows::core::Result<super::super::super::super::super::Foundation::IPropertyValue> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetProperty)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::super::super::Foundation::IPropertyValue>(result__)
+        (::windows::core::Interface::vtable(self).GetProperty)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::super::super::Foundation::IPropertyValue>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_WinRT_Graphics_Direct2D\"`, `\"Graphics_Effects\"`*"]
     #[cfg(feature = "Graphics_Effects")]
     pub unsafe fn GetSource(&self, index: u32) -> ::windows::core::Result<super::super::super::super::super::Graphics::Effects::IGraphicsEffectSource> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetSource)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::super::super::Graphics::Effects::IGraphicsEffectSource>(result__)
+        (::windows::core::Interface::vtable(self).GetSource)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::super::super::Graphics::Effects::IGraphicsEffectSource>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_WinRT_Graphics_Direct2D\"`*"]
     pub unsafe fn GetSourceCount(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetSourceCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).GetSourceCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
 }
 impl ::core::convert::From<IGraphicsEffectD2D1Interop> for ::windows::core::IUnknown {

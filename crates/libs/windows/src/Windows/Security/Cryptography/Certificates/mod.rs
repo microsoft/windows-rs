@@ -8,7 +8,7 @@ impl Certificate {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).BuildChainAsync)(::core::mem::transmute_copy(this), certificates.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<CertificateChain>>(result__)
+            (::windows::core::Interface::vtable(this).BuildChainAsync)(::windows::core::Interface::as_raw(this), certificates.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<CertificateChain>>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`, `\"Foundation_Collections\"`*"]
@@ -17,7 +17,7 @@ impl Certificate {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).BuildChainWithParametersAsync)(::core::mem::transmute_copy(this), certificates.into_param().abi(), parameters.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<CertificateChain>>(result__)
+            (::windows::core::Interface::vtable(this).BuildChainWithParametersAsync)(::windows::core::Interface::as_raw(this), certificates.into_param().abi(), parameters.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<CertificateChain>>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
@@ -25,7 +25,7 @@ impl Certificate {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::Array<u8> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SerialNumber)(::core::mem::transmute_copy(this), ::windows::core::Array::<u8>::set_abi_len(&mut result__), &mut result__ as *mut _ as _).and_then(|| result__)
+            (::windows::core::Interface::vtable(this).SerialNumber)(::windows::core::Interface::as_raw(this), ::windows::core::Array::<u8>::set_abi_len(&mut result__), &mut result__ as *mut _ as _).and_then(|| result__)
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
@@ -33,7 +33,7 @@ impl Certificate {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::Array<u8> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetHashValue)(::core::mem::transmute_copy(this), ::windows::core::Array::<u8>::set_abi_len(&mut result__), &mut result__ as *mut _ as _).and_then(|| result__)
+            (::windows::core::Interface::vtable(this).GetHashValue)(::windows::core::Interface::as_raw(this), ::windows::core::Array::<u8>::set_abi_len(&mut result__), &mut result__ as *mut _ as _).and_then(|| result__)
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
@@ -41,7 +41,7 @@ impl Certificate {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::Array<u8> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetHashValueWithAlgorithm)(::core::mem::transmute_copy(this), hashalgorithmname.into_param().abi(), ::windows::core::Array::<u8>::set_abi_len(&mut result__), &mut result__ as *mut _ as _).and_then(|| result__)
+            (::windows::core::Interface::vtable(this).GetHashValueWithAlgorithm)(::windows::core::Interface::as_raw(this), hashalgorithmname.into_param().abi(), ::windows::core::Array::<u8>::set_abi_len(&mut result__), &mut result__ as *mut _ as _).and_then(|| result__)
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`, `\"Storage_Streams\"`*"]
@@ -50,7 +50,7 @@ impl Certificate {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetCertificateBlob)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Storage::Streams::IBuffer>(result__)
+            (::windows::core::Interface::vtable(this).GetCertificateBlob)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Storage::Streams::IBuffer>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
@@ -58,7 +58,7 @@ impl Certificate {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Subject)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Subject)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
@@ -66,7 +66,7 @@ impl Certificate {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Issuer)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Issuer)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
@@ -74,7 +74,7 @@ impl Certificate {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).HasPrivateKey)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).HasPrivateKey)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
@@ -82,7 +82,7 @@ impl Certificate {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsStronglyProtected)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsStronglyProtected)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`, `\"Foundation\"`*"]
@@ -91,7 +91,7 @@ impl Certificate {
         let this = self;
         unsafe {
             let mut result__: super::super::super::Foundation::DateTime = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ValidFrom)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::DateTime>(result__)
+            (::windows::core::Interface::vtable(this).ValidFrom)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::DateTime>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`, `\"Foundation\"`*"]
@@ -100,7 +100,7 @@ impl Certificate {
         let this = self;
         unsafe {
             let mut result__: super::super::super::Foundation::DateTime = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ValidTo)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::DateTime>(result__)
+            (::windows::core::Interface::vtable(this).ValidTo)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::DateTime>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`, `\"Foundation_Collections\"`*"]
@@ -109,20 +109,20 @@ impl Certificate {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).EnhancedKeyUsages)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>(result__)
+            (::windows::core::Interface::vtable(this).EnhancedKeyUsages)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
     pub fn SetFriendlyName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetFriendlyName)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetFriendlyName)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
     pub fn FriendlyName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FriendlyName)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).FriendlyName)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
@@ -130,7 +130,7 @@ impl Certificate {
         let this = &::windows::core::Interface::cast::<ICertificate2>(self)?;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsSecurityDeviceBound)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsSecurityDeviceBound)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
@@ -138,7 +138,7 @@ impl Certificate {
         let this = &::windows::core::Interface::cast::<ICertificate2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).KeyUsages)(::core::mem::transmute_copy(this), &mut result__).from_abi::<CertificateKeyUsages>(result__)
+            (::windows::core::Interface::vtable(this).KeyUsages)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<CertificateKeyUsages>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
@@ -146,7 +146,7 @@ impl Certificate {
         let this = &::windows::core::Interface::cast::<ICertificate2>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).KeyAlgorithmName)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).KeyAlgorithmName)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
@@ -154,7 +154,7 @@ impl Certificate {
         let this = &::windows::core::Interface::cast::<ICertificate2>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SignatureAlgorithmName)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).SignatureAlgorithmName)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
@@ -162,7 +162,7 @@ impl Certificate {
         let this = &::windows::core::Interface::cast::<ICertificate2>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SignatureHashAlgorithmName)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).SignatureHashAlgorithmName)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
@@ -170,7 +170,7 @@ impl Certificate {
         let this = &::windows::core::Interface::cast::<ICertificate2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SubjectAlternativeName)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SubjectAlternativeNameInfo>(result__)
+            (::windows::core::Interface::vtable(this).SubjectAlternativeName)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SubjectAlternativeNameInfo>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
@@ -178,7 +178,7 @@ impl Certificate {
         let this = &::windows::core::Interface::cast::<ICertificate3>(self)?;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsPerUser)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsPerUser)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
@@ -186,7 +186,7 @@ impl Certificate {
         let this = &::windows::core::Interface::cast::<ICertificate3>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).StoreName)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).StoreName)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
@@ -194,7 +194,7 @@ impl Certificate {
         let this = &::windows::core::Interface::cast::<ICertificate3>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).KeyStorageProviderName)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).KeyStorageProviderName)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`, `\"Storage_Streams\"`*"]
@@ -202,7 +202,7 @@ impl Certificate {
     pub fn CreateCertificate<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Storage::Streams::IBuffer>>(certblob: Param0) -> ::windows::core::Result<Certificate> {
         Self::ICertificateFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateCertificate)(::core::mem::transmute_copy(this), certblob.into_param().abi(), &mut result__).from_abi::<Certificate>(result__)
+            (::windows::core::Interface::vtable(this).CreateCertificate)(::windows::core::Interface::as_raw(this), certblob.into_param().abi(), &mut result__).from_abi::<Certificate>(result__)
         })
     }
     #[doc(hidden)]
@@ -292,7 +292,7 @@ impl CertificateChain {
         let this = self;
         unsafe {
             let mut result__: ChainValidationResult = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Validate)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ChainValidationResult>(result__)
+            (::windows::core::Interface::vtable(this).Validate)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ChainValidationResult>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
@@ -300,7 +300,7 @@ impl CertificateChain {
         let this = self;
         unsafe {
             let mut result__: ChainValidationResult = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ValidateWithParameters)(::core::mem::transmute_copy(this), parameter.into_param().abi(), &mut result__).from_abi::<ChainValidationResult>(result__)
+            (::windows::core::Interface::vtable(this).ValidateWithParameters)(::windows::core::Interface::as_raw(this), parameter.into_param().abi(), &mut result__).from_abi::<ChainValidationResult>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`, `\"Foundation_Collections\"`*"]
@@ -309,7 +309,7 @@ impl CertificateChain {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetCertificates)(::core::mem::transmute_copy(this), includeroot, &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<Certificate>>(result__)
+            (::windows::core::Interface::vtable(this).GetCertificates)(::windows::core::Interface::as_raw(this), includeroot, &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<Certificate>>(result__)
         }
     }
 }
@@ -429,7 +429,7 @@ impl CertificateEnrollmentManager {
     pub fn CreateRequestAsync<'a, Param0: ::windows::core::IntoParam<'a, CertificateRequestProperties>>(request: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>> {
         Self::ICertificateEnrollmentManagerStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateRequestAsync)(::core::mem::transmute_copy(this), request.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>(result__)
+            (::windows::core::Interface::vtable(this).CreateRequestAsync)(::windows::core::Interface::as_raw(this), request.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>(result__)
         })
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`, `\"Foundation\"`*"]
@@ -437,7 +437,7 @@ impl CertificateEnrollmentManager {
     pub fn InstallCertificateAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(certificate: Param0, installoption: InstallOptions) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         Self::ICertificateEnrollmentManagerStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).InstallCertificateAsync)(::core::mem::transmute_copy(this), certificate.into_param().abi(), installoption, &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).InstallCertificateAsync)(::windows::core::Interface::as_raw(this), certificate.into_param().abi(), installoption, &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         })
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`, `\"Foundation\"`*"]
@@ -445,14 +445,14 @@ impl CertificateEnrollmentManager {
     pub fn ImportPfxDataAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param5: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(pfxdata: Param0, password: Param1, exportable: ExportOption, keyprotectionlevel: KeyProtectionLevel, installoption: InstallOptions, friendlyname: Param5) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         Self::ICertificateEnrollmentManagerStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ImportPfxDataAsync)(::core::mem::transmute_copy(this), pfxdata.into_param().abi(), password.into_param().abi(), exportable, keyprotectionlevel, installoption, friendlyname.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).ImportPfxDataAsync)(::windows::core::Interface::as_raw(this), pfxdata.into_param().abi(), password.into_param().abi(), exportable, keyprotectionlevel, installoption, friendlyname.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         })
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
     pub fn UserCertificateEnrollmentManager() -> ::windows::core::Result<UserCertificateEnrollmentManager> {
         Self::ICertificateEnrollmentManagerStatics2(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).UserCertificateEnrollmentManager)(::core::mem::transmute_copy(this), &mut result__).from_abi::<UserCertificateEnrollmentManager>(result__)
+            (::windows::core::Interface::vtable(this).UserCertificateEnrollmentManager)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<UserCertificateEnrollmentManager>(result__)
         })
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`, `\"Foundation\"`*"]
@@ -460,7 +460,7 @@ impl CertificateEnrollmentManager {
     pub fn ImportPfxDataToKspAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param5: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param6: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(pfxdata: Param0, password: Param1, exportable: ExportOption, keyprotectionlevel: KeyProtectionLevel, installoption: InstallOptions, friendlyname: Param5, keystorageprovider: Param6) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         Self::ICertificateEnrollmentManagerStatics2(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ImportPfxDataToKspAsync)(::core::mem::transmute_copy(this), pfxdata.into_param().abi(), password.into_param().abi(), exportable, keyprotectionlevel, installoption, friendlyname.into_param().abi(), keystorageprovider.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).ImportPfxDataToKspAsync)(::windows::core::Interface::as_raw(this), pfxdata.into_param().abi(), password.into_param().abi(), exportable, keyprotectionlevel, installoption, friendlyname.into_param().abi(), keystorageprovider.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         })
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`, `\"Foundation\"`*"]
@@ -468,7 +468,7 @@ impl CertificateEnrollmentManager {
     pub fn ImportPfxDataToKspWithParametersAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, PfxImportParameters>>(pfxdata: Param0, password: Param1, pfximportparameters: Param2) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         Self::ICertificateEnrollmentManagerStatics3(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ImportPfxDataToKspWithParametersAsync)(::core::mem::transmute_copy(this), pfxdata.into_param().abi(), password.into_param().abi(), pfximportparameters.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).ImportPfxDataToKspWithParametersAsync)(::windows::core::Interface::as_raw(this), pfxdata.into_param().abi(), password.into_param().abi(), pfximportparameters.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         })
     }
     #[doc(hidden)]
@@ -506,44 +506,44 @@ impl CertificateExtension {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ObjectId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).ObjectId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
     pub fn SetObjectId<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetObjectId)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetObjectId)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
     pub fn IsCritical(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsCritical)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsCritical)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
     pub fn SetIsCritical(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetIsCritical)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetIsCritical)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
     pub fn EncodeValue<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).EncodeValue)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).EncodeValue)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
     pub fn Value(&self) -> ::windows::core::Result<::windows::core::Array<u8>> {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::Array<u8> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Value)(::core::mem::transmute_copy(this), ::windows::core::Array::<u8>::set_abi_len(&mut result__), &mut result__ as *mut _ as _).and_then(|| result__)
+            (::windows::core::Interface::vtable(this).Value)(::windows::core::Interface::as_raw(this), ::windows::core::Array::<u8>::set_abi_len(&mut result__), &mut result__ as *mut _ as _).and_then(|| result__)
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
     pub fn SetValue(&self, value: &[u8]) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetValue)(::core::mem::transmute_copy(this), value.len() as u32, ::core::mem::transmute(value.as_ptr())).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetValue)(::windows::core::Interface::as_raw(this), value.len() as u32, ::core::mem::transmute(value.as_ptr())).ok() }
     }
 }
 impl ::core::clone::Clone for CertificateExtension {
@@ -634,104 +634,104 @@ impl CertificateKeyUsages {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).EncipherOnly)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).EncipherOnly)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
     pub fn SetEncipherOnly(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetEncipherOnly)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetEncipherOnly)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
     pub fn CrlSign(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CrlSign)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).CrlSign)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
     pub fn SetCrlSign(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetCrlSign)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCrlSign)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
     pub fn KeyCertificateSign(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).KeyCertificateSign)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).KeyCertificateSign)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
     pub fn SetKeyCertificateSign(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetKeyCertificateSign)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetKeyCertificateSign)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
     pub fn KeyAgreement(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).KeyAgreement)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).KeyAgreement)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
     pub fn SetKeyAgreement(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetKeyAgreement)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetKeyAgreement)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
     pub fn DataEncipherment(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DataEncipherment)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).DataEncipherment)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
     pub fn SetDataEncipherment(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetDataEncipherment)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDataEncipherment)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
     pub fn KeyEncipherment(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).KeyEncipherment)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).KeyEncipherment)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
     pub fn SetKeyEncipherment(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetKeyEncipherment)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetKeyEncipherment)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
     pub fn NonRepudiation(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).NonRepudiation)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).NonRepudiation)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
     pub fn SetNonRepudiation(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetNonRepudiation)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetNonRepudiation)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
     pub fn DigitalSignature(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DigitalSignature)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).DigitalSignature)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
     pub fn SetDigitalSignature(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetDigitalSignature)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDigitalSignature)(::windows::core::Interface::as_raw(this), value).ok() }
     }
 }
 impl ::core::clone::Clone for CertificateKeyUsages {
@@ -823,7 +823,7 @@ impl CertificateQuery {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).EnhancedKeyUsages)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>(result__)
+            (::windows::core::Interface::vtable(this).EnhancedKeyUsages)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
@@ -831,91 +831,91 @@ impl CertificateQuery {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IssuerName)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).IssuerName)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
     pub fn SetIssuerName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetIssuerName)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetIssuerName)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
     pub fn FriendlyName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FriendlyName)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).FriendlyName)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
     pub fn SetFriendlyName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetFriendlyName)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetFriendlyName)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
     pub fn Thumbprint(&self) -> ::windows::core::Result<::windows::core::Array<u8>> {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::Array<u8> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Thumbprint)(::core::mem::transmute_copy(this), ::windows::core::Array::<u8>::set_abi_len(&mut result__), &mut result__ as *mut _ as _).and_then(|| result__)
+            (::windows::core::Interface::vtable(this).Thumbprint)(::windows::core::Interface::as_raw(this), ::windows::core::Array::<u8>::set_abi_len(&mut result__), &mut result__ as *mut _ as _).and_then(|| result__)
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
     pub fn SetThumbprint(&self, value: &[u8]) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetThumbprint)(::core::mem::transmute_copy(this), value.len() as u32, ::core::mem::transmute(value.as_ptr())).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetThumbprint)(::windows::core::Interface::as_raw(this), value.len() as u32, ::core::mem::transmute(value.as_ptr())).ok() }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
     pub fn HardwareOnly(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).HardwareOnly)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).HardwareOnly)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
     pub fn SetHardwareOnly(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetHardwareOnly)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetHardwareOnly)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
     pub fn IncludeDuplicates(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ICertificateQuery2>(self)?;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IncludeDuplicates)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IncludeDuplicates)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
     pub fn SetIncludeDuplicates(&self, value: bool) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICertificateQuery2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetIncludeDuplicates)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetIncludeDuplicates)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
     pub fn IncludeExpiredCertificates(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ICertificateQuery2>(self)?;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IncludeExpiredCertificates)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IncludeExpiredCertificates)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
     pub fn SetIncludeExpiredCertificates(&self, value: bool) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICertificateQuery2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetIncludeExpiredCertificates)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetIncludeExpiredCertificates)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
     pub fn StoreName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<ICertificateQuery2>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).StoreName)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).StoreName)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
     pub fn SetStoreName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICertificateQuery2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetStoreName)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetStoreName)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
 }
 impl ::core::clone::Clone for CertificateQuery {
@@ -1006,221 +1006,221 @@ impl CertificateRequestProperties {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Subject)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Subject)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
     pub fn SetSubject<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetSubject)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSubject)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
     pub fn KeyAlgorithmName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).KeyAlgorithmName)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).KeyAlgorithmName)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
     pub fn SetKeyAlgorithmName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetKeyAlgorithmName)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetKeyAlgorithmName)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
     pub fn KeySize(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).KeySize)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).KeySize)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
     pub fn SetKeySize(&self, value: u32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetKeySize)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetKeySize)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
     pub fn FriendlyName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FriendlyName)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).FriendlyName)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
     pub fn SetFriendlyName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetFriendlyName)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetFriendlyName)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
     pub fn HashAlgorithmName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).HashAlgorithmName)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).HashAlgorithmName)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
     pub fn SetHashAlgorithmName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetHashAlgorithmName)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetHashAlgorithmName)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
     pub fn Exportable(&self) -> ::windows::core::Result<ExportOption> {
         let this = self;
         unsafe {
             let mut result__: ExportOption = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Exportable)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ExportOption>(result__)
+            (::windows::core::Interface::vtable(this).Exportable)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ExportOption>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
     pub fn SetExportable(&self, value: ExportOption) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetExportable)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetExportable)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
     pub fn KeyUsages(&self) -> ::windows::core::Result<EnrollKeyUsages> {
         let this = self;
         unsafe {
             let mut result__: EnrollKeyUsages = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).KeyUsages)(::core::mem::transmute_copy(this), &mut result__).from_abi::<EnrollKeyUsages>(result__)
+            (::windows::core::Interface::vtable(this).KeyUsages)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<EnrollKeyUsages>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
     pub fn SetKeyUsages(&self, value: EnrollKeyUsages) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetKeyUsages)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetKeyUsages)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
     pub fn KeyProtectionLevel(&self) -> ::windows::core::Result<KeyProtectionLevel> {
         let this = self;
         unsafe {
             let mut result__: KeyProtectionLevel = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).KeyProtectionLevel)(::core::mem::transmute_copy(this), &mut result__).from_abi::<KeyProtectionLevel>(result__)
+            (::windows::core::Interface::vtable(this).KeyProtectionLevel)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<KeyProtectionLevel>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
     pub fn SetKeyProtectionLevel(&self, value: KeyProtectionLevel) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetKeyProtectionLevel)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetKeyProtectionLevel)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
     pub fn KeyStorageProviderName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).KeyStorageProviderName)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).KeyStorageProviderName)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
     pub fn SetKeyStorageProviderName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetKeyStorageProviderName)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetKeyStorageProviderName)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
     pub fn SmartcardReaderName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<ICertificateRequestProperties2>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SmartcardReaderName)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).SmartcardReaderName)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
     pub fn SetSmartcardReaderName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICertificateRequestProperties2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetSmartcardReaderName)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSmartcardReaderName)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
     pub fn SigningCertificate(&self) -> ::windows::core::Result<Certificate> {
         let this = &::windows::core::Interface::cast::<ICertificateRequestProperties2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SigningCertificate)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Certificate>(result__)
+            (::windows::core::Interface::vtable(this).SigningCertificate)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Certificate>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
     pub fn SetSigningCertificate<'a, Param0: ::windows::core::IntoParam<'a, Certificate>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICertificateRequestProperties2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetSigningCertificate)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSigningCertificate)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
     pub fn AttestationCredentialCertificate(&self) -> ::windows::core::Result<Certificate> {
         let this = &::windows::core::Interface::cast::<ICertificateRequestProperties2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AttestationCredentialCertificate)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Certificate>(result__)
+            (::windows::core::Interface::vtable(this).AttestationCredentialCertificate)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Certificate>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
     pub fn SetAttestationCredentialCertificate<'a, Param0: ::windows::core::IntoParam<'a, Certificate>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICertificateRequestProperties2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetAttestationCredentialCertificate)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetAttestationCredentialCertificate)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
     pub fn CurveName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<ICertificateRequestProperties3>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CurveName)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).CurveName)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
     pub fn SetCurveName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICertificateRequestProperties3>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetCurveName)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCurveName)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
     pub fn CurveParameters(&self) -> ::windows::core::Result<::windows::core::Array<u8>> {
         let this = &::windows::core::Interface::cast::<ICertificateRequestProperties3>(self)?;
         unsafe {
             let mut result__: ::windows::core::Array<u8> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CurveParameters)(::core::mem::transmute_copy(this), ::windows::core::Array::<u8>::set_abi_len(&mut result__), &mut result__ as *mut _ as _).and_then(|| result__)
+            (::windows::core::Interface::vtable(this).CurveParameters)(::windows::core::Interface::as_raw(this), ::windows::core::Array::<u8>::set_abi_len(&mut result__), &mut result__ as *mut _ as _).and_then(|| result__)
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
     pub fn SetCurveParameters(&self, value: &[u8]) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICertificateRequestProperties3>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetCurveParameters)(::core::mem::transmute_copy(this), value.len() as u32, ::core::mem::transmute(value.as_ptr())).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCurveParameters)(::windows::core::Interface::as_raw(this), value.len() as u32, ::core::mem::transmute(value.as_ptr())).ok() }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
     pub fn ContainerNamePrefix(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<ICertificateRequestProperties3>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ContainerNamePrefix)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).ContainerNamePrefix)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
     pub fn SetContainerNamePrefix<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICertificateRequestProperties3>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetContainerNamePrefix)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetContainerNamePrefix)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
     pub fn ContainerName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<ICertificateRequestProperties3>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ContainerName)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).ContainerName)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
     pub fn SetContainerName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICertificateRequestProperties3>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetContainerName)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetContainerName)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
     pub fn UseExistingKey(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ICertificateRequestProperties3>(self)?;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).UseExistingKey)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).UseExistingKey)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
     pub fn SetUseExistingKey(&self, value: bool) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICertificateRequestProperties3>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetUseExistingKey)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetUseExistingKey)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -1228,7 +1228,7 @@ impl CertificateRequestProperties {
         let this = &::windows::core::Interface::cast::<ICertificateRequestProperties4>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SuppressedDefaults)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>(result__)
+            (::windows::core::Interface::vtable(this).SuppressedDefaults)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
@@ -1236,7 +1236,7 @@ impl CertificateRequestProperties {
         let this = &::windows::core::Interface::cast::<ICertificateRequestProperties4>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SubjectAlternativeName)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SubjectAlternativeNameInfo>(result__)
+            (::windows::core::Interface::vtable(this).SubjectAlternativeName)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SubjectAlternativeNameInfo>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`, `\"Foundation_Collections\"`*"]
@@ -1245,7 +1245,7 @@ impl CertificateRequestProperties {
         let this = &::windows::core::Interface::cast::<ICertificateRequestProperties4>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Extensions)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVector<CertificateExtension>>(result__)
+            (::windows::core::Interface::vtable(this).Extensions)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVector<CertificateExtension>>(result__)
         }
     }
 }
@@ -1328,19 +1328,19 @@ impl CertificateStore {
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
     pub fn Add<'a, Param0: ::windows::core::IntoParam<'a, Certificate>>(&self, certificate: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Add)(::core::mem::transmute_copy(this), certificate.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Add)(::windows::core::Interface::as_raw(this), certificate.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
     pub fn Delete<'a, Param0: ::windows::core::IntoParam<'a, Certificate>>(&self, certificate: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Delete)(::core::mem::transmute_copy(this), certificate.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Delete)(::windows::core::Interface::as_raw(this), certificate.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
     pub fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<ICertificateStore2>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Name)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Name)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
 }
@@ -1424,7 +1424,7 @@ impl CertificateStores {
     pub fn FindAllAsync() -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<Certificate>>> {
         Self::ICertificateStoresStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FindAllAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<Certificate>>>(result__)
+            (::windows::core::Interface::vtable(this).FindAllAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<Certificate>>>(result__)
         })
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`, `\"Foundation_Collections\"`*"]
@@ -1432,35 +1432,35 @@ impl CertificateStores {
     pub fn FindAllWithQueryAsync<'a, Param0: ::windows::core::IntoParam<'a, CertificateQuery>>(query: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<Certificate>>> {
         Self::ICertificateStoresStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FindAllWithQueryAsync)(::core::mem::transmute_copy(this), query.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<Certificate>>>(result__)
+            (::windows::core::Interface::vtable(this).FindAllWithQueryAsync)(::windows::core::Interface::as_raw(this), query.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<Certificate>>>(result__)
         })
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
     pub fn TrustedRootCertificationAuthorities() -> ::windows::core::Result<CertificateStore> {
         Self::ICertificateStoresStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TrustedRootCertificationAuthorities)(::core::mem::transmute_copy(this), &mut result__).from_abi::<CertificateStore>(result__)
+            (::windows::core::Interface::vtable(this).TrustedRootCertificationAuthorities)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<CertificateStore>(result__)
         })
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
     pub fn IntermediateCertificationAuthorities() -> ::windows::core::Result<CertificateStore> {
         Self::ICertificateStoresStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IntermediateCertificationAuthorities)(::core::mem::transmute_copy(this), &mut result__).from_abi::<CertificateStore>(result__)
+            (::windows::core::Interface::vtable(this).IntermediateCertificationAuthorities)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<CertificateStore>(result__)
         })
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
     pub fn GetStoreByName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(storename: Param0) -> ::windows::core::Result<CertificateStore> {
         Self::ICertificateStoresStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetStoreByName)(::core::mem::transmute_copy(this), storename.into_param().abi(), &mut result__).from_abi::<CertificateStore>(result__)
+            (::windows::core::Interface::vtable(this).GetStoreByName)(::windows::core::Interface::as_raw(this), storename.into_param().abi(), &mut result__).from_abi::<CertificateStore>(result__)
         })
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
     pub fn GetUserStoreByName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(storename: Param0) -> ::windows::core::Result<UserCertificateStore> {
         Self::ICertificateStoresStatics2(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetUserStoreByName)(::core::mem::transmute_copy(this), storename.into_param().abi(), &mut result__).from_abi::<UserCertificateStore>(result__)
+            (::windows::core::Interface::vtable(this).GetUserStoreByName)(::windows::core::Interface::as_raw(this), storename.into_param().abi(), &mut result__).from_abi::<UserCertificateStore>(result__)
         })
     }
     #[doc(hidden)]
@@ -1494,7 +1494,7 @@ impl ChainBuildingParameters {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).EnhancedKeyUsages)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>(result__)
+            (::windows::core::Interface::vtable(this).EnhancedKeyUsages)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`, `\"Foundation\"`*"]
@@ -1503,66 +1503,66 @@ impl ChainBuildingParameters {
         let this = self;
         unsafe {
             let mut result__: super::super::super::Foundation::DateTime = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ValidationTimestamp)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::DateTime>(result__)
+            (::windows::core::Interface::vtable(this).ValidationTimestamp)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::DateTime>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetValidationTimestamp<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::DateTime>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetValidationTimestamp)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetValidationTimestamp)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
     pub fn RevocationCheckEnabled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RevocationCheckEnabled)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).RevocationCheckEnabled)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
     pub fn SetRevocationCheckEnabled(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetRevocationCheckEnabled)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetRevocationCheckEnabled)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
     pub fn NetworkRetrievalEnabled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).NetworkRetrievalEnabled)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).NetworkRetrievalEnabled)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
     pub fn SetNetworkRetrievalEnabled(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetNetworkRetrievalEnabled)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetNetworkRetrievalEnabled)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
     pub fn AuthorityInformationAccessEnabled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AuthorityInformationAccessEnabled)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).AuthorityInformationAccessEnabled)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
     pub fn SetAuthorityInformationAccessEnabled(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetAuthorityInformationAccessEnabled)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetAuthorityInformationAccessEnabled)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
     pub fn CurrentTimeValidationEnabled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CurrentTimeValidationEnabled)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).CurrentTimeValidationEnabled)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
     pub fn SetCurrentTimeValidationEnabled(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetCurrentTimeValidationEnabled)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCurrentTimeValidationEnabled)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -1570,7 +1570,7 @@ impl ChainBuildingParameters {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ExclusiveTrustRoots)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVector<Certificate>>(result__)
+            (::windows::core::Interface::vtable(this).ExclusiveTrustRoots)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVector<Certificate>>(result__)
         }
     }
 }
@@ -1662,13 +1662,13 @@ impl ChainValidationParameters {
         let this = self;
         unsafe {
             let mut result__: CertificateChainPolicy = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CertificateChainPolicy)(::core::mem::transmute_copy(this), &mut result__).from_abi::<CertificateChainPolicy>(result__)
+            (::windows::core::Interface::vtable(this).CertificateChainPolicy)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<CertificateChainPolicy>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
     pub fn SetCertificateChainPolicy(&self, value: CertificateChainPolicy) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetCertificateChainPolicy)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCertificateChainPolicy)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`, `\"Networking\"`*"]
     #[cfg(feature = "Networking")]
@@ -1676,14 +1676,14 @@ impl ChainValidationParameters {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ServerDnsName)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Networking::HostName>(result__)
+            (::windows::core::Interface::vtable(this).ServerDnsName)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Networking::HostName>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`, `\"Networking\"`*"]
     #[cfg(feature = "Networking")]
     pub fn SetServerDnsName<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Networking::HostName>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetServerDnsName)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetServerDnsName)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
 }
 impl ::core::clone::Clone for ChainValidationParameters {
@@ -1814,7 +1814,7 @@ impl CmsAttachedSignature {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Certificates)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<Certificate>>(result__)
+            (::windows::core::Interface::vtable(this).Certificates)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<Certificate>>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
@@ -1822,7 +1822,7 @@ impl CmsAttachedSignature {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::Array<u8> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Content)(::core::mem::transmute_copy(this), ::windows::core::Array::<u8>::set_abi_len(&mut result__), &mut result__ as *mut _ as _).and_then(|| result__)
+            (::windows::core::Interface::vtable(this).Content)(::windows::core::Interface::as_raw(this), ::windows::core::Array::<u8>::set_abi_len(&mut result__), &mut result__ as *mut _ as _).and_then(|| result__)
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`, `\"Foundation_Collections\"`*"]
@@ -1831,7 +1831,7 @@ impl CmsAttachedSignature {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Signers)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<CmsSignerInfo>>(result__)
+            (::windows::core::Interface::vtable(this).Signers)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<CmsSignerInfo>>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
@@ -1839,7 +1839,7 @@ impl CmsAttachedSignature {
         let this = self;
         unsafe {
             let mut result__: SignatureValidationResult = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).VerifySignature)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SignatureValidationResult>(result__)
+            (::windows::core::Interface::vtable(this).VerifySignature)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SignatureValidationResult>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`, `\"Storage_Streams\"`*"]
@@ -1847,7 +1847,7 @@ impl CmsAttachedSignature {
     pub fn CreateCmsAttachedSignature<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Storage::Streams::IBuffer>>(inputblob: Param0) -> ::windows::core::Result<CmsAttachedSignature> {
         Self::ICmsAttachedSignatureFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateCmsAttachedSignature)(::core::mem::transmute_copy(this), inputblob.into_param().abi(), &mut result__).from_abi::<CmsAttachedSignature>(result__)
+            (::windows::core::Interface::vtable(this).CreateCmsAttachedSignature)(::windows::core::Interface::as_raw(this), inputblob.into_param().abi(), &mut result__).from_abi::<CmsAttachedSignature>(result__)
         })
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`, `\"Foundation_Collections\"`, `\"Storage_Streams\"`*"]
@@ -1855,7 +1855,7 @@ impl CmsAttachedSignature {
     pub fn GenerateSignatureAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Storage::Streams::IBuffer>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IIterable<CmsSignerInfo>>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IIterable<Certificate>>>(data: Param0, signers: Param1, certificates: Param2) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Storage::Streams::IBuffer>> {
         Self::ICmsAttachedSignatureStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GenerateSignatureAsync)(::core::mem::transmute_copy(this), data.into_param().abi(), signers.into_param().abi(), certificates.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<super::super::super::Storage::Streams::IBuffer>>(result__)
+            (::windows::core::Interface::vtable(this).GenerateSignatureAsync)(::windows::core::Interface::as_raw(this), data.into_param().abi(), signers.into_param().abi(), certificates.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<super::super::super::Storage::Streams::IBuffer>>(result__)
         })
     }
     #[doc(hidden)]
@@ -1951,7 +1951,7 @@ impl CmsDetachedSignature {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Certificates)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<Certificate>>(result__)
+            (::windows::core::Interface::vtable(this).Certificates)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<Certificate>>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`, `\"Foundation_Collections\"`*"]
@@ -1960,7 +1960,7 @@ impl CmsDetachedSignature {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Signers)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<CmsSignerInfo>>(result__)
+            (::windows::core::Interface::vtable(this).Signers)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<CmsSignerInfo>>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
@@ -1969,7 +1969,7 @@ impl CmsDetachedSignature {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).VerifySignatureAsync)(::core::mem::transmute_copy(this), data.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<SignatureValidationResult>>(result__)
+            (::windows::core::Interface::vtable(this).VerifySignatureAsync)(::windows::core::Interface::as_raw(this), data.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<SignatureValidationResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`, `\"Storage_Streams\"`*"]
@@ -1977,7 +1977,7 @@ impl CmsDetachedSignature {
     pub fn CreateCmsDetachedSignature<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Storage::Streams::IBuffer>>(inputblob: Param0) -> ::windows::core::Result<CmsDetachedSignature> {
         Self::ICmsDetachedSignatureFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateCmsDetachedSignature)(::core::mem::transmute_copy(this), inputblob.into_param().abi(), &mut result__).from_abi::<CmsDetachedSignature>(result__)
+            (::windows::core::Interface::vtable(this).CreateCmsDetachedSignature)(::windows::core::Interface::as_raw(this), inputblob.into_param().abi(), &mut result__).from_abi::<CmsDetachedSignature>(result__)
         })
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`, `\"Foundation_Collections\"`, `\"Storage_Streams\"`*"]
@@ -1985,7 +1985,7 @@ impl CmsDetachedSignature {
     pub fn GenerateSignatureAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Storage::Streams::IInputStream>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IIterable<CmsSignerInfo>>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IIterable<Certificate>>>(data: Param0, signers: Param1, certificates: Param2) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Storage::Streams::IBuffer>> {
         Self::ICmsDetachedSignatureStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GenerateSignatureAsync)(::core::mem::transmute_copy(this), data.into_param().abi(), signers.into_param().abi(), certificates.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<super::super::super::Storage::Streams::IBuffer>>(result__)
+            (::windows::core::Interface::vtable(this).GenerateSignatureAsync)(::windows::core::Interface::as_raw(this), data.into_param().abi(), signers.into_param().abi(), certificates.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<super::super::super::Storage::Streams::IBuffer>>(result__)
         })
     }
     #[doc(hidden)]
@@ -2087,33 +2087,33 @@ impl CmsSignerInfo {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Certificate)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Certificate>(result__)
+            (::windows::core::Interface::vtable(this).Certificate)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Certificate>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
     pub fn SetCertificate<'a, Param0: ::windows::core::IntoParam<'a, Certificate>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetCertificate)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCertificate)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
     pub fn HashAlgorithmName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).HashAlgorithmName)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).HashAlgorithmName)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
     pub fn SetHashAlgorithmName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetHashAlgorithmName)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetHashAlgorithmName)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
     pub fn TimestampInfo(&self) -> ::windows::core::Result<CmsTimestampInfo> {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TimestampInfo)(::core::mem::transmute_copy(this), &mut result__).from_abi::<CmsTimestampInfo>(result__)
+            (::windows::core::Interface::vtable(this).TimestampInfo)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<CmsTimestampInfo>(result__)
         }
     }
 }
@@ -2198,7 +2198,7 @@ impl CmsTimestampInfo {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SigningCertificate)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Certificate>(result__)
+            (::windows::core::Interface::vtable(this).SigningCertificate)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Certificate>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`, `\"Foundation_Collections\"`*"]
@@ -2207,7 +2207,7 @@ impl CmsTimestampInfo {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Certificates)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<Certificate>>(result__)
+            (::windows::core::Interface::vtable(this).Certificates)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<Certificate>>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`, `\"Foundation\"`*"]
@@ -2216,7 +2216,7 @@ impl CmsTimestampInfo {
         let this = self;
         unsafe {
             let mut result__: super::super::super::Foundation::DateTime = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Timestamp)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::DateTime>(result__)
+            (::windows::core::Interface::vtable(this).Timestamp)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::DateTime>(result__)
         }
     }
 }
@@ -3352,70 +3352,70 @@ impl KeyAlgorithmNames {
     pub fn Rsa() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IKeyAlgorithmNamesStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Rsa)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Rsa)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
     pub fn Dsa() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IKeyAlgorithmNamesStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Dsa)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Dsa)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
     pub fn Ecdh256() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IKeyAlgorithmNamesStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Ecdh256)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Ecdh256)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
     pub fn Ecdh384() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IKeyAlgorithmNamesStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Ecdh384)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Ecdh384)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
     pub fn Ecdh521() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IKeyAlgorithmNamesStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Ecdh521)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Ecdh521)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
     pub fn Ecdsa256() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IKeyAlgorithmNamesStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Ecdsa256)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Ecdsa256)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
     pub fn Ecdsa384() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IKeyAlgorithmNamesStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Ecdsa384)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Ecdsa384)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
     pub fn Ecdsa521() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IKeyAlgorithmNamesStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Ecdsa521)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Ecdsa521)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
     pub fn Ecdsa() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IKeyAlgorithmNamesStatics2(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Ecdsa)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Ecdsa)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
     pub fn Ecdh() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IKeyAlgorithmNamesStatics2(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Ecdh)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Ecdh)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc(hidden)]
@@ -3440,14 +3440,14 @@ impl KeyAttestationHelper {
     pub fn DecryptTpmAttestationCredentialAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(credential: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>> {
         Self::IKeyAttestationHelperStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DecryptTpmAttestationCredentialAsync)(::core::mem::transmute_copy(this), credential.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>(result__)
+            (::windows::core::Interface::vtable(this).DecryptTpmAttestationCredentialAsync)(::windows::core::Interface::as_raw(this), credential.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>(result__)
         })
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
     pub fn GetTpmAttestationCredentialId<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(credential: Param0) -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IKeyAttestationHelperStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetTpmAttestationCredentialId)(::core::mem::transmute_copy(this), credential.into_param().abi(), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).GetTpmAttestationCredentialId)(::windows::core::Interface::as_raw(this), credential.into_param().abi(), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`, `\"Foundation\"`*"]
@@ -3455,7 +3455,7 @@ impl KeyAttestationHelper {
     pub fn DecryptTpmAttestationCredentialWithContainerNameAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(credential: Param0, containername: Param1) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>> {
         Self::IKeyAttestationHelperStatics2(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DecryptTpmAttestationCredentialWithContainerNameAsync)(::core::mem::transmute_copy(this), credential.into_param().abi(), containername.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>(result__)
+            (::windows::core::Interface::vtable(this).DecryptTpmAttestationCredentialWithContainerNameAsync)(::windows::core::Interface::as_raw(this), credential.into_param().abi(), containername.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>(result__)
         })
     }
     #[doc(hidden)]
@@ -3550,28 +3550,28 @@ impl KeyStorageProviderNames {
     pub fn SoftwareKeyStorageProvider() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IKeyStorageProviderNamesStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SoftwareKeyStorageProvider)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).SoftwareKeyStorageProvider)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
     pub fn SmartcardKeyStorageProvider() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IKeyStorageProviderNamesStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SmartcardKeyStorageProvider)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).SmartcardKeyStorageProvider)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
     pub fn PlatformKeyStorageProvider() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IKeyStorageProviderNamesStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PlatformKeyStorageProvider)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).PlatformKeyStorageProvider)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
     pub fn PassportKeyStorageProvider() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IKeyStorageProviderNamesStatics2(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PassportKeyStorageProvider)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).PassportKeyStorageProvider)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc(hidden)]
@@ -3604,91 +3604,91 @@ impl PfxImportParameters {
         let this = self;
         unsafe {
             let mut result__: ExportOption = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Exportable)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ExportOption>(result__)
+            (::windows::core::Interface::vtable(this).Exportable)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ExportOption>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
     pub fn SetExportable(&self, value: ExportOption) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetExportable)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetExportable)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
     pub fn KeyProtectionLevel(&self) -> ::windows::core::Result<KeyProtectionLevel> {
         let this = self;
         unsafe {
             let mut result__: KeyProtectionLevel = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).KeyProtectionLevel)(::core::mem::transmute_copy(this), &mut result__).from_abi::<KeyProtectionLevel>(result__)
+            (::windows::core::Interface::vtable(this).KeyProtectionLevel)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<KeyProtectionLevel>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
     pub fn SetKeyProtectionLevel(&self, value: KeyProtectionLevel) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetKeyProtectionLevel)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetKeyProtectionLevel)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
     pub fn InstallOptions(&self) -> ::windows::core::Result<InstallOptions> {
         let this = self;
         unsafe {
             let mut result__: InstallOptions = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).InstallOptions)(::core::mem::transmute_copy(this), &mut result__).from_abi::<InstallOptions>(result__)
+            (::windows::core::Interface::vtable(this).InstallOptions)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<InstallOptions>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
     pub fn SetInstallOptions(&self, value: InstallOptions) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetInstallOptions)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetInstallOptions)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
     pub fn FriendlyName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FriendlyName)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).FriendlyName)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
     pub fn SetFriendlyName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetFriendlyName)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetFriendlyName)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
     pub fn KeyStorageProviderName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).KeyStorageProviderName)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).KeyStorageProviderName)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
     pub fn SetKeyStorageProviderName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetKeyStorageProviderName)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetKeyStorageProviderName)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
     pub fn ContainerNamePrefix(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ContainerNamePrefix)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).ContainerNamePrefix)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
     pub fn SetContainerNamePrefix<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetContainerNamePrefix)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetContainerNamePrefix)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
     pub fn ReaderName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ReaderName)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).ReaderName)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
     pub fn SetReaderName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetReaderName)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetReaderName)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
 }
 impl ::core::clone::Clone for PfxImportParameters {
@@ -3807,21 +3807,21 @@ impl StandardCertificateStoreNames {
     pub fn Personal() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IStandardCertificateStoreNamesStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Personal)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Personal)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
     pub fn TrustedRootCertificationAuthorities() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IStandardCertificateStoreNamesStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TrustedRootCertificationAuthorities)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).TrustedRootCertificationAuthorities)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
     pub fn IntermediateCertificationAuthorities() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IStandardCertificateStoreNamesStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IntermediateCertificationAuthorities)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).IntermediateCertificationAuthorities)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc(hidden)]
@@ -3850,7 +3850,7 @@ impl SubjectAlternativeNameInfo {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).EmailName)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>(result__)
+            (::windows::core::Interface::vtable(this).EmailName)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`, `\"Foundation_Collections\"`*"]
@@ -3859,7 +3859,7 @@ impl SubjectAlternativeNameInfo {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IPAddress)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>(result__)
+            (::windows::core::Interface::vtable(this).IPAddress)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`, `\"Foundation_Collections\"`*"]
@@ -3868,7 +3868,7 @@ impl SubjectAlternativeNameInfo {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Url)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>(result__)
+            (::windows::core::Interface::vtable(this).Url)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`, `\"Foundation_Collections\"`*"]
@@ -3877,7 +3877,7 @@ impl SubjectAlternativeNameInfo {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DnsName)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>(result__)
+            (::windows::core::Interface::vtable(this).DnsName)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`, `\"Foundation_Collections\"`*"]
@@ -3886,7 +3886,7 @@ impl SubjectAlternativeNameInfo {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DistinguishedName)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>(result__)
+            (::windows::core::Interface::vtable(this).DistinguishedName)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`, `\"Foundation_Collections\"`*"]
@@ -3895,7 +3895,7 @@ impl SubjectAlternativeNameInfo {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PrincipalName)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>(result__)
+            (::windows::core::Interface::vtable(this).PrincipalName)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`, `\"Foundation_Collections\"`*"]
@@ -3904,7 +3904,7 @@ impl SubjectAlternativeNameInfo {
         let this = &::windows::core::Interface::cast::<ISubjectAlternativeNameInfo2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).EmailNames)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>(result__)
+            (::windows::core::Interface::vtable(this).EmailNames)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`, `\"Foundation_Collections\"`*"]
@@ -3913,7 +3913,7 @@ impl SubjectAlternativeNameInfo {
         let this = &::windows::core::Interface::cast::<ISubjectAlternativeNameInfo2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IPAddresses)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>(result__)
+            (::windows::core::Interface::vtable(this).IPAddresses)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`, `\"Foundation_Collections\"`*"]
@@ -3922,7 +3922,7 @@ impl SubjectAlternativeNameInfo {
         let this = &::windows::core::Interface::cast::<ISubjectAlternativeNameInfo2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Urls)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>(result__)
+            (::windows::core::Interface::vtable(this).Urls)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`, `\"Foundation_Collections\"`*"]
@@ -3931,7 +3931,7 @@ impl SubjectAlternativeNameInfo {
         let this = &::windows::core::Interface::cast::<ISubjectAlternativeNameInfo2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DnsNames)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>(result__)
+            (::windows::core::Interface::vtable(this).DnsNames)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`, `\"Foundation_Collections\"`*"]
@@ -3940,7 +3940,7 @@ impl SubjectAlternativeNameInfo {
         let this = &::windows::core::Interface::cast::<ISubjectAlternativeNameInfo2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DistinguishedNames)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>(result__)
+            (::windows::core::Interface::vtable(this).DistinguishedNames)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`, `\"Foundation_Collections\"`*"]
@@ -3949,7 +3949,7 @@ impl SubjectAlternativeNameInfo {
         let this = &::windows::core::Interface::cast::<ISubjectAlternativeNameInfo2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PrincipalNames)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>(result__)
+            (::windows::core::Interface::vtable(this).PrincipalNames)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
@@ -3957,7 +3957,7 @@ impl SubjectAlternativeNameInfo {
         let this = &::windows::core::Interface::cast::<ISubjectAlternativeNameInfo2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Extension)(::core::mem::transmute_copy(this), &mut result__).from_abi::<CertificateExtension>(result__)
+            (::windows::core::Interface::vtable(this).Extension)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<CertificateExtension>(result__)
         }
     }
 }
@@ -4043,7 +4043,7 @@ impl UserCertificateEnrollmentManager {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateRequestAsync)(::core::mem::transmute_copy(this), request.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>(result__)
+            (::windows::core::Interface::vtable(this).CreateRequestAsync)(::windows::core::Interface::as_raw(this), request.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`, `\"Foundation\"`*"]
@@ -4052,7 +4052,7 @@ impl UserCertificateEnrollmentManager {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).InstallCertificateAsync)(::core::mem::transmute_copy(this), certificate.into_param().abi(), installoption, &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).InstallCertificateAsync)(::windows::core::Interface::as_raw(this), certificate.into_param().abi(), installoption, &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`, `\"Foundation\"`*"]
@@ -4061,7 +4061,7 @@ impl UserCertificateEnrollmentManager {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ImportPfxDataAsync)(::core::mem::transmute_copy(this), pfxdata.into_param().abi(), password.into_param().abi(), exportable, keyprotectionlevel, installoption, friendlyname.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).ImportPfxDataAsync)(::windows::core::Interface::as_raw(this), pfxdata.into_param().abi(), password.into_param().abi(), exportable, keyprotectionlevel, installoption, friendlyname.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`, `\"Foundation\"`*"]
@@ -4070,7 +4070,7 @@ impl UserCertificateEnrollmentManager {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ImportPfxDataToKspAsync)(::core::mem::transmute_copy(this), pfxdata.into_param().abi(), password.into_param().abi(), exportable, keyprotectionlevel, installoption, friendlyname.into_param().abi(), keystorageprovider.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).ImportPfxDataToKspAsync)(::windows::core::Interface::as_raw(this), pfxdata.into_param().abi(), password.into_param().abi(), exportable, keyprotectionlevel, installoption, friendlyname.into_param().abi(), keystorageprovider.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`, `\"Foundation\"`*"]
@@ -4079,7 +4079,7 @@ impl UserCertificateEnrollmentManager {
         let this = &::windows::core::Interface::cast::<IUserCertificateEnrollmentManager2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ImportPfxDataToKspWithParametersAsync)(::core::mem::transmute_copy(this), pfxdata.into_param().abi(), password.into_param().abi(), pfximportparameters.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).ImportPfxDataToKspWithParametersAsync)(::windows::core::Interface::as_raw(this), pfxdata.into_param().abi(), password.into_param().abi(), pfximportparameters.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
 }
@@ -4165,7 +4165,7 @@ impl UserCertificateStore {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RequestAddAsync)(::core::mem::transmute_copy(this), certificate.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Interface::vtable(this).RequestAddAsync)(::windows::core::Interface::as_raw(this), certificate.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`, `\"Foundation\"`*"]
@@ -4174,7 +4174,7 @@ impl UserCertificateStore {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RequestDeleteAsync)(::core::mem::transmute_copy(this), certificate.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Interface::vtable(this).RequestDeleteAsync)(::windows::core::Interface::as_raw(this), certificate.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
@@ -4182,7 +4182,7 @@ impl UserCertificateStore {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Name)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Name)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
 }

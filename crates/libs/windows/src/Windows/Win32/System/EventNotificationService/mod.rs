@@ -9,37 +9,37 @@ impl ISensLogon {
     #[doc = "*Required features: `\"Win32_System_EventNotificationService\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Logon<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrusername: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Logon)(::core::mem::transmute_copy(self), bstrusername.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).Logon)(::windows::core::Interface::as_raw(self), bstrusername.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_EventNotificationService\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Logoff<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrusername: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Logoff)(::core::mem::transmute_copy(self), bstrusername.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).Logoff)(::windows::core::Interface::as_raw(self), bstrusername.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_EventNotificationService\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn StartShell<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrusername: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).StartShell)(::core::mem::transmute_copy(self), bstrusername.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).StartShell)(::windows::core::Interface::as_raw(self), bstrusername.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_EventNotificationService\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DisplayLock<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrusername: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DisplayLock)(::core::mem::transmute_copy(self), bstrusername.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).DisplayLock)(::windows::core::Interface::as_raw(self), bstrusername.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_EventNotificationService\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DisplayUnlock<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrusername: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DisplayUnlock)(::core::mem::transmute_copy(self), bstrusername.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).DisplayUnlock)(::windows::core::Interface::as_raw(self), bstrusername.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_EventNotificationService\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn StartScreenSaver<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrusername: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).StartScreenSaver)(::core::mem::transmute_copy(self), bstrusername.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).StartScreenSaver)(::windows::core::Interface::as_raw(self), bstrusername.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_EventNotificationService\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn StopScreenSaver<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrusername: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).StopScreenSaver)(::core::mem::transmute_copy(self), bstrusername.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).StopScreenSaver)(::windows::core::Interface::as_raw(self), bstrusername.into_param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -158,27 +158,27 @@ impl ISensLogon2 {
     #[doc = "*Required features: `\"Win32_System_EventNotificationService\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Logon<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrusername: Param0, dwsessionid: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Logon)(::core::mem::transmute_copy(self), bstrusername.into_param().abi(), ::core::mem::transmute(dwsessionid)).ok()
+        (::windows::core::Interface::vtable(self).Logon)(::windows::core::Interface::as_raw(self), bstrusername.into_param().abi(), ::core::mem::transmute(dwsessionid)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_EventNotificationService\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Logoff<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrusername: Param0, dwsessionid: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Logoff)(::core::mem::transmute_copy(self), bstrusername.into_param().abi(), ::core::mem::transmute(dwsessionid)).ok()
+        (::windows::core::Interface::vtable(self).Logoff)(::windows::core::Interface::as_raw(self), bstrusername.into_param().abi(), ::core::mem::transmute(dwsessionid)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_EventNotificationService\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SessionDisconnect<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrusername: Param0, dwsessionid: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SessionDisconnect)(::core::mem::transmute_copy(self), bstrusername.into_param().abi(), ::core::mem::transmute(dwsessionid)).ok()
+        (::windows::core::Interface::vtable(self).SessionDisconnect)(::windows::core::Interface::as_raw(self), bstrusername.into_param().abi(), ::core::mem::transmute(dwsessionid)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_EventNotificationService\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SessionReconnect<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrusername: Param0, dwsessionid: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SessionReconnect)(::core::mem::transmute_copy(self), bstrusername.into_param().abi(), ::core::mem::transmute(dwsessionid)).ok()
+        (::windows::core::Interface::vtable(self).SessionReconnect)(::windows::core::Interface::as_raw(self), bstrusername.into_param().abi(), ::core::mem::transmute(dwsessionid)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_EventNotificationService\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn PostShell<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrusername: Param0, dwsessionid: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).PostShell)(::core::mem::transmute_copy(self), bstrusername.into_param().abi(), ::core::mem::transmute(dwsessionid)).ok()
+        (::windows::core::Interface::vtable(self).PostShell)(::windows::core::Interface::as_raw(self), bstrusername.into_param().abi(), ::core::mem::transmute(dwsessionid)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -289,27 +289,27 @@ impl ISensNetwork {
     #[doc = "*Required features: `\"Win32_System_EventNotificationService\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ConnectionMade<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrconnection: Param0, ultype: u32, lpqocinfo: *const SENS_QOCINFO) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ConnectionMade)(::core::mem::transmute_copy(self), bstrconnection.into_param().abi(), ::core::mem::transmute(ultype), ::core::mem::transmute(lpqocinfo)).ok()
+        (::windows::core::Interface::vtable(self).ConnectionMade)(::windows::core::Interface::as_raw(self), bstrconnection.into_param().abi(), ::core::mem::transmute(ultype), ::core::mem::transmute(lpqocinfo)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_EventNotificationService\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ConnectionMadeNoQOCInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrconnection: Param0, ultype: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ConnectionMadeNoQOCInfo)(::core::mem::transmute_copy(self), bstrconnection.into_param().abi(), ::core::mem::transmute(ultype)).ok()
+        (::windows::core::Interface::vtable(self).ConnectionMadeNoQOCInfo)(::windows::core::Interface::as_raw(self), bstrconnection.into_param().abi(), ::core::mem::transmute(ultype)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_EventNotificationService\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ConnectionLost<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrconnection: Param0, ultype: SENS_CONNECTION_TYPE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ConnectionLost)(::core::mem::transmute_copy(self), bstrconnection.into_param().abi(), ::core::mem::transmute(ultype)).ok()
+        (::windows::core::Interface::vtable(self).ConnectionLost)(::windows::core::Interface::as_raw(self), bstrconnection.into_param().abi(), ::core::mem::transmute(ultype)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_EventNotificationService\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DestinationReachable<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrdestination: Param0, bstrconnection: Param1, ultype: u32, lpqocinfo: *const SENS_QOCINFO) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DestinationReachable)(::core::mem::transmute_copy(self), bstrdestination.into_param().abi(), bstrconnection.into_param().abi(), ::core::mem::transmute(ultype), ::core::mem::transmute(lpqocinfo)).ok()
+        (::windows::core::Interface::vtable(self).DestinationReachable)(::windows::core::Interface::as_raw(self), bstrdestination.into_param().abi(), bstrconnection.into_param().abi(), ::core::mem::transmute(ultype), ::core::mem::transmute(lpqocinfo)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_EventNotificationService\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DestinationReachableNoQOCInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrdestination: Param0, bstrconnection: Param1, ultype: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DestinationReachableNoQOCInfo)(::core::mem::transmute_copy(self), bstrdestination.into_param().abi(), bstrconnection.into_param().abi(), ::core::mem::transmute(ultype)).ok()
+        (::windows::core::Interface::vtable(self).DestinationReachableNoQOCInfo)(::windows::core::Interface::as_raw(self), bstrdestination.into_param().abi(), bstrconnection.into_param().abi(), ::core::mem::transmute(ultype)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -419,15 +419,15 @@ pub struct ISensOnNow(::windows::core::IUnknown);
 impl ISensOnNow {
     #[doc = "*Required features: `\"Win32_System_EventNotificationService\"`*"]
     pub unsafe fn OnACPower(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnACPower)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).OnACPower)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_EventNotificationService\"`*"]
     pub unsafe fn OnBatteryPower(&self, dwbatterylifepercent: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnBatteryPower)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwbatterylifepercent)).ok()
+        (::windows::core::Interface::vtable(self).OnBatteryPower)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwbatterylifepercent)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_EventNotificationService\"`*"]
     pub unsafe fn BatteryLow(&self, dwbatterylifepercent: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).BatteryLow)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwbatterylifepercent)).ok()
+        (::windows::core::Interface::vtable(self).BatteryLow)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwbatterylifepercent)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]

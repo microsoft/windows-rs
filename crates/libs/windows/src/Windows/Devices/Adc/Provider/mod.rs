@@ -7,7 +7,7 @@ impl IAdcControllerProvider {
         let this = self;
         unsafe {
             let mut result__: i32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ChannelCount)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            (::windows::core::Interface::vtable(this).ChannelCount)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Adc_Provider\"`*"]
@@ -15,7 +15,7 @@ impl IAdcControllerProvider {
         let this = self;
         unsafe {
             let mut result__: i32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ResolutionInBits)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            (::windows::core::Interface::vtable(this).ResolutionInBits)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Adc_Provider\"`*"]
@@ -23,7 +23,7 @@ impl IAdcControllerProvider {
         let this = self;
         unsafe {
             let mut result__: i32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MinValue)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            (::windows::core::Interface::vtable(this).MinValue)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Adc_Provider\"`*"]
@@ -31,7 +31,7 @@ impl IAdcControllerProvider {
         let this = self;
         unsafe {
             let mut result__: i32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MaxValue)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            (::windows::core::Interface::vtable(this).MaxValue)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Adc_Provider\"`*"]
@@ -39,38 +39,38 @@ impl IAdcControllerProvider {
         let this = self;
         unsafe {
             let mut result__: ProviderAdcChannelMode = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ChannelMode)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ProviderAdcChannelMode>(result__)
+            (::windows::core::Interface::vtable(this).ChannelMode)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ProviderAdcChannelMode>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Adc_Provider\"`*"]
     pub fn SetChannelMode(&self, value: ProviderAdcChannelMode) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetChannelMode)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetChannelMode)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Devices_Adc_Provider\"`*"]
     pub fn IsChannelModeSupported(&self, channelmode: ProviderAdcChannelMode) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsChannelModeSupported)(::core::mem::transmute_copy(this), channelmode, &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsChannelModeSupported)(::windows::core::Interface::as_raw(this), channelmode, &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Adc_Provider\"`*"]
     pub fn AcquireChannel(&self, channel: i32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AcquireChannel)(::core::mem::transmute_copy(this), channel).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AcquireChannel)(::windows::core::Interface::as_raw(this), channel).ok() }
     }
     #[doc = "*Required features: `\"Devices_Adc_Provider\"`*"]
     pub fn ReleaseChannel(&self, channel: i32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).ReleaseChannel)(::core::mem::transmute_copy(this), channel).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).ReleaseChannel)(::windows::core::Interface::as_raw(this), channel).ok() }
     }
     #[doc = "*Required features: `\"Devices_Adc_Provider\"`*"]
     pub fn ReadValue(&self, channelnumber: i32) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
             let mut result__: i32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ReadValue)(::core::mem::transmute_copy(this), channelnumber, &mut result__).from_abi::<i32>(result__)
+            (::windows::core::Interface::vtable(this).ReadValue)(::windows::core::Interface::as_raw(this), channelnumber, &mut result__).from_abi::<i32>(result__)
         }
     }
 }
@@ -166,7 +166,7 @@ impl IAdcProvider {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetControllers)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<IAdcControllerProvider>>(result__)
+            (::windows::core::Interface::vtable(this).GetControllers)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<IAdcControllerProvider>>(result__)
         }
     }
 }

@@ -68,7 +68,7 @@ impl SpatialGraphInteropFrameOfReferencePreview {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CoordinateSystem)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::SpatialCoordinateSystem>(result__)
+            (::windows::core::Interface::vtable(this).CoordinateSystem)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::SpatialCoordinateSystem>(result__)
         }
     }
     #[doc = "*Required features: `\"Perception_Spatial_Preview\"`*"]
@@ -76,7 +76,7 @@ impl SpatialGraphInteropFrameOfReferencePreview {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).NodeId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
+            (::windows::core::Interface::vtable(this).NodeId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         }
     }
     #[doc = "*Required features: `\"Perception_Spatial_Preview\"`, `\"Foundation_Numerics\"`*"]
@@ -85,7 +85,7 @@ impl SpatialGraphInteropFrameOfReferencePreview {
         let this = self;
         unsafe {
             let mut result__: super::super::super::Foundation::Numerics::Matrix4x4 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CoordinateSystemToNodeTransform)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Numerics::Matrix4x4>(result__)
+            (::windows::core::Interface::vtable(this).CoordinateSystemToNodeTransform)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::Numerics::Matrix4x4>(result__)
         }
     }
 }
@@ -168,7 +168,7 @@ impl SpatialGraphInteropPreview {
     pub fn CreateCoordinateSystemForNode<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(nodeid: Param0) -> ::windows::core::Result<super::SpatialCoordinateSystem> {
         Self::ISpatialGraphInteropPreviewStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateCoordinateSystemForNode)(::core::mem::transmute_copy(this), nodeid.into_param().abi(), &mut result__).from_abi::<super::SpatialCoordinateSystem>(result__)
+            (::windows::core::Interface::vtable(this).CreateCoordinateSystemForNode)(::windows::core::Interface::as_raw(this), nodeid.into_param().abi(), &mut result__).from_abi::<super::SpatialCoordinateSystem>(result__)
         })
     }
     #[doc = "*Required features: `\"Perception_Spatial_Preview\"`, `\"Foundation_Numerics\"`*"]
@@ -176,7 +176,7 @@ impl SpatialGraphInteropPreview {
     pub fn CreateCoordinateSystemForNodeWithPosition<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::Numerics::Vector3>>(nodeid: Param0, relativeposition: Param1) -> ::windows::core::Result<super::SpatialCoordinateSystem> {
         Self::ISpatialGraphInteropPreviewStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateCoordinateSystemForNodeWithPosition)(::core::mem::transmute_copy(this), nodeid.into_param().abi(), relativeposition.into_param().abi(), &mut result__).from_abi::<super::SpatialCoordinateSystem>(result__)
+            (::windows::core::Interface::vtable(this).CreateCoordinateSystemForNodeWithPosition)(::windows::core::Interface::as_raw(this), nodeid.into_param().abi(), relativeposition.into_param().abi(), &mut result__).from_abi::<super::SpatialCoordinateSystem>(result__)
         })
     }
     #[doc = "*Required features: `\"Perception_Spatial_Preview\"`, `\"Foundation_Numerics\"`*"]
@@ -184,21 +184,21 @@ impl SpatialGraphInteropPreview {
     pub fn CreateCoordinateSystemForNodeWithPositionAndOrientation<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::Numerics::Vector3>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::Numerics::Quaternion>>(nodeid: Param0, relativeposition: Param1, relativeorientation: Param2) -> ::windows::core::Result<super::SpatialCoordinateSystem> {
         Self::ISpatialGraphInteropPreviewStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateCoordinateSystemForNodeWithPositionAndOrientation)(::core::mem::transmute_copy(this), nodeid.into_param().abi(), relativeposition.into_param().abi(), relativeorientation.into_param().abi(), &mut result__).from_abi::<super::SpatialCoordinateSystem>(result__)
+            (::windows::core::Interface::vtable(this).CreateCoordinateSystemForNodeWithPositionAndOrientation)(::windows::core::Interface::as_raw(this), nodeid.into_param().abi(), relativeposition.into_param().abi(), relativeorientation.into_param().abi(), &mut result__).from_abi::<super::SpatialCoordinateSystem>(result__)
         })
     }
     #[doc = "*Required features: `\"Perception_Spatial_Preview\"`*"]
     pub fn CreateLocatorForNode<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(nodeid: Param0) -> ::windows::core::Result<super::SpatialLocator> {
         Self::ISpatialGraphInteropPreviewStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateLocatorForNode)(::core::mem::transmute_copy(this), nodeid.into_param().abi(), &mut result__).from_abi::<super::SpatialLocator>(result__)
+            (::windows::core::Interface::vtable(this).CreateLocatorForNode)(::windows::core::Interface::as_raw(this), nodeid.into_param().abi(), &mut result__).from_abi::<super::SpatialLocator>(result__)
         })
     }
     #[doc = "*Required features: `\"Perception_Spatial_Preview\"`*"]
     pub fn TryCreateFrameOfReference<'a, Param0: ::windows::core::IntoParam<'a, super::SpatialCoordinateSystem>>(coordinatesystem: Param0) -> ::windows::core::Result<SpatialGraphInteropFrameOfReferencePreview> {
         Self::ISpatialGraphInteropPreviewStatics2(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TryCreateFrameOfReference)(::core::mem::transmute_copy(this), coordinatesystem.into_param().abi(), &mut result__).from_abi::<SpatialGraphInteropFrameOfReferencePreview>(result__)
+            (::windows::core::Interface::vtable(this).TryCreateFrameOfReference)(::windows::core::Interface::as_raw(this), coordinatesystem.into_param().abi(), &mut result__).from_abi::<SpatialGraphInteropFrameOfReferencePreview>(result__)
         })
     }
     #[doc = "*Required features: `\"Perception_Spatial_Preview\"`, `\"Foundation_Numerics\"`*"]
@@ -206,7 +206,7 @@ impl SpatialGraphInteropPreview {
     pub fn TryCreateFrameOfReferenceWithPosition<'a, Param0: ::windows::core::IntoParam<'a, super::SpatialCoordinateSystem>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::Numerics::Vector3>>(coordinatesystem: Param0, relativeposition: Param1) -> ::windows::core::Result<SpatialGraphInteropFrameOfReferencePreview> {
         Self::ISpatialGraphInteropPreviewStatics2(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TryCreateFrameOfReferenceWithPosition)(::core::mem::transmute_copy(this), coordinatesystem.into_param().abi(), relativeposition.into_param().abi(), &mut result__).from_abi::<SpatialGraphInteropFrameOfReferencePreview>(result__)
+            (::windows::core::Interface::vtable(this).TryCreateFrameOfReferenceWithPosition)(::windows::core::Interface::as_raw(this), coordinatesystem.into_param().abi(), relativeposition.into_param().abi(), &mut result__).from_abi::<SpatialGraphInteropFrameOfReferencePreview>(result__)
         })
     }
     #[doc = "*Required features: `\"Perception_Spatial_Preview\"`, `\"Foundation_Numerics\"`*"]
@@ -214,7 +214,7 @@ impl SpatialGraphInteropPreview {
     pub fn TryCreateFrameOfReferenceWithPositionAndOrientation<'a, Param0: ::windows::core::IntoParam<'a, super::SpatialCoordinateSystem>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::Numerics::Vector3>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::Numerics::Quaternion>>(coordinatesystem: Param0, relativeposition: Param1, relativeorientation: Param2) -> ::windows::core::Result<SpatialGraphInteropFrameOfReferencePreview> {
         Self::ISpatialGraphInteropPreviewStatics2(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TryCreateFrameOfReferenceWithPositionAndOrientation)(::core::mem::transmute_copy(this), coordinatesystem.into_param().abi(), relativeposition.into_param().abi(), relativeorientation.into_param().abi(), &mut result__).from_abi::<SpatialGraphInteropFrameOfReferencePreview>(result__)
+            (::windows::core::Interface::vtable(this).TryCreateFrameOfReferenceWithPositionAndOrientation)(::windows::core::Interface::as_raw(this), coordinatesystem.into_param().abi(), relativeposition.into_param().abi(), relativeorientation.into_param().abi(), &mut result__).from_abi::<SpatialGraphInteropFrameOfReferencePreview>(result__)
         })
     }
     #[doc(hidden)]

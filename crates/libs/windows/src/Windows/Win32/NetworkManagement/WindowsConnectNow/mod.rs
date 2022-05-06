@@ -4,11 +4,11 @@ pub struct IWCNConnectNotify(::windows::core::IUnknown);
 impl IWCNConnectNotify {
     #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsConnectNow\"`*"]
     pub unsafe fn ConnectSucceeded(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ConnectSucceeded)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).ConnectSucceeded)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsConnectNow\"`*"]
     pub unsafe fn ConnectFailed(&self, hrfailure: ::windows::core::HRESULT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ConnectFailed)(::core::mem::transmute_copy(self), ::core::mem::transmute(hrfailure)).ok()
+        (::windows::core::Interface::vtable(self).ConnectFailed)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hrfailure)).ok()
     }
 }
 impl ::core::convert::From<IWCNConnectNotify> for ::windows::core::IUnknown {
@@ -64,48 +64,48 @@ pub struct IWCNDevice(::windows::core::IUnknown);
 impl IWCNDevice {
     #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsConnectNow\"`*"]
     pub unsafe fn SetPassword(&self, r#type: WCN_PASSWORD_TYPE, pbpassword: &[u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPassword)(::core::mem::transmute_copy(self), ::core::mem::transmute(r#type), pbpassword.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pbpassword))).ok()
+        (::windows::core::Interface::vtable(self).SetPassword)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(r#type), pbpassword.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pbpassword))).ok()
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsConnectNow\"`*"]
     pub unsafe fn Connect<'a, Param0: ::windows::core::IntoParam<'a, IWCNConnectNotify>>(&self, pnotify: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Connect)(::core::mem::transmute_copy(self), pnotify.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).Connect)(::windows::core::Interface::as_raw(self), pnotify.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsConnectNow\"`*"]
     pub unsafe fn GetAttribute(&self, attributetype: WCN_ATTRIBUTE_TYPE, dwmaxbuffersize: u32, pbbuffer: *mut u8, pdwbufferused: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetAttribute)(::core::mem::transmute_copy(self), ::core::mem::transmute(attributetype), ::core::mem::transmute(dwmaxbuffersize), ::core::mem::transmute(pbbuffer), ::core::mem::transmute(pdwbufferused)).ok()
+        (::windows::core::Interface::vtable(self).GetAttribute)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(attributetype), ::core::mem::transmute(dwmaxbuffersize), ::core::mem::transmute(pbbuffer), ::core::mem::transmute(pdwbufferused)).ok()
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsConnectNow\"`*"]
     pub unsafe fn GetIntegerAttribute(&self, attributetype: WCN_ATTRIBUTE_TYPE) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetIntegerAttribute)(::core::mem::transmute_copy(self), ::core::mem::transmute(attributetype), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).GetIntegerAttribute)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(attributetype), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsConnectNow\"`*"]
     pub unsafe fn GetStringAttribute(&self, attributetype: WCN_ATTRIBUTE_TYPE, wszstring: &mut [u16]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetStringAttribute)(::core::mem::transmute_copy(self), ::core::mem::transmute(attributetype), wszstring.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(wszstring))).ok()
+        (::windows::core::Interface::vtable(self).GetStringAttribute)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(attributetype), wszstring.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(wszstring))).ok()
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsConnectNow\"`*"]
     pub unsafe fn GetNetworkProfile(&self, wszprofile: &mut [u16]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetNetworkProfile)(::core::mem::transmute_copy(self), wszprofile.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(wszprofile))).ok()
+        (::windows::core::Interface::vtable(self).GetNetworkProfile)(::windows::core::Interface::as_raw(self), wszprofile.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(wszprofile))).ok()
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsConnectNow\"`*"]
     pub unsafe fn SetNetworkProfile<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszprofilexml: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetNetworkProfile)(::core::mem::transmute_copy(self), pszprofilexml.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetNetworkProfile)(::windows::core::Interface::as_raw(self), pszprofilexml.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsConnectNow\"`*"]
     pub unsafe fn GetVendorExtension(&self, pvendorextspec: *const WCN_VENDOR_EXTENSION_SPEC, dwmaxbuffersize: u32, pbbuffer: *mut u8, pdwbufferused: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetVendorExtension)(::core::mem::transmute_copy(self), ::core::mem::transmute(pvendorextspec), ::core::mem::transmute(dwmaxbuffersize), ::core::mem::transmute(pbbuffer), ::core::mem::transmute(pdwbufferused)).ok()
+        (::windows::core::Interface::vtable(self).GetVendorExtension)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pvendorextspec), ::core::mem::transmute(dwmaxbuffersize), ::core::mem::transmute(pbbuffer), ::core::mem::transmute(pdwbufferused)).ok()
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsConnectNow\"`*"]
     pub unsafe fn SetVendorExtension(&self, pvendorextspec: *const WCN_VENDOR_EXTENSION_SPEC, pbbuffer: &[u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetVendorExtension)(::core::mem::transmute_copy(self), ::core::mem::transmute(pvendorextspec), pbbuffer.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pbbuffer))).ok()
+        (::windows::core::Interface::vtable(self).SetVendorExtension)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pvendorextspec), pbbuffer.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pbbuffer))).ok()
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsConnectNow\"`*"]
     pub unsafe fn Unadvise(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Unadvise)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Unadvise)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsConnectNow\"`*"]
     pub unsafe fn SetNFCPasswordParams(&self, r#type: WCN_PASSWORD_TYPE, dwoobpasswordid: u32, pbpassword: &[u8], pbremotepublickeyhash: &[u8], pbdhkeyblob: &[u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetNFCPasswordParams)(::core::mem::transmute_copy(self), ::core::mem::transmute(r#type), ::core::mem::transmute(dwoobpasswordid), pbpassword.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pbpassword)), pbremotepublickeyhash.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pbremotepublickeyhash)), pbdhkeyblob.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pbdhkeyblob))).ok()
+        (::windows::core::Interface::vtable(self).SetNFCPasswordParams)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(r#type), ::core::mem::transmute(dwoobpasswordid), pbpassword.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pbpassword)), pbremotepublickeyhash.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pbremotepublickeyhash)), pbdhkeyblob.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pbdhkeyblob))).ok()
     }
 }
 impl ::core::convert::From<IWCNDevice> for ::windows::core::IUnknown {

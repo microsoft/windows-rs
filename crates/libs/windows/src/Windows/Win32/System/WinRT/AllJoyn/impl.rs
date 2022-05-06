@@ -3,11 +3,11 @@ pub trait IWindowsDevicesAllJoynBusAttachmentFactoryInterop_Impl: Sized {
 }
 impl ::windows::core::RuntimeName for IWindowsDevicesAllJoynBusAttachmentFactoryInterop {}
 impl IWindowsDevicesAllJoynBusAttachmentFactoryInterop_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWindowsDevicesAllJoynBusAttachmentFactoryInterop_Impl, const OFFSET: isize>() -> IWindowsDevicesAllJoynBusAttachmentFactoryInterop_Vtbl {
-        unsafe extern "system" fn CreateFromWin32Handle<Identity: ::windows::core::IUnknownImpl, Impl: IWindowsDevicesAllJoynBusAttachmentFactoryInterop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, win32handle: u64, enableaboutdata: u8, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            (*this).CreateFromWin32Handle(::core::mem::transmute_copy(&win32handle), ::core::mem::transmute_copy(&enableaboutdata), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppv)).into()
+    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWindowsDevicesAllJoynBusAttachmentFactoryInterop_Impl, const OFFSET: isize>() -> IWindowsDevicesAllJoynBusAttachmentFactoryInterop_Vtbl {
+        unsafe extern "system" fn CreateFromWin32Handle<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWindowsDevicesAllJoynBusAttachmentFactoryInterop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, win32handle: u64, enableaboutdata: u8, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.CreateFromWin32Handle(::core::mem::transmute_copy(&win32handle), ::core::mem::transmute_copy(&enableaboutdata), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppv)).into()
         }
         Self {
             base__: ::windows::core::IInspectableVtbl::new::<Identity, IWindowsDevicesAllJoynBusAttachmentFactoryInterop, OFFSET>(),
@@ -23,11 +23,11 @@ pub trait IWindowsDevicesAllJoynBusAttachmentInterop_Impl: Sized {
 }
 impl ::windows::core::RuntimeName for IWindowsDevicesAllJoynBusAttachmentInterop {}
 impl IWindowsDevicesAllJoynBusAttachmentInterop_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWindowsDevicesAllJoynBusAttachmentInterop_Impl, const OFFSET: isize>() -> IWindowsDevicesAllJoynBusAttachmentInterop_Vtbl {
-        unsafe extern "system" fn Win32Handle<Identity: ::windows::core::IUnknownImpl, Impl: IWindowsDevicesAllJoynBusAttachmentInterop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut u64) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).Win32Handle() {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWindowsDevicesAllJoynBusAttachmentInterop_Impl, const OFFSET: isize>() -> IWindowsDevicesAllJoynBusAttachmentInterop_Vtbl {
+        unsafe extern "system" fn Win32Handle<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWindowsDevicesAllJoynBusAttachmentInterop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut u64) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            match this.Win32Handle() {
                 ::core::result::Result::Ok(ok__) => {
                     *value = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -49,11 +49,11 @@ pub trait IWindowsDevicesAllJoynBusObjectFactoryInterop_Impl: Sized {
 }
 impl ::windows::core::RuntimeName for IWindowsDevicesAllJoynBusObjectFactoryInterop {}
 impl IWindowsDevicesAllJoynBusObjectFactoryInterop_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWindowsDevicesAllJoynBusObjectFactoryInterop_Impl, const OFFSET: isize>() -> IWindowsDevicesAllJoynBusObjectFactoryInterop_Vtbl {
-        unsafe extern "system" fn CreateFromWin32Handle<Identity: ::windows::core::IUnknownImpl, Impl: IWindowsDevicesAllJoynBusObjectFactoryInterop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, win32handle: u64, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            (*this).CreateFromWin32Handle(::core::mem::transmute_copy(&win32handle), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppv)).into()
+    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWindowsDevicesAllJoynBusObjectFactoryInterop_Impl, const OFFSET: isize>() -> IWindowsDevicesAllJoynBusObjectFactoryInterop_Vtbl {
+        unsafe extern "system" fn CreateFromWin32Handle<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWindowsDevicesAllJoynBusObjectFactoryInterop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, win32handle: u64, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.CreateFromWin32Handle(::core::mem::transmute_copy(&win32handle), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppv)).into()
         }
         Self {
             base__: ::windows::core::IInspectableVtbl::new::<Identity, IWindowsDevicesAllJoynBusObjectFactoryInterop, OFFSET>(),
@@ -71,21 +71,21 @@ pub trait IWindowsDevicesAllJoynBusObjectInterop_Impl: Sized {
 }
 impl ::windows::core::RuntimeName for IWindowsDevicesAllJoynBusObjectInterop {}
 impl IWindowsDevicesAllJoynBusObjectInterop_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWindowsDevicesAllJoynBusObjectInterop_Impl, const OFFSET: isize>() -> IWindowsDevicesAllJoynBusObjectInterop_Vtbl {
-        unsafe extern "system" fn AddPropertyGetHandler<Identity: ::windows::core::IUnknownImpl, Impl: IWindowsDevicesAllJoynBusObjectInterop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, context: *const ::core::ffi::c_void, interfacename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, callback: isize) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            (*this).AddPropertyGetHandler(::core::mem::transmute_copy(&context), ::core::mem::transmute(&interfacename), ::core::mem::transmute_copy(&callback)).into()
+    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWindowsDevicesAllJoynBusObjectInterop_Impl, const OFFSET: isize>() -> IWindowsDevicesAllJoynBusObjectInterop_Vtbl {
+        unsafe extern "system" fn AddPropertyGetHandler<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWindowsDevicesAllJoynBusObjectInterop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, context: *const ::core::ffi::c_void, interfacename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, callback: isize) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.AddPropertyGetHandler(::core::mem::transmute_copy(&context), ::core::mem::transmute(&interfacename), ::core::mem::transmute_copy(&callback)).into()
         }
-        unsafe extern "system" fn AddPropertySetHandler<Identity: ::windows::core::IUnknownImpl, Impl: IWindowsDevicesAllJoynBusObjectInterop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, context: *const ::core::ffi::c_void, interfacename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, callback: isize) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            (*this).AddPropertySetHandler(::core::mem::transmute_copy(&context), ::core::mem::transmute(&interfacename), ::core::mem::transmute_copy(&callback)).into()
+        unsafe extern "system" fn AddPropertySetHandler<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWindowsDevicesAllJoynBusObjectInterop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, context: *const ::core::ffi::c_void, interfacename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, callback: isize) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.AddPropertySetHandler(::core::mem::transmute_copy(&context), ::core::mem::transmute(&interfacename), ::core::mem::transmute_copy(&callback)).into()
         }
-        unsafe extern "system" fn Win32Handle<Identity: ::windows::core::IUnknownImpl, Impl: IWindowsDevicesAllJoynBusObjectInterop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut u64) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).Win32Handle() {
+        unsafe extern "system" fn Win32Handle<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWindowsDevicesAllJoynBusObjectInterop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut u64) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            match this.Win32Handle() {
                 ::core::result::Result::Ok(ok__) => {
                     *value = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)

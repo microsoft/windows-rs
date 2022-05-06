@@ -2320,53 +2320,53 @@ impl IDeviceModelPlugIn {
     #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Initialize<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrxml: Param0, cnummodels: u32, imodelposition: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Initialize)(::core::mem::transmute_copy(self), bstrxml.into_param().abi(), ::core::mem::transmute(cnummodels), ::core::mem::transmute(imodelposition)).ok()
+        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), bstrxml.into_param().abi(), ::core::mem::transmute(cnummodels), ::core::mem::transmute(imodelposition)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
     pub unsafe fn GetNumChannels(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetNumChannels)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).GetNumChannels)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
     pub unsafe fn DeviceToColorimetricColors(&self, cchannels: u32, pdevicevalues: *const f32, pxyzcolors: &mut [XYZColorF]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DeviceToColorimetricColors)(::core::mem::transmute_copy(self), pxyzcolors.len() as _, ::core::mem::transmute(cchannels), ::core::mem::transmute(pdevicevalues), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pxyzcolors))).ok()
+        (::windows::core::Interface::vtable(self).DeviceToColorimetricColors)(::windows::core::Interface::as_raw(self), pxyzcolors.len() as _, ::core::mem::transmute(cchannels), ::core::mem::transmute(pdevicevalues), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pxyzcolors))).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
     pub unsafe fn ColorimetricToDeviceColors(&self, cchannels: u32, pxyzcolors: &[XYZColorF]) -> ::windows::core::Result<f32> {
         let mut result__: f32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ColorimetricToDeviceColors)(::core::mem::transmute_copy(self), pxyzcolors.len() as _, ::core::mem::transmute(cchannels), ::core::mem::transmute(::windows::core::as_ptr_or_null(pxyzcolors)), ::core::mem::transmute(&mut result__)).from_abi::<f32>(result__)
+        (::windows::core::Interface::vtable(self).ColorimetricToDeviceColors)(::windows::core::Interface::as_raw(self), pxyzcolors.len() as _, ::core::mem::transmute(cchannels), ::core::mem::transmute(::windows::core::as_ptr_or_null(pxyzcolors)), ::core::mem::transmute(&mut result__)).from_abi::<f32>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ColorimetricToDeviceColorsWithBlack(&self, ccolors: u32, cchannels: u32, pxyzcolors: *const XYZColorF, pblackinformation: *const BlackInformation) -> ::windows::core::Result<f32> {
         let mut result__: f32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ColorimetricToDeviceColorsWithBlack)(::core::mem::transmute_copy(self), ::core::mem::transmute(ccolors), ::core::mem::transmute(cchannels), ::core::mem::transmute(pxyzcolors), ::core::mem::transmute(pblackinformation), ::core::mem::transmute(&mut result__)).from_abi::<f32>(result__)
+        (::windows::core::Interface::vtable(self).ColorimetricToDeviceColorsWithBlack)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ccolors), ::core::mem::transmute(cchannels), ::core::mem::transmute(pxyzcolors), ::core::mem::transmute(pblackinformation), ::core::mem::transmute(&mut result__)).from_abi::<f32>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
     pub unsafe fn SetTransformDeviceModelInfo<'a, Param1: ::windows::core::IntoParam<'a, IDeviceModelPlugIn>>(&self, imodelposition: u32, pidevicemodelother: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetTransformDeviceModelInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(imodelposition), pidevicemodelother.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetTransformDeviceModelInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(imodelposition), pidevicemodelother.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
     pub unsafe fn GetPrimarySamples(&self) -> ::windows::core::Result<PrimaryXYZColors> {
         let mut result__: PrimaryXYZColors = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetPrimarySamples)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<PrimaryXYZColors>(result__)
+        (::windows::core::Interface::vtable(self).GetPrimarySamples)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<PrimaryXYZColors>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
     pub unsafe fn GetGamutBoundaryMeshSize(&self, pnumvertices: *mut u32, pnumtriangles: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetGamutBoundaryMeshSize)(::core::mem::transmute_copy(self), ::core::mem::transmute(pnumvertices), ::core::mem::transmute(pnumtriangles)).ok()
+        (::windows::core::Interface::vtable(self).GetGamutBoundaryMeshSize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pnumvertices), ::core::mem::transmute(pnumtriangles)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
     pub unsafe fn GetGamutBoundaryMesh(&self, cchannels: u32, cvertices: u32, pvertices: *mut f32, ptriangles: &mut [GamutShellTriangle]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetGamutBoundaryMesh)(::core::mem::transmute_copy(self), ::core::mem::transmute(cchannels), ::core::mem::transmute(cvertices), ptriangles.len() as _, ::core::mem::transmute(pvertices), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ptriangles))).ok()
+        (::windows::core::Interface::vtable(self).GetGamutBoundaryMesh)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(cchannels), ::core::mem::transmute(cvertices), ptriangles.len() as _, ::core::mem::transmute(pvertices), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(ptriangles))).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
     pub unsafe fn GetNeutralAxisSize(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetNeutralAxisSize)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).GetNeutralAxisSize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
     pub unsafe fn GetNeutralAxis(&self, pxyzcolors: &mut [XYZColorF]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetNeutralAxis)(::core::mem::transmute_copy(self), pxyzcolors.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pxyzcolors))).ok()
+        (::windows::core::Interface::vtable(self).GetNeutralAxis)(::windows::core::Interface::as_raw(self), pxyzcolors.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pxyzcolors))).ok()
     }
 }
 impl ::core::convert::From<IDeviceModelPlugIn> for ::windows::core::IUnknown {
@@ -2438,11 +2438,11 @@ impl IGamutMapModelPlugIn {
     #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Initialize<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, IDeviceModelPlugIn>, Param2: ::windows::core::IntoParam<'a, IDeviceModelPlugIn>>(&self, bstrxml: Param0, psrcplugin: Param1, pdestplugin: Param2, psrcgbd: *const GamutBoundaryDescription, pdestgbd: *const GamutBoundaryDescription) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Initialize)(::core::mem::transmute_copy(self), bstrxml.into_param().abi(), psrcplugin.into_param().abi(), pdestplugin.into_param().abi(), ::core::mem::transmute(psrcgbd), ::core::mem::transmute(pdestgbd)).ok()
+        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), bstrxml.into_param().abi(), psrcplugin.into_param().abi(), pdestplugin.into_param().abi(), ::core::mem::transmute(psrcgbd), ::core::mem::transmute(pdestgbd)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
     pub unsafe fn SourceToDestinationAppearanceColors(&self, ccolors: u32, pinputcolors: *const JChColorF, poutputcolors: *mut JChColorF) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SourceToDestinationAppearanceColors)(::core::mem::transmute_copy(self), ::core::mem::transmute(ccolors), ::core::mem::transmute(pinputcolors), ::core::mem::transmute(poutputcolors)).ok()
+        (::windows::core::Interface::vtable(self).SourceToDestinationAppearanceColors)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ccolors), ::core::mem::transmute(pinputcolors), ::core::mem::transmute(poutputcolors)).ok()
     }
 }
 impl ::core::convert::From<IGamutMapModelPlugIn> for ::windows::core::IUnknown {

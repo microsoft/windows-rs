@@ -11,7 +11,7 @@ impl AdvancedCapturedPhoto {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Frame)(::core::mem::transmute_copy(this), &mut result__).from_abi::<CapturedFrame>(result__)
+            (::windows::core::Interface::vtable(this).Frame)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<CapturedFrame>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Media_Devices\"`*"]
@@ -20,7 +20,7 @@ impl AdvancedCapturedPhoto {
         let this = self;
         unsafe {
             let mut result__: super::Devices::AdvancedPhotoMode = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Mode)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Devices::AdvancedPhotoMode>(result__)
+            (::windows::core::Interface::vtable(this).Mode)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::Devices::AdvancedPhotoMode>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -28,7 +28,7 @@ impl AdvancedCapturedPhoto {
         let this = self;
         unsafe {
             let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Context)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
+            (::windows::core::Interface::vtable(this).Context)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
@@ -37,7 +37,7 @@ impl AdvancedCapturedPhoto {
         let this = &::windows::core::Interface::cast::<IAdvancedCapturedPhoto2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FrameBoundsRelativeToReferencePhoto)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<super::super::Foundation::Rect>>(result__)
+            (::windows::core::Interface::vtable(this).FrameBoundsRelativeToReferencePhoto)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IReference<super::super::Foundation::Rect>>(result__)
         }
     }
 }
@@ -123,7 +123,7 @@ impl AdvancedPhotoCapture {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CaptureAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<AdvancedCapturedPhoto>>(result__)
+            (::windows::core::Interface::vtable(this).CaptureAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<AdvancedCapturedPhoto>>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
@@ -132,7 +132,7 @@ impl AdvancedPhotoCapture {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CaptureWithContextAsync)(::core::mem::transmute_copy(this), context.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<AdvancedCapturedPhoto>>(result__)
+            (::windows::core::Interface::vtable(this).CaptureWithContextAsync)(::windows::core::Interface::as_raw(this), context.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<AdvancedCapturedPhoto>>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
@@ -141,14 +141,14 @@ impl AdvancedPhotoCapture {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).OptionalReferencePhotoCaptured)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).OptionalReferencePhotoCaptured)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveOptionalReferencePhotoCaptured<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveOptionalReferencePhotoCaptured)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveOptionalReferencePhotoCaptured)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -156,14 +156,14 @@ impl AdvancedPhotoCapture {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AllPhotosCaptured)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).AllPhotosCaptured)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveAllPhotosCaptured<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveAllPhotosCaptured)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveAllPhotosCaptured)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -171,7 +171,7 @@ impl AdvancedPhotoCapture {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FinishAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).FinishAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
 }
@@ -254,40 +254,40 @@ impl AppBroadcastBackgroundService {
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn SetPlugInState(&self, value: AppBroadcastPlugInState) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetPlugInState)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPlugInState)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn PlugInState(&self) -> ::windows::core::Result<AppBroadcastPlugInState> {
         let this = self;
         unsafe {
             let mut result__: AppBroadcastPlugInState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PlugInState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AppBroadcastPlugInState>(result__)
+            (::windows::core::Interface::vtable(this).PlugInState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<AppBroadcastPlugInState>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn SetSignInInfo<'a, Param0: ::windows::core::IntoParam<'a, AppBroadcastBackgroundServiceSignInInfo>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetSignInInfo)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSignInInfo)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn SignInInfo(&self) -> ::windows::core::Result<AppBroadcastBackgroundServiceSignInInfo> {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SignInInfo)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AppBroadcastBackgroundServiceSignInInfo>(result__)
+            (::windows::core::Interface::vtable(this).SignInInfo)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<AppBroadcastBackgroundServiceSignInInfo>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn SetStreamInfo<'a, Param0: ::windows::core::IntoParam<'a, AppBroadcastBackgroundServiceStreamInfo>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetStreamInfo)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetStreamInfo)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn StreamInfo(&self) -> ::windows::core::Result<AppBroadcastBackgroundServiceStreamInfo> {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).StreamInfo)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AppBroadcastBackgroundServiceStreamInfo>(result__)
+            (::windows::core::Interface::vtable(this).StreamInfo)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<AppBroadcastBackgroundServiceStreamInfo>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -295,7 +295,7 @@ impl AppBroadcastBackgroundService {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AppId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).AppId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -303,26 +303,26 @@ impl AppBroadcastBackgroundService {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).BroadcastTitle)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).BroadcastTitle)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn SetViewerCount(&self, value: u32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetViewerCount)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetViewerCount)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn ViewerCount(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ViewerCount)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).ViewerCount)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn TerminateBroadcast(&self, reason: AppBroadcastTerminationReason, providerspecificreason: u32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).TerminateBroadcast)(::core::mem::transmute_copy(this), reason, providerspecificreason).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).TerminateBroadcast)(::windows::core::Interface::as_raw(this), reason, providerspecificreason).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -330,53 +330,53 @@ impl AppBroadcastBackgroundService {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).HeartbeatRequested)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).HeartbeatRequested)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveHeartbeatRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveHeartbeatRequested)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveHeartbeatRequested)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn TitleId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TitleId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).TitleId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn SetBroadcastTitle<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IAppBroadcastBackgroundService2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetBroadcastTitle)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetBroadcastTitle)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn BroadcastLanguage(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IAppBroadcastBackgroundService2>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).BroadcastLanguage)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).BroadcastLanguage)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn SetBroadcastLanguage<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IAppBroadcastBackgroundService2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetBroadcastLanguage)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetBroadcastLanguage)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn BroadcastChannel(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IAppBroadcastBackgroundService2>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).BroadcastChannel)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).BroadcastChannel)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn SetBroadcastChannel<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IAppBroadcastBackgroundService2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetBroadcastChannel)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetBroadcastChannel)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -384,14 +384,14 @@ impl AppBroadcastBackgroundService {
         let this = &::windows::core::Interface::cast::<IAppBroadcastBackgroundService2>(self)?;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).BroadcastTitleChanged)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).BroadcastTitleChanged)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveBroadcastTitleChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IAppBroadcastBackgroundService2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveBroadcastTitleChanged)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveBroadcastTitleChanged)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -399,14 +399,14 @@ impl AppBroadcastBackgroundService {
         let this = &::windows::core::Interface::cast::<IAppBroadcastBackgroundService2>(self)?;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).BroadcastLanguageChanged)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).BroadcastLanguageChanged)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveBroadcastLanguageChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IAppBroadcastBackgroundService2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveBroadcastLanguageChanged)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveBroadcastLanguageChanged)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -414,14 +414,14 @@ impl AppBroadcastBackgroundService {
         let this = &::windows::core::Interface::cast::<IAppBroadcastBackgroundService2>(self)?;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).BroadcastChannelChanged)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).BroadcastChannelChanged)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveBroadcastChannelChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IAppBroadcastBackgroundService2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveBroadcastChannelChanged)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveBroadcastChannelChanged)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
 }
 impl ::core::clone::Clone for AppBroadcastBackgroundService {
@@ -503,14 +503,14 @@ impl AppBroadcastBackgroundServiceSignInInfo {
         let this = self;
         unsafe {
             let mut result__: AppBroadcastSignInState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SignInState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AppBroadcastSignInState>(result__)
+            (::windows::core::Interface::vtable(this).SignInState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<AppBroadcastSignInState>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetOAuthRequestUri<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Uri>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetOAuthRequestUri)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetOAuthRequestUri)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -518,14 +518,14 @@ impl AppBroadcastBackgroundServiceSignInInfo {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).OAuthRequestUri)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Uri>(result__)
+            (::windows::core::Interface::vtable(this).OAuthRequestUri)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Uri>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetOAuthCallbackUri<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Uri>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetOAuthCallbackUri)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetOAuthCallbackUri)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -533,7 +533,7 @@ impl AppBroadcastBackgroundServiceSignInInfo {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).OAuthCallbackUri)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Uri>(result__)
+            (::windows::core::Interface::vtable(this).OAuthCallbackUri)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Uri>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Security_Authentication_Web\"`*"]
@@ -542,20 +542,20 @@ impl AppBroadcastBackgroundServiceSignInInfo {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AuthenticationResult)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Security::Authentication::Web::WebAuthenticationResult>(result__)
+            (::windows::core::Interface::vtable(this).AuthenticationResult)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Security::Authentication::Web::WebAuthenticationResult>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn SetUserName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetUserName)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetUserName)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn UserName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).UserName)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).UserName)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
@@ -564,14 +564,14 @@ impl AppBroadcastBackgroundServiceSignInInfo {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SignInStateChanged)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).SignInStateChanged)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveSignInStateChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveSignInStateChanged)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveSignInStateChanged)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -579,14 +579,14 @@ impl AppBroadcastBackgroundServiceSignInInfo {
         let this = &::windows::core::Interface::cast::<IAppBroadcastBackgroundServiceSignInInfo2>(self)?;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).UserNameChanged)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).UserNameChanged)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveUserNameChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IAppBroadcastBackgroundServiceSignInInfo2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveUserNameChanged)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveUserNameChanged)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
 }
 impl ::core::clone::Clone for AppBroadcastBackgroundServiceSignInInfo {
@@ -668,46 +668,46 @@ impl AppBroadcastBackgroundServiceStreamInfo {
         let this = self;
         unsafe {
             let mut result__: AppBroadcastStreamState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).StreamState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AppBroadcastStreamState>(result__)
+            (::windows::core::Interface::vtable(this).StreamState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<AppBroadcastStreamState>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn SetDesiredVideoEncodingBitrate(&self, value: u64) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetDesiredVideoEncodingBitrate)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDesiredVideoEncodingBitrate)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn DesiredVideoEncodingBitrate(&self) -> ::windows::core::Result<u64> {
         let this = self;
         unsafe {
             let mut result__: u64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DesiredVideoEncodingBitrate)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
+            (::windows::core::Interface::vtable(this).DesiredVideoEncodingBitrate)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u64>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn SetBandwidthTestBitrate(&self, value: u64) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetBandwidthTestBitrate)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetBandwidthTestBitrate)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn BandwidthTestBitrate(&self) -> ::windows::core::Result<u64> {
         let this = self;
         unsafe {
             let mut result__: u64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).BandwidthTestBitrate)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
+            (::windows::core::Interface::vtable(this).BandwidthTestBitrate)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u64>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn SetAudioCodec<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetAudioCodec)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetAudioCodec)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn AudioCodec(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AudioCodec)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).AudioCodec)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -715,7 +715,7 @@ impl AppBroadcastBackgroundServiceStreamInfo {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).BroadcastStreamReader)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AppBroadcastStreamReader>(result__)
+            (::windows::core::Interface::vtable(this).BroadcastStreamReader)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<AppBroadcastStreamReader>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
@@ -724,14 +724,14 @@ impl AppBroadcastBackgroundServiceStreamInfo {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).StreamStateChanged)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).StreamStateChanged)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveStreamStateChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveStreamStateChanged)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveStreamStateChanged)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -739,14 +739,14 @@ impl AppBroadcastBackgroundServiceStreamInfo {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).VideoEncodingResolutionChanged)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).VideoEncodingResolutionChanged)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveVideoEncodingResolutionChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveVideoEncodingResolutionChanged)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveVideoEncodingResolutionChanged)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -754,19 +754,19 @@ impl AppBroadcastBackgroundServiceStreamInfo {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).VideoEncodingBitrateChanged)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).VideoEncodingBitrateChanged)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveVideoEncodingBitrateChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveVideoEncodingBitrateChanged)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveVideoEncodingBitrateChanged)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn ReportProblemWithStream(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IAppBroadcastBackgroundServiceStreamInfo2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).ReportProblemWithStream)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).ReportProblemWithStream)(::windows::core::Interface::as_raw(this)).ok() }
     }
 }
 impl ::core::clone::Clone for AppBroadcastBackgroundServiceStreamInfo {
@@ -883,7 +883,7 @@ impl AppBroadcastCameraCaptureStateChangedEventArgs {
         let this = self;
         unsafe {
             let mut result__: AppBroadcastCameraCaptureState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).State)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AppBroadcastCameraCaptureState>(result__)
+            (::windows::core::Interface::vtable(this).State)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<AppBroadcastCameraCaptureState>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -891,7 +891,7 @@ impl AppBroadcastCameraCaptureStateChangedEventArgs {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ErrorCode)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).ErrorCode)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u32>(result__)
         }
     }
 }
@@ -1122,7 +1122,7 @@ impl AppBroadcastGlobalSettings {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsBroadcastEnabled)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsBroadcastEnabled)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -1130,7 +1130,7 @@ impl AppBroadcastGlobalSettings {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsDisabledByPolicy)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsDisabledByPolicy)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -1138,7 +1138,7 @@ impl AppBroadcastGlobalSettings {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsGpuConstrained)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsGpuConstrained)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -1146,137 +1146,137 @@ impl AppBroadcastGlobalSettings {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).HasHardwareEncoder)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).HasHardwareEncoder)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn SetIsAudioCaptureEnabled(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetIsAudioCaptureEnabled)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetIsAudioCaptureEnabled)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn IsAudioCaptureEnabled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsAudioCaptureEnabled)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsAudioCaptureEnabled)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn SetIsMicrophoneCaptureEnabledByDefault(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetIsMicrophoneCaptureEnabledByDefault)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetIsMicrophoneCaptureEnabledByDefault)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn IsMicrophoneCaptureEnabledByDefault(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsMicrophoneCaptureEnabledByDefault)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsMicrophoneCaptureEnabledByDefault)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn SetIsEchoCancellationEnabled(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetIsEchoCancellationEnabled)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetIsEchoCancellationEnabled)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn IsEchoCancellationEnabled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsEchoCancellationEnabled)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsEchoCancellationEnabled)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn SetSystemAudioGain(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetSystemAudioGain)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSystemAudioGain)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn SystemAudioGain(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SystemAudioGain)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).SystemAudioGain)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn SetMicrophoneGain(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetMicrophoneGain)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetMicrophoneGain)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn MicrophoneGain(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MicrophoneGain)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).MicrophoneGain)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn SetIsCameraCaptureEnabledByDefault(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetIsCameraCaptureEnabledByDefault)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetIsCameraCaptureEnabledByDefault)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn IsCameraCaptureEnabledByDefault(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsCameraCaptureEnabledByDefault)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsCameraCaptureEnabledByDefault)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn SetSelectedCameraId<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetSelectedCameraId)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSelectedCameraId)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn SelectedCameraId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SelectedCameraId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).SelectedCameraId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn SetCameraOverlayLocation(&self, value: AppBroadcastCameraOverlayLocation) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetCameraOverlayLocation)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCameraOverlayLocation)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn CameraOverlayLocation(&self) -> ::windows::core::Result<AppBroadcastCameraOverlayLocation> {
         let this = self;
         unsafe {
             let mut result__: AppBroadcastCameraOverlayLocation = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CameraOverlayLocation)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AppBroadcastCameraOverlayLocation>(result__)
+            (::windows::core::Interface::vtable(this).CameraOverlayLocation)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<AppBroadcastCameraOverlayLocation>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn SetCameraOverlaySize(&self, value: AppBroadcastCameraOverlaySize) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetCameraOverlaySize)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCameraOverlaySize)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn CameraOverlaySize(&self) -> ::windows::core::Result<AppBroadcastCameraOverlaySize> {
         let this = self;
         unsafe {
             let mut result__: AppBroadcastCameraOverlaySize = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CameraOverlaySize)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AppBroadcastCameraOverlaySize>(result__)
+            (::windows::core::Interface::vtable(this).CameraOverlaySize)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<AppBroadcastCameraOverlaySize>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn SetIsCursorImageCaptureEnabled(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetIsCursorImageCaptureEnabled)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetIsCursorImageCaptureEnabled)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn IsCursorImageCaptureEnabled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsCursorImageCaptureEnabled)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsCursorImageCaptureEnabled)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
 }
@@ -1357,14 +1357,14 @@ impl AppBroadcastHeartbeatRequestedEventArgs {
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn SetHandled(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetHandled)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetHandled)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn Handled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Handled)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).Handled)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
 }
@@ -1445,23 +1445,23 @@ impl AppBroadcastManager {
     pub fn GetGlobalSettings() -> ::windows::core::Result<AppBroadcastGlobalSettings> {
         Self::IAppBroadcastManagerStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetGlobalSettings)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AppBroadcastGlobalSettings>(result__)
+            (::windows::core::Interface::vtable(this).GetGlobalSettings)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<AppBroadcastGlobalSettings>(result__)
         })
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn ApplyGlobalSettings<'a, Param0: ::windows::core::IntoParam<'a, AppBroadcastGlobalSettings>>(value: Param0) -> ::windows::core::Result<()> {
-        Self::IAppBroadcastManagerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).ApplyGlobalSettings)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() })
+        Self::IAppBroadcastManagerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).ApplyGlobalSettings)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() })
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn GetProviderSettings() -> ::windows::core::Result<AppBroadcastProviderSettings> {
         Self::IAppBroadcastManagerStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetProviderSettings)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AppBroadcastProviderSettings>(result__)
+            (::windows::core::Interface::vtable(this).GetProviderSettings)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<AppBroadcastProviderSettings>(result__)
         })
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn ApplyProviderSettings<'a, Param0: ::windows::core::IntoParam<'a, AppBroadcastProviderSettings>>(value: Param0) -> ::windows::core::Result<()> {
-        Self::IAppBroadcastManagerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).ApplyProviderSettings)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() })
+        Self::IAppBroadcastManagerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).ApplyProviderSettings)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() })
     }
     #[doc(hidden)]
     pub fn IAppBroadcastManagerStatics<R, F: FnOnce(&IAppBroadcastManagerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
@@ -1516,7 +1516,7 @@ impl AppBroadcastMicrophoneCaptureStateChangedEventArgs {
         let this = self;
         unsafe {
             let mut result__: AppBroadcastMicrophoneCaptureState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).State)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AppBroadcastMicrophoneCaptureState>(result__)
+            (::windows::core::Interface::vtable(this).State)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<AppBroadcastMicrophoneCaptureState>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -1524,7 +1524,7 @@ impl AppBroadcastMicrophoneCaptureStateChangedEventArgs {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ErrorCode)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).ErrorCode)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u32>(result__)
         }
     }
 }
@@ -1609,7 +1609,7 @@ impl AppBroadcastPlugIn {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AppId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).AppId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -1617,7 +1617,7 @@ impl AppBroadcastPlugIn {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ProviderSettings)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AppBroadcastProviderSettings>(result__)
+            (::windows::core::Interface::vtable(this).ProviderSettings)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<AppBroadcastProviderSettings>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Storage_Streams\"`*"]
@@ -1626,7 +1626,7 @@ impl AppBroadcastPlugIn {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Logo)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IRandomAccessStreamReference>(result__)
+            (::windows::core::Interface::vtable(this).Logo)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Storage::Streams::IRandomAccessStreamReference>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -1634,7 +1634,7 @@ impl AppBroadcastPlugIn {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DisplayName)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).DisplayName)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
 }
@@ -1719,7 +1719,7 @@ impl AppBroadcastPlugInManager {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsBroadcastProviderAvailable)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsBroadcastProviderAvailable)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation_Collections\"`*"]
@@ -1728,7 +1728,7 @@ impl AppBroadcastPlugInManager {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PlugInList)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<AppBroadcastPlugIn>>(result__)
+            (::windows::core::Interface::vtable(this).PlugInList)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<AppBroadcastPlugIn>>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -1736,19 +1736,19 @@ impl AppBroadcastPlugInManager {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DefaultPlugIn)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AppBroadcastPlugIn>(result__)
+            (::windows::core::Interface::vtable(this).DefaultPlugIn)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<AppBroadcastPlugIn>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn SetDefaultPlugIn<'a, Param0: ::windows::core::IntoParam<'a, AppBroadcastPlugIn>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetDefaultPlugIn)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDefaultPlugIn)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn GetDefault() -> ::windows::core::Result<AppBroadcastPlugInManager> {
         Self::IAppBroadcastPlugInManagerStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetDefault)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AppBroadcastPlugInManager>(result__)
+            (::windows::core::Interface::vtable(this).GetDefault)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<AppBroadcastPlugInManager>(result__)
         })
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"System\"`*"]
@@ -1756,7 +1756,7 @@ impl AppBroadcastPlugInManager {
     pub fn GetForUser<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::User>>(user: Param0) -> ::windows::core::Result<AppBroadcastPlugInManager> {
         Self::IAppBroadcastPlugInManagerStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetForUser)(::core::mem::transmute_copy(this), user.into_param().abi(), &mut result__).from_abi::<AppBroadcastPlugInManager>(result__)
+            (::windows::core::Interface::vtable(this).GetForUser)(::windows::core::Interface::as_raw(this), user.into_param().abi(), &mut result__).from_abi::<AppBroadcastPlugInManager>(result__)
         })
     }
     #[doc(hidden)]
@@ -1885,7 +1885,7 @@ impl AppBroadcastPlugInStateChangedEventArgs {
         let this = self;
         unsafe {
             let mut result__: AppBroadcastPlugInState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PlugInState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AppBroadcastPlugInState>(result__)
+            (::windows::core::Interface::vtable(this).PlugInState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<AppBroadcastPlugInState>(result__)
         }
     }
 }
@@ -1968,14 +1968,14 @@ impl AppBroadcastPreview {
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn StopPreview(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).StopPreview)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).StopPreview)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn PreviewState(&self) -> ::windows::core::Result<AppBroadcastPreviewState> {
         let this = self;
         unsafe {
             let mut result__: AppBroadcastPreviewState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PreviewState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AppBroadcastPreviewState>(result__)
+            (::windows::core::Interface::vtable(this).PreviewState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<AppBroadcastPreviewState>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
@@ -1984,7 +1984,7 @@ impl AppBroadcastPreview {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ErrorCode)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<u32>>(result__)
+            (::windows::core::Interface::vtable(this).ErrorCode)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IReference<u32>>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
@@ -1993,21 +1993,21 @@ impl AppBroadcastPreview {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PreviewStateChanged)(::core::mem::transmute_copy(this), value.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).PreviewStateChanged)(::windows::core::Interface::as_raw(this), value.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemovePreviewStateChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemovePreviewStateChanged)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemovePreviewStateChanged)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn PreviewStreamReader(&self) -> ::windows::core::Result<AppBroadcastPreviewStreamReader> {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PreviewStreamReader)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AppBroadcastPreviewStreamReader>(result__)
+            (::windows::core::Interface::vtable(this).PreviewStreamReader)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<AppBroadcastPreviewStreamReader>(result__)
         }
     }
 }
@@ -2127,7 +2127,7 @@ impl AppBroadcastPreviewStateChangedEventArgs {
         let this = self;
         unsafe {
             let mut result__: AppBroadcastPreviewState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PreviewState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AppBroadcastPreviewState>(result__)
+            (::windows::core::Interface::vtable(this).PreviewState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<AppBroadcastPreviewState>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -2135,7 +2135,7 @@ impl AppBroadcastPreviewStateChangedEventArgs {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ErrorCode)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).ErrorCode)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u32>(result__)
         }
     }
 }
@@ -2220,7 +2220,7 @@ impl AppBroadcastPreviewStreamReader {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).VideoWidth)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).VideoWidth)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -2228,7 +2228,7 @@ impl AppBroadcastPreviewStreamReader {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).VideoHeight)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).VideoHeight)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -2236,7 +2236,7 @@ impl AppBroadcastPreviewStreamReader {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).VideoStride)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).VideoStride)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Graphics_Imaging\"`*"]
@@ -2245,7 +2245,7 @@ impl AppBroadcastPreviewStreamReader {
         let this = self;
         unsafe {
             let mut result__: super::super::Graphics::Imaging::BitmapPixelFormat = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).VideoBitmapPixelFormat)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Graphics::Imaging::BitmapPixelFormat>(result__)
+            (::windows::core::Interface::vtable(this).VideoBitmapPixelFormat)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Graphics::Imaging::BitmapPixelFormat>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Graphics_Imaging\"`*"]
@@ -2254,7 +2254,7 @@ impl AppBroadcastPreviewStreamReader {
         let this = self;
         unsafe {
             let mut result__: super::super::Graphics::Imaging::BitmapAlphaMode = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).VideoBitmapAlphaMode)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Graphics::Imaging::BitmapAlphaMode>(result__)
+            (::windows::core::Interface::vtable(this).VideoBitmapAlphaMode)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Graphics::Imaging::BitmapAlphaMode>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -2262,7 +2262,7 @@ impl AppBroadcastPreviewStreamReader {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TryGetNextVideoFrame)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AppBroadcastPreviewStreamVideoFrame>(result__)
+            (::windows::core::Interface::vtable(this).TryGetNextVideoFrame)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<AppBroadcastPreviewStreamVideoFrame>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
@@ -2271,14 +2271,14 @@ impl AppBroadcastPreviewStreamReader {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).VideoFrameArrived)(::core::mem::transmute_copy(this), value.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).VideoFrameArrived)(::windows::core::Interface::as_raw(this), value.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveVideoFrameArrived<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveVideoFrameArrived)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveVideoFrameArrived)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
 }
 impl ::core::clone::Clone for AppBroadcastPreviewStreamReader {
@@ -2362,7 +2362,7 @@ impl AppBroadcastPreviewStreamVideoFrame {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).VideoHeader)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AppBroadcastPreviewStreamVideoHeader>(result__)
+            (::windows::core::Interface::vtable(this).VideoHeader)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<AppBroadcastPreviewStreamVideoHeader>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Storage_Streams\"`*"]
@@ -2371,7 +2371,7 @@ impl AppBroadcastPreviewStreamVideoFrame {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).VideoBuffer)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
+            (::windows::core::Interface::vtable(this).VideoBuffer)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
         }
     }
 }
@@ -2457,7 +2457,7 @@ impl AppBroadcastPreviewStreamVideoHeader {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::DateTime = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AbsoluteTimestamp)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::DateTime>(result__)
+            (::windows::core::Interface::vtable(this).AbsoluteTimestamp)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::DateTime>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
@@ -2466,7 +2466,7 @@ impl AppBroadcastPreviewStreamVideoHeader {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::TimeSpan = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RelativeTimestamp)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
+            (::windows::core::Interface::vtable(this).RelativeTimestamp)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
@@ -2475,7 +2475,7 @@ impl AppBroadcastPreviewStreamVideoHeader {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::TimeSpan = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Duration)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
+            (::windows::core::Interface::vtable(this).Duration)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -2483,7 +2483,7 @@ impl AppBroadcastPreviewStreamVideoHeader {
         let this = self;
         unsafe {
             let mut result__: u64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FrameId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
+            (::windows::core::Interface::vtable(this).FrameId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u64>(result__)
         }
     }
 }
@@ -2566,92 +2566,92 @@ impl AppBroadcastProviderSettings {
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn SetDefaultBroadcastTitle<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetDefaultBroadcastTitle)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDefaultBroadcastTitle)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn DefaultBroadcastTitle(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DefaultBroadcastTitle)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).DefaultBroadcastTitle)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn SetAudioEncodingBitrate(&self, value: u32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetAudioEncodingBitrate)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetAudioEncodingBitrate)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn AudioEncodingBitrate(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AudioEncodingBitrate)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).AudioEncodingBitrate)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn SetCustomVideoEncodingBitrate(&self, value: u32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetCustomVideoEncodingBitrate)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCustomVideoEncodingBitrate)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn CustomVideoEncodingBitrate(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CustomVideoEncodingBitrate)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).CustomVideoEncodingBitrate)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn SetCustomVideoEncodingHeight(&self, value: u32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetCustomVideoEncodingHeight)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCustomVideoEncodingHeight)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn CustomVideoEncodingHeight(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CustomVideoEncodingHeight)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).CustomVideoEncodingHeight)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn SetCustomVideoEncodingWidth(&self, value: u32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetCustomVideoEncodingWidth)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCustomVideoEncodingWidth)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn CustomVideoEncodingWidth(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CustomVideoEncodingWidth)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).CustomVideoEncodingWidth)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn SetVideoEncodingBitrateMode(&self, value: AppBroadcastVideoEncodingBitrateMode) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetVideoEncodingBitrateMode)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetVideoEncodingBitrateMode)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn VideoEncodingBitrateMode(&self) -> ::windows::core::Result<AppBroadcastVideoEncodingBitrateMode> {
         let this = self;
         unsafe {
             let mut result__: AppBroadcastVideoEncodingBitrateMode = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).VideoEncodingBitrateMode)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AppBroadcastVideoEncodingBitrateMode>(result__)
+            (::windows::core::Interface::vtable(this).VideoEncodingBitrateMode)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<AppBroadcastVideoEncodingBitrateMode>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn SetVideoEncodingResolutionMode(&self, value: AppBroadcastVideoEncodingResolutionMode) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetVideoEncodingResolutionMode)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetVideoEncodingResolutionMode)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn VideoEncodingResolutionMode(&self) -> ::windows::core::Result<AppBroadcastVideoEncodingResolutionMode> {
         let this = self;
         unsafe {
             let mut result__: AppBroadcastVideoEncodingResolutionMode = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).VideoEncodingResolutionMode)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AppBroadcastVideoEncodingResolutionMode>(result__)
+            (::windows::core::Interface::vtable(this).VideoEncodingResolutionMode)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<AppBroadcastVideoEncodingResolutionMode>(result__)
         }
     }
 }
@@ -2734,46 +2734,46 @@ impl AppBroadcastServices {
         let this = self;
         unsafe {
             let mut result__: AppBroadcastCaptureTargetType = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CaptureTargetType)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AppBroadcastCaptureTargetType>(result__)
+            (::windows::core::Interface::vtable(this).CaptureTargetType)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<AppBroadcastCaptureTargetType>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn SetCaptureTargetType(&self, value: AppBroadcastCaptureTargetType) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetCaptureTargetType)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCaptureTargetType)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn BroadcastTitle(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).BroadcastTitle)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).BroadcastTitle)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn SetBroadcastTitle<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetBroadcastTitle)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetBroadcastTitle)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn BroadcastLanguage(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).BroadcastLanguage)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).BroadcastLanguage)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn SetBroadcastLanguage<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetBroadcastLanguage)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetBroadcastLanguage)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn UserName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).UserName)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).UserName)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -2781,7 +2781,7 @@ impl AppBroadcastServices {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CanCapture)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).CanCapture)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
@@ -2790,28 +2790,28 @@ impl AppBroadcastServices {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).EnterBroadcastModeAsync)(::core::mem::transmute_copy(this), plugin.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<u32>>(result__)
+            (::windows::core::Interface::vtable(this).EnterBroadcastModeAsync)(::windows::core::Interface::as_raw(this), plugin.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<u32>>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn ExitBroadcastMode(&self, reason: AppBroadcastExitBroadcastModeReason) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).ExitBroadcastMode)(::core::mem::transmute_copy(this), reason).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).ExitBroadcastMode)(::windows::core::Interface::as_raw(this), reason).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn StartBroadcast(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).StartBroadcast)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).StartBroadcast)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn PauseBroadcast(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).PauseBroadcast)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).PauseBroadcast)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn ResumeBroadcast(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).ResumeBroadcast)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).ResumeBroadcast)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -2819,7 +2819,7 @@ impl AppBroadcastServices {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).StartPreview)(::core::mem::transmute_copy(this), desiredsize.into_param().abi(), &mut result__).from_abi::<AppBroadcastPreview>(result__)
+            (::windows::core::Interface::vtable(this).StartPreview)(::windows::core::Interface::as_raw(this), desiredsize.into_param().abi(), &mut result__).from_abi::<AppBroadcastPreview>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -2827,7 +2827,7 @@ impl AppBroadcastServices {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).State)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AppBroadcastState>(result__)
+            (::windows::core::Interface::vtable(this).State)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<AppBroadcastState>(result__)
         }
     }
 }
@@ -2986,7 +2986,7 @@ impl AppBroadcastSignInStateChangedEventArgs {
         let this = self;
         unsafe {
             let mut result__: AppBroadcastSignInState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SignInState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AppBroadcastSignInState>(result__)
+            (::windows::core::Interface::vtable(this).SignInState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<AppBroadcastSignInState>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -2994,7 +2994,7 @@ impl AppBroadcastSignInStateChangedEventArgs {
         let this = self;
         unsafe {
             let mut result__: AppBroadcastSignInResult = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Result)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AppBroadcastSignInResult>(result__)
+            (::windows::core::Interface::vtable(this).Result)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<AppBroadcastSignInResult>(result__)
         }
     }
 }
@@ -3077,7 +3077,7 @@ impl AppBroadcastState {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsCaptureTargetRunning)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsCaptureTargetRunning)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -3085,7 +3085,7 @@ impl AppBroadcastState {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ViewerCount)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).ViewerCount)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -3093,36 +3093,36 @@ impl AppBroadcastState {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ShouldCaptureMicrophone)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).ShouldCaptureMicrophone)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn SetShouldCaptureMicrophone(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetShouldCaptureMicrophone)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetShouldCaptureMicrophone)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn RestartMicrophoneCapture(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RestartMicrophoneCapture)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RestartMicrophoneCapture)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn ShouldCaptureCamera(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ShouldCaptureCamera)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).ShouldCaptureCamera)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn SetShouldCaptureCamera(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetShouldCaptureCamera)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetShouldCaptureCamera)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn RestartCameraCapture(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RestartCameraCapture)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RestartCameraCapture)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -3130,7 +3130,7 @@ impl AppBroadcastState {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::Size = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).EncodedVideoSize)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Size>(result__)
+            (::windows::core::Interface::vtable(this).EncodedVideoSize)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Size>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -3138,7 +3138,7 @@ impl AppBroadcastState {
         let this = self;
         unsafe {
             let mut result__: AppBroadcastMicrophoneCaptureState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MicrophoneCaptureState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AppBroadcastMicrophoneCaptureState>(result__)
+            (::windows::core::Interface::vtable(this).MicrophoneCaptureState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<AppBroadcastMicrophoneCaptureState>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -3146,7 +3146,7 @@ impl AppBroadcastState {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MicrophoneCaptureError)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).MicrophoneCaptureError)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -3154,7 +3154,7 @@ impl AppBroadcastState {
         let this = self;
         unsafe {
             let mut result__: AppBroadcastCameraCaptureState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CameraCaptureState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AppBroadcastCameraCaptureState>(result__)
+            (::windows::core::Interface::vtable(this).CameraCaptureState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<AppBroadcastCameraCaptureState>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -3162,7 +3162,7 @@ impl AppBroadcastState {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CameraCaptureError)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).CameraCaptureError)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -3170,7 +3170,7 @@ impl AppBroadcastState {
         let this = self;
         unsafe {
             let mut result__: AppBroadcastStreamState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).StreamState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AppBroadcastStreamState>(result__)
+            (::windows::core::Interface::vtable(this).StreamState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<AppBroadcastStreamState>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -3178,7 +3178,7 @@ impl AppBroadcastState {
         let this = self;
         unsafe {
             let mut result__: AppBroadcastPlugInState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PlugInState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AppBroadcastPlugInState>(result__)
+            (::windows::core::Interface::vtable(this).PlugInState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<AppBroadcastPlugInState>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
@@ -3187,7 +3187,7 @@ impl AppBroadcastState {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).OAuthRequestUri)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Uri>(result__)
+            (::windows::core::Interface::vtable(this).OAuthRequestUri)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Uri>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
@@ -3196,7 +3196,7 @@ impl AppBroadcastState {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).OAuthCallbackUri)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Uri>(result__)
+            (::windows::core::Interface::vtable(this).OAuthCallbackUri)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Uri>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Security_Authentication_Web\"`*"]
@@ -3205,26 +3205,26 @@ impl AppBroadcastState {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AuthenticationResult)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Security::Authentication::Web::WebAuthenticationResult>(result__)
+            (::windows::core::Interface::vtable(this).AuthenticationResult)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Security::Authentication::Web::WebAuthenticationResult>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Security_Authentication_Web\"`*"]
     #[cfg(feature = "Security_Authentication_Web")]
     pub fn SetAuthenticationResult<'a, Param0: ::windows::core::IntoParam<'a, super::super::Security::Authentication::Web::WebAuthenticationResult>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetAuthenticationResult)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetAuthenticationResult)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn SetSignInState(&self, value: AppBroadcastSignInState) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetSignInState)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSignInState)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn SignInState(&self) -> ::windows::core::Result<AppBroadcastSignInState> {
         let this = self;
         unsafe {
             let mut result__: AppBroadcastSignInState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SignInState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AppBroadcastSignInState>(result__)
+            (::windows::core::Interface::vtable(this).SignInState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<AppBroadcastSignInState>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -3232,7 +3232,7 @@ impl AppBroadcastState {
         let this = self;
         unsafe {
             let mut result__: AppBroadcastTerminationReason = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TerminationReason)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AppBroadcastTerminationReason>(result__)
+            (::windows::core::Interface::vtable(this).TerminationReason)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<AppBroadcastTerminationReason>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -3240,7 +3240,7 @@ impl AppBroadcastState {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TerminationReasonPlugInSpecific)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).TerminationReasonPlugInSpecific)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
@@ -3249,14 +3249,14 @@ impl AppBroadcastState {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ViewerCountChanged)(::core::mem::transmute_copy(this), value.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).ViewerCountChanged)(::windows::core::Interface::as_raw(this), value.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveViewerCountChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveViewerCountChanged)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveViewerCountChanged)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -3264,14 +3264,14 @@ impl AppBroadcastState {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MicrophoneCaptureStateChanged)(::core::mem::transmute_copy(this), value.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).MicrophoneCaptureStateChanged)(::windows::core::Interface::as_raw(this), value.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveMicrophoneCaptureStateChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveMicrophoneCaptureStateChanged)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveMicrophoneCaptureStateChanged)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -3279,14 +3279,14 @@ impl AppBroadcastState {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CameraCaptureStateChanged)(::core::mem::transmute_copy(this), value.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).CameraCaptureStateChanged)(::windows::core::Interface::as_raw(this), value.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveCameraCaptureStateChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveCameraCaptureStateChanged)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveCameraCaptureStateChanged)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -3294,14 +3294,14 @@ impl AppBroadcastState {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PlugInStateChanged)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).PlugInStateChanged)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemovePlugInStateChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemovePlugInStateChanged)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemovePlugInStateChanged)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -3309,14 +3309,14 @@ impl AppBroadcastState {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).StreamStateChanged)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).StreamStateChanged)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveStreamStateChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveStreamStateChanged)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveStreamStateChanged)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -3324,14 +3324,14 @@ impl AppBroadcastState {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CaptureTargetClosed)(::core::mem::transmute_copy(this), value.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).CaptureTargetClosed)(::windows::core::Interface::as_raw(this), value.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveCaptureTargetClosed<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveCaptureTargetClosed)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveCaptureTargetClosed)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
 }
 impl ::core::clone::Clone for AppBroadcastState {
@@ -3415,7 +3415,7 @@ impl AppBroadcastStreamAudioFrame {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AudioHeader)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AppBroadcastStreamAudioHeader>(result__)
+            (::windows::core::Interface::vtable(this).AudioHeader)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<AppBroadcastStreamAudioHeader>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Storage_Streams\"`*"]
@@ -3424,7 +3424,7 @@ impl AppBroadcastStreamAudioFrame {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AudioBuffer)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
+            (::windows::core::Interface::vtable(this).AudioBuffer)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
         }
     }
 }
@@ -3508,7 +3508,7 @@ impl AppBroadcastStreamAudioHeader {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::DateTime = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AbsoluteTimestamp)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::DateTime>(result__)
+            (::windows::core::Interface::vtable(this).AbsoluteTimestamp)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::DateTime>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
@@ -3517,7 +3517,7 @@ impl AppBroadcastStreamAudioHeader {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::TimeSpan = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RelativeTimestamp)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
+            (::windows::core::Interface::vtable(this).RelativeTimestamp)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
@@ -3526,7 +3526,7 @@ impl AppBroadcastStreamAudioHeader {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::TimeSpan = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Duration)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
+            (::windows::core::Interface::vtable(this).Duration)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -3534,7 +3534,7 @@ impl AppBroadcastStreamAudioHeader {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).HasDiscontinuity)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).HasDiscontinuity)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -3542,7 +3542,7 @@ impl AppBroadcastStreamAudioHeader {
         let this = self;
         unsafe {
             let mut result__: u64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FrameId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
+            (::windows::core::Interface::vtable(this).FrameId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u64>(result__)
         }
     }
 }
@@ -3625,7 +3625,7 @@ impl AppBroadcastStreamReader {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AudioChannels)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).AudioChannels)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -3633,7 +3633,7 @@ impl AppBroadcastStreamReader {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AudioSampleRate)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).AudioSampleRate)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Storage_Streams\"`*"]
@@ -3642,7 +3642,7 @@ impl AppBroadcastStreamReader {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AudioAacSequence)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
+            (::windows::core::Interface::vtable(this).AudioAacSequence)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -3650,7 +3650,7 @@ impl AppBroadcastStreamReader {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AudioBitrate)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).AudioBitrate)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -3658,7 +3658,7 @@ impl AppBroadcastStreamReader {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TryGetNextAudioFrame)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AppBroadcastStreamAudioFrame>(result__)
+            (::windows::core::Interface::vtable(this).TryGetNextAudioFrame)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<AppBroadcastStreamAudioFrame>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -3666,7 +3666,7 @@ impl AppBroadcastStreamReader {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).VideoWidth)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).VideoWidth)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -3674,7 +3674,7 @@ impl AppBroadcastStreamReader {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).VideoHeight)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).VideoHeight)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -3682,7 +3682,7 @@ impl AppBroadcastStreamReader {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).VideoBitrate)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).VideoBitrate)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -3690,7 +3690,7 @@ impl AppBroadcastStreamReader {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TryGetNextVideoFrame)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AppBroadcastStreamVideoFrame>(result__)
+            (::windows::core::Interface::vtable(this).TryGetNextVideoFrame)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<AppBroadcastStreamVideoFrame>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
@@ -3699,14 +3699,14 @@ impl AppBroadcastStreamReader {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AudioFrameArrived)(::core::mem::transmute_copy(this), value.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).AudioFrameArrived)(::windows::core::Interface::as_raw(this), value.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveAudioFrameArrived<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveAudioFrameArrived)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveAudioFrameArrived)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -3714,14 +3714,14 @@ impl AppBroadcastStreamReader {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).VideoFrameArrived)(::core::mem::transmute_copy(this), value.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).VideoFrameArrived)(::windows::core::Interface::as_raw(this), value.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveVideoFrameArrived<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveVideoFrameArrived)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveVideoFrameArrived)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
 }
 impl ::core::clone::Clone for AppBroadcastStreamReader {
@@ -3840,7 +3840,7 @@ impl AppBroadcastStreamStateChangedEventArgs {
         let this = self;
         unsafe {
             let mut result__: AppBroadcastStreamState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).StreamState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AppBroadcastStreamState>(result__)
+            (::windows::core::Interface::vtable(this).StreamState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<AppBroadcastStreamState>(result__)
         }
     }
 }
@@ -3923,7 +3923,7 @@ impl AppBroadcastStreamVideoFrame {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).VideoHeader)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AppBroadcastStreamVideoHeader>(result__)
+            (::windows::core::Interface::vtable(this).VideoHeader)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<AppBroadcastStreamVideoHeader>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Storage_Streams\"`*"]
@@ -3932,7 +3932,7 @@ impl AppBroadcastStreamVideoFrame {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).VideoBuffer)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
+            (::windows::core::Interface::vtable(this).VideoBuffer)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
         }
     }
 }
@@ -4016,7 +4016,7 @@ impl AppBroadcastStreamVideoHeader {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::DateTime = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AbsoluteTimestamp)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::DateTime>(result__)
+            (::windows::core::Interface::vtable(this).AbsoluteTimestamp)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::DateTime>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
@@ -4025,7 +4025,7 @@ impl AppBroadcastStreamVideoHeader {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::TimeSpan = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RelativeTimestamp)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
+            (::windows::core::Interface::vtable(this).RelativeTimestamp)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
@@ -4034,7 +4034,7 @@ impl AppBroadcastStreamVideoHeader {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::TimeSpan = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Duration)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
+            (::windows::core::Interface::vtable(this).Duration)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -4042,7 +4042,7 @@ impl AppBroadcastStreamVideoHeader {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsKeyFrame)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsKeyFrame)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -4050,7 +4050,7 @@ impl AppBroadcastStreamVideoHeader {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).HasDiscontinuity)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).HasDiscontinuity)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -4058,7 +4058,7 @@ impl AppBroadcastStreamVideoHeader {
         let this = self;
         unsafe {
             let mut result__: u64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FrameId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
+            (::windows::core::Interface::vtable(this).FrameId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u64>(result__)
         }
     }
 }
@@ -4183,7 +4183,7 @@ impl AppBroadcastTriggerDetails {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).BackgroundService)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AppBroadcastBackgroundService>(result__)
+            (::windows::core::Interface::vtable(this).BackgroundService)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<AppBroadcastBackgroundService>(result__)
         }
     }
 }
@@ -4334,7 +4334,7 @@ impl AppBroadcastViewerCountChangedEventArgs {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ViewerCount)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).ViewerCount)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u32>(result__)
         }
     }
 }
@@ -4419,7 +4419,7 @@ impl AppCapture {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsCapturingAudio)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsCapturingAudio)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -4427,7 +4427,7 @@ impl AppCapture {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsCapturingVideo)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsCapturingVideo)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
@@ -4436,20 +4436,20 @@ impl AppCapture {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CapturingChanged)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).CapturingChanged)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveCapturingChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveCapturingChanged)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveCapturingChanged)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn GetForCurrentView() -> ::windows::core::Result<AppCapture> {
         Self::IAppCaptureStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetForCurrentView)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AppCapture>(result__)
+            (::windows::core::Interface::vtable(this).GetForCurrentView)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<AppCapture>(result__)
         })
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
@@ -4457,7 +4457,7 @@ impl AppCapture {
     pub fn SetAllowedAsync(allowed: bool) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         Self::IAppCaptureStatics2(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SetAllowedAsync)(::core::mem::transmute_copy(this), allowed, &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).SetAllowedAsync)(::windows::core::Interface::as_raw(this), allowed, &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         })
     }
     #[doc(hidden)]
@@ -4549,7 +4549,7 @@ impl AppCaptureAlternateShortcutKeys {
     #[cfg(feature = "System")]
     pub fn SetToggleGameBarKey(&self, value: super::super::System::VirtualKey) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetToggleGameBarKey)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetToggleGameBarKey)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"System\"`*"]
     #[cfg(feature = "System")]
@@ -4557,14 +4557,14 @@ impl AppCaptureAlternateShortcutKeys {
         let this = self;
         unsafe {
             let mut result__: super::super::System::VirtualKey = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ToggleGameBarKey)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::VirtualKey>(result__)
+            (::windows::core::Interface::vtable(this).ToggleGameBarKey)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::System::VirtualKey>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn SetToggleGameBarKeyModifiers(&self, value: super::super::System::VirtualKeyModifiers) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetToggleGameBarKeyModifiers)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetToggleGameBarKeyModifiers)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"System\"`*"]
     #[cfg(feature = "System")]
@@ -4572,14 +4572,14 @@ impl AppCaptureAlternateShortcutKeys {
         let this = self;
         unsafe {
             let mut result__: super::super::System::VirtualKeyModifiers = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ToggleGameBarKeyModifiers)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::VirtualKeyModifiers>(result__)
+            (::windows::core::Interface::vtable(this).ToggleGameBarKeyModifiers)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::System::VirtualKeyModifiers>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn SetSaveHistoricalVideoKey(&self, value: super::super::System::VirtualKey) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetSaveHistoricalVideoKey)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSaveHistoricalVideoKey)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"System\"`*"]
     #[cfg(feature = "System")]
@@ -4587,14 +4587,14 @@ impl AppCaptureAlternateShortcutKeys {
         let this = self;
         unsafe {
             let mut result__: super::super::System::VirtualKey = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SaveHistoricalVideoKey)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::VirtualKey>(result__)
+            (::windows::core::Interface::vtable(this).SaveHistoricalVideoKey)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::System::VirtualKey>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn SetSaveHistoricalVideoKeyModifiers(&self, value: super::super::System::VirtualKeyModifiers) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetSaveHistoricalVideoKeyModifiers)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSaveHistoricalVideoKeyModifiers)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"System\"`*"]
     #[cfg(feature = "System")]
@@ -4602,14 +4602,14 @@ impl AppCaptureAlternateShortcutKeys {
         let this = self;
         unsafe {
             let mut result__: super::super::System::VirtualKeyModifiers = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SaveHistoricalVideoKeyModifiers)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::VirtualKeyModifiers>(result__)
+            (::windows::core::Interface::vtable(this).SaveHistoricalVideoKeyModifiers)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::System::VirtualKeyModifiers>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn SetToggleRecordingKey(&self, value: super::super::System::VirtualKey) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetToggleRecordingKey)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetToggleRecordingKey)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"System\"`*"]
     #[cfg(feature = "System")]
@@ -4617,14 +4617,14 @@ impl AppCaptureAlternateShortcutKeys {
         let this = self;
         unsafe {
             let mut result__: super::super::System::VirtualKey = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ToggleRecordingKey)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::VirtualKey>(result__)
+            (::windows::core::Interface::vtable(this).ToggleRecordingKey)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::System::VirtualKey>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn SetToggleRecordingKeyModifiers(&self, value: super::super::System::VirtualKeyModifiers) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetToggleRecordingKeyModifiers)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetToggleRecordingKeyModifiers)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"System\"`*"]
     #[cfg(feature = "System")]
@@ -4632,14 +4632,14 @@ impl AppCaptureAlternateShortcutKeys {
         let this = self;
         unsafe {
             let mut result__: super::super::System::VirtualKeyModifiers = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ToggleRecordingKeyModifiers)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::VirtualKeyModifiers>(result__)
+            (::windows::core::Interface::vtable(this).ToggleRecordingKeyModifiers)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::System::VirtualKeyModifiers>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn SetTakeScreenshotKey(&self, value: super::super::System::VirtualKey) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetTakeScreenshotKey)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetTakeScreenshotKey)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"System\"`*"]
     #[cfg(feature = "System")]
@@ -4647,14 +4647,14 @@ impl AppCaptureAlternateShortcutKeys {
         let this = self;
         unsafe {
             let mut result__: super::super::System::VirtualKey = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TakeScreenshotKey)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::VirtualKey>(result__)
+            (::windows::core::Interface::vtable(this).TakeScreenshotKey)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::System::VirtualKey>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn SetTakeScreenshotKeyModifiers(&self, value: super::super::System::VirtualKeyModifiers) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetTakeScreenshotKeyModifiers)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetTakeScreenshotKeyModifiers)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"System\"`*"]
     #[cfg(feature = "System")]
@@ -4662,14 +4662,14 @@ impl AppCaptureAlternateShortcutKeys {
         let this = self;
         unsafe {
             let mut result__: super::super::System::VirtualKeyModifiers = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TakeScreenshotKeyModifiers)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::VirtualKeyModifiers>(result__)
+            (::windows::core::Interface::vtable(this).TakeScreenshotKeyModifiers)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::System::VirtualKeyModifiers>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn SetToggleRecordingIndicatorKey(&self, value: super::super::System::VirtualKey) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetToggleRecordingIndicatorKey)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetToggleRecordingIndicatorKey)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"System\"`*"]
     #[cfg(feature = "System")]
@@ -4677,14 +4677,14 @@ impl AppCaptureAlternateShortcutKeys {
         let this = self;
         unsafe {
             let mut result__: super::super::System::VirtualKey = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ToggleRecordingIndicatorKey)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::VirtualKey>(result__)
+            (::windows::core::Interface::vtable(this).ToggleRecordingIndicatorKey)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::System::VirtualKey>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn SetToggleRecordingIndicatorKeyModifiers(&self, value: super::super::System::VirtualKeyModifiers) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetToggleRecordingIndicatorKeyModifiers)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetToggleRecordingIndicatorKeyModifiers)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"System\"`*"]
     #[cfg(feature = "System")]
@@ -4692,14 +4692,14 @@ impl AppCaptureAlternateShortcutKeys {
         let this = self;
         unsafe {
             let mut result__: super::super::System::VirtualKeyModifiers = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ToggleRecordingIndicatorKeyModifiers)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::VirtualKeyModifiers>(result__)
+            (::windows::core::Interface::vtable(this).ToggleRecordingIndicatorKeyModifiers)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::System::VirtualKeyModifiers>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn SetToggleMicrophoneCaptureKey(&self, value: super::super::System::VirtualKey) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IAppCaptureAlternateShortcutKeys2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetToggleMicrophoneCaptureKey)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetToggleMicrophoneCaptureKey)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"System\"`*"]
     #[cfg(feature = "System")]
@@ -4707,14 +4707,14 @@ impl AppCaptureAlternateShortcutKeys {
         let this = &::windows::core::Interface::cast::<IAppCaptureAlternateShortcutKeys2>(self)?;
         unsafe {
             let mut result__: super::super::System::VirtualKey = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ToggleMicrophoneCaptureKey)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::VirtualKey>(result__)
+            (::windows::core::Interface::vtable(this).ToggleMicrophoneCaptureKey)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::System::VirtualKey>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn SetToggleMicrophoneCaptureKeyModifiers(&self, value: super::super::System::VirtualKeyModifiers) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IAppCaptureAlternateShortcutKeys2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetToggleMicrophoneCaptureKeyModifiers)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetToggleMicrophoneCaptureKeyModifiers)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"System\"`*"]
     #[cfg(feature = "System")]
@@ -4722,14 +4722,14 @@ impl AppCaptureAlternateShortcutKeys {
         let this = &::windows::core::Interface::cast::<IAppCaptureAlternateShortcutKeys2>(self)?;
         unsafe {
             let mut result__: super::super::System::VirtualKeyModifiers = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ToggleMicrophoneCaptureKeyModifiers)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::VirtualKeyModifiers>(result__)
+            (::windows::core::Interface::vtable(this).ToggleMicrophoneCaptureKeyModifiers)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::System::VirtualKeyModifiers>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn SetToggleCameraCaptureKey(&self, value: super::super::System::VirtualKey) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IAppCaptureAlternateShortcutKeys3>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetToggleCameraCaptureKey)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetToggleCameraCaptureKey)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"System\"`*"]
     #[cfg(feature = "System")]
@@ -4737,14 +4737,14 @@ impl AppCaptureAlternateShortcutKeys {
         let this = &::windows::core::Interface::cast::<IAppCaptureAlternateShortcutKeys3>(self)?;
         unsafe {
             let mut result__: super::super::System::VirtualKey = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ToggleCameraCaptureKey)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::VirtualKey>(result__)
+            (::windows::core::Interface::vtable(this).ToggleCameraCaptureKey)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::System::VirtualKey>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn SetToggleCameraCaptureKeyModifiers(&self, value: super::super::System::VirtualKeyModifiers) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IAppCaptureAlternateShortcutKeys3>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetToggleCameraCaptureKeyModifiers)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetToggleCameraCaptureKeyModifiers)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"System\"`*"]
     #[cfg(feature = "System")]
@@ -4752,14 +4752,14 @@ impl AppCaptureAlternateShortcutKeys {
         let this = &::windows::core::Interface::cast::<IAppCaptureAlternateShortcutKeys3>(self)?;
         unsafe {
             let mut result__: super::super::System::VirtualKeyModifiers = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ToggleCameraCaptureKeyModifiers)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::VirtualKeyModifiers>(result__)
+            (::windows::core::Interface::vtable(this).ToggleCameraCaptureKeyModifiers)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::System::VirtualKeyModifiers>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn SetToggleBroadcastKey(&self, value: super::super::System::VirtualKey) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IAppCaptureAlternateShortcutKeys3>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetToggleBroadcastKey)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetToggleBroadcastKey)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"System\"`*"]
     #[cfg(feature = "System")]
@@ -4767,14 +4767,14 @@ impl AppCaptureAlternateShortcutKeys {
         let this = &::windows::core::Interface::cast::<IAppCaptureAlternateShortcutKeys3>(self)?;
         unsafe {
             let mut result__: super::super::System::VirtualKey = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ToggleBroadcastKey)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::VirtualKey>(result__)
+            (::windows::core::Interface::vtable(this).ToggleBroadcastKey)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::System::VirtualKey>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn SetToggleBroadcastKeyModifiers(&self, value: super::super::System::VirtualKeyModifiers) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IAppCaptureAlternateShortcutKeys3>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetToggleBroadcastKeyModifiers)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetToggleBroadcastKeyModifiers)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"System\"`*"]
     #[cfg(feature = "System")]
@@ -4782,7 +4782,7 @@ impl AppCaptureAlternateShortcutKeys {
         let this = &::windows::core::Interface::cast::<IAppCaptureAlternateShortcutKeys3>(self)?;
         unsafe {
             let mut result__: super::super::System::VirtualKeyModifiers = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ToggleBroadcastKeyModifiers)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::VirtualKeyModifiers>(result__)
+            (::windows::core::Interface::vtable(this).ToggleBroadcastKeyModifiers)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::System::VirtualKeyModifiers>(result__)
         }
     }
 }
@@ -4866,7 +4866,7 @@ impl AppCaptureDurationGeneratedEventArgs {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::TimeSpan = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Duration)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
+            (::windows::core::Interface::vtable(this).Duration)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
 }
@@ -4952,7 +4952,7 @@ impl AppCaptureFileGeneratedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).File)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::StorageFile>(result__)
+            (::windows::core::Interface::vtable(this).File)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Storage::StorageFile>(result__)
         }
     }
 }
@@ -5069,12 +5069,12 @@ impl AppCaptureManager {
     pub fn GetCurrentSettings() -> ::windows::core::Result<AppCaptureSettings> {
         Self::IAppCaptureManagerStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetCurrentSettings)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AppCaptureSettings>(result__)
+            (::windows::core::Interface::vtable(this).GetCurrentSettings)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<AppCaptureSettings>(result__)
         })
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn ApplySettings<'a, Param0: ::windows::core::IntoParam<'a, AppCaptureSettings>>(appcapturesettings: Param0) -> ::windows::core::Result<()> {
-        Self::IAppCaptureManagerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).ApplySettings)(::core::mem::transmute_copy(this), appcapturesettings.into_param().abi()).ok() })
+        Self::IAppCaptureManagerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).ApplySettings)(::windows::core::Interface::as_raw(this), appcapturesettings.into_param().abi()).ok() })
     }
     #[doc(hidden)]
     pub fn IAppCaptureManagerStatics<R, F: FnOnce(&IAppCaptureManagerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
@@ -5133,49 +5133,49 @@ impl AppCaptureMetadataWriter {
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn AddStringEvent<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0, value: Param1, priority: AppCaptureMetadataPriority) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AddStringEvent)(::core::mem::transmute_copy(this), name.into_param().abi(), value.into_param().abi(), priority).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddStringEvent)(::windows::core::Interface::as_raw(this), name.into_param().abi(), value.into_param().abi(), priority).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn AddInt32Event<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0, value: i32, priority: AppCaptureMetadataPriority) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AddInt32Event)(::core::mem::transmute_copy(this), name.into_param().abi(), value, priority).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddInt32Event)(::windows::core::Interface::as_raw(this), name.into_param().abi(), value, priority).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn AddDoubleEvent<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0, value: f64, priority: AppCaptureMetadataPriority) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AddDoubleEvent)(::core::mem::transmute_copy(this), name.into_param().abi(), value, priority).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddDoubleEvent)(::windows::core::Interface::as_raw(this), name.into_param().abi(), value, priority).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn StartStringState<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0, value: Param1, priority: AppCaptureMetadataPriority) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).StartStringState)(::core::mem::transmute_copy(this), name.into_param().abi(), value.into_param().abi(), priority).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).StartStringState)(::windows::core::Interface::as_raw(this), name.into_param().abi(), value.into_param().abi(), priority).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn StartInt32State<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0, value: i32, priority: AppCaptureMetadataPriority) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).StartInt32State)(::core::mem::transmute_copy(this), name.into_param().abi(), value, priority).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).StartInt32State)(::windows::core::Interface::as_raw(this), name.into_param().abi(), value, priority).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn StartDoubleState<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0, value: f64, priority: AppCaptureMetadataPriority) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).StartDoubleState)(::core::mem::transmute_copy(this), name.into_param().abi(), value, priority).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).StartDoubleState)(::windows::core::Interface::as_raw(this), name.into_param().abi(), value, priority).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn StopState<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).StopState)(::core::mem::transmute_copy(this), name.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).StopState)(::windows::core::Interface::as_raw(this), name.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn StopAllStates(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).StopAllStates)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).StopAllStates)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn RemainingStorageBytesAvailable(&self) -> ::windows::core::Result<u64> {
         let this = self;
         unsafe {
             let mut result__: u64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RemainingStorageBytesAvailable)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
+            (::windows::core::Interface::vtable(this).RemainingStorageBytesAvailable)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u64>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
@@ -5184,20 +5184,20 @@ impl AppCaptureMetadataWriter {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MetadataPurged)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).MetadataPurged)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveMetadataPurged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveMetadataPurged)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveMetadataPurged)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).Close)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
     }
 }
 impl ::core::clone::Clone for AppCaptureMetadataWriter {
@@ -5342,7 +5342,7 @@ impl AppCaptureMicrophoneCaptureStateChangedEventArgs {
         let this = self;
         unsafe {
             let mut result__: AppCaptureMicrophoneCaptureState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).State)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AppCaptureMicrophoneCaptureState>(result__)
+            (::windows::core::Interface::vtable(this).State)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<AppCaptureMicrophoneCaptureState>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -5350,7 +5350,7 @@ impl AppCaptureMicrophoneCaptureStateChangedEventArgs {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ErrorCode)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).ErrorCode)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u32>(result__)
         }
     }
 }
@@ -5433,14 +5433,14 @@ impl AppCaptureRecordOperation {
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn StopRecording(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).StopRecording)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).StopRecording)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn State(&self) -> ::windows::core::Result<AppCaptureRecordingState> {
         let this = self;
         unsafe {
             let mut result__: AppCaptureRecordingState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).State)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AppCaptureRecordingState>(result__)
+            (::windows::core::Interface::vtable(this).State)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<AppCaptureRecordingState>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
@@ -5449,7 +5449,7 @@ impl AppCaptureRecordOperation {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ErrorCode)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<u32>>(result__)
+            (::windows::core::Interface::vtable(this).ErrorCode)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IReference<u32>>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
@@ -5458,7 +5458,7 @@ impl AppCaptureRecordOperation {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Duration)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>(result__)
+            (::windows::core::Interface::vtable(this).Duration)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Storage\"`*"]
@@ -5467,7 +5467,7 @@ impl AppCaptureRecordOperation {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).File)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::StorageFile>(result__)
+            (::windows::core::Interface::vtable(this).File)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Storage::StorageFile>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
@@ -5476,7 +5476,7 @@ impl AppCaptureRecordOperation {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsFileTruncated)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<bool>>(result__)
+            (::windows::core::Interface::vtable(this).IsFileTruncated)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IReference<bool>>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
@@ -5485,14 +5485,14 @@ impl AppCaptureRecordOperation {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).StateChanged)(::core::mem::transmute_copy(this), value.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).StateChanged)(::windows::core::Interface::as_raw(this), value.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveStateChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveStateChanged)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveStateChanged)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -5500,14 +5500,14 @@ impl AppCaptureRecordOperation {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DurationGenerated)(::core::mem::transmute_copy(this), value.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).DurationGenerated)(::windows::core::Interface::as_raw(this), value.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveDurationGenerated<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveDurationGenerated)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveDurationGenerated)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -5515,14 +5515,14 @@ impl AppCaptureRecordOperation {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FileGenerated)(::core::mem::transmute_copy(this), value.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).FileGenerated)(::windows::core::Interface::as_raw(this), value.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveFileGenerated<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveFileGenerated)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveFileGenerated)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
 }
 impl ::core::clone::Clone for AppCaptureRecordOperation {
@@ -5641,7 +5641,7 @@ impl AppCaptureRecordingStateChangedEventArgs {
         let this = self;
         unsafe {
             let mut result__: AppCaptureRecordingState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).State)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AppCaptureRecordingState>(result__)
+            (::windows::core::Interface::vtable(this).State)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<AppCaptureRecordingState>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -5649,7 +5649,7 @@ impl AppCaptureRecordingStateChangedEventArgs {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ErrorCode)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).ErrorCode)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u32>(result__)
         }
     }
 }
@@ -5734,7 +5734,7 @@ impl AppCaptureServices {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Record)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AppCaptureRecordOperation>(result__)
+            (::windows::core::Interface::vtable(this).Record)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<AppCaptureRecordOperation>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
@@ -5743,7 +5743,7 @@ impl AppCaptureServices {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RecordTimeSpan)(::core::mem::transmute_copy(this), starttime.into_param().abi(), duration.into_param().abi(), &mut result__).from_abi::<AppCaptureRecordOperation>(result__)
+            (::windows::core::Interface::vtable(this).RecordTimeSpan)(::windows::core::Interface::as_raw(this), starttime.into_param().abi(), duration.into_param().abi(), &mut result__).from_abi::<AppCaptureRecordOperation>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -5751,7 +5751,7 @@ impl AppCaptureServices {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CanCapture)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).CanCapture)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -5759,7 +5759,7 @@ impl AppCaptureServices {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).State)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AppCaptureState>(result__)
+            (::windows::core::Interface::vtable(this).State)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<AppCaptureState>(result__)
         }
     }
 }
@@ -5843,7 +5843,7 @@ impl AppCaptureSettings {
     #[cfg(feature = "Storage")]
     pub fn SetAppCaptureDestinationFolder<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::StorageFolder>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetAppCaptureDestinationFolder)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetAppCaptureDestinationFolder)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Storage\"`*"]
     #[cfg(feature = "Storage")]
@@ -5851,144 +5851,144 @@ impl AppCaptureSettings {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AppCaptureDestinationFolder)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::StorageFolder>(result__)
+            (::windows::core::Interface::vtable(this).AppCaptureDestinationFolder)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Storage::StorageFolder>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn SetAudioEncodingBitrate(&self, value: u32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetAudioEncodingBitrate)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetAudioEncodingBitrate)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn AudioEncodingBitrate(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AudioEncodingBitrate)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).AudioEncodingBitrate)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn SetIsAudioCaptureEnabled(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetIsAudioCaptureEnabled)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetIsAudioCaptureEnabled)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn IsAudioCaptureEnabled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsAudioCaptureEnabled)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsAudioCaptureEnabled)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn SetCustomVideoEncodingBitrate(&self, value: u32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetCustomVideoEncodingBitrate)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCustomVideoEncodingBitrate)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn CustomVideoEncodingBitrate(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CustomVideoEncodingBitrate)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).CustomVideoEncodingBitrate)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn SetCustomVideoEncodingHeight(&self, value: u32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetCustomVideoEncodingHeight)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCustomVideoEncodingHeight)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn CustomVideoEncodingHeight(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CustomVideoEncodingHeight)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).CustomVideoEncodingHeight)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn SetCustomVideoEncodingWidth(&self, value: u32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetCustomVideoEncodingWidth)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCustomVideoEncodingWidth)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn CustomVideoEncodingWidth(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CustomVideoEncodingWidth)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).CustomVideoEncodingWidth)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn SetHistoricalBufferLength(&self, value: u32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetHistoricalBufferLength)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetHistoricalBufferLength)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn HistoricalBufferLength(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).HistoricalBufferLength)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).HistoricalBufferLength)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn SetHistoricalBufferLengthUnit(&self, value: AppCaptureHistoricalBufferLengthUnit) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetHistoricalBufferLengthUnit)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetHistoricalBufferLengthUnit)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn HistoricalBufferLengthUnit(&self) -> ::windows::core::Result<AppCaptureHistoricalBufferLengthUnit> {
         let this = self;
         unsafe {
             let mut result__: AppCaptureHistoricalBufferLengthUnit = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).HistoricalBufferLengthUnit)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AppCaptureHistoricalBufferLengthUnit>(result__)
+            (::windows::core::Interface::vtable(this).HistoricalBufferLengthUnit)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<AppCaptureHistoricalBufferLengthUnit>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn SetIsHistoricalCaptureEnabled(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetIsHistoricalCaptureEnabled)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetIsHistoricalCaptureEnabled)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn IsHistoricalCaptureEnabled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsHistoricalCaptureEnabled)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsHistoricalCaptureEnabled)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn SetIsHistoricalCaptureOnBatteryAllowed(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetIsHistoricalCaptureOnBatteryAllowed)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetIsHistoricalCaptureOnBatteryAllowed)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn IsHistoricalCaptureOnBatteryAllowed(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsHistoricalCaptureOnBatteryAllowed)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsHistoricalCaptureOnBatteryAllowed)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn SetIsHistoricalCaptureOnWirelessDisplayAllowed(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetIsHistoricalCaptureOnWirelessDisplayAllowed)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetIsHistoricalCaptureOnWirelessDisplayAllowed)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn IsHistoricalCaptureOnWirelessDisplayAllowed(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsHistoricalCaptureOnWirelessDisplayAllowed)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsHistoricalCaptureOnWirelessDisplayAllowed)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetMaximumRecordLength<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TimeSpan>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetMaximumRecordLength)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetMaximumRecordLength)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -5996,14 +5996,14 @@ impl AppCaptureSettings {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::TimeSpan = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MaximumRecordLength)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
+            (::windows::core::Interface::vtable(this).MaximumRecordLength)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Storage\"`*"]
     #[cfg(feature = "Storage")]
     pub fn SetScreenshotDestinationFolder<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::StorageFolder>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetScreenshotDestinationFolder)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetScreenshotDestinationFolder)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Storage\"`*"]
     #[cfg(feature = "Storage")]
@@ -6011,46 +6011,46 @@ impl AppCaptureSettings {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ScreenshotDestinationFolder)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::StorageFolder>(result__)
+            (::windows::core::Interface::vtable(this).ScreenshotDestinationFolder)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Storage::StorageFolder>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn SetVideoEncodingBitrateMode(&self, value: AppCaptureVideoEncodingBitrateMode) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetVideoEncodingBitrateMode)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetVideoEncodingBitrateMode)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn VideoEncodingBitrateMode(&self) -> ::windows::core::Result<AppCaptureVideoEncodingBitrateMode> {
         let this = self;
         unsafe {
             let mut result__: AppCaptureVideoEncodingBitrateMode = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).VideoEncodingBitrateMode)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AppCaptureVideoEncodingBitrateMode>(result__)
+            (::windows::core::Interface::vtable(this).VideoEncodingBitrateMode)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<AppCaptureVideoEncodingBitrateMode>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn SetVideoEncodingResolutionMode(&self, value: AppCaptureVideoEncodingResolutionMode) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetVideoEncodingResolutionMode)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetVideoEncodingResolutionMode)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn VideoEncodingResolutionMode(&self) -> ::windows::core::Result<AppCaptureVideoEncodingResolutionMode> {
         let this = self;
         unsafe {
             let mut result__: AppCaptureVideoEncodingResolutionMode = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).VideoEncodingResolutionMode)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AppCaptureVideoEncodingResolutionMode>(result__)
+            (::windows::core::Interface::vtable(this).VideoEncodingResolutionMode)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<AppCaptureVideoEncodingResolutionMode>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn SetIsAppCaptureEnabled(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetIsAppCaptureEnabled)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetIsAppCaptureEnabled)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn IsAppCaptureEnabled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsAppCaptureEnabled)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsAppCaptureEnabled)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -6058,7 +6058,7 @@ impl AppCaptureSettings {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsCpuConstrained)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsCpuConstrained)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -6066,7 +6066,7 @@ impl AppCaptureSettings {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsDisabledByPolicy)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsDisabledByPolicy)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -6074,7 +6074,7 @@ impl AppCaptureSettings {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsMemoryConstrained)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsMemoryConstrained)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -6082,7 +6082,7 @@ impl AppCaptureSettings {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).HasHardwareEncoder)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).HasHardwareEncoder)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -6090,7 +6090,7 @@ impl AppCaptureSettings {
         let this = &::windows::core::Interface::cast::<IAppCaptureSettings2>(self)?;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsGpuConstrained)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsGpuConstrained)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -6098,98 +6098,98 @@ impl AppCaptureSettings {
         let this = &::windows::core::Interface::cast::<IAppCaptureSettings2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AlternateShortcutKeys)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AppCaptureAlternateShortcutKeys>(result__)
+            (::windows::core::Interface::vtable(this).AlternateShortcutKeys)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<AppCaptureAlternateShortcutKeys>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn SetIsMicrophoneCaptureEnabled(&self, value: bool) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IAppCaptureSettings3>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetIsMicrophoneCaptureEnabled)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetIsMicrophoneCaptureEnabled)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn IsMicrophoneCaptureEnabled(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IAppCaptureSettings3>(self)?;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsMicrophoneCaptureEnabled)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsMicrophoneCaptureEnabled)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn SetIsMicrophoneCaptureEnabledByDefault(&self, value: bool) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IAppCaptureSettings4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetIsMicrophoneCaptureEnabledByDefault)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetIsMicrophoneCaptureEnabledByDefault)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn IsMicrophoneCaptureEnabledByDefault(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IAppCaptureSettings4>(self)?;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsMicrophoneCaptureEnabledByDefault)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsMicrophoneCaptureEnabledByDefault)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn SetSystemAudioGain(&self, value: f64) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IAppCaptureSettings4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetSystemAudioGain)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSystemAudioGain)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn SystemAudioGain(&self) -> ::windows::core::Result<f64> {
         let this = &::windows::core::Interface::cast::<IAppCaptureSettings4>(self)?;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SystemAudioGain)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).SystemAudioGain)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn SetMicrophoneGain(&self, value: f64) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IAppCaptureSettings4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetMicrophoneGain)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetMicrophoneGain)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn MicrophoneGain(&self) -> ::windows::core::Result<f64> {
         let this = &::windows::core::Interface::cast::<IAppCaptureSettings4>(self)?;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MicrophoneGain)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).MicrophoneGain)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn SetVideoEncodingFrameRateMode(&self, value: AppCaptureVideoEncodingFrameRateMode) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IAppCaptureSettings4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetVideoEncodingFrameRateMode)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetVideoEncodingFrameRateMode)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn VideoEncodingFrameRateMode(&self) -> ::windows::core::Result<AppCaptureVideoEncodingFrameRateMode> {
         let this = &::windows::core::Interface::cast::<IAppCaptureSettings4>(self)?;
         unsafe {
             let mut result__: AppCaptureVideoEncodingFrameRateMode = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).VideoEncodingFrameRateMode)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AppCaptureVideoEncodingFrameRateMode>(result__)
+            (::windows::core::Interface::vtable(this).VideoEncodingFrameRateMode)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<AppCaptureVideoEncodingFrameRateMode>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn SetIsEchoCancellationEnabled(&self, value: bool) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IAppCaptureSettings5>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetIsEchoCancellationEnabled)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetIsEchoCancellationEnabled)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn IsEchoCancellationEnabled(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IAppCaptureSettings5>(self)?;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsEchoCancellationEnabled)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsEchoCancellationEnabled)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn SetIsCursorImageCaptureEnabled(&self, value: bool) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IAppCaptureSettings5>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetIsCursorImageCaptureEnabled)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetIsCursorImageCaptureEnabled)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn IsCursorImageCaptureEnabled(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IAppCaptureSettings5>(self)?;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsCursorImageCaptureEnabled)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsCursorImageCaptureEnabled)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
 }
@@ -6272,7 +6272,7 @@ impl AppCaptureState {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsTargetRunning)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsTargetRunning)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -6280,7 +6280,7 @@ impl AppCaptureState {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsHistoricalCaptureEnabled)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsHistoricalCaptureEnabled)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -6288,25 +6288,25 @@ impl AppCaptureState {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ShouldCaptureMicrophone)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).ShouldCaptureMicrophone)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn SetShouldCaptureMicrophone(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetShouldCaptureMicrophone)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetShouldCaptureMicrophone)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn RestartMicrophoneCapture(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RestartMicrophoneCapture)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RestartMicrophoneCapture)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn MicrophoneCaptureState(&self) -> ::windows::core::Result<AppCaptureMicrophoneCaptureState> {
         let this = self;
         unsafe {
             let mut result__: AppCaptureMicrophoneCaptureState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MicrophoneCaptureState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AppCaptureMicrophoneCaptureState>(result__)
+            (::windows::core::Interface::vtable(this).MicrophoneCaptureState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<AppCaptureMicrophoneCaptureState>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -6314,7 +6314,7 @@ impl AppCaptureState {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MicrophoneCaptureError)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).MicrophoneCaptureError)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
@@ -6323,14 +6323,14 @@ impl AppCaptureState {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MicrophoneCaptureStateChanged)(::core::mem::transmute_copy(this), value.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).MicrophoneCaptureStateChanged)(::windows::core::Interface::as_raw(this), value.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveMicrophoneCaptureStateChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveMicrophoneCaptureStateChanged)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveMicrophoneCaptureStateChanged)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -6338,14 +6338,14 @@ impl AppCaptureState {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CaptureTargetClosed)(::core::mem::transmute_copy(this), value.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).CaptureTargetClosed)(::windows::core::Interface::as_raw(this), value.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveCaptureTargetClosed<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveCaptureTargetClosed)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveCaptureTargetClosed)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
 }
 impl ::core::clone::Clone for AppCaptureState {
@@ -6540,7 +6540,7 @@ impl CameraCaptureUI {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PhotoSettings)(::core::mem::transmute_copy(this), &mut result__).from_abi::<CameraCaptureUIPhotoCaptureSettings>(result__)
+            (::windows::core::Interface::vtable(this).PhotoSettings)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<CameraCaptureUIPhotoCaptureSettings>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -6548,7 +6548,7 @@ impl CameraCaptureUI {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).VideoSettings)(::core::mem::transmute_copy(this), &mut result__).from_abi::<CameraCaptureUIVideoCaptureSettings>(result__)
+            (::windows::core::Interface::vtable(this).VideoSettings)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<CameraCaptureUIVideoCaptureSettings>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`, `\"Storage\"`*"]
@@ -6557,7 +6557,7 @@ impl CameraCaptureUI {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CaptureFileAsync)(::core::mem::transmute_copy(this), mode, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Storage::StorageFile>>(result__)
+            (::windows::core::Interface::vtable(this).CaptureFileAsync)(::windows::core::Interface::as_raw(this), mode, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Storage::StorageFile>>(result__)
         }
     }
 }
@@ -6749,26 +6749,26 @@ impl CameraCaptureUIPhotoCaptureSettings {
         let this = self;
         unsafe {
             let mut result__: CameraCaptureUIPhotoFormat = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Format)(::core::mem::transmute_copy(this), &mut result__).from_abi::<CameraCaptureUIPhotoFormat>(result__)
+            (::windows::core::Interface::vtable(this).Format)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<CameraCaptureUIPhotoFormat>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn SetFormat(&self, value: CameraCaptureUIPhotoFormat) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetFormat)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetFormat)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn MaxResolution(&self) -> ::windows::core::Result<CameraCaptureUIMaxPhotoResolution> {
         let this = self;
         unsafe {
             let mut result__: CameraCaptureUIMaxPhotoResolution = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MaxResolution)(::core::mem::transmute_copy(this), &mut result__).from_abi::<CameraCaptureUIMaxPhotoResolution>(result__)
+            (::windows::core::Interface::vtable(this).MaxResolution)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<CameraCaptureUIMaxPhotoResolution>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn SetMaxResolution(&self, value: CameraCaptureUIMaxPhotoResolution) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetMaxResolution)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetMaxResolution)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -6776,14 +6776,14 @@ impl CameraCaptureUIPhotoCaptureSettings {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::Size = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CroppedSizeInPixels)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Size>(result__)
+            (::windows::core::Interface::vtable(this).CroppedSizeInPixels)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Size>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetCroppedSizeInPixels<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Size>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetCroppedSizeInPixels)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCroppedSizeInPixels)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -6791,27 +6791,27 @@ impl CameraCaptureUIPhotoCaptureSettings {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::Size = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CroppedAspectRatio)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Size>(result__)
+            (::windows::core::Interface::vtable(this).CroppedAspectRatio)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Size>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetCroppedAspectRatio<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Size>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetCroppedAspectRatio)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCroppedAspectRatio)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn AllowCropping(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AllowCropping)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).AllowCropping)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn SetAllowCropping(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetAllowCropping)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetAllowCropping)(::windows::core::Interface::as_raw(this), value).ok() }
     }
 }
 impl ::core::clone::Clone for CameraCaptureUIPhotoCaptureSettings {
@@ -6930,52 +6930,52 @@ impl CameraCaptureUIVideoCaptureSettings {
         let this = self;
         unsafe {
             let mut result__: CameraCaptureUIVideoFormat = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Format)(::core::mem::transmute_copy(this), &mut result__).from_abi::<CameraCaptureUIVideoFormat>(result__)
+            (::windows::core::Interface::vtable(this).Format)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<CameraCaptureUIVideoFormat>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn SetFormat(&self, value: CameraCaptureUIVideoFormat) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetFormat)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetFormat)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn MaxResolution(&self) -> ::windows::core::Result<CameraCaptureUIMaxVideoResolution> {
         let this = self;
         unsafe {
             let mut result__: CameraCaptureUIMaxVideoResolution = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MaxResolution)(::core::mem::transmute_copy(this), &mut result__).from_abi::<CameraCaptureUIMaxVideoResolution>(result__)
+            (::windows::core::Interface::vtable(this).MaxResolution)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<CameraCaptureUIMaxVideoResolution>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn SetMaxResolution(&self, value: CameraCaptureUIMaxVideoResolution) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetMaxResolution)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetMaxResolution)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn MaxDurationInSeconds(&self) -> ::windows::core::Result<f32> {
         let this = self;
         unsafe {
             let mut result__: f32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MaxDurationInSeconds)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f32>(result__)
+            (::windows::core::Interface::vtable(this).MaxDurationInSeconds)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f32>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn SetMaxDurationInSeconds(&self, value: f32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetMaxDurationInSeconds)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetMaxDurationInSeconds)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn AllowTrimming(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AllowTrimming)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).AllowTrimming)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn SetAllowTrimming(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetAllowTrimming)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetAllowTrimming)(::windows::core::Interface::as_raw(this), value).ok() }
     }
 }
 impl ::core::clone::Clone for CameraCaptureUIVideoCaptureSettings {
@@ -7089,7 +7089,7 @@ pub struct CameraOptionsUI {}
 impl CameraOptionsUI {
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn Show<'a, Param0: ::windows::core::IntoParam<'a, MediaCapture>>(mediacapture: Param0) -> ::windows::core::Result<()> {
-        Self::ICameraOptionsUIStatics(|this| unsafe { (::windows::core::Interface::vtable(this).Show)(::core::mem::transmute_copy(this), mediacapture.into_param().abi()).ok() })
+        Self::ICameraOptionsUIStatics(|this| unsafe { (::windows::core::Interface::vtable(this).Show)(::windows::core::Interface::as_raw(this), mediacapture.into_param().abi()).ok() })
     }
     #[doc(hidden)]
     pub fn ICameraOptionsUIStatics<R, F: FnOnce(&ICameraOptionsUIStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
@@ -7109,7 +7109,7 @@ impl CapturedFrame {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Width)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).Width)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -7117,7 +7117,7 @@ impl CapturedFrame {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Height)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).Height)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -7125,7 +7125,7 @@ impl CapturedFrame {
         let this = &::windows::core::Interface::cast::<ICapturedFrame2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ControlValues)(::core::mem::transmute_copy(this), &mut result__).from_abi::<CapturedFrameControlValues>(result__)
+            (::windows::core::Interface::vtable(this).ControlValues)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<CapturedFrameControlValues>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation_Collections\"`, `\"Graphics_Imaging\"`*"]
@@ -7134,7 +7134,7 @@ impl CapturedFrame {
         let this = &::windows::core::Interface::cast::<ICapturedFrame2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).BitmapProperties)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Graphics::Imaging::BitmapPropertySet>(result__)
+            (::windows::core::Interface::vtable(this).BitmapProperties)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Graphics::Imaging::BitmapPropertySet>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Graphics_Imaging\"`*"]
@@ -7143,14 +7143,14 @@ impl CapturedFrame {
         let this = &::windows::core::Interface::cast::<ICapturedFrameWithSoftwareBitmap>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SoftwareBitmap)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Graphics::Imaging::SoftwareBitmap>(result__)
+            (::windows::core::Interface::vtable(this).SoftwareBitmap)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Graphics::Imaging::SoftwareBitmap>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).Close)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
@@ -7158,7 +7158,7 @@ impl CapturedFrame {
         let this = &::windows::core::Interface::cast::<super::super::Storage::Streams::IContentTypeProvider>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ContentType)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).ContentType)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
@@ -7167,7 +7167,7 @@ impl CapturedFrame {
         let this = &::windows::core::Interface::cast::<super::super::Storage::Streams::IInputStream>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ReadAsync)(::core::mem::transmute_copy(this), buffer.into_param().abi(), count, options, &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<super::super::Storage::Streams::IBuffer, u32>>(result__)
+            (::windows::core::Interface::vtable(this).ReadAsync)(::windows::core::Interface::as_raw(this), buffer.into_param().abi(), count, options, &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<super::super::Storage::Streams::IBuffer, u32>>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
@@ -7176,7 +7176,7 @@ impl CapturedFrame {
         let this = &::windows::core::Interface::cast::<super::super::Storage::Streams::IOutputStream>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).WriteAsync)(::core::mem::transmute_copy(this), buffer.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>(result__)
+            (::windows::core::Interface::vtable(this).WriteAsync)(::windows::core::Interface::as_raw(this), buffer.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
@@ -7185,7 +7185,7 @@ impl CapturedFrame {
         let this = &::windows::core::Interface::cast::<super::super::Storage::Streams::IOutputStream>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FlushAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Interface::vtable(this).FlushAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Storage_Streams\"`*"]
@@ -7194,14 +7194,14 @@ impl CapturedFrame {
         let this = &::windows::core::Interface::cast::<super::super::Storage::Streams::IRandomAccessStream>(self)?;
         unsafe {
             let mut result__: u64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Size)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
+            (::windows::core::Interface::vtable(this).Size)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u64>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn SetSize(&self, value: u64) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Storage::Streams::IRandomAccessStream>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetSize)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSize)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
@@ -7209,7 +7209,7 @@ impl CapturedFrame {
         let this = &::windows::core::Interface::cast::<super::super::Storage::Streams::IRandomAccessStream>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetInputStreamAt)(::core::mem::transmute_copy(this), position, &mut result__).from_abi::<super::super::Storage::Streams::IInputStream>(result__)
+            (::windows::core::Interface::vtable(this).GetInputStreamAt)(::windows::core::Interface::as_raw(this), position, &mut result__).from_abi::<super::super::Storage::Streams::IInputStream>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Storage_Streams\"`*"]
@@ -7218,7 +7218,7 @@ impl CapturedFrame {
         let this = &::windows::core::Interface::cast::<super::super::Storage::Streams::IRandomAccessStream>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetOutputStreamAt)(::core::mem::transmute_copy(this), position, &mut result__).from_abi::<super::super::Storage::Streams::IOutputStream>(result__)
+            (::windows::core::Interface::vtable(this).GetOutputStreamAt)(::windows::core::Interface::as_raw(this), position, &mut result__).from_abi::<super::super::Storage::Streams::IOutputStream>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Storage_Streams\"`*"]
@@ -7227,14 +7227,14 @@ impl CapturedFrame {
         let this = &::windows::core::Interface::cast::<super::super::Storage::Streams::IRandomAccessStream>(self)?;
         unsafe {
             let mut result__: u64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Position)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
+            (::windows::core::Interface::vtable(this).Position)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u64>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn Seek(&self, position: u64) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Storage::Streams::IRandomAccessStream>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).Seek)(::core::mem::transmute_copy(this), position).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Seek)(::windows::core::Interface::as_raw(this), position).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
@@ -7242,7 +7242,7 @@ impl CapturedFrame {
         let this = &::windows::core::Interface::cast::<super::super::Storage::Streams::IRandomAccessStream>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CloneStream)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IRandomAccessStream>(result__)
+            (::windows::core::Interface::vtable(this).CloneStream)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Storage::Streams::IRandomAccessStream>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Storage_Streams\"`*"]
@@ -7251,7 +7251,7 @@ impl CapturedFrame {
         let this = &::windows::core::Interface::cast::<super::super::Storage::Streams::IRandomAccessStream>(self)?;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CanRead)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).CanRead)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Storage_Streams\"`*"]
@@ -7260,7 +7260,7 @@ impl CapturedFrame {
         let this = &::windows::core::Interface::cast::<super::super::Storage::Streams::IRandomAccessStream>(self)?;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CanWrite)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).CanWrite)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
 }
@@ -7502,7 +7502,7 @@ impl CapturedFrameControlValues {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Exposure)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>(result__)
+            (::windows::core::Interface::vtable(this).Exposure)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
@@ -7511,7 +7511,7 @@ impl CapturedFrameControlValues {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ExposureCompensation)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<f32>>(result__)
+            (::windows::core::Interface::vtable(this).ExposureCompensation)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IReference<f32>>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
@@ -7520,7 +7520,7 @@ impl CapturedFrameControlValues {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsoSpeed)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<u32>>(result__)
+            (::windows::core::Interface::vtable(this).IsoSpeed)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IReference<u32>>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
@@ -7529,7 +7529,7 @@ impl CapturedFrameControlValues {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Focus)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<u32>>(result__)
+            (::windows::core::Interface::vtable(this).Focus)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IReference<u32>>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`, `\"Media_Devices\"`*"]
@@ -7538,7 +7538,7 @@ impl CapturedFrameControlValues {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SceneMode)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<super::Devices::CaptureSceneMode>>(result__)
+            (::windows::core::Interface::vtable(this).SceneMode)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IReference<super::Devices::CaptureSceneMode>>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
@@ -7547,7 +7547,7 @@ impl CapturedFrameControlValues {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Flashed)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<bool>>(result__)
+            (::windows::core::Interface::vtable(this).Flashed)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IReference<bool>>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
@@ -7556,7 +7556,7 @@ impl CapturedFrameControlValues {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FlashPowerPercent)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<f32>>(result__)
+            (::windows::core::Interface::vtable(this).FlashPowerPercent)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IReference<f32>>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
@@ -7565,7 +7565,7 @@ impl CapturedFrameControlValues {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).WhiteBalance)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<u32>>(result__)
+            (::windows::core::Interface::vtable(this).WhiteBalance)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IReference<u32>>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
@@ -7574,7 +7574,7 @@ impl CapturedFrameControlValues {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ZoomFactor)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<f32>>(result__)
+            (::windows::core::Interface::vtable(this).ZoomFactor)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IReference<f32>>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`, `\"Media_Devices\"`*"]
@@ -7583,7 +7583,7 @@ impl CapturedFrameControlValues {
         let this = &::windows::core::Interface::cast::<ICapturedFrameControlValues2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FocusState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<super::Devices::MediaCaptureFocusState>>(result__)
+            (::windows::core::Interface::vtable(this).FocusState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IReference<super::Devices::MediaCaptureFocusState>>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
@@ -7592,7 +7592,7 @@ impl CapturedFrameControlValues {
         let this = &::windows::core::Interface::cast::<ICapturedFrameControlValues2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsoDigitalGain)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<f64>>(result__)
+            (::windows::core::Interface::vtable(this).IsoDigitalGain)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IReference<f64>>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
@@ -7601,7 +7601,7 @@ impl CapturedFrameControlValues {
         let this = &::windows::core::Interface::cast::<ICapturedFrameControlValues2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsoAnalogGain)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<f64>>(result__)
+            (::windows::core::Interface::vtable(this).IsoAnalogGain)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IReference<f64>>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Media_MediaProperties\"`*"]
@@ -7610,7 +7610,7 @@ impl CapturedFrameControlValues {
         let this = &::windows::core::Interface::cast::<ICapturedFrameControlValues2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SensorFrameRate)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::MediaProperties::MediaRatio>(result__)
+            (::windows::core::Interface::vtable(this).SensorFrameRate)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::MediaProperties::MediaRatio>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
@@ -7619,7 +7619,7 @@ impl CapturedFrameControlValues {
         let this = &::windows::core::Interface::cast::<ICapturedFrameControlValues2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).WhiteBalanceGain)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<WhiteBalanceGain>>(result__)
+            (::windows::core::Interface::vtable(this).WhiteBalanceGain)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IReference<WhiteBalanceGain>>(result__)
         }
     }
 }
@@ -7704,7 +7704,7 @@ impl CapturedPhoto {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Frame)(::core::mem::transmute_copy(this), &mut result__).from_abi::<CapturedFrame>(result__)
+            (::windows::core::Interface::vtable(this).Frame)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<CapturedFrame>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -7712,7 +7712,7 @@ impl CapturedPhoto {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Thumbnail)(::core::mem::transmute_copy(this), &mut result__).from_abi::<CapturedFrame>(result__)
+            (::windows::core::Interface::vtable(this).Thumbnail)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<CapturedFrame>(result__)
         }
     }
 }
@@ -7912,25 +7912,25 @@ impl GameBarServices {
         let this = self;
         unsafe {
             let mut result__: GameBarTargetCapturePolicy = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TargetCapturePolicy)(::core::mem::transmute_copy(this), &mut result__).from_abi::<GameBarTargetCapturePolicy>(result__)
+            (::windows::core::Interface::vtable(this).TargetCapturePolicy)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<GameBarTargetCapturePolicy>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn EnableCapture(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).EnableCapture)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).EnableCapture)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn DisableCapture(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).DisableCapture)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).DisableCapture)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn TargetInfo(&self) -> ::windows::core::Result<GameBarServicesTargetInfo> {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TargetInfo)(::core::mem::transmute_copy(this), &mut result__).from_abi::<GameBarServicesTargetInfo>(result__)
+            (::windows::core::Interface::vtable(this).TargetInfo)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<GameBarServicesTargetInfo>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -7938,7 +7938,7 @@ impl GameBarServices {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SessionId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).SessionId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -7946,7 +7946,7 @@ impl GameBarServices {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AppBroadcastServices)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AppBroadcastServices>(result__)
+            (::windows::core::Interface::vtable(this).AppBroadcastServices)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<AppBroadcastServices>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -7954,7 +7954,7 @@ impl GameBarServices {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AppCaptureServices)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AppCaptureServices>(result__)
+            (::windows::core::Interface::vtable(this).AppCaptureServices)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<AppCaptureServices>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
@@ -7963,14 +7963,14 @@ impl GameBarServices {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CommandReceived)(::core::mem::transmute_copy(this), value.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).CommandReceived)(::windows::core::Interface::as_raw(this), value.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveCommandReceived<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveCommandReceived)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveCommandReceived)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
 }
 impl ::core::clone::Clone for GameBarServices {
@@ -8054,7 +8054,7 @@ impl GameBarServicesCommandEventArgs {
         let this = self;
         unsafe {
             let mut result__: GameBarCommand = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Command)(::core::mem::transmute_copy(this), &mut result__).from_abi::<GameBarCommand>(result__)
+            (::windows::core::Interface::vtable(this).Command)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<GameBarCommand>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -8062,7 +8062,7 @@ impl GameBarServicesCommandEventArgs {
         let this = self;
         unsafe {
             let mut result__: GameBarCommandOrigin = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Origin)(::core::mem::transmute_copy(this), &mut result__).from_abi::<GameBarCommandOrigin>(result__)
+            (::windows::core::Interface::vtable(this).Origin)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<GameBarCommandOrigin>(result__)
         }
     }
 }
@@ -8182,20 +8182,20 @@ impl GameBarServicesManager {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GameBarServicesCreated)(::core::mem::transmute_copy(this), value.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).GameBarServicesCreated)(::windows::core::Interface::as_raw(this), value.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveGameBarServicesCreated<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveGameBarServicesCreated)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveGameBarServicesCreated)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn GetDefault() -> ::windows::core::Result<GameBarServicesManager> {
         Self::IGameBarServicesManagerStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetDefault)(::core::mem::transmute_copy(this), &mut result__).from_abi::<GameBarServicesManager>(result__)
+            (::windows::core::Interface::vtable(this).GetDefault)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<GameBarServicesManager>(result__)
         })
     }
     #[doc(hidden)]
@@ -8285,7 +8285,7 @@ impl GameBarServicesManagerGameBarServicesCreatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GameBarServices)(::core::mem::transmute_copy(this), &mut result__).from_abi::<GameBarServices>(result__)
+            (::windows::core::Interface::vtable(this).GameBarServices)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<GameBarServices>(result__)
         }
     }
 }
@@ -8370,7 +8370,7 @@ impl GameBarServicesTargetInfo {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DisplayName)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).DisplayName)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -8378,7 +8378,7 @@ impl GameBarServicesTargetInfo {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AppId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).AppId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -8386,7 +8386,7 @@ impl GameBarServicesTargetInfo {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TitleId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).TitleId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -8394,7 +8394,7 @@ impl GameBarServicesTargetInfo {
         let this = self;
         unsafe {
             let mut result__: GameBarServicesDisplayMode = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DisplayMode)(::core::mem::transmute_copy(this), &mut result__).from_abi::<GameBarServicesDisplayMode>(result__)
+            (::windows::core::Interface::vtable(this).DisplayMode)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<GameBarServicesDisplayMode>(result__)
         }
     }
 }
@@ -11329,7 +11329,7 @@ impl LowLagMediaRecording {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).StartAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).StartAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
@@ -11338,7 +11338,7 @@ impl LowLagMediaRecording {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).StopAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).StopAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
@@ -11347,7 +11347,7 @@ impl LowLagMediaRecording {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FinishAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).FinishAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`, `\"Media_Devices\"`*"]
@@ -11356,7 +11356,7 @@ impl LowLagMediaRecording {
         let this = &::windows::core::Interface::cast::<ILowLagMediaRecording2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PauseAsync)(::core::mem::transmute_copy(this), behavior, &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).PauseAsync)(::windows::core::Interface::as_raw(this), behavior, &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
@@ -11365,7 +11365,7 @@ impl LowLagMediaRecording {
         let this = &::windows::core::Interface::cast::<ILowLagMediaRecording2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ResumeAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).ResumeAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`, `\"Media_Devices\"`*"]
@@ -11374,7 +11374,7 @@ impl LowLagMediaRecording {
         let this = &::windows::core::Interface::cast::<ILowLagMediaRecording3>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PauseWithResultAsync)(::core::mem::transmute_copy(this), behavior, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<MediaCapturePauseResult>>(result__)
+            (::windows::core::Interface::vtable(this).PauseWithResultAsync)(::windows::core::Interface::as_raw(this), behavior, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<MediaCapturePauseResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
@@ -11383,7 +11383,7 @@ impl LowLagMediaRecording {
         let this = &::windows::core::Interface::cast::<ILowLagMediaRecording3>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).StopWithResultAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<MediaCaptureStopResult>>(result__)
+            (::windows::core::Interface::vtable(this).StopWithResultAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<MediaCaptureStopResult>>(result__)
         }
     }
 }
@@ -11467,7 +11467,7 @@ impl LowLagPhotoCapture {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CaptureAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<CapturedPhoto>>(result__)
+            (::windows::core::Interface::vtable(this).CaptureAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<CapturedPhoto>>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
@@ -11476,7 +11476,7 @@ impl LowLagPhotoCapture {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FinishAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).FinishAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
 }
@@ -11560,7 +11560,7 @@ impl LowLagPhotoSequenceCapture {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).StartAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).StartAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
@@ -11569,7 +11569,7 @@ impl LowLagPhotoSequenceCapture {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).StopAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).StopAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
@@ -11578,7 +11578,7 @@ impl LowLagPhotoSequenceCapture {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FinishAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).FinishAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
@@ -11587,14 +11587,14 @@ impl LowLagPhotoSequenceCapture {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PhotoCaptured)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).PhotoCaptured)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemovePhotoCaptured<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemovePhotoCaptured)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemovePhotoCaptured)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
 }
 impl ::core::clone::Clone for LowLagPhotoSequenceCapture {
@@ -11682,7 +11682,7 @@ impl MediaCapture {
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).Close)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -11690,7 +11690,7 @@ impl MediaCapture {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).InitializeAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).InitializeAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
@@ -11699,7 +11699,7 @@ impl MediaCapture {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).InitializeWithSettingsAsync)(::core::mem::transmute_copy(this), mediacaptureinitializationsettings.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).InitializeWithSettingsAsync)(::windows::core::Interface::as_raw(this), mediacaptureinitializationsettings.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`, `\"Media_MediaProperties\"`, `\"Storage\"`*"]
@@ -11708,7 +11708,7 @@ impl MediaCapture {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).StartRecordToStorageFileAsync)(::core::mem::transmute_copy(this), encodingprofile.into_param().abi(), file.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).StartRecordToStorageFileAsync)(::windows::core::Interface::as_raw(this), encodingprofile.into_param().abi(), file.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`, `\"Media_MediaProperties\"`, `\"Storage_Streams\"`*"]
@@ -11717,7 +11717,7 @@ impl MediaCapture {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).StartRecordToStreamAsync)(::core::mem::transmute_copy(this), encodingprofile.into_param().abi(), stream.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).StartRecordToStreamAsync)(::windows::core::Interface::as_raw(this), encodingprofile.into_param().abi(), stream.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`, `\"Media_MediaProperties\"`*"]
@@ -11726,7 +11726,7 @@ impl MediaCapture {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).StartRecordToCustomSinkAsync)(::core::mem::transmute_copy(this), encodingprofile.into_param().abi(), custommediasink.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).StartRecordToCustomSinkAsync)(::windows::core::Interface::as_raw(this), encodingprofile.into_param().abi(), custommediasink.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation_Collections\"`, `\"Media_MediaProperties\"`*"]
@@ -11735,7 +11735,7 @@ impl MediaCapture {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).StartRecordToCustomSinkIdAsync)(::core::mem::transmute_copy(this), encodingprofile.into_param().abi(), customsinkactivationid.into_param().abi(), customsinksettings.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).StartRecordToCustomSinkIdAsync)(::windows::core::Interface::as_raw(this), encodingprofile.into_param().abi(), customsinkactivationid.into_param().abi(), customsinksettings.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
@@ -11744,7 +11744,7 @@ impl MediaCapture {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).StopRecordAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).StopRecordAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`, `\"Media_MediaProperties\"`, `\"Storage\"`*"]
@@ -11753,7 +11753,7 @@ impl MediaCapture {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CapturePhotoToStorageFileAsync)(::core::mem::transmute_copy(this), r#type.into_param().abi(), file.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).CapturePhotoToStorageFileAsync)(::windows::core::Interface::as_raw(this), r#type.into_param().abi(), file.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`, `\"Media_MediaProperties\"`, `\"Storage_Streams\"`*"]
@@ -11762,7 +11762,7 @@ impl MediaCapture {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CapturePhotoToStreamAsync)(::core::mem::transmute_copy(this), r#type.into_param().abi(), stream.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).CapturePhotoToStreamAsync)(::windows::core::Interface::as_raw(this), r#type.into_param().abi(), stream.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation_Collections\"`, `\"deprecated\"`*"]
@@ -11771,7 +11771,7 @@ impl MediaCapture {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AddEffectAsync)(::core::mem::transmute_copy(this), mediastreamtype, effectactivationid.into_param().abi(), effectsettings.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).AddEffectAsync)(::windows::core::Interface::as_raw(this), mediastreamtype, effectactivationid.into_param().abi(), effectsettings.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
@@ -11780,20 +11780,20 @@ impl MediaCapture {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ClearEffectsAsync)(::core::mem::transmute_copy(this), mediastreamtype, &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).ClearEffectsAsync)(::windows::core::Interface::as_raw(this), mediastreamtype, &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn SetEncoderProperty<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param2: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, mediastreamtype: MediaStreamType, propertyid: Param1, propertyvalue: Param2) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetEncoderProperty)(::core::mem::transmute_copy(this), mediastreamtype, propertyid.into_param().abi(), propertyvalue.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetEncoderProperty)(::windows::core::Interface::as_raw(this), mediastreamtype, propertyid.into_param().abi(), propertyvalue.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn GetEncoderProperty<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, mediastreamtype: MediaStreamType, propertyid: Param1) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = self;
         unsafe {
             let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetEncoderProperty)(::core::mem::transmute_copy(this), mediastreamtype, propertyid.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
+            (::windows::core::Interface::vtable(this).GetEncoderProperty)(::windows::core::Interface::as_raw(this), mediastreamtype, propertyid.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
@@ -11802,14 +11802,14 @@ impl MediaCapture {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Failed)(::core::mem::transmute_copy(this), erroreventhandler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).Failed)(::windows::core::Interface::as_raw(this), erroreventhandler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveFailed<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, eventcookie: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveFailed)(::core::mem::transmute_copy(this), eventcookie.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveFailed)(::windows::core::Interface::as_raw(this), eventcookie.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -11817,21 +11817,21 @@ impl MediaCapture {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RecordLimitationExceeded)(::core::mem::transmute_copy(this), recordlimitationexceededeventhandler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).RecordLimitationExceeded)(::windows::core::Interface::as_raw(this), recordlimitationexceededeventhandler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveRecordLimitationExceeded<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, eventcookie: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveRecordLimitationExceeded)(::core::mem::transmute_copy(this), eventcookie.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveRecordLimitationExceeded)(::windows::core::Interface::as_raw(this), eventcookie.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn MediaCaptureSettings(&self) -> ::windows::core::Result<MediaCaptureSettings> {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MediaCaptureSettings)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MediaCaptureSettings>(result__)
+            (::windows::core::Interface::vtable(this).MediaCaptureSettings)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<MediaCaptureSettings>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Media_Devices\"`*"]
@@ -11840,7 +11840,7 @@ impl MediaCapture {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AudioDeviceController)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Devices::AudioDeviceController>(result__)
+            (::windows::core::Interface::vtable(this).AudioDeviceController)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::Devices::AudioDeviceController>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Media_Devices\"`*"]
@@ -11849,46 +11849,46 @@ impl MediaCapture {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).VideoDeviceController)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Devices::VideoDeviceController>(result__)
+            (::windows::core::Interface::vtable(this).VideoDeviceController)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::Devices::VideoDeviceController>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn SetPreviewMirroring(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetPreviewMirroring)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPreviewMirroring)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn GetPreviewMirroring(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetPreviewMirroring)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).GetPreviewMirroring)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn SetPreviewRotation(&self, value: VideoRotation) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetPreviewRotation)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPreviewRotation)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn GetPreviewRotation(&self) -> ::windows::core::Result<VideoRotation> {
         let this = self;
         unsafe {
             let mut result__: VideoRotation = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetPreviewRotation)(::core::mem::transmute_copy(this), &mut result__).from_abi::<VideoRotation>(result__)
+            (::windows::core::Interface::vtable(this).GetPreviewRotation)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<VideoRotation>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn SetRecordRotation(&self, value: VideoRotation) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetRecordRotation)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetRecordRotation)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn GetRecordRotation(&self) -> ::windows::core::Result<VideoRotation> {
         let this = self;
         unsafe {
             let mut result__: VideoRotation = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetRecordRotation)(::core::mem::transmute_copy(this), &mut result__).from_abi::<VideoRotation>(result__)
+            (::windows::core::Interface::vtable(this).GetRecordRotation)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<VideoRotation>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`, `\"Media_MediaProperties\"`, `\"Storage\"`*"]
@@ -11897,7 +11897,7 @@ impl MediaCapture {
         let this = &::windows::core::Interface::cast::<IMediaCapture2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PrepareLowLagRecordToStorageFileAsync)(::core::mem::transmute_copy(this), encodingprofile.into_param().abi(), file.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<LowLagMediaRecording>>(result__)
+            (::windows::core::Interface::vtable(this).PrepareLowLagRecordToStorageFileAsync)(::windows::core::Interface::as_raw(this), encodingprofile.into_param().abi(), file.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<LowLagMediaRecording>>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`, `\"Media_MediaProperties\"`, `\"Storage_Streams\"`*"]
@@ -11906,7 +11906,7 @@ impl MediaCapture {
         let this = &::windows::core::Interface::cast::<IMediaCapture2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PrepareLowLagRecordToStreamAsync)(::core::mem::transmute_copy(this), encodingprofile.into_param().abi(), stream.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<LowLagMediaRecording>>(result__)
+            (::windows::core::Interface::vtable(this).PrepareLowLagRecordToStreamAsync)(::windows::core::Interface::as_raw(this), encodingprofile.into_param().abi(), stream.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<LowLagMediaRecording>>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`, `\"Media_MediaProperties\"`*"]
@@ -11915,7 +11915,7 @@ impl MediaCapture {
         let this = &::windows::core::Interface::cast::<IMediaCapture2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PrepareLowLagRecordToCustomSinkAsync)(::core::mem::transmute_copy(this), encodingprofile.into_param().abi(), custommediasink.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<LowLagMediaRecording>>(result__)
+            (::windows::core::Interface::vtable(this).PrepareLowLagRecordToCustomSinkAsync)(::windows::core::Interface::as_raw(this), encodingprofile.into_param().abi(), custommediasink.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<LowLagMediaRecording>>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation_Collections\"`, `\"Media_MediaProperties\"`*"]
@@ -11924,7 +11924,7 @@ impl MediaCapture {
         let this = &::windows::core::Interface::cast::<IMediaCapture2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PrepareLowLagRecordToCustomSinkIdAsync)(::core::mem::transmute_copy(this), encodingprofile.into_param().abi(), customsinkactivationid.into_param().abi(), customsinksettings.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<LowLagMediaRecording>>(result__)
+            (::windows::core::Interface::vtable(this).PrepareLowLagRecordToCustomSinkIdAsync)(::windows::core::Interface::as_raw(this), encodingprofile.into_param().abi(), customsinkactivationid.into_param().abi(), customsinksettings.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<LowLagMediaRecording>>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`, `\"Media_MediaProperties\"`*"]
@@ -11933,7 +11933,7 @@ impl MediaCapture {
         let this = &::windows::core::Interface::cast::<IMediaCapture2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PrepareLowLagPhotoCaptureAsync)(::core::mem::transmute_copy(this), r#type.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<LowLagPhotoCapture>>(result__)
+            (::windows::core::Interface::vtable(this).PrepareLowLagPhotoCaptureAsync)(::windows::core::Interface::as_raw(this), r#type.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<LowLagPhotoCapture>>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`, `\"Media_MediaProperties\"`*"]
@@ -11942,7 +11942,7 @@ impl MediaCapture {
         let this = &::windows::core::Interface::cast::<IMediaCapture2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PrepareLowLagPhotoSequenceCaptureAsync)(::core::mem::transmute_copy(this), r#type.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<LowLagPhotoSequenceCapture>>(result__)
+            (::windows::core::Interface::vtable(this).PrepareLowLagPhotoSequenceCaptureAsync)(::windows::core::Interface::as_raw(this), r#type.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<LowLagPhotoSequenceCapture>>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation_Collections\"`, `\"Media_MediaProperties\"`*"]
@@ -11951,7 +11951,7 @@ impl MediaCapture {
         let this = &::windows::core::Interface::cast::<IMediaCapture2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SetEncodingPropertiesAsync)(::core::mem::transmute_copy(this), mediastreamtype, mediaencodingproperties.into_param().abi(), encoderproperties.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).SetEncodingPropertiesAsync)(::windows::core::Interface::as_raw(this), mediastreamtype, mediaencodingproperties.into_param().abi(), encoderproperties.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`, `\"Media_Capture_Core\"`, `\"Media_MediaProperties\"`*"]
@@ -11960,7 +11960,7 @@ impl MediaCapture {
         let this = &::windows::core::Interface::cast::<IMediaCapture3>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PrepareVariablePhotoSequenceCaptureAsync)(::core::mem::transmute_copy(this), r#type.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<Core::VariablePhotoSequenceCapture>>(result__)
+            (::windows::core::Interface::vtable(this).PrepareVariablePhotoSequenceCaptureAsync)(::windows::core::Interface::as_raw(this), r#type.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<Core::VariablePhotoSequenceCapture>>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
@@ -11969,14 +11969,14 @@ impl MediaCapture {
         let this = &::windows::core::Interface::cast::<IMediaCapture3>(self)?;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FocusChanged)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).FocusChanged)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveFocusChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMediaCapture3>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveFocusChanged)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveFocusChanged)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -11984,14 +11984,14 @@ impl MediaCapture {
         let this = &::windows::core::Interface::cast::<IMediaCapture3>(self)?;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PhotoConfirmationCaptured)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).PhotoConfirmationCaptured)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemovePhotoConfirmationCaptured<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMediaCapture3>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).RemovePhotoConfirmationCaptured)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemovePhotoConfirmationCaptured)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`, `\"Media_Effects\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Media_Effects"))]
@@ -11999,7 +11999,7 @@ impl MediaCapture {
         let this = &::windows::core::Interface::cast::<IMediaCapture4>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AddAudioEffectAsync)(::core::mem::transmute_copy(this), definition.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::IMediaExtension>>(result__)
+            (::windows::core::Interface::vtable(this).AddAudioEffectAsync)(::windows::core::Interface::as_raw(this), definition.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::IMediaExtension>>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`, `\"Media_Effects\"`*"]
@@ -12008,7 +12008,7 @@ impl MediaCapture {
         let this = &::windows::core::Interface::cast::<IMediaCapture4>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AddVideoEffectAsync)(::core::mem::transmute_copy(this), definition.into_param().abi(), mediastreamtype, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::IMediaExtension>>(result__)
+            (::windows::core::Interface::vtable(this).AddVideoEffectAsync)(::windows::core::Interface::as_raw(this), definition.into_param().abi(), mediastreamtype, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::IMediaExtension>>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`, `\"Media_Devices\"`*"]
@@ -12017,7 +12017,7 @@ impl MediaCapture {
         let this = &::windows::core::Interface::cast::<IMediaCapture4>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PauseRecordAsync)(::core::mem::transmute_copy(this), behavior, &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).PauseRecordAsync)(::windows::core::Interface::as_raw(this), behavior, &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
@@ -12026,7 +12026,7 @@ impl MediaCapture {
         let this = &::windows::core::Interface::cast::<IMediaCapture4>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ResumeRecordAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).ResumeRecordAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
@@ -12035,14 +12035,14 @@ impl MediaCapture {
         let this = &::windows::core::Interface::cast::<IMediaCapture4>(self)?;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CameraStreamStateChanged)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).CameraStreamStateChanged)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveCameraStreamStateChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMediaCapture4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveCameraStreamStateChanged)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveCameraStreamStateChanged)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Media_Devices\"`*"]
     #[cfg(feature = "Media_Devices")]
@@ -12050,7 +12050,7 @@ impl MediaCapture {
         let this = &::windows::core::Interface::cast::<IMediaCapture4>(self)?;
         unsafe {
             let mut result__: super::Devices::CameraStreamState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CameraStreamState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Devices::CameraStreamState>(result__)
+            (::windows::core::Interface::vtable(this).CameraStreamState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::Devices::CameraStreamState>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
@@ -12059,7 +12059,7 @@ impl MediaCapture {
         let this = &::windows::core::Interface::cast::<IMediaCapture4>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetPreviewFrameAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::VideoFrame>>(result__)
+            (::windows::core::Interface::vtable(this).GetPreviewFrameAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::VideoFrame>>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
@@ -12068,7 +12068,7 @@ impl MediaCapture {
         let this = &::windows::core::Interface::cast::<IMediaCapture4>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetPreviewFrameCopyAsync)(::core::mem::transmute_copy(this), destination.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::VideoFrame>>(result__)
+            (::windows::core::Interface::vtable(this).GetPreviewFrameCopyAsync)(::windows::core::Interface::as_raw(this), destination.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::VideoFrame>>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
@@ -12077,21 +12077,21 @@ impl MediaCapture {
         let this = &::windows::core::Interface::cast::<IMediaCapture4>(self)?;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ThermalStatusChanged)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).ThermalStatusChanged)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveThermalStatusChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMediaCapture4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveThermalStatusChanged)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveThermalStatusChanged)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn ThermalStatus(&self) -> ::windows::core::Result<MediaCaptureThermalStatus> {
         let this = &::windows::core::Interface::cast::<IMediaCapture4>(self)?;
         unsafe {
             let mut result__: MediaCaptureThermalStatus = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ThermalStatus)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MediaCaptureThermalStatus>(result__)
+            (::windows::core::Interface::vtable(this).ThermalStatus)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<MediaCaptureThermalStatus>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`, `\"Media_MediaProperties\"`*"]
@@ -12100,7 +12100,7 @@ impl MediaCapture {
         let this = &::windows::core::Interface::cast::<IMediaCapture4>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PrepareAdvancedPhotoCaptureAsync)(::core::mem::transmute_copy(this), encodingproperties.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<AdvancedPhotoCapture>>(result__)
+            (::windows::core::Interface::vtable(this).PrepareAdvancedPhotoCaptureAsync)(::windows::core::Interface::as_raw(this), encodingproperties.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<AdvancedPhotoCapture>>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
@@ -12109,7 +12109,7 @@ impl MediaCapture {
         let this = &::windows::core::Interface::cast::<IMediaCapture5>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RemoveEffectAsync)(::core::mem::transmute_copy(this), effect.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).RemoveEffectAsync)(::windows::core::Interface::as_raw(this), effect.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`, `\"Media_Devices\"`*"]
@@ -12118,7 +12118,7 @@ impl MediaCapture {
         let this = &::windows::core::Interface::cast::<IMediaCapture5>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PauseRecordWithResultAsync)(::core::mem::transmute_copy(this), behavior, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<MediaCapturePauseResult>>(result__)
+            (::windows::core::Interface::vtable(this).PauseRecordWithResultAsync)(::windows::core::Interface::as_raw(this), behavior, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<MediaCapturePauseResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
@@ -12127,7 +12127,7 @@ impl MediaCapture {
         let this = &::windows::core::Interface::cast::<IMediaCapture5>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).StopRecordWithResultAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<MediaCaptureStopResult>>(result__)
+            (::windows::core::Interface::vtable(this).StopRecordWithResultAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<MediaCaptureStopResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation_Collections\"`, `\"Media_Capture_Frames\"`*"]
@@ -12136,7 +12136,7 @@ impl MediaCapture {
         let this = &::windows::core::Interface::cast::<IMediaCapture5>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FrameSources)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, Frames::MediaFrameSource>>(result__)
+            (::windows::core::Interface::vtable(this).FrameSources)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, Frames::MediaFrameSource>>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`, `\"Media_Capture_Frames\"`*"]
@@ -12145,7 +12145,7 @@ impl MediaCapture {
         let this = &::windows::core::Interface::cast::<IMediaCapture5>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFrameReaderAsync)(::core::mem::transmute_copy(this), inputsource.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<Frames::MediaFrameReader>>(result__)
+            (::windows::core::Interface::vtable(this).CreateFrameReaderAsync)(::windows::core::Interface::as_raw(this), inputsource.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<Frames::MediaFrameReader>>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`, `\"Media_Capture_Frames\"`*"]
@@ -12154,7 +12154,7 @@ impl MediaCapture {
         let this = &::windows::core::Interface::cast::<IMediaCapture5>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFrameReaderWithSubtypeAsync)(::core::mem::transmute_copy(this), inputsource.into_param().abi(), outputsubtype.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<Frames::MediaFrameReader>>(result__)
+            (::windows::core::Interface::vtable(this).CreateFrameReaderWithSubtypeAsync)(::windows::core::Interface::as_raw(this), inputsource.into_param().abi(), outputsubtype.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<Frames::MediaFrameReader>>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`, `\"Graphics_Imaging\"`, `\"Media_Capture_Frames\"`*"]
@@ -12163,7 +12163,7 @@ impl MediaCapture {
         let this = &::windows::core::Interface::cast::<IMediaCapture5>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFrameReaderWithSubtypeAndSizeAsync)(::core::mem::transmute_copy(this), inputsource.into_param().abi(), outputsubtype.into_param().abi(), outputsize.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<Frames::MediaFrameReader>>(result__)
+            (::windows::core::Interface::vtable(this).CreateFrameReaderWithSubtypeAndSizeAsync)(::windows::core::Interface::as_raw(this), inputsource.into_param().abi(), outputsubtype.into_param().abi(), outputsize.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<Frames::MediaFrameReader>>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
@@ -12172,14 +12172,14 @@ impl MediaCapture {
         let this = &::windows::core::Interface::cast::<IMediaCapture6>(self)?;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CaptureDeviceExclusiveControlStatusChanged)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).CaptureDeviceExclusiveControlStatusChanged)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveCaptureDeviceExclusiveControlStatusChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMediaCapture6>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveCaptureDeviceExclusiveControlStatusChanged)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveCaptureDeviceExclusiveControlStatusChanged)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation_Collections\"`, `\"Media_Capture_Frames\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Media_Capture_Frames"))]
@@ -12187,7 +12187,7 @@ impl MediaCapture {
         let this = &::windows::core::Interface::cast::<IMediaCapture6>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateMultiSourceFrameReaderAsync)(::core::mem::transmute_copy(this), inputsources.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<Frames::MultiSourceMediaFrameReader>>(result__)
+            (::windows::core::Interface::vtable(this).CreateMultiSourceFrameReaderAsync)(::windows::core::Interface::as_raw(this), inputsources.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<Frames::MultiSourceMediaFrameReader>>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"UI_WindowManagement\"`*"]
@@ -12196,14 +12196,14 @@ impl MediaCapture {
         let this = &::windows::core::Interface::cast::<IMediaCapture7>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateRelativePanelWatcher)(::core::mem::transmute_copy(this), capturemode, displayregion.into_param().abi(), &mut result__).from_abi::<MediaCaptureRelativePanelWatcher>(result__)
+            (::windows::core::Interface::vtable(this).CreateRelativePanelWatcher)(::windows::core::Interface::as_raw(this), capturemode, displayregion.into_param().abi(), &mut result__).from_abi::<MediaCaptureRelativePanelWatcher>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn IsVideoProfileSupported<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(videodeviceid: Param0) -> ::windows::core::Result<bool> {
         Self::IMediaCaptureStatics(|this| unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsVideoProfileSupported)(::core::mem::transmute_copy(this), videodeviceid.into_param().abi(), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsVideoProfileSupported)(::windows::core::Interface::as_raw(this), videodeviceid.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         })
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation_Collections\"`*"]
@@ -12211,7 +12211,7 @@ impl MediaCapture {
     pub fn FindAllVideoProfiles<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(videodeviceid: Param0) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<MediaCaptureVideoProfile>> {
         Self::IMediaCaptureStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FindAllVideoProfiles)(::core::mem::transmute_copy(this), videodeviceid.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<MediaCaptureVideoProfile>>(result__)
+            (::windows::core::Interface::vtable(this).FindAllVideoProfiles)(::windows::core::Interface::as_raw(this), videodeviceid.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<MediaCaptureVideoProfile>>(result__)
         })
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation_Collections\"`*"]
@@ -12219,7 +12219,7 @@ impl MediaCapture {
     pub fn FindConcurrentProfiles<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(videodeviceid: Param0) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<MediaCaptureVideoProfile>> {
         Self::IMediaCaptureStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FindConcurrentProfiles)(::core::mem::transmute_copy(this), videodeviceid.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<MediaCaptureVideoProfile>>(result__)
+            (::windows::core::Interface::vtable(this).FindConcurrentProfiles)(::windows::core::Interface::as_raw(this), videodeviceid.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<MediaCaptureVideoProfile>>(result__)
         })
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation_Collections\"`*"]
@@ -12227,7 +12227,7 @@ impl MediaCapture {
     pub fn FindKnownVideoProfiles<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(videodeviceid: Param0, name: KnownVideoProfile) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<MediaCaptureVideoProfile>> {
         Self::IMediaCaptureStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FindKnownVideoProfiles)(::core::mem::transmute_copy(this), videodeviceid.into_param().abi(), name, &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<MediaCaptureVideoProfile>>(result__)
+            (::windows::core::Interface::vtable(this).FindKnownVideoProfiles)(::windows::core::Interface::as_raw(this), videodeviceid.into_param().abi(), name, &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<MediaCaptureVideoProfile>>(result__)
         })
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
@@ -12236,7 +12236,7 @@ impl MediaCapture {
         let this = &::windows::core::Interface::cast::<IMediaCaptureVideoPreview>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).StartPreviewAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).StartPreviewAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`, `\"Media_MediaProperties\"`*"]
@@ -12245,7 +12245,7 @@ impl MediaCapture {
         let this = &::windows::core::Interface::cast::<IMediaCaptureVideoPreview>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).StartPreviewToCustomSinkAsync)(::core::mem::transmute_copy(this), encodingprofile.into_param().abi(), custommediasink.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).StartPreviewToCustomSinkAsync)(::windows::core::Interface::as_raw(this), encodingprofile.into_param().abi(), custommediasink.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation_Collections\"`, `\"Media_MediaProperties\"`*"]
@@ -12254,7 +12254,7 @@ impl MediaCapture {
         let this = &::windows::core::Interface::cast::<IMediaCaptureVideoPreview>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).StartPreviewToCustomSinkIdAsync)(::core::mem::transmute_copy(this), encodingprofile.into_param().abi(), customsinkactivationid.into_param().abi(), customsinksettings.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).StartPreviewToCustomSinkIdAsync)(::windows::core::Interface::as_raw(this), encodingprofile.into_param().abi(), customsinkactivationid.into_param().abi(), customsinksettings.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
@@ -12263,7 +12263,7 @@ impl MediaCapture {
         let this = &::windows::core::Interface::cast::<IMediaCaptureVideoPreview>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).StopPreviewAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).StopPreviewAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc(hidden)]
@@ -12411,7 +12411,7 @@ impl MediaCaptureDeviceExclusiveControlStatusChangedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DeviceId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).DeviceId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -12419,7 +12419,7 @@ impl MediaCaptureDeviceExclusiveControlStatusChangedEventArgs {
         let this = self;
         unsafe {
             let mut result__: MediaCaptureDeviceExclusiveControlStatus = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Status)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MediaCaptureDeviceExclusiveControlStatus>(result__)
+            (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<MediaCaptureDeviceExclusiveControlStatus>(result__)
         }
     }
 }
@@ -12504,7 +12504,7 @@ impl MediaCaptureFailedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Message)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Message)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -12512,7 +12512,7 @@ impl MediaCaptureFailedEventArgs {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Code)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).Code)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u32>(result__)
         }
     }
 }
@@ -12597,7 +12597,7 @@ impl MediaCaptureFailedEventHandler {
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn Invoke<'a, Param0: ::windows::core::IntoParam<'a, MediaCapture>, Param1: ::windows::core::IntoParam<'a, MediaCaptureFailedEventArgs>>(&self, sender: Param0, erroreventargs: Param1) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Invoke)(::core::mem::transmute_copy(this), sender.into_param().abi(), erroreventargs.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Invoke)(::windows::core::Interface::as_raw(this), sender.into_param().abi(), erroreventargs.into_param().abi()).ok() }
     }
 }
 #[repr(C)]
@@ -12611,7 +12611,7 @@ impl<F: FnMut(&::core::option::Option<MediaCapture>, &::core::option::Option<Med
         base__: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
         Invoke: Self::Invoke,
     };
-    unsafe extern "system" fn QueryInterface(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+    unsafe extern "system" fn QueryInterface(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
         *interface = if iid == &<MediaCaptureFailedEventHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
         if (*interface).is_null() {
@@ -12681,7 +12681,7 @@ impl MediaCaptureFocusChangedEventArgs {
         let this = self;
         unsafe {
             let mut result__: super::Devices::MediaCaptureFocusState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FocusState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Devices::MediaCaptureFocusState>(result__)
+            (::windows::core::Interface::vtable(this).FocusState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::Devices::MediaCaptureFocusState>(result__)
         }
     }
 }
@@ -12771,86 +12771,86 @@ impl MediaCaptureInitializationSettings {
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn SetAudioDeviceId<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetAudioDeviceId)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetAudioDeviceId)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn AudioDeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AudioDeviceId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).AudioDeviceId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn SetVideoDeviceId<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetVideoDeviceId)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetVideoDeviceId)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn VideoDeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).VideoDeviceId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).VideoDeviceId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn SetStreamingCaptureMode(&self, value: StreamingCaptureMode) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetStreamingCaptureMode)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetStreamingCaptureMode)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn StreamingCaptureMode(&self) -> ::windows::core::Result<StreamingCaptureMode> {
         let this = self;
         unsafe {
             let mut result__: StreamingCaptureMode = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).StreamingCaptureMode)(::core::mem::transmute_copy(this), &mut result__).from_abi::<StreamingCaptureMode>(result__)
+            (::windows::core::Interface::vtable(this).StreamingCaptureMode)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<StreamingCaptureMode>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn SetPhotoCaptureSource(&self, value: PhotoCaptureSource) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetPhotoCaptureSource)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPhotoCaptureSource)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn PhotoCaptureSource(&self) -> ::windows::core::Result<PhotoCaptureSource> {
         let this = self;
         unsafe {
             let mut result__: PhotoCaptureSource = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PhotoCaptureSource)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PhotoCaptureSource>(result__)
+            (::windows::core::Interface::vtable(this).PhotoCaptureSource)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<PhotoCaptureSource>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn SetMediaCategory(&self, value: MediaCategory) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMediaCaptureInitializationSettings2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetMediaCategory)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetMediaCategory)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn MediaCategory(&self) -> ::windows::core::Result<MediaCategory> {
         let this = &::windows::core::Interface::cast::<IMediaCaptureInitializationSettings2>(self)?;
         unsafe {
             let mut result__: MediaCategory = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MediaCategory)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MediaCategory>(result__)
+            (::windows::core::Interface::vtable(this).MediaCategory)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<MediaCategory>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn SetAudioProcessing(&self, value: super::AudioProcessing) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMediaCaptureInitializationSettings2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetAudioProcessing)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetAudioProcessing)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn AudioProcessing(&self) -> ::windows::core::Result<super::AudioProcessing> {
         let this = &::windows::core::Interface::cast::<IMediaCaptureInitializationSettings2>(self)?;
         unsafe {
             let mut result__: super::AudioProcessing = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AudioProcessing)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::AudioProcessing>(result__)
+            (::windows::core::Interface::vtable(this).AudioProcessing)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::AudioProcessing>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Media_Core\"`*"]
     #[cfg(feature = "Media_Core")]
     pub fn SetAudioSource<'a, Param0: ::windows::core::IntoParam<'a, super::Core::IMediaSource>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMediaCaptureInitializationSettings3>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetAudioSource)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetAudioSource)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Media_Core\"`*"]
     #[cfg(feature = "Media_Core")]
@@ -12858,14 +12858,14 @@ impl MediaCaptureInitializationSettings {
         let this = &::windows::core::Interface::cast::<IMediaCaptureInitializationSettings3>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AudioSource)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Core::IMediaSource>(result__)
+            (::windows::core::Interface::vtable(this).AudioSource)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::Core::IMediaSource>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Media_Core\"`*"]
     #[cfg(feature = "Media_Core")]
     pub fn SetVideoSource<'a, Param0: ::windows::core::IntoParam<'a, super::Core::IMediaSource>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMediaCaptureInitializationSettings3>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetVideoSource)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetVideoSource)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Media_Core\"`*"]
     #[cfg(feature = "Media_Core")]
@@ -12873,7 +12873,7 @@ impl MediaCaptureInitializationSettings {
         let this = &::windows::core::Interface::cast::<IMediaCaptureInitializationSettings3>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).VideoSource)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Core::IMediaSource>(result__)
+            (::windows::core::Interface::vtable(this).VideoSource)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::Core::IMediaSource>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -12881,52 +12881,52 @@ impl MediaCaptureInitializationSettings {
         let this = &::windows::core::Interface::cast::<IMediaCaptureInitializationSettings4>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).VideoProfile)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MediaCaptureVideoProfile>(result__)
+            (::windows::core::Interface::vtable(this).VideoProfile)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<MediaCaptureVideoProfile>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn SetVideoProfile<'a, Param0: ::windows::core::IntoParam<'a, MediaCaptureVideoProfile>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMediaCaptureInitializationSettings4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetVideoProfile)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetVideoProfile)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn PreviewMediaDescription(&self) -> ::windows::core::Result<MediaCaptureVideoProfileMediaDescription> {
         let this = &::windows::core::Interface::cast::<IMediaCaptureInitializationSettings4>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PreviewMediaDescription)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MediaCaptureVideoProfileMediaDescription>(result__)
+            (::windows::core::Interface::vtable(this).PreviewMediaDescription)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<MediaCaptureVideoProfileMediaDescription>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn SetPreviewMediaDescription<'a, Param0: ::windows::core::IntoParam<'a, MediaCaptureVideoProfileMediaDescription>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMediaCaptureInitializationSettings4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetPreviewMediaDescription)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPreviewMediaDescription)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn RecordMediaDescription(&self) -> ::windows::core::Result<MediaCaptureVideoProfileMediaDescription> {
         let this = &::windows::core::Interface::cast::<IMediaCaptureInitializationSettings4>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RecordMediaDescription)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MediaCaptureVideoProfileMediaDescription>(result__)
+            (::windows::core::Interface::vtable(this).RecordMediaDescription)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<MediaCaptureVideoProfileMediaDescription>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn SetRecordMediaDescription<'a, Param0: ::windows::core::IntoParam<'a, MediaCaptureVideoProfileMediaDescription>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMediaCaptureInitializationSettings4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetRecordMediaDescription)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetRecordMediaDescription)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn PhotoMediaDescription(&self) -> ::windows::core::Result<MediaCaptureVideoProfileMediaDescription> {
         let this = &::windows::core::Interface::cast::<IMediaCaptureInitializationSettings4>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PhotoMediaDescription)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MediaCaptureVideoProfileMediaDescription>(result__)
+            (::windows::core::Interface::vtable(this).PhotoMediaDescription)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<MediaCaptureVideoProfileMediaDescription>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn SetPhotoMediaDescription<'a, Param0: ::windows::core::IntoParam<'a, MediaCaptureVideoProfileMediaDescription>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMediaCaptureInitializationSettings4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetPhotoMediaDescription)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPhotoMediaDescription)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Media_Capture_Frames\"`*"]
     #[cfg(feature = "Media_Capture_Frames")]
@@ -12934,53 +12934,53 @@ impl MediaCaptureInitializationSettings {
         let this = &::windows::core::Interface::cast::<IMediaCaptureInitializationSettings5>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SourceGroup)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Frames::MediaFrameSourceGroup>(result__)
+            (::windows::core::Interface::vtable(this).SourceGroup)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Frames::MediaFrameSourceGroup>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Media_Capture_Frames\"`*"]
     #[cfg(feature = "Media_Capture_Frames")]
     pub fn SetSourceGroup<'a, Param0: ::windows::core::IntoParam<'a, Frames::MediaFrameSourceGroup>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMediaCaptureInitializationSettings5>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetSourceGroup)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSourceGroup)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn SharingMode(&self) -> ::windows::core::Result<MediaCaptureSharingMode> {
         let this = &::windows::core::Interface::cast::<IMediaCaptureInitializationSettings5>(self)?;
         unsafe {
             let mut result__: MediaCaptureSharingMode = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SharingMode)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MediaCaptureSharingMode>(result__)
+            (::windows::core::Interface::vtable(this).SharingMode)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<MediaCaptureSharingMode>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn SetSharingMode(&self, value: MediaCaptureSharingMode) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMediaCaptureInitializationSettings5>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetSharingMode)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSharingMode)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn MemoryPreference(&self) -> ::windows::core::Result<MediaCaptureMemoryPreference> {
         let this = &::windows::core::Interface::cast::<IMediaCaptureInitializationSettings5>(self)?;
         unsafe {
             let mut result__: MediaCaptureMemoryPreference = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MemoryPreference)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MediaCaptureMemoryPreference>(result__)
+            (::windows::core::Interface::vtable(this).MemoryPreference)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<MediaCaptureMemoryPreference>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn SetMemoryPreference(&self, value: MediaCaptureMemoryPreference) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMediaCaptureInitializationSettings5>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetMemoryPreference)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetMemoryPreference)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn AlwaysPlaySystemShutterSound(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IMediaCaptureInitializationSettings6>(self)?;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AlwaysPlaySystemShutterSound)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).AlwaysPlaySystemShutterSound)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn SetAlwaysPlaySystemShutterSound(&self, value: bool) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMediaCaptureInitializationSettings6>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetAlwaysPlaySystemShutterSound)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetAlwaysPlaySystemShutterSound)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Security_Credentials\"`*"]
     #[cfg(feature = "Security_Credentials")]
@@ -12988,14 +12988,14 @@ impl MediaCaptureInitializationSettings {
         let this = &::windows::core::Interface::cast::<IMediaCaptureInitializationSettings7>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DeviceUriPasswordCredential)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Security::Credentials::PasswordCredential>(result__)
+            (::windows::core::Interface::vtable(this).DeviceUriPasswordCredential)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Security::Credentials::PasswordCredential>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Security_Credentials\"`*"]
     #[cfg(feature = "Security_Credentials")]
     pub fn SetDeviceUriPasswordCredential<'a, Param0: ::windows::core::IntoParam<'a, super::super::Security::Credentials::PasswordCredential>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMediaCaptureInitializationSettings7>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetDeviceUriPasswordCredential)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDeviceUriPasswordCredential)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -13003,14 +13003,14 @@ impl MediaCaptureInitializationSettings {
         let this = &::windows::core::Interface::cast::<IMediaCaptureInitializationSettings7>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DeviceUri)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Uri>(result__)
+            (::windows::core::Interface::vtable(this).DeviceUri)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Uri>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetDeviceUri<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Uri>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMediaCaptureInitializationSettings7>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetDeviceUri)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDeviceUri)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
 }
 impl ::core::clone::Clone for MediaCaptureInitializationSettings {
@@ -13127,14 +13127,14 @@ impl MediaCapturePauseResult {
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).Close)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn LastFrame(&self) -> ::windows::core::Result<super::VideoFrame> {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).LastFrame)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::VideoFrame>(result__)
+            (::windows::core::Interface::vtable(this).LastFrame)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::VideoFrame>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
@@ -13143,7 +13143,7 @@ impl MediaCapturePauseResult {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::TimeSpan = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RecordDuration)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
+            (::windows::core::Interface::vtable(this).RecordDuration)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
 }
@@ -13251,7 +13251,7 @@ impl MediaCaptureRelativePanelWatcher {
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).Close)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Devices_Enumeration\"`*"]
     #[cfg(feature = "Devices_Enumeration")]
@@ -13259,7 +13259,7 @@ impl MediaCaptureRelativePanelWatcher {
         let this = self;
         unsafe {
             let mut result__: super::super::Devices::Enumeration::Panel = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RelativePanel)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Devices::Enumeration::Panel>(result__)
+            (::windows::core::Interface::vtable(this).RelativePanel)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Devices::Enumeration::Panel>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
@@ -13268,24 +13268,24 @@ impl MediaCaptureRelativePanelWatcher {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Changed)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).Changed)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveChanged)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveChanged)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn Start(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Start)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Start)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn Stop(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Stop)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Stop)(::windows::core::Interface::as_raw(this)).ok() }
     }
 }
 impl ::core::clone::Clone for MediaCaptureRelativePanelWatcher {
@@ -13395,7 +13395,7 @@ impl MediaCaptureSettings {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AudioDeviceId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).AudioDeviceId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -13403,7 +13403,7 @@ impl MediaCaptureSettings {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).VideoDeviceId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).VideoDeviceId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -13411,7 +13411,7 @@ impl MediaCaptureSettings {
         let this = self;
         unsafe {
             let mut result__: StreamingCaptureMode = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).StreamingCaptureMode)(::core::mem::transmute_copy(this), &mut result__).from_abi::<StreamingCaptureMode>(result__)
+            (::windows::core::Interface::vtable(this).StreamingCaptureMode)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<StreamingCaptureMode>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -13419,7 +13419,7 @@ impl MediaCaptureSettings {
         let this = self;
         unsafe {
             let mut result__: PhotoCaptureSource = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PhotoCaptureSource)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PhotoCaptureSource>(result__)
+            (::windows::core::Interface::vtable(this).PhotoCaptureSource)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<PhotoCaptureSource>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -13427,7 +13427,7 @@ impl MediaCaptureSettings {
         let this = self;
         unsafe {
             let mut result__: VideoDeviceCharacteristic = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).VideoDeviceCharacteristic)(::core::mem::transmute_copy(this), &mut result__).from_abi::<VideoDeviceCharacteristic>(result__)
+            (::windows::core::Interface::vtable(this).VideoDeviceCharacteristic)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<VideoDeviceCharacteristic>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -13435,7 +13435,7 @@ impl MediaCaptureSettings {
         let this = &::windows::core::Interface::cast::<IMediaCaptureSettings2>(self)?;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ConcurrentRecordAndPhotoSupported)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).ConcurrentRecordAndPhotoSupported)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -13443,7 +13443,7 @@ impl MediaCaptureSettings {
         let this = &::windows::core::Interface::cast::<IMediaCaptureSettings2>(self)?;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ConcurrentRecordAndPhotoSequenceSupported)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).ConcurrentRecordAndPhotoSequenceSupported)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -13451,7 +13451,7 @@ impl MediaCaptureSettings {
         let this = &::windows::core::Interface::cast::<IMediaCaptureSettings2>(self)?;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CameraSoundRequiredForRegion)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).CameraSoundRequiredForRegion)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
@@ -13460,7 +13460,7 @@ impl MediaCaptureSettings {
         let this = &::windows::core::Interface::cast::<IMediaCaptureSettings2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Horizontal35mmEquivalentFocalLength)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<u32>>(result__)
+            (::windows::core::Interface::vtable(this).Horizontal35mmEquivalentFocalLength)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IReference<u32>>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
@@ -13469,7 +13469,7 @@ impl MediaCaptureSettings {
         let this = &::windows::core::Interface::cast::<IMediaCaptureSettings2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PitchOffsetDegrees)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<i32>>(result__)
+            (::windows::core::Interface::vtable(this).PitchOffsetDegrees)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IReference<i32>>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
@@ -13478,7 +13478,7 @@ impl MediaCaptureSettings {
         let this = &::windows::core::Interface::cast::<IMediaCaptureSettings2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Vertical35mmEquivalentFocalLength)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<u32>>(result__)
+            (::windows::core::Interface::vtable(this).Vertical35mmEquivalentFocalLength)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IReference<u32>>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -13486,7 +13486,7 @@ impl MediaCaptureSettings {
         let this = &::windows::core::Interface::cast::<IMediaCaptureSettings2>(self)?;
         unsafe {
             let mut result__: MediaCategory = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MediaCategory)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MediaCategory>(result__)
+            (::windows::core::Interface::vtable(this).MediaCategory)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<MediaCategory>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -13494,7 +13494,7 @@ impl MediaCaptureSettings {
         let this = &::windows::core::Interface::cast::<IMediaCaptureSettings2>(self)?;
         unsafe {
             let mut result__: super::AudioProcessing = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AudioProcessing)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::AudioProcessing>(result__)
+            (::windows::core::Interface::vtable(this).AudioProcessing)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::AudioProcessing>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Graphics_DirectX_Direct3D11\"`*"]
@@ -13503,7 +13503,7 @@ impl MediaCaptureSettings {
         let this = &::windows::core::Interface::cast::<IMediaCaptureSettings3>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Direct3D11Device)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Graphics::DirectX::Direct3D11::IDirect3DDevice>(result__)
+            (::windows::core::Interface::vtable(this).Direct3D11Device)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Graphics::DirectX::Direct3D11::IDirect3DDevice>(result__)
         }
     }
 }
@@ -13619,14 +13619,14 @@ impl MediaCaptureStopResult {
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).Close)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn LastFrame(&self) -> ::windows::core::Result<super::VideoFrame> {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).LastFrame)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::VideoFrame>(result__)
+            (::windows::core::Interface::vtable(this).LastFrame)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::VideoFrame>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
@@ -13635,7 +13635,7 @@ impl MediaCaptureStopResult {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::TimeSpan = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RecordDuration)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
+            (::windows::core::Interface::vtable(this).RecordDuration)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
 }
@@ -13778,7 +13778,7 @@ impl MediaCaptureVideoProfile {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Id)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Id)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -13786,7 +13786,7 @@ impl MediaCaptureVideoProfile {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).VideoDeviceId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).VideoDeviceId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation_Collections\"`*"]
@@ -13795,7 +13795,7 @@ impl MediaCaptureVideoProfile {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SupportedPreviewMediaDescription)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<MediaCaptureVideoProfileMediaDescription>>(result__)
+            (::windows::core::Interface::vtable(this).SupportedPreviewMediaDescription)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<MediaCaptureVideoProfileMediaDescription>>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation_Collections\"`*"]
@@ -13804,7 +13804,7 @@ impl MediaCaptureVideoProfile {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SupportedRecordMediaDescription)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<MediaCaptureVideoProfileMediaDescription>>(result__)
+            (::windows::core::Interface::vtable(this).SupportedRecordMediaDescription)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<MediaCaptureVideoProfileMediaDescription>>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation_Collections\"`*"]
@@ -13813,7 +13813,7 @@ impl MediaCaptureVideoProfile {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SupportedPhotoMediaDescription)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<MediaCaptureVideoProfileMediaDescription>>(result__)
+            (::windows::core::Interface::vtable(this).SupportedPhotoMediaDescription)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<MediaCaptureVideoProfileMediaDescription>>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation_Collections\"`*"]
@@ -13822,7 +13822,7 @@ impl MediaCaptureVideoProfile {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetConcurrency)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<MediaCaptureVideoProfile>>(result__)
+            (::windows::core::Interface::vtable(this).GetConcurrency)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<MediaCaptureVideoProfile>>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation_Collections\"`, `\"Media_Capture_Frames\"`*"]
@@ -13831,7 +13831,7 @@ impl MediaCaptureVideoProfile {
         let this = &::windows::core::Interface::cast::<IMediaCaptureVideoProfile2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FrameSourceInfos)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<Frames::MediaFrameSourceInfo>>(result__)
+            (::windows::core::Interface::vtable(this).FrameSourceInfos)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<Frames::MediaFrameSourceInfo>>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation_Collections\"`*"]
@@ -13840,7 +13840,7 @@ impl MediaCaptureVideoProfile {
         let this = &::windows::core::Interface::cast::<IMediaCaptureVideoProfile2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Properties)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IMapView<::windows::core::GUID, ::windows::core::IInspectable>>(result__)
+            (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IMapView<::windows::core::GUID, ::windows::core::IInspectable>>(result__)
         }
     }
 }
@@ -13925,7 +13925,7 @@ impl MediaCaptureVideoProfileMediaDescription {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Width)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).Width)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -13933,7 +13933,7 @@ impl MediaCaptureVideoProfileMediaDescription {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Height)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).Height)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -13941,7 +13941,7 @@ impl MediaCaptureVideoProfileMediaDescription {
         let this = self;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FrameRate)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).FrameRate)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"deprecated\"`*"]
@@ -13950,7 +13950,7 @@ impl MediaCaptureVideoProfileMediaDescription {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsVariablePhotoSequenceSupported)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsVariablePhotoSequenceSupported)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"deprecated\"`*"]
@@ -13959,7 +13959,7 @@ impl MediaCaptureVideoProfileMediaDescription {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsHdrVideoSupported)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsHdrVideoSupported)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -13967,7 +13967,7 @@ impl MediaCaptureVideoProfileMediaDescription {
         let this = &::windows::core::Interface::cast::<IMediaCaptureVideoProfileMediaDescription2>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Subtype)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Subtype)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation_Collections\"`*"]
@@ -13976,7 +13976,7 @@ impl MediaCaptureVideoProfileMediaDescription {
         let this = &::windows::core::Interface::cast::<IMediaCaptureVideoProfileMediaDescription2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Properties)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IMapView<::windows::core::GUID, ::windows::core::IInspectable>>(result__)
+            (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IMapView<::windows::core::GUID, ::windows::core::IInspectable>>(result__)
         }
     }
 }
@@ -14138,7 +14138,7 @@ impl OptionalReferencePhotoCapturedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Frame)(::core::mem::transmute_copy(this), &mut result__).from_abi::<CapturedFrame>(result__)
+            (::windows::core::Interface::vtable(this).Frame)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<CapturedFrame>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -14146,7 +14146,7 @@ impl OptionalReferencePhotoCapturedEventArgs {
         let this = self;
         unsafe {
             let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Context)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
+            (::windows::core::Interface::vtable(this).Context)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
 }
@@ -14266,7 +14266,7 @@ impl PhotoCapturedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Frame)(::core::mem::transmute_copy(this), &mut result__).from_abi::<CapturedFrame>(result__)
+            (::windows::core::Interface::vtable(this).Frame)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<CapturedFrame>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -14274,7 +14274,7 @@ impl PhotoCapturedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Thumbnail)(::core::mem::transmute_copy(this), &mut result__).from_abi::<CapturedFrame>(result__)
+            (::windows::core::Interface::vtable(this).Thumbnail)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<CapturedFrame>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
@@ -14283,7 +14283,7 @@ impl PhotoCapturedEventArgs {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::TimeSpan = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CaptureTimeOffset)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
+            (::windows::core::Interface::vtable(this).CaptureTimeOffset)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
 }
@@ -14368,7 +14368,7 @@ impl PhotoConfirmationCapturedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Frame)(::core::mem::transmute_copy(this), &mut result__).from_abi::<CapturedFrame>(result__)
+            (::windows::core::Interface::vtable(this).Frame)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<CapturedFrame>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
@@ -14377,7 +14377,7 @@ impl PhotoConfirmationCapturedEventArgs {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::TimeSpan = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CaptureTimeOffset)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
+            (::windows::core::Interface::vtable(this).CaptureTimeOffset)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
 }
@@ -14500,7 +14500,7 @@ impl RecordLimitationExceededEventHandler {
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn Invoke<'a, Param0: ::windows::core::IntoParam<'a, MediaCapture>>(&self, sender: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Invoke)(::core::mem::transmute_copy(this), sender.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Invoke)(::windows::core::Interface::as_raw(this), sender.into_param().abi()).ok() }
     }
 }
 #[repr(C)]
@@ -14514,7 +14514,7 @@ impl<F: FnMut(&::core::option::Option<MediaCapture>) -> ::windows::core::Result<
         base__: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
         Invoke: Self::Invoke,
     };
-    unsafe extern "system" fn QueryInterface(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+    unsafe extern "system" fn QueryInterface(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
         *interface = if iid == &<RecordLimitationExceededEventHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
         if (*interface).is_null() {
@@ -14584,7 +14584,7 @@ impl ScreenCapture {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AudioSource)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Core::IMediaSource>(result__)
+            (::windows::core::Interface::vtable(this).AudioSource)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::Core::IMediaSource>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Media_Core\"`*"]
@@ -14593,7 +14593,7 @@ impl ScreenCapture {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).VideoSource)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Core::IMediaSource>(result__)
+            (::windows::core::Interface::vtable(this).VideoSource)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::Core::IMediaSource>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -14601,7 +14601,7 @@ impl ScreenCapture {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsAudioSuspended)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsAudioSuspended)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -14609,7 +14609,7 @@ impl ScreenCapture {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsVideoSuspended)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsVideoSuspended)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
@@ -14618,20 +14618,20 @@ impl ScreenCapture {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SourceSuspensionChanged)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).SourceSuspensionChanged)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveSourceSuspensionChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveSourceSuspensionChanged)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveSourceSuspensionChanged)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn GetForCurrentView() -> ::windows::core::Result<ScreenCapture> {
         Self::IScreenCaptureStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetForCurrentView)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ScreenCapture>(result__)
+            (::windows::core::Interface::vtable(this).GetForCurrentView)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ScreenCapture>(result__)
         })
     }
     #[doc(hidden)]
@@ -14721,7 +14721,7 @@ impl SourceSuspensionChangedEventArgs {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsAudioSuspended)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsAudioSuspended)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -14729,7 +14729,7 @@ impl SourceSuspensionChangedEventArgs {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsVideoSuspended)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsVideoSuspended)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
 }
@@ -14923,7 +14923,7 @@ impl VideoStreamConfiguration {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).InputProperties)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::MediaProperties::VideoEncodingProperties>(result__)
+            (::windows::core::Interface::vtable(this).InputProperties)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::MediaProperties::VideoEncodingProperties>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Capture\"`, `\"Media_MediaProperties\"`*"]
@@ -14932,7 +14932,7 @@ impl VideoStreamConfiguration {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).OutputProperties)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::MediaProperties::VideoEncodingProperties>(result__)
+            (::windows::core::Interface::vtable(this).OutputProperties)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::MediaProperties::VideoEncodingProperties>(result__)
         }
     }
 }

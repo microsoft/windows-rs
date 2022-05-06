@@ -5,7 +5,7 @@ impl AdaptiveCardBuilder {
     pub fn CreateAdaptiveCardFromJson<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(value: Param0) -> ::windows::core::Result<IAdaptiveCard> {
         Self::IAdaptiveCardBuilderStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateAdaptiveCardFromJson)(::core::mem::transmute_copy(this), value.into_param().abi(), &mut result__).from_abi::<IAdaptiveCard>(result__)
+            (::windows::core::Interface::vtable(this).CreateAdaptiveCardFromJson)(::windows::core::Interface::as_raw(this), value.into_param().abi(), &mut result__).from_abi::<IAdaptiveCard>(result__)
         })
     }
     #[doc(hidden)]
@@ -26,7 +26,7 @@ impl IAdaptiveCard {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ToJson)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).ToJson)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
 }
@@ -112,7 +112,7 @@ impl IAdaptiveCardBuilderStatics {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateAdaptiveCardFromJson)(::core::mem::transmute_copy(this), value.into_param().abi(), &mut result__).from_abi::<IAdaptiveCard>(result__)
+            (::windows::core::Interface::vtable(this).CreateAdaptiveCardFromJson)(::windows::core::Interface::as_raw(this), value.into_param().abi(), &mut result__).from_abi::<IAdaptiveCard>(result__)
         }
     }
 }
@@ -386,19 +386,19 @@ impl SecurityAppManager {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Register)(::core::mem::transmute_copy(this), kind, displayname.into_param().abi(), detailsuri.into_param().abi(), registerperuser, &mut result__).from_abi::<::windows::core::GUID>(result__)
+            (::windows::core::Interface::vtable(this).Register)(::windows::core::Interface::as_raw(this), kind, displayname.into_param().abi(), detailsuri.into_param().abi(), registerperuser, &mut result__).from_abi::<::windows::core::GUID>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Shell\"`*"]
     pub fn Unregister<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, kind: SecurityAppKind, guidregistration: Param1) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Unregister)(::core::mem::transmute_copy(this), kind, guidregistration.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Unregister)(::windows::core::Interface::as_raw(this), kind, guidregistration.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Shell\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn UpdateState<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::Uri>>(&self, kind: SecurityAppKind, guidregistration: Param1, state: SecurityAppState, substatus: SecurityAppSubstatus, detailsuri: Param4) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).UpdateState)(::core::mem::transmute_copy(this), kind, guidregistration.into_param().abi(), state, substatus, detailsuri.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).UpdateState)(::windows::core::Interface::as_raw(this), kind, guidregistration.into_param().abi(), state, substatus, detailsuri.into_param().abi()).ok() }
     }
 }
 impl ::core::clone::Clone for SecurityAppManager {
@@ -587,7 +587,7 @@ impl ShareWindowCommandEventArgs {
         let this = self;
         unsafe {
             let mut result__: super::WindowId = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).WindowId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::WindowId>(result__)
+            (::windows::core::Interface::vtable(this).WindowId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::WindowId>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Shell\"`*"]
@@ -595,13 +595,13 @@ impl ShareWindowCommandEventArgs {
         let this = self;
         unsafe {
             let mut result__: ShareWindowCommand = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Command)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ShareWindowCommand>(result__)
+            (::windows::core::Interface::vtable(this).Command)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ShareWindowCommand>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Shell\"`*"]
     pub fn SetCommand(&self, value: ShareWindowCommand) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetCommand)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCommand)(::windows::core::Interface::as_raw(this), value).ok() }
     }
 }
 impl ::core::clone::Clone for ShareWindowCommandEventArgs {
@@ -683,17 +683,17 @@ impl ShareWindowCommandSource {
     #[doc = "*Required features: `\"UI_Shell\"`*"]
     pub fn Start(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Start)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Start)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"UI_Shell\"`*"]
     pub fn Stop(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Stop)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Stop)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"UI_Shell\"`*"]
     pub fn ReportCommandChanged(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).ReportCommandChanged)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).ReportCommandChanged)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"UI_Shell\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -701,14 +701,14 @@ impl ShareWindowCommandSource {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CommandRequested)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).CommandRequested)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Shell\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveCommandRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveCommandRequested)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveCommandRequested)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Shell\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -716,20 +716,20 @@ impl ShareWindowCommandSource {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CommandInvoked)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).CommandInvoked)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Shell\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveCommandInvoked<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveCommandInvoked)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveCommandInvoked)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Shell\"`*"]
     pub fn GetForCurrentView() -> ::windows::core::Result<ShareWindowCommandSource> {
         Self::IShareWindowCommandSourceStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetForCurrentView)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ShareWindowCommandSource>(result__)
+            (::windows::core::Interface::vtable(this).GetForCurrentView)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ShareWindowCommandSource>(result__)
         })
     }
     #[doc(hidden)]
@@ -819,7 +819,7 @@ impl TaskbarManager {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsSupported)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsSupported)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Shell\"`*"]
@@ -827,7 +827,7 @@ impl TaskbarManager {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsPinningAllowed)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsPinningAllowed)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Shell\"`, `\"Foundation\"`*"]
@@ -836,7 +836,7 @@ impl TaskbarManager {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsCurrentAppPinnedAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Interface::vtable(this).IsCurrentAppPinnedAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Shell\"`, `\"ApplicationModel_Core\"`, `\"Foundation\"`*"]
@@ -845,7 +845,7 @@ impl TaskbarManager {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsAppListEntryPinnedAsync)(::core::mem::transmute_copy(this), applistentry.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Interface::vtable(this).IsAppListEntryPinnedAsync)(::windows::core::Interface::as_raw(this), applistentry.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Shell\"`, `\"Foundation\"`*"]
@@ -854,7 +854,7 @@ impl TaskbarManager {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RequestPinCurrentAppAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Interface::vtable(this).RequestPinCurrentAppAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Shell\"`, `\"ApplicationModel_Core\"`, `\"Foundation\"`*"]
@@ -863,7 +863,7 @@ impl TaskbarManager {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RequestPinAppListEntryAsync)(::core::mem::transmute_copy(this), applistentry.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Interface::vtable(this).RequestPinAppListEntryAsync)(::windows::core::Interface::as_raw(this), applistentry.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Shell\"`, `\"Foundation\"`*"]
@@ -872,7 +872,7 @@ impl TaskbarManager {
         let this = &::windows::core::Interface::cast::<ITaskbarManager2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsSecondaryTilePinnedAsync)(::core::mem::transmute_copy(this), tileid.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Interface::vtable(this).IsSecondaryTilePinnedAsync)(::windows::core::Interface::as_raw(this), tileid.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Shell\"`, `\"Foundation\"`, `\"UI_StartScreen\"`*"]
@@ -881,7 +881,7 @@ impl TaskbarManager {
         let this = &::windows::core::Interface::cast::<ITaskbarManager2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RequestPinSecondaryTileAsync)(::core::mem::transmute_copy(this), secondarytile.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Interface::vtable(this).RequestPinSecondaryTileAsync)(::windows::core::Interface::as_raw(this), secondarytile.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Shell\"`, `\"Foundation\"`*"]
@@ -890,14 +890,14 @@ impl TaskbarManager {
         let this = &::windows::core::Interface::cast::<ITaskbarManager2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TryUnpinSecondaryTileAsync)(::core::mem::transmute_copy(this), tileid.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Interface::vtable(this).TryUnpinSecondaryTileAsync)(::windows::core::Interface::as_raw(this), tileid.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Shell\"`*"]
     pub fn GetDefault() -> ::windows::core::Result<TaskbarManager> {
         Self::ITaskbarManagerStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetDefault)(::core::mem::transmute_copy(this), &mut result__).from_abi::<TaskbarManager>(result__)
+            (::windows::core::Interface::vtable(this).GetDefault)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<TaskbarManager>(result__)
         })
     }
     #[doc(hidden)]

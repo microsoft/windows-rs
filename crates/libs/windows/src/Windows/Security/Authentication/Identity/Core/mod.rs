@@ -158,7 +158,7 @@ impl MicrosoftAccountMultiFactorAuthenticationManager {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetOneTimePassCodeAsync)(::core::mem::transmute_copy(this), useraccountid.into_param().abi(), codelength, &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorOneTimeCodedInfo>>(result__)
+            (::windows::core::Interface::vtable(this).GetOneTimePassCodeAsync)(::windows::core::Interface::as_raw(this), useraccountid.into_param().abi(), codelength, &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorOneTimeCodedInfo>>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Authentication_Identity_Core\"`, `\"Foundation\"`*"]
@@ -167,7 +167,7 @@ impl MicrosoftAccountMultiFactorAuthenticationManager {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AddDeviceAsync)(::core::mem::transmute_copy(this), useraccountid.into_param().abi(), authenticationtoken.into_param().abi(), wnschannelid.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorServiceResponse>>(result__)
+            (::windows::core::Interface::vtable(this).AddDeviceAsync)(::windows::core::Interface::as_raw(this), useraccountid.into_param().abi(), authenticationtoken.into_param().abi(), wnschannelid.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorServiceResponse>>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Authentication_Identity_Core\"`, `\"Foundation\"`*"]
@@ -176,7 +176,7 @@ impl MicrosoftAccountMultiFactorAuthenticationManager {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RemoveDeviceAsync)(::core::mem::transmute_copy(this), useraccountid.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorServiceResponse>>(result__)
+            (::windows::core::Interface::vtable(this).RemoveDeviceAsync)(::windows::core::Interface::as_raw(this), useraccountid.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorServiceResponse>>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Authentication_Identity_Core\"`, `\"Foundation\"`*"]
@@ -185,7 +185,7 @@ impl MicrosoftAccountMultiFactorAuthenticationManager {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).UpdateWnsChannelAsync)(::core::mem::transmute_copy(this), useraccountid.into_param().abi(), channeluri.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorServiceResponse>>(result__)
+            (::windows::core::Interface::vtable(this).UpdateWnsChannelAsync)(::windows::core::Interface::as_raw(this), useraccountid.into_param().abi(), channeluri.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorServiceResponse>>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Authentication_Identity_Core\"`, `\"Foundation_Collections\"`*"]
@@ -194,7 +194,7 @@ impl MicrosoftAccountMultiFactorAuthenticationManager {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetSessionsAsync)(::core::mem::transmute_copy(this), useraccountidlist.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorGetSessionsResult>>(result__)
+            (::windows::core::Interface::vtable(this).GetSessionsAsync)(::windows::core::Interface::as_raw(this), useraccountidlist.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorGetSessionsResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Authentication_Identity_Core\"`, `\"Foundation_Collections\"`*"]
@@ -203,7 +203,7 @@ impl MicrosoftAccountMultiFactorAuthenticationManager {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetSessionsAndUnregisteredAccountsAsync)(::core::mem::transmute_copy(this), useraccountidlist.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo>>(result__)
+            (::windows::core::Interface::vtable(this).GetSessionsAndUnregisteredAccountsAsync)(::windows::core::Interface::as_raw(this), useraccountidlist.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo>>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Authentication_Identity_Core\"`, `\"Foundation\"`*"]
@@ -212,7 +212,7 @@ impl MicrosoftAccountMultiFactorAuthenticationManager {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ApproveSessionUsingAuthSessionInfoAsync)(::core::mem::transmute_copy(this), sessionauthentictionstatus, authenticationsessioninfo.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorServiceResponse>>(result__)
+            (::windows::core::Interface::vtable(this).ApproveSessionUsingAuthSessionInfoAsync)(::windows::core::Interface::as_raw(this), sessionauthentictionstatus, authenticationsessioninfo.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorServiceResponse>>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Authentication_Identity_Core\"`, `\"Foundation\"`*"]
@@ -221,7 +221,7 @@ impl MicrosoftAccountMultiFactorAuthenticationManager {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ApproveSessionAsync)(::core::mem::transmute_copy(this), sessionauthentictionstatus, useraccountid.into_param().abi(), sessionid.into_param().abi(), sessionauthenticationtype, &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorServiceResponse>>(result__)
+            (::windows::core::Interface::vtable(this).ApproveSessionAsync)(::windows::core::Interface::as_raw(this), sessionauthentictionstatus, useraccountid.into_param().abi(), sessionid.into_param().abi(), sessionauthenticationtype, &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorServiceResponse>>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Authentication_Identity_Core\"`, `\"Foundation\"`*"]
@@ -230,7 +230,7 @@ impl MicrosoftAccountMultiFactorAuthenticationManager {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DenySessionUsingAuthSessionInfoAsync)(::core::mem::transmute_copy(this), authenticationsessioninfo.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorServiceResponse>>(result__)
+            (::windows::core::Interface::vtable(this).DenySessionUsingAuthSessionInfoAsync)(::windows::core::Interface::as_raw(this), authenticationsessioninfo.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorServiceResponse>>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Authentication_Identity_Core\"`, `\"Foundation\"`*"]
@@ -239,14 +239,14 @@ impl MicrosoftAccountMultiFactorAuthenticationManager {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DenySessionAsync)(::core::mem::transmute_copy(this), useraccountid.into_param().abi(), sessionid.into_param().abi(), sessionauthenticationtype, &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorServiceResponse>>(result__)
+            (::windows::core::Interface::vtable(this).DenySessionAsync)(::windows::core::Interface::as_raw(this), useraccountid.into_param().abi(), sessionid.into_param().abi(), sessionauthenticationtype, &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorServiceResponse>>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Authentication_Identity_Core\"`*"]
     pub fn Current() -> ::windows::core::Result<MicrosoftAccountMultiFactorAuthenticationManager> {
         Self::IMicrosoftAccountMultiFactorAuthenticatorStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Current)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MicrosoftAccountMultiFactorAuthenticationManager>(result__)
+            (::windows::core::Interface::vtable(this).Current)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<MicrosoftAccountMultiFactorAuthenticationManager>(result__)
         })
     }
     #[doc(hidden)]
@@ -371,7 +371,7 @@ impl MicrosoftAccountMultiFactorGetSessionsResult {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Sessions)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<MicrosoftAccountMultiFactorSessionInfo>>(result__)
+            (::windows::core::Interface::vtable(this).Sessions)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<MicrosoftAccountMultiFactorSessionInfo>>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Authentication_Identity_Core\"`*"]
@@ -379,7 +379,7 @@ impl MicrosoftAccountMultiFactorGetSessionsResult {
         let this = self;
         unsafe {
             let mut result__: MicrosoftAccountMultiFactorServiceResponse = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ServiceResponse)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MicrosoftAccountMultiFactorServiceResponse>(result__)
+            (::windows::core::Interface::vtable(this).ServiceResponse)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<MicrosoftAccountMultiFactorServiceResponse>(result__)
         }
     }
 }
@@ -464,7 +464,7 @@ impl MicrosoftAccountMultiFactorOneTimeCodedInfo {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Code)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Code)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Authentication_Identity_Core\"`, `\"Foundation\"`*"]
@@ -473,7 +473,7 @@ impl MicrosoftAccountMultiFactorOneTimeCodedInfo {
         let this = self;
         unsafe {
             let mut result__: super::super::super::super::Foundation::TimeSpan = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TimeInterval)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::TimeSpan>(result__)
+            (::windows::core::Interface::vtable(this).TimeInterval)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::super::Foundation::TimeSpan>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Authentication_Identity_Core\"`, `\"Foundation\"`*"]
@@ -482,7 +482,7 @@ impl MicrosoftAccountMultiFactorOneTimeCodedInfo {
         let this = self;
         unsafe {
             let mut result__: super::super::super::super::Foundation::TimeSpan = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TimeToLive)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::TimeSpan>(result__)
+            (::windows::core::Interface::vtable(this).TimeToLive)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::super::Foundation::TimeSpan>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Authentication_Identity_Core\"`*"]
@@ -490,7 +490,7 @@ impl MicrosoftAccountMultiFactorOneTimeCodedInfo {
         let this = self;
         unsafe {
             let mut result__: MicrosoftAccountMultiFactorServiceResponse = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ServiceResponse)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MicrosoftAccountMultiFactorServiceResponse>(result__)
+            (::windows::core::Interface::vtable(this).ServiceResponse)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<MicrosoftAccountMultiFactorServiceResponse>(result__)
         }
     }
 }
@@ -698,7 +698,7 @@ impl MicrosoftAccountMultiFactorSessionInfo {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).UserAccountId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).UserAccountId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Authentication_Identity_Core\"`*"]
@@ -706,7 +706,7 @@ impl MicrosoftAccountMultiFactorSessionInfo {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SessionId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).SessionId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Authentication_Identity_Core\"`*"]
@@ -714,7 +714,7 @@ impl MicrosoftAccountMultiFactorSessionInfo {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DisplaySessionId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).DisplaySessionId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Authentication_Identity_Core\"`*"]
@@ -722,7 +722,7 @@ impl MicrosoftAccountMultiFactorSessionInfo {
         let this = self;
         unsafe {
             let mut result__: MicrosoftAccountMultiFactorSessionApprovalStatus = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ApprovalStatus)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MicrosoftAccountMultiFactorSessionApprovalStatus>(result__)
+            (::windows::core::Interface::vtable(this).ApprovalStatus)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<MicrosoftAccountMultiFactorSessionApprovalStatus>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Authentication_Identity_Core\"`*"]
@@ -730,7 +730,7 @@ impl MicrosoftAccountMultiFactorSessionInfo {
         let this = self;
         unsafe {
             let mut result__: MicrosoftAccountMultiFactorAuthenticationType = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AuthenticationType)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MicrosoftAccountMultiFactorAuthenticationType>(result__)
+            (::windows::core::Interface::vtable(this).AuthenticationType)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<MicrosoftAccountMultiFactorAuthenticationType>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Authentication_Identity_Core\"`, `\"Foundation\"`*"]
@@ -739,7 +739,7 @@ impl MicrosoftAccountMultiFactorSessionInfo {
         let this = self;
         unsafe {
             let mut result__: super::super::super::super::Foundation::DateTime = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RequestTime)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::DateTime>(result__)
+            (::windows::core::Interface::vtable(this).RequestTime)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::super::Foundation::DateTime>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Authentication_Identity_Core\"`, `\"Foundation\"`*"]
@@ -748,7 +748,7 @@ impl MicrosoftAccountMultiFactorSessionInfo {
         let this = self;
         unsafe {
             let mut result__: super::super::super::super::Foundation::DateTime = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ExpirationTime)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::DateTime>(result__)
+            (::windows::core::Interface::vtable(this).ExpirationTime)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::super::Foundation::DateTime>(result__)
         }
     }
 }
@@ -834,7 +834,7 @@ impl MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Sessions)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<MicrosoftAccountMultiFactorSessionInfo>>(result__)
+            (::windows::core::Interface::vtable(this).Sessions)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<MicrosoftAccountMultiFactorSessionInfo>>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Authentication_Identity_Core\"`, `\"Foundation_Collections\"`*"]
@@ -843,7 +843,7 @@ impl MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).UnregisteredAccounts)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>(result__)
+            (::windows::core::Interface::vtable(this).UnregisteredAccounts)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Authentication_Identity_Core\"`*"]
@@ -851,7 +851,7 @@ impl MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo {
         let this = self;
         unsafe {
             let mut result__: MicrosoftAccountMultiFactorServiceResponse = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ServiceResponse)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MicrosoftAccountMultiFactorServiceResponse>(result__)
+            (::windows::core::Interface::vtable(this).ServiceResponse)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<MicrosoftAccountMultiFactorServiceResponse>(result__)
         }
     }
 }

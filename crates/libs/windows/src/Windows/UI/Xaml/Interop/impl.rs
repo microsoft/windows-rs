@@ -5,11 +5,11 @@ impl ::windows::core::RuntimeName for IBindableIterable {
     const NAME: &'static str = "Windows.UI.Xaml.Interop.IBindableIterable";
 }
 impl IBindableIterable_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBindableIterable_Impl, const OFFSET: isize>() -> IBindableIterable_Vtbl {
-        unsafe extern "system" fn First<Identity: ::windows::core::IUnknownImpl, Impl: IBindableIterable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).First() {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IBindableIterable_Impl, const OFFSET: isize>() -> IBindableIterable_Vtbl {
+        unsafe extern "system" fn First<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IBindableIterable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            match this.First() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
                     ::core::mem::forget(ok__);
@@ -33,11 +33,11 @@ impl ::windows::core::RuntimeName for IBindableIterator {
     const NAME: &'static str = "Windows.UI.Xaml.Interop.IBindableIterator";
 }
 impl IBindableIterator_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBindableIterator_Impl, const OFFSET: isize>() -> IBindableIterator_Vtbl {
-        unsafe extern "system" fn Current<Identity: ::windows::core::IUnknownImpl, Impl: IBindableIterator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).Current() {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IBindableIterator_Impl, const OFFSET: isize>() -> IBindableIterator_Vtbl {
+        unsafe extern "system" fn Current<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IBindableIterator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            match this.Current() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
                     ::core::mem::forget(ok__);
@@ -46,10 +46,10 @@ impl IBindableIterator_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn HasCurrent<Identity: ::windows::core::IUnknownImpl, Impl: IBindableIterator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).HasCurrent() {
+        unsafe extern "system" fn HasCurrent<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IBindableIterator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            match this.HasCurrent() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
                     ::core::mem::forget(ok__);
@@ -58,10 +58,10 @@ impl IBindableIterator_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MoveNext<Identity: ::windows::core::IUnknownImpl, Impl: IBindableIterator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).MoveNext() {
+        unsafe extern "system" fn MoveNext<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IBindableIterator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            match this.MoveNext() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
                     ::core::mem::forget(ok__);
@@ -92,11 +92,11 @@ impl ::windows::core::RuntimeName for IBindableObservableVector {
 }
 #[cfg(feature = "Foundation")]
 impl IBindableObservableVector_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBindableObservableVector_Impl, const OFFSET: isize>() -> IBindableObservableVector_Vtbl {
-        unsafe extern "system" fn VectorChanged<Identity: ::windows::core::IUnknownImpl, Impl: IBindableObservableVector_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).VectorChanged(::core::mem::transmute(&handler)) {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IBindableObservableVector_Impl, const OFFSET: isize>() -> IBindableObservableVector_Vtbl {
+        unsafe extern "system" fn VectorChanged<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IBindableObservableVector_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            match this.VectorChanged(::core::mem::transmute(&handler)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
                     ::core::mem::forget(ok__);
@@ -105,10 +105,10 @@ impl IBindableObservableVector_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveVectorChanged<Identity: ::windows::core::IUnknownImpl, Impl: IBindableObservableVector_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            (*this).RemoveVectorChanged(::core::mem::transmute(&token)).into()
+        unsafe extern "system" fn RemoveVectorChanged<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IBindableObservableVector_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.RemoveVectorChanged(::core::mem::transmute(&token)).into()
         }
         Self {
             base__: ::windows::core::IInspectableVtbl::new::<Identity, IBindableObservableVector, OFFSET>(),
@@ -136,11 +136,11 @@ impl ::windows::core::RuntimeName for IBindableVector {
     const NAME: &'static str = "Windows.UI.Xaml.Interop.IBindableVector";
 }
 impl IBindableVector_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBindableVector_Impl, const OFFSET: isize>() -> IBindableVector_Vtbl {
-        unsafe extern "system" fn GetAt<Identity: ::windows::core::IUnknownImpl, Impl: IBindableVector_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetAt(index) {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IBindableVector_Impl, const OFFSET: isize>() -> IBindableVector_Vtbl {
+        unsafe extern "system" fn GetAt<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IBindableVector_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            match this.GetAt(index) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
                     ::core::mem::forget(ok__);
@@ -149,10 +149,10 @@ impl IBindableVector_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Size<Identity: ::windows::core::IUnknownImpl, Impl: IBindableVector_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).Size() {
+        unsafe extern "system" fn Size<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IBindableVector_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            match this.Size() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
                     ::core::mem::forget(ok__);
@@ -161,10 +161,10 @@ impl IBindableVector_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetView<Identity: ::windows::core::IUnknownImpl, Impl: IBindableVector_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetView() {
+        unsafe extern "system" fn GetView<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IBindableVector_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            match this.GetView() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
                     ::core::mem::forget(ok__);
@@ -173,10 +173,10 @@ impl IBindableVector_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IndexOf<Identity: ::windows::core::IUnknownImpl, Impl: IBindableVector_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void, index: *mut u32, result__: *mut bool) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).IndexOf(::core::mem::transmute(&value), ::core::mem::transmute_copy(&index)) {
+        unsafe extern "system" fn IndexOf<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IBindableVector_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void, index: *mut u32, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            match this.IndexOf(::core::mem::transmute(&value), ::core::mem::transmute_copy(&index)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
                     ::core::mem::forget(ok__);
@@ -185,35 +185,35 @@ impl IBindableVector_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetAt<Identity: ::windows::core::IUnknownImpl, Impl: IBindableVector_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            (*this).SetAt(index, ::core::mem::transmute(&value)).into()
+        unsafe extern "system" fn SetAt<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IBindableVector_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.SetAt(index, ::core::mem::transmute(&value)).into()
         }
-        unsafe extern "system" fn InsertAt<Identity: ::windows::core::IUnknownImpl, Impl: IBindableVector_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            (*this).InsertAt(index, ::core::mem::transmute(&value)).into()
+        unsafe extern "system" fn InsertAt<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IBindableVector_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.InsertAt(index, ::core::mem::transmute(&value)).into()
         }
-        unsafe extern "system" fn RemoveAt<Identity: ::windows::core::IUnknownImpl, Impl: IBindableVector_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            (*this).RemoveAt(index).into()
+        unsafe extern "system" fn RemoveAt<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IBindableVector_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.RemoveAt(index).into()
         }
-        unsafe extern "system" fn Append<Identity: ::windows::core::IUnknownImpl, Impl: IBindableVector_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            (*this).Append(::core::mem::transmute(&value)).into()
+        unsafe extern "system" fn Append<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IBindableVector_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.Append(::core::mem::transmute(&value)).into()
         }
-        unsafe extern "system" fn RemoveAtEnd<Identity: ::windows::core::IUnknownImpl, Impl: IBindableVector_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            (*this).RemoveAtEnd().into()
+        unsafe extern "system" fn RemoveAtEnd<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IBindableVector_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.RemoveAtEnd().into()
         }
-        unsafe extern "system" fn Clear<Identity: ::windows::core::IUnknownImpl, Impl: IBindableVector_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            (*this).Clear().into()
+        unsafe extern "system" fn Clear<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IBindableVector_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.Clear().into()
         }
         Self {
             base__: ::windows::core::IInspectableVtbl::new::<Identity, IBindableVector, OFFSET>(),
@@ -242,11 +242,11 @@ impl ::windows::core::RuntimeName for IBindableVectorView {
     const NAME: &'static str = "Windows.UI.Xaml.Interop.IBindableVectorView";
 }
 impl IBindableVectorView_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBindableVectorView_Impl, const OFFSET: isize>() -> IBindableVectorView_Vtbl {
-        unsafe extern "system" fn GetAt<Identity: ::windows::core::IUnknownImpl, Impl: IBindableVectorView_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetAt(index) {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IBindableVectorView_Impl, const OFFSET: isize>() -> IBindableVectorView_Vtbl {
+        unsafe extern "system" fn GetAt<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IBindableVectorView_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            match this.GetAt(index) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
                     ::core::mem::forget(ok__);
@@ -255,10 +255,10 @@ impl IBindableVectorView_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Size<Identity: ::windows::core::IUnknownImpl, Impl: IBindableVectorView_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).Size() {
+        unsafe extern "system" fn Size<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IBindableVectorView_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            match this.Size() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
                     ::core::mem::forget(ok__);
@@ -267,10 +267,10 @@ impl IBindableVectorView_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IndexOf<Identity: ::windows::core::IUnknownImpl, Impl: IBindableVectorView_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void, index: *mut u32, result__: *mut bool) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).IndexOf(::core::mem::transmute(&value), ::core::mem::transmute_copy(&index)) {
+        unsafe extern "system" fn IndexOf<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IBindableVectorView_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void, index: *mut u32, result__: *mut bool) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            match this.IndexOf(::core::mem::transmute(&value), ::core::mem::transmute_copy(&index)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
                     ::core::mem::forget(ok__);
@@ -301,11 +301,11 @@ impl ::windows::core::RuntimeName for INotifyCollectionChanged {
 }
 #[cfg(feature = "Foundation")]
 impl INotifyCollectionChanged_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INotifyCollectionChanged_Impl, const OFFSET: isize>() -> INotifyCollectionChanged_Vtbl {
-        unsafe extern "system" fn CollectionChanged<Identity: ::windows::core::IUnknownImpl, Impl: INotifyCollectionChanged_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).CollectionChanged(::core::mem::transmute(&handler)) {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INotifyCollectionChanged_Impl, const OFFSET: isize>() -> INotifyCollectionChanged_Vtbl {
+        unsafe extern "system" fn CollectionChanged<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INotifyCollectionChanged_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            match this.CollectionChanged(::core::mem::transmute(&handler)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
                     ::core::mem::forget(ok__);
@@ -314,10 +314,10 @@ impl INotifyCollectionChanged_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveCollectionChanged<Identity: ::windows::core::IUnknownImpl, Impl: INotifyCollectionChanged_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            (*this).RemoveCollectionChanged(::core::mem::transmute(&token)).into()
+        unsafe extern "system" fn RemoveCollectionChanged<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INotifyCollectionChanged_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.RemoveCollectionChanged(::core::mem::transmute(&token)).into()
         }
         Self {
             base__: ::windows::core::IInspectableVtbl::new::<Identity, INotifyCollectionChanged, OFFSET>(),

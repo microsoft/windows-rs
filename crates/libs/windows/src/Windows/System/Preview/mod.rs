@@ -160,7 +160,7 @@ impl TwoPanelHingedDevicePosturePreview {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetCurrentPostureAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<TwoPanelHingedDevicePosturePreviewReading>>(result__)
+            (::windows::core::Interface::vtable(this).GetCurrentPostureAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<TwoPanelHingedDevicePosturePreviewReading>>(result__)
         }
     }
     #[doc = "*Required features: `\"System_Preview\"`, `\"Foundation\"`, `\"deprecated\"`*"]
@@ -169,21 +169,21 @@ impl TwoPanelHingedDevicePosturePreview {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PostureChanged)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).PostureChanged)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"System_Preview\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn RemovePostureChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemovePostureChanged)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemovePostureChanged)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"System_Preview\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn GetDefaultAsync() -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<TwoPanelHingedDevicePosturePreview>> {
         Self::ITwoPanelHingedDevicePosturePreviewStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetDefaultAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<TwoPanelHingedDevicePosturePreview>>(result__)
+            (::windows::core::Interface::vtable(this).GetDefaultAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<TwoPanelHingedDevicePosturePreview>>(result__)
         })
     }
     #[doc(hidden)]
@@ -294,7 +294,7 @@ impl TwoPanelHingedDevicePosturePreviewReading {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::DateTime = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Timestamp)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::DateTime>(result__)
+            (::windows::core::Interface::vtable(this).Timestamp)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::DateTime>(result__)
         }
     }
     #[doc = "*Required features: `\"System_Preview\"`, `\"deprecated\"`*"]
@@ -303,7 +303,7 @@ impl TwoPanelHingedDevicePosturePreviewReading {
         let this = self;
         unsafe {
             let mut result__: HingeState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).HingeState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<HingeState>(result__)
+            (::windows::core::Interface::vtable(this).HingeState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<HingeState>(result__)
         }
     }
     #[doc = "*Required features: `\"System_Preview\"`, `\"Devices_Sensors\"`, `\"deprecated\"`*"]
@@ -312,7 +312,7 @@ impl TwoPanelHingedDevicePosturePreviewReading {
         let this = self;
         unsafe {
             let mut result__: super::super::Devices::Sensors::SimpleOrientation = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Panel1Orientation)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Devices::Sensors::SimpleOrientation>(result__)
+            (::windows::core::Interface::vtable(this).Panel1Orientation)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Devices::Sensors::SimpleOrientation>(result__)
         }
     }
     #[doc = "*Required features: `\"System_Preview\"`, `\"deprecated\"`*"]
@@ -321,7 +321,7 @@ impl TwoPanelHingedDevicePosturePreviewReading {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Panel1Id)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Panel1Id)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"System_Preview\"`, `\"Devices_Sensors\"`, `\"deprecated\"`*"]
@@ -330,7 +330,7 @@ impl TwoPanelHingedDevicePosturePreviewReading {
         let this = self;
         unsafe {
             let mut result__: super::super::Devices::Sensors::SimpleOrientation = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Panel2Orientation)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Devices::Sensors::SimpleOrientation>(result__)
+            (::windows::core::Interface::vtable(this).Panel2Orientation)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Devices::Sensors::SimpleOrientation>(result__)
         }
     }
     #[doc = "*Required features: `\"System_Preview\"`, `\"deprecated\"`*"]
@@ -339,7 +339,7 @@ impl TwoPanelHingedDevicePosturePreviewReading {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Panel2Id)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Panel2Id)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
 }
@@ -444,7 +444,7 @@ impl TwoPanelHingedDevicePosturePreviewReadingChangedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Reading)(::core::mem::transmute_copy(this), &mut result__).from_abi::<TwoPanelHingedDevicePosturePreviewReading>(result__)
+            (::windows::core::Interface::vtable(this).Reading)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<TwoPanelHingedDevicePosturePreviewReading>(result__)
         }
     }
 }

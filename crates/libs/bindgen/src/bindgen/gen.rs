@@ -62,7 +62,8 @@ impl Gen<'_> {
                 features = features.into_iter().filter(|f| !f.starts_with("Windows.")).collect();
             }
             for features in features {
-                tokens.push_str(&format!(r#", `\"{}\"`"#, to_feature(features)));
+                use std::fmt::Write;
+                write!(&mut tokens, r#", `\"{}\"`"#, to_feature(features)).unwrap();
             }
 
             format!(r#"#[doc = "*Required features: {}*"]"#, tokens).into()

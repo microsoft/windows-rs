@@ -143,7 +143,7 @@ impl UserDataAvailabilityStateChangedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetDeferral)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Deferral>(result__)
+            (::windows::core::Interface::vtable(this).GetDeferral)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Deferral>(result__)
         }
     }
 }
@@ -228,7 +228,7 @@ impl UserDataBufferUnprotectResult {
         let this = self;
         unsafe {
             let mut result__: UserDataBufferUnprotectStatus = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Status)(::core::mem::transmute_copy(this), &mut result__).from_abi::<UserDataBufferUnprotectStatus>(result__)
+            (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<UserDataBufferUnprotectStatus>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_DataProtection\"`, `\"Storage_Streams\"`*"]
@@ -237,7 +237,7 @@ impl UserDataBufferUnprotectResult {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).UnprotectedBuffer)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
+            (::windows::core::Interface::vtable(this).UnprotectedBuffer)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
         }
     }
 }
@@ -357,7 +357,7 @@ impl UserDataProtectionManager {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ProtectStorageItemAsync)(::core::mem::transmute_copy(this), storageitem.into_param().abi(), availability, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<UserDataStorageItemProtectionStatus>>(result__)
+            (::windows::core::Interface::vtable(this).ProtectStorageItemAsync)(::windows::core::Interface::as_raw(this), storageitem.into_param().abi(), availability, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<UserDataStorageItemProtectionStatus>>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_DataProtection\"`, `\"Foundation\"`, `\"Storage\"`*"]
@@ -366,7 +366,7 @@ impl UserDataProtectionManager {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetStorageItemProtectionInfoAsync)(::core::mem::transmute_copy(this), storageitem.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<UserDataStorageItemProtectionInfo>>(result__)
+            (::windows::core::Interface::vtable(this).GetStorageItemProtectionInfoAsync)(::windows::core::Interface::as_raw(this), storageitem.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<UserDataStorageItemProtectionInfo>>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_DataProtection\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
@@ -375,7 +375,7 @@ impl UserDataProtectionManager {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ProtectBufferAsync)(::core::mem::transmute_copy(this), unprotectedbuffer.into_param().abi(), availability, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IBuffer>>(result__)
+            (::windows::core::Interface::vtable(this).ProtectBufferAsync)(::windows::core::Interface::as_raw(this), unprotectedbuffer.into_param().abi(), availability, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IBuffer>>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_DataProtection\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
@@ -384,7 +384,7 @@ impl UserDataProtectionManager {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).UnprotectBufferAsync)(::core::mem::transmute_copy(this), protectedbuffer.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<UserDataBufferUnprotectResult>>(result__)
+            (::windows::core::Interface::vtable(this).UnprotectBufferAsync)(::windows::core::Interface::as_raw(this), protectedbuffer.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<UserDataBufferUnprotectResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_DataProtection\"`*"]
@@ -392,7 +392,7 @@ impl UserDataProtectionManager {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsContinuedDataAvailabilityExpected)(::core::mem::transmute_copy(this), availability, &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsContinuedDataAvailabilityExpected)(::windows::core::Interface::as_raw(this), availability, &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_DataProtection\"`, `\"Foundation\"`*"]
@@ -401,20 +401,20 @@ impl UserDataProtectionManager {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DataAvailabilityStateChanged)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).DataAvailabilityStateChanged)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_DataProtection\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveDataAvailabilityStateChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveDataAvailabilityStateChanged)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveDataAvailabilityStateChanged)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Security_DataProtection\"`*"]
     pub fn TryGetDefault() -> ::windows::core::Result<UserDataProtectionManager> {
         Self::IUserDataProtectionManagerStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TryGetDefault)(::core::mem::transmute_copy(this), &mut result__).from_abi::<UserDataProtectionManager>(result__)
+            (::windows::core::Interface::vtable(this).TryGetDefault)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<UserDataProtectionManager>(result__)
         })
     }
     #[doc = "*Required features: `\"Security_DataProtection\"`, `\"System\"`*"]
@@ -422,7 +422,7 @@ impl UserDataProtectionManager {
     pub fn TryGetForUser<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::User>>(user: Param0) -> ::windows::core::Result<UserDataProtectionManager> {
         Self::IUserDataProtectionManagerStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TryGetForUser)(::core::mem::transmute_copy(this), user.into_param().abi(), &mut result__).from_abi::<UserDataProtectionManager>(result__)
+            (::windows::core::Interface::vtable(this).TryGetForUser)(::windows::core::Interface::as_raw(this), user.into_param().abi(), &mut result__).from_abi::<UserDataProtectionManager>(result__)
         })
     }
     #[doc(hidden)]
@@ -512,7 +512,7 @@ impl UserDataStorageItemProtectionInfo {
         let this = self;
         unsafe {
             let mut result__: UserDataAvailability = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Availability)(::core::mem::transmute_copy(this), &mut result__).from_abi::<UserDataAvailability>(result__)
+            (::windows::core::Interface::vtable(this).Availability)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<UserDataAvailability>(result__)
         }
     }
 }

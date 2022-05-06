@@ -85,7 +85,7 @@ impl ESim {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AvailableMemoryInBytes)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<i32>>(result__)
+            (::windows::core::Interface::vtable(this).AvailableMemoryInBytes)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IReference<i32>>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -93,7 +93,7 @@ impl ESim {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Eid)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Eid)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -101,7 +101,7 @@ impl ESim {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FirmwareVersion)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).FirmwareVersion)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -109,7 +109,7 @@ impl ESim {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MobileBroadbandModemDeviceId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).MobileBroadbandModemDeviceId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -117,7 +117,7 @@ impl ESim {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Policy)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ESimPolicy>(result__)
+            (::windows::core::Interface::vtable(this).Policy)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ESimPolicy>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -125,7 +125,7 @@ impl ESim {
         let this = self;
         unsafe {
             let mut result__: ESimState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).State)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ESimState>(result__)
+            (::windows::core::Interface::vtable(this).State)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ESimState>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation_Collections\"`*"]
@@ -134,7 +134,7 @@ impl ESim {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetProfiles)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<ESimProfile>>(result__)
+            (::windows::core::Interface::vtable(this).GetProfiles)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<ESimProfile>>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
@@ -143,7 +143,7 @@ impl ESim {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DeleteProfileAsync)(::core::mem::transmute_copy(this), profileid.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<ESimOperationResult>>(result__)
+            (::windows::core::Interface::vtable(this).DeleteProfileAsync)(::windows::core::Interface::as_raw(this), profileid.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<ESimOperationResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
@@ -152,7 +152,7 @@ impl ESim {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DownloadProfileMetadataAsync)(::core::mem::transmute_copy(this), activationcode.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<ESimDownloadProfileMetadataResult>>(result__)
+            (::windows::core::Interface::vtable(this).DownloadProfileMetadataAsync)(::windows::core::Interface::as_raw(this), activationcode.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<ESimDownloadProfileMetadataResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
@@ -161,7 +161,7 @@ impl ESim {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ResetAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<ESimOperationResult>>(result__)
+            (::windows::core::Interface::vtable(this).ResetAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<ESimOperationResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
@@ -170,21 +170,21 @@ impl ESim {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ProfileChanged)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).ProfileChanged)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveProfileChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveProfileChanged)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveProfileChanged)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
     pub fn Discover(&self) -> ::windows::core::Result<ESimDiscoverResult> {
         let this = &::windows::core::Interface::cast::<IESim2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Discover)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ESimDiscoverResult>(result__)
+            (::windows::core::Interface::vtable(this).Discover)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ESimDiscoverResult>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -192,7 +192,7 @@ impl ESim {
         let this = &::windows::core::Interface::cast::<IESim2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DiscoverWithServerAddressAndMatchingId)(::core::mem::transmute_copy(this), serveraddress.into_param().abi(), matchingid.into_param().abi(), &mut result__).from_abi::<ESimDiscoverResult>(result__)
+            (::windows::core::Interface::vtable(this).DiscoverWithServerAddressAndMatchingId)(::windows::core::Interface::as_raw(this), serveraddress.into_param().abi(), matchingid.into_param().abi(), &mut result__).from_abi::<ESimDiscoverResult>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
@@ -201,7 +201,7 @@ impl ESim {
         let this = &::windows::core::Interface::cast::<IESim2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DiscoverAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<ESimDiscoverResult>>(result__)
+            (::windows::core::Interface::vtable(this).DiscoverAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<ESimDiscoverResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
@@ -210,7 +210,7 @@ impl ESim {
         let this = &::windows::core::Interface::cast::<IESim2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DiscoverWithServerAddressAndMatchingIdAsync)(::core::mem::transmute_copy(this), serveraddress.into_param().abi(), matchingid.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<ESimDiscoverResult>>(result__)
+            (::windows::core::Interface::vtable(this).DiscoverWithServerAddressAndMatchingIdAsync)(::windows::core::Interface::as_raw(this), serveraddress.into_param().abi(), matchingid.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<ESimDiscoverResult>>(result__)
         }
     }
 }
@@ -295,7 +295,7 @@ impl ESimAddedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ESim)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ESim>(result__)
+            (::windows::core::Interface::vtable(this).ESim)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ESim>(result__)
         }
     }
 }
@@ -415,7 +415,7 @@ impl ESimDiscoverEvent {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MatchingId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).MatchingId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -423,7 +423,7 @@ impl ESimDiscoverEvent {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RspServerAddress)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).RspServerAddress)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
 }
@@ -509,7 +509,7 @@ impl ESimDiscoverResult {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Events)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<ESimDiscoverEvent>>(result__)
+            (::windows::core::Interface::vtable(this).Events)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<ESimDiscoverEvent>>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -517,7 +517,7 @@ impl ESimDiscoverResult {
         let this = self;
         unsafe {
             let mut result__: ESimDiscoverResultKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ESimDiscoverResultKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ESimDiscoverResultKind>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -525,7 +525,7 @@ impl ESimDiscoverResult {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ProfileMetadata)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ESimProfileMetadata>(result__)
+            (::windows::core::Interface::vtable(this).ProfileMetadata)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ESimProfileMetadata>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -533,7 +533,7 @@ impl ESimDiscoverResult {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Result)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ESimOperationResult>(result__)
+            (::windows::core::Interface::vtable(this).Result)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ESimOperationResult>(result__)
         }
     }
 }
@@ -653,7 +653,7 @@ impl ESimDownloadProfileMetadataResult {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Result)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ESimOperationResult>(result__)
+            (::windows::core::Interface::vtable(this).Result)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ESimOperationResult>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -661,7 +661,7 @@ impl ESimDownloadProfileMetadataResult {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ProfileMetadata)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ESimProfileMetadata>(result__)
+            (::windows::core::Interface::vtable(this).ProfileMetadata)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ESimProfileMetadata>(result__)
         }
     }
 }
@@ -744,14 +744,14 @@ impl ESimManager {
     pub fn ServiceInfo() -> ::windows::core::Result<ESimServiceInfo> {
         Self::IESimManagerStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ServiceInfo)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ESimServiceInfo>(result__)
+            (::windows::core::Interface::vtable(this).ServiceInfo)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ESimServiceInfo>(result__)
         })
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
     pub fn TryCreateESimWatcher() -> ::windows::core::Result<ESimWatcher> {
         Self::IESimManagerStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TryCreateESimWatcher)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ESimWatcher>(result__)
+            (::windows::core::Interface::vtable(this).TryCreateESimWatcher)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ESimWatcher>(result__)
         })
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
@@ -759,13 +759,13 @@ impl ESimManager {
     pub fn ServiceInfoChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventHandler<::windows::core::IInspectable>>>(handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         Self::IESimManagerStatics(|this| unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ServiceInfoChanged)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).ServiceInfoChanged)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         })
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveServiceInfoChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(token: Param0) -> ::windows::core::Result<()> {
-        Self::IESimManagerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).RemoveServiceInfoChanged)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() })
+        Self::IESimManagerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).RemoveServiceInfoChanged)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() })
     }
     #[doc(hidden)]
     pub fn IESimManagerStatics<R, F: FnOnce(&IESimManagerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
@@ -785,7 +785,7 @@ impl ESimOperationResult {
         let this = self;
         unsafe {
             let mut result__: ESimOperationStatus = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Status)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ESimOperationStatus>(result__)
+            (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ESimOperationStatus>(result__)
         }
     }
 }
@@ -931,7 +931,7 @@ impl ESimPolicy {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ShouldEnableManagingUi)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).ShouldEnableManagingUi)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
 }
@@ -1016,7 +1016,7 @@ impl ESimProfile {
         let this = self;
         unsafe {
             let mut result__: ESimProfileClass = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Class)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ESimProfileClass>(result__)
+            (::windows::core::Interface::vtable(this).Class)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ESimProfileClass>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -1024,7 +1024,7 @@ impl ESimProfile {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Nickname)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Nickname)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -1032,7 +1032,7 @@ impl ESimProfile {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Policy)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ESimProfilePolicy>(result__)
+            (::windows::core::Interface::vtable(this).Policy)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ESimProfilePolicy>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -1040,7 +1040,7 @@ impl ESimProfile {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Id)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Id)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Storage_Streams\"`*"]
@@ -1049,7 +1049,7 @@ impl ESimProfile {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ProviderIcon)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IRandomAccessStreamReference>(result__)
+            (::windows::core::Interface::vtable(this).ProviderIcon)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Storage::Streams::IRandomAccessStreamReference>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -1057,7 +1057,7 @@ impl ESimProfile {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ProviderId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).ProviderId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -1065,7 +1065,7 @@ impl ESimProfile {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ProviderName)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).ProviderName)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -1073,7 +1073,7 @@ impl ESimProfile {
         let this = self;
         unsafe {
             let mut result__: ESimProfileState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).State)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ESimProfileState>(result__)
+            (::windows::core::Interface::vtable(this).State)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ESimProfileState>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
@@ -1082,7 +1082,7 @@ impl ESimProfile {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DisableAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<ESimOperationResult>>(result__)
+            (::windows::core::Interface::vtable(this).DisableAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<ESimOperationResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
@@ -1091,7 +1091,7 @@ impl ESimProfile {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).EnableAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<ESimOperationResult>>(result__)
+            (::windows::core::Interface::vtable(this).EnableAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<ESimOperationResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
@@ -1100,7 +1100,7 @@ impl ESimProfile {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SetNicknameAsync)(::core::mem::transmute_copy(this), newnickname.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<ESimOperationResult>>(result__)
+            (::windows::core::Interface::vtable(this).SetNicknameAsync)(::windows::core::Interface::as_raw(this), newnickname.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<ESimOperationResult>>(result__)
         }
     }
 }
@@ -1258,7 +1258,7 @@ impl ESimProfileMetadata {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsConfirmationCodeRequired)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsConfirmationCodeRequired)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -1266,7 +1266,7 @@ impl ESimProfileMetadata {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Policy)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ESimProfilePolicy>(result__)
+            (::windows::core::Interface::vtable(this).Policy)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ESimProfilePolicy>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -1274,7 +1274,7 @@ impl ESimProfileMetadata {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Id)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Id)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Storage_Streams\"`*"]
@@ -1283,7 +1283,7 @@ impl ESimProfileMetadata {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ProviderIcon)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IRandomAccessStreamReference>(result__)
+            (::windows::core::Interface::vtable(this).ProviderIcon)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Storage::Streams::IRandomAccessStreamReference>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -1291,7 +1291,7 @@ impl ESimProfileMetadata {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ProviderId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).ProviderId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -1299,7 +1299,7 @@ impl ESimProfileMetadata {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ProviderName)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).ProviderName)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -1307,7 +1307,7 @@ impl ESimProfileMetadata {
         let this = self;
         unsafe {
             let mut result__: ESimProfileMetadataState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).State)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ESimProfileMetadataState>(result__)
+            (::windows::core::Interface::vtable(this).State)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ESimProfileMetadataState>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
@@ -1316,7 +1316,7 @@ impl ESimProfileMetadata {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DenyInstallAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<ESimOperationResult>>(result__)
+            (::windows::core::Interface::vtable(this).DenyInstallAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<ESimOperationResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
@@ -1325,7 +1325,7 @@ impl ESimProfileMetadata {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ConfirmInstallAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<ESimOperationResult, ESimProfileInstallProgress>>(result__)
+            (::windows::core::Interface::vtable(this).ConfirmInstallAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<ESimOperationResult, ESimProfileInstallProgress>>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
@@ -1334,7 +1334,7 @@ impl ESimProfileMetadata {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ConfirmInstallWithConfirmationCodeAsync)(::core::mem::transmute_copy(this), confirmationcode.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<ESimOperationResult, ESimProfileInstallProgress>>(result__)
+            (::windows::core::Interface::vtable(this).ConfirmInstallWithConfirmationCodeAsync)(::windows::core::Interface::as_raw(this), confirmationcode.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<ESimOperationResult, ESimProfileInstallProgress>>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
@@ -1343,7 +1343,7 @@ impl ESimProfileMetadata {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PostponeInstallAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<ESimOperationResult>>(result__)
+            (::windows::core::Interface::vtable(this).PostponeInstallAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<ESimOperationResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
@@ -1352,14 +1352,14 @@ impl ESimProfileMetadata {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).StateChanged)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).StateChanged)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveStateChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveStateChanged)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveStateChanged)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
 }
 impl ::core::clone::Clone for ESimProfileMetadata {
@@ -1483,7 +1483,7 @@ impl ESimProfilePolicy {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CanDelete)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).CanDelete)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -1491,7 +1491,7 @@ impl ESimProfilePolicy {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CanDisable)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).CanDisable)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -1499,7 +1499,7 @@ impl ESimProfilePolicy {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsManagedByEnterprise)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsManagedByEnterprise)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
 }
@@ -1620,7 +1620,7 @@ impl ESimRemovedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ESim)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ESim>(result__)
+            (::windows::core::Interface::vtable(this).ESim)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ESim>(result__)
         }
     }
 }
@@ -1705,7 +1705,7 @@ impl ESimServiceInfo {
         let this = self;
         unsafe {
             let mut result__: ESimAuthenticationPreference = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AuthenticationPreference)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ESimAuthenticationPreference>(result__)
+            (::windows::core::Interface::vtable(this).AuthenticationPreference)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ESimAuthenticationPreference>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -1713,7 +1713,7 @@ impl ESimServiceInfo {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsESimUiEnabled)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsESimUiEnabled)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
 }
@@ -1834,7 +1834,7 @@ impl ESimUpdatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ESim)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ESim>(result__)
+            (::windows::core::Interface::vtable(this).ESim)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ESim>(result__)
         }
     }
 }
@@ -1919,18 +1919,18 @@ impl ESimWatcher {
         let this = self;
         unsafe {
             let mut result__: ESimWatcherStatus = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Status)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ESimWatcherStatus>(result__)
+            (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ESimWatcherStatus>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
     pub fn Start(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Start)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Start)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
     pub fn Stop(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Stop)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Stop)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -1938,14 +1938,14 @@ impl ESimWatcher {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Added)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).Added)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveAdded<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveAdded)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveAdded)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -1953,14 +1953,14 @@ impl ESimWatcher {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).EnumerationCompleted)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).EnumerationCompleted)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveEnumerationCompleted<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveEnumerationCompleted)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveEnumerationCompleted)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -1968,14 +1968,14 @@ impl ESimWatcher {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Removed)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).Removed)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveRemoved<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveRemoved)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveRemoved)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -1983,14 +1983,14 @@ impl ESimWatcher {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Stopped)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).Stopped)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveStopped<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveStopped)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveStopped)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -1998,14 +1998,14 @@ impl ESimWatcher {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Updated)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).Updated)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveUpdated<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveUpdated)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveUpdated)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
 }
 impl ::core::clone::Clone for ESimWatcher {
@@ -2125,7 +2125,7 @@ impl FdnAccessManager {
     pub fn RequestUnlockAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(contactlistid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         Self::IFdnAccessManagerStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RequestUnlockAsync)(::core::mem::transmute_copy(this), contactlistid.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Interface::vtable(this).RequestUnlockAsync)(::windows::core::Interface::as_raw(this), contactlistid.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         })
     }
     #[doc(hidden)]
@@ -2146,7 +2146,7 @@ impl HotspotAuthenticationContext {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::Array<u8> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).WirelessNetworkId)(::core::mem::transmute_copy(this), ::windows::core::Array::<u8>::set_abi_len(&mut result__), &mut result__ as *mut _ as _).and_then(|| result__)
+            (::windows::core::Interface::vtable(this).WirelessNetworkId)(::windows::core::Interface::as_raw(this), ::windows::core::Array::<u8>::set_abi_len(&mut result__), &mut result__ as *mut _ as _).and_then(|| result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Networking_Connectivity\"`*"]
@@ -2155,7 +2155,7 @@ impl HotspotAuthenticationContext {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).NetworkAdapter)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Connectivity::NetworkAdapter>(result__)
+            (::windows::core::Interface::vtable(this).NetworkAdapter)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::Connectivity::NetworkAdapter>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
@@ -2164,7 +2164,7 @@ impl HotspotAuthenticationContext {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RedirectMessageUrl)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Uri>(result__)
+            (::windows::core::Interface::vtable(this).RedirectMessageUrl)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Uri>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Data_Xml_Dom\"`*"]
@@ -2173,7 +2173,7 @@ impl HotspotAuthenticationContext {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RedirectMessageXml)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Data::Xml::Dom::XmlDocument>(result__)
+            (::windows::core::Interface::vtable(this).RedirectMessageXml)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Data::Xml::Dom::XmlDocument>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
@@ -2182,28 +2182,28 @@ impl HotspotAuthenticationContext {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AuthenticationUrl)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Uri>(result__)
+            (::windows::core::Interface::vtable(this).AuthenticationUrl)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Uri>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
     pub fn IssueCredentials<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, username: Param0, password: Param1, extraparameters: Param2, markasmanualconnectonfailure: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).IssueCredentials)(::core::mem::transmute_copy(this), username.into_param().abi(), password.into_param().abi(), extraparameters.into_param().abi(), markasmanualconnectonfailure).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).IssueCredentials)(::windows::core::Interface::as_raw(this), username.into_param().abi(), password.into_param().abi(), extraparameters.into_param().abi(), markasmanualconnectonfailure).ok() }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
     pub fn AbortAuthentication(&self, markasmanual: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AbortAuthentication)(::core::mem::transmute_copy(this), markasmanual).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AbortAuthentication)(::windows::core::Interface::as_raw(this), markasmanual).ok() }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
     pub fn SkipAuthentication(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SkipAuthentication)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SkipAuthentication)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
     pub fn TriggerAttentionRequired<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, packagerelativeapplicationid: Param0, applicationparameters: Param1) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).TriggerAttentionRequired)(::core::mem::transmute_copy(this), packagerelativeapplicationid.into_param().abi(), applicationparameters.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).TriggerAttentionRequired)(::windows::core::Interface::as_raw(this), packagerelativeapplicationid.into_param().abi(), applicationparameters.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -2211,14 +2211,14 @@ impl HotspotAuthenticationContext {
         let this = &::windows::core::Interface::cast::<IHotspotAuthenticationContext2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IssueCredentialsAsync)(::core::mem::transmute_copy(this), username.into_param().abi(), password.into_param().abi(), extraparameters.into_param().abi(), markasmanualconnectonfailure, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<HotspotCredentialsAuthenticationResult>>(result__)
+            (::windows::core::Interface::vtable(this).IssueCredentialsAsync)(::windows::core::Interface::as_raw(this), username.into_param().abi(), password.into_param().abi(), extraparameters.into_param().abi(), markasmanualconnectonfailure, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<HotspotCredentialsAuthenticationResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
     pub fn TryGetAuthenticationContext<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(eventoken: Param0, context: &mut ::core::option::Option<HotspotAuthenticationContext>) -> ::windows::core::Result<bool> {
         Self::IHotspotAuthenticationContextStatics(|this| unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TryGetAuthenticationContext)(::core::mem::transmute_copy(this), eventoken.into_param().abi(), context as *mut _ as _, &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).TryGetAuthenticationContext)(::windows::core::Interface::as_raw(this), eventoken.into_param().abi(), context as *mut _ as _, &mut result__).from_abi::<bool>(result__)
         })
     }
     #[doc(hidden)]
@@ -2306,7 +2306,7 @@ impl HotspotAuthenticationEventDetails {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).EventToken)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).EventToken)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
 }
@@ -2428,7 +2428,7 @@ impl HotspotCredentialsAuthenticationResult {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).HasNetworkErrorOccurred)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).HasNetworkErrorOccurred)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -2436,7 +2436,7 @@ impl HotspotCredentialsAuthenticationResult {
         let this = self;
         unsafe {
             let mut result__: HotspotAuthenticationResponseCode = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ResponseCode)(::core::mem::transmute_copy(this), &mut result__).from_abi::<HotspotAuthenticationResponseCode>(result__)
+            (::windows::core::Interface::vtable(this).ResponseCode)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<HotspotAuthenticationResponseCode>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
@@ -2445,7 +2445,7 @@ impl HotspotCredentialsAuthenticationResult {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).LogoffUrl)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Uri>(result__)
+            (::windows::core::Interface::vtable(this).LogoffUrl)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Uri>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Data_Xml_Dom\"`*"]
@@ -2454,7 +2454,7 @@ impl HotspotCredentialsAuthenticationResult {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AuthenticationReplyXml)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Data::Xml::Dom::XmlDocument>(result__)
+            (::windows::core::Interface::vtable(this).AuthenticationReplyXml)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Data::Xml::Dom::XmlDocument>(result__)
         }
     }
 }
@@ -4860,7 +4860,7 @@ impl KnownCSimFilePaths {
     pub fn EFSpn() -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<u32>> {
         Self::IKnownCSimFilePathsStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).EFSpn)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<u32>>(result__)
+            (::windows::core::Interface::vtable(this).EFSpn)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<u32>>(result__)
         })
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation_Collections\"`*"]
@@ -4868,7 +4868,7 @@ impl KnownCSimFilePaths {
     pub fn Gid1() -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<u32>> {
         Self::IKnownCSimFilePathsStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Gid1)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<u32>>(result__)
+            (::windows::core::Interface::vtable(this).Gid1)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<u32>>(result__)
         })
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation_Collections\"`*"]
@@ -4876,7 +4876,7 @@ impl KnownCSimFilePaths {
     pub fn Gid2() -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<u32>> {
         Self::IKnownCSimFilePathsStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Gid2)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<u32>>(result__)
+            (::windows::core::Interface::vtable(this).Gid2)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<u32>>(result__)
         })
     }
     #[doc(hidden)]
@@ -4896,7 +4896,7 @@ impl KnownRuimFilePaths {
     pub fn EFSpn() -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<u32>> {
         Self::IKnownRuimFilePathsStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).EFSpn)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<u32>>(result__)
+            (::windows::core::Interface::vtable(this).EFSpn)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<u32>>(result__)
         })
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation_Collections\"`*"]
@@ -4904,7 +4904,7 @@ impl KnownRuimFilePaths {
     pub fn Gid1() -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<u32>> {
         Self::IKnownRuimFilePathsStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Gid1)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<u32>>(result__)
+            (::windows::core::Interface::vtable(this).Gid1)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<u32>>(result__)
         })
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation_Collections\"`*"]
@@ -4912,7 +4912,7 @@ impl KnownRuimFilePaths {
     pub fn Gid2() -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<u32>> {
         Self::IKnownRuimFilePathsStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Gid2)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<u32>>(result__)
+            (::windows::core::Interface::vtable(this).Gid2)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<u32>>(result__)
         })
     }
     #[doc(hidden)]
@@ -4932,7 +4932,7 @@ impl KnownSimFilePaths {
     pub fn EFOns() -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<u32>> {
         Self::IKnownSimFilePathsStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).EFOns)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<u32>>(result__)
+            (::windows::core::Interface::vtable(this).EFOns)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<u32>>(result__)
         })
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation_Collections\"`*"]
@@ -4940,7 +4940,7 @@ impl KnownSimFilePaths {
     pub fn EFSpn() -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<u32>> {
         Self::IKnownSimFilePathsStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).EFSpn)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<u32>>(result__)
+            (::windows::core::Interface::vtable(this).EFSpn)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<u32>>(result__)
         })
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation_Collections\"`*"]
@@ -4948,7 +4948,7 @@ impl KnownSimFilePaths {
     pub fn Gid1() -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<u32>> {
         Self::IKnownSimFilePathsStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Gid1)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<u32>>(result__)
+            (::windows::core::Interface::vtable(this).Gid1)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<u32>>(result__)
         })
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation_Collections\"`*"]
@@ -4956,7 +4956,7 @@ impl KnownSimFilePaths {
     pub fn Gid2() -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<u32>> {
         Self::IKnownSimFilePathsStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Gid2)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<u32>>(result__)
+            (::windows::core::Interface::vtable(this).Gid2)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<u32>>(result__)
         })
     }
     #[doc(hidden)]
@@ -4976,7 +4976,7 @@ impl KnownUSimFilePaths {
     pub fn EFSpn() -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<u32>> {
         Self::IKnownUSimFilePathsStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).EFSpn)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<u32>>(result__)
+            (::windows::core::Interface::vtable(this).EFSpn)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<u32>>(result__)
         })
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation_Collections\"`*"]
@@ -4984,7 +4984,7 @@ impl KnownUSimFilePaths {
     pub fn EFOpl() -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<u32>> {
         Self::IKnownUSimFilePathsStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).EFOpl)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<u32>>(result__)
+            (::windows::core::Interface::vtable(this).EFOpl)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<u32>>(result__)
         })
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation_Collections\"`*"]
@@ -4992,7 +4992,7 @@ impl KnownUSimFilePaths {
     pub fn EFPnn() -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<u32>> {
         Self::IKnownUSimFilePathsStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).EFPnn)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<u32>>(result__)
+            (::windows::core::Interface::vtable(this).EFPnn)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<u32>>(result__)
         })
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation_Collections\"`*"]
@@ -5000,7 +5000,7 @@ impl KnownUSimFilePaths {
     pub fn Gid1() -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<u32>> {
         Self::IKnownUSimFilePathsStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Gid1)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<u32>>(result__)
+            (::windows::core::Interface::vtable(this).Gid1)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<u32>>(result__)
         })
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation_Collections\"`*"]
@@ -5008,7 +5008,7 @@ impl KnownUSimFilePaths {
     pub fn Gid2() -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<u32>> {
         Self::IKnownUSimFilePathsStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Gid2)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<u32>>(result__)
+            (::windows::core::Interface::vtable(this).Gid2)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<u32>>(result__)
         })
     }
     #[doc(hidden)]
@@ -5029,7 +5029,7 @@ impl MobileBroadbandAccount {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).NetworkAccountId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).NetworkAccountId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -5037,7 +5037,7 @@ impl MobileBroadbandAccount {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ServiceProviderGuid)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
+            (::windows::core::Interface::vtable(this).ServiceProviderGuid)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -5045,7 +5045,7 @@ impl MobileBroadbandAccount {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ServiceProviderName)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).ServiceProviderName)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -5053,7 +5053,7 @@ impl MobileBroadbandAccount {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CurrentNetwork)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MobileBroadbandNetwork>(result__)
+            (::windows::core::Interface::vtable(this).CurrentNetwork)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<MobileBroadbandNetwork>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -5061,7 +5061,7 @@ impl MobileBroadbandAccount {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CurrentDeviceInformation)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MobileBroadbandDeviceInformation>(result__)
+            (::windows::core::Interface::vtable(this).CurrentDeviceInformation)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<MobileBroadbandDeviceInformation>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation_Collections\"`, `\"Networking_Connectivity\"`*"]
@@ -5070,7 +5070,7 @@ impl MobileBroadbandAccount {
         let this = &::windows::core::Interface::cast::<IMobileBroadbandAccount2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetConnectionProfiles)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<super::Connectivity::ConnectionProfile>>(result__)
+            (::windows::core::Interface::vtable(this).GetConnectionProfiles)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<super::Connectivity::ConnectionProfile>>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
@@ -5079,7 +5079,7 @@ impl MobileBroadbandAccount {
         let this = &::windows::core::Interface::cast::<IMobileBroadbandAccount3>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AccountExperienceUrl)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Uri>(result__)
+            (::windows::core::Interface::vtable(this).AccountExperienceUrl)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Uri>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation_Collections\"`*"]
@@ -5087,14 +5087,14 @@ impl MobileBroadbandAccount {
     pub fn AvailableNetworkAccountIds() -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>> {
         Self::IMobileBroadbandAccountStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AvailableNetworkAccountIds)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>(result__)
+            (::windows::core::Interface::vtable(this).AvailableNetworkAccountIds)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>(result__)
         })
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
     pub fn CreateFromNetworkAccountId<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(networkaccountid: Param0) -> ::windows::core::Result<MobileBroadbandAccount> {
         Self::IMobileBroadbandAccountStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromNetworkAccountId)(::core::mem::transmute_copy(this), networkaccountid.into_param().abi(), &mut result__).from_abi::<MobileBroadbandAccount>(result__)
+            (::windows::core::Interface::vtable(this).CreateFromNetworkAccountId)(::windows::core::Interface::as_raw(this), networkaccountid.into_param().abi(), &mut result__).from_abi::<MobileBroadbandAccount>(result__)
         })
     }
     #[doc(hidden)]
@@ -5182,7 +5182,7 @@ impl MobileBroadbandAccountEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).NetworkAccountId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).NetworkAccountId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
 }
@@ -5265,7 +5265,7 @@ impl MobileBroadbandAccountUpdatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).NetworkAccountId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).NetworkAccountId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -5273,7 +5273,7 @@ impl MobileBroadbandAccountUpdatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).HasDeviceInformationChanged)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).HasDeviceInformationChanged)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -5281,7 +5281,7 @@ impl MobileBroadbandAccountUpdatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).HasNetworkChanged)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).HasNetworkChanged)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
 }
@@ -5372,14 +5372,14 @@ impl MobileBroadbandAccountWatcher {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AccountAdded)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).AccountAdded)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveAccountAdded<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveAccountAdded)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveAccountAdded)(::windows::core::Interface::as_raw(this), cookie.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -5387,14 +5387,14 @@ impl MobileBroadbandAccountWatcher {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AccountUpdated)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).AccountUpdated)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveAccountUpdated<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveAccountUpdated)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveAccountUpdated)(::windows::core::Interface::as_raw(this), cookie.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -5402,14 +5402,14 @@ impl MobileBroadbandAccountWatcher {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AccountRemoved)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).AccountRemoved)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveAccountRemoved<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveAccountRemoved)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveAccountRemoved)(::windows::core::Interface::as_raw(this), cookie.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -5417,14 +5417,14 @@ impl MobileBroadbandAccountWatcher {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).EnumerationCompleted)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).EnumerationCompleted)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveEnumerationCompleted<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveEnumerationCompleted)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveEnumerationCompleted)(::windows::core::Interface::as_raw(this), cookie.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -5432,32 +5432,32 @@ impl MobileBroadbandAccountWatcher {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Stopped)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).Stopped)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveStopped<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveStopped)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveStopped)(::windows::core::Interface::as_raw(this), cookie.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
     pub fn Status(&self) -> ::windows::core::Result<MobileBroadbandAccountWatcherStatus> {
         let this = self;
         unsafe {
             let mut result__: MobileBroadbandAccountWatcherStatus = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Status)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MobileBroadbandAccountWatcherStatus>(result__)
+            (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<MobileBroadbandAccountWatcherStatus>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
     pub fn Start(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Start)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Start)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
     pub fn Stop(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Stop)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Stop)(::windows::core::Interface::as_raw(this)).ok() }
     }
 }
 impl ::core::clone::Clone for MobileBroadbandAccountWatcher {
@@ -5576,7 +5576,7 @@ impl MobileBroadbandAntennaSar {
         let this = self;
         unsafe {
             let mut result__: i32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AntennaIndex)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            (::windows::core::Interface::vtable(this).AntennaIndex)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -5584,14 +5584,14 @@ impl MobileBroadbandAntennaSar {
         let this = self;
         unsafe {
             let mut result__: i32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SarBackoffIndex)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            (::windows::core::Interface::vtable(this).SarBackoffIndex)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
     pub fn CreateWithIndex(antennaindex: i32, sarbackoffindex: i32) -> ::windows::core::Result<MobileBroadbandAntennaSar> {
         Self::IMobileBroadbandAntennaSarFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateWithIndex)(::core::mem::transmute_copy(this), antennaindex, sarbackoffindex, &mut result__).from_abi::<MobileBroadbandAntennaSar>(result__)
+            (::windows::core::Interface::vtable(this).CreateWithIndex)(::windows::core::Interface::as_raw(this), antennaindex, sarbackoffindex, &mut result__).from_abi::<MobileBroadbandAntennaSar>(result__)
         })
     }
     #[doc(hidden)]
@@ -5682,7 +5682,7 @@ impl MobileBroadbandCellCdma {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).BaseStationId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<i32>>(result__)
+            (::windows::core::Interface::vtable(this).BaseStationId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IReference<i32>>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
@@ -5691,7 +5691,7 @@ impl MobileBroadbandCellCdma {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).BaseStationPNCode)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<i32>>(result__)
+            (::windows::core::Interface::vtable(this).BaseStationPNCode)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IReference<i32>>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
@@ -5700,7 +5700,7 @@ impl MobileBroadbandCellCdma {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).BaseStationLatitude)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<f64>>(result__)
+            (::windows::core::Interface::vtable(this).BaseStationLatitude)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IReference<f64>>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
@@ -5709,7 +5709,7 @@ impl MobileBroadbandCellCdma {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).BaseStationLongitude)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<f64>>(result__)
+            (::windows::core::Interface::vtable(this).BaseStationLongitude)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IReference<f64>>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
@@ -5718,7 +5718,7 @@ impl MobileBroadbandCellCdma {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).BaseStationLastBroadcastGpsTime)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>(result__)
+            (::windows::core::Interface::vtable(this).BaseStationLastBroadcastGpsTime)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
@@ -5727,7 +5727,7 @@ impl MobileBroadbandCellCdma {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).NetworkId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<i32>>(result__)
+            (::windows::core::Interface::vtable(this).NetworkId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IReference<i32>>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
@@ -5736,7 +5736,7 @@ impl MobileBroadbandCellCdma {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PilotSignalStrengthInDB)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<f64>>(result__)
+            (::windows::core::Interface::vtable(this).PilotSignalStrengthInDB)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IReference<f64>>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
@@ -5745,7 +5745,7 @@ impl MobileBroadbandCellCdma {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SystemId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<i32>>(result__)
+            (::windows::core::Interface::vtable(this).SystemId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IReference<i32>>(result__)
         }
     }
 }
@@ -5831,7 +5831,7 @@ impl MobileBroadbandCellGsm {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).BaseStationId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<i32>>(result__)
+            (::windows::core::Interface::vtable(this).BaseStationId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IReference<i32>>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
@@ -5840,7 +5840,7 @@ impl MobileBroadbandCellGsm {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CellId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<i32>>(result__)
+            (::windows::core::Interface::vtable(this).CellId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IReference<i32>>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
@@ -5849,7 +5849,7 @@ impl MobileBroadbandCellGsm {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ChannelNumber)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<i32>>(result__)
+            (::windows::core::Interface::vtable(this).ChannelNumber)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IReference<i32>>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
@@ -5858,7 +5858,7 @@ impl MobileBroadbandCellGsm {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).LocationAreaCode)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<i32>>(result__)
+            (::windows::core::Interface::vtable(this).LocationAreaCode)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IReference<i32>>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -5866,7 +5866,7 @@ impl MobileBroadbandCellGsm {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ProviderId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).ProviderId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
@@ -5875,7 +5875,7 @@ impl MobileBroadbandCellGsm {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ReceivedSignalStrengthInDBm)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<f64>>(result__)
+            (::windows::core::Interface::vtable(this).ReceivedSignalStrengthInDBm)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IReference<f64>>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
@@ -5884,7 +5884,7 @@ impl MobileBroadbandCellGsm {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TimingAdvanceInBitPeriods)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<i32>>(result__)
+            (::windows::core::Interface::vtable(this).TimingAdvanceInBitPeriods)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IReference<i32>>(result__)
         }
     }
 }
@@ -5970,7 +5970,7 @@ impl MobileBroadbandCellLte {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CellId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<i32>>(result__)
+            (::windows::core::Interface::vtable(this).CellId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IReference<i32>>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
@@ -5979,7 +5979,7 @@ impl MobileBroadbandCellLte {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ChannelNumber)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<i32>>(result__)
+            (::windows::core::Interface::vtable(this).ChannelNumber)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IReference<i32>>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
@@ -5988,7 +5988,7 @@ impl MobileBroadbandCellLte {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PhysicalCellId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<i32>>(result__)
+            (::windows::core::Interface::vtable(this).PhysicalCellId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IReference<i32>>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -5996,7 +5996,7 @@ impl MobileBroadbandCellLte {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ProviderId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).ProviderId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
@@ -6005,7 +6005,7 @@ impl MobileBroadbandCellLte {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ReferenceSignalReceivedPowerInDBm)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<f64>>(result__)
+            (::windows::core::Interface::vtable(this).ReferenceSignalReceivedPowerInDBm)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IReference<f64>>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
@@ -6014,7 +6014,7 @@ impl MobileBroadbandCellLte {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ReferenceSignalReceivedQualityInDBm)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<f64>>(result__)
+            (::windows::core::Interface::vtable(this).ReferenceSignalReceivedQualityInDBm)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IReference<f64>>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
@@ -6023,7 +6023,7 @@ impl MobileBroadbandCellLte {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TimingAdvanceInBitPeriods)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<i32>>(result__)
+            (::windows::core::Interface::vtable(this).TimingAdvanceInBitPeriods)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IReference<i32>>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
@@ -6032,7 +6032,7 @@ impl MobileBroadbandCellLte {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TrackingAreaCode)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<i32>>(result__)
+            (::windows::core::Interface::vtable(this).TrackingAreaCode)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IReference<i32>>(result__)
         }
     }
 }
@@ -6118,7 +6118,7 @@ impl MobileBroadbandCellNR {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CellId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<i64>>(result__)
+            (::windows::core::Interface::vtable(this).CellId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IReference<i64>>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
@@ -6127,7 +6127,7 @@ impl MobileBroadbandCellNR {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ChannelNumber)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<i32>>(result__)
+            (::windows::core::Interface::vtable(this).ChannelNumber)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IReference<i32>>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
@@ -6136,7 +6136,7 @@ impl MobileBroadbandCellNR {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PhysicalCellId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<i32>>(result__)
+            (::windows::core::Interface::vtable(this).PhysicalCellId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IReference<i32>>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -6144,7 +6144,7 @@ impl MobileBroadbandCellNR {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ProviderId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).ProviderId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
@@ -6153,7 +6153,7 @@ impl MobileBroadbandCellNR {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ReferenceSignalReceivedPowerInDBm)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<f64>>(result__)
+            (::windows::core::Interface::vtable(this).ReferenceSignalReceivedPowerInDBm)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IReference<f64>>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
@@ -6162,7 +6162,7 @@ impl MobileBroadbandCellNR {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ReferenceSignalReceivedQualityInDBm)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<f64>>(result__)
+            (::windows::core::Interface::vtable(this).ReferenceSignalReceivedQualityInDBm)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IReference<f64>>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
@@ -6171,7 +6171,7 @@ impl MobileBroadbandCellNR {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TimingAdvanceInNanoseconds)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<i32>>(result__)
+            (::windows::core::Interface::vtable(this).TimingAdvanceInNanoseconds)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IReference<i32>>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
@@ -6180,7 +6180,7 @@ impl MobileBroadbandCellNR {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TrackingAreaCode)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<i32>>(result__)
+            (::windows::core::Interface::vtable(this).TrackingAreaCode)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IReference<i32>>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
@@ -6189,7 +6189,7 @@ impl MobileBroadbandCellNR {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SignalToNoiseRatioInDB)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<f64>>(result__)
+            (::windows::core::Interface::vtable(this).SignalToNoiseRatioInDB)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IReference<f64>>(result__)
         }
     }
 }
@@ -6275,7 +6275,7 @@ impl MobileBroadbandCellTdscdma {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CellId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<i32>>(result__)
+            (::windows::core::Interface::vtable(this).CellId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IReference<i32>>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
@@ -6284,7 +6284,7 @@ impl MobileBroadbandCellTdscdma {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CellParameterId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<i32>>(result__)
+            (::windows::core::Interface::vtable(this).CellParameterId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IReference<i32>>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
@@ -6293,7 +6293,7 @@ impl MobileBroadbandCellTdscdma {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ChannelNumber)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<i32>>(result__)
+            (::windows::core::Interface::vtable(this).ChannelNumber)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IReference<i32>>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
@@ -6302,7 +6302,7 @@ impl MobileBroadbandCellTdscdma {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).LocationAreaCode)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<i32>>(result__)
+            (::windows::core::Interface::vtable(this).LocationAreaCode)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IReference<i32>>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
@@ -6311,7 +6311,7 @@ impl MobileBroadbandCellTdscdma {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PathLossInDB)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<f64>>(result__)
+            (::windows::core::Interface::vtable(this).PathLossInDB)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IReference<f64>>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -6319,7 +6319,7 @@ impl MobileBroadbandCellTdscdma {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ProviderId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).ProviderId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
@@ -6328,7 +6328,7 @@ impl MobileBroadbandCellTdscdma {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ReceivedSignalCodePowerInDBm)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<f64>>(result__)
+            (::windows::core::Interface::vtable(this).ReceivedSignalCodePowerInDBm)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IReference<f64>>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
@@ -6337,7 +6337,7 @@ impl MobileBroadbandCellTdscdma {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TimingAdvanceInBitPeriods)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<i32>>(result__)
+            (::windows::core::Interface::vtable(this).TimingAdvanceInBitPeriods)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IReference<i32>>(result__)
         }
     }
 }
@@ -6423,7 +6423,7 @@ impl MobileBroadbandCellUmts {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CellId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<i32>>(result__)
+            (::windows::core::Interface::vtable(this).CellId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IReference<i32>>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
@@ -6432,7 +6432,7 @@ impl MobileBroadbandCellUmts {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ChannelNumber)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<i32>>(result__)
+            (::windows::core::Interface::vtable(this).ChannelNumber)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IReference<i32>>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
@@ -6441,7 +6441,7 @@ impl MobileBroadbandCellUmts {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).LocationAreaCode)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<i32>>(result__)
+            (::windows::core::Interface::vtable(this).LocationAreaCode)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IReference<i32>>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
@@ -6450,7 +6450,7 @@ impl MobileBroadbandCellUmts {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PathLossInDB)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<f64>>(result__)
+            (::windows::core::Interface::vtable(this).PathLossInDB)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IReference<f64>>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
@@ -6459,7 +6459,7 @@ impl MobileBroadbandCellUmts {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PrimaryScramblingCode)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<i32>>(result__)
+            (::windows::core::Interface::vtable(this).PrimaryScramblingCode)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IReference<i32>>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -6467,7 +6467,7 @@ impl MobileBroadbandCellUmts {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ProviderId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).ProviderId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
@@ -6476,7 +6476,7 @@ impl MobileBroadbandCellUmts {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ReceivedSignalCodePowerInDBm)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<f64>>(result__)
+            (::windows::core::Interface::vtable(this).ReceivedSignalCodePowerInDBm)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IReference<f64>>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
@@ -6485,7 +6485,7 @@ impl MobileBroadbandCellUmts {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SignalToNoiseRatioInDB)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<f64>>(result__)
+            (::windows::core::Interface::vtable(this).SignalToNoiseRatioInDB)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IReference<f64>>(result__)
         }
     }
 }
@@ -6571,7 +6571,7 @@ impl MobileBroadbandCellsInfo {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).NeighboringCellsCdma)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<MobileBroadbandCellCdma>>(result__)
+            (::windows::core::Interface::vtable(this).NeighboringCellsCdma)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<MobileBroadbandCellCdma>>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation_Collections\"`*"]
@@ -6580,7 +6580,7 @@ impl MobileBroadbandCellsInfo {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).NeighboringCellsGsm)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<MobileBroadbandCellGsm>>(result__)
+            (::windows::core::Interface::vtable(this).NeighboringCellsGsm)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<MobileBroadbandCellGsm>>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation_Collections\"`*"]
@@ -6589,7 +6589,7 @@ impl MobileBroadbandCellsInfo {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).NeighboringCellsLte)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<MobileBroadbandCellLte>>(result__)
+            (::windows::core::Interface::vtable(this).NeighboringCellsLte)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<MobileBroadbandCellLte>>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation_Collections\"`*"]
@@ -6598,7 +6598,7 @@ impl MobileBroadbandCellsInfo {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).NeighboringCellsTdscdma)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<MobileBroadbandCellTdscdma>>(result__)
+            (::windows::core::Interface::vtable(this).NeighboringCellsTdscdma)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<MobileBroadbandCellTdscdma>>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation_Collections\"`*"]
@@ -6607,7 +6607,7 @@ impl MobileBroadbandCellsInfo {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).NeighboringCellsUmts)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<MobileBroadbandCellUmts>>(result__)
+            (::windows::core::Interface::vtable(this).NeighboringCellsUmts)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<MobileBroadbandCellUmts>>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation_Collections\"`*"]
@@ -6616,7 +6616,7 @@ impl MobileBroadbandCellsInfo {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ServingCellsCdma)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<MobileBroadbandCellCdma>>(result__)
+            (::windows::core::Interface::vtable(this).ServingCellsCdma)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<MobileBroadbandCellCdma>>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation_Collections\"`*"]
@@ -6625,7 +6625,7 @@ impl MobileBroadbandCellsInfo {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ServingCellsGsm)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<MobileBroadbandCellGsm>>(result__)
+            (::windows::core::Interface::vtable(this).ServingCellsGsm)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<MobileBroadbandCellGsm>>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation_Collections\"`*"]
@@ -6634,7 +6634,7 @@ impl MobileBroadbandCellsInfo {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ServingCellsLte)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<MobileBroadbandCellLte>>(result__)
+            (::windows::core::Interface::vtable(this).ServingCellsLte)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<MobileBroadbandCellLte>>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation_Collections\"`*"]
@@ -6643,7 +6643,7 @@ impl MobileBroadbandCellsInfo {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ServingCellsTdscdma)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<MobileBroadbandCellTdscdma>>(result__)
+            (::windows::core::Interface::vtable(this).ServingCellsTdscdma)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<MobileBroadbandCellTdscdma>>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation_Collections\"`*"]
@@ -6652,7 +6652,7 @@ impl MobileBroadbandCellsInfo {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ServingCellsUmts)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<MobileBroadbandCellUmts>>(result__)
+            (::windows::core::Interface::vtable(this).ServingCellsUmts)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<MobileBroadbandCellUmts>>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation_Collections\"`*"]
@@ -6661,7 +6661,7 @@ impl MobileBroadbandCellsInfo {
         let this = &::windows::core::Interface::cast::<IMobileBroadbandCellsInfo2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).NeighboringCellsNR)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<MobileBroadbandCellNR>>(result__)
+            (::windows::core::Interface::vtable(this).NeighboringCellsNR)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<MobileBroadbandCellNR>>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation_Collections\"`*"]
@@ -6670,7 +6670,7 @@ impl MobileBroadbandCellsInfo {
         let this = &::windows::core::Interface::cast::<IMobileBroadbandCellsInfo2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ServingCellsNR)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<MobileBroadbandCellNR>>(result__)
+            (::windows::core::Interface::vtable(this).ServingCellsNR)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<MobileBroadbandCellNR>>(result__)
         }
     }
 }
@@ -6755,7 +6755,7 @@ impl MobileBroadbandCurrentSlotIndexChangedEventArgs {
         let this = self;
         unsafe {
             let mut result__: i32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CurrentSlotIndex)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            (::windows::core::Interface::vtable(this).CurrentSlotIndex)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<i32>(result__)
         }
     }
 }
@@ -6840,7 +6840,7 @@ impl MobileBroadbandDeviceInformation {
         let this = self;
         unsafe {
             let mut result__: NetworkDeviceStatus = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).NetworkDeviceStatus)(::core::mem::transmute_copy(this), &mut result__).from_abi::<NetworkDeviceStatus>(result__)
+            (::windows::core::Interface::vtable(this).NetworkDeviceStatus)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<NetworkDeviceStatus>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -6848,7 +6848,7 @@ impl MobileBroadbandDeviceInformation {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Manufacturer)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Manufacturer)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -6856,7 +6856,7 @@ impl MobileBroadbandDeviceInformation {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Model)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Model)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -6864,7 +6864,7 @@ impl MobileBroadbandDeviceInformation {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FirmwareInformation)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).FirmwareInformation)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Devices_Sms\"`*"]
@@ -6873,7 +6873,7 @@ impl MobileBroadbandDeviceInformation {
         let this = self;
         unsafe {
             let mut result__: super::super::Devices::Sms::CellularClass = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CellularClass)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Devices::Sms::CellularClass>(result__)
+            (::windows::core::Interface::vtable(this).CellularClass)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Devices::Sms::CellularClass>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -6881,7 +6881,7 @@ impl MobileBroadbandDeviceInformation {
         let this = self;
         unsafe {
             let mut result__: DataClasses = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DataClasses)(::core::mem::transmute_copy(this), &mut result__).from_abi::<DataClasses>(result__)
+            (::windows::core::Interface::vtable(this).DataClasses)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<DataClasses>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -6889,7 +6889,7 @@ impl MobileBroadbandDeviceInformation {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CustomDataClass)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).CustomDataClass)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -6897,7 +6897,7 @@ impl MobileBroadbandDeviceInformation {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MobileEquipmentId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).MobileEquipmentId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation_Collections\"`*"]
@@ -6906,7 +6906,7 @@ impl MobileBroadbandDeviceInformation {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TelephoneNumbers)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>(result__)
+            (::windows::core::Interface::vtable(this).TelephoneNumbers)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -6914,7 +6914,7 @@ impl MobileBroadbandDeviceInformation {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SubscriberId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).SubscriberId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -6922,7 +6922,7 @@ impl MobileBroadbandDeviceInformation {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SimIccId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).SimIccId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -6930,7 +6930,7 @@ impl MobileBroadbandDeviceInformation {
         let this = self;
         unsafe {
             let mut result__: MobileBroadbandDeviceType = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DeviceType)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MobileBroadbandDeviceType>(result__)
+            (::windows::core::Interface::vtable(this).DeviceType)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<MobileBroadbandDeviceType>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -6938,7 +6938,7 @@ impl MobileBroadbandDeviceInformation {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DeviceId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).DeviceId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -6946,7 +6946,7 @@ impl MobileBroadbandDeviceInformation {
         let this = self;
         unsafe {
             let mut result__: MobileBroadbandRadioState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CurrentRadioState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MobileBroadbandRadioState>(result__)
+            (::windows::core::Interface::vtable(this).CurrentRadioState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<MobileBroadbandRadioState>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -6954,7 +6954,7 @@ impl MobileBroadbandDeviceInformation {
         let this = &::windows::core::Interface::cast::<IMobileBroadbandDeviceInformation2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PinManager)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MobileBroadbandPinManager>(result__)
+            (::windows::core::Interface::vtable(this).PinManager)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<MobileBroadbandPinManager>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -6962,7 +6962,7 @@ impl MobileBroadbandDeviceInformation {
         let this = &::windows::core::Interface::cast::<IMobileBroadbandDeviceInformation2>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Revision)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Revision)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -6970,7 +6970,7 @@ impl MobileBroadbandDeviceInformation {
         let this = &::windows::core::Interface::cast::<IMobileBroadbandDeviceInformation2>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SerialNumber)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).SerialNumber)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -6978,7 +6978,7 @@ impl MobileBroadbandDeviceInformation {
         let this = &::windows::core::Interface::cast::<IMobileBroadbandDeviceInformation3>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SimSpn)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).SimSpn)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -6986,7 +6986,7 @@ impl MobileBroadbandDeviceInformation {
         let this = &::windows::core::Interface::cast::<IMobileBroadbandDeviceInformation3>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SimPnn)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).SimPnn)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -6994,7 +6994,7 @@ impl MobileBroadbandDeviceInformation {
         let this = &::windows::core::Interface::cast::<IMobileBroadbandDeviceInformation3>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SimGid1)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).SimGid1)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -7002,7 +7002,7 @@ impl MobileBroadbandDeviceInformation {
         let this = &::windows::core::Interface::cast::<IMobileBroadbandDeviceInformation4>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SlotManager)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MobileBroadbandSlotManager>(result__)
+            (::windows::core::Interface::vtable(this).SlotManager)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<MobileBroadbandSlotManager>(result__)
         }
     }
 }
@@ -7085,7 +7085,7 @@ impl MobileBroadbandDeviceService {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DeviceServiceId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
+            (::windows::core::Interface::vtable(this).DeviceServiceId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation_Collections\"`*"]
@@ -7094,7 +7094,7 @@ impl MobileBroadbandDeviceService {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SupportedCommands)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<u32>>(result__)
+            (::windows::core::Interface::vtable(this).SupportedCommands)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<u32>>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -7102,7 +7102,7 @@ impl MobileBroadbandDeviceService {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).OpenDataSession)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MobileBroadbandDeviceServiceDataSession>(result__)
+            (::windows::core::Interface::vtable(this).OpenDataSession)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<MobileBroadbandDeviceServiceDataSession>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -7110,7 +7110,7 @@ impl MobileBroadbandDeviceService {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).OpenCommandSession)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MobileBroadbandDeviceServiceCommandSession>(result__)
+            (::windows::core::Interface::vtable(this).OpenCommandSession)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<MobileBroadbandDeviceServiceCommandSession>(result__)
         }
     }
 }
@@ -7195,7 +7195,7 @@ impl MobileBroadbandDeviceServiceCommandResult {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).StatusCode)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).StatusCode)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Storage_Streams\"`*"]
@@ -7204,7 +7204,7 @@ impl MobileBroadbandDeviceServiceCommandResult {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ResponseData)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
+            (::windows::core::Interface::vtable(this).ResponseData)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
         }
     }
 }
@@ -7290,7 +7290,7 @@ impl MobileBroadbandDeviceServiceCommandSession {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SendQueryCommandAsync)(::core::mem::transmute_copy(this), commandid, data.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<MobileBroadbandDeviceServiceCommandResult>>(result__)
+            (::windows::core::Interface::vtable(this).SendQueryCommandAsync)(::windows::core::Interface::as_raw(this), commandid, data.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<MobileBroadbandDeviceServiceCommandResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
@@ -7299,13 +7299,13 @@ impl MobileBroadbandDeviceServiceCommandSession {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SendSetCommandAsync)(::core::mem::transmute_copy(this), commandid, data.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<MobileBroadbandDeviceServiceCommandResult>>(result__)
+            (::windows::core::Interface::vtable(this).SendSetCommandAsync)(::windows::core::Interface::as_raw(this), commandid, data.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<MobileBroadbandDeviceServiceCommandResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
     pub fn CloseSession(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).CloseSession)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).CloseSession)(::windows::core::Interface::as_raw(this)).ok() }
     }
 }
 impl ::core::clone::Clone for MobileBroadbandDeviceServiceCommandSession {
@@ -7390,7 +7390,7 @@ impl MobileBroadbandDeviceServiceDataReceivedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ReceivedData)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
+            (::windows::core::Interface::vtable(this).ReceivedData)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
         }
     }
 }
@@ -7476,13 +7476,13 @@ impl MobileBroadbandDeviceServiceDataSession {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).WriteDataAsync)(::core::mem::transmute_copy(this), value.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).WriteDataAsync)(::windows::core::Interface::as_raw(this), value.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
     pub fn CloseSession(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).CloseSession)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).CloseSession)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -7490,14 +7490,14 @@ impl MobileBroadbandDeviceServiceDataSession {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DataReceived)(::core::mem::transmute_copy(this), eventhandler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).DataReceived)(::windows::core::Interface::as_raw(this), eventhandler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveDataReceived<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, eventcookie: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveDataReceived)(::core::mem::transmute_copy(this), eventcookie.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveDataReceived)(::windows::core::Interface::as_raw(this), eventcookie.into_param().abi()).ok() }
     }
 }
 impl ::core::clone::Clone for MobileBroadbandDeviceServiceDataSession {
@@ -7581,7 +7581,7 @@ impl MobileBroadbandDeviceServiceInformation {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DeviceServiceId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
+            (::windows::core::Interface::vtable(this).DeviceServiceId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -7589,7 +7589,7 @@ impl MobileBroadbandDeviceServiceInformation {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsDataReadSupported)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsDataReadSupported)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -7597,7 +7597,7 @@ impl MobileBroadbandDeviceServiceInformation {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsDataWriteSupported)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsDataWriteSupported)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
 }
@@ -7682,7 +7682,7 @@ impl MobileBroadbandDeviceServiceTriggerDetails {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DeviceId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).DeviceId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -7690,7 +7690,7 @@ impl MobileBroadbandDeviceServiceTriggerDetails {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DeviceServiceId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
+            (::windows::core::Interface::vtable(this).DeviceServiceId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Storage_Streams\"`*"]
@@ -7699,7 +7699,7 @@ impl MobileBroadbandDeviceServiceTriggerDetails {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ReceivedData)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
+            (::windows::core::Interface::vtable(this).ReceivedData)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
         }
     }
 }
@@ -7820,7 +7820,7 @@ impl MobileBroadbandModem {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CurrentAccount)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MobileBroadbandAccount>(result__)
+            (::windows::core::Interface::vtable(this).CurrentAccount)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<MobileBroadbandAccount>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -7828,7 +7828,7 @@ impl MobileBroadbandModem {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DeviceInformation)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MobileBroadbandDeviceInformation>(result__)
+            (::windows::core::Interface::vtable(this).DeviceInformation)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<MobileBroadbandDeviceInformation>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -7836,7 +7836,7 @@ impl MobileBroadbandModem {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MaxDeviceServiceCommandSizeInBytes)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).MaxDeviceServiceCommandSizeInBytes)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -7844,7 +7844,7 @@ impl MobileBroadbandModem {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MaxDeviceServiceDataSizeInBytes)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).MaxDeviceServiceDataSizeInBytes)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation_Collections\"`*"]
@@ -7853,7 +7853,7 @@ impl MobileBroadbandModem {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DeviceServices)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<MobileBroadbandDeviceServiceInformation>>(result__)
+            (::windows::core::Interface::vtable(this).DeviceServices)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<MobileBroadbandDeviceServiceInformation>>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -7861,7 +7861,7 @@ impl MobileBroadbandModem {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetDeviceService)(::core::mem::transmute_copy(this), deviceserviceid.into_param().abi(), &mut result__).from_abi::<MobileBroadbandDeviceService>(result__)
+            (::windows::core::Interface::vtable(this).GetDeviceService)(::windows::core::Interface::as_raw(this), deviceserviceid.into_param().abi(), &mut result__).from_abi::<MobileBroadbandDeviceService>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -7869,7 +7869,7 @@ impl MobileBroadbandModem {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsResetSupported)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsResetSupported)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
@@ -7878,7 +7878,7 @@ impl MobileBroadbandModem {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ResetAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).ResetAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
@@ -7887,7 +7887,7 @@ impl MobileBroadbandModem {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetCurrentConfigurationAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<MobileBroadbandModemConfiguration>>(result__)
+            (::windows::core::Interface::vtable(this).GetCurrentConfigurationAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<MobileBroadbandModemConfiguration>>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -7895,7 +7895,7 @@ impl MobileBroadbandModem {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CurrentNetwork)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MobileBroadbandNetwork>(result__)
+            (::windows::core::Interface::vtable(this).CurrentNetwork)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<MobileBroadbandNetwork>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
@@ -7904,7 +7904,7 @@ impl MobileBroadbandModem {
         let this = &::windows::core::Interface::cast::<IMobileBroadbandModem2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetIsPassthroughEnabledAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Interface::vtable(this).GetIsPassthroughEnabledAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
@@ -7913,7 +7913,7 @@ impl MobileBroadbandModem {
         let this = &::windows::core::Interface::cast::<IMobileBroadbandModem2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SetIsPassthroughEnabledAsync)(::core::mem::transmute_copy(this), value, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<MobileBroadbandModemStatus>>(result__)
+            (::windows::core::Interface::vtable(this).SetIsPassthroughEnabledAsync)(::windows::core::Interface::as_raw(this), value, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<MobileBroadbandModemStatus>>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
@@ -7922,7 +7922,7 @@ impl MobileBroadbandModem {
         let this = &::windows::core::Interface::cast::<IMobileBroadbandModem3>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TryGetPcoAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<MobileBroadbandPco>>(result__)
+            (::windows::core::Interface::vtable(this).TryGetPcoAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<MobileBroadbandPco>>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -7930,7 +7930,7 @@ impl MobileBroadbandModem {
         let this = &::windows::core::Interface::cast::<IMobileBroadbandModem3>(self)?;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsInEmergencyCallMode)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsInEmergencyCallMode)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
@@ -7939,34 +7939,34 @@ impl MobileBroadbandModem {
         let this = &::windows::core::Interface::cast::<IMobileBroadbandModem3>(self)?;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsInEmergencyCallModeChanged)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).IsInEmergencyCallModeChanged)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveIsInEmergencyCallModeChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMobileBroadbandModem3>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveIsInEmergencyCallModeChanged)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveIsInEmergencyCallModeChanged)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
     pub fn GetDeviceSelector() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IMobileBroadbandModemStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetDeviceSelector)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).GetDeviceSelector)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
     pub fn FromId<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(deviceid: Param0) -> ::windows::core::Result<MobileBroadbandModem> {
         Self::IMobileBroadbandModemStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FromId)(::core::mem::transmute_copy(this), deviceid.into_param().abi(), &mut result__).from_abi::<MobileBroadbandModem>(result__)
+            (::windows::core::Interface::vtable(this).FromId)(::windows::core::Interface::as_raw(this), deviceid.into_param().abi(), &mut result__).from_abi::<MobileBroadbandModem>(result__)
         })
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
     pub fn GetDefault() -> ::windows::core::Result<MobileBroadbandModem> {
         Self::IMobileBroadbandModemStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetDefault)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MobileBroadbandModem>(result__)
+            (::windows::core::Interface::vtable(this).GetDefault)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<MobileBroadbandModem>(result__)
         })
     }
     #[doc(hidden)]
@@ -8056,7 +8056,7 @@ impl MobileBroadbandModemConfiguration {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Uicc)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MobileBroadbandUicc>(result__)
+            (::windows::core::Interface::vtable(this).Uicc)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<MobileBroadbandUicc>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -8064,7 +8064,7 @@ impl MobileBroadbandModemConfiguration {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).HomeProviderId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).HomeProviderId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -8072,7 +8072,7 @@ impl MobileBroadbandModemConfiguration {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).HomeProviderName)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).HomeProviderName)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -8080,7 +8080,7 @@ impl MobileBroadbandModemConfiguration {
         let this = &::windows::core::Interface::cast::<IMobileBroadbandModemConfiguration2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SarManager)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MobileBroadbandSarManager>(result__)
+            (::windows::core::Interface::vtable(this).SarManager)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<MobileBroadbandSarManager>(result__)
         }
     }
 }
@@ -8161,12 +8161,12 @@ impl MobileBroadbandModemIsolation {
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
     pub fn AddAllowedHost<'a, Param0: ::windows::core::IntoParam<'a, super::HostName>>(&self, host: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AddAllowedHost)(::core::mem::transmute_copy(this), host.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddAllowedHost)(::windows::core::Interface::as_raw(this), host.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
     pub fn AddAllowedHostRange<'a, Param0: ::windows::core::IntoParam<'a, super::HostName>, Param1: ::windows::core::IntoParam<'a, super::HostName>>(&self, first: Param0, last: Param1) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AddAllowedHostRange)(::core::mem::transmute_copy(this), first.into_param().abi(), last.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddAllowedHostRange)(::windows::core::Interface::as_raw(this), first.into_param().abi(), last.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -8174,7 +8174,7 @@ impl MobileBroadbandModemIsolation {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ApplyConfigurationAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).ApplyConfigurationAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
@@ -8183,14 +8183,14 @@ impl MobileBroadbandModemIsolation {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ClearConfigurationAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).ClearConfigurationAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
     pub fn Create<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(modemdeviceid: Param0, rulegroupid: Param1) -> ::windows::core::Result<MobileBroadbandModemIsolation> {
         Self::IMobileBroadbandModemIsolationFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::core::mem::transmute_copy(this), modemdeviceid.into_param().abi(), rulegroupid.into_param().abi(), &mut result__).from_abi::<MobileBroadbandModemIsolation>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), modemdeviceid.into_param().abi(), rulegroupid.into_param().abi(), &mut result__).from_abi::<MobileBroadbandModemIsolation>(result__)
         })
     }
     #[doc(hidden)]
@@ -8317,7 +8317,7 @@ impl MobileBroadbandNetwork {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).NetworkAdapter)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Connectivity::NetworkAdapter>(result__)
+            (::windows::core::Interface::vtable(this).NetworkAdapter)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::Connectivity::NetworkAdapter>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -8325,7 +8325,7 @@ impl MobileBroadbandNetwork {
         let this = self;
         unsafe {
             let mut result__: NetworkRegistrationState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).NetworkRegistrationState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<NetworkRegistrationState>(result__)
+            (::windows::core::Interface::vtable(this).NetworkRegistrationState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<NetworkRegistrationState>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -8333,7 +8333,7 @@ impl MobileBroadbandNetwork {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RegistrationNetworkError)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).RegistrationNetworkError)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -8341,7 +8341,7 @@ impl MobileBroadbandNetwork {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PacketAttachNetworkError)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).PacketAttachNetworkError)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -8349,7 +8349,7 @@ impl MobileBroadbandNetwork {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ActivationNetworkError)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).ActivationNetworkError)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -8357,7 +8357,7 @@ impl MobileBroadbandNetwork {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AccessPointName)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).AccessPointName)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -8365,7 +8365,7 @@ impl MobileBroadbandNetwork {
         let this = self;
         unsafe {
             let mut result__: DataClasses = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RegisteredDataClass)(::core::mem::transmute_copy(this), &mut result__).from_abi::<DataClasses>(result__)
+            (::windows::core::Interface::vtable(this).RegisteredDataClass)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<DataClasses>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -8373,7 +8373,7 @@ impl MobileBroadbandNetwork {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RegisteredProviderId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).RegisteredProviderId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -8381,13 +8381,13 @@ impl MobileBroadbandNetwork {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RegisteredProviderName)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).RegisteredProviderName)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
     pub fn ShowConnectionUI(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).ShowConnectionUI)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).ShowConnectionUI)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -8395,7 +8395,7 @@ impl MobileBroadbandNetwork {
         let this = &::windows::core::Interface::cast::<IMobileBroadbandNetwork2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetVoiceCallSupportAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Interface::vtable(this).GetVoiceCallSupportAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation_Collections\"`*"]
@@ -8404,7 +8404,7 @@ impl MobileBroadbandNetwork {
         let this = &::windows::core::Interface::cast::<IMobileBroadbandNetwork2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RegistrationUiccApps)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<MobileBroadbandUiccApp>>(result__)
+            (::windows::core::Interface::vtable(this).RegistrationUiccApps)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<MobileBroadbandUiccApp>>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
@@ -8413,7 +8413,7 @@ impl MobileBroadbandNetwork {
         let this = &::windows::core::Interface::cast::<IMobileBroadbandNetwork3>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetCellsInfoAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<MobileBroadbandCellsInfo>>(result__)
+            (::windows::core::Interface::vtable(this).GetCellsInfoAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<MobileBroadbandCellsInfo>>(result__)
         }
     }
 }
@@ -8496,7 +8496,7 @@ impl MobileBroadbandNetworkRegistrationStateChange {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DeviceId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).DeviceId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -8504,7 +8504,7 @@ impl MobileBroadbandNetworkRegistrationStateChange {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Network)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MobileBroadbandNetwork>(result__)
+            (::windows::core::Interface::vtable(this).Network)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<MobileBroadbandNetwork>(result__)
         }
     }
 }
@@ -8590,7 +8590,7 @@ impl MobileBroadbandNetworkRegistrationStateChangeTriggerDetails {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).NetworkRegistrationStateChanges)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<MobileBroadbandNetworkRegistrationStateChange>>(result__)
+            (::windows::core::Interface::vtable(this).NetworkRegistrationStateChanges)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<MobileBroadbandNetworkRegistrationStateChange>>(result__)
         }
     }
 }
@@ -8676,7 +8676,7 @@ impl MobileBroadbandPco {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Data)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
+            (::windows::core::Interface::vtable(this).Data)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -8684,7 +8684,7 @@ impl MobileBroadbandPco {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsComplete)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsComplete)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -8692,7 +8692,7 @@ impl MobileBroadbandPco {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DeviceId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).DeviceId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
 }
@@ -8777,7 +8777,7 @@ impl MobileBroadbandPcoDataChangeTriggerDetails {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).UpdatedData)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MobileBroadbandPco>(result__)
+            (::windows::core::Interface::vtable(this).UpdatedData)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<MobileBroadbandPco>(result__)
         }
     }
 }
@@ -8862,7 +8862,7 @@ impl MobileBroadbandPin {
         let this = self;
         unsafe {
             let mut result__: MobileBroadbandPinType = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Type)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MobileBroadbandPinType>(result__)
+            (::windows::core::Interface::vtable(this).Type)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<MobileBroadbandPinType>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -8870,7 +8870,7 @@ impl MobileBroadbandPin {
         let this = self;
         unsafe {
             let mut result__: MobileBroadbandPinLockState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).LockState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MobileBroadbandPinLockState>(result__)
+            (::windows::core::Interface::vtable(this).LockState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<MobileBroadbandPinLockState>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -8878,7 +8878,7 @@ impl MobileBroadbandPin {
         let this = self;
         unsafe {
             let mut result__: MobileBroadbandPinFormat = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Format)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MobileBroadbandPinFormat>(result__)
+            (::windows::core::Interface::vtable(this).Format)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<MobileBroadbandPinFormat>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -8886,7 +8886,7 @@ impl MobileBroadbandPin {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Enabled)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).Enabled)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -8894,7 +8894,7 @@ impl MobileBroadbandPin {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MaxLength)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).MaxLength)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -8902,7 +8902,7 @@ impl MobileBroadbandPin {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MinLength)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).MinLength)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -8910,7 +8910,7 @@ impl MobileBroadbandPin {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AttemptsRemaining)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).AttemptsRemaining)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
@@ -8919,7 +8919,7 @@ impl MobileBroadbandPin {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).EnableAsync)(::core::mem::transmute_copy(this), currentpin.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<MobileBroadbandPinOperationResult>>(result__)
+            (::windows::core::Interface::vtable(this).EnableAsync)(::windows::core::Interface::as_raw(this), currentpin.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<MobileBroadbandPinOperationResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
@@ -8928,7 +8928,7 @@ impl MobileBroadbandPin {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DisableAsync)(::core::mem::transmute_copy(this), currentpin.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<MobileBroadbandPinOperationResult>>(result__)
+            (::windows::core::Interface::vtable(this).DisableAsync)(::windows::core::Interface::as_raw(this), currentpin.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<MobileBroadbandPinOperationResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
@@ -8937,7 +8937,7 @@ impl MobileBroadbandPin {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).EnterAsync)(::core::mem::transmute_copy(this), currentpin.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<MobileBroadbandPinOperationResult>>(result__)
+            (::windows::core::Interface::vtable(this).EnterAsync)(::windows::core::Interface::as_raw(this), currentpin.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<MobileBroadbandPinOperationResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
@@ -8946,7 +8946,7 @@ impl MobileBroadbandPin {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ChangeAsync)(::core::mem::transmute_copy(this), currentpin.into_param().abi(), newpin.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<MobileBroadbandPinOperationResult>>(result__)
+            (::windows::core::Interface::vtable(this).ChangeAsync)(::windows::core::Interface::as_raw(this), currentpin.into_param().abi(), newpin.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<MobileBroadbandPinOperationResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
@@ -8955,7 +8955,7 @@ impl MobileBroadbandPin {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).UnblockAsync)(::core::mem::transmute_copy(this), pinunblockkey.into_param().abi(), newpin.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<MobileBroadbandPinOperationResult>>(result__)
+            (::windows::core::Interface::vtable(this).UnblockAsync)(::windows::core::Interface::as_raw(this), pinunblockkey.into_param().abi(), newpin.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<MobileBroadbandPinOperationResult>>(result__)
         }
     }
 }
@@ -9111,7 +9111,7 @@ impl MobileBroadbandPinLockStateChange {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DeviceId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).DeviceId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -9119,7 +9119,7 @@ impl MobileBroadbandPinLockStateChange {
         let this = self;
         unsafe {
             let mut result__: MobileBroadbandPinType = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PinType)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MobileBroadbandPinType>(result__)
+            (::windows::core::Interface::vtable(this).PinType)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<MobileBroadbandPinType>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -9127,7 +9127,7 @@ impl MobileBroadbandPinLockStateChange {
         let this = self;
         unsafe {
             let mut result__: MobileBroadbandPinLockState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PinLockState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MobileBroadbandPinLockState>(result__)
+            (::windows::core::Interface::vtable(this).PinLockState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<MobileBroadbandPinLockState>(result__)
         }
     }
 }
@@ -9213,7 +9213,7 @@ impl MobileBroadbandPinLockStateChangeTriggerDetails {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PinLockStateChanges)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<MobileBroadbandPinLockStateChange>>(result__)
+            (::windows::core::Interface::vtable(this).PinLockStateChanges)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<MobileBroadbandPinLockStateChange>>(result__)
         }
     }
 }
@@ -9299,7 +9299,7 @@ impl MobileBroadbandPinManager {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SupportedPins)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<MobileBroadbandPinType>>(result__)
+            (::windows::core::Interface::vtable(this).SupportedPins)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<MobileBroadbandPinType>>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -9307,7 +9307,7 @@ impl MobileBroadbandPinManager {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetPin)(::core::mem::transmute_copy(this), pintype, &mut result__).from_abi::<MobileBroadbandPin>(result__)
+            (::windows::core::Interface::vtable(this).GetPin)(::windows::core::Interface::as_raw(this), pintype, &mut result__).from_abi::<MobileBroadbandPin>(result__)
         }
     }
 }
@@ -9392,7 +9392,7 @@ impl MobileBroadbandPinOperationResult {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsSuccessful)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsSuccessful)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -9400,7 +9400,7 @@ impl MobileBroadbandPinOperationResult {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AttemptsRemaining)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).AttemptsRemaining)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u32>(result__)
         }
     }
 }
@@ -9562,7 +9562,7 @@ impl MobileBroadbandRadioStateChange {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DeviceId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).DeviceId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -9570,7 +9570,7 @@ impl MobileBroadbandRadioStateChange {
         let this = self;
         unsafe {
             let mut result__: MobileBroadbandRadioState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RadioState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MobileBroadbandRadioState>(result__)
+            (::windows::core::Interface::vtable(this).RadioState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<MobileBroadbandRadioState>(result__)
         }
     }
 }
@@ -9656,7 +9656,7 @@ impl MobileBroadbandRadioStateChangeTriggerDetails {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RadioStateChanges)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<MobileBroadbandRadioStateChange>>(result__)
+            (::windows::core::Interface::vtable(this).RadioStateChanges)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<MobileBroadbandRadioStateChange>>(result__)
         }
     }
 }
@@ -9741,7 +9741,7 @@ impl MobileBroadbandSarManager {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsBackoffEnabled)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsBackoffEnabled)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -9749,7 +9749,7 @@ impl MobileBroadbandSarManager {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsWiFiHardwareIntegrated)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsWiFiHardwareIntegrated)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -9757,7 +9757,7 @@ impl MobileBroadbandSarManager {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsSarControlledByHardware)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsSarControlledByHardware)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation_Collections\"`*"]
@@ -9766,7 +9766,7 @@ impl MobileBroadbandSarManager {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Antennas)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<MobileBroadbandAntennaSar>>(result__)
+            (::windows::core::Interface::vtable(this).Antennas)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<MobileBroadbandAntennaSar>>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
@@ -9775,7 +9775,7 @@ impl MobileBroadbandSarManager {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::TimeSpan = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).HysteresisTimerPeriod)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
+            (::windows::core::Interface::vtable(this).HysteresisTimerPeriod)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
@@ -9784,14 +9784,14 @@ impl MobileBroadbandSarManager {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TransmissionStateChanged)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).TransmissionStateChanged)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveTransmissionStateChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveTransmissionStateChanged)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveTransmissionStateChanged)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -9799,7 +9799,7 @@ impl MobileBroadbandSarManager {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).EnableBackoffAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).EnableBackoffAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
@@ -9808,7 +9808,7 @@ impl MobileBroadbandSarManager {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DisableBackoffAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).DisableBackoffAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation_Collections\"`*"]
@@ -9817,7 +9817,7 @@ impl MobileBroadbandSarManager {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SetConfigurationAsync)(::core::mem::transmute_copy(this), antennas.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).SetConfigurationAsync)(::windows::core::Interface::as_raw(this), antennas.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
@@ -9826,7 +9826,7 @@ impl MobileBroadbandSarManager {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RevertSarToHardwareControlAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).RevertSarToHardwareControlAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
@@ -9835,7 +9835,7 @@ impl MobileBroadbandSarManager {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SetTransmissionStateChangedHysteresisAsync)(::core::mem::transmute_copy(this), timerperiod.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).SetTransmissionStateChangedHysteresisAsync)(::windows::core::Interface::as_raw(this), timerperiod.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
@@ -9844,18 +9844,18 @@ impl MobileBroadbandSarManager {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetIsTransmittingAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Interface::vtable(this).GetIsTransmittingAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
     pub fn StartTransmissionStateMonitoring(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).StartTransmissionStateMonitoring)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).StartTransmissionStateMonitoring)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
     pub fn StopTransmissionStateMonitoring(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).StopTransmissionStateMonitoring)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).StopTransmissionStateMonitoring)(::windows::core::Interface::as_raw(this)).ok() }
     }
 }
 impl ::core::clone::Clone for MobileBroadbandSarManager {
@@ -9939,7 +9939,7 @@ impl MobileBroadbandSlotInfo {
         let this = self;
         unsafe {
             let mut result__: i32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Index)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            (::windows::core::Interface::vtable(this).Index)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -9947,7 +9947,7 @@ impl MobileBroadbandSlotInfo {
         let this = self;
         unsafe {
             let mut result__: MobileBroadbandSlotState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).State)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MobileBroadbandSlotState>(result__)
+            (::windows::core::Interface::vtable(this).State)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<MobileBroadbandSlotState>(result__)
         }
     }
 }
@@ -10032,7 +10032,7 @@ impl MobileBroadbandSlotInfoChangedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SlotInfo)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MobileBroadbandSlotInfo>(result__)
+            (::windows::core::Interface::vtable(this).SlotInfo)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<MobileBroadbandSlotInfo>(result__)
         }
     }
 }
@@ -10118,7 +10118,7 @@ impl MobileBroadbandSlotManager {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SlotInfos)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<MobileBroadbandSlotInfo>>(result__)
+            (::windows::core::Interface::vtable(this).SlotInfos)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<MobileBroadbandSlotInfo>>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -10126,7 +10126,7 @@ impl MobileBroadbandSlotManager {
         let this = self;
         unsafe {
             let mut result__: i32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CurrentSlotIndex)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            (::windows::core::Interface::vtable(this).CurrentSlotIndex)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -10134,7 +10134,7 @@ impl MobileBroadbandSlotManager {
         let this = self;
         unsafe {
             let mut result__: MobileBroadbandModemStatus = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SetCurrentSlot)(::core::mem::transmute_copy(this), slotindex, &mut result__).from_abi::<MobileBroadbandModemStatus>(result__)
+            (::windows::core::Interface::vtable(this).SetCurrentSlot)(::windows::core::Interface::as_raw(this), slotindex, &mut result__).from_abi::<MobileBroadbandModemStatus>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
@@ -10143,7 +10143,7 @@ impl MobileBroadbandSlotManager {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SetCurrentSlotAsync)(::core::mem::transmute_copy(this), slotindex, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<MobileBroadbandModemStatus>>(result__)
+            (::windows::core::Interface::vtable(this).SetCurrentSlotAsync)(::windows::core::Interface::as_raw(this), slotindex, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<MobileBroadbandModemStatus>>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
@@ -10152,14 +10152,14 @@ impl MobileBroadbandSlotManager {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SlotInfoChanged)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).SlotInfoChanged)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveSlotInfoChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveSlotInfoChanged)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveSlotInfoChanged)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -10167,14 +10167,14 @@ impl MobileBroadbandSlotManager {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CurrentSlotIndexChanged)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).CurrentSlotIndexChanged)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveCurrentSlotIndexChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveCurrentSlotIndexChanged)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveCurrentSlotIndexChanged)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
 }
 impl ::core::clone::Clone for MobileBroadbandSlotManager {
@@ -10300,7 +10300,7 @@ impl MobileBroadbandTransmissionStateChangedEventArgs {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsTransmitting)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsTransmitting)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
 }
@@ -10385,7 +10385,7 @@ impl MobileBroadbandUicc {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SimIccId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).SimIccId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
@@ -10394,7 +10394,7 @@ impl MobileBroadbandUicc {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetUiccAppsAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<MobileBroadbandUiccAppsResult>>(result__)
+            (::windows::core::Interface::vtable(this).GetUiccAppsAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<MobileBroadbandUiccAppsResult>>(result__)
         }
     }
 }
@@ -10480,7 +10480,7 @@ impl MobileBroadbandUiccApp {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Id)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
+            (::windows::core::Interface::vtable(this).Id)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -10488,7 +10488,7 @@ impl MobileBroadbandUiccApp {
         let this = self;
         unsafe {
             let mut result__: UiccAppKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<UiccAppKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<UiccAppKind>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation_Collections\"`*"]
@@ -10497,7 +10497,7 @@ impl MobileBroadbandUiccApp {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetRecordDetailsAsync)(::core::mem::transmute_copy(this), uiccfilepath.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<MobileBroadbandUiccAppRecordDetailsResult>>(result__)
+            (::windows::core::Interface::vtable(this).GetRecordDetailsAsync)(::windows::core::Interface::as_raw(this), uiccfilepath.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<MobileBroadbandUiccAppRecordDetailsResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation_Collections\"`*"]
@@ -10506,7 +10506,7 @@ impl MobileBroadbandUiccApp {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ReadRecordAsync)(::core::mem::transmute_copy(this), uiccfilepath.into_param().abi(), recordindex, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<MobileBroadbandUiccAppReadRecordResult>>(result__)
+            (::windows::core::Interface::vtable(this).ReadRecordAsync)(::windows::core::Interface::as_raw(this), uiccfilepath.into_param().abi(), recordindex, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<MobileBroadbandUiccAppReadRecordResult>>(result__)
         }
     }
 }
@@ -10627,7 +10627,7 @@ impl MobileBroadbandUiccAppReadRecordResult {
         let this = self;
         unsafe {
             let mut result__: MobileBroadbandUiccAppOperationStatus = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Status)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MobileBroadbandUiccAppOperationStatus>(result__)
+            (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<MobileBroadbandUiccAppOperationStatus>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Storage_Streams\"`*"]
@@ -10636,7 +10636,7 @@ impl MobileBroadbandUiccAppReadRecordResult {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Data)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
+            (::windows::core::Interface::vtable(this).Data)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
         }
     }
 }
@@ -10721,7 +10721,7 @@ impl MobileBroadbandUiccAppRecordDetailsResult {
         let this = self;
         unsafe {
             let mut result__: MobileBroadbandUiccAppOperationStatus = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Status)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MobileBroadbandUiccAppOperationStatus>(result__)
+            (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<MobileBroadbandUiccAppOperationStatus>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -10729,7 +10729,7 @@ impl MobileBroadbandUiccAppRecordDetailsResult {
         let this = self;
         unsafe {
             let mut result__: UiccAppRecordKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<UiccAppRecordKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<UiccAppRecordKind>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -10737,7 +10737,7 @@ impl MobileBroadbandUiccAppRecordDetailsResult {
         let this = self;
         unsafe {
             let mut result__: i32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RecordCount)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            (::windows::core::Interface::vtable(this).RecordCount)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -10745,7 +10745,7 @@ impl MobileBroadbandUiccAppRecordDetailsResult {
         let this = self;
         unsafe {
             let mut result__: i32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RecordSize)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            (::windows::core::Interface::vtable(this).RecordSize)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -10753,7 +10753,7 @@ impl MobileBroadbandUiccAppRecordDetailsResult {
         let this = self;
         unsafe {
             let mut result__: UiccAccessCondition = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ReadAccessCondition)(::core::mem::transmute_copy(this), &mut result__).from_abi::<UiccAccessCondition>(result__)
+            (::windows::core::Interface::vtable(this).ReadAccessCondition)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<UiccAccessCondition>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -10761,7 +10761,7 @@ impl MobileBroadbandUiccAppRecordDetailsResult {
         let this = self;
         unsafe {
             let mut result__: UiccAccessCondition = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).WriteAccessCondition)(::core::mem::transmute_copy(this), &mut result__).from_abi::<UiccAccessCondition>(result__)
+            (::windows::core::Interface::vtable(this).WriteAccessCondition)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<UiccAccessCondition>(result__)
         }
     }
 }
@@ -10846,7 +10846,7 @@ impl MobileBroadbandUiccAppsResult {
         let this = self;
         unsafe {
             let mut result__: MobileBroadbandUiccAppOperationStatus = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Status)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MobileBroadbandUiccAppOperationStatus>(result__)
+            (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<MobileBroadbandUiccAppOperationStatus>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation_Collections\"`*"]
@@ -10855,7 +10855,7 @@ impl MobileBroadbandUiccAppsResult {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).UiccApps)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<MobileBroadbandUiccApp>>(result__)
+            (::windows::core::Interface::vtable(this).UiccApps)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<MobileBroadbandUiccApp>>(result__)
         }
     }
 }
@@ -11013,7 +11013,7 @@ impl NetworkOperatorDataUsageTriggerDetails {
         let this = self;
         unsafe {
             let mut result__: NetworkOperatorDataUsageNotificationKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).NotificationKind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<NetworkOperatorDataUsageNotificationKind>(result__)
+            (::windows::core::Interface::vtable(this).NotificationKind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<NetworkOperatorDataUsageNotificationKind>(result__)
         }
     }
 }
@@ -11143,7 +11143,7 @@ impl NetworkOperatorNotificationEventDetails {
         let this = self;
         unsafe {
             let mut result__: NetworkOperatorEventMessageType = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).NotificationType)(::core::mem::transmute_copy(this), &mut result__).from_abi::<NetworkOperatorEventMessageType>(result__)
+            (::windows::core::Interface::vtable(this).NotificationType)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<NetworkOperatorEventMessageType>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -11151,7 +11151,7 @@ impl NetworkOperatorNotificationEventDetails {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).NetworkAccountId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).NetworkAccountId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -11159,7 +11159,7 @@ impl NetworkOperatorNotificationEventDetails {
         let this = self;
         unsafe {
             let mut result__: u8 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).EncodingType)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
+            (::windows::core::Interface::vtable(this).EncodingType)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u8>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -11167,7 +11167,7 @@ impl NetworkOperatorNotificationEventDetails {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Message)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Message)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -11175,7 +11175,7 @@ impl NetworkOperatorNotificationEventDetails {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RuleId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).RuleId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Devices_Sms\"`*"]
@@ -11184,13 +11184,13 @@ impl NetworkOperatorNotificationEventDetails {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SmsMessage)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Devices::Sms::ISmsMessage>(result__)
+            (::windows::core::Interface::vtable(this).SmsMessage)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Devices::Sms::ISmsMessage>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
     pub fn AuthorizeTethering<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, allow: bool, entitlementfailurereason: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<INetworkOperatorTetheringEntitlementCheck>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).AuthorizeTethering)(::core::mem::transmute_copy(this), allow, entitlementfailurereason.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AuthorizeTethering)(::windows::core::Interface::as_raw(this), allow, entitlementfailurereason.into_param().abi()).ok() }
     }
 }
 impl ::core::clone::Clone for NetworkOperatorNotificationEventDetails {
@@ -11281,33 +11281,33 @@ impl NetworkOperatorTetheringAccessPointConfiguration {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Ssid)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Ssid)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
     pub fn SetSsid<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetSsid)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSsid)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
     pub fn Passphrase(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Passphrase)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Passphrase)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
     pub fn SetPassphrase<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetPassphrase)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPassphrase)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
     pub fn IsBandSupported(&self, band: TetheringWiFiBand) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<INetworkOperatorTetheringAccessPointConfiguration2>(self)?;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsBandSupported)(::core::mem::transmute_copy(this), band, &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsBandSupported)(::windows::core::Interface::as_raw(this), band, &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
@@ -11316,7 +11316,7 @@ impl NetworkOperatorTetheringAccessPointConfiguration {
         let this = &::windows::core::Interface::cast::<INetworkOperatorTetheringAccessPointConfiguration2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsBandSupportedAsync)(::core::mem::transmute_copy(this), band, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Interface::vtable(this).IsBandSupportedAsync)(::windows::core::Interface::as_raw(this), band, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -11324,13 +11324,13 @@ impl NetworkOperatorTetheringAccessPointConfiguration {
         let this = &::windows::core::Interface::cast::<INetworkOperatorTetheringAccessPointConfiguration2>(self)?;
         unsafe {
             let mut result__: TetheringWiFiBand = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Band)(::core::mem::transmute_copy(this), &mut result__).from_abi::<TetheringWiFiBand>(result__)
+            (::windows::core::Interface::vtable(this).Band)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<TetheringWiFiBand>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
     pub fn SetBand(&self, value: TetheringWiFiBand) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<INetworkOperatorTetheringAccessPointConfiguration2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetBand)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetBand)(::windows::core::Interface::as_raw(this), value).ok() }
     }
 }
 impl ::core::clone::Clone for NetworkOperatorTetheringAccessPointConfiguration {
@@ -11414,7 +11414,7 @@ impl NetworkOperatorTetheringClient {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MacAddress)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).MacAddress)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation_Collections\"`*"]
@@ -11423,7 +11423,7 @@ impl NetworkOperatorTetheringClient {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).HostNames)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<super::HostName>>(result__)
+            (::windows::core::Interface::vtable(this).HostNames)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<super::HostName>>(result__)
         }
     }
 }
@@ -11509,7 +11509,7 @@ impl NetworkOperatorTetheringManager {
         let this = &::windows::core::Interface::cast::<INetworkOperatorTetheringClientManager>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetTetheringClients)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<NetworkOperatorTetheringClient>>(result__)
+            (::windows::core::Interface::vtable(this).GetTetheringClients)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<NetworkOperatorTetheringClient>>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -11517,7 +11517,7 @@ impl NetworkOperatorTetheringManager {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MaxClientCount)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).MaxClientCount)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -11525,7 +11525,7 @@ impl NetworkOperatorTetheringManager {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ClientCount)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).ClientCount)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -11533,7 +11533,7 @@ impl NetworkOperatorTetheringManager {
         let this = self;
         unsafe {
             let mut result__: TetheringOperationalState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TetheringOperationalState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<TetheringOperationalState>(result__)
+            (::windows::core::Interface::vtable(this).TetheringOperationalState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<TetheringOperationalState>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -11541,7 +11541,7 @@ impl NetworkOperatorTetheringManager {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetCurrentAccessPointConfiguration)(::core::mem::transmute_copy(this), &mut result__).from_abi::<NetworkOperatorTetheringAccessPointConfiguration>(result__)
+            (::windows::core::Interface::vtable(this).GetCurrentAccessPointConfiguration)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<NetworkOperatorTetheringAccessPointConfiguration>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
@@ -11550,7 +11550,7 @@ impl NetworkOperatorTetheringManager {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ConfigureAccessPointAsync)(::core::mem::transmute_copy(this), configuration.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).ConfigureAccessPointAsync)(::windows::core::Interface::as_raw(this), configuration.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
@@ -11559,7 +11559,7 @@ impl NetworkOperatorTetheringManager {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).StartTetheringAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<NetworkOperatorTetheringOperationResult>>(result__)
+            (::windows::core::Interface::vtable(this).StartTetheringAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<NetworkOperatorTetheringOperationResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
@@ -11568,21 +11568,21 @@ impl NetworkOperatorTetheringManager {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).StopTetheringAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<NetworkOperatorTetheringOperationResult>>(result__)
+            (::windows::core::Interface::vtable(this).StopTetheringAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<NetworkOperatorTetheringOperationResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
     pub fn GetTetheringCapability<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(networkaccountid: Param0) -> ::windows::core::Result<TetheringCapability> {
         Self::INetworkOperatorTetheringManagerStatics(|this| unsafe {
             let mut result__: TetheringCapability = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetTetheringCapability)(::core::mem::transmute_copy(this), networkaccountid.into_param().abi(), &mut result__).from_abi::<TetheringCapability>(result__)
+            (::windows::core::Interface::vtable(this).GetTetheringCapability)(::windows::core::Interface::as_raw(this), networkaccountid.into_param().abi(), &mut result__).from_abi::<TetheringCapability>(result__)
         })
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
     pub fn CreateFromNetworkAccountId<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(networkaccountid: Param0) -> ::windows::core::Result<NetworkOperatorTetheringManager> {
         Self::INetworkOperatorTetheringManagerStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromNetworkAccountId)(::core::mem::transmute_copy(this), networkaccountid.into_param().abi(), &mut result__).from_abi::<NetworkOperatorTetheringManager>(result__)
+            (::windows::core::Interface::vtable(this).CreateFromNetworkAccountId)(::windows::core::Interface::as_raw(this), networkaccountid.into_param().abi(), &mut result__).from_abi::<NetworkOperatorTetheringManager>(result__)
         })
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Networking_Connectivity\"`*"]
@@ -11590,7 +11590,7 @@ impl NetworkOperatorTetheringManager {
     pub fn GetTetheringCapabilityFromConnectionProfile<'a, Param0: ::windows::core::IntoParam<'a, super::Connectivity::ConnectionProfile>>(profile: Param0) -> ::windows::core::Result<TetheringCapability> {
         Self::INetworkOperatorTetheringManagerStatics2(|this| unsafe {
             let mut result__: TetheringCapability = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetTetheringCapabilityFromConnectionProfile)(::core::mem::transmute_copy(this), profile.into_param().abi(), &mut result__).from_abi::<TetheringCapability>(result__)
+            (::windows::core::Interface::vtable(this).GetTetheringCapabilityFromConnectionProfile)(::windows::core::Interface::as_raw(this), profile.into_param().abi(), &mut result__).from_abi::<TetheringCapability>(result__)
         })
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Networking_Connectivity\"`*"]
@@ -11598,7 +11598,7 @@ impl NetworkOperatorTetheringManager {
     pub fn CreateFromConnectionProfile<'a, Param0: ::windows::core::IntoParam<'a, super::Connectivity::ConnectionProfile>>(profile: Param0) -> ::windows::core::Result<NetworkOperatorTetheringManager> {
         Self::INetworkOperatorTetheringManagerStatics2(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromConnectionProfile)(::core::mem::transmute_copy(this), profile.into_param().abi(), &mut result__).from_abi::<NetworkOperatorTetheringManager>(result__)
+            (::windows::core::Interface::vtable(this).CreateFromConnectionProfile)(::windows::core::Interface::as_raw(this), profile.into_param().abi(), &mut result__).from_abi::<NetworkOperatorTetheringManager>(result__)
         })
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Networking_Connectivity\"`*"]
@@ -11606,38 +11606,38 @@ impl NetworkOperatorTetheringManager {
     pub fn CreateFromConnectionProfileWithTargetAdapter<'a, Param0: ::windows::core::IntoParam<'a, super::Connectivity::ConnectionProfile>, Param1: ::windows::core::IntoParam<'a, super::Connectivity::NetworkAdapter>>(profile: Param0, adapter: Param1) -> ::windows::core::Result<NetworkOperatorTetheringManager> {
         Self::INetworkOperatorTetheringManagerStatics3(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromConnectionProfileWithTargetAdapter)(::core::mem::transmute_copy(this), profile.into_param().abi(), adapter.into_param().abi(), &mut result__).from_abi::<NetworkOperatorTetheringManager>(result__)
+            (::windows::core::Interface::vtable(this).CreateFromConnectionProfileWithTargetAdapter)(::windows::core::Interface::as_raw(this), profile.into_param().abi(), adapter.into_param().abi(), &mut result__).from_abi::<NetworkOperatorTetheringManager>(result__)
         })
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
     pub fn IsNoConnectionsTimeoutEnabled() -> ::windows::core::Result<bool> {
         Self::INetworkOperatorTetheringManagerStatics4(|this| unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsNoConnectionsTimeoutEnabled)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsNoConnectionsTimeoutEnabled)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         })
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
     pub fn EnableNoConnectionsTimeout() -> ::windows::core::Result<()> {
-        Self::INetworkOperatorTetheringManagerStatics4(|this| unsafe { (::windows::core::Interface::vtable(this).EnableNoConnectionsTimeout)(::core::mem::transmute_copy(this)).ok() })
+        Self::INetworkOperatorTetheringManagerStatics4(|this| unsafe { (::windows::core::Interface::vtable(this).EnableNoConnectionsTimeout)(::windows::core::Interface::as_raw(this)).ok() })
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn EnableNoConnectionsTimeoutAsync() -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         Self::INetworkOperatorTetheringManagerStatics4(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).EnableNoConnectionsTimeoutAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).EnableNoConnectionsTimeoutAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         })
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
     pub fn DisableNoConnectionsTimeout() -> ::windows::core::Result<()> {
-        Self::INetworkOperatorTetheringManagerStatics4(|this| unsafe { (::windows::core::Interface::vtable(this).DisableNoConnectionsTimeout)(::core::mem::transmute_copy(this)).ok() })
+        Self::INetworkOperatorTetheringManagerStatics4(|this| unsafe { (::windows::core::Interface::vtable(this).DisableNoConnectionsTimeout)(::windows::core::Interface::as_raw(this)).ok() })
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn DisableNoConnectionsTimeoutAsync() -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         Self::INetworkOperatorTetheringManagerStatics4(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DisableNoConnectionsTimeoutAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).DisableNoConnectionsTimeoutAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         })
     }
     #[doc(hidden)]
@@ -11740,7 +11740,7 @@ impl NetworkOperatorTetheringOperationResult {
         let this = self;
         unsafe {
             let mut result__: TetheringOperationStatus = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Status)(::core::mem::transmute_copy(this), &mut result__).from_abi::<TetheringOperationStatus>(result__)
+            (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<TetheringOperationStatus>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -11748,7 +11748,7 @@ impl NetworkOperatorTetheringOperationResult {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AdditionalErrorMessage)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).AdditionalErrorMessage)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
 }
@@ -11951,7 +11951,7 @@ impl ProvisionFromXmlDocumentResults {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AllElementsProvisioned)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).AllElementsProvisioned)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -11959,7 +11959,7 @@ impl ProvisionFromXmlDocumentResults {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ProvisionResultsXml)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).ProvisionResultsXml)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
 }
@@ -12041,13 +12041,13 @@ impl ProvisionedProfile {
     #[cfg(feature = "Networking_Connectivity")]
     pub fn UpdateCost(&self, value: super::Connectivity::NetworkCostType) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).UpdateCost)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).UpdateCost)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn UpdateUsage<'a, Param0: ::windows::core::IntoParam<'a, ProfileUsage>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).UpdateUsage)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).UpdateUsage)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
 }
 impl ::core::clone::Clone for ProvisionedProfile {
@@ -12137,7 +12137,7 @@ impl ProvisioningAgent {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ProvisionFromXmlDocumentAsync)(::core::mem::transmute_copy(this), provisioningxmldocument.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<ProvisionFromXmlDocumentResults>>(result__)
+            (::windows::core::Interface::vtable(this).ProvisionFromXmlDocumentAsync)(::windows::core::Interface::as_raw(this), provisioningxmldocument.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<ProvisionFromXmlDocumentResults>>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -12145,14 +12145,14 @@ impl ProvisioningAgent {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetProvisionedProfile)(::core::mem::transmute_copy(this), mediatype, profilename.into_param().abi(), &mut result__).from_abi::<ProvisionedProfile>(result__)
+            (::windows::core::Interface::vtable(this).GetProvisionedProfile)(::windows::core::Interface::as_raw(this), mediatype, profilename.into_param().abi(), &mut result__).from_abi::<ProvisionedProfile>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
     pub fn CreateFromNetworkAccountId<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(networkaccountid: Param0) -> ::windows::core::Result<ProvisioningAgent> {
         Self::IProvisioningAgentStaticMethods(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromNetworkAccountId)(::core::mem::transmute_copy(this), networkaccountid.into_param().abi(), &mut result__).from_abi::<ProvisioningAgent>(result__)
+            (::windows::core::Interface::vtable(this).CreateFromNetworkAccountId)(::windows::core::Interface::as_raw(this), networkaccountid.into_param().abi(), &mut result__).from_abi::<ProvisioningAgent>(result__)
         })
     }
     #[doc(hidden)]
@@ -12280,18 +12280,18 @@ impl TetheringEntitlementCheckTriggerDetails {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).NetworkAccountId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).NetworkAccountId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
     pub fn AllowTethering(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AllowTethering)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AllowTethering)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
     pub fn DenyTethering<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, entitlementfailurereason: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).DenyTethering)(::core::mem::transmute_copy(this), entitlementfailurereason.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).DenyTethering)(::windows::core::Interface::as_raw(this), entitlementfailurereason.into_param().abi()).ok() }
     }
 }
 impl ::core::clone::Clone for TetheringEntitlementCheckTriggerDetails {
@@ -12601,45 +12601,45 @@ impl UssdMessage {
         let this = self;
         unsafe {
             let mut result__: u8 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DataCodingScheme)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
+            (::windows::core::Interface::vtable(this).DataCodingScheme)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u8>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
     pub fn SetDataCodingScheme(&self, value: u8) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetDataCodingScheme)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDataCodingScheme)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
     pub fn GetPayload(&self) -> ::windows::core::Result<::windows::core::Array<u8>> {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::Array<u8> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetPayload)(::core::mem::transmute_copy(this), ::windows::core::Array::<u8>::set_abi_len(&mut result__), &mut result__ as *mut _ as _).and_then(|| result__)
+            (::windows::core::Interface::vtable(this).GetPayload)(::windows::core::Interface::as_raw(this), ::windows::core::Array::<u8>::set_abi_len(&mut result__), &mut result__ as *mut _ as _).and_then(|| result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
     pub fn SetPayload(&self, value: &[u8]) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetPayload)(::core::mem::transmute_copy(this), value.len() as u32, ::core::mem::transmute(value.as_ptr())).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPayload)(::windows::core::Interface::as_raw(this), value.len() as u32, ::core::mem::transmute(value.as_ptr())).ok() }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
     pub fn PayloadAsText(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PayloadAsText)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).PayloadAsText)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
     pub fn SetPayloadAsText<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetPayloadAsText)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPayloadAsText)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
     pub fn CreateMessage<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(messagetext: Param0) -> ::windows::core::Result<UssdMessage> {
         Self::IUssdMessageFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateMessage)(::core::mem::transmute_copy(this), messagetext.into_param().abi(), &mut result__).from_abi::<UssdMessage>(result__)
+            (::windows::core::Interface::vtable(this).CreateMessage)(::windows::core::Interface::as_raw(this), messagetext.into_param().abi(), &mut result__).from_abi::<UssdMessage>(result__)
         })
     }
     #[doc(hidden)]
@@ -12729,7 +12729,7 @@ impl UssdReply {
         let this = self;
         unsafe {
             let mut result__: UssdResultCode = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ResultCode)(::core::mem::transmute_copy(this), &mut result__).from_abi::<UssdResultCode>(result__)
+            (::windows::core::Interface::vtable(this).ResultCode)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<UssdResultCode>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -12737,7 +12737,7 @@ impl UssdReply {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Message)(::core::mem::transmute_copy(this), &mut result__).from_abi::<UssdMessage>(result__)
+            (::windows::core::Interface::vtable(this).Message)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<UssdMessage>(result__)
         }
     }
 }
@@ -12859,26 +12859,26 @@ impl UssdSession {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SendMessageAndGetReplyAsync)(::core::mem::transmute_copy(this), message.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<UssdReply>>(result__)
+            (::windows::core::Interface::vtable(this).SendMessageAndGetReplyAsync)(::windows::core::Interface::as_raw(this), message.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<UssdReply>>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Close)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
     pub fn CreateFromNetworkAccountId<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(networkaccountid: Param0) -> ::windows::core::Result<UssdSession> {
         Self::IUssdSessionStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromNetworkAccountId)(::core::mem::transmute_copy(this), networkaccountid.into_param().abi(), &mut result__).from_abi::<UssdSession>(result__)
+            (::windows::core::Interface::vtable(this).CreateFromNetworkAccountId)(::windows::core::Interface::as_raw(this), networkaccountid.into_param().abi(), &mut result__).from_abi::<UssdSession>(result__)
         })
     }
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
     pub fn CreateFromNetworkInterfaceId<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(networkinterfaceid: Param0) -> ::windows::core::Result<UssdSession> {
         Self::IUssdSessionStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromNetworkInterfaceId)(::core::mem::transmute_copy(this), networkinterfaceid.into_param().abi(), &mut result__).from_abi::<UssdSession>(result__)
+            (::windows::core::Interface::vtable(this).CreateFromNetworkInterfaceId)(::windows::core::Interface::as_raw(this), networkinterfaceid.into_param().abi(), &mut result__).from_abi::<UssdSession>(result__)
         })
     }
     #[doc(hidden)]

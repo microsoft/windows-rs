@@ -16,7 +16,7 @@ impl IUriToStreamResolver {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).UriToStreamAsync)(::core::mem::transmute_copy(this), uri.into_param().abi(), &mut result__).from_abi::<super::Foundation::IAsyncOperation<super::Storage::Streams::IInputStream>>(result__)
+            (::windows::core::Interface::vtable(this).UriToStreamAsync)(::windows::core::Interface::as_raw(this), uri.into_param().abi(), &mut result__).from_abi::<super::Foundation::IAsyncOperation<super::Storage::Streams::IInputStream>>(result__)
         }
     }
 }
@@ -116,7 +116,7 @@ impl WebError {
     pub fn GetStatus(hresult: i32) -> ::windows::core::Result<WebErrorStatus> {
         Self::IWebErrorStatics(|this| unsafe {
             let mut result__: WebErrorStatus = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetStatus)(::core::mem::transmute_copy(this), hresult, &mut result__).from_abi::<WebErrorStatus>(result__)
+            (::windows::core::Interface::vtable(this).GetStatus)(::windows::core::Interface::as_raw(this), hresult, &mut result__).from_abi::<WebErrorStatus>(result__)
         })
     }
     #[doc(hidden)]

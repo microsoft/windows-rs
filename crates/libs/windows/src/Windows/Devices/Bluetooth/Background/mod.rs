@@ -43,7 +43,7 @@ impl BluetoothLEAdvertisementPublisherTriggerDetails {
         let this = self;
         unsafe {
             let mut result__: super::Advertisement::BluetoothLEAdvertisementPublisherStatus = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Status)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Advertisement::BluetoothLEAdvertisementPublisherStatus>(result__)
+            (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::Advertisement::BluetoothLEAdvertisementPublisherStatus>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_Background\"`*"]
@@ -51,7 +51,7 @@ impl BluetoothLEAdvertisementPublisherTriggerDetails {
         let this = self;
         unsafe {
             let mut result__: super::BluetoothError = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Error)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::BluetoothError>(result__)
+            (::windows::core::Interface::vtable(this).Error)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::BluetoothError>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_Background\"`, `\"Foundation\"`*"]
@@ -60,7 +60,7 @@ impl BluetoothLEAdvertisementPublisherTriggerDetails {
         let this = &::windows::core::Interface::cast::<IBluetoothLEAdvertisementPublisherTriggerDetails2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SelectedTransmitPowerLevelInDBm)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<i16>>(result__)
+            (::windows::core::Interface::vtable(this).SelectedTransmitPowerLevelInDBm)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<i16>>(result__)
         }
     }
 }
@@ -145,7 +145,7 @@ impl BluetoothLEAdvertisementWatcherTriggerDetails {
         let this = self;
         unsafe {
             let mut result__: super::BluetoothError = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Error)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::BluetoothError>(result__)
+            (::windows::core::Interface::vtable(this).Error)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::BluetoothError>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_Background\"`, `\"Devices_Bluetooth_Advertisement\"`, `\"Foundation_Collections\"`*"]
@@ -154,7 +154,7 @@ impl BluetoothLEAdvertisementWatcherTriggerDetails {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Advertisements)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<super::Advertisement::BluetoothLEAdvertisementReceivedEventArgs>>(result__)
+            (::windows::core::Interface::vtable(this).Advertisements)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<super::Advertisement::BluetoothLEAdvertisementReceivedEventArgs>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_Background\"`*"]
@@ -162,7 +162,7 @@ impl BluetoothLEAdvertisementWatcherTriggerDetails {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SignalStrengthFilter)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::BluetoothSignalStrengthFilter>(result__)
+            (::windows::core::Interface::vtable(this).SignalStrengthFilter)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::BluetoothSignalStrengthFilter>(result__)
         }
     }
 }
@@ -248,7 +248,7 @@ impl GattCharacteristicNotificationTriggerDetails {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Characteristic)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::GenericAttributeProfile::GattCharacteristic>(result__)
+            (::windows::core::Interface::vtable(this).Characteristic)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::GenericAttributeProfile::GattCharacteristic>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_Background\"`, `\"Storage_Streams\"`*"]
@@ -257,7 +257,7 @@ impl GattCharacteristicNotificationTriggerDetails {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Value)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Storage::Streams::IBuffer>(result__)
+            (::windows::core::Interface::vtable(this).Value)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Storage::Streams::IBuffer>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_Background\"`*"]
@@ -265,7 +265,7 @@ impl GattCharacteristicNotificationTriggerDetails {
         let this = &::windows::core::Interface::cast::<IGattCharacteristicNotificationTriggerDetails2>(self)?;
         unsafe {
             let mut result__: super::BluetoothError = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Error)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::BluetoothError>(result__)
+            (::windows::core::Interface::vtable(this).Error)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::BluetoothError>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_Background\"`*"]
@@ -273,7 +273,7 @@ impl GattCharacteristicNotificationTriggerDetails {
         let this = &::windows::core::Interface::cast::<IGattCharacteristicNotificationTriggerDetails2>(self)?;
         unsafe {
             let mut result__: BluetoothEventTriggeringMode = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).EventTriggeringMode)(::core::mem::transmute_copy(this), &mut result__).from_abi::<BluetoothEventTriggeringMode>(result__)
+            (::windows::core::Interface::vtable(this).EventTriggeringMode)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<BluetoothEventTriggeringMode>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_Background\"`, `\"Devices_Bluetooth_GenericAttributeProfile\"`, `\"Foundation_Collections\"`*"]
@@ -282,7 +282,7 @@ impl GattCharacteristicNotificationTriggerDetails {
         let this = &::windows::core::Interface::cast::<IGattCharacteristicNotificationTriggerDetails2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ValueChangedEvents)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<super::GenericAttributeProfile::GattValueChangedEventArgs>>(result__)
+            (::windows::core::Interface::vtable(this).ValueChangedEvents)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<super::GenericAttributeProfile::GattValueChangedEventArgs>>(result__)
         }
     }
 }
@@ -367,7 +367,7 @@ impl GattServiceProviderConnection {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TriggerId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).TriggerId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_Background\"`, `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
@@ -376,20 +376,20 @@ impl GattServiceProviderConnection {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Service)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::GenericAttributeProfile::GattLocalService>(result__)
+            (::windows::core::Interface::vtable(this).Service)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::GenericAttributeProfile::GattLocalService>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_Background\"`*"]
     pub fn Start(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Start)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Start)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_Background\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn AllServices() -> ::windows::core::Result<super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, GattServiceProviderConnection>> {
         Self::IGattServiceProviderConnectionStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AllServices)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, GattServiceProviderConnection>>(result__)
+            (::windows::core::Interface::vtable(this).AllServices)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, GattServiceProviderConnection>>(result__)
         })
     }
     #[doc(hidden)]
@@ -479,7 +479,7 @@ impl GattServiceProviderTriggerDetails {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Connection)(::core::mem::transmute_copy(this), &mut result__).from_abi::<GattServiceProviderConnection>(result__)
+            (::windows::core::Interface::vtable(this).Connection)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<GattServiceProviderConnection>(result__)
         }
     }
 }
@@ -769,7 +769,7 @@ impl RfcommConnectionTriggerDetails {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Socket)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Networking::Sockets::StreamSocket>(result__)
+            (::windows::core::Interface::vtable(this).Socket)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Networking::Sockets::StreamSocket>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_Background\"`*"]
@@ -777,7 +777,7 @@ impl RfcommConnectionTriggerDetails {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Incoming)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).Incoming)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_Background\"`*"]
@@ -785,7 +785,7 @@ impl RfcommConnectionTriggerDetails {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RemoteDevice)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::BluetoothDevice>(result__)
+            (::windows::core::Interface::vtable(this).RemoteDevice)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::BluetoothDevice>(result__)
         }
     }
 }
@@ -871,14 +871,14 @@ impl RfcommInboundConnectionInformation {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SdpRecord)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Storage::Streams::IBuffer>(result__)
+            (::windows::core::Interface::vtable(this).SdpRecord)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Storage::Streams::IBuffer>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_Background\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn SetSdpRecord<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Storage::Streams::IBuffer>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetSdpRecord)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSdpRecord)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_Background\"`, `\"Devices_Bluetooth_Rfcomm\"`*"]
     #[cfg(feature = "Devices_Bluetooth_Rfcomm")]
@@ -886,27 +886,27 @@ impl RfcommInboundConnectionInformation {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).LocalServiceId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Rfcomm::RfcommServiceId>(result__)
+            (::windows::core::Interface::vtable(this).LocalServiceId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::Rfcomm::RfcommServiceId>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_Background\"`, `\"Devices_Bluetooth_Rfcomm\"`*"]
     #[cfg(feature = "Devices_Bluetooth_Rfcomm")]
     pub fn SetLocalServiceId<'a, Param0: ::windows::core::IntoParam<'a, super::Rfcomm::RfcommServiceId>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetLocalServiceId)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetLocalServiceId)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_Background\"`*"]
     pub fn ServiceCapabilities(&self) -> ::windows::core::Result<super::BluetoothServiceCapabilities> {
         let this = self;
         unsafe {
             let mut result__: super::BluetoothServiceCapabilities = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ServiceCapabilities)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::BluetoothServiceCapabilities>(result__)
+            (::windows::core::Interface::vtable(this).ServiceCapabilities)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::BluetoothServiceCapabilities>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_Background\"`*"]
     pub fn SetServiceCapabilities(&self, value: super::BluetoothServiceCapabilities) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetServiceCapabilities)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetServiceCapabilities)(::windows::core::Interface::as_raw(this), value).ok() }
     }
 }
 impl ::core::clone::Clone for RfcommInboundConnectionInformation {
@@ -991,14 +991,14 @@ impl RfcommOutboundConnectionInformation {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RemoteServiceId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Rfcomm::RfcommServiceId>(result__)
+            (::windows::core::Interface::vtable(this).RemoteServiceId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::Rfcomm::RfcommServiceId>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_Background\"`, `\"Devices_Bluetooth_Rfcomm\"`*"]
     #[cfg(feature = "Devices_Bluetooth_Rfcomm")]
     pub fn SetRemoteServiceId<'a, Param0: ::windows::core::IntoParam<'a, super::Rfcomm::RfcommServiceId>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetRemoteServiceId)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetRemoteServiceId)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
 }
 impl ::core::clone::Clone for RfcommOutboundConnectionInformation {

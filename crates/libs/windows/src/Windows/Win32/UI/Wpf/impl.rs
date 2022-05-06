@@ -8,11 +8,11 @@ pub trait IMILBitmapEffect_Impl: Sized {
 impl ::windows::core::RuntimeName for IMILBitmapEffect {}
 #[cfg(feature = "Win32_Graphics_Imaging")]
 impl IMILBitmapEffect_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMILBitmapEffect_Impl, const OFFSET: isize>() -> IMILBitmapEffect_Vtbl {
-        unsafe extern "system" fn GetOutput<Identity: ::windows::core::IUnknownImpl, Impl: IMILBitmapEffect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uiindex: u32, pcontext: ::windows::core::RawPtr, ppbitmapsource: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetOutput(::core::mem::transmute_copy(&uiindex), ::core::mem::transmute(&pcontext)) {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMILBitmapEffect_Impl, const OFFSET: isize>() -> IMILBitmapEffect_Vtbl {
+        unsafe extern "system" fn GetOutput<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMILBitmapEffect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uiindex: u32, pcontext: ::windows::core::RawPtr, ppbitmapsource: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            match this.GetOutput(::core::mem::transmute_copy(&uiindex), ::core::mem::transmute(&pcontext)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppbitmapsource = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -20,10 +20,10 @@ impl IMILBitmapEffect_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetParentEffect<Identity: ::windows::core::IUnknownImpl, Impl: IMILBitmapEffect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppparenteffect: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetParentEffect() {
+        unsafe extern "system" fn GetParentEffect<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMILBitmapEffect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppparenteffect: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            match this.GetParentEffect() {
                 ::core::result::Result::Ok(ok__) => {
                     *ppparenteffect = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -31,10 +31,10 @@ impl IMILBitmapEffect_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetInputSource<Identity: ::windows::core::IUnknownImpl, Impl: IMILBitmapEffect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uiindex: u32, pbitmapsource: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            (*this).SetInputSource(::core::mem::transmute_copy(&uiindex), ::core::mem::transmute(&pbitmapsource)).into()
+        unsafe extern "system" fn SetInputSource<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMILBitmapEffect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uiindex: u32, pbitmapsource: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.SetInputSource(::core::mem::transmute_copy(&uiindex), ::core::mem::transmute(&pbitmapsource)).into()
         }
         Self {
             base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
@@ -53,11 +53,11 @@ pub trait IMILBitmapEffectConnections_Impl: Sized {
 }
 impl ::windows::core::RuntimeName for IMILBitmapEffectConnections {}
 impl IMILBitmapEffectConnections_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMILBitmapEffectConnections_Impl, const OFFSET: isize>() -> IMILBitmapEffectConnections_Vtbl {
-        unsafe extern "system" fn GetInputConnector<Identity: ::windows::core::IUnknownImpl, Impl: IMILBitmapEffectConnections_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uiindex: u32, ppconnector: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetInputConnector(::core::mem::transmute_copy(&uiindex)) {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMILBitmapEffectConnections_Impl, const OFFSET: isize>() -> IMILBitmapEffectConnections_Vtbl {
+        unsafe extern "system" fn GetInputConnector<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMILBitmapEffectConnections_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uiindex: u32, ppconnector: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            match this.GetInputConnector(::core::mem::transmute_copy(&uiindex)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppconnector = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -65,10 +65,10 @@ impl IMILBitmapEffectConnections_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetOutputConnector<Identity: ::windows::core::IUnknownImpl, Impl: IMILBitmapEffectConnections_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uiindex: u32, ppconnector: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetOutputConnector(::core::mem::transmute_copy(&uiindex)) {
+        unsafe extern "system" fn GetOutputConnector<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMILBitmapEffectConnections_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uiindex: u32, ppconnector: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            match this.GetOutputConnector(::core::mem::transmute_copy(&uiindex)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppconnector = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -94,11 +94,11 @@ pub trait IMILBitmapEffectConnectionsInfo_Impl: Sized {
 }
 impl ::windows::core::RuntimeName for IMILBitmapEffectConnectionsInfo {}
 impl IMILBitmapEffectConnectionsInfo_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMILBitmapEffectConnectionsInfo_Impl, const OFFSET: isize>() -> IMILBitmapEffectConnectionsInfo_Vtbl {
-        unsafe extern "system" fn GetNumberInputs<Identity: ::windows::core::IUnknownImpl, Impl: IMILBitmapEffectConnectionsInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, puinuminputs: *mut u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetNumberInputs() {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMILBitmapEffectConnectionsInfo_Impl, const OFFSET: isize>() -> IMILBitmapEffectConnectionsInfo_Vtbl {
+        unsafe extern "system" fn GetNumberInputs<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMILBitmapEffectConnectionsInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, puinuminputs: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            match this.GetNumberInputs() {
                 ::core::result::Result::Ok(ok__) => {
                     *puinuminputs = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -106,10 +106,10 @@ impl IMILBitmapEffectConnectionsInfo_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetNumberOutputs<Identity: ::windows::core::IUnknownImpl, Impl: IMILBitmapEffectConnectionsInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, puinumoutputs: *mut u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetNumberOutputs() {
+        unsafe extern "system" fn GetNumberOutputs<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMILBitmapEffectConnectionsInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, puinumoutputs: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            match this.GetNumberOutputs() {
                 ::core::result::Result::Ok(ok__) => {
                     *puinumoutputs = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -117,10 +117,10 @@ impl IMILBitmapEffectConnectionsInfo_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetInputConnectorInfo<Identity: ::windows::core::IUnknownImpl, Impl: IMILBitmapEffectConnectionsInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uiindex: u32, ppconnectorinfo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetInputConnectorInfo(::core::mem::transmute_copy(&uiindex)) {
+        unsafe extern "system" fn GetInputConnectorInfo<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMILBitmapEffectConnectionsInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uiindex: u32, ppconnectorinfo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            match this.GetInputConnectorInfo(::core::mem::transmute_copy(&uiindex)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppconnectorinfo = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -128,10 +128,10 @@ impl IMILBitmapEffectConnectionsInfo_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetOutputConnectorInfo<Identity: ::windows::core::IUnknownImpl, Impl: IMILBitmapEffectConnectionsInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uiindex: u32, ppconnectorinfo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetOutputConnectorInfo(::core::mem::transmute_copy(&uiindex)) {
+        unsafe extern "system" fn GetOutputConnectorInfo<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMILBitmapEffectConnectionsInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uiindex: u32, ppconnectorinfo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            match this.GetOutputConnectorInfo(::core::mem::transmute_copy(&uiindex)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppconnectorinfo = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -157,11 +157,11 @@ pub trait IMILBitmapEffectConnector_Impl: Sized + IMILBitmapEffectConnectorInfo_
 }
 impl ::windows::core::RuntimeName for IMILBitmapEffectConnector {}
 impl IMILBitmapEffectConnector_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMILBitmapEffectConnector_Impl, const OFFSET: isize>() -> IMILBitmapEffectConnector_Vtbl {
-        unsafe extern "system" fn IsConnected<Identity: ::windows::core::IUnknownImpl, Impl: IMILBitmapEffectConnector_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfconnected: *mut i16) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).IsConnected() {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMILBitmapEffectConnector_Impl, const OFFSET: isize>() -> IMILBitmapEffectConnector_Vtbl {
+        unsafe extern "system" fn IsConnected<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMILBitmapEffectConnector_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfconnected: *mut i16) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            match this.IsConnected() {
                 ::core::result::Result::Ok(ok__) => {
                     *pfconnected = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -169,10 +169,10 @@ impl IMILBitmapEffectConnector_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetBitmapEffect<Identity: ::windows::core::IUnknownImpl, Impl: IMILBitmapEffectConnector_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppeffect: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetBitmapEffect() {
+        unsafe extern "system" fn GetBitmapEffect<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMILBitmapEffectConnector_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppeffect: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            match this.GetBitmapEffect() {
                 ::core::result::Result::Ok(ok__) => {
                     *ppeffect = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -198,11 +198,11 @@ pub trait IMILBitmapEffectConnectorInfo_Impl: Sized {
 }
 impl ::windows::core::RuntimeName for IMILBitmapEffectConnectorInfo {}
 impl IMILBitmapEffectConnectorInfo_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMILBitmapEffectConnectorInfo_Impl, const OFFSET: isize>() -> IMILBitmapEffectConnectorInfo_Vtbl {
-        unsafe extern "system" fn GetIndex<Identity: ::windows::core::IUnknownImpl, Impl: IMILBitmapEffectConnectorInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, puiindex: *mut u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetIndex() {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMILBitmapEffectConnectorInfo_Impl, const OFFSET: isize>() -> IMILBitmapEffectConnectorInfo_Vtbl {
+        unsafe extern "system" fn GetIndex<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMILBitmapEffectConnectorInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, puiindex: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            match this.GetIndex() {
                 ::core::result::Result::Ok(ok__) => {
                     *puiindex = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -210,10 +210,10 @@ impl IMILBitmapEffectConnectorInfo_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetOptimalFormat<Identity: ::windows::core::IUnknownImpl, Impl: IMILBitmapEffectConnectorInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pformat: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetOptimalFormat() {
+        unsafe extern "system" fn GetOptimalFormat<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMILBitmapEffectConnectorInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pformat: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            match this.GetOptimalFormat() {
                 ::core::result::Result::Ok(ok__) => {
                     *pformat = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -221,10 +221,10 @@ impl IMILBitmapEffectConnectorInfo_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetNumberFormats<Identity: ::windows::core::IUnknownImpl, Impl: IMILBitmapEffectConnectorInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pulnumberformats: *mut u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetNumberFormats() {
+        unsafe extern "system" fn GetNumberFormats<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMILBitmapEffectConnectorInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pulnumberformats: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            match this.GetNumberFormats() {
                 ::core::result::Result::Ok(ok__) => {
                     *pulnumberformats = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -232,10 +232,10 @@ impl IMILBitmapEffectConnectorInfo_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetFormat<Identity: ::windows::core::IUnknownImpl, Impl: IMILBitmapEffectConnectorInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ulindex: u32, pformat: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetFormat(::core::mem::transmute_copy(&ulindex)) {
+        unsafe extern "system" fn GetFormat<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMILBitmapEffectConnectorInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ulindex: u32, pformat: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            match this.GetFormat(::core::mem::transmute_copy(&ulindex)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pformat = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -264,16 +264,16 @@ pub trait IMILBitmapEffectEvents_Impl: Sized {
 impl ::windows::core::RuntimeName for IMILBitmapEffectEvents {}
 #[cfg(feature = "Win32_Foundation")]
 impl IMILBitmapEffectEvents_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMILBitmapEffectEvents_Impl, const OFFSET: isize>() -> IMILBitmapEffectEvents_Vtbl {
-        unsafe extern "system" fn PropertyChange<Identity: ::windows::core::IUnknownImpl, Impl: IMILBitmapEffectEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, peffect: ::windows::core::RawPtr, bstrpropertyname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            (*this).PropertyChange(::core::mem::transmute(&peffect), ::core::mem::transmute(&bstrpropertyname)).into()
+    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMILBitmapEffectEvents_Impl, const OFFSET: isize>() -> IMILBitmapEffectEvents_Vtbl {
+        unsafe extern "system" fn PropertyChange<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMILBitmapEffectEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, peffect: ::windows::core::RawPtr, bstrpropertyname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.PropertyChange(::core::mem::transmute(&peffect), ::core::mem::transmute(&bstrpropertyname)).into()
         }
-        unsafe extern "system" fn DirtyRegion<Identity: ::windows::core::IUnknownImpl, Impl: IMILBitmapEffectEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, peffect: ::windows::core::RawPtr, prect: *const MilRectD) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            (*this).DirtyRegion(::core::mem::transmute(&peffect), ::core::mem::transmute_copy(&prect)).into()
+        unsafe extern "system" fn DirtyRegion<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMILBitmapEffectEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, peffect: ::windows::core::RawPtr, prect: *const MilRectD) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.DirtyRegion(::core::mem::transmute(&peffect), ::core::mem::transmute_copy(&prect)).into()
         }
         Self {
             base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
@@ -292,11 +292,11 @@ pub trait IMILBitmapEffectFactory_Impl: Sized {
 }
 impl ::windows::core::RuntimeName for IMILBitmapEffectFactory {}
 impl IMILBitmapEffectFactory_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMILBitmapEffectFactory_Impl, const OFFSET: isize>() -> IMILBitmapEffectFactory_Vtbl {
-        unsafe extern "system" fn CreateEffect<Identity: ::windows::core::IUnknownImpl, Impl: IMILBitmapEffectFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pguideffect: *const ::windows::core::GUID, ppeffect: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).CreateEffect(::core::mem::transmute_copy(&pguideffect)) {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMILBitmapEffectFactory_Impl, const OFFSET: isize>() -> IMILBitmapEffectFactory_Vtbl {
+        unsafe extern "system" fn CreateEffect<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMILBitmapEffectFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pguideffect: *const ::windows::core::GUID, ppeffect: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            match this.CreateEffect(::core::mem::transmute_copy(&pguideffect)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppeffect = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -304,10 +304,10 @@ impl IMILBitmapEffectFactory_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateContext<Identity: ::windows::core::IUnknownImpl, Impl: IMILBitmapEffectFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppcontext: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).CreateContext() {
+        unsafe extern "system" fn CreateContext<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMILBitmapEffectFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppcontext: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            match this.CreateContext() {
                 ::core::result::Result::Ok(ok__) => {
                     *ppcontext = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -315,10 +315,10 @@ impl IMILBitmapEffectFactory_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateEffectOuter<Identity: ::windows::core::IUnknownImpl, Impl: IMILBitmapEffectFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppeffect: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).CreateEffectOuter() {
+        unsafe extern "system" fn CreateEffectOuter<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMILBitmapEffectFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppeffect: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            match this.CreateEffectOuter() {
                 ::core::result::Result::Ok(ok__) => {
                     *ppeffect = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -344,11 +344,11 @@ pub trait IMILBitmapEffectGroup_Impl: Sized {
 }
 impl ::windows::core::RuntimeName for IMILBitmapEffectGroup {}
 impl IMILBitmapEffectGroup_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMILBitmapEffectGroup_Impl, const OFFSET: isize>() -> IMILBitmapEffectGroup_Vtbl {
-        unsafe extern "system" fn GetInteriorInputConnector<Identity: ::windows::core::IUnknownImpl, Impl: IMILBitmapEffectGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uiindex: u32, ppconnector: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetInteriorInputConnector(::core::mem::transmute_copy(&uiindex)) {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMILBitmapEffectGroup_Impl, const OFFSET: isize>() -> IMILBitmapEffectGroup_Vtbl {
+        unsafe extern "system" fn GetInteriorInputConnector<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMILBitmapEffectGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uiindex: u32, ppconnector: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            match this.GetInteriorInputConnector(::core::mem::transmute_copy(&uiindex)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppconnector = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -356,10 +356,10 @@ impl IMILBitmapEffectGroup_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetInteriorOutputConnector<Identity: ::windows::core::IUnknownImpl, Impl: IMILBitmapEffectGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uiindex: u32, ppconnector: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetInteriorOutputConnector(::core::mem::transmute_copy(&uiindex)) {
+        unsafe extern "system" fn GetInteriorOutputConnector<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMILBitmapEffectGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uiindex: u32, ppconnector: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            match this.GetInteriorOutputConnector(::core::mem::transmute_copy(&uiindex)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppconnector = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -367,10 +367,10 @@ impl IMILBitmapEffectGroup_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Add<Identity: ::windows::core::IUnknownImpl, Impl: IMILBitmapEffectGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, peffect: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            (*this).Add(::core::mem::transmute(&peffect)).into()
+        unsafe extern "system" fn Add<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMILBitmapEffectGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, peffect: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.Add(::core::mem::transmute(&peffect)).into()
         }
         Self {
             base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
@@ -390,16 +390,16 @@ pub trait IMILBitmapEffectGroupImpl_Impl: Sized {
 }
 impl ::windows::core::RuntimeName for IMILBitmapEffectGroupImpl {}
 impl IMILBitmapEffectGroupImpl_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMILBitmapEffectGroupImpl_Impl, const OFFSET: isize>() -> IMILBitmapEffectGroupImpl_Vtbl {
-        unsafe extern "system" fn Preprocess<Identity: ::windows::core::IUnknownImpl, Impl: IMILBitmapEffectGroupImpl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcontext: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            (*this).Preprocess(::core::mem::transmute(&pcontext)).into()
+    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMILBitmapEffectGroupImpl_Impl, const OFFSET: isize>() -> IMILBitmapEffectGroupImpl_Vtbl {
+        unsafe extern "system" fn Preprocess<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMILBitmapEffectGroupImpl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcontext: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.Preprocess(::core::mem::transmute(&pcontext)).into()
         }
-        unsafe extern "system" fn GetNumberChildren<Identity: ::windows::core::IUnknownImpl, Impl: IMILBitmapEffectGroupImpl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, puinumberchildren: *mut u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetNumberChildren() {
+        unsafe extern "system" fn GetNumberChildren<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMILBitmapEffectGroupImpl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, puinumberchildren: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            match this.GetNumberChildren() {
                 ::core::result::Result::Ok(ok__) => {
                     *puinumberchildren = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -407,10 +407,10 @@ impl IMILBitmapEffectGroupImpl_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetChildren<Identity: ::windows::core::IUnknownImpl, Impl: IMILBitmapEffectGroupImpl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pchildren: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetChildren() {
+        unsafe extern "system" fn GetChildren<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMILBitmapEffectGroupImpl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pchildren: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            match this.GetChildren() {
                 ::core::result::Result::Ok(ok__) => {
                     *pchildren = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -443,11 +443,11 @@ pub trait IMILBitmapEffectImpl_Impl: Sized {
 impl ::windows::core::RuntimeName for IMILBitmapEffectImpl {}
 #[cfg(feature = "Win32_Graphics_Imaging")]
 impl IMILBitmapEffectImpl_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMILBitmapEffectImpl_Impl, const OFFSET: isize>() -> IMILBitmapEffectImpl_Vtbl {
-        unsafe extern "system" fn IsInPlaceModificationAllowed<Identity: ::windows::core::IUnknownImpl, Impl: IMILBitmapEffectImpl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, poutputconnector: ::windows::core::RawPtr, pfmodifyinplace: *mut i16) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).IsInPlaceModificationAllowed(::core::mem::transmute(&poutputconnector)) {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMILBitmapEffectImpl_Impl, const OFFSET: isize>() -> IMILBitmapEffectImpl_Vtbl {
+        unsafe extern "system" fn IsInPlaceModificationAllowed<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMILBitmapEffectImpl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, poutputconnector: ::windows::core::RawPtr, pfmodifyinplace: *mut i16) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            match this.IsInPlaceModificationAllowed(::core::mem::transmute(&poutputconnector)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pfmodifyinplace = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -455,15 +455,15 @@ impl IMILBitmapEffectImpl_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetParentEffect<Identity: ::windows::core::IUnknownImpl, Impl: IMILBitmapEffectImpl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pparenteffect: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            (*this).SetParentEffect(::core::mem::transmute(&pparenteffect)).into()
+        unsafe extern "system" fn SetParentEffect<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMILBitmapEffectImpl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pparenteffect: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.SetParentEffect(::core::mem::transmute(&pparenteffect)).into()
         }
-        unsafe extern "system" fn GetInputSource<Identity: ::windows::core::IUnknownImpl, Impl: IMILBitmapEffectImpl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uiindex: u32, ppbitmapsource: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetInputSource(::core::mem::transmute_copy(&uiindex)) {
+        unsafe extern "system" fn GetInputSource<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMILBitmapEffectImpl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uiindex: u32, ppbitmapsource: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            match this.GetInputSource(::core::mem::transmute_copy(&uiindex)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppbitmapsource = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -471,10 +471,10 @@ impl IMILBitmapEffectImpl_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetInputSourceBounds<Identity: ::windows::core::IUnknownImpl, Impl: IMILBitmapEffectImpl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uiindex: u32, prect: *mut MilRectD) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetInputSourceBounds(::core::mem::transmute_copy(&uiindex)) {
+        unsafe extern "system" fn GetInputSourceBounds<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMILBitmapEffectImpl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uiindex: u32, prect: *mut MilRectD) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            match this.GetInputSourceBounds(::core::mem::transmute_copy(&uiindex)) {
                 ::core::result::Result::Ok(ok__) => {
                     *prect = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -482,20 +482,20 @@ impl IMILBitmapEffectImpl_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetInputBitmapSource<Identity: ::windows::core::IUnknownImpl, Impl: IMILBitmapEffectImpl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uiindex: u32, prendercontext: ::windows::core::RawPtr, pfmodifyinplace: *mut i16, ppbitmapsource: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            (*this).GetInputBitmapSource(::core::mem::transmute_copy(&uiindex), ::core::mem::transmute(&prendercontext), ::core::mem::transmute_copy(&pfmodifyinplace), ::core::mem::transmute_copy(&ppbitmapsource)).into()
+        unsafe extern "system" fn GetInputBitmapSource<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMILBitmapEffectImpl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uiindex: u32, prendercontext: ::windows::core::RawPtr, pfmodifyinplace: *mut i16, ppbitmapsource: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.GetInputBitmapSource(::core::mem::transmute_copy(&uiindex), ::core::mem::transmute(&prendercontext), ::core::mem::transmute_copy(&pfmodifyinplace), ::core::mem::transmute_copy(&ppbitmapsource)).into()
         }
-        unsafe extern "system" fn GetOutputBitmapSource<Identity: ::windows::core::IUnknownImpl, Impl: IMILBitmapEffectImpl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uiindex: u32, prendercontext: ::windows::core::RawPtr, pfmodifyinplace: *mut i16, ppbitmapsource: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            (*this).GetOutputBitmapSource(::core::mem::transmute_copy(&uiindex), ::core::mem::transmute(&prendercontext), ::core::mem::transmute_copy(&pfmodifyinplace), ::core::mem::transmute_copy(&ppbitmapsource)).into()
+        unsafe extern "system" fn GetOutputBitmapSource<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMILBitmapEffectImpl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uiindex: u32, prendercontext: ::windows::core::RawPtr, pfmodifyinplace: *mut i16, ppbitmapsource: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.GetOutputBitmapSource(::core::mem::transmute_copy(&uiindex), ::core::mem::transmute(&prendercontext), ::core::mem::transmute_copy(&pfmodifyinplace), ::core::mem::transmute_copy(&ppbitmapsource)).into()
         }
-        unsafe extern "system" fn Initialize<Identity: ::windows::core::IUnknownImpl, Impl: IMILBitmapEffectImpl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinner: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            (*this).Initialize(::core::mem::transmute(&pinner)).into()
+        unsafe extern "system" fn Initialize<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMILBitmapEffectImpl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinner: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.Initialize(::core::mem::transmute(&pinner)).into()
         }
         Self {
             base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
@@ -518,16 +518,16 @@ pub trait IMILBitmapEffectInputConnector_Impl: Sized + IMILBitmapEffectConnector
 }
 impl ::windows::core::RuntimeName for IMILBitmapEffectInputConnector {}
 impl IMILBitmapEffectInputConnector_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMILBitmapEffectInputConnector_Impl, const OFFSET: isize>() -> IMILBitmapEffectInputConnector_Vtbl {
-        unsafe extern "system" fn ConnectTo<Identity: ::windows::core::IUnknownImpl, Impl: IMILBitmapEffectInputConnector_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pconnector: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            (*this).ConnectTo(::core::mem::transmute(&pconnector)).into()
+    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMILBitmapEffectInputConnector_Impl, const OFFSET: isize>() -> IMILBitmapEffectInputConnector_Vtbl {
+        unsafe extern "system" fn ConnectTo<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMILBitmapEffectInputConnector_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pconnector: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.ConnectTo(::core::mem::transmute(&pconnector)).into()
         }
-        unsafe extern "system" fn GetConnection<Identity: ::windows::core::IUnknownImpl, Impl: IMILBitmapEffectInputConnector_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppconnector: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetConnection() {
+        unsafe extern "system" fn GetConnection<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMILBitmapEffectInputConnector_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppconnector: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            match this.GetConnection() {
                 ::core::result::Result::Ok(ok__) => {
                     *ppconnector = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -550,11 +550,11 @@ pub trait IMILBitmapEffectInteriorInputConnector_Impl: Sized {
 }
 impl ::windows::core::RuntimeName for IMILBitmapEffectInteriorInputConnector {}
 impl IMILBitmapEffectInteriorInputConnector_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMILBitmapEffectInteriorInputConnector_Impl, const OFFSET: isize>() -> IMILBitmapEffectInteriorInputConnector_Vtbl {
-        unsafe extern "system" fn GetInputConnector<Identity: ::windows::core::IUnknownImpl, Impl: IMILBitmapEffectInteriorInputConnector_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinputconnector: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetInputConnector() {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMILBitmapEffectInteriorInputConnector_Impl, const OFFSET: isize>() -> IMILBitmapEffectInteriorInputConnector_Vtbl {
+        unsafe extern "system" fn GetInputConnector<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMILBitmapEffectInteriorInputConnector_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinputconnector: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            match this.GetInputConnector() {
                 ::core::result::Result::Ok(ok__) => {
                     *pinputconnector = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -573,11 +573,11 @@ pub trait IMILBitmapEffectInteriorOutputConnector_Impl: Sized {
 }
 impl ::windows::core::RuntimeName for IMILBitmapEffectInteriorOutputConnector {}
 impl IMILBitmapEffectInteriorOutputConnector_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMILBitmapEffectInteriorOutputConnector_Impl, const OFFSET: isize>() -> IMILBitmapEffectInteriorOutputConnector_Vtbl {
-        unsafe extern "system" fn GetOutputConnector<Identity: ::windows::core::IUnknownImpl, Impl: IMILBitmapEffectInteriorOutputConnector_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, poutputconnector: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetOutputConnector() {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMILBitmapEffectInteriorOutputConnector_Impl, const OFFSET: isize>() -> IMILBitmapEffectInteriorOutputConnector_Vtbl {
+        unsafe extern "system" fn GetOutputConnector<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMILBitmapEffectInteriorOutputConnector_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, poutputconnector: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            match this.GetOutputConnector() {
                 ::core::result::Result::Ok(ok__) => {
                     *poutputconnector = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -597,11 +597,11 @@ pub trait IMILBitmapEffectOutputConnector_Impl: Sized + IMILBitmapEffectConnecto
 }
 impl ::windows::core::RuntimeName for IMILBitmapEffectOutputConnector {}
 impl IMILBitmapEffectOutputConnector_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMILBitmapEffectOutputConnector_Impl, const OFFSET: isize>() -> IMILBitmapEffectOutputConnector_Vtbl {
-        unsafe extern "system" fn GetNumberConnections<Identity: ::windows::core::IUnknownImpl, Impl: IMILBitmapEffectOutputConnector_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, puinumberconnections: *mut u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetNumberConnections() {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMILBitmapEffectOutputConnector_Impl, const OFFSET: isize>() -> IMILBitmapEffectOutputConnector_Vtbl {
+        unsafe extern "system" fn GetNumberConnections<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMILBitmapEffectOutputConnector_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, puinumberconnections: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            match this.GetNumberConnections() {
                 ::core::result::Result::Ok(ok__) => {
                     *puinumberconnections = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -609,10 +609,10 @@ impl IMILBitmapEffectOutputConnector_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetConnection<Identity: ::windows::core::IUnknownImpl, Impl: IMILBitmapEffectOutputConnector_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uiindex: u32, ppconnection: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetConnection(::core::mem::transmute_copy(&uiindex)) {
+        unsafe extern "system" fn GetConnection<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMILBitmapEffectOutputConnector_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uiindex: u32, ppconnection: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            match this.GetConnection(::core::mem::transmute_copy(&uiindex)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppconnection = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -636,16 +636,16 @@ pub trait IMILBitmapEffectOutputConnectorImpl_Impl: Sized {
 }
 impl ::windows::core::RuntimeName for IMILBitmapEffectOutputConnectorImpl {}
 impl IMILBitmapEffectOutputConnectorImpl_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMILBitmapEffectOutputConnectorImpl_Impl, const OFFSET: isize>() -> IMILBitmapEffectOutputConnectorImpl_Vtbl {
-        unsafe extern "system" fn AddBackLink<Identity: ::windows::core::IUnknownImpl, Impl: IMILBitmapEffectOutputConnectorImpl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pconnection: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            (*this).AddBackLink(::core::mem::transmute(&pconnection)).into()
+    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMILBitmapEffectOutputConnectorImpl_Impl, const OFFSET: isize>() -> IMILBitmapEffectOutputConnectorImpl_Vtbl {
+        unsafe extern "system" fn AddBackLink<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMILBitmapEffectOutputConnectorImpl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pconnection: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.AddBackLink(::core::mem::transmute(&pconnection)).into()
         }
-        unsafe extern "system" fn RemoveBackLink<Identity: ::windows::core::IUnknownImpl, Impl: IMILBitmapEffectOutputConnectorImpl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pconnection: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            (*this).RemoveBackLink(::core::mem::transmute(&pconnection)).into()
+        unsafe extern "system" fn RemoveBackLink<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMILBitmapEffectOutputConnectorImpl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pconnection: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.RemoveBackLink(::core::mem::transmute(&pconnection)).into()
         }
         Self {
             base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
@@ -670,26 +670,26 @@ pub trait IMILBitmapEffectPrimitive_Impl: Sized {
 impl ::windows::core::RuntimeName for IMILBitmapEffectPrimitive {}
 #[cfg(all(feature = "Win32_Graphics_Dwm", feature = "Win32_Graphics_Imaging"))]
 impl IMILBitmapEffectPrimitive_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMILBitmapEffectPrimitive_Impl, const OFFSET: isize>() -> IMILBitmapEffectPrimitive_Vtbl {
-        unsafe extern "system" fn GetOutput<Identity: ::windows::core::IUnknownImpl, Impl: IMILBitmapEffectPrimitive_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uiindex: u32, pcontext: ::windows::core::RawPtr, pfmodifyinplace: *mut i16, ppbitmapsource: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            (*this).GetOutput(::core::mem::transmute_copy(&uiindex), ::core::mem::transmute(&pcontext), ::core::mem::transmute_copy(&pfmodifyinplace), ::core::mem::transmute_copy(&ppbitmapsource)).into()
+    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMILBitmapEffectPrimitive_Impl, const OFFSET: isize>() -> IMILBitmapEffectPrimitive_Vtbl {
+        unsafe extern "system" fn GetOutput<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMILBitmapEffectPrimitive_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uiindex: u32, pcontext: ::windows::core::RawPtr, pfmodifyinplace: *mut i16, ppbitmapsource: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.GetOutput(::core::mem::transmute_copy(&uiindex), ::core::mem::transmute(&pcontext), ::core::mem::transmute_copy(&pfmodifyinplace), ::core::mem::transmute_copy(&ppbitmapsource)).into()
         }
-        unsafe extern "system" fn TransformPoint<Identity: ::windows::core::IUnknownImpl, Impl: IMILBitmapEffectPrimitive_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uiindex: u32, p: *mut MilPoint2D, fforwardtransform: i16, pcontext: ::windows::core::RawPtr, pfpointtransformed: *mut i16) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            (*this).TransformPoint(::core::mem::transmute_copy(&uiindex), ::core::mem::transmute_copy(&p), ::core::mem::transmute_copy(&fforwardtransform), ::core::mem::transmute(&pcontext), ::core::mem::transmute_copy(&pfpointtransformed)).into()
+        unsafe extern "system" fn TransformPoint<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMILBitmapEffectPrimitive_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uiindex: u32, p: *mut MilPoint2D, fforwardtransform: i16, pcontext: ::windows::core::RawPtr, pfpointtransformed: *mut i16) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.TransformPoint(::core::mem::transmute_copy(&uiindex), ::core::mem::transmute_copy(&p), ::core::mem::transmute_copy(&fforwardtransform), ::core::mem::transmute(&pcontext), ::core::mem::transmute_copy(&pfpointtransformed)).into()
         }
-        unsafe extern "system" fn TransformRect<Identity: ::windows::core::IUnknownImpl, Impl: IMILBitmapEffectPrimitive_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uiindex: u32, p: *mut MilRectD, fforwardtransform: i16, pcontext: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            (*this).TransformRect(::core::mem::transmute_copy(&uiindex), ::core::mem::transmute_copy(&p), ::core::mem::transmute_copy(&fforwardtransform), ::core::mem::transmute(&pcontext)).into()
+        unsafe extern "system" fn TransformRect<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMILBitmapEffectPrimitive_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uiindex: u32, p: *mut MilRectD, fforwardtransform: i16, pcontext: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.TransformRect(::core::mem::transmute_copy(&uiindex), ::core::mem::transmute_copy(&p), ::core::mem::transmute_copy(&fforwardtransform), ::core::mem::transmute(&pcontext)).into()
         }
-        unsafe extern "system" fn HasAffineTransform<Identity: ::windows::core::IUnknownImpl, Impl: IMILBitmapEffectPrimitive_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uiindex: u32, pfaffine: *mut i16) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).HasAffineTransform(::core::mem::transmute_copy(&uiindex)) {
+        unsafe extern "system" fn HasAffineTransform<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMILBitmapEffectPrimitive_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uiindex: u32, pfaffine: *mut i16) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            match this.HasAffineTransform(::core::mem::transmute_copy(&uiindex)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pfaffine = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -697,10 +697,10 @@ impl IMILBitmapEffectPrimitive_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn HasInverseTransform<Identity: ::windows::core::IUnknownImpl, Impl: IMILBitmapEffectPrimitive_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uiindex: u32, pfhasinverse: *mut i16) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).HasInverseTransform(::core::mem::transmute_copy(&uiindex)) {
+        unsafe extern "system" fn HasInverseTransform<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMILBitmapEffectPrimitive_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uiindex: u32, pfhasinverse: *mut i16) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            match this.HasInverseTransform(::core::mem::transmute_copy(&uiindex)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pfhasinverse = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -708,10 +708,10 @@ impl IMILBitmapEffectPrimitive_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetAffineMatrix<Identity: ::windows::core::IUnknownImpl, Impl: IMILBitmapEffectPrimitive_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uiindex: u32, pmatrix: *mut super::super::Graphics::Dwm::MilMatrix3x2D) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            (*this).GetAffineMatrix(::core::mem::transmute_copy(&uiindex), ::core::mem::transmute_copy(&pmatrix)).into()
+        unsafe extern "system" fn GetAffineMatrix<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMILBitmapEffectPrimitive_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uiindex: u32, pmatrix: *mut super::super::Graphics::Dwm::MilMatrix3x2D) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.GetAffineMatrix(::core::mem::transmute_copy(&uiindex), ::core::mem::transmute_copy(&pmatrix)).into()
         }
         Self {
             base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
@@ -733,16 +733,16 @@ pub trait IMILBitmapEffectPrimitiveImpl_Impl: Sized {
 }
 impl ::windows::core::RuntimeName for IMILBitmapEffectPrimitiveImpl {}
 impl IMILBitmapEffectPrimitiveImpl_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMILBitmapEffectPrimitiveImpl_Impl, const OFFSET: isize>() -> IMILBitmapEffectPrimitiveImpl_Vtbl {
-        unsafe extern "system" fn IsDirty<Identity: ::windows::core::IUnknownImpl, Impl: IMILBitmapEffectPrimitiveImpl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uioutputindex: u32, pfdirty: *mut i16) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            (*this).IsDirty(::core::mem::transmute_copy(&uioutputindex), ::core::mem::transmute_copy(&pfdirty))
+    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMILBitmapEffectPrimitiveImpl_Impl, const OFFSET: isize>() -> IMILBitmapEffectPrimitiveImpl_Vtbl {
+        unsafe extern "system" fn IsDirty<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMILBitmapEffectPrimitiveImpl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uioutputindex: u32, pfdirty: *mut i16) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.IsDirty(::core::mem::transmute_copy(&uioutputindex), ::core::mem::transmute_copy(&pfdirty))
         }
-        unsafe extern "system" fn IsVolatile<Identity: ::windows::core::IUnknownImpl, Impl: IMILBitmapEffectPrimitiveImpl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uioutputindex: u32, pfvolatile: *mut i16) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).IsVolatile(::core::mem::transmute_copy(&uioutputindex)) {
+        unsafe extern "system" fn IsVolatile<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMILBitmapEffectPrimitiveImpl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uioutputindex: u32, pfvolatile: *mut i16) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            match this.IsVolatile(::core::mem::transmute_copy(&uioutputindex)) {
                 ::core::result::Result::Ok(ok__) => {
                     *pfvolatile = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -772,16 +772,16 @@ pub trait IMILBitmapEffectRenderContext_Impl: Sized {
 }
 impl ::windows::core::RuntimeName for IMILBitmapEffectRenderContext {}
 impl IMILBitmapEffectRenderContext_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMILBitmapEffectRenderContext_Impl, const OFFSET: isize>() -> IMILBitmapEffectRenderContext_Vtbl {
-        unsafe extern "system" fn SetOutputPixelFormat<Identity: ::windows::core::IUnknownImpl, Impl: IMILBitmapEffectRenderContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, format: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            (*this).SetOutputPixelFormat(::core::mem::transmute_copy(&format)).into()
+    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMILBitmapEffectRenderContext_Impl, const OFFSET: isize>() -> IMILBitmapEffectRenderContext_Vtbl {
+        unsafe extern "system" fn SetOutputPixelFormat<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMILBitmapEffectRenderContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, format: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.SetOutputPixelFormat(::core::mem::transmute_copy(&format)).into()
         }
-        unsafe extern "system" fn GetOutputPixelFormat<Identity: ::windows::core::IUnknownImpl, Impl: IMILBitmapEffectRenderContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pformat: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetOutputPixelFormat() {
+        unsafe extern "system" fn GetOutputPixelFormat<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMILBitmapEffectRenderContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pformat: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            match this.GetOutputPixelFormat() {
                 ::core::result::Result::Ok(ok__) => {
                     *pformat = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -789,20 +789,20 @@ impl IMILBitmapEffectRenderContext_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetUseSoftwareRenderer<Identity: ::windows::core::IUnknownImpl, Impl: IMILBitmapEffectRenderContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fsoftware: i16) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            (*this).SetUseSoftwareRenderer(::core::mem::transmute_copy(&fsoftware)).into()
+        unsafe extern "system" fn SetUseSoftwareRenderer<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMILBitmapEffectRenderContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fsoftware: i16) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.SetUseSoftwareRenderer(::core::mem::transmute_copy(&fsoftware)).into()
         }
-        unsafe extern "system" fn SetInitialTransform<Identity: ::windows::core::IUnknownImpl, Impl: IMILBitmapEffectRenderContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pmatrix: *const MILMatrixF) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            (*this).SetInitialTransform(::core::mem::transmute_copy(&pmatrix)).into()
+        unsafe extern "system" fn SetInitialTransform<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMILBitmapEffectRenderContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pmatrix: *const MILMatrixF) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.SetInitialTransform(::core::mem::transmute_copy(&pmatrix)).into()
         }
-        unsafe extern "system" fn GetFinalTransform<Identity: ::windows::core::IUnknownImpl, Impl: IMILBitmapEffectRenderContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pmatrix: *mut MILMatrixF) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetFinalTransform() {
+        unsafe extern "system" fn GetFinalTransform<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMILBitmapEffectRenderContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pmatrix: *mut MILMatrixF) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            match this.GetFinalTransform() {
                 ::core::result::Result::Ok(ok__) => {
                     *pmatrix = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -810,20 +810,20 @@ impl IMILBitmapEffectRenderContext_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetOutputDPI<Identity: ::windows::core::IUnknownImpl, Impl: IMILBitmapEffectRenderContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dbldpix: f64, dbldpiy: f64) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            (*this).SetOutputDPI(::core::mem::transmute_copy(&dbldpix), ::core::mem::transmute_copy(&dbldpiy)).into()
+        unsafe extern "system" fn SetOutputDPI<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMILBitmapEffectRenderContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dbldpix: f64, dbldpiy: f64) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.SetOutputDPI(::core::mem::transmute_copy(&dbldpix), ::core::mem::transmute_copy(&dbldpiy)).into()
         }
-        unsafe extern "system" fn GetOutputDPI<Identity: ::windows::core::IUnknownImpl, Impl: IMILBitmapEffectRenderContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdbldpix: *mut f64, pdbldpiy: *mut f64) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            (*this).GetOutputDPI(::core::mem::transmute_copy(&pdbldpix), ::core::mem::transmute_copy(&pdbldpiy)).into()
+        unsafe extern "system" fn GetOutputDPI<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMILBitmapEffectRenderContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdbldpix: *mut f64, pdbldpiy: *mut f64) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.GetOutputDPI(::core::mem::transmute_copy(&pdbldpix), ::core::mem::transmute_copy(&pdbldpiy)).into()
         }
-        unsafe extern "system" fn SetRegionOfInterest<Identity: ::windows::core::IUnknownImpl, Impl: IMILBitmapEffectRenderContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, prect: *const MilRectD) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            (*this).SetRegionOfInterest(::core::mem::transmute_copy(&prect)).into()
+        unsafe extern "system" fn SetRegionOfInterest<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMILBitmapEffectRenderContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, prect: *const MilRectD) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.SetRegionOfInterest(::core::mem::transmute_copy(&prect)).into()
         }
         Self {
             base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
@@ -850,11 +850,11 @@ pub trait IMILBitmapEffectRenderContextImpl_Impl: Sized {
 }
 impl ::windows::core::RuntimeName for IMILBitmapEffectRenderContextImpl {}
 impl IMILBitmapEffectRenderContextImpl_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMILBitmapEffectRenderContextImpl_Impl, const OFFSET: isize>() -> IMILBitmapEffectRenderContextImpl_Vtbl {
-        unsafe extern "system" fn GetUseSoftwareRenderer<Identity: ::windows::core::IUnknownImpl, Impl: IMILBitmapEffectRenderContextImpl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfsoftware: *mut i16) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetUseSoftwareRenderer() {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMILBitmapEffectRenderContextImpl_Impl, const OFFSET: isize>() -> IMILBitmapEffectRenderContextImpl_Vtbl {
+        unsafe extern "system" fn GetUseSoftwareRenderer<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMILBitmapEffectRenderContextImpl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfsoftware: *mut i16) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            match this.GetUseSoftwareRenderer() {
                 ::core::result::Result::Ok(ok__) => {
                     *pfsoftware = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -862,25 +862,25 @@ impl IMILBitmapEffectRenderContextImpl_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetTransform<Identity: ::windows::core::IUnknownImpl, Impl: IMILBitmapEffectRenderContextImpl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pmatrix: *mut MILMatrixF) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            (*this).GetTransform(::core::mem::transmute_copy(&pmatrix)).into()
+        unsafe extern "system" fn GetTransform<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMILBitmapEffectRenderContextImpl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pmatrix: *mut MILMatrixF) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.GetTransform(::core::mem::transmute_copy(&pmatrix)).into()
         }
-        unsafe extern "system" fn UpdateTransform<Identity: ::windows::core::IUnknownImpl, Impl: IMILBitmapEffectRenderContextImpl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pmatrix: *const MILMatrixF) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            (*this).UpdateTransform(::core::mem::transmute_copy(&pmatrix)).into()
+        unsafe extern "system" fn UpdateTransform<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMILBitmapEffectRenderContextImpl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pmatrix: *const MILMatrixF) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.UpdateTransform(::core::mem::transmute_copy(&pmatrix)).into()
         }
-        unsafe extern "system" fn GetOutputBounds<Identity: ::windows::core::IUnknownImpl, Impl: IMILBitmapEffectRenderContextImpl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, prect: *mut MilRectD) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            (*this).GetOutputBounds(::core::mem::transmute_copy(&prect)).into()
+        unsafe extern "system" fn GetOutputBounds<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMILBitmapEffectRenderContextImpl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, prect: *mut MilRectD) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.GetOutputBounds(::core::mem::transmute_copy(&prect)).into()
         }
-        unsafe extern "system" fn UpdateOutputBounds<Identity: ::windows::core::IUnknownImpl, Impl: IMILBitmapEffectRenderContextImpl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, prect: *const MilRectD) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            (*this).UpdateOutputBounds(::core::mem::transmute_copy(&prect)).into()
+        unsafe extern "system" fn UpdateOutputBounds<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMILBitmapEffectRenderContextImpl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, prect: *const MilRectD) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.UpdateOutputBounds(::core::mem::transmute_copy(&prect)).into()
         }
         Self {
             base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
@@ -903,11 +903,11 @@ pub trait IMILBitmapEffects_Impl: Sized {
 }
 impl ::windows::core::RuntimeName for IMILBitmapEffects {}
 impl IMILBitmapEffects_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMILBitmapEffects_Impl, const OFFSET: isize>() -> IMILBitmapEffects_Vtbl {
-        unsafe extern "system" fn _NewEnum<Identity: ::windows::core::IUnknownImpl, Impl: IMILBitmapEffects_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppiureturn: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this)._NewEnum() {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMILBitmapEffects_Impl, const OFFSET: isize>() -> IMILBitmapEffects_Vtbl {
+        unsafe extern "system" fn _NewEnum<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMILBitmapEffects_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppiureturn: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            match this._NewEnum() {
                 ::core::result::Result::Ok(ok__) => {
                     *ppiureturn = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -915,10 +915,10 @@ impl IMILBitmapEffects_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Parent<Identity: ::windows::core::IUnknownImpl, Impl: IMILBitmapEffects_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppeffect: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).Parent() {
+        unsafe extern "system" fn Parent<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMILBitmapEffects_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppeffect: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            match this.Parent() {
                 ::core::result::Result::Ok(ok__) => {
                     *ppeffect = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -926,10 +926,10 @@ impl IMILBitmapEffects_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Item<Identity: ::windows::core::IUnknownImpl, Impl: IMILBitmapEffects_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uindex: u32, ppeffect: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).Item(::core::mem::transmute_copy(&uindex)) {
+        unsafe extern "system" fn Item<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMILBitmapEffects_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uindex: u32, ppeffect: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            match this.Item(::core::mem::transmute_copy(&uindex)) {
                 ::core::result::Result::Ok(ok__) => {
                     *ppeffect = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -937,10 +937,10 @@ impl IMILBitmapEffects_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Count<Identity: ::windows::core::IUnknownImpl, Impl: IMILBitmapEffects_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, puicount: *mut u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).Count() {
+        unsafe extern "system" fn Count<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMILBitmapEffects_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, puicount: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            match this.Count() {
                 ::core::result::Result::Ok(ok__) => {
                     *puicount = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)

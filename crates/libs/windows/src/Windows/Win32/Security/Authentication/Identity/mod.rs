@@ -1544,7 +1544,7 @@ pub struct ICcgDomainAuthCredentials(::windows::core::IUnknown);
 impl ICcgDomainAuthCredentials {
     #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
     pub unsafe fn GetPasswordCredentials<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, plugininput: Param0, domainname: *mut ::windows::core::PWSTR, username: *mut ::windows::core::PWSTR, password: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetPasswordCredentials)(::core::mem::transmute_copy(self), plugininput.into_param().abi(), ::core::mem::transmute(domainname), ::core::mem::transmute(username), ::core::mem::transmute(password)).ok()
+        (::windows::core::Interface::vtable(self).GetPasswordCredentials)(::windows::core::Interface::as_raw(self), plugininput.into_param().abi(), ::core::mem::transmute(domainname), ::core::mem::transmute(username), ::core::mem::transmute(password)).ok()
     }
 }
 impl ::core::convert::From<ICcgDomainAuthCredentials> for ::windows::core::IUnknown {

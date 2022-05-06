@@ -57,7 +57,7 @@ pub fn gen_winrt_method(def: &TypeDef, kind: InterfaceKind, method: &MethodDef, 
             (
                 quote! {
                     let mut result__: #return_type_tokens = ::core::mem::zeroed();
-                    (::windows::core::Interface::vtable(this).#vname)(::core::mem::transmute_copy(this), #(#args,)* #composable_args #return_arg)
+                    (::windows::core::Interface::vtable(this).#vname)(::windows::core::Interface::as_raw(this), #(#args,)* #composable_args #return_arg)
                         .and_then(|| result__ )
                 },
                 quote! {},
@@ -69,12 +69,12 @@ pub fn gen_winrt_method(def: &TypeDef, kind: InterfaceKind, method: &MethodDef, 
             (
                 quote! {
                     let mut result__: #abi_type_name = ::core::mem::zeroed();
-                        (::windows::core::Interface::vtable(this).#vname)(::core::mem::transmute_copy(this), #args #composable_args #return_arg)
+                        (::windows::core::Interface::vtable(this).#vname)(::windows::core::Interface::as_raw(this), #args #composable_args #return_arg)
                             .from_abi::<#return_type_tokens>(result__ )
                 },
                 quote! {
                     let mut result__: #abi_type_name = ::core::mem::zeroed();
-                        (::windows::core::Interface::vtable(this).#vname)(::core::mem::transmute_copy(this), #args ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, #return_arg)
+                        (::windows::core::Interface::vtable(this).#vname)(::windows::core::Interface::as_raw(this), #args ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, #return_arg)
                             .from_abi::<#return_type_tokens>(result__ )
                 },
             )
@@ -82,7 +82,7 @@ pub fn gen_winrt_method(def: &TypeDef, kind: InterfaceKind, method: &MethodDef, 
     } else {
         (
             quote! {
-                (::windows::core::Interface::vtable(this).#vname)(::core::mem::transmute_copy(this), #(#args,)* #composable_args).ok()
+                (::windows::core::Interface::vtable(this).#vname)(::windows::core::Interface::as_raw(this), #(#args,)* #composable_args).ok()
             },
             quote! {},
         )
@@ -171,7 +171,7 @@ pub fn gen_com_method(def: &TypeDef, kind: InterfaceKind, method: &MethodDef, me
                 #features
                 pub unsafe fn #name<#constraints T: ::windows::core::Interface>(&self, #params) -> ::windows::core::Result<T> {
                     let mut result__ = ::core::option::Option::None;
-                    (::windows::core::Interface::vtable(self)#bases.#vname)(::core::mem::transmute_copy(self), #args &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+                    (::windows::core::Interface::vtable(self)#bases.#vname)(::windows::core::Interface::as_raw(self), #args &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
                 }
             }
         }
@@ -184,7 +184,7 @@ pub fn gen_com_method(def: &TypeDef, kind: InterfaceKind, method: &MethodDef, me
                 #doc
                 #features
                 pub unsafe fn #name<#constraints T: ::windows::core::Interface>(&self, #params result__: *mut ::core::option::Option<T>) -> ::windows::core::Result<()> {
-                    (::windows::core::Interface::vtable(self)#bases.#vname)(::core::mem::transmute_copy(self), #args &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _).ok()
+                    (::windows::core::Interface::vtable(self)#bases.#vname)(::windows::core::Interface::as_raw(self), #args &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _).ok()
                 }
             }
         }
@@ -202,7 +202,7 @@ pub fn gen_com_method(def: &TypeDef, kind: InterfaceKind, method: &MethodDef, me
                 #features
                 pub unsafe fn #name<#constraints>(&self, #params) -> ::windows::core::Result<#return_type_tokens> {
                     let mut result__: #abi_return_type_tokens = ::core::mem::zeroed();
-                    (::windows::core::Interface::vtable(self)#bases.#vname)(::core::mem::transmute_copy(self), #args ::core::mem::transmute(&mut result__))
+                    (::windows::core::Interface::vtable(self)#bases.#vname)(::windows::core::Interface::as_raw(self), #args ::core::mem::transmute(&mut result__))
                     .from_abi::<#return_type_tokens>(result__ )
                 }
             }
@@ -215,7 +215,7 @@ pub fn gen_com_method(def: &TypeDef, kind: InterfaceKind, method: &MethodDef, me
                 #doc
                 #features
                 pub unsafe fn #name<#constraints>(&self, #params) -> ::windows::core::Result<()> {
-                    (::windows::core::Interface::vtable(self)#bases.#vname)(::core::mem::transmute_copy(self), #args).ok()
+                    (::windows::core::Interface::vtable(self)#bases.#vname)(::windows::core::Interface::as_raw(self), #args).ok()
                 }
             }
         }
@@ -230,7 +230,7 @@ pub fn gen_com_method(def: &TypeDef, kind: InterfaceKind, method: &MethodDef, me
                 #features
                 pub unsafe fn #name<#constraints>(&self, #params) -> #return_type {
                     let mut result__: #return_type = :: core::mem::zeroed();
-                    (::windows::core::Interface::vtable(self)#bases.#vname)(::core::mem::transmute_copy(self), &mut result__, #args);
+                    (::windows::core::Interface::vtable(self)#bases.#vname)(::windows::core::Interface::as_raw(self), &mut result__, #args);
                     result__
                 }
             }
@@ -245,7 +245,7 @@ pub fn gen_com_method(def: &TypeDef, kind: InterfaceKind, method: &MethodDef, me
                 #doc
                 #features
                 pub unsafe fn #name<#constraints>(&self, #params) #return_type {
-                    ::core::mem::transmute((::windows::core::Interface::vtable(self)#bases.#vname)(::core::mem::transmute_copy(self), #args))
+                    ::core::mem::transmute((::windows::core::Interface::vtable(self)#bases.#vname)(::windows::core::Interface::as_raw(self), #args))
                 }
             }
         }
@@ -257,7 +257,7 @@ pub fn gen_com_method(def: &TypeDef, kind: InterfaceKind, method: &MethodDef, me
                 #doc
                 #features
                 pub unsafe fn #name<#constraints>(&self, #params) {
-                    (::windows::core::Interface::vtable(self)#bases.#vname)(::core::mem::transmute_copy(self), #args)
+                    (::windows::core::Interface::vtable(self)#bases.#vname)(::windows::core::Interface::as_raw(self), #args)
                 }
             }
         }

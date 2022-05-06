@@ -189,13 +189,13 @@ impl IDirect3DDevice {
     #[doc = "*Required features: `\"Graphics_DirectX_Direct3D11\"`*"]
     pub fn Trim(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Trim)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Trim)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Graphics_DirectX_Direct3D11\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::IClosable>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).Close)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
     }
 }
 impl ::core::convert::From<IDirect3DDevice> for ::windows::core::IUnknown {
@@ -306,14 +306,14 @@ impl IDirect3DSurface {
         let this = self;
         unsafe {
             let mut result__: Direct3DSurfaceDescription = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Description)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Direct3DSurfaceDescription>(result__)
+            (::windows::core::Interface::vtable(this).Description)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Direct3DSurfaceDescription>(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_DirectX_Direct3D11\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::IClosable>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).Close)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
     }
 }
 impl ::core::convert::From<IDirect3DSurface> for ::windows::core::IUnknown {

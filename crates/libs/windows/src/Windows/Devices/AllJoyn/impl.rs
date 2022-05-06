@@ -8,11 +8,11 @@ impl ::windows::core::RuntimeName for IAllJoynAcceptSessionJoiner {
 }
 #[cfg(feature = "deprecated")]
 impl IAllJoynAcceptSessionJoiner_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynAcceptSessionJoiner_Impl, const OFFSET: isize>() -> IAllJoynAcceptSessionJoiner_Vtbl {
-        unsafe extern "system" fn Accept<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynAcceptSessionJoiner_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            (*this).Accept().into()
+    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAllJoynAcceptSessionJoiner_Impl, const OFFSET: isize>() -> IAllJoynAcceptSessionJoiner_Vtbl {
+        unsafe extern "system" fn Accept<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAllJoynAcceptSessionJoiner_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.Accept().into()
         }
         Self { base__: ::windows::core::IInspectableVtbl::new::<Identity, IAllJoynAcceptSessionJoiner, OFFSET>(), Accept: Accept::<Identity, Impl, OFFSET> }
     }
@@ -30,11 +30,11 @@ impl ::windows::core::RuntimeName for IAllJoynProducer {
 }
 #[cfg(feature = "deprecated")]
 impl IAllJoynProducer_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynProducer_Impl, const OFFSET: isize>() -> IAllJoynProducer_Vtbl {
-        unsafe extern "system" fn SetBusObject<Identity: ::windows::core::IUnknownImpl, Impl: IAllJoynProducer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, busobject: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            (*this).SetBusObject(::core::mem::transmute(&busobject)).into()
+    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAllJoynProducer_Impl, const OFFSET: isize>() -> IAllJoynProducer_Vtbl {
+        unsafe extern "system" fn SetBusObject<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAllJoynProducer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, busobject: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.SetBusObject(::core::mem::transmute(&busobject)).into()
         }
         Self { base__: ::windows::core::IInspectableVtbl::new::<Identity, IAllJoynProducer, OFFSET>(), SetBusObject: SetBusObject::<Identity, Impl, OFFSET> }
     }

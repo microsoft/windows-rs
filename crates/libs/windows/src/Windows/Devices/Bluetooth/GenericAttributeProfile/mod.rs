@@ -8,7 +8,7 @@ impl GattCharacteristic {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetDescriptors)(::core::mem::transmute_copy(this), descriptoruuid.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<GattDescriptor>>(result__)
+            (::windows::core::Interface::vtable(this).GetDescriptors)(::windows::core::Interface::as_raw(this), descriptoruuid.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<GattDescriptor>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
@@ -16,7 +16,7 @@ impl GattCharacteristic {
         let this = self;
         unsafe {
             let mut result__: GattCharacteristicProperties = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CharacteristicProperties)(::core::mem::transmute_copy(this), &mut result__).from_abi::<GattCharacteristicProperties>(result__)
+            (::windows::core::Interface::vtable(this).CharacteristicProperties)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<GattCharacteristicProperties>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
@@ -24,20 +24,20 @@ impl GattCharacteristic {
         let this = self;
         unsafe {
             let mut result__: GattProtectionLevel = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ProtectionLevel)(::core::mem::transmute_copy(this), &mut result__).from_abi::<GattProtectionLevel>(result__)
+            (::windows::core::Interface::vtable(this).ProtectionLevel)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<GattProtectionLevel>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn SetProtectionLevel(&self, value: GattProtectionLevel) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetProtectionLevel)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetProtectionLevel)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn UserDescription(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).UserDescription)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).UserDescription)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
@@ -45,7 +45,7 @@ impl GattCharacteristic {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Uuid)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
+            (::windows::core::Interface::vtable(this).Uuid)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
@@ -53,7 +53,7 @@ impl GattCharacteristic {
         let this = self;
         unsafe {
             let mut result__: u16 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AttributeHandle)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
+            (::windows::core::Interface::vtable(this).AttributeHandle)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u16>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`, `\"Foundation_Collections\"`*"]
@@ -62,7 +62,7 @@ impl GattCharacteristic {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PresentationFormats)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<GattPresentationFormat>>(result__)
+            (::windows::core::Interface::vtable(this).PresentationFormats)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<GattPresentationFormat>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`, `\"Foundation\"`*"]
@@ -71,7 +71,7 @@ impl GattCharacteristic {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ReadValueAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<GattReadResult>>(result__)
+            (::windows::core::Interface::vtable(this).ReadValueAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<GattReadResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`, `\"Foundation\"`*"]
@@ -80,7 +80,7 @@ impl GattCharacteristic {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ReadValueWithCacheModeAsync)(::core::mem::transmute_copy(this), cachemode, &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<GattReadResult>>(result__)
+            (::windows::core::Interface::vtable(this).ReadValueWithCacheModeAsync)(::windows::core::Interface::as_raw(this), cachemode, &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<GattReadResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
@@ -89,7 +89,7 @@ impl GattCharacteristic {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).WriteValueAsync)(::core::mem::transmute_copy(this), value.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<GattCommunicationStatus>>(result__)
+            (::windows::core::Interface::vtable(this).WriteValueAsync)(::windows::core::Interface::as_raw(this), value.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<GattCommunicationStatus>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
@@ -98,7 +98,7 @@ impl GattCharacteristic {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).WriteValueWithOptionAsync)(::core::mem::transmute_copy(this), value.into_param().abi(), writeoption, &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<GattCommunicationStatus>>(result__)
+            (::windows::core::Interface::vtable(this).WriteValueWithOptionAsync)(::windows::core::Interface::as_raw(this), value.into_param().abi(), writeoption, &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<GattCommunicationStatus>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`, `\"Foundation\"`*"]
@@ -107,7 +107,7 @@ impl GattCharacteristic {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ReadClientCharacteristicConfigurationDescriptorAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<GattReadClientCharacteristicConfigurationDescriptorResult>>(result__)
+            (::windows::core::Interface::vtable(this).ReadClientCharacteristicConfigurationDescriptorAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<GattReadClientCharacteristicConfigurationDescriptorResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`, `\"Foundation\"`*"]
@@ -116,7 +116,7 @@ impl GattCharacteristic {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).WriteClientCharacteristicConfigurationDescriptorAsync)(::core::mem::transmute_copy(this), clientcharacteristicconfigurationdescriptorvalue, &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<GattCommunicationStatus>>(result__)
+            (::windows::core::Interface::vtable(this).WriteClientCharacteristicConfigurationDescriptorAsync)(::windows::core::Interface::as_raw(this), clientcharacteristicconfigurationdescriptorvalue, &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<GattCommunicationStatus>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`, `\"Foundation\"`*"]
@@ -125,21 +125,21 @@ impl GattCharacteristic {
         let this = self;
         unsafe {
             let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ValueChanged)(::core::mem::transmute_copy(this), valuechangedhandler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).ValueChanged)(::windows::core::Interface::as_raw(this), valuechangedhandler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveValueChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, valuechangedeventcookie: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveValueChanged)(::core::mem::transmute_copy(this), valuechangedeventcookie.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveValueChanged)(::windows::core::Interface::as_raw(this), valuechangedeventcookie.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn Service(&self) -> ::windows::core::Result<GattDeviceService> {
         let this = &::windows::core::Interface::cast::<IGattCharacteristic2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Service)(::core::mem::transmute_copy(this), &mut result__).from_abi::<GattDeviceService>(result__)
+            (::windows::core::Interface::vtable(this).Service)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<GattDeviceService>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`, `\"Foundation_Collections\"`, `\"deprecated\"`*"]
@@ -148,7 +148,7 @@ impl GattCharacteristic {
         let this = &::windows::core::Interface::cast::<IGattCharacteristic2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetAllDescriptors)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<GattDescriptor>>(result__)
+            (::windows::core::Interface::vtable(this).GetAllDescriptors)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<GattDescriptor>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`, `\"Foundation\"`*"]
@@ -157,7 +157,7 @@ impl GattCharacteristic {
         let this = &::windows::core::Interface::cast::<IGattCharacteristic3>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetDescriptorsAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<GattDescriptorsResult>>(result__)
+            (::windows::core::Interface::vtable(this).GetDescriptorsAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<GattDescriptorsResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`, `\"Foundation\"`*"]
@@ -166,7 +166,7 @@ impl GattCharacteristic {
         let this = &::windows::core::Interface::cast::<IGattCharacteristic3>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetDescriptorsWithCacheModeAsync)(::core::mem::transmute_copy(this), cachemode, &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<GattDescriptorsResult>>(result__)
+            (::windows::core::Interface::vtable(this).GetDescriptorsWithCacheModeAsync)(::windows::core::Interface::as_raw(this), cachemode, &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<GattDescriptorsResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`, `\"Foundation\"`*"]
@@ -175,7 +175,7 @@ impl GattCharacteristic {
         let this = &::windows::core::Interface::cast::<IGattCharacteristic3>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetDescriptorsForUuidAsync)(::core::mem::transmute_copy(this), descriptoruuid.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<GattDescriptorsResult>>(result__)
+            (::windows::core::Interface::vtable(this).GetDescriptorsForUuidAsync)(::windows::core::Interface::as_raw(this), descriptoruuid.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<GattDescriptorsResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`, `\"Foundation\"`*"]
@@ -184,7 +184,7 @@ impl GattCharacteristic {
         let this = &::windows::core::Interface::cast::<IGattCharacteristic3>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetDescriptorsForUuidWithCacheModeAsync)(::core::mem::transmute_copy(this), descriptoruuid.into_param().abi(), cachemode, &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<GattDescriptorsResult>>(result__)
+            (::windows::core::Interface::vtable(this).GetDescriptorsForUuidWithCacheModeAsync)(::windows::core::Interface::as_raw(this), descriptoruuid.into_param().abi(), cachemode, &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<GattDescriptorsResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
@@ -193,7 +193,7 @@ impl GattCharacteristic {
         let this = &::windows::core::Interface::cast::<IGattCharacteristic3>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).WriteValueWithResultAsync)(::core::mem::transmute_copy(this), value.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<GattWriteResult>>(result__)
+            (::windows::core::Interface::vtable(this).WriteValueWithResultAsync)(::windows::core::Interface::as_raw(this), value.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<GattWriteResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
@@ -202,7 +202,7 @@ impl GattCharacteristic {
         let this = &::windows::core::Interface::cast::<IGattCharacteristic3>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).WriteValueWithResultAndOptionAsync)(::core::mem::transmute_copy(this), value.into_param().abi(), writeoption, &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<GattWriteResult>>(result__)
+            (::windows::core::Interface::vtable(this).WriteValueWithResultAndOptionAsync)(::windows::core::Interface::as_raw(this), value.into_param().abi(), writeoption, &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<GattWriteResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`, `\"Foundation\"`*"]
@@ -211,7 +211,7 @@ impl GattCharacteristic {
         let this = &::windows::core::Interface::cast::<IGattCharacteristic3>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).WriteClientCharacteristicConfigurationDescriptorWithResultAsync)(::core::mem::transmute_copy(this), clientcharacteristicconfigurationdescriptorvalue, &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<GattWriteResult>>(result__)
+            (::windows::core::Interface::vtable(this).WriteClientCharacteristicConfigurationDescriptorWithResultAsync)(::windows::core::Interface::as_raw(this), clientcharacteristicconfigurationdescriptorvalue, &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<GattWriteResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`, `\"deprecated\"`*"]
@@ -219,7 +219,7 @@ impl GattCharacteristic {
     pub fn ConvertShortIdToUuid(shortid: u16) -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicStatics(|this| unsafe {
             let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ConvertShortIdToUuid)(::core::mem::transmute_copy(this), shortid, &mut result__).from_abi::<::windows::core::GUID>(result__)
+            (::windows::core::Interface::vtable(this).ConvertShortIdToUuid)(::windows::core::Interface::as_raw(this), shortid, &mut result__).from_abi::<::windows::core::GUID>(result__)
         })
     }
     #[doc(hidden)]
@@ -378,567 +378,567 @@ impl GattCharacteristicUuids {
     pub fn BatteryLevel() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics(|this| unsafe {
             let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).BatteryLevel)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
+            (::windows::core::Interface::vtable(this).BatteryLevel)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn BloodPressureFeature() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics(|this| unsafe {
             let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).BloodPressureFeature)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
+            (::windows::core::Interface::vtable(this).BloodPressureFeature)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn BloodPressureMeasurement() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics(|this| unsafe {
             let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).BloodPressureMeasurement)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
+            (::windows::core::Interface::vtable(this).BloodPressureMeasurement)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn BodySensorLocation() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics(|this| unsafe {
             let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).BodySensorLocation)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
+            (::windows::core::Interface::vtable(this).BodySensorLocation)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn CscFeature() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics(|this| unsafe {
             let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CscFeature)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
+            (::windows::core::Interface::vtable(this).CscFeature)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn CscMeasurement() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics(|this| unsafe {
             let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CscMeasurement)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
+            (::windows::core::Interface::vtable(this).CscMeasurement)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn GlucoseFeature() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics(|this| unsafe {
             let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GlucoseFeature)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
+            (::windows::core::Interface::vtable(this).GlucoseFeature)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn GlucoseMeasurement() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics(|this| unsafe {
             let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GlucoseMeasurement)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
+            (::windows::core::Interface::vtable(this).GlucoseMeasurement)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn GlucoseMeasurementContext() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics(|this| unsafe {
             let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GlucoseMeasurementContext)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
+            (::windows::core::Interface::vtable(this).GlucoseMeasurementContext)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn HeartRateControlPoint() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics(|this| unsafe {
             let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).HeartRateControlPoint)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
+            (::windows::core::Interface::vtable(this).HeartRateControlPoint)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn HeartRateMeasurement() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics(|this| unsafe {
             let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).HeartRateMeasurement)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
+            (::windows::core::Interface::vtable(this).HeartRateMeasurement)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn IntermediateCuffPressure() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics(|this| unsafe {
             let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IntermediateCuffPressure)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
+            (::windows::core::Interface::vtable(this).IntermediateCuffPressure)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn IntermediateTemperature() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics(|this| unsafe {
             let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IntermediateTemperature)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
+            (::windows::core::Interface::vtable(this).IntermediateTemperature)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn MeasurementInterval() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics(|this| unsafe {
             let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MeasurementInterval)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
+            (::windows::core::Interface::vtable(this).MeasurementInterval)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn RecordAccessControlPoint() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics(|this| unsafe {
             let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RecordAccessControlPoint)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
+            (::windows::core::Interface::vtable(this).RecordAccessControlPoint)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn RscFeature() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics(|this| unsafe {
             let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RscFeature)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
+            (::windows::core::Interface::vtable(this).RscFeature)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn RscMeasurement() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics(|this| unsafe {
             let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RscMeasurement)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
+            (::windows::core::Interface::vtable(this).RscMeasurement)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn SCControlPoint() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics(|this| unsafe {
             let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SCControlPoint)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
+            (::windows::core::Interface::vtable(this).SCControlPoint)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn SensorLocation() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics(|this| unsafe {
             let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SensorLocation)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
+            (::windows::core::Interface::vtable(this).SensorLocation)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn TemperatureMeasurement() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics(|this| unsafe {
             let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TemperatureMeasurement)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
+            (::windows::core::Interface::vtable(this).TemperatureMeasurement)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn TemperatureType() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics(|this| unsafe {
             let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TemperatureType)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
+            (::windows::core::Interface::vtable(this).TemperatureType)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn AlertCategoryId() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AlertCategoryId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
+            (::windows::core::Interface::vtable(this).AlertCategoryId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn AlertCategoryIdBitMask() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AlertCategoryIdBitMask)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
+            (::windows::core::Interface::vtable(this).AlertCategoryIdBitMask)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn AlertLevel() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AlertLevel)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
+            (::windows::core::Interface::vtable(this).AlertLevel)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn AlertNotificationControlPoint() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AlertNotificationControlPoint)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
+            (::windows::core::Interface::vtable(this).AlertNotificationControlPoint)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn AlertStatus() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AlertStatus)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
+            (::windows::core::Interface::vtable(this).AlertStatus)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn GapAppearance() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GapAppearance)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
+            (::windows::core::Interface::vtable(this).GapAppearance)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn BootKeyboardInputReport() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).BootKeyboardInputReport)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
+            (::windows::core::Interface::vtable(this).BootKeyboardInputReport)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn BootKeyboardOutputReport() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).BootKeyboardOutputReport)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
+            (::windows::core::Interface::vtable(this).BootKeyboardOutputReport)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn BootMouseInputReport() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).BootMouseInputReport)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
+            (::windows::core::Interface::vtable(this).BootMouseInputReport)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn CurrentTime() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CurrentTime)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
+            (::windows::core::Interface::vtable(this).CurrentTime)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn CyclingPowerControlPoint() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CyclingPowerControlPoint)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
+            (::windows::core::Interface::vtable(this).CyclingPowerControlPoint)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn CyclingPowerFeature() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CyclingPowerFeature)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
+            (::windows::core::Interface::vtable(this).CyclingPowerFeature)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn CyclingPowerMeasurement() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CyclingPowerMeasurement)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
+            (::windows::core::Interface::vtable(this).CyclingPowerMeasurement)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn CyclingPowerVector() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CyclingPowerVector)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
+            (::windows::core::Interface::vtable(this).CyclingPowerVector)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn DateTime() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DateTime)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
+            (::windows::core::Interface::vtable(this).DateTime)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn DayDateTime() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DayDateTime)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
+            (::windows::core::Interface::vtable(this).DayDateTime)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn DayOfWeek() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DayOfWeek)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
+            (::windows::core::Interface::vtable(this).DayOfWeek)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn GapDeviceName() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GapDeviceName)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
+            (::windows::core::Interface::vtable(this).GapDeviceName)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn DstOffset() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DstOffset)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
+            (::windows::core::Interface::vtable(this).DstOffset)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn ExactTime256() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ExactTime256)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
+            (::windows::core::Interface::vtable(this).ExactTime256)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn FirmwareRevisionString() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FirmwareRevisionString)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
+            (::windows::core::Interface::vtable(this).FirmwareRevisionString)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn HardwareRevisionString() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).HardwareRevisionString)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
+            (::windows::core::Interface::vtable(this).HardwareRevisionString)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn HidControlPoint() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).HidControlPoint)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
+            (::windows::core::Interface::vtable(this).HidControlPoint)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn HidInformation() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).HidInformation)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
+            (::windows::core::Interface::vtable(this).HidInformation)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn Ieee1107320601RegulatoryCertificationDataList() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Ieee1107320601RegulatoryCertificationDataList)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
+            (::windows::core::Interface::vtable(this).Ieee1107320601RegulatoryCertificationDataList)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn LnControlPoint() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).LnControlPoint)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
+            (::windows::core::Interface::vtable(this).LnControlPoint)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn LnFeature() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).LnFeature)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
+            (::windows::core::Interface::vtable(this).LnFeature)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn LocalTimeInformation() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).LocalTimeInformation)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
+            (::windows::core::Interface::vtable(this).LocalTimeInformation)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn LocationAndSpeed() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).LocationAndSpeed)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
+            (::windows::core::Interface::vtable(this).LocationAndSpeed)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn ManufacturerNameString() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ManufacturerNameString)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
+            (::windows::core::Interface::vtable(this).ManufacturerNameString)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn ModelNumberString() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ModelNumberString)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
+            (::windows::core::Interface::vtable(this).ModelNumberString)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn Navigation() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Navigation)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
+            (::windows::core::Interface::vtable(this).Navigation)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn NewAlert() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).NewAlert)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
+            (::windows::core::Interface::vtable(this).NewAlert)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn GapPeripheralPreferredConnectionParameters() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GapPeripheralPreferredConnectionParameters)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
+            (::windows::core::Interface::vtable(this).GapPeripheralPreferredConnectionParameters)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn GapPeripheralPrivacyFlag() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GapPeripheralPrivacyFlag)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
+            (::windows::core::Interface::vtable(this).GapPeripheralPrivacyFlag)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn PnpId() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PnpId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
+            (::windows::core::Interface::vtable(this).PnpId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn PositionQuality() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PositionQuality)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
+            (::windows::core::Interface::vtable(this).PositionQuality)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn ProtocolMode() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ProtocolMode)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
+            (::windows::core::Interface::vtable(this).ProtocolMode)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn GapReconnectionAddress() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GapReconnectionAddress)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
+            (::windows::core::Interface::vtable(this).GapReconnectionAddress)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn ReferenceTimeInformation() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ReferenceTimeInformation)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
+            (::windows::core::Interface::vtable(this).ReferenceTimeInformation)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn Report() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Report)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
+            (::windows::core::Interface::vtable(this).Report)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn ReportMap() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ReportMap)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
+            (::windows::core::Interface::vtable(this).ReportMap)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn RingerControlPoint() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RingerControlPoint)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
+            (::windows::core::Interface::vtable(this).RingerControlPoint)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn RingerSetting() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RingerSetting)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
+            (::windows::core::Interface::vtable(this).RingerSetting)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn ScanIntervalWindow() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ScanIntervalWindow)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
+            (::windows::core::Interface::vtable(this).ScanIntervalWindow)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn ScanRefresh() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ScanRefresh)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
+            (::windows::core::Interface::vtable(this).ScanRefresh)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn SerialNumberString() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SerialNumberString)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
+            (::windows::core::Interface::vtable(this).SerialNumberString)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn GattServiceChanged() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GattServiceChanged)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
+            (::windows::core::Interface::vtable(this).GattServiceChanged)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn SoftwareRevisionString() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SoftwareRevisionString)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
+            (::windows::core::Interface::vtable(this).SoftwareRevisionString)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn SupportedNewAlertCategory() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SupportedNewAlertCategory)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
+            (::windows::core::Interface::vtable(this).SupportedNewAlertCategory)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn SupportUnreadAlertCategory() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SupportUnreadAlertCategory)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
+            (::windows::core::Interface::vtable(this).SupportUnreadAlertCategory)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn SystemId() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SystemId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
+            (::windows::core::Interface::vtable(this).SystemId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn TimeAccuracy() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TimeAccuracy)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
+            (::windows::core::Interface::vtable(this).TimeAccuracy)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn TimeSource() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TimeSource)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
+            (::windows::core::Interface::vtable(this).TimeSource)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn TimeUpdateControlPoint() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TimeUpdateControlPoint)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
+            (::windows::core::Interface::vtable(this).TimeUpdateControlPoint)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn TimeUpdateState() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TimeUpdateState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
+            (::windows::core::Interface::vtable(this).TimeUpdateState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn TimeWithDst() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TimeWithDst)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
+            (::windows::core::Interface::vtable(this).TimeWithDst)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn TimeZone() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TimeZone)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
+            (::windows::core::Interface::vtable(this).TimeZone)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn TxPowerLevel() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TxPowerLevel)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
+            (::windows::core::Interface::vtable(this).TxPowerLevel)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn UnreadAlertStatus() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).UnreadAlertStatus)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
+            (::windows::core::Interface::vtable(this).UnreadAlertStatus)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         })
     }
     #[doc(hidden)]
@@ -964,7 +964,7 @@ impl GattCharacteristicsResult {
         let this = self;
         unsafe {
             let mut result__: GattCommunicationStatus = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Status)(::core::mem::transmute_copy(this), &mut result__).from_abi::<GattCommunicationStatus>(result__)
+            (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<GattCommunicationStatus>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`, `\"Foundation\"`*"]
@@ -973,7 +973,7 @@ impl GattCharacteristicsResult {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ProtocolError)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<u8>>(result__)
+            (::windows::core::Interface::vtable(this).ProtocolError)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<u8>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`, `\"Foundation_Collections\"`*"]
@@ -982,7 +982,7 @@ impl GattCharacteristicsResult {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Characteristics)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<GattCharacteristic>>(result__)
+            (::windows::core::Interface::vtable(this).Characteristics)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<GattCharacteristic>>(result__)
         }
     }
 }
@@ -1102,7 +1102,7 @@ impl GattClientNotificationResult {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SubscribedClient)(::core::mem::transmute_copy(this), &mut result__).from_abi::<GattSubscribedClient>(result__)
+            (::windows::core::Interface::vtable(this).SubscribedClient)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<GattSubscribedClient>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
@@ -1110,7 +1110,7 @@ impl GattClientNotificationResult {
         let this = self;
         unsafe {
             let mut result__: GattCommunicationStatus = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Status)(::core::mem::transmute_copy(this), &mut result__).from_abi::<GattCommunicationStatus>(result__)
+            (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<GattCommunicationStatus>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`, `\"Foundation\"`*"]
@@ -1119,7 +1119,7 @@ impl GattClientNotificationResult {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ProtocolError)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<u8>>(result__)
+            (::windows::core::Interface::vtable(this).ProtocolError)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<u8>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
@@ -1127,7 +1127,7 @@ impl GattClientNotificationResult {
         let this = &::windows::core::Interface::cast::<IGattClientNotificationResult2>(self)?;
         unsafe {
             let mut result__: u16 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).BytesSent)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
+            (::windows::core::Interface::vtable(this).BytesSent)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u16>(result__)
         }
     }
 }
@@ -1248,20 +1248,20 @@ impl GattDescriptor {
         let this = self;
         unsafe {
             let mut result__: GattProtectionLevel = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ProtectionLevel)(::core::mem::transmute_copy(this), &mut result__).from_abi::<GattProtectionLevel>(result__)
+            (::windows::core::Interface::vtable(this).ProtectionLevel)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<GattProtectionLevel>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn SetProtectionLevel(&self, value: GattProtectionLevel) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetProtectionLevel)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetProtectionLevel)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn Uuid(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Uuid)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
+            (::windows::core::Interface::vtable(this).Uuid)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
@@ -1269,7 +1269,7 @@ impl GattDescriptor {
         let this = self;
         unsafe {
             let mut result__: u16 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AttributeHandle)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
+            (::windows::core::Interface::vtable(this).AttributeHandle)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u16>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`, `\"Foundation\"`*"]
@@ -1278,7 +1278,7 @@ impl GattDescriptor {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ReadValueAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<GattReadResult>>(result__)
+            (::windows::core::Interface::vtable(this).ReadValueAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<GattReadResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`, `\"Foundation\"`*"]
@@ -1287,7 +1287,7 @@ impl GattDescriptor {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ReadValueWithCacheModeAsync)(::core::mem::transmute_copy(this), cachemode, &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<GattReadResult>>(result__)
+            (::windows::core::Interface::vtable(this).ReadValueWithCacheModeAsync)(::windows::core::Interface::as_raw(this), cachemode, &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<GattReadResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
@@ -1296,7 +1296,7 @@ impl GattDescriptor {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).WriteValueAsync)(::core::mem::transmute_copy(this), value.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<GattCommunicationStatus>>(result__)
+            (::windows::core::Interface::vtable(this).WriteValueAsync)(::windows::core::Interface::as_raw(this), value.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<GattCommunicationStatus>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
@@ -1305,7 +1305,7 @@ impl GattDescriptor {
         let this = &::windows::core::Interface::cast::<IGattDescriptor2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).WriteValueWithResultAsync)(::core::mem::transmute_copy(this), value.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<GattWriteResult>>(result__)
+            (::windows::core::Interface::vtable(this).WriteValueWithResultAsync)(::windows::core::Interface::as_raw(this), value.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<GattWriteResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`, `\"deprecated\"`*"]
@@ -1313,7 +1313,7 @@ impl GattDescriptor {
     pub fn ConvertShortIdToUuid(shortid: u16) -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattDescriptorStatics(|this| unsafe {
             let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ConvertShortIdToUuid)(::core::mem::transmute_copy(this), shortid, &mut result__).from_abi::<::windows::core::GUID>(result__)
+            (::windows::core::Interface::vtable(this).ConvertShortIdToUuid)(::windows::core::Interface::as_raw(this), shortid, &mut result__).from_abi::<::windows::core::GUID>(result__)
         })
     }
     #[doc(hidden)]
@@ -1401,42 +1401,42 @@ impl GattDescriptorUuids {
     pub fn CharacteristicAggregateFormat() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattDescriptorUuidsStatics(|this| unsafe {
             let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CharacteristicAggregateFormat)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
+            (::windows::core::Interface::vtable(this).CharacteristicAggregateFormat)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn CharacteristicExtendedProperties() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattDescriptorUuidsStatics(|this| unsafe {
             let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CharacteristicExtendedProperties)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
+            (::windows::core::Interface::vtable(this).CharacteristicExtendedProperties)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn CharacteristicPresentationFormat() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattDescriptorUuidsStatics(|this| unsafe {
             let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CharacteristicPresentationFormat)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
+            (::windows::core::Interface::vtable(this).CharacteristicPresentationFormat)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn CharacteristicUserDescription() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattDescriptorUuidsStatics(|this| unsafe {
             let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CharacteristicUserDescription)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
+            (::windows::core::Interface::vtable(this).CharacteristicUserDescription)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn ClientCharacteristicConfiguration() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattDescriptorUuidsStatics(|this| unsafe {
             let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ClientCharacteristicConfiguration)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
+            (::windows::core::Interface::vtable(this).ClientCharacteristicConfiguration)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn ServerCharacteristicConfiguration() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattDescriptorUuidsStatics(|this| unsafe {
             let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ServerCharacteristicConfiguration)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
+            (::windows::core::Interface::vtable(this).ServerCharacteristicConfiguration)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         })
     }
     #[doc(hidden)]
@@ -1457,7 +1457,7 @@ impl GattDescriptorsResult {
         let this = self;
         unsafe {
             let mut result__: GattCommunicationStatus = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Status)(::core::mem::transmute_copy(this), &mut result__).from_abi::<GattCommunicationStatus>(result__)
+            (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<GattCommunicationStatus>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`, `\"Foundation\"`*"]
@@ -1466,7 +1466,7 @@ impl GattDescriptorsResult {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ProtocolError)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<u8>>(result__)
+            (::windows::core::Interface::vtable(this).ProtocolError)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<u8>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`, `\"Foundation_Collections\"`*"]
@@ -1475,7 +1475,7 @@ impl GattDescriptorsResult {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Descriptors)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<GattDescriptor>>(result__)
+            (::windows::core::Interface::vtable(this).Descriptors)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<GattDescriptor>>(result__)
         }
     }
 }
@@ -1559,7 +1559,7 @@ impl GattDeviceService {
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::IClosable>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).Close)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`, `\"Foundation_Collections\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
@@ -1567,7 +1567,7 @@ impl GattDeviceService {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetCharacteristics)(::core::mem::transmute_copy(this), characteristicuuid.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<GattCharacteristic>>(result__)
+            (::windows::core::Interface::vtable(this).GetCharacteristics)(::windows::core::Interface::as_raw(this), characteristicuuid.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<GattCharacteristic>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`, `\"Foundation_Collections\"`, `\"deprecated\"`*"]
@@ -1576,7 +1576,7 @@ impl GattDeviceService {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetIncludedServices)(::core::mem::transmute_copy(this), serviceuuid.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<GattDeviceService>>(result__)
+            (::windows::core::Interface::vtable(this).GetIncludedServices)(::windows::core::Interface::as_raw(this), serviceuuid.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<GattDeviceService>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
@@ -1584,7 +1584,7 @@ impl GattDeviceService {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DeviceId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).DeviceId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
@@ -1592,7 +1592,7 @@ impl GattDeviceService {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Uuid)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
+            (::windows::core::Interface::vtable(this).Uuid)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
@@ -1600,7 +1600,7 @@ impl GattDeviceService {
         let this = self;
         unsafe {
             let mut result__: u16 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AttributeHandle)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
+            (::windows::core::Interface::vtable(this).AttributeHandle)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u16>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`, `\"deprecated\"`*"]
@@ -1609,7 +1609,7 @@ impl GattDeviceService {
         let this = &::windows::core::Interface::cast::<IGattDeviceService2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Device)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::BluetoothLEDevice>(result__)
+            (::windows::core::Interface::vtable(this).Device)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::BluetoothLEDevice>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`, `\"Foundation_Collections\"`, `\"deprecated\"`*"]
@@ -1618,7 +1618,7 @@ impl GattDeviceService {
         let this = &::windows::core::Interface::cast::<IGattDeviceService2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ParentServices)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<GattDeviceService>>(result__)
+            (::windows::core::Interface::vtable(this).ParentServices)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<GattDeviceService>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`, `\"Foundation_Collections\"`, `\"deprecated\"`*"]
@@ -1627,7 +1627,7 @@ impl GattDeviceService {
         let this = &::windows::core::Interface::cast::<IGattDeviceService2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetAllCharacteristics)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<GattCharacteristic>>(result__)
+            (::windows::core::Interface::vtable(this).GetAllCharacteristics)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<GattCharacteristic>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`, `\"Foundation_Collections\"`, `\"deprecated\"`*"]
@@ -1636,7 +1636,7 @@ impl GattDeviceService {
         let this = &::windows::core::Interface::cast::<IGattDeviceService2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetAllIncludedServices)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<GattDeviceService>>(result__)
+            (::windows::core::Interface::vtable(this).GetAllIncludedServices)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<GattDeviceService>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`, `\"Devices_Enumeration\"`*"]
@@ -1645,7 +1645,7 @@ impl GattDeviceService {
         let this = &::windows::core::Interface::cast::<IGattDeviceService3>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DeviceAccessInformation)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Enumeration::DeviceAccessInformation>(result__)
+            (::windows::core::Interface::vtable(this).DeviceAccessInformation)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Enumeration::DeviceAccessInformation>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
@@ -1653,7 +1653,7 @@ impl GattDeviceService {
         let this = &::windows::core::Interface::cast::<IGattDeviceService3>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Session)(::core::mem::transmute_copy(this), &mut result__).from_abi::<GattSession>(result__)
+            (::windows::core::Interface::vtable(this).Session)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<GattSession>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
@@ -1661,7 +1661,7 @@ impl GattDeviceService {
         let this = &::windows::core::Interface::cast::<IGattDeviceService3>(self)?;
         unsafe {
             let mut result__: GattSharingMode = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SharingMode)(::core::mem::transmute_copy(this), &mut result__).from_abi::<GattSharingMode>(result__)
+            (::windows::core::Interface::vtable(this).SharingMode)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<GattSharingMode>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`, `\"Devices_Enumeration\"`, `\"Foundation\"`*"]
@@ -1670,7 +1670,7 @@ impl GattDeviceService {
         let this = &::windows::core::Interface::cast::<IGattDeviceService3>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RequestAccessAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<super::super::Enumeration::DeviceAccessStatus>>(result__)
+            (::windows::core::Interface::vtable(this).RequestAccessAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<super::super::Enumeration::DeviceAccessStatus>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`, `\"Foundation\"`*"]
@@ -1679,7 +1679,7 @@ impl GattDeviceService {
         let this = &::windows::core::Interface::cast::<IGattDeviceService3>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).OpenAsync)(::core::mem::transmute_copy(this), sharingmode, &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<GattOpenStatus>>(result__)
+            (::windows::core::Interface::vtable(this).OpenAsync)(::windows::core::Interface::as_raw(this), sharingmode, &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<GattOpenStatus>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`, `\"Foundation\"`*"]
@@ -1688,7 +1688,7 @@ impl GattDeviceService {
         let this = &::windows::core::Interface::cast::<IGattDeviceService3>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetCharacteristicsAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<GattCharacteristicsResult>>(result__)
+            (::windows::core::Interface::vtable(this).GetCharacteristicsAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<GattCharacteristicsResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`, `\"Foundation\"`*"]
@@ -1697,7 +1697,7 @@ impl GattDeviceService {
         let this = &::windows::core::Interface::cast::<IGattDeviceService3>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetCharacteristicsWithCacheModeAsync)(::core::mem::transmute_copy(this), cachemode, &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<GattCharacteristicsResult>>(result__)
+            (::windows::core::Interface::vtable(this).GetCharacteristicsWithCacheModeAsync)(::windows::core::Interface::as_raw(this), cachemode, &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<GattCharacteristicsResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`, `\"Foundation\"`*"]
@@ -1706,7 +1706,7 @@ impl GattDeviceService {
         let this = &::windows::core::Interface::cast::<IGattDeviceService3>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetCharacteristicsForUuidAsync)(::core::mem::transmute_copy(this), characteristicuuid.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<GattCharacteristicsResult>>(result__)
+            (::windows::core::Interface::vtable(this).GetCharacteristicsForUuidAsync)(::windows::core::Interface::as_raw(this), characteristicuuid.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<GattCharacteristicsResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`, `\"Foundation\"`*"]
@@ -1715,7 +1715,7 @@ impl GattDeviceService {
         let this = &::windows::core::Interface::cast::<IGattDeviceService3>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetCharacteristicsForUuidWithCacheModeAsync)(::core::mem::transmute_copy(this), characteristicuuid.into_param().abi(), cachemode, &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<GattCharacteristicsResult>>(result__)
+            (::windows::core::Interface::vtable(this).GetCharacteristicsForUuidWithCacheModeAsync)(::windows::core::Interface::as_raw(this), characteristicuuid.into_param().abi(), cachemode, &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<GattCharacteristicsResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`, `\"Foundation\"`*"]
@@ -1724,7 +1724,7 @@ impl GattDeviceService {
         let this = &::windows::core::Interface::cast::<IGattDeviceService3>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetIncludedServicesAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<GattDeviceServicesResult>>(result__)
+            (::windows::core::Interface::vtable(this).GetIncludedServicesAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<GattDeviceServicesResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`, `\"Foundation\"`*"]
@@ -1733,7 +1733,7 @@ impl GattDeviceService {
         let this = &::windows::core::Interface::cast::<IGattDeviceService3>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetIncludedServicesWithCacheModeAsync)(::core::mem::transmute_copy(this), cachemode, &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<GattDeviceServicesResult>>(result__)
+            (::windows::core::Interface::vtable(this).GetIncludedServicesWithCacheModeAsync)(::windows::core::Interface::as_raw(this), cachemode, &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<GattDeviceServicesResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`, `\"Foundation\"`*"]
@@ -1742,7 +1742,7 @@ impl GattDeviceService {
         let this = &::windows::core::Interface::cast::<IGattDeviceService3>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetIncludedServicesForUuidAsync)(::core::mem::transmute_copy(this), serviceuuid.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<GattDeviceServicesResult>>(result__)
+            (::windows::core::Interface::vtable(this).GetIncludedServicesForUuidAsync)(::windows::core::Interface::as_raw(this), serviceuuid.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<GattDeviceServicesResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`, `\"Foundation\"`*"]
@@ -1751,7 +1751,7 @@ impl GattDeviceService {
         let this = &::windows::core::Interface::cast::<IGattDeviceService3>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetIncludedServicesForUuidWithCacheModeAsync)(::core::mem::transmute_copy(this), serviceuuid.into_param().abi(), cachemode, &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<GattDeviceServicesResult>>(result__)
+            (::windows::core::Interface::vtable(this).GetIncludedServicesForUuidWithCacheModeAsync)(::windows::core::Interface::as_raw(this), serviceuuid.into_param().abi(), cachemode, &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<GattDeviceServicesResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`, `\"Foundation\"`*"]
@@ -1759,14 +1759,14 @@ impl GattDeviceService {
     pub fn FromIdAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(deviceid: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattDeviceService>> {
         Self::IGattDeviceServiceStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FromIdAsync)(::core::mem::transmute_copy(this), deviceid.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<GattDeviceService>>(result__)
+            (::windows::core::Interface::vtable(this).FromIdAsync)(::windows::core::Interface::as_raw(this), deviceid.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<GattDeviceService>>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn GetDeviceSelectorFromUuid<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(serviceuuid: Param0) -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IGattDeviceServiceStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetDeviceSelectorFromUuid)(::core::mem::transmute_copy(this), serviceuuid.into_param().abi(), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).GetDeviceSelectorFromUuid)(::windows::core::Interface::as_raw(this), serviceuuid.into_param().abi(), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`, `\"deprecated\"`*"]
@@ -1774,7 +1774,7 @@ impl GattDeviceService {
     pub fn GetDeviceSelectorFromShortId(serviceshortid: u16) -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IGattDeviceServiceStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetDeviceSelectorFromShortId)(::core::mem::transmute_copy(this), serviceshortid, &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).GetDeviceSelectorFromShortId)(::windows::core::Interface::as_raw(this), serviceshortid, &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`, `\"deprecated\"`*"]
@@ -1782,7 +1782,7 @@ impl GattDeviceService {
     pub fn ConvertShortIdToUuid(shortid: u16) -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattDeviceServiceStatics(|this| unsafe {
             let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ConvertShortIdToUuid)(::core::mem::transmute_copy(this), shortid, &mut result__).from_abi::<::windows::core::GUID>(result__)
+            (::windows::core::Interface::vtable(this).ConvertShortIdToUuid)(::windows::core::Interface::as_raw(this), shortid, &mut result__).from_abi::<::windows::core::GUID>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`, `\"Foundation\"`*"]
@@ -1790,35 +1790,35 @@ impl GattDeviceService {
     pub fn FromIdWithSharingModeAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(deviceid: Param0, sharingmode: GattSharingMode) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattDeviceService>> {
         Self::IGattDeviceServiceStatics2(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FromIdWithSharingModeAsync)(::core::mem::transmute_copy(this), deviceid.into_param().abi(), sharingmode, &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<GattDeviceService>>(result__)
+            (::windows::core::Interface::vtable(this).FromIdWithSharingModeAsync)(::windows::core::Interface::as_raw(this), deviceid.into_param().abi(), sharingmode, &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<GattDeviceService>>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn GetDeviceSelectorForBluetoothDeviceId<'a, Param0: ::windows::core::IntoParam<'a, super::BluetoothDeviceId>>(bluetoothdeviceid: Param0) -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IGattDeviceServiceStatics2(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetDeviceSelectorForBluetoothDeviceId)(::core::mem::transmute_copy(this), bluetoothdeviceid.into_param().abi(), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).GetDeviceSelectorForBluetoothDeviceId)(::windows::core::Interface::as_raw(this), bluetoothdeviceid.into_param().abi(), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn GetDeviceSelectorForBluetoothDeviceIdWithCacheMode<'a, Param0: ::windows::core::IntoParam<'a, super::BluetoothDeviceId>>(bluetoothdeviceid: Param0, cachemode: super::BluetoothCacheMode) -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IGattDeviceServiceStatics2(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetDeviceSelectorForBluetoothDeviceIdWithCacheMode)(::core::mem::transmute_copy(this), bluetoothdeviceid.into_param().abi(), cachemode, &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).GetDeviceSelectorForBluetoothDeviceIdWithCacheMode)(::windows::core::Interface::as_raw(this), bluetoothdeviceid.into_param().abi(), cachemode, &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn GetDeviceSelectorForBluetoothDeviceIdAndUuid<'a, Param0: ::windows::core::IntoParam<'a, super::BluetoothDeviceId>, Param1: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(bluetoothdeviceid: Param0, serviceuuid: Param1) -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IGattDeviceServiceStatics2(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetDeviceSelectorForBluetoothDeviceIdAndUuid)(::core::mem::transmute_copy(this), bluetoothdeviceid.into_param().abi(), serviceuuid.into_param().abi(), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).GetDeviceSelectorForBluetoothDeviceIdAndUuid)(::windows::core::Interface::as_raw(this), bluetoothdeviceid.into_param().abi(), serviceuuid.into_param().abi(), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn GetDeviceSelectorForBluetoothDeviceIdAndUuidWithCacheMode<'a, Param0: ::windows::core::IntoParam<'a, super::BluetoothDeviceId>, Param1: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(bluetoothdeviceid: Param0, serviceuuid: Param1, cachemode: super::BluetoothCacheMode) -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IGattDeviceServiceStatics2(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetDeviceSelectorForBluetoothDeviceIdAndUuidWithCacheMode)(::core::mem::transmute_copy(this), bluetoothdeviceid.into_param().abi(), serviceuuid.into_param().abi(), cachemode, &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).GetDeviceSelectorForBluetoothDeviceIdAndUuidWithCacheMode)(::windows::core::Interface::as_raw(this), bluetoothdeviceid.into_param().abi(), serviceuuid.into_param().abi(), cachemode, &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc(hidden)]
@@ -1939,7 +1939,7 @@ impl GattDeviceServicesResult {
         let this = self;
         unsafe {
             let mut result__: GattCommunicationStatus = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Status)(::core::mem::transmute_copy(this), &mut result__).from_abi::<GattCommunicationStatus>(result__)
+            (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<GattCommunicationStatus>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`, `\"Foundation\"`*"]
@@ -1948,7 +1948,7 @@ impl GattDeviceServicesResult {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ProtocolError)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<u8>>(result__)
+            (::windows::core::Interface::vtable(this).ProtocolError)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<u8>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`, `\"Foundation_Collections\"`*"]
@@ -1957,7 +1957,7 @@ impl GattDeviceServicesResult {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Services)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<GattDeviceService>>(result__)
+            (::windows::core::Interface::vtable(this).Services)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<GattDeviceService>>(result__)
         }
     }
 }
@@ -2042,7 +2042,7 @@ impl GattLocalCharacteristic {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Uuid)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
+            (::windows::core::Interface::vtable(this).Uuid)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`, `\"Storage_Streams\"`*"]
@@ -2051,7 +2051,7 @@ impl GattLocalCharacteristic {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).StaticValue)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Storage::Streams::IBuffer>(result__)
+            (::windows::core::Interface::vtable(this).StaticValue)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Storage::Streams::IBuffer>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
@@ -2059,7 +2059,7 @@ impl GattLocalCharacteristic {
         let this = self;
         unsafe {
             let mut result__: GattCharacteristicProperties = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CharacteristicProperties)(::core::mem::transmute_copy(this), &mut result__).from_abi::<GattCharacteristicProperties>(result__)
+            (::windows::core::Interface::vtable(this).CharacteristicProperties)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<GattCharacteristicProperties>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
@@ -2067,7 +2067,7 @@ impl GattLocalCharacteristic {
         let this = self;
         unsafe {
             let mut result__: GattProtectionLevel = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ReadProtectionLevel)(::core::mem::transmute_copy(this), &mut result__).from_abi::<GattProtectionLevel>(result__)
+            (::windows::core::Interface::vtable(this).ReadProtectionLevel)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<GattProtectionLevel>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
@@ -2075,7 +2075,7 @@ impl GattLocalCharacteristic {
         let this = self;
         unsafe {
             let mut result__: GattProtectionLevel = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).WriteProtectionLevel)(::core::mem::transmute_copy(this), &mut result__).from_abi::<GattProtectionLevel>(result__)
+            (::windows::core::Interface::vtable(this).WriteProtectionLevel)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<GattProtectionLevel>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`, `\"Foundation\"`*"]
@@ -2084,7 +2084,7 @@ impl GattLocalCharacteristic {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateDescriptorAsync)(::core::mem::transmute_copy(this), descriptoruuid.into_param().abi(), parameters.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<GattLocalDescriptorResult>>(result__)
+            (::windows::core::Interface::vtable(this).CreateDescriptorAsync)(::windows::core::Interface::as_raw(this), descriptoruuid.into_param().abi(), parameters.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<GattLocalDescriptorResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`, `\"Foundation_Collections\"`*"]
@@ -2093,7 +2093,7 @@ impl GattLocalCharacteristic {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Descriptors)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<GattLocalDescriptor>>(result__)
+            (::windows::core::Interface::vtable(this).Descriptors)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<GattLocalDescriptor>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
@@ -2101,7 +2101,7 @@ impl GattLocalCharacteristic {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).UserDescription)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).UserDescription)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`, `\"Foundation_Collections\"`*"]
@@ -2110,7 +2110,7 @@ impl GattLocalCharacteristic {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PresentationFormats)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<GattPresentationFormat>>(result__)
+            (::windows::core::Interface::vtable(this).PresentationFormats)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<GattPresentationFormat>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`, `\"Foundation_Collections\"`*"]
@@ -2119,7 +2119,7 @@ impl GattLocalCharacteristic {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SubscribedClients)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<GattSubscribedClient>>(result__)
+            (::windows::core::Interface::vtable(this).SubscribedClients)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<GattSubscribedClient>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`, `\"Foundation\"`*"]
@@ -2128,14 +2128,14 @@ impl GattLocalCharacteristic {
         let this = self;
         unsafe {
             let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SubscribedClientsChanged)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).SubscribedClientsChanged)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveSubscribedClientsChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveSubscribedClientsChanged)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveSubscribedClientsChanged)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -2143,14 +2143,14 @@ impl GattLocalCharacteristic {
         let this = self;
         unsafe {
             let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ReadRequested)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).ReadRequested)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveReadRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveReadRequested)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveReadRequested)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -2158,14 +2158,14 @@ impl GattLocalCharacteristic {
         let this = self;
         unsafe {
             let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).WriteRequested)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).WriteRequested)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveWriteRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveWriteRequested)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveWriteRequested)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`, `\"Foundation_Collections\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
@@ -2173,7 +2173,7 @@ impl GattLocalCharacteristic {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).NotifyValueAsync)(::core::mem::transmute_copy(this), value.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<GattClientNotificationResult>>>(result__)
+            (::windows::core::Interface::vtable(this).NotifyValueAsync)(::windows::core::Interface::as_raw(this), value.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<GattClientNotificationResult>>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
@@ -2182,7 +2182,7 @@ impl GattLocalCharacteristic {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).NotifyValueForSubscribedClientAsync)(::core::mem::transmute_copy(this), value.into_param().abi(), subscribedclient.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<GattClientNotificationResult>>(result__)
+            (::windows::core::Interface::vtable(this).NotifyValueForSubscribedClientAsync)(::windows::core::Interface::as_raw(this), value.into_param().abi(), subscribedclient.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<GattClientNotificationResult>>(result__)
         }
     }
 }
@@ -2273,7 +2273,7 @@ impl GattLocalCharacteristicParameters {
     #[cfg(feature = "Storage_Streams")]
     pub fn SetStaticValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Storage::Streams::IBuffer>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetStaticValue)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetStaticValue)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
@@ -2281,59 +2281,59 @@ impl GattLocalCharacteristicParameters {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).StaticValue)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Storage::Streams::IBuffer>(result__)
+            (::windows::core::Interface::vtable(this).StaticValue)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Storage::Streams::IBuffer>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn SetCharacteristicProperties(&self, value: GattCharacteristicProperties) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetCharacteristicProperties)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCharacteristicProperties)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn CharacteristicProperties(&self) -> ::windows::core::Result<GattCharacteristicProperties> {
         let this = self;
         unsafe {
             let mut result__: GattCharacteristicProperties = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CharacteristicProperties)(::core::mem::transmute_copy(this), &mut result__).from_abi::<GattCharacteristicProperties>(result__)
+            (::windows::core::Interface::vtable(this).CharacteristicProperties)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<GattCharacteristicProperties>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn SetReadProtectionLevel(&self, value: GattProtectionLevel) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetReadProtectionLevel)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetReadProtectionLevel)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn ReadProtectionLevel(&self) -> ::windows::core::Result<GattProtectionLevel> {
         let this = self;
         unsafe {
             let mut result__: GattProtectionLevel = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ReadProtectionLevel)(::core::mem::transmute_copy(this), &mut result__).from_abi::<GattProtectionLevel>(result__)
+            (::windows::core::Interface::vtable(this).ReadProtectionLevel)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<GattProtectionLevel>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn SetWriteProtectionLevel(&self, value: GattProtectionLevel) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetWriteProtectionLevel)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetWriteProtectionLevel)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn WriteProtectionLevel(&self) -> ::windows::core::Result<GattProtectionLevel> {
         let this = self;
         unsafe {
             let mut result__: GattProtectionLevel = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).WriteProtectionLevel)(::core::mem::transmute_copy(this), &mut result__).from_abi::<GattProtectionLevel>(result__)
+            (::windows::core::Interface::vtable(this).WriteProtectionLevel)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<GattProtectionLevel>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn SetUserDescription<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetUserDescription)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetUserDescription)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn UserDescription(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).UserDescription)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).UserDescription)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`, `\"Foundation_Collections\"`*"]
@@ -2342,7 +2342,7 @@ impl GattLocalCharacteristicParameters {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PresentationFormats)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVector<GattPresentationFormat>>(result__)
+            (::windows::core::Interface::vtable(this).PresentationFormats)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVector<GattPresentationFormat>>(result__)
         }
     }
 }
@@ -2427,7 +2427,7 @@ impl GattLocalCharacteristicResult {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Characteristic)(::core::mem::transmute_copy(this), &mut result__).from_abi::<GattLocalCharacteristic>(result__)
+            (::windows::core::Interface::vtable(this).Characteristic)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<GattLocalCharacteristic>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
@@ -2435,7 +2435,7 @@ impl GattLocalCharacteristicResult {
         let this = self;
         unsafe {
             let mut result__: super::BluetoothError = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Error)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::BluetoothError>(result__)
+            (::windows::core::Interface::vtable(this).Error)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::BluetoothError>(result__)
         }
     }
 }
@@ -2520,7 +2520,7 @@ impl GattLocalDescriptor {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Uuid)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
+            (::windows::core::Interface::vtable(this).Uuid)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`, `\"Storage_Streams\"`*"]
@@ -2529,7 +2529,7 @@ impl GattLocalDescriptor {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).StaticValue)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Storage::Streams::IBuffer>(result__)
+            (::windows::core::Interface::vtable(this).StaticValue)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Storage::Streams::IBuffer>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
@@ -2537,7 +2537,7 @@ impl GattLocalDescriptor {
         let this = self;
         unsafe {
             let mut result__: GattProtectionLevel = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ReadProtectionLevel)(::core::mem::transmute_copy(this), &mut result__).from_abi::<GattProtectionLevel>(result__)
+            (::windows::core::Interface::vtable(this).ReadProtectionLevel)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<GattProtectionLevel>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
@@ -2545,7 +2545,7 @@ impl GattLocalDescriptor {
         let this = self;
         unsafe {
             let mut result__: GattProtectionLevel = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).WriteProtectionLevel)(::core::mem::transmute_copy(this), &mut result__).from_abi::<GattProtectionLevel>(result__)
+            (::windows::core::Interface::vtable(this).WriteProtectionLevel)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<GattProtectionLevel>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`, `\"Foundation\"`*"]
@@ -2554,14 +2554,14 @@ impl GattLocalDescriptor {
         let this = self;
         unsafe {
             let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ReadRequested)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).ReadRequested)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveReadRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveReadRequested)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveReadRequested)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -2569,14 +2569,14 @@ impl GattLocalDescriptor {
         let this = self;
         unsafe {
             let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).WriteRequested)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).WriteRequested)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveWriteRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveWriteRequested)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveWriteRequested)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
 }
 impl ::core::clone::Clone for GattLocalDescriptor {
@@ -2666,7 +2666,7 @@ impl GattLocalDescriptorParameters {
     #[cfg(feature = "Storage_Streams")]
     pub fn SetStaticValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Storage::Streams::IBuffer>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetStaticValue)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetStaticValue)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
@@ -2674,33 +2674,33 @@ impl GattLocalDescriptorParameters {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).StaticValue)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Storage::Streams::IBuffer>(result__)
+            (::windows::core::Interface::vtable(this).StaticValue)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Storage::Streams::IBuffer>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn SetReadProtectionLevel(&self, value: GattProtectionLevel) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetReadProtectionLevel)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetReadProtectionLevel)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn ReadProtectionLevel(&self) -> ::windows::core::Result<GattProtectionLevel> {
         let this = self;
         unsafe {
             let mut result__: GattProtectionLevel = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ReadProtectionLevel)(::core::mem::transmute_copy(this), &mut result__).from_abi::<GattProtectionLevel>(result__)
+            (::windows::core::Interface::vtable(this).ReadProtectionLevel)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<GattProtectionLevel>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn SetWriteProtectionLevel(&self, value: GattProtectionLevel) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetWriteProtectionLevel)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetWriteProtectionLevel)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn WriteProtectionLevel(&self) -> ::windows::core::Result<GattProtectionLevel> {
         let this = self;
         unsafe {
             let mut result__: GattProtectionLevel = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).WriteProtectionLevel)(::core::mem::transmute_copy(this), &mut result__).from_abi::<GattProtectionLevel>(result__)
+            (::windows::core::Interface::vtable(this).WriteProtectionLevel)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<GattProtectionLevel>(result__)
         }
     }
 }
@@ -2785,7 +2785,7 @@ impl GattLocalDescriptorResult {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Descriptor)(::core::mem::transmute_copy(this), &mut result__).from_abi::<GattLocalDescriptor>(result__)
+            (::windows::core::Interface::vtable(this).Descriptor)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<GattLocalDescriptor>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
@@ -2793,7 +2793,7 @@ impl GattLocalDescriptorResult {
         let this = self;
         unsafe {
             let mut result__: super::BluetoothError = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Error)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::BluetoothError>(result__)
+            (::windows::core::Interface::vtable(this).Error)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::BluetoothError>(result__)
         }
     }
 }
@@ -2878,7 +2878,7 @@ impl GattLocalService {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Uuid)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
+            (::windows::core::Interface::vtable(this).Uuid)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`, `\"Foundation\"`*"]
@@ -2887,7 +2887,7 @@ impl GattLocalService {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateCharacteristicAsync)(::core::mem::transmute_copy(this), characteristicuuid.into_param().abi(), parameters.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<GattLocalCharacteristicResult>>(result__)
+            (::windows::core::Interface::vtable(this).CreateCharacteristicAsync)(::windows::core::Interface::as_raw(this), characteristicuuid.into_param().abi(), parameters.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<GattLocalCharacteristicResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`, `\"Foundation_Collections\"`*"]
@@ -2896,7 +2896,7 @@ impl GattLocalService {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Characteristics)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<GattLocalCharacteristic>>(result__)
+            (::windows::core::Interface::vtable(this).Characteristics)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<GattLocalCharacteristic>>(result__)
         }
     }
 }
@@ -3019,7 +3019,7 @@ impl GattPresentationFormat {
         let this = self;
         unsafe {
             let mut result__: u8 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FormatType)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
+            (::windows::core::Interface::vtable(this).FormatType)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u8>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
@@ -3027,7 +3027,7 @@ impl GattPresentationFormat {
         let this = self;
         unsafe {
             let mut result__: i32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Exponent)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            (::windows::core::Interface::vtable(this).Exponent)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
@@ -3035,7 +3035,7 @@ impl GattPresentationFormat {
         let this = self;
         unsafe {
             let mut result__: u16 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Unit)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
+            (::windows::core::Interface::vtable(this).Unit)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u16>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
@@ -3043,7 +3043,7 @@ impl GattPresentationFormat {
         let this = self;
         unsafe {
             let mut result__: u8 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Namespace)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
+            (::windows::core::Interface::vtable(this).Namespace)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u8>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
@@ -3051,21 +3051,21 @@ impl GattPresentationFormat {
         let this = self;
         unsafe {
             let mut result__: u16 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Description)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
+            (::windows::core::Interface::vtable(this).Description)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u16>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn BluetoothSigAssignedNumbers() -> ::windows::core::Result<u8> {
         Self::IGattPresentationFormatStatics(|this| unsafe {
             let mut result__: u8 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).BluetoothSigAssignedNumbers)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
+            (::windows::core::Interface::vtable(this).BluetoothSigAssignedNumbers)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u8>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn FromParts(formattype: u8, exponent: i32, unit: u16, namespaceid: u8, description: u16) -> ::windows::core::Result<GattPresentationFormat> {
         Self::IGattPresentationFormatStatics2(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FromParts)(::core::mem::transmute_copy(this), formattype, exponent, unit, namespaceid, description, &mut result__).from_abi::<GattPresentationFormat>(result__)
+            (::windows::core::Interface::vtable(this).FromParts)(::windows::core::Interface::as_raw(this), formattype, exponent, unit, namespaceid, description, &mut result__).from_abi::<GattPresentationFormat>(result__)
         })
     }
     #[doc(hidden)]
@@ -3158,189 +3158,189 @@ impl GattPresentationFormatTypes {
     pub fn Boolean() -> ::windows::core::Result<u8> {
         Self::IGattPresentationFormatTypesStatics(|this| unsafe {
             let mut result__: u8 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Boolean)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
+            (::windows::core::Interface::vtable(this).Boolean)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u8>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn Bit2() -> ::windows::core::Result<u8> {
         Self::IGattPresentationFormatTypesStatics(|this| unsafe {
             let mut result__: u8 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Bit2)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
+            (::windows::core::Interface::vtable(this).Bit2)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u8>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn Nibble() -> ::windows::core::Result<u8> {
         Self::IGattPresentationFormatTypesStatics(|this| unsafe {
             let mut result__: u8 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Nibble)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
+            (::windows::core::Interface::vtable(this).Nibble)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u8>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn UInt8() -> ::windows::core::Result<u8> {
         Self::IGattPresentationFormatTypesStatics(|this| unsafe {
             let mut result__: u8 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).UInt8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
+            (::windows::core::Interface::vtable(this).UInt8)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u8>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn UInt12() -> ::windows::core::Result<u8> {
         Self::IGattPresentationFormatTypesStatics(|this| unsafe {
             let mut result__: u8 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).UInt12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
+            (::windows::core::Interface::vtable(this).UInt12)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u8>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn UInt16() -> ::windows::core::Result<u8> {
         Self::IGattPresentationFormatTypesStatics(|this| unsafe {
             let mut result__: u8 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).UInt16)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
+            (::windows::core::Interface::vtable(this).UInt16)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u8>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn UInt24() -> ::windows::core::Result<u8> {
         Self::IGattPresentationFormatTypesStatics(|this| unsafe {
             let mut result__: u8 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).UInt24)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
+            (::windows::core::Interface::vtable(this).UInt24)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u8>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn UInt32() -> ::windows::core::Result<u8> {
         Self::IGattPresentationFormatTypesStatics(|this| unsafe {
             let mut result__: u8 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).UInt32)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
+            (::windows::core::Interface::vtable(this).UInt32)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u8>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn UInt48() -> ::windows::core::Result<u8> {
         Self::IGattPresentationFormatTypesStatics(|this| unsafe {
             let mut result__: u8 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).UInt48)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
+            (::windows::core::Interface::vtable(this).UInt48)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u8>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn UInt64() -> ::windows::core::Result<u8> {
         Self::IGattPresentationFormatTypesStatics(|this| unsafe {
             let mut result__: u8 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).UInt64)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
+            (::windows::core::Interface::vtable(this).UInt64)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u8>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn UInt128() -> ::windows::core::Result<u8> {
         Self::IGattPresentationFormatTypesStatics(|this| unsafe {
             let mut result__: u8 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).UInt128)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
+            (::windows::core::Interface::vtable(this).UInt128)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u8>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn SInt8() -> ::windows::core::Result<u8> {
         Self::IGattPresentationFormatTypesStatics(|this| unsafe {
             let mut result__: u8 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SInt8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
+            (::windows::core::Interface::vtable(this).SInt8)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u8>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn SInt12() -> ::windows::core::Result<u8> {
         Self::IGattPresentationFormatTypesStatics(|this| unsafe {
             let mut result__: u8 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SInt12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
+            (::windows::core::Interface::vtable(this).SInt12)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u8>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn SInt16() -> ::windows::core::Result<u8> {
         Self::IGattPresentationFormatTypesStatics(|this| unsafe {
             let mut result__: u8 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SInt16)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
+            (::windows::core::Interface::vtable(this).SInt16)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u8>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn SInt24() -> ::windows::core::Result<u8> {
         Self::IGattPresentationFormatTypesStatics(|this| unsafe {
             let mut result__: u8 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SInt24)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
+            (::windows::core::Interface::vtable(this).SInt24)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u8>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn SInt32() -> ::windows::core::Result<u8> {
         Self::IGattPresentationFormatTypesStatics(|this| unsafe {
             let mut result__: u8 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SInt32)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
+            (::windows::core::Interface::vtable(this).SInt32)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u8>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn SInt48() -> ::windows::core::Result<u8> {
         Self::IGattPresentationFormatTypesStatics(|this| unsafe {
             let mut result__: u8 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SInt48)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
+            (::windows::core::Interface::vtable(this).SInt48)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u8>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn SInt64() -> ::windows::core::Result<u8> {
         Self::IGattPresentationFormatTypesStatics(|this| unsafe {
             let mut result__: u8 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SInt64)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
+            (::windows::core::Interface::vtable(this).SInt64)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u8>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn SInt128() -> ::windows::core::Result<u8> {
         Self::IGattPresentationFormatTypesStatics(|this| unsafe {
             let mut result__: u8 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SInt128)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
+            (::windows::core::Interface::vtable(this).SInt128)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u8>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn Float32() -> ::windows::core::Result<u8> {
         Self::IGattPresentationFormatTypesStatics(|this| unsafe {
             let mut result__: u8 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Float32)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
+            (::windows::core::Interface::vtable(this).Float32)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u8>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn Float64() -> ::windows::core::Result<u8> {
         Self::IGattPresentationFormatTypesStatics(|this| unsafe {
             let mut result__: u8 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Float64)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
+            (::windows::core::Interface::vtable(this).Float64)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u8>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn SFloat() -> ::windows::core::Result<u8> {
         Self::IGattPresentationFormatTypesStatics(|this| unsafe {
             let mut result__: u8 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SFloat)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
+            (::windows::core::Interface::vtable(this).SFloat)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u8>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn Float() -> ::windows::core::Result<u8> {
         Self::IGattPresentationFormatTypesStatics(|this| unsafe {
             let mut result__: u8 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Float)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
+            (::windows::core::Interface::vtable(this).Float)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u8>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn DUInt16() -> ::windows::core::Result<u8> {
         Self::IGattPresentationFormatTypesStatics(|this| unsafe {
             let mut result__: u8 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DUInt16)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
+            (::windows::core::Interface::vtable(this).DUInt16)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u8>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn Utf8() -> ::windows::core::Result<u8> {
         Self::IGattPresentationFormatTypesStatics(|this| unsafe {
             let mut result__: u8 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Utf8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
+            (::windows::core::Interface::vtable(this).Utf8)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u8>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn Utf16() -> ::windows::core::Result<u8> {
         Self::IGattPresentationFormatTypesStatics(|this| unsafe {
             let mut result__: u8 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Utf16)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
+            (::windows::core::Interface::vtable(this).Utf16)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u8>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn Struct() -> ::windows::core::Result<u8> {
         Self::IGattPresentationFormatTypesStatics(|this| unsafe {
             let mut result__: u8 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Struct)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
+            (::windows::core::Interface::vtable(this).Struct)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u8>(result__)
         })
     }
     #[doc(hidden)]
@@ -3395,119 +3395,119 @@ impl GattProtocolError {
     pub fn InvalidHandle() -> ::windows::core::Result<u8> {
         Self::IGattProtocolErrorStatics(|this| unsafe {
             let mut result__: u8 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).InvalidHandle)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
+            (::windows::core::Interface::vtable(this).InvalidHandle)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u8>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn ReadNotPermitted() -> ::windows::core::Result<u8> {
         Self::IGattProtocolErrorStatics(|this| unsafe {
             let mut result__: u8 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ReadNotPermitted)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
+            (::windows::core::Interface::vtable(this).ReadNotPermitted)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u8>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn WriteNotPermitted() -> ::windows::core::Result<u8> {
         Self::IGattProtocolErrorStatics(|this| unsafe {
             let mut result__: u8 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).WriteNotPermitted)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
+            (::windows::core::Interface::vtable(this).WriteNotPermitted)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u8>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn InvalidPdu() -> ::windows::core::Result<u8> {
         Self::IGattProtocolErrorStatics(|this| unsafe {
             let mut result__: u8 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).InvalidPdu)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
+            (::windows::core::Interface::vtable(this).InvalidPdu)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u8>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn InsufficientAuthentication() -> ::windows::core::Result<u8> {
         Self::IGattProtocolErrorStatics(|this| unsafe {
             let mut result__: u8 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).InsufficientAuthentication)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
+            (::windows::core::Interface::vtable(this).InsufficientAuthentication)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u8>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn RequestNotSupported() -> ::windows::core::Result<u8> {
         Self::IGattProtocolErrorStatics(|this| unsafe {
             let mut result__: u8 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RequestNotSupported)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
+            (::windows::core::Interface::vtable(this).RequestNotSupported)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u8>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn InvalidOffset() -> ::windows::core::Result<u8> {
         Self::IGattProtocolErrorStatics(|this| unsafe {
             let mut result__: u8 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).InvalidOffset)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
+            (::windows::core::Interface::vtable(this).InvalidOffset)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u8>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn InsufficientAuthorization() -> ::windows::core::Result<u8> {
         Self::IGattProtocolErrorStatics(|this| unsafe {
             let mut result__: u8 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).InsufficientAuthorization)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
+            (::windows::core::Interface::vtable(this).InsufficientAuthorization)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u8>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn PrepareQueueFull() -> ::windows::core::Result<u8> {
         Self::IGattProtocolErrorStatics(|this| unsafe {
             let mut result__: u8 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PrepareQueueFull)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
+            (::windows::core::Interface::vtable(this).PrepareQueueFull)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u8>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn AttributeNotFound() -> ::windows::core::Result<u8> {
         Self::IGattProtocolErrorStatics(|this| unsafe {
             let mut result__: u8 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AttributeNotFound)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
+            (::windows::core::Interface::vtable(this).AttributeNotFound)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u8>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn AttributeNotLong() -> ::windows::core::Result<u8> {
         Self::IGattProtocolErrorStatics(|this| unsafe {
             let mut result__: u8 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AttributeNotLong)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
+            (::windows::core::Interface::vtable(this).AttributeNotLong)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u8>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn InsufficientEncryptionKeySize() -> ::windows::core::Result<u8> {
         Self::IGattProtocolErrorStatics(|this| unsafe {
             let mut result__: u8 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).InsufficientEncryptionKeySize)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
+            (::windows::core::Interface::vtable(this).InsufficientEncryptionKeySize)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u8>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn InvalidAttributeValueLength() -> ::windows::core::Result<u8> {
         Self::IGattProtocolErrorStatics(|this| unsafe {
             let mut result__: u8 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).InvalidAttributeValueLength)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
+            (::windows::core::Interface::vtable(this).InvalidAttributeValueLength)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u8>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn UnlikelyError() -> ::windows::core::Result<u8> {
         Self::IGattProtocolErrorStatics(|this| unsafe {
             let mut result__: u8 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).UnlikelyError)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
+            (::windows::core::Interface::vtable(this).UnlikelyError)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u8>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn InsufficientEncryption() -> ::windows::core::Result<u8> {
         Self::IGattProtocolErrorStatics(|this| unsafe {
             let mut result__: u8 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).InsufficientEncryption)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
+            (::windows::core::Interface::vtable(this).InsufficientEncryption)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u8>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn UnsupportedGroupType() -> ::windows::core::Result<u8> {
         Self::IGattProtocolErrorStatics(|this| unsafe {
             let mut result__: u8 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).UnsupportedGroupType)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
+            (::windows::core::Interface::vtable(this).UnsupportedGroupType)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u8>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn InsufficientResources() -> ::windows::core::Result<u8> {
         Self::IGattProtocolErrorStatics(|this| unsafe {
             let mut result__: u8 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).InsufficientResources)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
+            (::windows::core::Interface::vtable(this).InsufficientResources)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u8>(result__)
         })
     }
     #[doc(hidden)]
@@ -3528,7 +3528,7 @@ impl GattReadClientCharacteristicConfigurationDescriptorResult {
         let this = self;
         unsafe {
             let mut result__: GattCommunicationStatus = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Status)(::core::mem::transmute_copy(this), &mut result__).from_abi::<GattCommunicationStatus>(result__)
+            (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<GattCommunicationStatus>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
@@ -3536,7 +3536,7 @@ impl GattReadClientCharacteristicConfigurationDescriptorResult {
         let this = self;
         unsafe {
             let mut result__: GattClientCharacteristicConfigurationDescriptorValue = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ClientCharacteristicConfigurationDescriptor)(::core::mem::transmute_copy(this), &mut result__).from_abi::<GattClientCharacteristicConfigurationDescriptorValue>(result__)
+            (::windows::core::Interface::vtable(this).ClientCharacteristicConfigurationDescriptor)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<GattClientCharacteristicConfigurationDescriptorValue>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`, `\"Foundation\"`*"]
@@ -3545,7 +3545,7 @@ impl GattReadClientCharacteristicConfigurationDescriptorResult {
         let this = &::windows::core::Interface::cast::<IGattReadClientCharacteristicConfigurationDescriptorResult2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ProtocolError)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<u8>>(result__)
+            (::windows::core::Interface::vtable(this).ProtocolError)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<u8>>(result__)
         }
     }
 }
@@ -3630,7 +3630,7 @@ impl GattReadRequest {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Offset)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).Offset)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
@@ -3638,7 +3638,7 @@ impl GattReadRequest {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Length)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).Length)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
@@ -3646,7 +3646,7 @@ impl GattReadRequest {
         let this = self;
         unsafe {
             let mut result__: GattRequestState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).State)(::core::mem::transmute_copy(this), &mut result__).from_abi::<GattRequestState>(result__)
+            (::windows::core::Interface::vtable(this).State)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<GattRequestState>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`, `\"Foundation\"`*"]
@@ -3655,25 +3655,25 @@ impl GattReadRequest {
         let this = self;
         unsafe {
             let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).StateChanged)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).StateChanged)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveStateChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveStateChanged)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveStateChanged)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn RespondWithValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Storage::Streams::IBuffer>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RespondWithValue)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RespondWithValue)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn RespondWithProtocolError(&self, protocolerror: u8) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RespondWithProtocolError)(::core::mem::transmute_copy(this), protocolerror).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RespondWithProtocolError)(::windows::core::Interface::as_raw(this), protocolerror).ok() }
     }
 }
 impl ::core::clone::Clone for GattReadRequest {
@@ -3757,7 +3757,7 @@ impl GattReadRequestedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Session)(::core::mem::transmute_copy(this), &mut result__).from_abi::<GattSession>(result__)
+            (::windows::core::Interface::vtable(this).Session)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<GattSession>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`, `\"Foundation\"`*"]
@@ -3766,7 +3766,7 @@ impl GattReadRequestedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetDeferral)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Deferral>(result__)
+            (::windows::core::Interface::vtable(this).GetDeferral)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::Deferral>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`, `\"Foundation\"`*"]
@@ -3775,7 +3775,7 @@ impl GattReadRequestedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetRequestAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<GattReadRequest>>(result__)
+            (::windows::core::Interface::vtable(this).GetRequestAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<GattReadRequest>>(result__)
         }
     }
 }
@@ -3860,7 +3860,7 @@ impl GattReadResult {
         let this = self;
         unsafe {
             let mut result__: GattCommunicationStatus = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Status)(::core::mem::transmute_copy(this), &mut result__).from_abi::<GattCommunicationStatus>(result__)
+            (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<GattCommunicationStatus>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`, `\"Storage_Streams\"`*"]
@@ -3869,7 +3869,7 @@ impl GattReadResult {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Value)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Storage::Streams::IBuffer>(result__)
+            (::windows::core::Interface::vtable(this).Value)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Storage::Streams::IBuffer>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`, `\"Foundation\"`*"]
@@ -3878,7 +3878,7 @@ impl GattReadResult {
         let this = &::windows::core::Interface::cast::<IGattReadResult2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ProtocolError)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<u8>>(result__)
+            (::windows::core::Interface::vtable(this).ProtocolError)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<u8>>(result__)
         }
     }
 }
@@ -3969,7 +3969,7 @@ impl GattReliableWriteTransaction {
     #[cfg(feature = "Storage_Streams")]
     pub fn WriteValue<'a, Param0: ::windows::core::IntoParam<'a, GattCharacteristic>, Param1: ::windows::core::IntoParam<'a, super::super::super::Storage::Streams::IBuffer>>(&self, characteristic: Param0, value: Param1) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).WriteValue)(::core::mem::transmute_copy(this), characteristic.into_param().abi(), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).WriteValue)(::windows::core::Interface::as_raw(this), characteristic.into_param().abi(), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -3977,7 +3977,7 @@ impl GattReliableWriteTransaction {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CommitAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<GattCommunicationStatus>>(result__)
+            (::windows::core::Interface::vtable(this).CommitAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<GattCommunicationStatus>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`, `\"Foundation\"`*"]
@@ -3986,7 +3986,7 @@ impl GattReliableWriteTransaction {
         let this = &::windows::core::Interface::cast::<IGattReliableWriteTransaction2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CommitWithResultAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<GattWriteResult>>(result__)
+            (::windows::core::Interface::vtable(this).CommitWithResultAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<GattWriteResult>>(result__)
         }
     }
 }
@@ -4106,7 +4106,7 @@ impl GattRequestStateChangedEventArgs {
         let this = self;
         unsafe {
             let mut result__: GattRequestState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).State)(::core::mem::transmute_copy(this), &mut result__).from_abi::<GattRequestState>(result__)
+            (::windows::core::Interface::vtable(this).State)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<GattRequestState>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
@@ -4114,7 +4114,7 @@ impl GattRequestStateChangedEventArgs {
         let this = self;
         unsafe {
             let mut result__: super::BluetoothError = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Error)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::BluetoothError>(result__)
+            (::windows::core::Interface::vtable(this).Error)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::BluetoothError>(result__)
         }
     }
 }
@@ -4199,7 +4199,7 @@ impl GattServiceProvider {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Service)(::core::mem::transmute_copy(this), &mut result__).from_abi::<GattLocalService>(result__)
+            (::windows::core::Interface::vtable(this).Service)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<GattLocalService>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
@@ -4207,7 +4207,7 @@ impl GattServiceProvider {
         let this = self;
         unsafe {
             let mut result__: GattServiceProviderAdvertisementStatus = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AdvertisementStatus)(::core::mem::transmute_copy(this), &mut result__).from_abi::<GattServiceProviderAdvertisementStatus>(result__)
+            (::windows::core::Interface::vtable(this).AdvertisementStatus)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<GattServiceProviderAdvertisementStatus>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`, `\"Foundation\"`*"]
@@ -4216,36 +4216,36 @@ impl GattServiceProvider {
         let this = self;
         unsafe {
             let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AdvertisementStatusChanged)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).AdvertisementStatusChanged)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveAdvertisementStatusChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveAdvertisementStatusChanged)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveAdvertisementStatusChanged)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn StartAdvertising(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).StartAdvertising)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).StartAdvertising)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn StartAdvertisingWithParameters<'a, Param0: ::windows::core::IntoParam<'a, GattServiceProviderAdvertisingParameters>>(&self, parameters: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).StartAdvertisingWithParameters)(::core::mem::transmute_copy(this), parameters.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).StartAdvertisingWithParameters)(::windows::core::Interface::as_raw(this), parameters.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn StopAdvertising(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).StopAdvertising)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).StopAdvertising)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn CreateAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(serviceuuid: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattServiceProviderResult>> {
         Self::IGattServiceProviderStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateAsync)(::core::mem::transmute_copy(this), serviceuuid.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<GattServiceProviderResult>>(result__)
+            (::windows::core::Interface::vtable(this).CreateAsync)(::windows::core::Interface::as_raw(this), serviceuuid.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<GattServiceProviderResult>>(result__)
         })
     }
     #[doc(hidden)]
@@ -4372,7 +4372,7 @@ impl GattServiceProviderAdvertisementStatusChangedEventArgs {
         let this = self;
         unsafe {
             let mut result__: super::BluetoothError = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Error)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::BluetoothError>(result__)
+            (::windows::core::Interface::vtable(this).Error)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::BluetoothError>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
@@ -4380,7 +4380,7 @@ impl GattServiceProviderAdvertisementStatusChangedEventArgs {
         let this = self;
         unsafe {
             let mut result__: GattServiceProviderAdvertisementStatus = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Status)(::core::mem::transmute_copy(this), &mut result__).from_abi::<GattServiceProviderAdvertisementStatus>(result__)
+            (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<GattServiceProviderAdvertisementStatus>(result__)
         }
     }
 }
@@ -4470,34 +4470,34 @@ impl GattServiceProviderAdvertisingParameters {
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn SetIsConnectable(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetIsConnectable)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetIsConnectable)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn IsConnectable(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsConnectable)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsConnectable)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn SetIsDiscoverable(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetIsDiscoverable)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetIsDiscoverable)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn IsDiscoverable(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsDiscoverable)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsDiscoverable)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn SetServiceData<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Storage::Streams::IBuffer>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IGattServiceProviderAdvertisingParameters2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetServiceData)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetServiceData)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
@@ -4505,7 +4505,7 @@ impl GattServiceProviderAdvertisingParameters {
         let this = &::windows::core::Interface::cast::<IGattServiceProviderAdvertisingParameters2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ServiceData)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Storage::Streams::IBuffer>(result__)
+            (::windows::core::Interface::vtable(this).ServiceData)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Storage::Streams::IBuffer>(result__)
         }
     }
 }
@@ -4590,7 +4590,7 @@ impl GattServiceProviderResult {
         let this = self;
         unsafe {
             let mut result__: super::BluetoothError = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Error)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::BluetoothError>(result__)
+            (::windows::core::Interface::vtable(this).Error)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::BluetoothError>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
@@ -4598,7 +4598,7 @@ impl GattServiceProviderResult {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ServiceProvider)(::core::mem::transmute_copy(this), &mut result__).from_abi::<GattServiceProvider>(result__)
+            (::windows::core::Interface::vtable(this).ServiceProvider)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<GattServiceProvider>(result__)
         }
     }
 }
@@ -4681,154 +4681,154 @@ impl GattServiceUuids {
     pub fn Battery() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattServiceUuidsStatics(|this| unsafe {
             let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Battery)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
+            (::windows::core::Interface::vtable(this).Battery)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn BloodPressure() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattServiceUuidsStatics(|this| unsafe {
             let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).BloodPressure)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
+            (::windows::core::Interface::vtable(this).BloodPressure)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn CyclingSpeedAndCadence() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattServiceUuidsStatics(|this| unsafe {
             let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CyclingSpeedAndCadence)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
+            (::windows::core::Interface::vtable(this).CyclingSpeedAndCadence)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn GenericAccess() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattServiceUuidsStatics(|this| unsafe {
             let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GenericAccess)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
+            (::windows::core::Interface::vtable(this).GenericAccess)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn GenericAttribute() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattServiceUuidsStatics(|this| unsafe {
             let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GenericAttribute)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
+            (::windows::core::Interface::vtable(this).GenericAttribute)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn Glucose() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattServiceUuidsStatics(|this| unsafe {
             let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Glucose)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
+            (::windows::core::Interface::vtable(this).Glucose)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn HealthThermometer() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattServiceUuidsStatics(|this| unsafe {
             let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).HealthThermometer)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
+            (::windows::core::Interface::vtable(this).HealthThermometer)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn HeartRate() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattServiceUuidsStatics(|this| unsafe {
             let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).HeartRate)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
+            (::windows::core::Interface::vtable(this).HeartRate)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn RunningSpeedAndCadence() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattServiceUuidsStatics(|this| unsafe {
             let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RunningSpeedAndCadence)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
+            (::windows::core::Interface::vtable(this).RunningSpeedAndCadence)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn AlertNotification() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattServiceUuidsStatics2(|this| unsafe {
             let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AlertNotification)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
+            (::windows::core::Interface::vtable(this).AlertNotification)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn CurrentTime() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattServiceUuidsStatics2(|this| unsafe {
             let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CurrentTime)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
+            (::windows::core::Interface::vtable(this).CurrentTime)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn CyclingPower() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattServiceUuidsStatics2(|this| unsafe {
             let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CyclingPower)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
+            (::windows::core::Interface::vtable(this).CyclingPower)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn DeviceInformation() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattServiceUuidsStatics2(|this| unsafe {
             let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DeviceInformation)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
+            (::windows::core::Interface::vtable(this).DeviceInformation)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn HumanInterfaceDevice() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattServiceUuidsStatics2(|this| unsafe {
             let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).HumanInterfaceDevice)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
+            (::windows::core::Interface::vtable(this).HumanInterfaceDevice)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn ImmediateAlert() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattServiceUuidsStatics2(|this| unsafe {
             let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ImmediateAlert)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
+            (::windows::core::Interface::vtable(this).ImmediateAlert)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn LinkLoss() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattServiceUuidsStatics2(|this| unsafe {
             let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).LinkLoss)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
+            (::windows::core::Interface::vtable(this).LinkLoss)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn LocationAndNavigation() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattServiceUuidsStatics2(|this| unsafe {
             let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).LocationAndNavigation)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
+            (::windows::core::Interface::vtable(this).LocationAndNavigation)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn NextDstChange() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattServiceUuidsStatics2(|this| unsafe {
             let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).NextDstChange)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
+            (::windows::core::Interface::vtable(this).NextDstChange)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn PhoneAlertStatus() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattServiceUuidsStatics2(|this| unsafe {
             let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PhoneAlertStatus)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
+            (::windows::core::Interface::vtable(this).PhoneAlertStatus)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn ReferenceTimeUpdate() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattServiceUuidsStatics2(|this| unsafe {
             let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ReferenceTimeUpdate)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
+            (::windows::core::Interface::vtable(this).ReferenceTimeUpdate)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn ScanParameters() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattServiceUuidsStatics2(|this| unsafe {
             let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ScanParameters)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
+            (::windows::core::Interface::vtable(this).ScanParameters)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn TxPower() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattServiceUuidsStatics2(|this| unsafe {
             let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TxPower)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
+            (::windows::core::Interface::vtable(this).TxPower)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         })
     }
     #[doc(hidden)]
@@ -4853,14 +4853,14 @@ impl GattSession {
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::IClosable>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).Close)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn DeviceId(&self) -> ::windows::core::Result<super::BluetoothDeviceId> {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DeviceId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::BluetoothDeviceId>(result__)
+            (::windows::core::Interface::vtable(this).DeviceId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::BluetoothDeviceId>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
@@ -4868,20 +4868,20 @@ impl GattSession {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CanMaintainConnection)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).CanMaintainConnection)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn SetMaintainConnection(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetMaintainConnection)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetMaintainConnection)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn MaintainConnection(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MaintainConnection)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).MaintainConnection)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
@@ -4889,7 +4889,7 @@ impl GattSession {
         let this = self;
         unsafe {
             let mut result__: u16 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MaxPduSize)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
+            (::windows::core::Interface::vtable(this).MaxPduSize)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u16>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
@@ -4897,7 +4897,7 @@ impl GattSession {
         let this = self;
         unsafe {
             let mut result__: GattSessionStatus = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SessionStatus)(::core::mem::transmute_copy(this), &mut result__).from_abi::<GattSessionStatus>(result__)
+            (::windows::core::Interface::vtable(this).SessionStatus)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<GattSessionStatus>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`, `\"Foundation\"`*"]
@@ -4906,14 +4906,14 @@ impl GattSession {
         let this = self;
         unsafe {
             let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MaxPduSizeChanged)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).MaxPduSizeChanged)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveMaxPduSizeChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveMaxPduSizeChanged)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveMaxPduSizeChanged)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -4921,21 +4921,21 @@ impl GattSession {
         let this = self;
         unsafe {
             let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SessionStatusChanged)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).SessionStatusChanged)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveSessionStatusChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveSessionStatusChanged)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveSessionStatusChanged)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn FromDeviceIdAsync<'a, Param0: ::windows::core::IntoParam<'a, super::BluetoothDeviceId>>(deviceid: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattSession>> {
         Self::IGattSessionStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FromDeviceIdAsync)(::core::mem::transmute_copy(this), deviceid.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<GattSession>>(result__)
+            (::windows::core::Interface::vtable(this).FromDeviceIdAsync)(::windows::core::Interface::as_raw(this), deviceid.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<GattSession>>(result__)
         })
     }
     #[doc(hidden)]
@@ -5085,7 +5085,7 @@ impl GattSessionStatusChangedEventArgs {
         let this = self;
         unsafe {
             let mut result__: super::BluetoothError = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Error)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::BluetoothError>(result__)
+            (::windows::core::Interface::vtable(this).Error)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::BluetoothError>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
@@ -5093,7 +5093,7 @@ impl GattSessionStatusChangedEventArgs {
         let this = self;
         unsafe {
             let mut result__: GattSessionStatus = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Status)(::core::mem::transmute_copy(this), &mut result__).from_abi::<GattSessionStatus>(result__)
+            (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<GattSessionStatus>(result__)
         }
     }
 }
@@ -5214,7 +5214,7 @@ impl GattSubscribedClient {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Session)(::core::mem::transmute_copy(this), &mut result__).from_abi::<GattSession>(result__)
+            (::windows::core::Interface::vtable(this).Session)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<GattSession>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
@@ -5222,7 +5222,7 @@ impl GattSubscribedClient {
         let this = self;
         unsafe {
             let mut result__: u16 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MaxNotificationSize)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
+            (::windows::core::Interface::vtable(this).MaxNotificationSize)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u16>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`, `\"Foundation\"`*"]
@@ -5231,14 +5231,14 @@ impl GattSubscribedClient {
         let this = self;
         unsafe {
             let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MaxNotificationSizeChanged)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).MaxNotificationSizeChanged)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveMaxNotificationSizeChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveMaxNotificationSizeChanged)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveMaxNotificationSizeChanged)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
 }
 impl ::core::clone::Clone for GattSubscribedClient {
@@ -5323,7 +5323,7 @@ impl GattValueChangedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CharacteristicValue)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Storage::Streams::IBuffer>(result__)
+            (::windows::core::Interface::vtable(this).CharacteristicValue)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Storage::Streams::IBuffer>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`, `\"Foundation\"`*"]
@@ -5332,7 +5332,7 @@ impl GattValueChangedEventArgs {
         let this = self;
         unsafe {
             let mut result__: super::super::super::Foundation::DateTime = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Timestamp)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::DateTime>(result__)
+            (::windows::core::Interface::vtable(this).Timestamp)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::DateTime>(result__)
         }
     }
 }
@@ -5452,7 +5452,7 @@ impl GattWriteRequest {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Value)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Storage::Streams::IBuffer>(result__)
+            (::windows::core::Interface::vtable(this).Value)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Storage::Streams::IBuffer>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
@@ -5460,7 +5460,7 @@ impl GattWriteRequest {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Offset)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).Offset)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
@@ -5468,7 +5468,7 @@ impl GattWriteRequest {
         let this = self;
         unsafe {
             let mut result__: GattWriteOption = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Option)(::core::mem::transmute_copy(this), &mut result__).from_abi::<GattWriteOption>(result__)
+            (::windows::core::Interface::vtable(this).Option)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<GattWriteOption>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
@@ -5476,7 +5476,7 @@ impl GattWriteRequest {
         let this = self;
         unsafe {
             let mut result__: GattRequestState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).State)(::core::mem::transmute_copy(this), &mut result__).from_abi::<GattRequestState>(result__)
+            (::windows::core::Interface::vtable(this).State)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<GattRequestState>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`, `\"Foundation\"`*"]
@@ -5485,24 +5485,24 @@ impl GattWriteRequest {
         let this = self;
         unsafe {
             let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).StateChanged)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).StateChanged)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveStateChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveStateChanged)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveStateChanged)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn Respond(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Respond)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Respond)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn RespondWithProtocolError(&self, protocolerror: u8) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RespondWithProtocolError)(::core::mem::transmute_copy(this), protocolerror).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RespondWithProtocolError)(::windows::core::Interface::as_raw(this), protocolerror).ok() }
     }
 }
 impl ::core::clone::Clone for GattWriteRequest {
@@ -5586,7 +5586,7 @@ impl GattWriteRequestedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Session)(::core::mem::transmute_copy(this), &mut result__).from_abi::<GattSession>(result__)
+            (::windows::core::Interface::vtable(this).Session)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<GattSession>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`, `\"Foundation\"`*"]
@@ -5595,7 +5595,7 @@ impl GattWriteRequestedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetDeferral)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Deferral>(result__)
+            (::windows::core::Interface::vtable(this).GetDeferral)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::Deferral>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`, `\"Foundation\"`*"]
@@ -5604,7 +5604,7 @@ impl GattWriteRequestedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetRequestAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<GattWriteRequest>>(result__)
+            (::windows::core::Interface::vtable(this).GetRequestAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<GattWriteRequest>>(result__)
         }
     }
 }
@@ -5689,7 +5689,7 @@ impl GattWriteResult {
         let this = self;
         unsafe {
             let mut result__: GattCommunicationStatus = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Status)(::core::mem::transmute_copy(this), &mut result__).from_abi::<GattCommunicationStatus>(result__)
+            (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<GattCommunicationStatus>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`, `\"Foundation\"`*"]
@@ -5698,7 +5698,7 @@ impl GattWriteResult {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ProtocolError)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<u8>>(result__)
+            (::windows::core::Interface::vtable(this).ProtocolError)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<u8>>(result__)
         }
     }
 }

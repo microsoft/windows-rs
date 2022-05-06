@@ -44,7 +44,7 @@ impl AlternateWordForm {
         let this = self;
         unsafe {
             let mut result__: TextSegment = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SourceTextSegment)(::core::mem::transmute_copy(this), &mut result__).from_abi::<TextSegment>(result__)
+            (::windows::core::Interface::vtable(this).SourceTextSegment)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<TextSegment>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Text\"`*"]
@@ -52,7 +52,7 @@ impl AlternateWordForm {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AlternateText)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).AlternateText)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Text\"`*"]
@@ -60,7 +60,7 @@ impl AlternateWordForm {
         let this = self;
         unsafe {
             let mut result__: AlternateNormalizationFormat = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).NormalizationFormat)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AlternateNormalizationFormat>(result__)
+            (::windows::core::Interface::vtable(this).NormalizationFormat)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<AlternateNormalizationFormat>(result__)
         }
     }
 }
@@ -484,7 +484,7 @@ impl SelectableWordSegment {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Text)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Text)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Text\"`*"]
@@ -492,7 +492,7 @@ impl SelectableWordSegment {
         let this = self;
         unsafe {
             let mut result__: TextSegment = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SourceTextSegment)(::core::mem::transmute_copy(this), &mut result__).from_abi::<TextSegment>(result__)
+            (::windows::core::Interface::vtable(this).SourceTextSegment)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<TextSegment>(result__)
         }
     }
 }
@@ -582,7 +582,7 @@ impl SelectableWordSegmentsTokenizingHandler {
     #[cfg(feature = "Foundation_Collections")]
     pub fn Invoke<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<SelectableWordSegment>>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<SelectableWordSegment>>>(&self, precedingwords: Param0, words: Param1) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Invoke)(::core::mem::transmute_copy(this), precedingwords.into_param().abi(), words.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Invoke)(::windows::core::Interface::as_raw(this), precedingwords.into_param().abi(), words.into_param().abi()).ok() }
     }
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -598,7 +598,7 @@ impl<F: FnMut(&::core::option::Option<super::super::Foundation::Collections::IIt
         base__: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
         Invoke: Self::Invoke,
     };
-    unsafe extern "system" fn QueryInterface(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+    unsafe extern "system" fn QueryInterface(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
         *interface = if iid == &<SelectableWordSegmentsTokenizingHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
         if (*interface).is_null() {
@@ -677,7 +677,7 @@ impl SelectableWordsSegmenter {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ResolvedLanguage)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).ResolvedLanguage)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Text\"`*"]
@@ -685,7 +685,7 @@ impl SelectableWordsSegmenter {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetTokenAt)(::core::mem::transmute_copy(this), text.into_param().abi(), startindex, &mut result__).from_abi::<SelectableWordSegment>(result__)
+            (::windows::core::Interface::vtable(this).GetTokenAt)(::windows::core::Interface::as_raw(this), text.into_param().abi(), startindex, &mut result__).from_abi::<SelectableWordSegment>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Text\"`, `\"Foundation_Collections\"`*"]
@@ -694,20 +694,20 @@ impl SelectableWordsSegmenter {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetTokens)(::core::mem::transmute_copy(this), text.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<SelectableWordSegment>>(result__)
+            (::windows::core::Interface::vtable(this).GetTokens)(::windows::core::Interface::as_raw(this), text.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<SelectableWordSegment>>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Text\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Tokenize<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, SelectableWordSegmentsTokenizingHandler>>(&self, text: Param0, startindex: u32, handler: Param2) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Tokenize)(::core::mem::transmute_copy(this), text.into_param().abi(), startindex, handler.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Tokenize)(::windows::core::Interface::as_raw(this), text.into_param().abi(), startindex, handler.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Data_Text\"`*"]
     pub fn CreateWithLanguage<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(language: Param0) -> ::windows::core::Result<SelectableWordsSegmenter> {
         Self::ISelectableWordsSegmenterFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateWithLanguage)(::core::mem::transmute_copy(this), language.into_param().abi(), &mut result__).from_abi::<SelectableWordsSegmenter>(result__)
+            (::windows::core::Interface::vtable(this).CreateWithLanguage)(::windows::core::Interface::as_raw(this), language.into_param().abi(), &mut result__).from_abi::<SelectableWordsSegmenter>(result__)
         })
     }
     #[doc(hidden)]
@@ -798,7 +798,7 @@ impl SemanticTextQuery {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Find)(::core::mem::transmute_copy(this), content.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<TextSegment>>(result__)
+            (::windows::core::Interface::vtable(this).Find)(::windows::core::Interface::as_raw(this), content.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<TextSegment>>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Text\"`, `\"Foundation_Collections\"`*"]
@@ -807,21 +807,21 @@ impl SemanticTextQuery {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FindInProperty)(::core::mem::transmute_copy(this), propertycontent.into_param().abi(), propertyname.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<TextSegment>>(result__)
+            (::windows::core::Interface::vtable(this).FindInProperty)(::windows::core::Interface::as_raw(this), propertycontent.into_param().abi(), propertyname.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<TextSegment>>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Text\"`*"]
     pub fn Create<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(aqsfilter: Param0) -> ::windows::core::Result<SemanticTextQuery> {
         Self::ISemanticTextQueryFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::core::mem::transmute_copy(this), aqsfilter.into_param().abi(), &mut result__).from_abi::<SemanticTextQuery>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), aqsfilter.into_param().abi(), &mut result__).from_abi::<SemanticTextQuery>(result__)
         })
     }
     #[doc = "*Required features: `\"Data_Text\"`*"]
     pub fn CreateWithLanguage<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(aqsfilter: Param0, filterlanguage: Param1) -> ::windows::core::Result<SemanticTextQuery> {
         Self::ISemanticTextQueryFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateWithLanguage)(::core::mem::transmute_copy(this), aqsfilter.into_param().abi(), filterlanguage.into_param().abi(), &mut result__).from_abi::<SemanticTextQuery>(result__)
+            (::windows::core::Interface::vtable(this).CreateWithLanguage)(::windows::core::Interface::as_raw(this), aqsfilter.into_param().abi(), filterlanguage.into_param().abi(), &mut result__).from_abi::<SemanticTextQuery>(result__)
         })
     }
     #[doc(hidden)]
@@ -911,7 +911,7 @@ impl TextConversionGenerator {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ResolvedLanguage)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).ResolvedLanguage)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Text\"`*"]
@@ -919,7 +919,7 @@ impl TextConversionGenerator {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).LanguageAvailableButNotInstalled)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).LanguageAvailableButNotInstalled)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Text\"`, `\"Foundation_Collections\"`*"]
@@ -928,7 +928,7 @@ impl TextConversionGenerator {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetCandidatesAsync)(::core::mem::transmute_copy(this), input.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>>(result__)
+            (::windows::core::Interface::vtable(this).GetCandidatesAsync)(::windows::core::Interface::as_raw(this), input.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Text\"`, `\"Foundation_Collections\"`*"]
@@ -937,14 +937,14 @@ impl TextConversionGenerator {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetCandidatesWithMaxCountAsync)(::core::mem::transmute_copy(this), input.into_param().abi(), maxcandidates, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>>(result__)
+            (::windows::core::Interface::vtable(this).GetCandidatesWithMaxCountAsync)(::windows::core::Interface::as_raw(this), input.into_param().abi(), maxcandidates, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Text\"`*"]
     pub fn Create<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(languagetag: Param0) -> ::windows::core::Result<TextConversionGenerator> {
         Self::ITextConversionGeneratorFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::core::mem::transmute_copy(this), languagetag.into_param().abi(), &mut result__).from_abi::<TextConversionGenerator>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), languagetag.into_param().abi(), &mut result__).from_abi::<TextConversionGenerator>(result__)
         })
     }
     #[doc(hidden)]
@@ -1034,7 +1034,7 @@ impl TextPhoneme {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DisplayText)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).DisplayText)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Text\"`*"]
@@ -1042,7 +1042,7 @@ impl TextPhoneme {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ReadingText)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).ReadingText)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
 }
@@ -1127,7 +1127,7 @@ impl TextPredictionGenerator {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ResolvedLanguage)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).ResolvedLanguage)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Text\"`*"]
@@ -1135,7 +1135,7 @@ impl TextPredictionGenerator {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).LanguageAvailableButNotInstalled)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).LanguageAvailableButNotInstalled)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Text\"`, `\"Foundation_Collections\"`*"]
@@ -1144,7 +1144,7 @@ impl TextPredictionGenerator {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetCandidatesAsync)(::core::mem::transmute_copy(this), input.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>>(result__)
+            (::windows::core::Interface::vtable(this).GetCandidatesAsync)(::windows::core::Interface::as_raw(this), input.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Text\"`, `\"Foundation_Collections\"`*"]
@@ -1153,7 +1153,7 @@ impl TextPredictionGenerator {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetCandidatesWithMaxCountAsync)(::core::mem::transmute_copy(this), input.into_param().abi(), maxcandidates, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>>(result__)
+            (::windows::core::Interface::vtable(this).GetCandidatesWithMaxCountAsync)(::windows::core::Interface::as_raw(this), input.into_param().abi(), maxcandidates, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Text\"`, `\"Foundation_Collections\"`*"]
@@ -1162,7 +1162,7 @@ impl TextPredictionGenerator {
         let this = &::windows::core::Interface::cast::<ITextPredictionGenerator2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetCandidatesWithParametersAsync)(::core::mem::transmute_copy(this), input.into_param().abi(), maxcandidates, predictionoptions, previousstrings.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>>(result__)
+            (::windows::core::Interface::vtable(this).GetCandidatesWithParametersAsync)(::windows::core::Interface::as_raw(this), input.into_param().abi(), maxcandidates, predictionoptions, previousstrings.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Text\"`, `\"Foundation_Collections\"`*"]
@@ -1171,7 +1171,7 @@ impl TextPredictionGenerator {
         let this = &::windows::core::Interface::cast::<ITextPredictionGenerator2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetNextWordCandidatesAsync)(::core::mem::transmute_copy(this), maxcandidates, previousstrings.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>>(result__)
+            (::windows::core::Interface::vtable(this).GetNextWordCandidatesAsync)(::windows::core::Interface::as_raw(this), maxcandidates, previousstrings.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Text\"`, `\"UI_Text_Core\"`*"]
@@ -1180,20 +1180,20 @@ impl TextPredictionGenerator {
         let this = &::windows::core::Interface::cast::<ITextPredictionGenerator2>(self)?;
         unsafe {
             let mut result__: super::super::UI::Text::Core::CoreTextInputScope = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).InputScope)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::UI::Text::Core::CoreTextInputScope>(result__)
+            (::windows::core::Interface::vtable(this).InputScope)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::UI::Text::Core::CoreTextInputScope>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Text\"`, `\"UI_Text_Core\"`*"]
     #[cfg(feature = "UI_Text_Core")]
     pub fn SetInputScope(&self, value: super::super::UI::Text::Core::CoreTextInputScope) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITextPredictionGenerator2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetInputScope)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetInputScope)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Data_Text\"`*"]
     pub fn Create<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(languagetag: Param0) -> ::windows::core::Result<TextPredictionGenerator> {
         Self::ITextPredictionGeneratorFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::core::mem::transmute_copy(this), languagetag.into_param().abi(), &mut result__).from_abi::<TextPredictionGenerator>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), languagetag.into_param().abi(), &mut result__).from_abi::<TextPredictionGenerator>(result__)
         })
     }
     #[doc(hidden)]
@@ -1346,7 +1346,7 @@ impl TextReverseConversionGenerator {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ResolvedLanguage)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).ResolvedLanguage)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Text\"`*"]
@@ -1354,7 +1354,7 @@ impl TextReverseConversionGenerator {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).LanguageAvailableButNotInstalled)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).LanguageAvailableButNotInstalled)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Text\"`, `\"Foundation\"`*"]
@@ -1363,7 +1363,7 @@ impl TextReverseConversionGenerator {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ConvertBackAsync)(::core::mem::transmute_copy(this), input.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>(result__)
+            (::windows::core::Interface::vtable(this).ConvertBackAsync)(::windows::core::Interface::as_raw(this), input.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Text\"`, `\"Foundation_Collections\"`*"]
@@ -1372,14 +1372,14 @@ impl TextReverseConversionGenerator {
         let this = &::windows::core::Interface::cast::<ITextReverseConversionGenerator2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetPhonemesAsync)(::core::mem::transmute_copy(this), input.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<TextPhoneme>>>(result__)
+            (::windows::core::Interface::vtable(this).GetPhonemesAsync)(::windows::core::Interface::as_raw(this), input.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<TextPhoneme>>>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Text\"`*"]
     pub fn Create<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(languagetag: Param0) -> ::windows::core::Result<TextReverseConversionGenerator> {
         Self::ITextReverseConversionGeneratorFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::core::mem::transmute_copy(this), languagetag.into_param().abi(), &mut result__).from_abi::<TextReverseConversionGenerator>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), languagetag.into_param().abi(), &mut result__).from_abi::<TextReverseConversionGenerator>(result__)
         })
     }
     #[doc(hidden)]
@@ -1505,116 +1505,116 @@ impl UnicodeCharacters {
     pub fn GetCodepointFromSurrogatePair(highsurrogate: u32, lowsurrogate: u32) -> ::windows::core::Result<u32> {
         Self::IUnicodeCharactersStatics(|this| unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetCodepointFromSurrogatePair)(::core::mem::transmute_copy(this), highsurrogate, lowsurrogate, &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).GetCodepointFromSurrogatePair)(::windows::core::Interface::as_raw(this), highsurrogate, lowsurrogate, &mut result__).from_abi::<u32>(result__)
         })
     }
     #[doc = "*Required features: `\"Data_Text\"`*"]
     pub fn GetSurrogatePairFromCodepoint(codepoint: u32, highsurrogate: &mut u16, lowsurrogate: &mut u16) -> ::windows::core::Result<()> {
-        Self::IUnicodeCharactersStatics(|this| unsafe { (::windows::core::Interface::vtable(this).GetSurrogatePairFromCodepoint)(::core::mem::transmute_copy(this), codepoint, highsurrogate, lowsurrogate).ok() })
+        Self::IUnicodeCharactersStatics(|this| unsafe { (::windows::core::Interface::vtable(this).GetSurrogatePairFromCodepoint)(::windows::core::Interface::as_raw(this), codepoint, highsurrogate, lowsurrogate).ok() })
     }
     #[doc = "*Required features: `\"Data_Text\"`*"]
     pub fn IsHighSurrogate(codepoint: u32) -> ::windows::core::Result<bool> {
         Self::IUnicodeCharactersStatics(|this| unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsHighSurrogate)(::core::mem::transmute_copy(this), codepoint, &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsHighSurrogate)(::windows::core::Interface::as_raw(this), codepoint, &mut result__).from_abi::<bool>(result__)
         })
     }
     #[doc = "*Required features: `\"Data_Text\"`*"]
     pub fn IsLowSurrogate(codepoint: u32) -> ::windows::core::Result<bool> {
         Self::IUnicodeCharactersStatics(|this| unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsLowSurrogate)(::core::mem::transmute_copy(this), codepoint, &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsLowSurrogate)(::windows::core::Interface::as_raw(this), codepoint, &mut result__).from_abi::<bool>(result__)
         })
     }
     #[doc = "*Required features: `\"Data_Text\"`*"]
     pub fn IsSupplementary(codepoint: u32) -> ::windows::core::Result<bool> {
         Self::IUnicodeCharactersStatics(|this| unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsSupplementary)(::core::mem::transmute_copy(this), codepoint, &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsSupplementary)(::windows::core::Interface::as_raw(this), codepoint, &mut result__).from_abi::<bool>(result__)
         })
     }
     #[doc = "*Required features: `\"Data_Text\"`*"]
     pub fn IsNoncharacter(codepoint: u32) -> ::windows::core::Result<bool> {
         Self::IUnicodeCharactersStatics(|this| unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsNoncharacter)(::core::mem::transmute_copy(this), codepoint, &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsNoncharacter)(::windows::core::Interface::as_raw(this), codepoint, &mut result__).from_abi::<bool>(result__)
         })
     }
     #[doc = "*Required features: `\"Data_Text\"`*"]
     pub fn IsWhitespace(codepoint: u32) -> ::windows::core::Result<bool> {
         Self::IUnicodeCharactersStatics(|this| unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsWhitespace)(::core::mem::transmute_copy(this), codepoint, &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsWhitespace)(::windows::core::Interface::as_raw(this), codepoint, &mut result__).from_abi::<bool>(result__)
         })
     }
     #[doc = "*Required features: `\"Data_Text\"`*"]
     pub fn IsAlphabetic(codepoint: u32) -> ::windows::core::Result<bool> {
         Self::IUnicodeCharactersStatics(|this| unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsAlphabetic)(::core::mem::transmute_copy(this), codepoint, &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsAlphabetic)(::windows::core::Interface::as_raw(this), codepoint, &mut result__).from_abi::<bool>(result__)
         })
     }
     #[doc = "*Required features: `\"Data_Text\"`*"]
     pub fn IsCased(codepoint: u32) -> ::windows::core::Result<bool> {
         Self::IUnicodeCharactersStatics(|this| unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsCased)(::core::mem::transmute_copy(this), codepoint, &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsCased)(::windows::core::Interface::as_raw(this), codepoint, &mut result__).from_abi::<bool>(result__)
         })
     }
     #[doc = "*Required features: `\"Data_Text\"`*"]
     pub fn IsUppercase(codepoint: u32) -> ::windows::core::Result<bool> {
         Self::IUnicodeCharactersStatics(|this| unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsUppercase)(::core::mem::transmute_copy(this), codepoint, &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsUppercase)(::windows::core::Interface::as_raw(this), codepoint, &mut result__).from_abi::<bool>(result__)
         })
     }
     #[doc = "*Required features: `\"Data_Text\"`*"]
     pub fn IsLowercase(codepoint: u32) -> ::windows::core::Result<bool> {
         Self::IUnicodeCharactersStatics(|this| unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsLowercase)(::core::mem::transmute_copy(this), codepoint, &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsLowercase)(::windows::core::Interface::as_raw(this), codepoint, &mut result__).from_abi::<bool>(result__)
         })
     }
     #[doc = "*Required features: `\"Data_Text\"`*"]
     pub fn IsIdStart(codepoint: u32) -> ::windows::core::Result<bool> {
         Self::IUnicodeCharactersStatics(|this| unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsIdStart)(::core::mem::transmute_copy(this), codepoint, &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsIdStart)(::windows::core::Interface::as_raw(this), codepoint, &mut result__).from_abi::<bool>(result__)
         })
     }
     #[doc = "*Required features: `\"Data_Text\"`*"]
     pub fn IsIdContinue(codepoint: u32) -> ::windows::core::Result<bool> {
         Self::IUnicodeCharactersStatics(|this| unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsIdContinue)(::core::mem::transmute_copy(this), codepoint, &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsIdContinue)(::windows::core::Interface::as_raw(this), codepoint, &mut result__).from_abi::<bool>(result__)
         })
     }
     #[doc = "*Required features: `\"Data_Text\"`*"]
     pub fn IsGraphemeBase(codepoint: u32) -> ::windows::core::Result<bool> {
         Self::IUnicodeCharactersStatics(|this| unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsGraphemeBase)(::core::mem::transmute_copy(this), codepoint, &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsGraphemeBase)(::windows::core::Interface::as_raw(this), codepoint, &mut result__).from_abi::<bool>(result__)
         })
     }
     #[doc = "*Required features: `\"Data_Text\"`*"]
     pub fn IsGraphemeExtend(codepoint: u32) -> ::windows::core::Result<bool> {
         Self::IUnicodeCharactersStatics(|this| unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsGraphemeExtend)(::core::mem::transmute_copy(this), codepoint, &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsGraphemeExtend)(::windows::core::Interface::as_raw(this), codepoint, &mut result__).from_abi::<bool>(result__)
         })
     }
     #[doc = "*Required features: `\"Data_Text\"`*"]
     pub fn GetNumericType(codepoint: u32) -> ::windows::core::Result<UnicodeNumericType> {
         Self::IUnicodeCharactersStatics(|this| unsafe {
             let mut result__: UnicodeNumericType = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetNumericType)(::core::mem::transmute_copy(this), codepoint, &mut result__).from_abi::<UnicodeNumericType>(result__)
+            (::windows::core::Interface::vtable(this).GetNumericType)(::windows::core::Interface::as_raw(this), codepoint, &mut result__).from_abi::<UnicodeNumericType>(result__)
         })
     }
     #[doc = "*Required features: `\"Data_Text\"`*"]
     pub fn GetGeneralCategory(codepoint: u32) -> ::windows::core::Result<UnicodeGeneralCategory> {
         Self::IUnicodeCharactersStatics(|this| unsafe {
             let mut result__: UnicodeGeneralCategory = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetGeneralCategory)(::core::mem::transmute_copy(this), codepoint, &mut result__).from_abi::<UnicodeGeneralCategory>(result__)
+            (::windows::core::Interface::vtable(this).GetGeneralCategory)(::windows::core::Interface::as_raw(this), codepoint, &mut result__).from_abi::<UnicodeGeneralCategory>(result__)
         })
     }
     #[doc(hidden)]
@@ -1733,7 +1733,7 @@ impl WordSegment {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Text)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Text)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Text\"`*"]
@@ -1741,7 +1741,7 @@ impl WordSegment {
         let this = self;
         unsafe {
             let mut result__: TextSegment = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SourceTextSegment)(::core::mem::transmute_copy(this), &mut result__).from_abi::<TextSegment>(result__)
+            (::windows::core::Interface::vtable(this).SourceTextSegment)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<TextSegment>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Text\"`, `\"Foundation_Collections\"`*"]
@@ -1750,7 +1750,7 @@ impl WordSegment {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AlternateForms)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<AlternateWordForm>>(result__)
+            (::windows::core::Interface::vtable(this).AlternateForms)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<AlternateWordForm>>(result__)
         }
     }
 }
@@ -1840,7 +1840,7 @@ impl WordSegmentsTokenizingHandler {
     #[cfg(feature = "Foundation_Collections")]
     pub fn Invoke<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<WordSegment>>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<WordSegment>>>(&self, precedingwords: Param0, words: Param1) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Invoke)(::core::mem::transmute_copy(this), precedingwords.into_param().abi(), words.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Invoke)(::windows::core::Interface::as_raw(this), precedingwords.into_param().abi(), words.into_param().abi()).ok() }
     }
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -1856,7 +1856,7 @@ impl<F: FnMut(&::core::option::Option<super::super::Foundation::Collections::IIt
         base__: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
         Invoke: Self::Invoke,
     };
-    unsafe extern "system" fn QueryInterface(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+    unsafe extern "system" fn QueryInterface(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
         *interface = if iid == &<WordSegmentsTokenizingHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
         if (*interface).is_null() {
@@ -1935,7 +1935,7 @@ impl WordsSegmenter {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ResolvedLanguage)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).ResolvedLanguage)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Text\"`*"]
@@ -1943,7 +1943,7 @@ impl WordsSegmenter {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetTokenAt)(::core::mem::transmute_copy(this), text.into_param().abi(), startindex, &mut result__).from_abi::<WordSegment>(result__)
+            (::windows::core::Interface::vtable(this).GetTokenAt)(::windows::core::Interface::as_raw(this), text.into_param().abi(), startindex, &mut result__).from_abi::<WordSegment>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Text\"`, `\"Foundation_Collections\"`*"]
@@ -1952,20 +1952,20 @@ impl WordsSegmenter {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetTokens)(::core::mem::transmute_copy(this), text.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<WordSegment>>(result__)
+            (::windows::core::Interface::vtable(this).GetTokens)(::windows::core::Interface::as_raw(this), text.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<WordSegment>>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Text\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Tokenize<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, WordSegmentsTokenizingHandler>>(&self, text: Param0, startindex: u32, handler: Param2) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Tokenize)(::core::mem::transmute_copy(this), text.into_param().abi(), startindex, handler.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Tokenize)(::windows::core::Interface::as_raw(this), text.into_param().abi(), startindex, handler.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Data_Text\"`*"]
     pub fn CreateWithLanguage<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(language: Param0) -> ::windows::core::Result<WordsSegmenter> {
         Self::IWordsSegmenterFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateWithLanguage)(::core::mem::transmute_copy(this), language.into_param().abi(), &mut result__).from_abi::<WordsSegmenter>(result__)
+            (::windows::core::Interface::vtable(this).CreateWithLanguage)(::windows::core::Interface::as_raw(this), language.into_param().abi(), &mut result__).from_abi::<WordsSegmenter>(result__)
         })
     }
     #[doc(hidden)]

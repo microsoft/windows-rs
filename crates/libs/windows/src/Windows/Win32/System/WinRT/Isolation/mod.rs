@@ -6,7 +6,7 @@ impl IIsolatedEnvironmentInterop {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetHostHwndInterop<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>>(&self, containerhwnd: Param0) -> ::windows::core::Result<super::super::super::Foundation::HWND> {
         let mut result__: super::super::super::Foundation::HWND = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetHostHwndInterop)(::core::mem::transmute_copy(self), containerhwnd.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::HWND>(result__)
+        (::windows::core::Interface::vtable(self).GetHostHwndInterop)(::windows::core::Interface::as_raw(self), containerhwnd.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::HWND>(result__)
     }
 }
 impl ::core::convert::From<IIsolatedEnvironmentInterop> for ::windows::core::IUnknown {

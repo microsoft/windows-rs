@@ -8,7 +8,7 @@ impl DateTimeFormatter {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Languages)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>(result__)
+            (::windows::core::Interface::vtable(this).Languages)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>(result__)
         }
     }
     #[doc = "*Required features: `\"Globalization_DateTimeFormatting\"`*"]
@@ -16,7 +16,7 @@ impl DateTimeFormatter {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GeographicRegion)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).GeographicRegion)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Globalization_DateTimeFormatting\"`*"]
@@ -24,7 +24,7 @@ impl DateTimeFormatter {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Calendar)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Calendar)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Globalization_DateTimeFormatting\"`*"]
@@ -32,7 +32,7 @@ impl DateTimeFormatter {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Clock)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Clock)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Globalization_DateTimeFormatting\"`*"]
@@ -40,13 +40,13 @@ impl DateTimeFormatter {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).NumeralSystem)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).NumeralSystem)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Globalization_DateTimeFormatting\"`*"]
     pub fn SetNumeralSystem<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetNumeralSystem)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetNumeralSystem)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Globalization_DateTimeFormatting\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -54,7 +54,7 @@ impl DateTimeFormatter {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Patterns)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>(result__)
+            (::windows::core::Interface::vtable(this).Patterns)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>(result__)
         }
     }
     #[doc = "*Required features: `\"Globalization_DateTimeFormatting\"`*"]
@@ -62,7 +62,7 @@ impl DateTimeFormatter {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Template)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Template)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Globalization_DateTimeFormatting\"`, `\"Foundation\"`*"]
@@ -71,7 +71,7 @@ impl DateTimeFormatter {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Format)(::core::mem::transmute_copy(this), value.into_param().abi(), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Format)(::windows::core::Interface::as_raw(this), value.into_param().abi(), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Globalization_DateTimeFormatting\"`*"]
@@ -79,7 +79,7 @@ impl DateTimeFormatter {
         let this = self;
         unsafe {
             let mut result__: YearFormat = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IncludeYear)(::core::mem::transmute_copy(this), &mut result__).from_abi::<YearFormat>(result__)
+            (::windows::core::Interface::vtable(this).IncludeYear)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<YearFormat>(result__)
         }
     }
     #[doc = "*Required features: `\"Globalization_DateTimeFormatting\"`*"]
@@ -87,7 +87,7 @@ impl DateTimeFormatter {
         let this = self;
         unsafe {
             let mut result__: MonthFormat = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IncludeMonth)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MonthFormat>(result__)
+            (::windows::core::Interface::vtable(this).IncludeMonth)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<MonthFormat>(result__)
         }
     }
     #[doc = "*Required features: `\"Globalization_DateTimeFormatting\"`*"]
@@ -95,7 +95,7 @@ impl DateTimeFormatter {
         let this = self;
         unsafe {
             let mut result__: DayOfWeekFormat = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IncludeDayOfWeek)(::core::mem::transmute_copy(this), &mut result__).from_abi::<DayOfWeekFormat>(result__)
+            (::windows::core::Interface::vtable(this).IncludeDayOfWeek)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<DayOfWeekFormat>(result__)
         }
     }
     #[doc = "*Required features: `\"Globalization_DateTimeFormatting\"`*"]
@@ -103,7 +103,7 @@ impl DateTimeFormatter {
         let this = self;
         unsafe {
             let mut result__: DayFormat = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IncludeDay)(::core::mem::transmute_copy(this), &mut result__).from_abi::<DayFormat>(result__)
+            (::windows::core::Interface::vtable(this).IncludeDay)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<DayFormat>(result__)
         }
     }
     #[doc = "*Required features: `\"Globalization_DateTimeFormatting\"`*"]
@@ -111,7 +111,7 @@ impl DateTimeFormatter {
         let this = self;
         unsafe {
             let mut result__: HourFormat = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IncludeHour)(::core::mem::transmute_copy(this), &mut result__).from_abi::<HourFormat>(result__)
+            (::windows::core::Interface::vtable(this).IncludeHour)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<HourFormat>(result__)
         }
     }
     #[doc = "*Required features: `\"Globalization_DateTimeFormatting\"`*"]
@@ -119,7 +119,7 @@ impl DateTimeFormatter {
         let this = self;
         unsafe {
             let mut result__: MinuteFormat = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IncludeMinute)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MinuteFormat>(result__)
+            (::windows::core::Interface::vtable(this).IncludeMinute)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<MinuteFormat>(result__)
         }
     }
     #[doc = "*Required features: `\"Globalization_DateTimeFormatting\"`*"]
@@ -127,7 +127,7 @@ impl DateTimeFormatter {
         let this = self;
         unsafe {
             let mut result__: SecondFormat = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IncludeSecond)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SecondFormat>(result__)
+            (::windows::core::Interface::vtable(this).IncludeSecond)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SecondFormat>(result__)
         }
     }
     #[doc = "*Required features: `\"Globalization_DateTimeFormatting\"`*"]
@@ -135,7 +135,7 @@ impl DateTimeFormatter {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ResolvedLanguage)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).ResolvedLanguage)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Globalization_DateTimeFormatting\"`*"]
@@ -143,7 +143,7 @@ impl DateTimeFormatter {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ResolvedGeographicRegion)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).ResolvedGeographicRegion)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Globalization_DateTimeFormatting\"`, `\"Foundation\"`*"]
@@ -152,14 +152,14 @@ impl DateTimeFormatter {
         let this = &::windows::core::Interface::cast::<IDateTimeFormatter2>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FormatUsingTimeZone)(::core::mem::transmute_copy(this), datetime.into_param().abi(), timezoneid.into_param().abi(), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).FormatUsingTimeZone)(::windows::core::Interface::as_raw(this), datetime.into_param().abi(), timezoneid.into_param().abi(), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Globalization_DateTimeFormatting\"`*"]
     pub fn CreateDateTimeFormatter<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(formattemplate: Param0) -> ::windows::core::Result<DateTimeFormatter> {
         Self::IDateTimeFormatterFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateDateTimeFormatter)(::core::mem::transmute_copy(this), formattemplate.into_param().abi(), &mut result__).from_abi::<DateTimeFormatter>(result__)
+            (::windows::core::Interface::vtable(this).CreateDateTimeFormatter)(::windows::core::Interface::as_raw(this), formattemplate.into_param().abi(), &mut result__).from_abi::<DateTimeFormatter>(result__)
         })
     }
     #[doc = "*Required features: `\"Globalization_DateTimeFormatting\"`, `\"Foundation_Collections\"`*"]
@@ -167,7 +167,7 @@ impl DateTimeFormatter {
     pub fn CreateDateTimeFormatterLanguages<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>>(formattemplate: Param0, languages: Param1) -> ::windows::core::Result<DateTimeFormatter> {
         Self::IDateTimeFormatterFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateDateTimeFormatterLanguages)(::core::mem::transmute_copy(this), formattemplate.into_param().abi(), languages.into_param().abi(), &mut result__).from_abi::<DateTimeFormatter>(result__)
+            (::windows::core::Interface::vtable(this).CreateDateTimeFormatterLanguages)(::windows::core::Interface::as_raw(this), formattemplate.into_param().abi(), languages.into_param().abi(), &mut result__).from_abi::<DateTimeFormatter>(result__)
         })
     }
     #[doc = "*Required features: `\"Globalization_DateTimeFormatting\"`, `\"Foundation_Collections\"`*"]
@@ -175,21 +175,21 @@ impl DateTimeFormatter {
     pub fn CreateDateTimeFormatterContext<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param3: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param4: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(formattemplate: Param0, languages: Param1, geographicregion: Param2, calendar: Param3, clock: Param4) -> ::windows::core::Result<DateTimeFormatter> {
         Self::IDateTimeFormatterFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateDateTimeFormatterContext)(::core::mem::transmute_copy(this), formattemplate.into_param().abi(), languages.into_param().abi(), geographicregion.into_param().abi(), calendar.into_param().abi(), clock.into_param().abi(), &mut result__).from_abi::<DateTimeFormatter>(result__)
+            (::windows::core::Interface::vtable(this).CreateDateTimeFormatterContext)(::windows::core::Interface::as_raw(this), formattemplate.into_param().abi(), languages.into_param().abi(), geographicregion.into_param().abi(), calendar.into_param().abi(), clock.into_param().abi(), &mut result__).from_abi::<DateTimeFormatter>(result__)
         })
     }
     #[doc = "*Required features: `\"Globalization_DateTimeFormatting\"`*"]
     pub fn CreateDateTimeFormatterDate(yearformat: YearFormat, monthformat: MonthFormat, dayformat: DayFormat, dayofweekformat: DayOfWeekFormat) -> ::windows::core::Result<DateTimeFormatter> {
         Self::IDateTimeFormatterFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateDateTimeFormatterDate)(::core::mem::transmute_copy(this), yearformat, monthformat, dayformat, dayofweekformat, &mut result__).from_abi::<DateTimeFormatter>(result__)
+            (::windows::core::Interface::vtable(this).CreateDateTimeFormatterDate)(::windows::core::Interface::as_raw(this), yearformat, monthformat, dayformat, dayofweekformat, &mut result__).from_abi::<DateTimeFormatter>(result__)
         })
     }
     #[doc = "*Required features: `\"Globalization_DateTimeFormatting\"`*"]
     pub fn CreateDateTimeFormatterTime(hourformat: HourFormat, minuteformat: MinuteFormat, secondformat: SecondFormat) -> ::windows::core::Result<DateTimeFormatter> {
         Self::IDateTimeFormatterFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateDateTimeFormatterTime)(::core::mem::transmute_copy(this), hourformat, minuteformat, secondformat, &mut result__).from_abi::<DateTimeFormatter>(result__)
+            (::windows::core::Interface::vtable(this).CreateDateTimeFormatterTime)(::windows::core::Interface::as_raw(this), hourformat, minuteformat, secondformat, &mut result__).from_abi::<DateTimeFormatter>(result__)
         })
     }
     #[doc = "*Required features: `\"Globalization_DateTimeFormatting\"`, `\"Foundation_Collections\"`*"]
@@ -197,7 +197,7 @@ impl DateTimeFormatter {
     pub fn CreateDateTimeFormatterDateTimeLanguages<'a, Param7: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>>(yearformat: YearFormat, monthformat: MonthFormat, dayformat: DayFormat, dayofweekformat: DayOfWeekFormat, hourformat: HourFormat, minuteformat: MinuteFormat, secondformat: SecondFormat, languages: Param7) -> ::windows::core::Result<DateTimeFormatter> {
         Self::IDateTimeFormatterFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateDateTimeFormatterDateTimeLanguages)(::core::mem::transmute_copy(this), yearformat, monthformat, dayformat, dayofweekformat, hourformat, minuteformat, secondformat, languages.into_param().abi(), &mut result__).from_abi::<DateTimeFormatter>(result__)
+            (::windows::core::Interface::vtable(this).CreateDateTimeFormatterDateTimeLanguages)(::windows::core::Interface::as_raw(this), yearformat, monthformat, dayformat, dayofweekformat, hourformat, minuteformat, secondformat, languages.into_param().abi(), &mut result__).from_abi::<DateTimeFormatter>(result__)
         })
     }
     #[doc = "*Required features: `\"Globalization_DateTimeFormatting\"`, `\"Foundation_Collections\"`*"]
@@ -205,35 +205,35 @@ impl DateTimeFormatter {
     pub fn CreateDateTimeFormatterDateTimeContext<'a, Param7: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Param8: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param9: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param10: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(yearformat: YearFormat, monthformat: MonthFormat, dayformat: DayFormat, dayofweekformat: DayOfWeekFormat, hourformat: HourFormat, minuteformat: MinuteFormat, secondformat: SecondFormat, languages: Param7, geographicregion: Param8, calendar: Param9, clock: Param10) -> ::windows::core::Result<DateTimeFormatter> {
         Self::IDateTimeFormatterFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateDateTimeFormatterDateTimeContext)(::core::mem::transmute_copy(this), yearformat, monthformat, dayformat, dayofweekformat, hourformat, minuteformat, secondformat, languages.into_param().abi(), geographicregion.into_param().abi(), calendar.into_param().abi(), clock.into_param().abi(), &mut result__).from_abi::<DateTimeFormatter>(result__)
+            (::windows::core::Interface::vtable(this).CreateDateTimeFormatterDateTimeContext)(::windows::core::Interface::as_raw(this), yearformat, monthformat, dayformat, dayofweekformat, hourformat, minuteformat, secondformat, languages.into_param().abi(), geographicregion.into_param().abi(), calendar.into_param().abi(), clock.into_param().abi(), &mut result__).from_abi::<DateTimeFormatter>(result__)
         })
     }
     #[doc = "*Required features: `\"Globalization_DateTimeFormatting\"`*"]
     pub fn LongDate() -> ::windows::core::Result<DateTimeFormatter> {
         Self::IDateTimeFormatterStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).LongDate)(::core::mem::transmute_copy(this), &mut result__).from_abi::<DateTimeFormatter>(result__)
+            (::windows::core::Interface::vtable(this).LongDate)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<DateTimeFormatter>(result__)
         })
     }
     #[doc = "*Required features: `\"Globalization_DateTimeFormatting\"`*"]
     pub fn LongTime() -> ::windows::core::Result<DateTimeFormatter> {
         Self::IDateTimeFormatterStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).LongTime)(::core::mem::transmute_copy(this), &mut result__).from_abi::<DateTimeFormatter>(result__)
+            (::windows::core::Interface::vtable(this).LongTime)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<DateTimeFormatter>(result__)
         })
     }
     #[doc = "*Required features: `\"Globalization_DateTimeFormatting\"`*"]
     pub fn ShortDate() -> ::windows::core::Result<DateTimeFormatter> {
         Self::IDateTimeFormatterStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ShortDate)(::core::mem::transmute_copy(this), &mut result__).from_abi::<DateTimeFormatter>(result__)
+            (::windows::core::Interface::vtable(this).ShortDate)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<DateTimeFormatter>(result__)
         })
     }
     #[doc = "*Required features: `\"Globalization_DateTimeFormatting\"`*"]
     pub fn ShortTime() -> ::windows::core::Result<DateTimeFormatter> {
         Self::IDateTimeFormatterStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ShortTime)(::core::mem::transmute_copy(this), &mut result__).from_abi::<DateTimeFormatter>(result__)
+            (::windows::core::Interface::vtable(this).ShortTime)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<DateTimeFormatter>(result__)
         })
     }
     #[doc(hidden)]

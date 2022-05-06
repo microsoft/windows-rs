@@ -119,11 +119,11 @@ impl TearOff {
         core::mem::transmute(value << 1)
     }
 
-    unsafe fn query_interface(&self, iid: &GUID, interface: *mut RawPtr) -> HRESULT {
+    unsafe fn query_interface(&self, iid: &GUID, interface: *mut *const core::ffi::c_void) -> HRESULT {
         ((*(*(self.object as *mut *mut _) as *mut IUnknownVtbl)).QueryInterface)(self.object, iid, interface)
     }
 
-    unsafe extern "system" fn StrongQueryInterface(ptr: RawPtr, iid: &GUID, interface: *mut RawPtr) -> HRESULT {
+    unsafe extern "system" fn StrongQueryInterface(ptr: RawPtr, iid: &GUID, interface: *mut *const core::ffi::c_void) -> HRESULT {
         let this = Self::from_strong_ptr(ptr);
 
         // Only directly respond to queries for the the tear-off's strong interface. This is
@@ -139,7 +139,7 @@ impl TearOff {
         this.query_interface(iid, interface)
     }
 
-    unsafe extern "system" fn WeakQueryInterface(ptr: RawPtr, iid: &GUID, interface: *mut RawPtr) -> HRESULT {
+    unsafe extern "system" fn WeakQueryInterface(ptr: RawPtr, iid: &GUID, interface: *mut *const core::ffi::c_void) -> HRESULT {
         let this = Self::from_weak_ptr(ptr);
 
         // While the weak vtable is packed into the same allocation as the strong vtable and
@@ -206,7 +206,7 @@ impl TearOff {
         HRESULT(0)
     }
 
-    unsafe extern "system" fn WeakUpgrade(ptr: RawPtr, iid: *const GUID, interface: *mut RawPtr) -> HRESULT {
+    unsafe extern "system" fn WeakUpgrade(ptr: RawPtr, iid: *const GUID, interface: *mut *mut core::ffi::c_void) -> HRESULT {
         let this = Self::from_weak_ptr(ptr);
 
         this.strong_count
@@ -218,7 +218,7 @@ impl TearOff {
             })
             .map(|_| {
                 // Let the object respond to the upgrade query.
-                let result = this.query_interface(&*iid, interface);
+                let result = this.query_interface(&*iid, interface as *mut _);
                 // Decrement the temporary reference account used to stabilize the object.
                 this.strong_count.0.fetch_sub(1, Ordering::Relaxed);
                 // Return the result of the query.

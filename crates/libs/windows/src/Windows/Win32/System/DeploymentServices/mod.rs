@@ -82,19 +82,19 @@ impl IWdsTransportCacheable {
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn Dirty(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Dirty)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).Dirty)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn Discard(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Discard)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Discard)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn Refresh(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Refresh)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Refresh)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn Commit(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Commit)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Commit)(::windows::core::Interface::as_raw(self)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -190,65 +190,65 @@ impl IWdsTransportClient {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Session(&self) -> ::windows::core::Result<IWdsTransportSession> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Session)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWdsTransportSession>(result__)
+        (::windows::core::Interface::vtable(self).Session)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IWdsTransportSession>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn Id(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Id)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).Id)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Name(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Name)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).Name)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MacAddress(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).MacAddress)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).MacAddress)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IpAddress(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).IpAddress)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).IpAddress)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn PercentCompletion(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).PercentCompletion)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).PercentCompletion)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn JoinDuration(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).JoinDuration)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).JoinDuration)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn CpuUtilization(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CpuUtilization)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).CpuUtilization)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn MemoryUtilization(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).MemoryUtilization)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).MemoryUtilization)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn NetworkUtilization(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).NetworkUtilization)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).NetworkUtilization)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn UserIdentity(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).UserIdentity)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).UserIdentity)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn Disconnect(&self, disconnectiontype: WDSTRANSPORT_DISCONNECT_TYPE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Disconnect)(::core::mem::transmute_copy(self), ::core::mem::transmute(disconnectiontype)).ok()
+        (::windows::core::Interface::vtable(self).Disconnect)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(disconnectiontype)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -366,18 +366,18 @@ impl IWdsTransportCollection {
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn Count(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Count)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).Count)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_Item(&self, ulindex: u32) -> ::windows::core::Result<super::Com::IDispatch> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).get_Item)(::core::mem::transmute_copy(self), ::core::mem::transmute(ulindex), ::core::mem::transmute(&mut result__)).from_abi::<super::Com::IDispatch>(result__)
+        (::windows::core::Interface::vtable(self).get_Item)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ulindex), ::core::mem::transmute(&mut result__)).from_abi::<super::Com::IDispatch>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self)._NewEnum)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
+        (::windows::core::Interface::vtable(self)._NewEnum)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -475,42 +475,42 @@ impl IWdsTransportConfigurationManager {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ServicePolicy(&self) -> ::windows::core::Result<IWdsTransportServicePolicy> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ServicePolicy)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWdsTransportServicePolicy>(result__)
+        (::windows::core::Interface::vtable(self).ServicePolicy)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IWdsTransportServicePolicy>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DiagnosticsPolicy(&self) -> ::windows::core::Result<IWdsTransportDiagnosticsPolicy> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).DiagnosticsPolicy)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWdsTransportDiagnosticsPolicy>(result__)
+        (::windows::core::Interface::vtable(self).DiagnosticsPolicy)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IWdsTransportDiagnosticsPolicy>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn get_WdsTransportServicesRunning(&self, brealtimestatus: i16) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).get_WdsTransportServicesRunning)(::core::mem::transmute_copy(self), ::core::mem::transmute(brealtimestatus), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).get_WdsTransportServicesRunning)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(brealtimestatus), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn EnableWdsTransportServices(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).EnableWdsTransportServices)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).EnableWdsTransportServices)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn DisableWdsTransportServices(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DisableWdsTransportServices)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).DisableWdsTransportServices)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn StartWdsTransportServices(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).StartWdsTransportServices)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).StartWdsTransportServices)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn StopWdsTransportServices(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).StopWdsTransportServices)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).StopWdsTransportServices)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn RestartWdsTransportServices(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RestartWdsTransportServices)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).RestartWdsTransportServices)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn NotifyWdsTransportServices(&self, servicenotification: WDSTRANSPORT_SERVICE_NOTIFICATION) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).NotifyWdsTransportServices)(::core::mem::transmute_copy(self), ::core::mem::transmute(servicenotification)).ok()
+        (::windows::core::Interface::vtable(self).NotifyWdsTransportServices)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(servicenotification)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -617,48 +617,48 @@ impl IWdsTransportConfigurationManager2 {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ServicePolicy(&self) -> ::windows::core::Result<IWdsTransportServicePolicy> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.ServicePolicy)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWdsTransportServicePolicy>(result__)
+        (::windows::core::Interface::vtable(self).base__.ServicePolicy)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IWdsTransportServicePolicy>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DiagnosticsPolicy(&self) -> ::windows::core::Result<IWdsTransportDiagnosticsPolicy> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.DiagnosticsPolicy)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWdsTransportDiagnosticsPolicy>(result__)
+        (::windows::core::Interface::vtable(self).base__.DiagnosticsPolicy)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IWdsTransportDiagnosticsPolicy>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn get_WdsTransportServicesRunning(&self, brealtimestatus: i16) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.get_WdsTransportServicesRunning)(::core::mem::transmute_copy(self), ::core::mem::transmute(brealtimestatus), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).base__.get_WdsTransportServicesRunning)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(brealtimestatus), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn EnableWdsTransportServices(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.EnableWdsTransportServices)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.EnableWdsTransportServices)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn DisableWdsTransportServices(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.DisableWdsTransportServices)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.DisableWdsTransportServices)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn StartWdsTransportServices(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.StartWdsTransportServices)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.StartWdsTransportServices)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn StopWdsTransportServices(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.StopWdsTransportServices)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.StopWdsTransportServices)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn RestartWdsTransportServices(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.RestartWdsTransportServices)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.RestartWdsTransportServices)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn NotifyWdsTransportServices(&self, servicenotification: WDSTRANSPORT_SERVICE_NOTIFICATION) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.NotifyWdsTransportServices)(::core::mem::transmute_copy(self), ::core::mem::transmute(servicenotification)).ok()
+        (::windows::core::Interface::vtable(self).base__.NotifyWdsTransportServices)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(servicenotification)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn MulticastSessionPolicy(&self) -> ::windows::core::Result<IWdsTransportMulticastSessionPolicy> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).MulticastSessionPolicy)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWdsTransportMulticastSessionPolicy>(result__)
+        (::windows::core::Interface::vtable(self).MulticastSessionPolicy)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IWdsTransportMulticastSessionPolicy>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -778,28 +778,28 @@ impl IWdsTransportContent {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Namespace(&self) -> ::windows::core::Result<IWdsTransportNamespace> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Namespace)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWdsTransportNamespace>(result__)
+        (::windows::core::Interface::vtable(self).Namespace)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IWdsTransportNamespace>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn Id(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Id)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).Id)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Name(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Name)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).Name)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn RetrieveSessions(&self) -> ::windows::core::Result<IWdsTransportCollection> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).RetrieveSessions)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWdsTransportCollection>(result__)
+        (::windows::core::Interface::vtable(self).RetrieveSessions)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IWdsTransportCollection>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn Terminate(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Terminate)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Terminate)(::windows::core::Interface::as_raw(self)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -905,25 +905,25 @@ impl IWdsTransportContentProvider {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Name(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Name)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).Name)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Description(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Description)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).Description)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn FilePath(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).FilePath)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).FilePath)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn InitializationRoutine(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).InitializationRoutine)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).InitializationRoutine)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1030,37 +1030,37 @@ impl IWdsTransportDiagnosticsPolicy {
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn Dirty(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Dirty)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).base__.Dirty)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn Discard(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Discard)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.Discard)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn Refresh(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Refresh)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.Refresh)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn Commit(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Commit)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.Commit)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn Enabled(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Enabled)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).Enabled)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn SetEnabled(&self, benabled: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetEnabled)(::core::mem::transmute_copy(self), ::core::mem::transmute(benabled)).ok()
+        (::windows::core::Interface::vtable(self).SetEnabled)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(benabled)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn Components(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Components)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).Components)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn SetComponents(&self, ulcomponents: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetComponents)(::core::mem::transmute_copy(self), ::core::mem::transmute(ulcomponents)).ok()
+        (::windows::core::Interface::vtable(self).SetComponents)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ulcomponents)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1180,7 +1180,7 @@ impl IWdsTransportManager {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetWdsTransportServer<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bszservername: Param0) -> ::windows::core::Result<IWdsTransportServer> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetWdsTransportServer)(::core::mem::transmute_copy(self), bszservername.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IWdsTransportServer>(result__)
+        (::windows::core::Interface::vtable(self).GetWdsTransportServer)(::windows::core::Interface::as_raw(self), bszservername.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IWdsTransportServer>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1275,55 +1275,55 @@ impl IWdsTransportMulticastSessionPolicy {
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn Dirty(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Dirty)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).base__.Dirty)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn Discard(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Discard)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.Discard)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn Refresh(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Refresh)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.Refresh)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn Commit(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Commit)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.Commit)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn SlowClientHandling(&self) -> ::windows::core::Result<WDSTRANSPORT_SLOW_CLIENT_HANDLING_TYPE> {
         let mut result__: WDSTRANSPORT_SLOW_CLIENT_HANDLING_TYPE = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).SlowClientHandling)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<WDSTRANSPORT_SLOW_CLIENT_HANDLING_TYPE>(result__)
+        (::windows::core::Interface::vtable(self).SlowClientHandling)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<WDSTRANSPORT_SLOW_CLIENT_HANDLING_TYPE>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn SetSlowClientHandling(&self, slowclienthandling: WDSTRANSPORT_SLOW_CLIENT_HANDLING_TYPE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSlowClientHandling)(::core::mem::transmute_copy(self), ::core::mem::transmute(slowclienthandling)).ok()
+        (::windows::core::Interface::vtable(self).SetSlowClientHandling)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(slowclienthandling)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn AutoDisconnectThreshold(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).AutoDisconnectThreshold)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).AutoDisconnectThreshold)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn SetAutoDisconnectThreshold(&self, ulthreshold: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAutoDisconnectThreshold)(::core::mem::transmute_copy(self), ::core::mem::transmute(ulthreshold)).ok()
+        (::windows::core::Interface::vtable(self).SetAutoDisconnectThreshold)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ulthreshold)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn MultistreamStreamCount(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).MultistreamStreamCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).MultistreamStreamCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn SetMultistreamStreamCount(&self, ulstreamcount: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMultistreamStreamCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(ulstreamcount)).ok()
+        (::windows::core::Interface::vtable(self).SetMultistreamStreamCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ulstreamcount)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn SlowClientFallback(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).SlowClientFallback)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).SlowClientFallback)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn SetSlowClientFallback(&self, bclientfallback: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSlowClientFallback)(::core::mem::transmute_copy(self), ::core::mem::transmute(bclientfallback)).ok()
+        (::windows::core::Interface::vtable(self).SetSlowClientFallback)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(bclientfallback)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1446,111 +1446,111 @@ impl IWdsTransportNamespace {
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn Type(&self) -> ::windows::core::Result<WDSTRANSPORT_NAMESPACE_TYPE> {
         let mut result__: WDSTRANSPORT_NAMESPACE_TYPE = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Type)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<WDSTRANSPORT_NAMESPACE_TYPE>(result__)
+        (::windows::core::Interface::vtable(self).Type)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<WDSTRANSPORT_NAMESPACE_TYPE>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn Id(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Id)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).Id)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Name(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Name)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).Name)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bszname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetName)(::core::mem::transmute_copy(self), bszname.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetName)(::windows::core::Interface::as_raw(self), bszname.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn FriendlyName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).FriendlyName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).FriendlyName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetFriendlyName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bszfriendlyname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetFriendlyName)(::core::mem::transmute_copy(self), bszfriendlyname.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetFriendlyName)(::windows::core::Interface::as_raw(self), bszfriendlyname.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Description(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Description)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).Description)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetDescription<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bszdescription: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDescription)(::core::mem::transmute_copy(self), bszdescription.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetDescription)(::windows::core::Interface::as_raw(self), bszdescription.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ContentProvider(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ContentProvider)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).ContentProvider)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetContentProvider<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bszcontentprovider: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetContentProvider)(::core::mem::transmute_copy(self), bszcontentprovider.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetContentProvider)(::windows::core::Interface::as_raw(self), bszcontentprovider.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Configuration(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Configuration)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).Configuration)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetConfiguration<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bszconfiguration: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetConfiguration)(::core::mem::transmute_copy(self), bszconfiguration.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetConfiguration)(::windows::core::Interface::as_raw(self), bszconfiguration.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn Registered(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Registered)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).Registered)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn Tombstoned(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Tombstoned)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).Tombstoned)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn TombstoneTime(&self) -> ::windows::core::Result<f64> {
         let mut result__: f64 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).TombstoneTime)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
+        (::windows::core::Interface::vtable(self).TombstoneTime)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn TransmissionStarted(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).TransmissionStarted)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).TransmissionStarted)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn Register(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Register)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Register)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn Deregister(&self, bterminatesessions: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Deregister)(::core::mem::transmute_copy(self), ::core::mem::transmute(bterminatesessions)).ok()
+        (::windows::core::Interface::vtable(self).Deregister)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(bterminatesessions)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IWdsTransportNamespace> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Clone)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWdsTransportNamespace>(result__)
+        (::windows::core::Interface::vtable(self).Clone)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IWdsTransportNamespace>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn Refresh(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Refresh)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Refresh)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn RetrieveContents(&self) -> ::windows::core::Result<IWdsTransportCollection> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).RetrieveContents)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWdsTransportCollection>(result__)
+        (::windows::core::Interface::vtable(self).RetrieveContents)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IWdsTransportCollection>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1698,111 +1698,111 @@ impl IWdsTransportNamespaceAutoCast {
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn Type(&self) -> ::windows::core::Result<WDSTRANSPORT_NAMESPACE_TYPE> {
         let mut result__: WDSTRANSPORT_NAMESPACE_TYPE = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Type)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<WDSTRANSPORT_NAMESPACE_TYPE>(result__)
+        (::windows::core::Interface::vtable(self).base__.Type)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<WDSTRANSPORT_NAMESPACE_TYPE>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn Id(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Id)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).base__.Id)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Name(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Name)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Name)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bszname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetName)(::core::mem::transmute_copy(self), bszname.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetName)(::windows::core::Interface::as_raw(self), bszname.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn FriendlyName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.FriendlyName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.FriendlyName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetFriendlyName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bszfriendlyname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetFriendlyName)(::core::mem::transmute_copy(self), bszfriendlyname.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetFriendlyName)(::windows::core::Interface::as_raw(self), bszfriendlyname.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Description(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Description)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Description)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetDescription<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bszdescription: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetDescription)(::core::mem::transmute_copy(self), bszdescription.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetDescription)(::windows::core::Interface::as_raw(self), bszdescription.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ContentProvider(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.ContentProvider)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.ContentProvider)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetContentProvider<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bszcontentprovider: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetContentProvider)(::core::mem::transmute_copy(self), bszcontentprovider.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetContentProvider)(::windows::core::Interface::as_raw(self), bszcontentprovider.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Configuration(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Configuration)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Configuration)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetConfiguration<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bszconfiguration: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetConfiguration)(::core::mem::transmute_copy(self), bszconfiguration.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetConfiguration)(::windows::core::Interface::as_raw(self), bszconfiguration.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn Registered(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Registered)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).base__.Registered)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn Tombstoned(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Tombstoned)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).base__.Tombstoned)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn TombstoneTime(&self) -> ::windows::core::Result<f64> {
         let mut result__: f64 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.TombstoneTime)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
+        (::windows::core::Interface::vtable(self).base__.TombstoneTime)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn TransmissionStarted(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.TransmissionStarted)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).base__.TransmissionStarted)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn Register(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Register)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.Register)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn Deregister(&self, bterminatesessions: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Deregister)(::core::mem::transmute_copy(self), ::core::mem::transmute(bterminatesessions)).ok()
+        (::windows::core::Interface::vtable(self).base__.Deregister)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(bterminatesessions)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IWdsTransportNamespace> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Clone)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWdsTransportNamespace>(result__)
+        (::windows::core::Interface::vtable(self).base__.Clone)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IWdsTransportNamespace>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn Refresh(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Refresh)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.Refresh)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn RetrieveContents(&self) -> ::windows::core::Result<IWdsTransportCollection> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.RetrieveContents)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWdsTransportCollection>(result__)
+        (::windows::core::Interface::vtable(self).base__.RetrieveContents)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IWdsTransportCollection>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1918,19 +1918,19 @@ impl IWdsTransportNamespaceManager {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn CreateNamespace<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, namespacetype: WDSTRANSPORT_NAMESPACE_TYPE, bsznamespacename: Param1, bszcontentprovider: Param2, bszconfiguration: Param3) -> ::windows::core::Result<IWdsTransportNamespace> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateNamespace)(::core::mem::transmute_copy(self), ::core::mem::transmute(namespacetype), bsznamespacename.into_param().abi(), bszcontentprovider.into_param().abi(), bszconfiguration.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IWdsTransportNamespace>(result__)
+        (::windows::core::Interface::vtable(self).CreateNamespace)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(namespacetype), bsznamespacename.into_param().abi(), bszcontentprovider.into_param().abi(), bszconfiguration.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IWdsTransportNamespace>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn RetrieveNamespace<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bsznamespacename: Param0) -> ::windows::core::Result<IWdsTransportNamespace> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).RetrieveNamespace)(::core::mem::transmute_copy(self), bsznamespacename.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IWdsTransportNamespace>(result__)
+        (::windows::core::Interface::vtable(self).RetrieveNamespace)(::windows::core::Interface::as_raw(self), bsznamespacename.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IWdsTransportNamespace>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn RetrieveNamespaces<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bszcontentprovider: Param0, bsznamespacename: Param1, bincludetombstones: i16) -> ::windows::core::Result<IWdsTransportCollection> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).RetrieveNamespaces)(::core::mem::transmute_copy(self), bszcontentprovider.into_param().abi(), bsznamespacename.into_param().abi(), ::core::mem::transmute(bincludetombstones), ::core::mem::transmute(&mut result__)).from_abi::<IWdsTransportCollection>(result__)
+        (::windows::core::Interface::vtable(self).RetrieveNamespaces)(::windows::core::Interface::as_raw(self), bszcontentprovider.into_param().abi(), bsznamespacename.into_param().abi(), ::core::mem::transmute(bincludetombstones), ::core::mem::transmute(&mut result__)).from_abi::<IWdsTransportCollection>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2033,115 +2033,115 @@ impl IWdsTransportNamespaceScheduledCast {
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn Type(&self) -> ::windows::core::Result<WDSTRANSPORT_NAMESPACE_TYPE> {
         let mut result__: WDSTRANSPORT_NAMESPACE_TYPE = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Type)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<WDSTRANSPORT_NAMESPACE_TYPE>(result__)
+        (::windows::core::Interface::vtable(self).base__.Type)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<WDSTRANSPORT_NAMESPACE_TYPE>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn Id(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Id)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).base__.Id)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Name(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Name)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Name)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bszname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetName)(::core::mem::transmute_copy(self), bszname.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetName)(::windows::core::Interface::as_raw(self), bszname.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn FriendlyName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.FriendlyName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.FriendlyName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetFriendlyName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bszfriendlyname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetFriendlyName)(::core::mem::transmute_copy(self), bszfriendlyname.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetFriendlyName)(::windows::core::Interface::as_raw(self), bszfriendlyname.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Description(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Description)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Description)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetDescription<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bszdescription: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetDescription)(::core::mem::transmute_copy(self), bszdescription.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetDescription)(::windows::core::Interface::as_raw(self), bszdescription.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ContentProvider(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.ContentProvider)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.ContentProvider)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetContentProvider<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bszcontentprovider: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetContentProvider)(::core::mem::transmute_copy(self), bszcontentprovider.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetContentProvider)(::windows::core::Interface::as_raw(self), bszcontentprovider.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Configuration(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Configuration)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Configuration)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetConfiguration<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bszconfiguration: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetConfiguration)(::core::mem::transmute_copy(self), bszconfiguration.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetConfiguration)(::windows::core::Interface::as_raw(self), bszconfiguration.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn Registered(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Registered)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).base__.Registered)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn Tombstoned(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Tombstoned)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).base__.Tombstoned)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn TombstoneTime(&self) -> ::windows::core::Result<f64> {
         let mut result__: f64 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.TombstoneTime)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
+        (::windows::core::Interface::vtable(self).base__.TombstoneTime)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn TransmissionStarted(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.TransmissionStarted)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).base__.TransmissionStarted)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn Register(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Register)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.Register)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn Deregister(&self, bterminatesessions: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Deregister)(::core::mem::transmute_copy(self), ::core::mem::transmute(bterminatesessions)).ok()
+        (::windows::core::Interface::vtable(self).base__.Deregister)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(bterminatesessions)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IWdsTransportNamespace> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Clone)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWdsTransportNamespace>(result__)
+        (::windows::core::Interface::vtable(self).base__.Clone)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IWdsTransportNamespace>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn Refresh(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Refresh)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.Refresh)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn RetrieveContents(&self) -> ::windows::core::Result<IWdsTransportCollection> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.RetrieveContents)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWdsTransportCollection>(result__)
+        (::windows::core::Interface::vtable(self).base__.RetrieveContents)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IWdsTransportCollection>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn StartTransmission(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).StartTransmission)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).StartTransmission)(::windows::core::Interface::as_raw(self)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2257,133 +2257,133 @@ impl IWdsTransportNamespaceScheduledCastAutoStart {
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn Type(&self) -> ::windows::core::Result<WDSTRANSPORT_NAMESPACE_TYPE> {
         let mut result__: WDSTRANSPORT_NAMESPACE_TYPE = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.Type)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<WDSTRANSPORT_NAMESPACE_TYPE>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.Type)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<WDSTRANSPORT_NAMESPACE_TYPE>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn Id(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.Id)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.Id)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Name(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.Name)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.Name)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bszname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetName)(::core::mem::transmute_copy(self), bszname.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.SetName)(::windows::core::Interface::as_raw(self), bszname.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn FriendlyName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.FriendlyName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.FriendlyName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetFriendlyName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bszfriendlyname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetFriendlyName)(::core::mem::transmute_copy(self), bszfriendlyname.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.SetFriendlyName)(::windows::core::Interface::as_raw(self), bszfriendlyname.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Description(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.Description)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.Description)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetDescription<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bszdescription: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetDescription)(::core::mem::transmute_copy(self), bszdescription.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.SetDescription)(::windows::core::Interface::as_raw(self), bszdescription.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ContentProvider(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.ContentProvider)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.ContentProvider)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetContentProvider<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bszcontentprovider: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetContentProvider)(::core::mem::transmute_copy(self), bszcontentprovider.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.SetContentProvider)(::windows::core::Interface::as_raw(self), bszcontentprovider.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Configuration(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.Configuration)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.Configuration)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetConfiguration<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bszconfiguration: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetConfiguration)(::core::mem::transmute_copy(self), bszconfiguration.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.SetConfiguration)(::windows::core::Interface::as_raw(self), bszconfiguration.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn Registered(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.Registered)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.Registered)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn Tombstoned(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.Tombstoned)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.Tombstoned)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn TombstoneTime(&self) -> ::windows::core::Result<f64> {
         let mut result__: f64 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.TombstoneTime)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.TombstoneTime)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn TransmissionStarted(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.TransmissionStarted)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.TransmissionStarted)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn Register(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.Register)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.Register)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn Deregister(&self, bterminatesessions: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.Deregister)(::core::mem::transmute_copy(self), ::core::mem::transmute(bterminatesessions)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.Deregister)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(bterminatesessions)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IWdsTransportNamespace> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.Clone)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWdsTransportNamespace>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.Clone)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IWdsTransportNamespace>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn Refresh(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.Refresh)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.Refresh)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn RetrieveContents(&self) -> ::windows::core::Result<IWdsTransportCollection> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.RetrieveContents)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWdsTransportCollection>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.RetrieveContents)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IWdsTransportCollection>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn StartTransmission(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.StartTransmission)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.StartTransmission)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn MinimumClients(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).MinimumClients)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).MinimumClients)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn SetMinimumClients(&self, ulminimumclients: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMinimumClients)(::core::mem::transmute_copy(self), ::core::mem::transmute(ulminimumclients)).ok()
+        (::windows::core::Interface::vtable(self).SetMinimumClients)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ulminimumclients)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn StartTime(&self) -> ::windows::core::Result<f64> {
         let mut result__: f64 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).StartTime)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
+        (::windows::core::Interface::vtable(self).StartTime)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn SetStartTime(&self, starttime: f64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetStartTime)(::core::mem::transmute_copy(self), ::core::mem::transmute(starttime)).ok()
+        (::windows::core::Interface::vtable(self).SetStartTime)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(starttime)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2526,115 +2526,115 @@ impl IWdsTransportNamespaceScheduledCastManualStart {
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn Type(&self) -> ::windows::core::Result<WDSTRANSPORT_NAMESPACE_TYPE> {
         let mut result__: WDSTRANSPORT_NAMESPACE_TYPE = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.Type)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<WDSTRANSPORT_NAMESPACE_TYPE>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.Type)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<WDSTRANSPORT_NAMESPACE_TYPE>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn Id(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.Id)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.Id)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Name(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.Name)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.Name)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bszname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetName)(::core::mem::transmute_copy(self), bszname.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.SetName)(::windows::core::Interface::as_raw(self), bszname.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn FriendlyName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.FriendlyName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.FriendlyName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetFriendlyName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bszfriendlyname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetFriendlyName)(::core::mem::transmute_copy(self), bszfriendlyname.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.SetFriendlyName)(::windows::core::Interface::as_raw(self), bszfriendlyname.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Description(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.Description)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.Description)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetDescription<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bszdescription: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetDescription)(::core::mem::transmute_copy(self), bszdescription.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.SetDescription)(::windows::core::Interface::as_raw(self), bszdescription.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ContentProvider(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.ContentProvider)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.ContentProvider)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetContentProvider<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bszcontentprovider: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetContentProvider)(::core::mem::transmute_copy(self), bszcontentprovider.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.SetContentProvider)(::windows::core::Interface::as_raw(self), bszcontentprovider.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Configuration(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.Configuration)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.Configuration)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetConfiguration<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bszconfiguration: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetConfiguration)(::core::mem::transmute_copy(self), bszconfiguration.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.SetConfiguration)(::windows::core::Interface::as_raw(self), bszconfiguration.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn Registered(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.Registered)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.Registered)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn Tombstoned(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.Tombstoned)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.Tombstoned)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn TombstoneTime(&self) -> ::windows::core::Result<f64> {
         let mut result__: f64 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.TombstoneTime)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.TombstoneTime)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn TransmissionStarted(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.TransmissionStarted)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.TransmissionStarted)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn Register(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.Register)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.Register)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn Deregister(&self, bterminatesessions: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.Deregister)(::core::mem::transmute_copy(self), ::core::mem::transmute(bterminatesessions)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.Deregister)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(bterminatesessions)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IWdsTransportNamespace> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.Clone)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWdsTransportNamespace>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.Clone)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IWdsTransportNamespace>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn Refresh(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.Refresh)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.Refresh)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn RetrieveContents(&self) -> ::windows::core::Result<IWdsTransportCollection> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.RetrieveContents)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWdsTransportCollection>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.RetrieveContents)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IWdsTransportCollection>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn StartTransmission(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.StartTransmission)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.StartTransmission)(::windows::core::Interface::as_raw(self)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2774,29 +2774,29 @@ impl IWdsTransportServer {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Name(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Name)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).Name)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetupManager(&self) -> ::windows::core::Result<IWdsTransportSetupManager> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).SetupManager)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWdsTransportSetupManager>(result__)
+        (::windows::core::Interface::vtable(self).SetupManager)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IWdsTransportSetupManager>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ConfigurationManager(&self) -> ::windows::core::Result<IWdsTransportConfigurationManager> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ConfigurationManager)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWdsTransportConfigurationManager>(result__)
+        (::windows::core::Interface::vtable(self).ConfigurationManager)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IWdsTransportConfigurationManager>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn NamespaceManager(&self) -> ::windows::core::Result<IWdsTransportNamespaceManager> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).NamespaceManager)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWdsTransportNamespaceManager>(result__)
+        (::windows::core::Interface::vtable(self).NamespaceManager)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IWdsTransportNamespaceManager>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn DisconnectClient(&self, ulclientid: u32, disconnectiontype: WDSTRANSPORT_DISCONNECT_TYPE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DisconnectClient)(::core::mem::transmute_copy(self), ::core::mem::transmute(ulclientid), ::core::mem::transmute(disconnectiontype)).ok()
+        (::windows::core::Interface::vtable(self).DisconnectClient)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ulclientid), ::core::mem::transmute(disconnectiontype)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2905,35 +2905,35 @@ impl IWdsTransportServer2 {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Name(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Name)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Name)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetupManager(&self) -> ::windows::core::Result<IWdsTransportSetupManager> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.SetupManager)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWdsTransportSetupManager>(result__)
+        (::windows::core::Interface::vtable(self).base__.SetupManager)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IWdsTransportSetupManager>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ConfigurationManager(&self) -> ::windows::core::Result<IWdsTransportConfigurationManager> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.ConfigurationManager)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWdsTransportConfigurationManager>(result__)
+        (::windows::core::Interface::vtable(self).base__.ConfigurationManager)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IWdsTransportConfigurationManager>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn NamespaceManager(&self) -> ::windows::core::Result<IWdsTransportNamespaceManager> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.NamespaceManager)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWdsTransportNamespaceManager>(result__)
+        (::windows::core::Interface::vtable(self).base__.NamespaceManager)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IWdsTransportNamespaceManager>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn DisconnectClient(&self, ulclientid: u32, disconnectiontype: WDSTRANSPORT_DISCONNECT_TYPE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.DisconnectClient)(::core::mem::transmute_copy(self), ::core::mem::transmute(ulclientid), ::core::mem::transmute(disconnectiontype)).ok()
+        (::windows::core::Interface::vtable(self).base__.DisconnectClient)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ulclientid), ::core::mem::transmute(disconnectiontype)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn TftpManager(&self) -> ::windows::core::Result<IWdsTransportTftpManager> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).TftpManager)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWdsTransportTftpManager>(result__)
+        (::windows::core::Interface::vtable(self).TftpManager)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IWdsTransportTftpManager>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3052,77 +3052,77 @@ impl IWdsTransportServicePolicy {
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn Dirty(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Dirty)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).base__.Dirty)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn Discard(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Discard)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.Discard)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn Refresh(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Refresh)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.Refresh)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn Commit(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Commit)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.Commit)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn get_IpAddressSource(&self, addresstype: WDSTRANSPORT_IP_ADDRESS_TYPE) -> ::windows::core::Result<WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE> {
         let mut result__: WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).get_IpAddressSource)(::core::mem::transmute_copy(self), ::core::mem::transmute(addresstype), ::core::mem::transmute(&mut result__)).from_abi::<WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE>(result__)
+        (::windows::core::Interface::vtable(self).get_IpAddressSource)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(addresstype), ::core::mem::transmute(&mut result__)).from_abi::<WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn put_IpAddressSource(&self, addresstype: WDSTRANSPORT_IP_ADDRESS_TYPE, sourcetype: WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).put_IpAddressSource)(::core::mem::transmute_copy(self), ::core::mem::transmute(addresstype), ::core::mem::transmute(sourcetype)).ok()
+        (::windows::core::Interface::vtable(self).put_IpAddressSource)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(addresstype), ::core::mem::transmute(sourcetype)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_StartIpAddress(&self, addresstype: WDSTRANSPORT_IP_ADDRESS_TYPE) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).get_StartIpAddress)(::core::mem::transmute_copy(self), ::core::mem::transmute(addresstype), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).get_StartIpAddress)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(addresstype), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn put_StartIpAddress<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, addresstype: WDSTRANSPORT_IP_ADDRESS_TYPE, bszstartipaddress: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).put_StartIpAddress)(::core::mem::transmute_copy(self), ::core::mem::transmute(addresstype), bszstartipaddress.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).put_StartIpAddress)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(addresstype), bszstartipaddress.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_EndIpAddress(&self, addresstype: WDSTRANSPORT_IP_ADDRESS_TYPE) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).get_EndIpAddress)(::core::mem::transmute_copy(self), ::core::mem::transmute(addresstype), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).get_EndIpAddress)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(addresstype), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn put_EndIpAddress<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, addresstype: WDSTRANSPORT_IP_ADDRESS_TYPE, bszendipaddress: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).put_EndIpAddress)(::core::mem::transmute_copy(self), ::core::mem::transmute(addresstype), bszendipaddress.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).put_EndIpAddress)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(addresstype), bszendipaddress.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn StartPort(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).StartPort)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).StartPort)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn SetStartPort(&self, ulstartport: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetStartPort)(::core::mem::transmute_copy(self), ::core::mem::transmute(ulstartport)).ok()
+        (::windows::core::Interface::vtable(self).SetStartPort)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ulstartport)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn EndPort(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).EndPort)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).EndPort)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn SetEndPort(&self, ulendport: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetEndPort)(::core::mem::transmute_copy(self), ::core::mem::transmute(ulendport)).ok()
+        (::windows::core::Interface::vtable(self).SetEndPort)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ulendport)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn NetworkProfile(&self) -> ::windows::core::Result<WDSTRANSPORT_NETWORK_PROFILE_TYPE> {
         let mut result__: WDSTRANSPORT_NETWORK_PROFILE_TYPE = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).NetworkProfile)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<WDSTRANSPORT_NETWORK_PROFILE_TYPE>(result__)
+        (::windows::core::Interface::vtable(self).NetworkProfile)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<WDSTRANSPORT_NETWORK_PROFILE_TYPE>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn SetNetworkProfile(&self, profiletype: WDSTRANSPORT_NETWORK_PROFILE_TYPE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetNetworkProfile)(::core::mem::transmute_copy(self), ::core::mem::transmute(profiletype)).ok()
+        (::windows::core::Interface::vtable(self).SetNetworkProfile)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(profiletype)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3261,104 +3261,104 @@ impl IWdsTransportServicePolicy2 {
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn Dirty(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.Dirty)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.Dirty)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn Discard(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.Discard)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.Discard)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn Refresh(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.Refresh)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.Refresh)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn Commit(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.Commit)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.Commit)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn get_IpAddressSource(&self, addresstype: WDSTRANSPORT_IP_ADDRESS_TYPE) -> ::windows::core::Result<WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE> {
         let mut result__: WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.get_IpAddressSource)(::core::mem::transmute_copy(self), ::core::mem::transmute(addresstype), ::core::mem::transmute(&mut result__)).from_abi::<WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE>(result__)
+        (::windows::core::Interface::vtable(self).base__.get_IpAddressSource)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(addresstype), ::core::mem::transmute(&mut result__)).from_abi::<WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn put_IpAddressSource(&self, addresstype: WDSTRANSPORT_IP_ADDRESS_TYPE, sourcetype: WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.put_IpAddressSource)(::core::mem::transmute_copy(self), ::core::mem::transmute(addresstype), ::core::mem::transmute(sourcetype)).ok()
+        (::windows::core::Interface::vtable(self).base__.put_IpAddressSource)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(addresstype), ::core::mem::transmute(sourcetype)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_StartIpAddress(&self, addresstype: WDSTRANSPORT_IP_ADDRESS_TYPE) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.get_StartIpAddress)(::core::mem::transmute_copy(self), ::core::mem::transmute(addresstype), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.get_StartIpAddress)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(addresstype), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn put_StartIpAddress<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, addresstype: WDSTRANSPORT_IP_ADDRESS_TYPE, bszstartipaddress: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.put_StartIpAddress)(::core::mem::transmute_copy(self), ::core::mem::transmute(addresstype), bszstartipaddress.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.put_StartIpAddress)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(addresstype), bszstartipaddress.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_EndIpAddress(&self, addresstype: WDSTRANSPORT_IP_ADDRESS_TYPE) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.get_EndIpAddress)(::core::mem::transmute_copy(self), ::core::mem::transmute(addresstype), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.get_EndIpAddress)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(addresstype), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn put_EndIpAddress<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, addresstype: WDSTRANSPORT_IP_ADDRESS_TYPE, bszendipaddress: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.put_EndIpAddress)(::core::mem::transmute_copy(self), ::core::mem::transmute(addresstype), bszendipaddress.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.put_EndIpAddress)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(addresstype), bszendipaddress.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn StartPort(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.StartPort)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).base__.StartPort)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn SetStartPort(&self, ulstartport: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetStartPort)(::core::mem::transmute_copy(self), ::core::mem::transmute(ulstartport)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetStartPort)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ulstartport)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn EndPort(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.EndPort)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).base__.EndPort)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn SetEndPort(&self, ulendport: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetEndPort)(::core::mem::transmute_copy(self), ::core::mem::transmute(ulendport)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetEndPort)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ulendport)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn NetworkProfile(&self) -> ::windows::core::Result<WDSTRANSPORT_NETWORK_PROFILE_TYPE> {
         let mut result__: WDSTRANSPORT_NETWORK_PROFILE_TYPE = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.NetworkProfile)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<WDSTRANSPORT_NETWORK_PROFILE_TYPE>(result__)
+        (::windows::core::Interface::vtable(self).base__.NetworkProfile)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<WDSTRANSPORT_NETWORK_PROFILE_TYPE>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn SetNetworkProfile(&self, profiletype: WDSTRANSPORT_NETWORK_PROFILE_TYPE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetNetworkProfile)(::core::mem::transmute_copy(self), ::core::mem::transmute(profiletype)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetNetworkProfile)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(profiletype)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn UdpPortPolicy(&self) -> ::windows::core::Result<WDSTRANSPORT_UDP_PORT_POLICY> {
         let mut result__: WDSTRANSPORT_UDP_PORT_POLICY = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).UdpPortPolicy)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<WDSTRANSPORT_UDP_PORT_POLICY>(result__)
+        (::windows::core::Interface::vtable(self).UdpPortPolicy)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<WDSTRANSPORT_UDP_PORT_POLICY>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn SetUdpPortPolicy(&self, udpportpolicy: WDSTRANSPORT_UDP_PORT_POLICY) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetUdpPortPolicy)(::core::mem::transmute_copy(self), ::core::mem::transmute(udpportpolicy)).ok()
+        (::windows::core::Interface::vtable(self).SetUdpPortPolicy)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(udpportpolicy)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn TftpMaximumBlockSize(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).TftpMaximumBlockSize)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).TftpMaximumBlockSize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn SetTftpMaximumBlockSize(&self, ultftpmaximumblocksize: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetTftpMaximumBlockSize)(::core::mem::transmute_copy(self), ::core::mem::transmute(ultftpmaximumblocksize)).ok()
+        (::windows::core::Interface::vtable(self).SetTftpMaximumBlockSize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ultftpmaximumblocksize)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn EnableTftpVariableWindowExtension(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).EnableTftpVariableWindowExtension)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).EnableTftpVariableWindowExtension)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn SetEnableTftpVariableWindowExtension(&self, benabletftpvariablewindowextension: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetEnableTftpVariableWindowExtension)(::core::mem::transmute_copy(self), ::core::mem::transmute(benabletftpvariablewindowextension)).ok()
+        (::windows::core::Interface::vtable(self).SetEnableTftpVariableWindowExtension)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(benabletftpvariablewindowextension)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3504,44 +3504,44 @@ impl IWdsTransportSession {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Content(&self) -> ::windows::core::Result<IWdsTransportContent> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Content)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWdsTransportContent>(result__)
+        (::windows::core::Interface::vtable(self).Content)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IWdsTransportContent>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn Id(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Id)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).Id)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn NetworkInterfaceName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).NetworkInterfaceName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).NetworkInterfaceName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn NetworkInterfaceAddress(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).NetworkInterfaceAddress)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).NetworkInterfaceAddress)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn TransferRate(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).TransferRate)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).TransferRate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn MasterClientId(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).MasterClientId)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).MasterClientId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn RetrieveClients(&self) -> ::windows::core::Result<IWdsTransportCollection> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).RetrieveClients)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWdsTransportCollection>(result__)
+        (::windows::core::Interface::vtable(self).RetrieveClients)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IWdsTransportCollection>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn Terminate(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Terminate)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Terminate)(::windows::core::Interface::as_raw(self)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3652,27 +3652,27 @@ impl IWdsTransportSetupManager {
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn Version(&self) -> ::windows::core::Result<u64> {
         let mut result__: u64 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Version)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u64>(result__)
+        (::windows::core::Interface::vtable(self).Version)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u64>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn InstalledFeatures(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).InstalledFeatures)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).InstalledFeatures)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn Protocols(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Protocols)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).Protocols)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RegisterContentProvider<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bszname: Param0, bszdescription: Param1, bszfilepath: Param2, bszinitializationroutine: Param3) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RegisterContentProvider)(::core::mem::transmute_copy(self), bszname.into_param().abi(), bszdescription.into_param().abi(), bszfilepath.into_param().abi(), bszinitializationroutine.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).RegisterContentProvider)(::windows::core::Interface::as_raw(self), bszname.into_param().abi(), bszdescription.into_param().abi(), bszfilepath.into_param().abi(), bszinitializationroutine.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DeregisterContentProvider<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bszname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DeregisterContentProvider)(::core::mem::transmute_copy(self), bszname.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).DeregisterContentProvider)(::windows::core::Interface::as_raw(self), bszname.into_param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3774,38 +3774,38 @@ impl IWdsTransportSetupManager2 {
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn Version(&self) -> ::windows::core::Result<u64> {
         let mut result__: u64 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Version)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u64>(result__)
+        (::windows::core::Interface::vtable(self).base__.Version)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u64>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn InstalledFeatures(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.InstalledFeatures)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).base__.InstalledFeatures)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn Protocols(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Protocols)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).base__.Protocols)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RegisterContentProvider<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bszname: Param0, bszdescription: Param1, bszfilepath: Param2, bszinitializationroutine: Param3) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.RegisterContentProvider)(::core::mem::transmute_copy(self), bszname.into_param().abi(), bszdescription.into_param().abi(), bszfilepath.into_param().abi(), bszinitializationroutine.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.RegisterContentProvider)(::windows::core::Interface::as_raw(self), bszname.into_param().abi(), bszdescription.into_param().abi(), bszfilepath.into_param().abi(), bszinitializationroutine.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DeregisterContentProvider<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bszname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.DeregisterContentProvider)(::core::mem::transmute_copy(self), bszname.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.DeregisterContentProvider)(::windows::core::Interface::as_raw(self), bszname.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn TftpCapabilities(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).TftpCapabilities)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).TftpCapabilities)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ContentProviders(&self) -> ::windows::core::Result<IWdsTransportCollection> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ContentProviders)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWdsTransportCollection>(result__)
+        (::windows::core::Interface::vtable(self).ContentProviders)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IWdsTransportCollection>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3926,38 +3926,38 @@ impl IWdsTransportTftpClient {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn FileName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).FileName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).FileName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IpAddress(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).IpAddress)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).IpAddress)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn Timeout(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Timeout)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).Timeout)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn CurrentFileOffset(&self) -> ::windows::core::Result<u64> {
         let mut result__: u64 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CurrentFileOffset)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u64>(result__)
+        (::windows::core::Interface::vtable(self).CurrentFileOffset)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u64>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn FileSize(&self) -> ::windows::core::Result<u64> {
         let mut result__: u64 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).FileSize)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u64>(result__)
+        (::windows::core::Interface::vtable(self).FileSize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u64>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn BlockSize(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).BlockSize)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).BlockSize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn WindowSize(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).WindowSize)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).WindowSize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4062,7 +4062,7 @@ impl IWdsTransportTftpManager {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn RetrieveTftpClients(&self) -> ::windows::core::Result<IWdsTransportCollection> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).RetrieveTftpClients)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWdsTransportCollection>(result__)
+        (::windows::core::Interface::vtable(self).RetrieveTftpClients)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IWdsTransportCollection>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]

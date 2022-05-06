@@ -10,14 +10,14 @@ impl AllJoynAboutData {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsEnabled)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsEnabled)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn SetIsEnabled(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetIsEnabled)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetIsEnabled)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
@@ -25,14 +25,14 @@ impl AllJoynAboutData {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DefaultAppName)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).DefaultAppName)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn SetDefaultAppName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetDefaultAppName)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDefaultAppName)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"Foundation_Collections\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
@@ -40,7 +40,7 @@ impl AllJoynAboutData {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AppNames)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::HSTRING>>(result__)
+            (::windows::core::Interface::vtable(this).AppNames)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::HSTRING>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"Foundation\"`, `\"deprecated\"`*"]
@@ -49,14 +49,14 @@ impl AllJoynAboutData {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DateOfManufacture)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<super::super::Foundation::DateTime>>(result__)
+            (::windows::core::Interface::vtable(this).DateOfManufacture)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IReference<super::super::Foundation::DateTime>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn SetDateOfManufacture<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::IReference<super::super::Foundation::DateTime>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetDateOfManufacture)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDateOfManufacture)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
@@ -64,14 +64,14 @@ impl AllJoynAboutData {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DefaultDescription)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).DefaultDescription)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn SetDefaultDescription<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetDefaultDescription)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDefaultDescription)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"Foundation_Collections\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
@@ -79,7 +79,7 @@ impl AllJoynAboutData {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Descriptions)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::HSTRING>>(result__)
+            (::windows::core::Interface::vtable(this).Descriptions)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::HSTRING>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"deprecated\"`*"]
@@ -88,14 +88,14 @@ impl AllJoynAboutData {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DefaultManufacturer)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).DefaultManufacturer)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn SetDefaultManufacturer<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetDefaultManufacturer)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDefaultManufacturer)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"Foundation_Collections\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
@@ -103,7 +103,7 @@ impl AllJoynAboutData {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Manufacturers)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::HSTRING>>(result__)
+            (::windows::core::Interface::vtable(this).Manufacturers)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::HSTRING>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"deprecated\"`*"]
@@ -112,14 +112,14 @@ impl AllJoynAboutData {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ModelNumber)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).ModelNumber)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn SetModelNumber<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetModelNumber)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetModelNumber)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
@@ -127,14 +127,14 @@ impl AllJoynAboutData {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SoftwareVersion)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).SoftwareVersion)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn SetSoftwareVersion<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetSoftwareVersion)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSoftwareVersion)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
@@ -142,14 +142,14 @@ impl AllJoynAboutData {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SupportUrl)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Uri>(result__)
+            (::windows::core::Interface::vtable(this).SupportUrl)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Uri>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn SetSupportUrl<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Uri>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetSupportUrl)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSupportUrl)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
@@ -157,14 +157,14 @@ impl AllJoynAboutData {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AppId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
+            (::windows::core::Interface::vtable(this).AppId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn SetAppId<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetAppId)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetAppId)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
 }
 #[cfg(feature = "deprecated")]
@@ -268,7 +268,7 @@ impl AllJoynAboutDataView {
         let this = self;
         unsafe {
             let mut result__: i32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Status)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"Foundation_Collections\"`, `\"deprecated\"`*"]
@@ -277,7 +277,7 @@ impl AllJoynAboutDataView {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Properties)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>(result__)
+            (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"deprecated\"`*"]
@@ -286,7 +286,7 @@ impl AllJoynAboutDataView {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AJSoftwareVersion)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).AJSoftwareVersion)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"deprecated\"`*"]
@@ -295,7 +295,7 @@ impl AllJoynAboutDataView {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AppId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
+            (::windows::core::Interface::vtable(this).AppId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"Foundation\"`, `\"deprecated\"`*"]
@@ -304,7 +304,7 @@ impl AllJoynAboutDataView {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DateOfManufacture)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<super::super::Foundation::DateTime>>(result__)
+            (::windows::core::Interface::vtable(this).DateOfManufacture)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IReference<super::super::Foundation::DateTime>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"Globalization\"`, `\"deprecated\"`*"]
@@ -313,7 +313,7 @@ impl AllJoynAboutDataView {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DefaultLanguage)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Globalization::Language>(result__)
+            (::windows::core::Interface::vtable(this).DefaultLanguage)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Globalization::Language>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"deprecated\"`*"]
@@ -322,7 +322,7 @@ impl AllJoynAboutDataView {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DeviceId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).DeviceId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"deprecated\"`*"]
@@ -331,7 +331,7 @@ impl AllJoynAboutDataView {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).HardwareVersion)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).HardwareVersion)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"deprecated\"`*"]
@@ -340,7 +340,7 @@ impl AllJoynAboutDataView {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ModelNumber)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).ModelNumber)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"deprecated\"`*"]
@@ -349,7 +349,7 @@ impl AllJoynAboutDataView {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SoftwareVersion)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).SoftwareVersion)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"Foundation_Collections\"`, `\"Globalization\"`, `\"deprecated\"`*"]
@@ -358,7 +358,7 @@ impl AllJoynAboutDataView {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SupportedLanguages)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<super::super::Globalization::Language>>(result__)
+            (::windows::core::Interface::vtable(this).SupportedLanguages)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<super::super::Globalization::Language>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"Foundation\"`, `\"deprecated\"`*"]
@@ -367,7 +367,7 @@ impl AllJoynAboutDataView {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SupportUrl)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Uri>(result__)
+            (::windows::core::Interface::vtable(this).SupportUrl)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Uri>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"deprecated\"`*"]
@@ -376,7 +376,7 @@ impl AllJoynAboutDataView {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AppName)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).AppName)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"deprecated\"`*"]
@@ -385,7 +385,7 @@ impl AllJoynAboutDataView {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Description)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Description)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"deprecated\"`*"]
@@ -394,7 +394,7 @@ impl AllJoynAboutDataView {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DeviceName)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).DeviceName)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"deprecated\"`*"]
@@ -403,7 +403,7 @@ impl AllJoynAboutDataView {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Manufacturer)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Manufacturer)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"Foundation\"`, `\"deprecated\"`*"]
@@ -411,7 +411,7 @@ impl AllJoynAboutDataView {
     pub fn GetDataBySessionPortAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, AllJoynBusAttachment>>(uniquename: Param0, busattachment: Param1, sessionport: u16) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<AllJoynAboutDataView>> {
         Self::IAllJoynAboutDataViewStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetDataBySessionPortAsync)(::core::mem::transmute_copy(this), uniquename.into_param().abi(), busattachment.into_param().abi(), sessionport, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<AllJoynAboutDataView>>(result__)
+            (::windows::core::Interface::vtable(this).GetDataBySessionPortAsync)(::windows::core::Interface::as_raw(this), uniquename.into_param().abi(), busattachment.into_param().abi(), sessionport, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<AllJoynAboutDataView>>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"Foundation\"`, `\"Globalization\"`, `\"deprecated\"`*"]
@@ -419,7 +419,7 @@ impl AllJoynAboutDataView {
     pub fn GetDataBySessionPortWithLanguageAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, AllJoynBusAttachment>, Param3: ::windows::core::IntoParam<'a, super::super::Globalization::Language>>(uniquename: Param0, busattachment: Param1, sessionport: u16, language: Param3) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<AllJoynAboutDataView>> {
         Self::IAllJoynAboutDataViewStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetDataBySessionPortWithLanguageAsync)(::core::mem::transmute_copy(this), uniquename.into_param().abi(), busattachment.into_param().abi(), sessionport, language.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<AllJoynAboutDataView>>(result__)
+            (::windows::core::Interface::vtable(this).GetDataBySessionPortWithLanguageAsync)(::windows::core::Interface::as_raw(this), uniquename.into_param().abi(), busattachment.into_param().abi(), sessionport, language.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<AllJoynAboutDataView>>(result__)
         })
     }
     #[doc(hidden)]
@@ -530,7 +530,7 @@ impl AllJoynAcceptSessionJoinerEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).UniqueName)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).UniqueName)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"deprecated\"`*"]
@@ -539,7 +539,7 @@ impl AllJoynAcceptSessionJoinerEventArgs {
         let this = self;
         unsafe {
             let mut result__: u16 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SessionPort)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
+            (::windows::core::Interface::vtable(this).SessionPort)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u16>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"deprecated\"`*"]
@@ -548,7 +548,7 @@ impl AllJoynAcceptSessionJoinerEventArgs {
         let this = self;
         unsafe {
             let mut result__: AllJoynTrafficType = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TrafficType)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AllJoynTrafficType>(result__)
+            (::windows::core::Interface::vtable(this).TrafficType)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<AllJoynTrafficType>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"deprecated\"`*"]
@@ -557,7 +557,7 @@ impl AllJoynAcceptSessionJoinerEventArgs {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SamePhysicalNode)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).SamePhysicalNode)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"deprecated\"`*"]
@@ -566,21 +566,21 @@ impl AllJoynAcceptSessionJoinerEventArgs {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SameNetwork)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).SameNetwork)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn Accept(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Accept)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Accept)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn Create<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param4: ::windows::core::IntoParam<'a, IAllJoynAcceptSessionJoiner>>(uniquename: Param0, sessionport: u16, traffictype: AllJoynTrafficType, proximity: u8, acceptsessionjoiner: Param4) -> ::windows::core::Result<AllJoynAcceptSessionJoinerEventArgs> {
         Self::IAllJoynAcceptSessionJoinerEventArgsFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::core::mem::transmute_copy(this), uniquename.into_param().abi(), sessionport, traffictype, proximity, acceptsessionjoiner.into_param().abi(), &mut result__).from_abi::<AllJoynAcceptSessionJoinerEventArgs>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), uniquename.into_param().abi(), sessionport, traffictype, proximity, acceptsessionjoiner.into_param().abi(), &mut result__).from_abi::<AllJoynAcceptSessionJoinerEventArgs>(result__)
         })
     }
     #[doc(hidden)]
@@ -691,7 +691,7 @@ impl AllJoynAuthenticationCompleteEventArgs {
         let this = self;
         unsafe {
             let mut result__: AllJoynAuthenticationMechanism = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AuthenticationMechanism)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AllJoynAuthenticationMechanism>(result__)
+            (::windows::core::Interface::vtable(this).AuthenticationMechanism)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<AllJoynAuthenticationMechanism>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"deprecated\"`*"]
@@ -700,7 +700,7 @@ impl AllJoynAuthenticationCompleteEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PeerUniqueName)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).PeerUniqueName)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"deprecated\"`*"]
@@ -709,7 +709,7 @@ impl AllJoynAuthenticationCompleteEventArgs {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Succeeded)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).Succeeded)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
 }
@@ -868,7 +868,7 @@ impl AllJoynBusAttachment {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AboutData)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AllJoynAboutData>(result__)
+            (::windows::core::Interface::vtable(this).AboutData)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<AllJoynAboutData>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"deprecated\"`*"]
@@ -877,7 +877,7 @@ impl AllJoynBusAttachment {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ConnectionSpecification)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).ConnectionSpecification)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"deprecated\"`*"]
@@ -886,7 +886,7 @@ impl AllJoynBusAttachment {
         let this = self;
         unsafe {
             let mut result__: AllJoynBusAttachmentState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).State)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AllJoynBusAttachmentState>(result__)
+            (::windows::core::Interface::vtable(this).State)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<AllJoynBusAttachmentState>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"deprecated\"`*"]
@@ -895,7 +895,7 @@ impl AllJoynBusAttachment {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).UniqueName)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).UniqueName)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"Foundation\"`, `\"deprecated\"`*"]
@@ -904,20 +904,20 @@ impl AllJoynBusAttachment {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PingAsync)(::core::mem::transmute_copy(this), uniquename.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<i32>>(result__)
+            (::windows::core::Interface::vtable(this).PingAsync)(::windows::core::Interface::as_raw(this), uniquename.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<i32>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn Connect(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Connect)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Connect)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn Disconnect(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Disconnect)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Disconnect)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
@@ -925,14 +925,14 @@ impl AllJoynBusAttachment {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).StateChanged)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).StateChanged)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn RemoveStateChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveStateChanged)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveStateChanged)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"Foundation_Collections\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
@@ -940,7 +940,7 @@ impl AllJoynBusAttachment {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AuthenticationMechanisms)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<AllJoynAuthenticationMechanism>>(result__)
+            (::windows::core::Interface::vtable(this).AuthenticationMechanisms)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<AllJoynAuthenticationMechanism>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"Foundation\"`, `\"deprecated\"`*"]
@@ -949,14 +949,14 @@ impl AllJoynBusAttachment {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CredentialsRequested)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).CredentialsRequested)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn RemoveCredentialsRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveCredentialsRequested)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveCredentialsRequested)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
@@ -964,14 +964,14 @@ impl AllJoynBusAttachment {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CredentialsVerificationRequested)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).CredentialsVerificationRequested)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn RemoveCredentialsVerificationRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveCredentialsVerificationRequested)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveCredentialsVerificationRequested)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
@@ -979,14 +979,14 @@ impl AllJoynBusAttachment {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AuthenticationComplete)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).AuthenticationComplete)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn RemoveAuthenticationComplete<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveAuthenticationComplete)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveAuthenticationComplete)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
@@ -994,7 +994,7 @@ impl AllJoynBusAttachment {
         let this = &::windows::core::Interface::cast::<IAllJoynBusAttachment2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetAboutDataAsync)(::core::mem::transmute_copy(this), serviceinfo.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<AllJoynAboutDataView>>(result__)
+            (::windows::core::Interface::vtable(this).GetAboutDataAsync)(::windows::core::Interface::as_raw(this), serviceinfo.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<AllJoynAboutDataView>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"Foundation\"`, `\"Globalization\"`, `\"deprecated\"`*"]
@@ -1003,7 +1003,7 @@ impl AllJoynBusAttachment {
         let this = &::windows::core::Interface::cast::<IAllJoynBusAttachment2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetAboutDataWithLanguageAsync)(::core::mem::transmute_copy(this), serviceinfo.into_param().abi(), language.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<AllJoynAboutDataView>>(result__)
+            (::windows::core::Interface::vtable(this).GetAboutDataWithLanguageAsync)(::windows::core::Interface::as_raw(this), serviceinfo.into_param().abi(), language.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<AllJoynAboutDataView>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"Foundation\"`, `\"deprecated\"`*"]
@@ -1012,14 +1012,14 @@ impl AllJoynBusAttachment {
         let this = &::windows::core::Interface::cast::<IAllJoynBusAttachment2>(self)?;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AcceptSessionJoinerRequested)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).AcceptSessionJoinerRequested)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn RemoveAcceptSessionJoinerRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IAllJoynBusAttachment2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveAcceptSessionJoinerRequested)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveAcceptSessionJoinerRequested)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
@@ -1027,21 +1027,21 @@ impl AllJoynBusAttachment {
         let this = &::windows::core::Interface::cast::<IAllJoynBusAttachment2>(self)?;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SessionJoined)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).SessionJoined)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn RemoveSessionJoined<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IAllJoynBusAttachment2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveSessionJoined)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveSessionJoined)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn Create<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(connectionspecification: Param0) -> ::windows::core::Result<AllJoynBusAttachment> {
         Self::IAllJoynBusAttachmentFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::core::mem::transmute_copy(this), connectionspecification.into_param().abi(), &mut result__).from_abi::<AllJoynBusAttachment>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), connectionspecification.into_param().abi(), &mut result__).from_abi::<AllJoynBusAttachment>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"deprecated\"`*"]
@@ -1049,7 +1049,7 @@ impl AllJoynBusAttachment {
     pub fn GetDefault() -> ::windows::core::Result<AllJoynBusAttachment> {
         Self::IAllJoynBusAttachmentStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetDefault)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AllJoynBusAttachment>(result__)
+            (::windows::core::Interface::vtable(this).GetDefault)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<AllJoynBusAttachment>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"Devices_Enumeration\"`, `\"Foundation_Collections\"`, `\"deprecated\"`*"]
@@ -1057,7 +1057,7 @@ impl AllJoynBusAttachment {
     pub fn GetWatcher<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>>(requiredinterfaces: Param0) -> ::windows::core::Result<super::Enumeration::DeviceWatcher> {
         Self::IAllJoynBusAttachmentStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetWatcher)(::core::mem::transmute_copy(this), requiredinterfaces.into_param().abi(), &mut result__).from_abi::<super::Enumeration::DeviceWatcher>(result__)
+            (::windows::core::Interface::vtable(this).GetWatcher)(::windows::core::Interface::as_raw(this), requiredinterfaces.into_param().abi(), &mut result__).from_abi::<super::Enumeration::DeviceWatcher>(result__)
         })
     }
     #[doc(hidden)]
@@ -1218,7 +1218,7 @@ impl AllJoynBusAttachmentStateChangedEventArgs {
         let this = self;
         unsafe {
             let mut result__: AllJoynBusAttachmentState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).State)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AllJoynBusAttachmentState>(result__)
+            (::windows::core::Interface::vtable(this).State)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<AllJoynBusAttachmentState>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"deprecated\"`*"]
@@ -1227,7 +1227,7 @@ impl AllJoynBusAttachmentStateChangedEventArgs {
         let this = self;
         unsafe {
             let mut result__: i32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Status)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<i32>(result__)
         }
     }
 }
@@ -1337,19 +1337,19 @@ impl AllJoynBusObject {
     #[cfg(feature = "deprecated")]
     pub fn Start(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Start)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Start)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn Stop(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Stop)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Stop)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn AddProducer<'a, Param0: ::windows::core::IntoParam<'a, IAllJoynProducer>>(&self, producer: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AddProducer)(::core::mem::transmute_copy(this), producer.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddProducer)(::windows::core::Interface::as_raw(this), producer.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
@@ -1357,7 +1357,7 @@ impl AllJoynBusObject {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).BusAttachment)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AllJoynBusAttachment>(result__)
+            (::windows::core::Interface::vtable(this).BusAttachment)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<AllJoynBusAttachment>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"deprecated\"`*"]
@@ -1366,7 +1366,7 @@ impl AllJoynBusObject {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Session)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AllJoynSession>(result__)
+            (::windows::core::Interface::vtable(this).Session)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<AllJoynSession>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"Foundation\"`, `\"deprecated\"`*"]
@@ -1375,21 +1375,21 @@ impl AllJoynBusObject {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Stopped)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).Stopped)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn RemoveStopped<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveStopped)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveStopped)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn Create<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(objectpath: Param0) -> ::windows::core::Result<AllJoynBusObject> {
         Self::IAllJoynBusObjectFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::core::mem::transmute_copy(this), objectpath.into_param().abi(), &mut result__).from_abi::<AllJoynBusObject>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), objectpath.into_param().abi(), &mut result__).from_abi::<AllJoynBusObject>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"deprecated\"`*"]
@@ -1397,7 +1397,7 @@ impl AllJoynBusObject {
     pub fn CreateWithBusAttachment<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, AllJoynBusAttachment>>(objectpath: Param0, busattachment: Param1) -> ::windows::core::Result<AllJoynBusObject> {
         Self::IAllJoynBusObjectFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateWithBusAttachment)(::core::mem::transmute_copy(this), objectpath.into_param().abi(), busattachment.into_param().abi(), &mut result__).from_abi::<AllJoynBusObject>(result__)
+            (::windows::core::Interface::vtable(this).CreateWithBusAttachment)(::windows::core::Interface::as_raw(this), objectpath.into_param().abi(), busattachment.into_param().abi(), &mut result__).from_abi::<AllJoynBusObject>(result__)
         })
     }
     #[doc(hidden)]
@@ -1508,7 +1508,7 @@ impl AllJoynBusObjectStoppedEventArgs {
         let this = self;
         unsafe {
             let mut result__: i32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Status)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"deprecated\"`*"]
@@ -1516,7 +1516,7 @@ impl AllJoynBusObjectStoppedEventArgs {
     pub fn Create(status: i32) -> ::windows::core::Result<AllJoynBusObjectStoppedEventArgs> {
         Self::IAllJoynBusObjectStoppedEventArgsFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::core::mem::transmute_copy(this), status, &mut result__).from_abi::<AllJoynBusObjectStoppedEventArgs>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), status, &mut result__).from_abi::<AllJoynBusObjectStoppedEventArgs>(result__)
         })
     }
     #[doc(hidden)]
@@ -1627,7 +1627,7 @@ impl AllJoynCredentials {
         let this = self;
         unsafe {
             let mut result__: AllJoynAuthenticationMechanism = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AuthenticationMechanism)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AllJoynAuthenticationMechanism>(result__)
+            (::windows::core::Interface::vtable(this).AuthenticationMechanism)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<AllJoynAuthenticationMechanism>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"Security_Cryptography_Certificates\"`, `\"deprecated\"`*"]
@@ -1636,14 +1636,14 @@ impl AllJoynCredentials {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Certificate)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Security::Cryptography::Certificates::Certificate>(result__)
+            (::windows::core::Interface::vtable(this).Certificate)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Security::Cryptography::Certificates::Certificate>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"Security_Cryptography_Certificates\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Security_Cryptography_Certificates", feature = "deprecated"))]
     pub fn SetCertificate<'a, Param0: ::windows::core::IntoParam<'a, super::super::Security::Cryptography::Certificates::Certificate>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetCertificate)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCertificate)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"Security_Credentials\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Security_Credentials", feature = "deprecated"))]
@@ -1651,14 +1651,14 @@ impl AllJoynCredentials {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PasswordCredential)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Security::Credentials::PasswordCredential>(result__)
+            (::windows::core::Interface::vtable(this).PasswordCredential)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Security::Credentials::PasswordCredential>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"Security_Credentials\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Security_Credentials", feature = "deprecated"))]
     pub fn SetPasswordCredential<'a, Param0: ::windows::core::IntoParam<'a, super::super::Security::Credentials::PasswordCredential>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetPasswordCredential)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPasswordCredential)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
@@ -1666,14 +1666,14 @@ impl AllJoynCredentials {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::TimeSpan = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Timeout)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
+            (::windows::core::Interface::vtable(this).Timeout)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn SetTimeout<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TimeSpan>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetTimeout)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetTimeout)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
 }
 #[cfg(feature = "deprecated")]
@@ -1777,7 +1777,7 @@ impl AllJoynCredentialsRequestedEventArgs {
         let this = self;
         unsafe {
             let mut result__: u16 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AttemptCount)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
+            (::windows::core::Interface::vtable(this).AttemptCount)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u16>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"deprecated\"`*"]
@@ -1786,7 +1786,7 @@ impl AllJoynCredentialsRequestedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Credentials)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AllJoynCredentials>(result__)
+            (::windows::core::Interface::vtable(this).Credentials)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<AllJoynCredentials>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"deprecated\"`*"]
@@ -1795,7 +1795,7 @@ impl AllJoynCredentialsRequestedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PeerUniqueName)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).PeerUniqueName)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"deprecated\"`*"]
@@ -1804,7 +1804,7 @@ impl AllJoynCredentialsRequestedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RequestedUserName)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).RequestedUserName)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"Foundation\"`, `\"deprecated\"`*"]
@@ -1813,7 +1813,7 @@ impl AllJoynCredentialsRequestedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetDeferral)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Deferral>(result__)
+            (::windows::core::Interface::vtable(this).GetDeferral)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Deferral>(result__)
         }
     }
 }
@@ -1918,7 +1918,7 @@ impl AllJoynCredentialsVerificationRequestedEventArgs {
         let this = self;
         unsafe {
             let mut result__: AllJoynAuthenticationMechanism = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AuthenticationMechanism)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AllJoynAuthenticationMechanism>(result__)
+            (::windows::core::Interface::vtable(this).AuthenticationMechanism)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<AllJoynAuthenticationMechanism>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"deprecated\"`*"]
@@ -1927,7 +1927,7 @@ impl AllJoynCredentialsVerificationRequestedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PeerUniqueName)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).PeerUniqueName)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"Security_Cryptography_Certificates\"`, `\"deprecated\"`*"]
@@ -1936,7 +1936,7 @@ impl AllJoynCredentialsVerificationRequestedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PeerCertificate)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Security::Cryptography::Certificates::Certificate>(result__)
+            (::windows::core::Interface::vtable(this).PeerCertificate)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Security::Cryptography::Certificates::Certificate>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"Networking_Sockets\"`, `\"deprecated\"`*"]
@@ -1945,7 +1945,7 @@ impl AllJoynCredentialsVerificationRequestedEventArgs {
         let this = self;
         unsafe {
             let mut result__: super::super::Networking::Sockets::SocketSslErrorSeverity = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PeerCertificateErrorSeverity)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Networking::Sockets::SocketSslErrorSeverity>(result__)
+            (::windows::core::Interface::vtable(this).PeerCertificateErrorSeverity)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Networking::Sockets::SocketSslErrorSeverity>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"Foundation_Collections\"`, `\"Security_Cryptography_Certificates\"`, `\"deprecated\"`*"]
@@ -1954,7 +1954,7 @@ impl AllJoynCredentialsVerificationRequestedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PeerCertificateErrors)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<super::super::Security::Cryptography::Certificates::ChainValidationResult>>(result__)
+            (::windows::core::Interface::vtable(this).PeerCertificateErrors)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<super::super::Security::Cryptography::Certificates::ChainValidationResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"Foundation_Collections\"`, `\"Security_Cryptography_Certificates\"`, `\"deprecated\"`*"]
@@ -1963,14 +1963,14 @@ impl AllJoynCredentialsVerificationRequestedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PeerIntermediateCertificates)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<super::super::Security::Cryptography::Certificates::Certificate>>(result__)
+            (::windows::core::Interface::vtable(this).PeerIntermediateCertificates)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<super::super::Security::Cryptography::Certificates::Certificate>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn Accept(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Accept)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Accept)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
@@ -1978,7 +1978,7 @@ impl AllJoynCredentialsVerificationRequestedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetDeferral)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Deferral>(result__)
+            (::windows::core::Interface::vtable(this).GetDeferral)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Deferral>(result__)
         }
     }
 }
@@ -2083,7 +2083,7 @@ impl AllJoynMessageInfo {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SenderUniqueName)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).SenderUniqueName)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"deprecated\"`*"]
@@ -2091,7 +2091,7 @@ impl AllJoynMessageInfo {
     pub fn Create<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(senderuniquename: Param0) -> ::windows::core::Result<AllJoynMessageInfo> {
         Self::IAllJoynMessageInfoFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::core::mem::transmute_copy(this), senderuniquename.into_param().abi(), &mut result__).from_abi::<AllJoynMessageInfo>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), senderuniquename.into_param().abi(), &mut result__).from_abi::<AllJoynMessageInfo>(result__)
         })
     }
     #[doc(hidden)]
@@ -2202,7 +2202,7 @@ impl AllJoynProducerStoppedEventArgs {
         let this = self;
         unsafe {
             let mut result__: i32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Status)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"deprecated\"`*"]
@@ -2210,7 +2210,7 @@ impl AllJoynProducerStoppedEventArgs {
     pub fn Create(status: i32) -> ::windows::core::Result<AllJoynProducerStoppedEventArgs> {
         Self::IAllJoynProducerStoppedEventArgsFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::core::mem::transmute_copy(this), status, &mut result__).from_abi::<AllJoynProducerStoppedEventArgs>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), status, &mut result__).from_abi::<AllJoynProducerStoppedEventArgs>(result__)
         })
     }
     #[doc(hidden)]
@@ -2321,7 +2321,7 @@ impl AllJoynServiceInfo {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).UniqueName)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).UniqueName)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"deprecated\"`*"]
@@ -2330,7 +2330,7 @@ impl AllJoynServiceInfo {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ObjectPath)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).ObjectPath)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"deprecated\"`*"]
@@ -2339,7 +2339,7 @@ impl AllJoynServiceInfo {
         let this = self;
         unsafe {
             let mut result__: u16 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SessionPort)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
+            (::windows::core::Interface::vtable(this).SessionPort)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u16>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"deprecated\"`*"]
@@ -2347,7 +2347,7 @@ impl AllJoynServiceInfo {
     pub fn Create<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(uniquename: Param0, objectpath: Param1, sessionport: u16) -> ::windows::core::Result<AllJoynServiceInfo> {
         Self::IAllJoynServiceInfoFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::core::mem::transmute_copy(this), uniquename.into_param().abi(), objectpath.into_param().abi(), sessionport, &mut result__).from_abi::<AllJoynServiceInfo>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), uniquename.into_param().abi(), objectpath.into_param().abi(), sessionport, &mut result__).from_abi::<AllJoynServiceInfo>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"Foundation\"`, `\"deprecated\"`*"]
@@ -2355,7 +2355,7 @@ impl AllJoynServiceInfo {
     pub fn FromIdAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(deviceid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<AllJoynServiceInfo>> {
         Self::IAllJoynServiceInfoStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FromIdAsync)(::core::mem::transmute_copy(this), deviceid.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<AllJoynServiceInfo>>(result__)
+            (::windows::core::Interface::vtable(this).FromIdAsync)(::windows::core::Interface::as_raw(this), deviceid.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<AllJoynServiceInfo>>(result__)
         })
     }
     #[doc(hidden)]
@@ -2472,7 +2472,7 @@ impl AllJoynServiceInfoRemovedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).UniqueName)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).UniqueName)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"deprecated\"`*"]
@@ -2480,7 +2480,7 @@ impl AllJoynServiceInfoRemovedEventArgs {
     pub fn Create<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(uniquename: Param0) -> ::windows::core::Result<AllJoynServiceInfoRemovedEventArgs> {
         Self::IAllJoynServiceInfoRemovedEventArgsFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::core::mem::transmute_copy(this), uniquename.into_param().abi(), &mut result__).from_abi::<AllJoynServiceInfoRemovedEventArgs>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), uniquename.into_param().abi(), &mut result__).from_abi::<AllJoynServiceInfoRemovedEventArgs>(result__)
         })
     }
     #[doc(hidden)]
@@ -2591,7 +2591,7 @@ impl AllJoynSession {
         let this = self;
         unsafe {
             let mut result__: i32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Id)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            (::windows::core::Interface::vtable(this).Id)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"deprecated\"`*"]
@@ -2600,7 +2600,7 @@ impl AllJoynSession {
         let this = self;
         unsafe {
             let mut result__: i32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Status)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"Foundation\"`, `\"deprecated\"`*"]
@@ -2609,7 +2609,7 @@ impl AllJoynSession {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RemoveMemberAsync)(::core::mem::transmute_copy(this), uniquename.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<i32>>(result__)
+            (::windows::core::Interface::vtable(this).RemoveMemberAsync)(::windows::core::Interface::as_raw(this), uniquename.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<i32>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"Foundation\"`, `\"deprecated\"`*"]
@@ -2618,14 +2618,14 @@ impl AllJoynSession {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MemberAdded)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).MemberAdded)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn RemoveMemberAdded<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveMemberAdded)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveMemberAdded)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
@@ -2633,14 +2633,14 @@ impl AllJoynSession {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MemberRemoved)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).MemberRemoved)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn RemoveMemberRemoved<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveMemberRemoved)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveMemberRemoved)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
@@ -2648,21 +2648,21 @@ impl AllJoynSession {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Lost)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).Lost)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn RemoveLost<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveLost)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveLost)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn GetFromServiceInfoAsync<'a, Param0: ::windows::core::IntoParam<'a, AllJoynServiceInfo>>(serviceinfo: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<AllJoynSession>> {
         Self::IAllJoynSessionStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetFromServiceInfoAsync)(::core::mem::transmute_copy(this), serviceinfo.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<AllJoynSession>>(result__)
+            (::windows::core::Interface::vtable(this).GetFromServiceInfoAsync)(::windows::core::Interface::as_raw(this), serviceinfo.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<AllJoynSession>>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"Foundation\"`, `\"deprecated\"`*"]
@@ -2670,7 +2670,7 @@ impl AllJoynSession {
     pub fn GetFromServiceInfoAndBusAttachmentAsync<'a, Param0: ::windows::core::IntoParam<'a, AllJoynServiceInfo>, Param1: ::windows::core::IntoParam<'a, AllJoynBusAttachment>>(serviceinfo: Param0, busattachment: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<AllJoynSession>> {
         Self::IAllJoynSessionStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetFromServiceInfoAndBusAttachmentAsync)(::core::mem::transmute_copy(this), serviceinfo.into_param().abi(), busattachment.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<AllJoynSession>>(result__)
+            (::windows::core::Interface::vtable(this).GetFromServiceInfoAndBusAttachmentAsync)(::windows::core::Interface::as_raw(this), serviceinfo.into_param().abi(), busattachment.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<AllJoynSession>>(result__)
         })
     }
     #[doc(hidden)]
@@ -2781,7 +2781,7 @@ impl AllJoynSessionJoinedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Session)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AllJoynSession>(result__)
+            (::windows::core::Interface::vtable(this).Session)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<AllJoynSession>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"deprecated\"`*"]
@@ -2789,7 +2789,7 @@ impl AllJoynSessionJoinedEventArgs {
     pub fn Create<'a, Param0: ::windows::core::IntoParam<'a, AllJoynSession>>(session: Param0) -> ::windows::core::Result<AllJoynSessionJoinedEventArgs> {
         Self::IAllJoynSessionJoinedEventArgsFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::core::mem::transmute_copy(this), session.into_param().abi(), &mut result__).from_abi::<AllJoynSessionJoinedEventArgs>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), session.into_param().abi(), &mut result__).from_abi::<AllJoynSessionJoinedEventArgs>(result__)
         })
     }
     #[doc(hidden)]
@@ -2900,7 +2900,7 @@ impl AllJoynSessionLostEventArgs {
         let this = self;
         unsafe {
             let mut result__: AllJoynSessionLostReason = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Reason)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AllJoynSessionLostReason>(result__)
+            (::windows::core::Interface::vtable(this).Reason)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<AllJoynSessionLostReason>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"deprecated\"`*"]
@@ -2908,7 +2908,7 @@ impl AllJoynSessionLostEventArgs {
     pub fn Create(reason: AllJoynSessionLostReason) -> ::windows::core::Result<AllJoynSessionLostEventArgs> {
         Self::IAllJoynSessionLostEventArgsFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::core::mem::transmute_copy(this), reason, &mut result__).from_abi::<AllJoynSessionLostEventArgs>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), reason, &mut result__).from_abi::<AllJoynSessionLostEventArgs>(result__)
         })
     }
     #[doc(hidden)]
@@ -3065,7 +3065,7 @@ impl AllJoynSessionMemberAddedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).UniqueName)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).UniqueName)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"deprecated\"`*"]
@@ -3073,7 +3073,7 @@ impl AllJoynSessionMemberAddedEventArgs {
     pub fn Create<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(uniquename: Param0) -> ::windows::core::Result<AllJoynSessionMemberAddedEventArgs> {
         Self::IAllJoynSessionMemberAddedEventArgsFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::core::mem::transmute_copy(this), uniquename.into_param().abi(), &mut result__).from_abi::<AllJoynSessionMemberAddedEventArgs>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), uniquename.into_param().abi(), &mut result__).from_abi::<AllJoynSessionMemberAddedEventArgs>(result__)
         })
     }
     #[doc(hidden)]
@@ -3184,7 +3184,7 @@ impl AllJoynSessionMemberRemovedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).UniqueName)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).UniqueName)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"deprecated\"`*"]
@@ -3192,7 +3192,7 @@ impl AllJoynSessionMemberRemovedEventArgs {
     pub fn Create<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(uniquename: Param0) -> ::windows::core::Result<AllJoynSessionMemberRemovedEventArgs> {
         Self::IAllJoynSessionMemberRemovedEventArgsFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::core::mem::transmute_copy(this), uniquename.into_param().abi(), &mut result__).from_abi::<AllJoynSessionMemberRemovedEventArgs>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), uniquename.into_param().abi(), &mut result__).from_abi::<AllJoynSessionMemberRemovedEventArgs>(result__)
         })
     }
     #[doc(hidden)]
@@ -3301,7 +3301,7 @@ impl AllJoynStatus {
     pub fn Ok() -> ::windows::core::Result<i32> {
         Self::IAllJoynStatusStatics(|this| unsafe {
             let mut result__: i32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Ok)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            (::windows::core::Interface::vtable(this).Ok)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<i32>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"deprecated\"`*"]
@@ -3309,7 +3309,7 @@ impl AllJoynStatus {
     pub fn Fail() -> ::windows::core::Result<i32> {
         Self::IAllJoynStatusStatics(|this| unsafe {
             let mut result__: i32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Fail)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            (::windows::core::Interface::vtable(this).Fail)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<i32>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"deprecated\"`*"]
@@ -3317,7 +3317,7 @@ impl AllJoynStatus {
     pub fn OperationTimedOut() -> ::windows::core::Result<i32> {
         Self::IAllJoynStatusStatics(|this| unsafe {
             let mut result__: i32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).OperationTimedOut)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            (::windows::core::Interface::vtable(this).OperationTimedOut)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<i32>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"deprecated\"`*"]
@@ -3325,7 +3325,7 @@ impl AllJoynStatus {
     pub fn OtherEndClosed() -> ::windows::core::Result<i32> {
         Self::IAllJoynStatusStatics(|this| unsafe {
             let mut result__: i32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).OtherEndClosed)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            (::windows::core::Interface::vtable(this).OtherEndClosed)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<i32>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"deprecated\"`*"]
@@ -3333,7 +3333,7 @@ impl AllJoynStatus {
     pub fn ConnectionRefused() -> ::windows::core::Result<i32> {
         Self::IAllJoynStatusStatics(|this| unsafe {
             let mut result__: i32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ConnectionRefused)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            (::windows::core::Interface::vtable(this).ConnectionRefused)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<i32>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"deprecated\"`*"]
@@ -3341,7 +3341,7 @@ impl AllJoynStatus {
     pub fn AuthenticationFailed() -> ::windows::core::Result<i32> {
         Self::IAllJoynStatusStatics(|this| unsafe {
             let mut result__: i32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AuthenticationFailed)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            (::windows::core::Interface::vtable(this).AuthenticationFailed)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<i32>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"deprecated\"`*"]
@@ -3349,7 +3349,7 @@ impl AllJoynStatus {
     pub fn AuthenticationRejectedByUser() -> ::windows::core::Result<i32> {
         Self::IAllJoynStatusStatics(|this| unsafe {
             let mut result__: i32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AuthenticationRejectedByUser)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            (::windows::core::Interface::vtable(this).AuthenticationRejectedByUser)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<i32>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"deprecated\"`*"]
@@ -3357,7 +3357,7 @@ impl AllJoynStatus {
     pub fn SslConnectFailed() -> ::windows::core::Result<i32> {
         Self::IAllJoynStatusStatics(|this| unsafe {
             let mut result__: i32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SslConnectFailed)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            (::windows::core::Interface::vtable(this).SslConnectFailed)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<i32>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"deprecated\"`*"]
@@ -3365,7 +3365,7 @@ impl AllJoynStatus {
     pub fn SslIdentityVerificationFailed() -> ::windows::core::Result<i32> {
         Self::IAllJoynStatusStatics(|this| unsafe {
             let mut result__: i32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SslIdentityVerificationFailed)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            (::windows::core::Interface::vtable(this).SslIdentityVerificationFailed)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<i32>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"deprecated\"`*"]
@@ -3373,7 +3373,7 @@ impl AllJoynStatus {
     pub fn InsufficientSecurity() -> ::windows::core::Result<i32> {
         Self::IAllJoynStatusStatics(|this| unsafe {
             let mut result__: i32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).InsufficientSecurity)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            (::windows::core::Interface::vtable(this).InsufficientSecurity)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<i32>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"deprecated\"`*"]
@@ -3381,7 +3381,7 @@ impl AllJoynStatus {
     pub fn InvalidArgument1() -> ::windows::core::Result<i32> {
         Self::IAllJoynStatusStatics(|this| unsafe {
             let mut result__: i32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).InvalidArgument1)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            (::windows::core::Interface::vtable(this).InvalidArgument1)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<i32>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"deprecated\"`*"]
@@ -3389,7 +3389,7 @@ impl AllJoynStatus {
     pub fn InvalidArgument2() -> ::windows::core::Result<i32> {
         Self::IAllJoynStatusStatics(|this| unsafe {
             let mut result__: i32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).InvalidArgument2)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            (::windows::core::Interface::vtable(this).InvalidArgument2)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<i32>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"deprecated\"`*"]
@@ -3397,7 +3397,7 @@ impl AllJoynStatus {
     pub fn InvalidArgument3() -> ::windows::core::Result<i32> {
         Self::IAllJoynStatusStatics(|this| unsafe {
             let mut result__: i32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).InvalidArgument3)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            (::windows::core::Interface::vtable(this).InvalidArgument3)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<i32>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"deprecated\"`*"]
@@ -3405,7 +3405,7 @@ impl AllJoynStatus {
     pub fn InvalidArgument4() -> ::windows::core::Result<i32> {
         Self::IAllJoynStatusStatics(|this| unsafe {
             let mut result__: i32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).InvalidArgument4)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            (::windows::core::Interface::vtable(this).InvalidArgument4)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<i32>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"deprecated\"`*"]
@@ -3413,7 +3413,7 @@ impl AllJoynStatus {
     pub fn InvalidArgument5() -> ::windows::core::Result<i32> {
         Self::IAllJoynStatusStatics(|this| unsafe {
             let mut result__: i32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).InvalidArgument5)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            (::windows::core::Interface::vtable(this).InvalidArgument5)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<i32>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"deprecated\"`*"]
@@ -3421,7 +3421,7 @@ impl AllJoynStatus {
     pub fn InvalidArgument6() -> ::windows::core::Result<i32> {
         Self::IAllJoynStatusStatics(|this| unsafe {
             let mut result__: i32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).InvalidArgument6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            (::windows::core::Interface::vtable(this).InvalidArgument6)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<i32>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"deprecated\"`*"]
@@ -3429,7 +3429,7 @@ impl AllJoynStatus {
     pub fn InvalidArgument7() -> ::windows::core::Result<i32> {
         Self::IAllJoynStatusStatics(|this| unsafe {
             let mut result__: i32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).InvalidArgument7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            (::windows::core::Interface::vtable(this).InvalidArgument7)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<i32>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"deprecated\"`*"]
@@ -3437,7 +3437,7 @@ impl AllJoynStatus {
     pub fn InvalidArgument8() -> ::windows::core::Result<i32> {
         Self::IAllJoynStatusStatics(|this| unsafe {
             let mut result__: i32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).InvalidArgument8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            (::windows::core::Interface::vtable(this).InvalidArgument8)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<i32>(result__)
         })
     }
     #[doc(hidden)]
@@ -3507,7 +3507,7 @@ impl AllJoynWatcherStoppedEventArgs {
         let this = self;
         unsafe {
             let mut result__: i32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Status)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"deprecated\"`*"]
@@ -3515,7 +3515,7 @@ impl AllJoynWatcherStoppedEventArgs {
     pub fn Create(status: i32) -> ::windows::core::Result<AllJoynWatcherStoppedEventArgs> {
         Self::IAllJoynWatcherStoppedEventArgsFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::core::mem::transmute_copy(this), status, &mut result__).from_abi::<AllJoynWatcherStoppedEventArgs>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), status, &mut result__).from_abi::<AllJoynWatcherStoppedEventArgs>(result__)
         })
     }
     #[doc(hidden)]
@@ -3825,7 +3825,7 @@ impl IAllJoynAcceptSessionJoiner {
     #[cfg(feature = "deprecated")]
     pub fn Accept(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Accept)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Accept)(::windows::core::Interface::as_raw(this)).ok() }
     }
 }
 #[cfg(feature = "deprecated")]
@@ -4464,7 +4464,7 @@ impl IAllJoynProducer {
     #[cfg(feature = "deprecated")]
     pub fn SetBusObject<'a, Param0: ::windows::core::IntoParam<'a, AllJoynBusObject>>(&self, busobject: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetBusObject)(::core::mem::transmute_copy(this), busobject.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetBusObject)(::windows::core::Interface::as_raw(this), busobject.into_param().abi()).ok() }
     }
 }
 #[cfg(feature = "deprecated")]

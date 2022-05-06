@@ -1061,24 +1061,24 @@ pub struct IITDatabase(::windows::core::IUnknown);
 impl IITDatabase {
     #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`*"]
     pub unsafe fn Open<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, lpszhost: Param0, lpszmoniker: Param1, dwflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Open)(::core::mem::transmute_copy(self), lpszhost.into_param().abi(), lpszmoniker.into_param().abi(), ::core::mem::transmute(dwflags)).ok()
+        (::windows::core::Interface::vtable(self).Open)(::windows::core::Interface::as_raw(self), lpszhost.into_param().abi(), lpszmoniker.into_param().abi(), ::core::mem::transmute(dwflags)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`*"]
     pub unsafe fn Close(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Close)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Close)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`*"]
     pub unsafe fn CreateObject(&self, rclsid: *const ::windows::core::GUID, pdwobjinstance: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CreateObject)(::core::mem::transmute_copy(self), ::core::mem::transmute(rclsid), ::core::mem::transmute(pdwobjinstance)).ok()
+        (::windows::core::Interface::vtable(self).CreateObject)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(rclsid), ::core::mem::transmute(pdwobjinstance)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`*"]
     pub unsafe fn GetObject(&self, dwobjinstance: u32, riid: *const ::windows::core::GUID, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetObject)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwobjinstance), ::core::mem::transmute(riid), ::core::mem::transmute(ppvobj)).ok()
+        (::windows::core::Interface::vtable(self).GetObject)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwobjinstance), ::core::mem::transmute(riid), ::core::mem::transmute(ppvobj)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetObjectPersistence<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, lpwszobject: Param0, dwobjinstance: u32, ppvpersistence: *mut *mut ::core::ffi::c_void, fstream: Param3) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetObjectPersistence)(::core::mem::transmute_copy(self), lpwszobject.into_param().abi(), ::core::mem::transmute(dwobjinstance), ::core::mem::transmute(ppvpersistence), fstream.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).GetObjectPersistence)(::windows::core::Interface::as_raw(self), lpwszobject.into_param().abi(), ::core::mem::transmute(dwobjinstance), ::core::mem::transmute(ppvpersistence), fstream.into_param().abi()).ok()
     }
 }
 impl ::core::convert::From<IITDatabase> for ::windows::core::IUnknown {
@@ -1146,112 +1146,112 @@ impl IITPropList {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetClassID(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.GetClassID)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.GetClassID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn IsDirty(&self) -> ::windows::core::HRESULT {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.IsDirty)(::core::mem::transmute_copy(self)))
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.IsDirty)(::windows::core::Interface::as_raw(self)))
     }
     #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Load<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IStream>>(&self, pstm: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Load)(::core::mem::transmute_copy(self), pstm.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.Load)(::windows::core::Interface::as_raw(self), pstm.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn Save<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IStream>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, pstm: Param0, fcleardirty: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Save)(::core::mem::transmute_copy(self), pstm.into_param().abi(), fcleardirty.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.Save)(::windows::core::Interface::as_raw(self), pstm.into_param().abi(), fcleardirty.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetSizeMax(&self) -> ::windows::core::Result<u64> {
         let mut result__: u64 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetSizeMax)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u64>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetSizeMax)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u64>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn InitNew(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.InitNew)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.InitNew)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`*"]
     pub unsafe fn Set<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, propid: u32, lpszwstring: Param1, dwoperation: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Set)(::core::mem::transmute_copy(self), ::core::mem::transmute(propid), lpszwstring.into_param().abi(), ::core::mem::transmute(dwoperation)).ok()
+        (::windows::core::Interface::vtable(self).Set)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(propid), lpszwstring.into_param().abi(), ::core::mem::transmute(dwoperation)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`*"]
     pub unsafe fn Set2(&self, propid: u32, lpvdata: *mut ::core::ffi::c_void, cbdata: u32, dwoperation: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Set2)(::core::mem::transmute_copy(self), ::core::mem::transmute(propid), ::core::mem::transmute(lpvdata), ::core::mem::transmute(cbdata), ::core::mem::transmute(dwoperation)).ok()
+        (::windows::core::Interface::vtable(self).Set2)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(propid), ::core::mem::transmute(lpvdata), ::core::mem::transmute(cbdata), ::core::mem::transmute(dwoperation)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`*"]
     pub unsafe fn Set3(&self, propid: u32, dwdata: u32, dwoperation: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Set3)(::core::mem::transmute_copy(self), ::core::mem::transmute(propid), ::core::mem::transmute(dwdata), ::core::mem::transmute(dwoperation)).ok()
+        (::windows::core::Interface::vtable(self).Set3)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(propid), ::core::mem::transmute(dwdata), ::core::mem::transmute(dwoperation)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Add(&self, prop: *mut CProperty) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Add)(::core::mem::transmute_copy(self), ::core::mem::transmute(prop)).ok()
+        (::windows::core::Interface::vtable(self).Add)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(prop)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Get(&self, propid: u32, property: *mut CProperty) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Get)(::core::mem::transmute_copy(self), ::core::mem::transmute(propid), ::core::mem::transmute(property)).ok()
+        (::windows::core::Interface::vtable(self).Get)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(propid), ::core::mem::transmute(property)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`*"]
     pub unsafe fn Clear(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Clear)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Clear)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetPersist<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fpersist: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPersist)(::core::mem::transmute_copy(self), fpersist.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetPersist)(::windows::core::Interface::as_raw(self), fpersist.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetPersist2<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, propid: u32, fpersist: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPersist2)(::core::mem::transmute_copy(self), ::core::mem::transmute(propid), fpersist.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetPersist2)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(propid), fpersist.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetFirst(&self, property: *mut CProperty) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetFirst)(::core::mem::transmute_copy(self), ::core::mem::transmute(property)).ok()
+        (::windows::core::Interface::vtable(self).GetFirst)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(property)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetNext(&self, property: *mut CProperty) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetNext)(::core::mem::transmute_copy(self), ::core::mem::transmute(property)).ok()
+        (::windows::core::Interface::vtable(self).GetNext)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(property)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`*"]
     pub unsafe fn GetPropCount(&self, cprop: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetPropCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(cprop)).ok()
+        (::windows::core::Interface::vtable(self).GetPropCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(cprop)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`*"]
     pub unsafe fn SaveHeader(&self, lpvdata: *mut ::core::ffi::c_void, dwhdrsize: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SaveHeader)(::core::mem::transmute_copy(self), ::core::mem::transmute(lpvdata), ::core::mem::transmute(dwhdrsize)).ok()
+        (::windows::core::Interface::vtable(self).SaveHeader)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lpvdata), ::core::mem::transmute(dwhdrsize)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`*"]
     pub unsafe fn SaveData(&self, lpvheader: *mut ::core::ffi::c_void, dwhdrsize: u32, lpvdata: *mut ::core::ffi::c_void, dwbufsize: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SaveData)(::core::mem::transmute_copy(self), ::core::mem::transmute(lpvheader), ::core::mem::transmute(dwhdrsize), ::core::mem::transmute(lpvdata), ::core::mem::transmute(dwbufsize)).ok()
+        (::windows::core::Interface::vtable(self).SaveData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lpvheader), ::core::mem::transmute(dwhdrsize), ::core::mem::transmute(lpvdata), ::core::mem::transmute(dwbufsize)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`*"]
     pub unsafe fn GetHeaderSize(&self, dwhdrsize: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetHeaderSize)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwhdrsize)).ok()
+        (::windows::core::Interface::vtable(self).GetHeaderSize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwhdrsize)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`*"]
     pub unsafe fn GetDataSize(&self, lpvheader: *mut ::core::ffi::c_void, dwhdrsize: u32, dwdatasize: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetDataSize)(::core::mem::transmute_copy(self), ::core::mem::transmute(lpvheader), ::core::mem::transmute(dwhdrsize), ::core::mem::transmute(dwdatasize)).ok()
+        (::windows::core::Interface::vtable(self).GetDataSize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lpvheader), ::core::mem::transmute(dwhdrsize), ::core::mem::transmute(dwdatasize)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SaveDataToStream<'a, Param2: ::windows::core::IntoParam<'a, super::super::System::Com::IStream>>(&self, lpvheader: *mut ::core::ffi::c_void, dwhdrsize: u32, pstream: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SaveDataToStream)(::core::mem::transmute_copy(self), ::core::mem::transmute(lpvheader), ::core::mem::transmute(dwhdrsize), pstream.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SaveDataToStream)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lpvheader), ::core::mem::transmute(dwhdrsize), pstream.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`*"]
     pub unsafe fn LoadFromMem(&self, lpvdata: *mut ::core::ffi::c_void, dwbufsize: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).LoadFromMem)(::core::mem::transmute_copy(self), ::core::mem::transmute(lpvdata), ::core::mem::transmute(dwbufsize)).ok()
+        (::windows::core::Interface::vtable(self).LoadFromMem)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lpvdata), ::core::mem::transmute(dwbufsize)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`*"]
     pub unsafe fn SaveToMem(&self, lpvdata: *mut ::core::ffi::c_void, dwbufsize: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SaveToMem)(::core::mem::transmute_copy(self), ::core::mem::transmute(lpvdata), ::core::mem::transmute(dwbufsize)).ok()
+        (::windows::core::Interface::vtable(self).SaveToMem)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lpvdata), ::core::mem::transmute(dwbufsize)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1404,125 +1404,125 @@ pub struct IITResultSet(::windows::core::IUnknown);
 impl IITResultSet {
     #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`*"]
     pub unsafe fn SetColumnPriority(&self, lcolumnindex: i32, columnpriority: PRIORITY) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetColumnPriority)(::core::mem::transmute_copy(self), ::core::mem::transmute(lcolumnindex), ::core::mem::transmute(columnpriority)).ok()
+        (::windows::core::Interface::vtable(self).SetColumnPriority)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lcolumnindex), ::core::mem::transmute(columnpriority)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`*"]
     pub unsafe fn SetColumnHeap(&self, lcolumnindex: i32, lpvheap: *mut ::core::ffi::c_void, pfncolheapfree: PFNCOLHEAPFREE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetColumnHeap)(::core::mem::transmute_copy(self), ::core::mem::transmute(lcolumnindex), ::core::mem::transmute(lpvheap), ::core::mem::transmute(pfncolheapfree)).ok()
+        (::windows::core::Interface::vtable(self).SetColumnHeap)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lcolumnindex), ::core::mem::transmute(lpvheap), ::core::mem::transmute(pfncolheapfree)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`*"]
     pub unsafe fn SetKeyProp(&self, propid: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetKeyProp)(::core::mem::transmute_copy(self), ::core::mem::transmute(propid)).ok()
+        (::windows::core::Interface::vtable(self).SetKeyProp)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(propid)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`*"]
     pub unsafe fn Add(&self, propid: u32, dwdefaultdata: u32, priority: PRIORITY) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Add)(::core::mem::transmute_copy(self), ::core::mem::transmute(propid), ::core::mem::transmute(dwdefaultdata), ::core::mem::transmute(priority)).ok()
+        (::windows::core::Interface::vtable(self).Add)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(propid), ::core::mem::transmute(dwdefaultdata), ::core::mem::transmute(priority)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`*"]
     pub unsafe fn Add2<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, propid: u32, lpszwdefault: Param1, priority: PRIORITY) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Add2)(::core::mem::transmute_copy(self), ::core::mem::transmute(propid), lpszwdefault.into_param().abi(), ::core::mem::transmute(priority)).ok()
+        (::windows::core::Interface::vtable(self).Add2)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(propid), lpszwdefault.into_param().abi(), ::core::mem::transmute(priority)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`*"]
     pub unsafe fn Add3(&self, propid: u32, lpvdefaultdata: *mut ::core::ffi::c_void, cbdata: u32, priority: PRIORITY) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Add3)(::core::mem::transmute_copy(self), ::core::mem::transmute(propid), ::core::mem::transmute(lpvdefaultdata), ::core::mem::transmute(cbdata), ::core::mem::transmute(priority)).ok()
+        (::windows::core::Interface::vtable(self).Add3)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(propid), ::core::mem::transmute(lpvdefaultdata), ::core::mem::transmute(cbdata), ::core::mem::transmute(priority)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`*"]
     pub unsafe fn Add4(&self, lpvhdr: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Add4)(::core::mem::transmute_copy(self), ::core::mem::transmute(lpvhdr)).ok()
+        (::windows::core::Interface::vtable(self).Add4)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lpvhdr)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`*"]
     pub unsafe fn Append(&self, lpvhdr: *mut ::core::ffi::c_void, lpvdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Append)(::core::mem::transmute_copy(self), ::core::mem::transmute(lpvhdr), ::core::mem::transmute(lpvdata)).ok()
+        (::windows::core::Interface::vtable(self).Append)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lpvhdr), ::core::mem::transmute(lpvdata)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`*"]
     pub unsafe fn Set(&self, lrowindex: i32, lcolumnindex: i32, lpvdata: *mut ::core::ffi::c_void, cbdata: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Set)(::core::mem::transmute_copy(self), ::core::mem::transmute(lrowindex), ::core::mem::transmute(lcolumnindex), ::core::mem::transmute(lpvdata), ::core::mem::transmute(cbdata)).ok()
+        (::windows::core::Interface::vtable(self).Set)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lrowindex), ::core::mem::transmute(lcolumnindex), ::core::mem::transmute(lpvdata), ::core::mem::transmute(cbdata)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`*"]
     pub unsafe fn Set2<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, lrowindex: i32, lcolumnindex: i32, lpwstr: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Set2)(::core::mem::transmute_copy(self), ::core::mem::transmute(lrowindex), ::core::mem::transmute(lcolumnindex), lpwstr.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).Set2)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lrowindex), ::core::mem::transmute(lcolumnindex), lpwstr.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`*"]
     pub unsafe fn Set3(&self, lrowindex: i32, lcolumnindex: i32, dwdata: usize) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Set3)(::core::mem::transmute_copy(self), ::core::mem::transmute(lrowindex), ::core::mem::transmute(lcolumnindex), ::core::mem::transmute(dwdata)).ok()
+        (::windows::core::Interface::vtable(self).Set3)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lrowindex), ::core::mem::transmute(lcolumnindex), ::core::mem::transmute(dwdata)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`*"]
     pub unsafe fn Set4(&self, lrowindex: i32, lpvhdr: *mut ::core::ffi::c_void, lpvdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Set4)(::core::mem::transmute_copy(self), ::core::mem::transmute(lrowindex), ::core::mem::transmute(lpvhdr), ::core::mem::transmute(lpvdata)).ok()
+        (::windows::core::Interface::vtable(self).Set4)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lrowindex), ::core::mem::transmute(lpvhdr), ::core::mem::transmute(lpvdata)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`*"]
     pub unsafe fn Copy<'a, Param0: ::windows::core::IntoParam<'a, IITResultSet>>(&self, prscopy: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Copy)(::core::mem::transmute_copy(self), prscopy.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).Copy)(::windows::core::Interface::as_raw(self), prscopy.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`*"]
     pub unsafe fn AppendRows<'a, Param0: ::windows::core::IntoParam<'a, IITResultSet>>(&self, pressrc: Param0, lrowsrcfirst: i32, csrcrows: i32, lrowfirstdest: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AppendRows)(::core::mem::transmute_copy(self), pressrc.into_param().abi(), ::core::mem::transmute(lrowsrcfirst), ::core::mem::transmute(csrcrows), ::core::mem::transmute(lrowfirstdest)).ok()
+        (::windows::core::Interface::vtable(self).AppendRows)(::windows::core::Interface::as_raw(self), pressrc.into_param().abi(), ::core::mem::transmute(lrowsrcfirst), ::core::mem::transmute(csrcrows), ::core::mem::transmute(lrowfirstdest)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Get(&self, lrowindex: i32, lcolumnindex: i32, prop: *mut CProperty) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Get)(::core::mem::transmute_copy(self), ::core::mem::transmute(lrowindex), ::core::mem::transmute(lcolumnindex), ::core::mem::transmute(prop)).ok()
+        (::windows::core::Interface::vtable(self).Get)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lrowindex), ::core::mem::transmute(lcolumnindex), ::core::mem::transmute(prop)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`*"]
     pub unsafe fn GetKeyProp(&self, keypropid: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetKeyProp)(::core::mem::transmute_copy(self), ::core::mem::transmute(keypropid)).ok()
+        (::windows::core::Interface::vtable(self).GetKeyProp)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(keypropid)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`*"]
     pub unsafe fn GetColumnPriority(&self, lcolumnindex: i32, columnpriority: *mut PRIORITY) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetColumnPriority)(::core::mem::transmute_copy(self), ::core::mem::transmute(lcolumnindex), ::core::mem::transmute(columnpriority)).ok()
+        (::windows::core::Interface::vtable(self).GetColumnPriority)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lcolumnindex), ::core::mem::transmute(columnpriority)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`*"]
     pub unsafe fn GetRowCount(&self, lnumberofrows: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetRowCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(lnumberofrows)).ok()
+        (::windows::core::Interface::vtable(self).GetRowCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lnumberofrows)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`*"]
     pub unsafe fn GetColumnCount(&self, lnumberofcolumns: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetColumnCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(lnumberofcolumns)).ok()
+        (::windows::core::Interface::vtable(self).GetColumnCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lnumberofcolumns)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`*"]
     pub unsafe fn GetColumn(&self, lcolumnindex: i32, propid: *mut u32, dwtype: *mut u32, lpvdefaultvalue: *mut *mut ::core::ffi::c_void, cbsize: *mut u32, columnpriority: *mut PRIORITY) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetColumn)(::core::mem::transmute_copy(self), ::core::mem::transmute(lcolumnindex), ::core::mem::transmute(propid), ::core::mem::transmute(dwtype), ::core::mem::transmute(lpvdefaultvalue), ::core::mem::transmute(cbsize), ::core::mem::transmute(columnpriority)).ok()
+        (::windows::core::Interface::vtable(self).GetColumn)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lcolumnindex), ::core::mem::transmute(propid), ::core::mem::transmute(dwtype), ::core::mem::transmute(lpvdefaultvalue), ::core::mem::transmute(cbsize), ::core::mem::transmute(columnpriority)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`*"]
     pub unsafe fn GetColumn2(&self, lcolumnindex: i32, propid: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetColumn2)(::core::mem::transmute_copy(self), ::core::mem::transmute(lcolumnindex), ::core::mem::transmute(propid)).ok()
+        (::windows::core::Interface::vtable(self).GetColumn2)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lcolumnindex), ::core::mem::transmute(propid)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`*"]
     pub unsafe fn GetColumnFromPropID(&self, propid: u32, lcolumnindex: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetColumnFromPropID)(::core::mem::transmute_copy(self), ::core::mem::transmute(propid), ::core::mem::transmute(lcolumnindex)).ok()
+        (::windows::core::Interface::vtable(self).GetColumnFromPropID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(propid), ::core::mem::transmute(lcolumnindex)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`*"]
     pub unsafe fn Clear(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Clear)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Clear)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`*"]
     pub unsafe fn ClearRows(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ClearRows)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).ClearRows)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`*"]
     pub unsafe fn Free(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Free)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Free)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`*"]
     pub unsafe fn IsCompleted(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).IsCompleted)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).IsCompleted)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`*"]
     pub unsafe fn Cancel(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Cancel)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Cancel)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Pause<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fpause: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Pause)(::core::mem::transmute_copy(self), fpause.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).Pause)(::windows::core::Interface::as_raw(self), fpause.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`*"]
     pub unsafe fn GetRowStatus(&self, lrowfirst: i32, crows: i32, lprowstatus: *mut ROWSTATUS) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetRowStatus)(::core::mem::transmute_copy(self), ::core::mem::transmute(lrowfirst), ::core::mem::transmute(crows), ::core::mem::transmute(lprowstatus)).ok()
+        (::windows::core::Interface::vtable(self).GetRowStatus)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lrowfirst), ::core::mem::transmute(crows), ::core::mem::transmute(lprowstatus)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`*"]
     pub unsafe fn GetColumnStatus(&self, lpcolstatus: *mut COLUMNSTATUS) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetColumnStatus)(::core::mem::transmute_copy(self), ::core::mem::transmute(lpcolstatus)).ok()
+        (::windows::core::Interface::vtable(self).GetColumnStatus)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lpcolstatus)).ok()
     }
 }
 impl ::core::convert::From<IITResultSet> for ::windows::core::IUnknown {
@@ -1618,56 +1618,56 @@ pub struct IITWordWheel(::windows::core::IUnknown);
 impl IITWordWheel {
     #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`*"]
     pub unsafe fn Open<'a, Param0: ::windows::core::IntoParam<'a, IITDatabase>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, lpitdb: Param0, lpszmoniker: Param1, dwflags: WORD_WHEEL_OPEN_FLAGS) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Open)(::core::mem::transmute_copy(self), lpitdb.into_param().abi(), lpszmoniker.into_param().abi(), ::core::mem::transmute(dwflags)).ok()
+        (::windows::core::Interface::vtable(self).Open)(::windows::core::Interface::as_raw(self), lpitdb.into_param().abi(), lpszmoniker.into_param().abi(), ::core::mem::transmute(dwflags)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`*"]
     pub unsafe fn Close(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Close)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Close)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`*"]
     pub unsafe fn GetLocaleInfo(&self, pdwcodepageid: *mut u32, plcid: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetLocaleInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdwcodepageid), ::core::mem::transmute(plcid)).ok()
+        (::windows::core::Interface::vtable(self).GetLocaleInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdwcodepageid), ::core::mem::transmute(plcid)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`*"]
     pub unsafe fn GetSorterInstance(&self, pdwobjinstance: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetSorterInstance)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdwobjinstance)).ok()
+        (::windows::core::Interface::vtable(self).GetSorterInstance)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdwobjinstance)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`*"]
     pub unsafe fn Count(&self, pcentries: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Count)(::core::mem::transmute_copy(self), ::core::mem::transmute(pcentries)).ok()
+        (::windows::core::Interface::vtable(self).Count)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pcentries)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Lookup<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, lpcvprefix: *const ::core::ffi::c_void, fexactmatch: Param1, plentry: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Lookup)(::core::mem::transmute_copy(self), ::core::mem::transmute(lpcvprefix), fexactmatch.into_param().abi(), ::core::mem::transmute(plentry)).ok()
+        (::windows::core::Interface::vtable(self).Lookup)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lpcvprefix), fexactmatch.into_param().abi(), ::core::mem::transmute(plentry)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`*"]
     pub unsafe fn Lookup2<'a, Param1: ::windows::core::IntoParam<'a, IITResultSet>>(&self, lentry: i32, lpitresult: Param1, centries: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Lookup2)(::core::mem::transmute_copy(self), ::core::mem::transmute(lentry), lpitresult.into_param().abi(), ::core::mem::transmute(centries)).ok()
+        (::windows::core::Interface::vtable(self).Lookup2)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lentry), lpitresult.into_param().abi(), ::core::mem::transmute(centries)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`*"]
     pub unsafe fn Lookup3(&self, lentry: i32, lpvkeybuf: *mut ::core::ffi::c_void, cbkeybuf: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Lookup3)(::core::mem::transmute_copy(self), ::core::mem::transmute(lentry), ::core::mem::transmute(lpvkeybuf), ::core::mem::transmute(cbkeybuf)).ok()
+        (::windows::core::Interface::vtable(self).Lookup3)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lentry), ::core::mem::transmute(lpvkeybuf), ::core::mem::transmute(cbkeybuf)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`*"]
     pub unsafe fn SetGroup(&self, piitgroup: *mut IITGroup) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetGroup)(::core::mem::transmute_copy(self), ::core::mem::transmute(piitgroup)).ok()
+        (::windows::core::Interface::vtable(self).SetGroup)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(piitgroup)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`*"]
     pub unsafe fn GetGroup(&self, ppiitgroup: *mut *mut IITGroup) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetGroup)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppiitgroup)).ok()
+        (::windows::core::Interface::vtable(self).GetGroup)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ppiitgroup)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`*"]
     pub unsafe fn GetDataCount(&self, lentry: i32, pdwcount: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetDataCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(lentry), ::core::mem::transmute(pdwcount)).ok()
+        (::windows::core::Interface::vtable(self).GetDataCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lentry), ::core::mem::transmute(pdwcount)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`*"]
     pub unsafe fn GetData<'a, Param1: ::windows::core::IntoParam<'a, IITResultSet>>(&self, lentry: i32, lpitresult: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetData)(::core::mem::transmute_copy(self), ::core::mem::transmute(lentry), lpitresult.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).GetData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lentry), lpitresult.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`*"]
     pub unsafe fn GetDataColumns<'a, Param0: ::windows::core::IntoParam<'a, IITResultSet>>(&self, prs: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetDataColumns)(::core::mem::transmute_copy(self), prs.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).GetDataColumns)(::windows::core::Interface::as_raw(self), prs.into_param().abi()).ok()
     }
 }
 impl ::core::convert::From<IITWordWheel> for ::windows::core::IUnknown {
@@ -1737,11 +1737,11 @@ pub struct IStemSink(::windows::core::IUnknown);
 impl IStemSink {
     #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`*"]
     pub unsafe fn PutAltWord<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pwcinbuf: Param0, cwc: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).PutAltWord)(::core::mem::transmute_copy(self), pwcinbuf.into_param().abi(), ::core::mem::transmute(cwc)).ok()
+        (::windows::core::Interface::vtable(self).PutAltWord)(::windows::core::Interface::as_raw(self), pwcinbuf.into_param().abi(), ::core::mem::transmute(cwc)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`*"]
     pub unsafe fn PutWord<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pwcinbuf: Param0, cwc: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).PutWord)(::core::mem::transmute_copy(self), pwcinbuf.into_param().abi(), ::core::mem::transmute(cwc)).ok()
+        (::windows::core::Interface::vtable(self).PutWord)(::windows::core::Interface::as_raw(self), pwcinbuf.into_param().abi(), ::core::mem::transmute(cwc)).ok()
     }
 }
 impl ::core::convert::From<IStemSink> for ::windows::core::IUnknown {
@@ -1797,24 +1797,24 @@ pub struct IStemmerConfig(::windows::core::IUnknown);
 impl IStemmerConfig {
     #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`*"]
     pub unsafe fn SetLocaleInfo(&self, dwcodepageid: u32, lcid: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetLocaleInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwcodepageid), ::core::mem::transmute(lcid)).ok()
+        (::windows::core::Interface::vtable(self).SetLocaleInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwcodepageid), ::core::mem::transmute(lcid)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`*"]
     pub unsafe fn GetLocaleInfo(&self, pdwcodepageid: *mut u32, plcid: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetLocaleInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdwcodepageid), ::core::mem::transmute(plcid)).ok()
+        (::windows::core::Interface::vtable(self).GetLocaleInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdwcodepageid), ::core::mem::transmute(plcid)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`*"]
     pub unsafe fn SetControlInfo(&self, grfstemflags: u32, dwreserved: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetControlInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(grfstemflags), ::core::mem::transmute(dwreserved)).ok()
+        (::windows::core::Interface::vtable(self).SetControlInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(grfstemflags), ::core::mem::transmute(dwreserved)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`*"]
     pub unsafe fn GetControlInfo(&self, pgrfstemflags: *mut u32, pdwreserved: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetControlInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(pgrfstemflags), ::core::mem::transmute(pdwreserved)).ok()
+        (::windows::core::Interface::vtable(self).GetControlInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pgrfstemflags), ::core::mem::transmute(pdwreserved)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn LoadExternalStemmerData<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IStream>>(&self, pstream: Param0, dwextdatatype: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).LoadExternalStemmerData)(::core::mem::transmute_copy(self), pstream.into_param().abi(), ::core::mem::transmute(dwextdatatype)).ok()
+        (::windows::core::Interface::vtable(self).LoadExternalStemmerData)(::windows::core::Interface::as_raw(self), pstream.into_param().abi(), ::core::mem::transmute(dwextdatatype)).ok()
     }
 }
 impl ::core::convert::From<IStemmerConfig> for ::windows::core::IUnknown {
@@ -1886,43 +1886,43 @@ pub struct IWordBreakerConfig(::windows::core::IUnknown);
 impl IWordBreakerConfig {
     #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`*"]
     pub unsafe fn SetLocaleInfo(&self, dwcodepageid: u32, lcid: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetLocaleInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwcodepageid), ::core::mem::transmute(lcid)).ok()
+        (::windows::core::Interface::vtable(self).SetLocaleInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwcodepageid), ::core::mem::transmute(lcid)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`*"]
     pub unsafe fn GetLocaleInfo(&self, pdwcodepageid: *mut u32, plcid: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetLocaleInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdwcodepageid), ::core::mem::transmute(plcid)).ok()
+        (::windows::core::Interface::vtable(self).GetLocaleInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdwcodepageid), ::core::mem::transmute(plcid)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`*"]
     pub unsafe fn SetBreakWordType(&self, dwbreakwordtype: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetBreakWordType)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwbreakwordtype)).ok()
+        (::windows::core::Interface::vtable(self).SetBreakWordType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwbreakwordtype)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`*"]
     pub unsafe fn GetBreakWordType(&self, pdwbreakwordtype: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetBreakWordType)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdwbreakwordtype)).ok()
+        (::windows::core::Interface::vtable(self).GetBreakWordType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdwbreakwordtype)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`*"]
     pub unsafe fn SetControlInfo(&self, grfbreakflags: u32, dwreserved: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetControlInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(grfbreakflags), ::core::mem::transmute(dwreserved)).ok()
+        (::windows::core::Interface::vtable(self).SetControlInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(grfbreakflags), ::core::mem::transmute(dwreserved)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`*"]
     pub unsafe fn GetControlInfo(&self, pgrfbreakflags: *mut u32, pdwreserved: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetControlInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(pgrfbreakflags), ::core::mem::transmute(pdwreserved)).ok()
+        (::windows::core::Interface::vtable(self).GetControlInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pgrfbreakflags), ::core::mem::transmute(pdwreserved)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn LoadExternalBreakerData<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IStream>>(&self, pstream: Param0, dwextdatatype: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).LoadExternalBreakerData)(::core::mem::transmute_copy(self), pstream.into_param().abi(), ::core::mem::transmute(dwextdatatype)).ok()
+        (::windows::core::Interface::vtable(self).LoadExternalBreakerData)(::windows::core::Interface::as_raw(self), pstream.into_param().abi(), ::core::mem::transmute(dwextdatatype)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`, `\"Win32_System_Search\"`*"]
     #[cfg(feature = "Win32_System_Search")]
     pub unsafe fn SetWordStemmer<'a, Param1: ::windows::core::IntoParam<'a, super::super::System::Search::IStemmer>>(&self, rclsid: *const ::windows::core::GUID, pstemmer: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetWordStemmer)(::core::mem::transmute_copy(self), ::core::mem::transmute(rclsid), pstemmer.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetWordStemmer)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(rclsid), pstemmer.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`, `\"Win32_System_Search\"`*"]
     #[cfg(feature = "Win32_System_Search")]
     pub unsafe fn GetWordStemmer(&self) -> ::windows::core::Result<super::super::System::Search::IStemmer> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetWordStemmer)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Search::IStemmer>(result__)
+        (::windows::core::Interface::vtable(self).GetWordStemmer)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Search::IStemmer>(result__)
     }
 }
 impl ::core::convert::From<IWordBreakerConfig> for ::windows::core::IUnknown {

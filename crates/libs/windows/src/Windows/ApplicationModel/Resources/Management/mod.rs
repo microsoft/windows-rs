@@ -109,7 +109,7 @@ impl IndexedResourceCandidate {
         let this = self;
         unsafe {
             let mut result__: IndexedResourceType = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Type)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IndexedResourceType>(result__)
+            (::windows::core::Interface::vtable(this).Type)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<IndexedResourceType>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Resources_Management\"`, `\"Foundation\"`*"]
@@ -118,7 +118,7 @@ impl IndexedResourceCandidate {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Uri)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Uri>(result__)
+            (::windows::core::Interface::vtable(this).Uri)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::Uri>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Resources_Management\"`, `\"Foundation_Collections\"`*"]
@@ -127,7 +127,7 @@ impl IndexedResourceCandidate {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Metadata)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::HSTRING>>(result__)
+            (::windows::core::Interface::vtable(this).Metadata)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::HSTRING>>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Resources_Management\"`, `\"Foundation_Collections\"`*"]
@@ -136,7 +136,7 @@ impl IndexedResourceCandidate {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Qualifiers)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<IndexedResourceQualifier>>(result__)
+            (::windows::core::Interface::vtable(this).Qualifiers)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<IndexedResourceQualifier>>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Resources_Management\"`*"]
@@ -144,7 +144,7 @@ impl IndexedResourceCandidate {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ValueAsString)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).ValueAsString)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Resources_Management\"`*"]
@@ -152,7 +152,7 @@ impl IndexedResourceCandidate {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetQualifierValue)(::core::mem::transmute_copy(this), qualifiername.into_param().abi(), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).GetQualifierValue)(::windows::core::Interface::as_raw(this), qualifiername.into_param().abi(), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
 }
@@ -237,7 +237,7 @@ impl IndexedResourceQualifier {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).QualifierName)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).QualifierName)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Resources_Management\"`*"]
@@ -245,7 +245,7 @@ impl IndexedResourceQualifier {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).QualifierValue)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).QualifierValue)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
 }
@@ -368,7 +368,7 @@ impl ResourceIndexer {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IndexFilePath)(::core::mem::transmute_copy(this), filepath.into_param().abi(), &mut result__).from_abi::<IndexedResourceCandidate>(result__)
+            (::windows::core::Interface::vtable(this).IndexFilePath)(::windows::core::Interface::as_raw(this), filepath.into_param().abi(), &mut result__).from_abi::<IndexedResourceCandidate>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Resources_Management\"`, `\"Foundation_Collections\"`, `\"deprecated\"`*"]
@@ -377,7 +377,7 @@ impl ResourceIndexer {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IndexFileContentsAsync)(::core::mem::transmute_copy(this), file.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<IndexedResourceCandidate>>>(result__)
+            (::windows::core::Interface::vtable(this).IndexFileContentsAsync)(::windows::core::Interface::as_raw(this), file.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<IndexedResourceCandidate>>>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Resources_Management\"`, `\"Foundation\"`, `\"deprecated\"`*"]
@@ -385,7 +385,7 @@ impl ResourceIndexer {
     pub fn CreateResourceIndexer<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Uri>>(projectroot: Param0) -> ::windows::core::Result<ResourceIndexer> {
         Self::IResourceIndexerFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateResourceIndexer)(::core::mem::transmute_copy(this), projectroot.into_param().abi(), &mut result__).from_abi::<ResourceIndexer>(result__)
+            (::windows::core::Interface::vtable(this).CreateResourceIndexer)(::windows::core::Interface::as_raw(this), projectroot.into_param().abi(), &mut result__).from_abi::<ResourceIndexer>(result__)
         })
     }
     #[doc = "*Required features: `\"ApplicationModel_Resources_Management\"`, `\"Foundation\"`, `\"deprecated\"`*"]
@@ -393,7 +393,7 @@ impl ResourceIndexer {
     pub fn CreateResourceIndexerWithExtension<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Uri>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::Uri>>(projectroot: Param0, extensiondllpath: Param1) -> ::windows::core::Result<ResourceIndexer> {
         Self::IResourceIndexerFactory2(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateResourceIndexerWithExtension)(::core::mem::transmute_copy(this), projectroot.into_param().abi(), extensiondllpath.into_param().abi(), &mut result__).from_abi::<ResourceIndexer>(result__)
+            (::windows::core::Interface::vtable(this).CreateResourceIndexerWithExtension)(::windows::core::Interface::as_raw(this), projectroot.into_param().abi(), extensiondllpath.into_param().abi(), &mut result__).from_abi::<ResourceIndexer>(result__)
         })
     }
     #[doc(hidden)]

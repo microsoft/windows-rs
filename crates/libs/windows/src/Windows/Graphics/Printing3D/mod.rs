@@ -820,20 +820,20 @@ impl Print3DManager {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TaskRequested)(::core::mem::transmute_copy(this), eventhandler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).TaskRequested)(::windows::core::Interface::as_raw(this), eventhandler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveTaskRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveTaskRequested)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveTaskRequested)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
     pub fn GetForCurrentView() -> ::windows::core::Result<Print3DManager> {
         Self::IPrint3DManagerStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetForCurrentView)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Print3DManager>(result__)
+            (::windows::core::Interface::vtable(this).GetForCurrentView)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Print3DManager>(result__)
         })
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`, `\"Foundation\"`*"]
@@ -841,7 +841,7 @@ impl Print3DManager {
     pub fn ShowPrintUIAsync() -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         Self::IPrint3DManagerStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ShowPrintUIAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Interface::vtable(this).ShowPrintUIAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         })
     }
     #[doc(hidden)]
@@ -931,7 +931,7 @@ impl Print3DTask {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Source)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Printing3D3MFPackage>(result__)
+            (::windows::core::Interface::vtable(this).Source)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Printing3D3MFPackage>(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`, `\"Foundation\"`*"]
@@ -940,14 +940,14 @@ impl Print3DTask {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Submitting)(::core::mem::transmute_copy(this), eventhandler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).Submitting)(::windows::core::Interface::as_raw(this), eventhandler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveSubmitting<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, eventcookie: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveSubmitting)(::core::mem::transmute_copy(this), eventcookie.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveSubmitting)(::windows::core::Interface::as_raw(this), eventcookie.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -955,14 +955,14 @@ impl Print3DTask {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Completed)(::core::mem::transmute_copy(this), eventhandler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).Completed)(::windows::core::Interface::as_raw(this), eventhandler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveCompleted<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, eventcookie: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveCompleted)(::core::mem::transmute_copy(this), eventcookie.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveCompleted)(::windows::core::Interface::as_raw(this), eventcookie.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -970,14 +970,14 @@ impl Print3DTask {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SourceChanged)(::core::mem::transmute_copy(this), eventhandler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).SourceChanged)(::windows::core::Interface::as_raw(this), eventhandler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveSourceChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, eventcookie: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveSourceChanged)(::core::mem::transmute_copy(this), eventcookie.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveSourceChanged)(::windows::core::Interface::as_raw(this), eventcookie.into_param().abi()).ok() }
     }
 }
 impl ::core::clone::Clone for Print3DTask {
@@ -1061,7 +1061,7 @@ impl Print3DTaskCompletedEventArgs {
         let this = self;
         unsafe {
             let mut result__: Print3DTaskCompletion = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Completion)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Print3DTaskCompletion>(result__)
+            (::windows::core::Interface::vtable(this).Completion)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Print3DTaskCompletion>(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
@@ -1069,7 +1069,7 @@ impl Print3DTaskCompletedEventArgs {
         let this = self;
         unsafe {
             let mut result__: Print3DTaskDetail = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ExtendedStatus)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Print3DTaskDetail>(result__)
+            (::windows::core::Interface::vtable(this).ExtendedStatus)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Print3DTaskDetail>(result__)
         }
     }
 }
@@ -1230,7 +1230,7 @@ impl Print3DTaskRequest {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateTask)(::core::mem::transmute_copy(this), title.into_param().abi(), printerid.into_param().abi(), handler.into_param().abi(), &mut result__).from_abi::<Print3DTask>(result__)
+            (::windows::core::Interface::vtable(this).CreateTask)(::windows::core::Interface::as_raw(this), title.into_param().abi(), printerid.into_param().abi(), handler.into_param().abi(), &mut result__).from_abi::<Print3DTask>(result__)
         }
     }
 }
@@ -1315,7 +1315,7 @@ impl Print3DTaskRequestedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Request)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Print3DTaskRequest>(result__)
+            (::windows::core::Interface::vtable(this).Request)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Print3DTaskRequest>(result__)
         }
     }
 }
@@ -1400,7 +1400,7 @@ impl Print3DTaskSourceChangedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Source)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Printing3D3MFPackage>(result__)
+            (::windows::core::Interface::vtable(this).Source)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Printing3D3MFPackage>(result__)
         }
     }
 }
@@ -1483,7 +1483,7 @@ impl Print3DTaskSourceRequestedArgs {
     #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
     pub fn SetSource<'a, Param0: ::windows::core::IntoParam<'a, Printing3D3MFPackage>>(&self, source: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetSource)(::core::mem::transmute_copy(this), source.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSource)(::windows::core::Interface::as_raw(this), source.into_param().abi()).ok() }
     }
 }
 impl ::core::clone::Clone for Print3DTaskSourceRequestedArgs {
@@ -1569,7 +1569,7 @@ impl Print3DTaskSourceRequestedHandler {
     #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
     pub fn Invoke<'a, Param0: ::windows::core::IntoParam<'a, Print3DTaskSourceRequestedArgs>>(&self, args: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Invoke)(::core::mem::transmute_copy(this), args.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Invoke)(::windows::core::Interface::as_raw(this), args.into_param().abi()).ok() }
     }
 }
 #[repr(C)]
@@ -1583,7 +1583,7 @@ impl<F: FnMut(&::core::option::Option<Print3DTaskSourceRequestedArgs>) -> ::wind
         base__: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
         Invoke: Self::Invoke,
     };
-    unsafe extern "system" fn QueryInterface(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+    unsafe extern "system" fn QueryInterface(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
         *interface = if iid == &<Print3DTaskSourceRequestedHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
         if (*interface).is_null() {
@@ -1660,7 +1660,7 @@ impl Printing3D3MFPackage {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SaveAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStream>>(result__)
+            (::windows::core::Interface::vtable(this).SaveAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStream>>(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`, `\"Storage_Streams\"`*"]
@@ -1669,14 +1669,14 @@ impl Printing3D3MFPackage {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PrintTicket)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IRandomAccessStream>(result__)
+            (::windows::core::Interface::vtable(this).PrintTicket)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Storage::Streams::IRandomAccessStream>(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn SetPrintTicket<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IRandomAccessStream>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetPrintTicket)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPrintTicket)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
@@ -1684,27 +1684,27 @@ impl Printing3D3MFPackage {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ModelPart)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IRandomAccessStream>(result__)
+            (::windows::core::Interface::vtable(this).ModelPart)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Storage::Streams::IRandomAccessStream>(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn SetModelPart<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IRandomAccessStream>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetModelPart)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetModelPart)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
     pub fn Thumbnail(&self) -> ::windows::core::Result<Printing3DTextureResource> {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Thumbnail)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Printing3DTextureResource>(result__)
+            (::windows::core::Interface::vtable(this).Thumbnail)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Printing3DTextureResource>(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
     pub fn SetThumbnail<'a, Param0: ::windows::core::IntoParam<'a, Printing3DTextureResource>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetThumbnail)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetThumbnail)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -1712,7 +1712,7 @@ impl Printing3D3MFPackage {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Textures)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<Printing3DTextureResource>>(result__)
+            (::windows::core::Interface::vtable(this).Textures)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<Printing3DTextureResource>>(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
@@ -1721,7 +1721,7 @@ impl Printing3D3MFPackage {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).LoadModelFromPackageAsync)(::core::mem::transmute_copy(this), value.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<Printing3DModel>>(result__)
+            (::windows::core::Interface::vtable(this).LoadModelFromPackageAsync)(::windows::core::Interface::as_raw(this), value.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<Printing3DModel>>(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`, `\"Foundation\"`*"]
@@ -1730,7 +1730,7 @@ impl Printing3D3MFPackage {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SaveModelToPackageAsync)(::core::mem::transmute_copy(this), value.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).SaveModelToPackageAsync)(::windows::core::Interface::as_raw(this), value.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
@@ -1738,20 +1738,20 @@ impl Printing3D3MFPackage {
         let this = &::windows::core::Interface::cast::<IPrinting3D3MFPackage2>(self)?;
         unsafe {
             let mut result__: Printing3DPackageCompression = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Compression)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Printing3DPackageCompression>(result__)
+            (::windows::core::Interface::vtable(this).Compression)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Printing3DPackageCompression>(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
     pub fn SetCompression(&self, value: Printing3DPackageCompression) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPrinting3D3MFPackage2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetCompression)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCompression)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub fn LoadAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IRandomAccessStream>>(value: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Printing3D3MFPackage>> {
         Self::IPrinting3D3MFPackageStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).LoadAsync)(::core::mem::transmute_copy(this), value.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<Printing3D3MFPackage>>(result__)
+            (::windows::core::Interface::vtable(this).LoadAsync)(::windows::core::Interface::as_raw(this), value.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<Printing3D3MFPackage>>(result__)
         })
     }
     #[doc(hidden)]
@@ -1848,39 +1848,39 @@ impl Printing3DBaseMaterial {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Name)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Name)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
     pub fn SetName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetName)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetName)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
     pub fn Color(&self) -> ::windows::core::Result<Printing3DColorMaterial> {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Color)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Printing3DColorMaterial>(result__)
+            (::windows::core::Interface::vtable(this).Color)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Printing3DColorMaterial>(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
     pub fn SetColor<'a, Param0: ::windows::core::IntoParam<'a, Printing3DColorMaterial>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetColor)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetColor)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
     pub fn Abs() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IPrinting3DBaseMaterialStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Abs)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Abs)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
     pub fn Pla() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IPrinting3DBaseMaterialStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Pla)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Pla)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc(hidden)]
@@ -1971,7 +1971,7 @@ impl Printing3DBaseMaterialGroup {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Bases)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<Printing3DBaseMaterial>>(result__)
+            (::windows::core::Interface::vtable(this).Bases)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<Printing3DBaseMaterial>>(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
@@ -1979,14 +1979,14 @@ impl Printing3DBaseMaterialGroup {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MaterialGroupId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).MaterialGroupId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
     pub fn Create(materialgroupid: u32) -> ::windows::core::Result<Printing3DBaseMaterialGroup> {
         Self::IPrinting3DBaseMaterialGroupFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::core::mem::transmute_copy(this), materialgroupid, &mut result__).from_abi::<Printing3DBaseMaterialGroup>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), materialgroupid, &mut result__).from_abi::<Printing3DBaseMaterialGroup>(result__)
         })
     }
     #[doc(hidden)]
@@ -2160,13 +2160,13 @@ impl Printing3DColorMaterial {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Value)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).Value)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
     pub fn SetValue(&self, value: u32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetValue)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetValue)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`, `\"UI\"`*"]
     #[cfg(feature = "UI")]
@@ -2174,14 +2174,14 @@ impl Printing3DColorMaterial {
         let this = &::windows::core::Interface::cast::<IPrinting3DColorMaterial2>(self)?;
         unsafe {
             let mut result__: super::super::UI::Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Color)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::UI::Color>(result__)
+            (::windows::core::Interface::vtable(this).Color)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::UI::Color>(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`, `\"UI\"`*"]
     #[cfg(feature = "UI")]
     pub fn SetColor<'a, Param0: ::windows::core::IntoParam<'a, super::super::UI::Color>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPrinting3DColorMaterial2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetColor)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetColor)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
 }
 impl ::core::clone::Clone for Printing3DColorMaterial {
@@ -2266,7 +2266,7 @@ impl Printing3DColorMaterialGroup {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Colors)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<Printing3DColorMaterial>>(result__)
+            (::windows::core::Interface::vtable(this).Colors)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<Printing3DColorMaterial>>(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
@@ -2274,14 +2274,14 @@ impl Printing3DColorMaterialGroup {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MaterialGroupId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).MaterialGroupId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
     pub fn Create(materialgroupid: u32) -> ::windows::core::Result<Printing3DColorMaterialGroup> {
         Self::IPrinting3DColorMaterialGroupFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::core::mem::transmute_copy(this), materialgroupid, &mut result__).from_abi::<Printing3DColorMaterialGroup>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), materialgroupid, &mut result__).from_abi::<Printing3DColorMaterialGroup>(result__)
         })
     }
     #[doc(hidden)]
@@ -2378,13 +2378,13 @@ impl Printing3DComponent {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Mesh)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Printing3DMesh>(result__)
+            (::windows::core::Interface::vtable(this).Mesh)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Printing3DMesh>(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
     pub fn SetMesh<'a, Param0: ::windows::core::IntoParam<'a, Printing3DMesh>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetMesh)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetMesh)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -2392,7 +2392,7 @@ impl Printing3DComponent {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Components)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<Printing3DComponentWithMatrix>>(result__)
+            (::windows::core::Interface::vtable(this).Components)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<Printing3DComponentWithMatrix>>(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
@@ -2400,52 +2400,52 @@ impl Printing3DComponent {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Thumbnail)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Printing3DTextureResource>(result__)
+            (::windows::core::Interface::vtable(this).Thumbnail)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Printing3DTextureResource>(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
     pub fn SetThumbnail<'a, Param0: ::windows::core::IntoParam<'a, Printing3DTextureResource>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetThumbnail)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetThumbnail)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
     pub fn Type(&self) -> ::windows::core::Result<Printing3DObjectType> {
         let this = self;
         unsafe {
             let mut result__: Printing3DObjectType = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Type)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Printing3DObjectType>(result__)
+            (::windows::core::Interface::vtable(this).Type)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Printing3DObjectType>(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
     pub fn SetType(&self, value: Printing3DObjectType) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetType)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetType)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
     pub fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Name)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Name)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
     pub fn SetName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetName)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetName)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
     pub fn PartNumber(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PartNumber)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).PartNumber)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
     pub fn SetPartNumber<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetPartNumber)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPartNumber)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
 }
 impl ::core::clone::Clone for Printing3DComponent {
@@ -2536,13 +2536,13 @@ impl Printing3DComponentWithMatrix {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Component)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Printing3DComponent>(result__)
+            (::windows::core::Interface::vtable(this).Component)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Printing3DComponent>(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
     pub fn SetComponent<'a, Param0: ::windows::core::IntoParam<'a, Printing3DComponent>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetComponent)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetComponent)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`, `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
@@ -2550,14 +2550,14 @@ impl Printing3DComponentWithMatrix {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::Numerics::Matrix4x4 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Matrix)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Numerics::Matrix4x4>(result__)
+            (::windows::core::Interface::vtable(this).Matrix)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Numerics::Matrix4x4>(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`, `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetMatrix<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Numerics::Matrix4x4>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetMatrix)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetMatrix)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
 }
 impl ::core::clone::Clone for Printing3DComponentWithMatrix {
@@ -2649,7 +2649,7 @@ impl Printing3DCompositeMaterial {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Values)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<f64>>(result__)
+            (::windows::core::Interface::vtable(this).Values)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<f64>>(result__)
         }
     }
 }
@@ -2735,7 +2735,7 @@ impl Printing3DCompositeMaterialGroup {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Composites)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<Printing3DCompositeMaterial>>(result__)
+            (::windows::core::Interface::vtable(this).Composites)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<Printing3DCompositeMaterial>>(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
@@ -2743,7 +2743,7 @@ impl Printing3DCompositeMaterialGroup {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MaterialGroupId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).MaterialGroupId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`, `\"Foundation_Collections\"`*"]
@@ -2752,7 +2752,7 @@ impl Printing3DCompositeMaterialGroup {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MaterialIndices)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<u32>>(result__)
+            (::windows::core::Interface::vtable(this).MaterialIndices)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<u32>>(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
@@ -2760,19 +2760,19 @@ impl Printing3DCompositeMaterialGroup {
         let this = &::windows::core::Interface::cast::<IPrinting3DCompositeMaterialGroup2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).BaseMaterialGroup)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Printing3DBaseMaterialGroup>(result__)
+            (::windows::core::Interface::vtable(this).BaseMaterialGroup)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Printing3DBaseMaterialGroup>(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
     pub fn SetBaseMaterialGroup<'a, Param0: ::windows::core::IntoParam<'a, Printing3DBaseMaterialGroup>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPrinting3DCompositeMaterialGroup2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetBaseMaterialGroup)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetBaseMaterialGroup)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
     pub fn Create(materialgroupid: u32) -> ::windows::core::Result<Printing3DCompositeMaterialGroup> {
         Self::IPrinting3DCompositeMaterialGroupFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::core::mem::transmute_copy(this), materialgroupid, &mut result__).from_abi::<Printing3DCompositeMaterialGroup>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), materialgroupid, &mut result__).from_abi::<Printing3DCompositeMaterialGroup>(result__)
         })
     }
     #[doc(hidden)]
@@ -2869,39 +2869,39 @@ impl Printing3DFaceReductionOptions {
         let this = self;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MaxReductionArea)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).MaxReductionArea)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
     pub fn SetMaxReductionArea(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetMaxReductionArea)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetMaxReductionArea)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
     pub fn TargetTriangleCount(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TargetTriangleCount)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).TargetTriangleCount)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
     pub fn SetTargetTriangleCount(&self, value: u32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetTargetTriangleCount)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetTargetTriangleCount)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
     pub fn MaxEdgeLength(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MaxEdgeLength)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).MaxEdgeLength)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
     pub fn SetMaxEdgeLength(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetMaxEdgeLength)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetMaxEdgeLength)(::windows::core::Interface::as_raw(this), value).ok() }
     }
 }
 impl ::core::clone::Clone for Printing3DFaceReductionOptions {
@@ -2993,7 +2993,7 @@ impl Printing3DMaterial {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).BaseGroups)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<Printing3DBaseMaterialGroup>>(result__)
+            (::windows::core::Interface::vtable(this).BaseGroups)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<Printing3DBaseMaterialGroup>>(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`, `\"Foundation_Collections\"`*"]
@@ -3002,7 +3002,7 @@ impl Printing3DMaterial {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ColorGroups)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<Printing3DColorMaterialGroup>>(result__)
+            (::windows::core::Interface::vtable(this).ColorGroups)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<Printing3DColorMaterialGroup>>(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`, `\"Foundation_Collections\"`*"]
@@ -3011,7 +3011,7 @@ impl Printing3DMaterial {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Texture2CoordGroups)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<Printing3DTexture2CoordMaterialGroup>>(result__)
+            (::windows::core::Interface::vtable(this).Texture2CoordGroups)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<Printing3DTexture2CoordMaterialGroup>>(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`, `\"Foundation_Collections\"`*"]
@@ -3020,7 +3020,7 @@ impl Printing3DMaterial {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CompositeGroups)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<Printing3DCompositeMaterialGroup>>(result__)
+            (::windows::core::Interface::vtable(this).CompositeGroups)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<Printing3DCompositeMaterialGroup>>(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`, `\"Foundation_Collections\"`*"]
@@ -3029,7 +3029,7 @@ impl Printing3DMaterial {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MultiplePropertyGroups)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<Printing3DMultiplePropertyMaterialGroup>>(result__)
+            (::windows::core::Interface::vtable(this).MultiplePropertyGroups)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<Printing3DMultiplePropertyMaterialGroup>>(result__)
         }
     }
 }
@@ -3121,78 +3121,78 @@ impl Printing3DMesh {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).VertexCount)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).VertexCount)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
     pub fn SetVertexCount(&self, value: u32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetVertexCount)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetVertexCount)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
     pub fn IndexCount(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IndexCount)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).IndexCount)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
     pub fn SetIndexCount(&self, value: u32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetIndexCount)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetIndexCount)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
     pub fn VertexPositionsDescription(&self) -> ::windows::core::Result<Printing3DBufferDescription> {
         let this = self;
         unsafe {
             let mut result__: Printing3DBufferDescription = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).VertexPositionsDescription)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Printing3DBufferDescription>(result__)
+            (::windows::core::Interface::vtable(this).VertexPositionsDescription)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Printing3DBufferDescription>(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
     pub fn SetVertexPositionsDescription<'a, Param0: ::windows::core::IntoParam<'a, Printing3DBufferDescription>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetVertexPositionsDescription)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetVertexPositionsDescription)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
     pub fn VertexNormalsDescription(&self) -> ::windows::core::Result<Printing3DBufferDescription> {
         let this = self;
         unsafe {
             let mut result__: Printing3DBufferDescription = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).VertexNormalsDescription)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Printing3DBufferDescription>(result__)
+            (::windows::core::Interface::vtable(this).VertexNormalsDescription)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Printing3DBufferDescription>(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
     pub fn SetVertexNormalsDescription<'a, Param0: ::windows::core::IntoParam<'a, Printing3DBufferDescription>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetVertexNormalsDescription)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetVertexNormalsDescription)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
     pub fn TriangleIndicesDescription(&self) -> ::windows::core::Result<Printing3DBufferDescription> {
         let this = self;
         unsafe {
             let mut result__: Printing3DBufferDescription = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TriangleIndicesDescription)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Printing3DBufferDescription>(result__)
+            (::windows::core::Interface::vtable(this).TriangleIndicesDescription)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Printing3DBufferDescription>(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
     pub fn SetTriangleIndicesDescription<'a, Param0: ::windows::core::IntoParam<'a, Printing3DBufferDescription>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetTriangleIndicesDescription)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetTriangleIndicesDescription)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
     pub fn TriangleMaterialIndicesDescription(&self) -> ::windows::core::Result<Printing3DBufferDescription> {
         let this = self;
         unsafe {
             let mut result__: Printing3DBufferDescription = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TriangleMaterialIndicesDescription)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Printing3DBufferDescription>(result__)
+            (::windows::core::Interface::vtable(this).TriangleMaterialIndicesDescription)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Printing3DBufferDescription>(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
     pub fn SetTriangleMaterialIndicesDescription<'a, Param0: ::windows::core::IntoParam<'a, Printing3DBufferDescription>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetTriangleMaterialIndicesDescription)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetTriangleMaterialIndicesDescription)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
@@ -3200,13 +3200,13 @@ impl Printing3DMesh {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetVertexPositions)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
+            (::windows::core::Interface::vtable(this).GetVertexPositions)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
     pub fn CreateVertexPositions(&self, value: u32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).CreateVertexPositions)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).CreateVertexPositions)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
@@ -3214,13 +3214,13 @@ impl Printing3DMesh {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetVertexNormals)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
+            (::windows::core::Interface::vtable(this).GetVertexNormals)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
     pub fn CreateVertexNormals(&self, value: u32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).CreateVertexNormals)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).CreateVertexNormals)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
@@ -3228,13 +3228,13 @@ impl Printing3DMesh {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetTriangleIndices)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
+            (::windows::core::Interface::vtable(this).GetTriangleIndices)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
     pub fn CreateTriangleIndices(&self, value: u32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).CreateTriangleIndices)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).CreateTriangleIndices)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
@@ -3242,13 +3242,13 @@ impl Printing3DMesh {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetTriangleMaterialIndices)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
+            (::windows::core::Interface::vtable(this).GetTriangleMaterialIndices)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
     pub fn CreateTriangleMaterialIndices(&self, value: u32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).CreateTriangleMaterialIndices)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).CreateTriangleMaterialIndices)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -3256,7 +3256,7 @@ impl Printing3DMesh {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).BufferDescriptionSet)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IPropertySet>(result__)
+            (::windows::core::Interface::vtable(this).BufferDescriptionSet)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IPropertySet>(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`, `\"Foundation_Collections\"`*"]
@@ -3265,7 +3265,7 @@ impl Printing3DMesh {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).BufferSet)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IPropertySet>(result__)
+            (::windows::core::Interface::vtable(this).BufferSet)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IPropertySet>(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`, `\"Foundation\"`*"]
@@ -3274,7 +3274,7 @@ impl Printing3DMesh {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).VerifyAsync)(::core::mem::transmute_copy(this), value, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<Printing3DMeshVerificationResult>>(result__)
+            (::windows::core::Interface::vtable(this).VerifyAsync)(::windows::core::Interface::as_raw(this), value, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<Printing3DMeshVerificationResult>>(result__)
         }
     }
 }
@@ -3393,7 +3393,7 @@ impl Printing3DMeshVerificationResult {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsValid)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsValid)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`, `\"Foundation_Collections\"`*"]
@@ -3402,7 +3402,7 @@ impl Printing3DMeshVerificationResult {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).NonmanifoldTriangles)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<u32>>(result__)
+            (::windows::core::Interface::vtable(this).NonmanifoldTriangles)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<u32>>(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`, `\"Foundation_Collections\"`*"]
@@ -3411,7 +3411,7 @@ impl Printing3DMeshVerificationResult {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ReversedNormalTriangles)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<u32>>(result__)
+            (::windows::core::Interface::vtable(this).ReversedNormalTriangles)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<u32>>(result__)
         }
     }
 }
@@ -3503,13 +3503,13 @@ impl Printing3DModel {
         let this = self;
         unsafe {
             let mut result__: Printing3DModelUnit = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Unit)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Printing3DModelUnit>(result__)
+            (::windows::core::Interface::vtable(this).Unit)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Printing3DModelUnit>(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
     pub fn SetUnit(&self, value: Printing3DModelUnit) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetUnit)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetUnit)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -3517,7 +3517,7 @@ impl Printing3DModel {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Textures)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<Printing3DModelTexture>>(result__)
+            (::windows::core::Interface::vtable(this).Textures)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<Printing3DModelTexture>>(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`, `\"Foundation_Collections\"`*"]
@@ -3526,7 +3526,7 @@ impl Printing3DModel {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Meshes)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<Printing3DMesh>>(result__)
+            (::windows::core::Interface::vtable(this).Meshes)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<Printing3DMesh>>(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`, `\"Foundation_Collections\"`*"]
@@ -3535,7 +3535,7 @@ impl Printing3DModel {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Components)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<Printing3DComponent>>(result__)
+            (::windows::core::Interface::vtable(this).Components)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<Printing3DComponent>>(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
@@ -3543,39 +3543,39 @@ impl Printing3DModel {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Material)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Printing3DMaterial>(result__)
+            (::windows::core::Interface::vtable(this).Material)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Printing3DMaterial>(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
     pub fn SetMaterial<'a, Param0: ::windows::core::IntoParam<'a, Printing3DMaterial>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetMaterial)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetMaterial)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
     pub fn Build(&self) -> ::windows::core::Result<Printing3DComponent> {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Build)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Printing3DComponent>(result__)
+            (::windows::core::Interface::vtable(this).Build)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Printing3DComponent>(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
     pub fn SetBuild<'a, Param0: ::windows::core::IntoParam<'a, Printing3DComponent>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetBuild)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetBuild)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
     pub fn Version(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Version)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Version)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
     pub fn SetVersion<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetVersion)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetVersion)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -3583,7 +3583,7 @@ impl Printing3DModel {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RequiredExtensions)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>(result__)
+            (::windows::core::Interface::vtable(this).RequiredExtensions)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`, `\"Foundation_Collections\"`*"]
@@ -3592,7 +3592,7 @@ impl Printing3DModel {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Metadata)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::HSTRING>>(result__)
+            (::windows::core::Interface::vtable(this).Metadata)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::HSTRING>>(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`, `\"Foundation\"`*"]
@@ -3601,7 +3601,7 @@ impl Printing3DModel {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RepairAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).RepairAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
@@ -3609,7 +3609,7 @@ impl Printing3DModel {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Clone)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Printing3DModel>(result__)
+            (::windows::core::Interface::vtable(this).Clone)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Printing3DModel>(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`, `\"Foundation\"`*"]
@@ -3618,7 +3618,7 @@ impl Printing3DModel {
         let this = &::windows::core::Interface::cast::<IPrinting3DModel2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TryPartialRepairAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Interface::vtable(this).TryPartialRepairAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`, `\"Foundation\"`*"]
@@ -3627,7 +3627,7 @@ impl Printing3DModel {
         let this = &::windows::core::Interface::cast::<IPrinting3DModel2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TryPartialRepairWithTimeAsync)(::core::mem::transmute_copy(this), maxwaittime.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Interface::vtable(this).TryPartialRepairWithTimeAsync)(::windows::core::Interface::as_raw(this), maxwaittime.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`, `\"Foundation\"`*"]
@@ -3636,7 +3636,7 @@ impl Printing3DModel {
         let this = &::windows::core::Interface::cast::<IPrinting3DModel2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TryReduceFacesAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<bool, f64>>(result__)
+            (::windows::core::Interface::vtable(this).TryReduceFacesAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<bool, f64>>(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`, `\"Foundation\"`*"]
@@ -3645,7 +3645,7 @@ impl Printing3DModel {
         let this = &::windows::core::Interface::cast::<IPrinting3DModel2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TryReduceFacesWithOptionsAsync)(::core::mem::transmute_copy(this), printing3dfacereductionoptions.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<bool, f64>>(result__)
+            (::windows::core::Interface::vtable(this).TryReduceFacesWithOptionsAsync)(::windows::core::Interface::as_raw(this), printing3dfacereductionoptions.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<bool, f64>>(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`, `\"Foundation\"`*"]
@@ -3654,7 +3654,7 @@ impl Printing3DModel {
         let this = &::windows::core::Interface::cast::<IPrinting3DModel2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TryReduceFacesWithOptionsAndTimeAsync)(::core::mem::transmute_copy(this), printing3dfacereductionoptions.into_param().abi(), maxwait.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<bool, f64>>(result__)
+            (::windows::core::Interface::vtable(this).TryReduceFacesWithOptionsAndTimeAsync)(::windows::core::Interface::as_raw(this), printing3dfacereductionoptions.into_param().abi(), maxwait.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<bool, f64>>(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`, `\"Foundation\"`*"]
@@ -3663,7 +3663,7 @@ impl Printing3DModel {
         let this = &::windows::core::Interface::cast::<IPrinting3DModel2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RepairWithProgressAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<bool, f64>>(result__)
+            (::windows::core::Interface::vtable(this).RepairWithProgressAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<bool, f64>>(result__)
         }
     }
 }
@@ -3755,39 +3755,39 @@ impl Printing3DModelTexture {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TextureResource)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Printing3DTextureResource>(result__)
+            (::windows::core::Interface::vtable(this).TextureResource)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Printing3DTextureResource>(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
     pub fn SetTextureResource<'a, Param0: ::windows::core::IntoParam<'a, Printing3DTextureResource>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetTextureResource)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetTextureResource)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
     pub fn TileStyleU(&self) -> ::windows::core::Result<Printing3DTextureEdgeBehavior> {
         let this = self;
         unsafe {
             let mut result__: Printing3DTextureEdgeBehavior = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TileStyleU)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Printing3DTextureEdgeBehavior>(result__)
+            (::windows::core::Interface::vtable(this).TileStyleU)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Printing3DTextureEdgeBehavior>(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
     pub fn SetTileStyleU(&self, value: Printing3DTextureEdgeBehavior) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetTileStyleU)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetTileStyleU)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
     pub fn TileStyleV(&self) -> ::windows::core::Result<Printing3DTextureEdgeBehavior> {
         let this = self;
         unsafe {
             let mut result__: Printing3DTextureEdgeBehavior = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TileStyleV)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Printing3DTextureEdgeBehavior>(result__)
+            (::windows::core::Interface::vtable(this).TileStyleV)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Printing3DTextureEdgeBehavior>(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
     pub fn SetTileStyleV(&self, value: Printing3DTextureEdgeBehavior) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetTileStyleV)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetTileStyleV)(::windows::core::Interface::as_raw(this), value).ok() }
     }
 }
 impl ::core::clone::Clone for Printing3DModelTexture {
@@ -3917,7 +3917,7 @@ impl Printing3DMultiplePropertyMaterial {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MaterialIndices)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<u32>>(result__)
+            (::windows::core::Interface::vtable(this).MaterialIndices)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<u32>>(result__)
         }
     }
 }
@@ -4003,7 +4003,7 @@ impl Printing3DMultiplePropertyMaterialGroup {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MultipleProperties)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<Printing3DMultiplePropertyMaterial>>(result__)
+            (::windows::core::Interface::vtable(this).MultipleProperties)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<Printing3DMultiplePropertyMaterial>>(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`, `\"Foundation_Collections\"`*"]
@@ -4012,7 +4012,7 @@ impl Printing3DMultiplePropertyMaterialGroup {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MaterialGroupIndices)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<u32>>(result__)
+            (::windows::core::Interface::vtable(this).MaterialGroupIndices)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<u32>>(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
@@ -4020,14 +4020,14 @@ impl Printing3DMultiplePropertyMaterialGroup {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MaterialGroupId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).MaterialGroupId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
     pub fn Create(materialgroupid: u32) -> ::windows::core::Result<Printing3DMultiplePropertyMaterialGroup> {
         Self::IPrinting3DMultiplePropertyMaterialGroupFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::core::mem::transmute_copy(this), materialgroupid, &mut result__).from_abi::<Printing3DMultiplePropertyMaterialGroup>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), materialgroupid, &mut result__).from_abi::<Printing3DMultiplePropertyMaterialGroup>(result__)
         })
     }
     #[doc(hidden)]
@@ -4194,39 +4194,39 @@ impl Printing3DTexture2CoordMaterial {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Texture)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Printing3DModelTexture>(result__)
+            (::windows::core::Interface::vtable(this).Texture)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Printing3DModelTexture>(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
     pub fn SetTexture<'a, Param0: ::windows::core::IntoParam<'a, Printing3DModelTexture>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetTexture)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetTexture)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
     pub fn U(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).U)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).U)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
     pub fn SetU(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetU)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetU)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
     pub fn V(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).V)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).V)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
     pub fn SetV(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetV)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetV)(::windows::core::Interface::as_raw(this), value).ok() }
     }
 }
 impl ::core::clone::Clone for Printing3DTexture2CoordMaterial {
@@ -4311,7 +4311,7 @@ impl Printing3DTexture2CoordMaterialGroup {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Texture2Coords)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<Printing3DTexture2CoordMaterial>>(result__)
+            (::windows::core::Interface::vtable(this).Texture2Coords)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<Printing3DTexture2CoordMaterial>>(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
@@ -4319,7 +4319,7 @@ impl Printing3DTexture2CoordMaterialGroup {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MaterialGroupId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).MaterialGroupId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
@@ -4327,19 +4327,19 @@ impl Printing3DTexture2CoordMaterialGroup {
         let this = &::windows::core::Interface::cast::<IPrinting3DTexture2CoordMaterialGroup2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Texture)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Printing3DModelTexture>(result__)
+            (::windows::core::Interface::vtable(this).Texture)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Printing3DModelTexture>(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
     pub fn SetTexture<'a, Param0: ::windows::core::IntoParam<'a, Printing3DModelTexture>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPrinting3DTexture2CoordMaterialGroup2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetTexture)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetTexture)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
     pub fn Create(materialgroupid: u32) -> ::windows::core::Result<Printing3DTexture2CoordMaterialGroup> {
         Self::IPrinting3DTexture2CoordMaterialGroupFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::core::mem::transmute_copy(this), materialgroupid, &mut result__).from_abi::<Printing3DTexture2CoordMaterialGroup>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), materialgroupid, &mut result__).from_abi::<Printing3DTexture2CoordMaterialGroup>(result__)
         })
     }
     #[doc(hidden)]
@@ -4473,27 +4473,27 @@ impl Printing3DTextureResource {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TextureData)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IRandomAccessStreamWithContentType>(result__)
+            (::windows::core::Interface::vtable(this).TextureData)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Storage::Streams::IRandomAccessStreamWithContentType>(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn SetTextureData<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IRandomAccessStreamWithContentType>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetTextureData)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetTextureData)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
     pub fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Name)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Name)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
     pub fn SetName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetName)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetName)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
 }
 impl ::core::clone::Clone for Printing3DTextureResource {
