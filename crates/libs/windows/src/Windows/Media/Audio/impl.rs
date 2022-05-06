@@ -13,7 +13,7 @@ impl ::windows::core::RuntimeName for IAudioInputNode {
 impl IAudioInputNode_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAudioInputNode_Impl, const OFFSET: isize>() -> IAudioInputNode_Vtbl {
         unsafe extern "system" fn OutgoingConnections<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAudioInputNode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.OutgoingConnections() {
                 ::core::result::Result::Ok(ok__) => {
@@ -25,17 +25,17 @@ impl IAudioInputNode_Vtbl {
             }
         }
         unsafe extern "system" fn AddOutgoingConnection<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAudioInputNode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, destination: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.AddOutgoingConnection(::core::mem::transmute(&destination)).into()
         }
         unsafe extern "system" fn AddOutgoingConnectionWithGain<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAudioInputNode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, destination: ::windows::core::RawPtr, gain: f64) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.AddOutgoingConnectionWithGain(::core::mem::transmute(&destination), gain).into()
         }
         unsafe extern "system" fn RemoveOutgoingConnection<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAudioInputNode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, destination: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.RemoveOutgoingConnection(::core::mem::transmute(&destination)).into()
         }
@@ -63,7 +63,7 @@ impl ::windows::core::RuntimeName for IAudioInputNode2 {
 impl IAudioInputNode2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAudioInputNode2_Impl, const OFFSET: isize>() -> IAudioInputNode2_Vtbl {
         unsafe extern "system" fn Emitter<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAudioInputNode2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Emitter() {
                 ::core::result::Result::Ok(ok__) => {
@@ -102,7 +102,7 @@ impl ::windows::core::RuntimeName for IAudioNode {
 impl IAudioNode_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAudioNode_Impl, const OFFSET: isize>() -> IAudioNode_Vtbl {
         unsafe extern "system" fn EffectDefinitions<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAudioNode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.EffectDefinitions() {
                 ::core::result::Result::Ok(ok__) => {
@@ -114,12 +114,12 @@ impl IAudioNode_Vtbl {
             }
         }
         unsafe extern "system" fn SetOutgoingGain<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAudioNode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetOutgoingGain(value).into()
         }
         unsafe extern "system" fn OutgoingGain<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAudioNode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.OutgoingGain() {
                 ::core::result::Result::Ok(ok__) => {
@@ -131,7 +131,7 @@ impl IAudioNode_Vtbl {
             }
         }
         unsafe extern "system" fn EncodingProperties<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAudioNode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.EncodingProperties() {
                 ::core::result::Result::Ok(ok__) => {
@@ -143,7 +143,7 @@ impl IAudioNode_Vtbl {
             }
         }
         unsafe extern "system" fn ConsumeInput<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAudioNode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.ConsumeInput() {
                 ::core::result::Result::Ok(ok__) => {
@@ -155,32 +155,32 @@ impl IAudioNode_Vtbl {
             }
         }
         unsafe extern "system" fn SetConsumeInput<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAudioNode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetConsumeInput(value).into()
         }
         unsafe extern "system" fn Start<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAudioNode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Start().into()
         }
         unsafe extern "system" fn Stop<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAudioNode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Stop().into()
         }
         unsafe extern "system" fn Reset<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAudioNode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Reset().into()
         }
         unsafe extern "system" fn DisableEffectsByDefinition<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAudioNode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, definition: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.DisableEffectsByDefinition(::core::mem::transmute(&definition)).into()
         }
         unsafe extern "system" fn EnableEffectsByDefinition<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAudioNode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, definition: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.EnableEffectsByDefinition(::core::mem::transmute(&definition)).into()
         }
@@ -216,12 +216,12 @@ impl ::windows::core::RuntimeName for IAudioNodeWithListener {
 impl IAudioNodeWithListener_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAudioNodeWithListener_Impl, const OFFSET: isize>() -> IAudioNodeWithListener_Vtbl {
         unsafe extern "system" fn SetListener<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAudioNodeWithListener_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetListener(::core::mem::transmute(&value)).into()
         }
         unsafe extern "system" fn Listener<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAudioNodeWithListener_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Listener() {
                 ::core::result::Result::Ok(ok__) => {

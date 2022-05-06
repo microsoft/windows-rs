@@ -10,7 +10,7 @@ impl ::windows::core::RuntimeName for IPhotoAcquire {}
 impl IPhotoAcquire_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPhotoAcquire_Impl, const OFFSET: isize>() -> IPhotoAcquire_Vtbl {
         unsafe extern "system" fn CreatePhotoSource<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPhotoAcquire_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszdevice: ::windows::core::PCWSTR, ppphotoacquiresource: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CreatePhotoSource(::core::mem::transmute(&pszdevice)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -21,12 +21,12 @@ impl IPhotoAcquire_Vtbl {
             }
         }
         unsafe extern "system" fn Acquire<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPhotoAcquire_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pphotoacquiresource: ::windows::core::RawPtr, fshowprogress: super::super::Foundation::BOOL, hwndparent: super::super::Foundation::HWND, pszapplicationname: ::windows::core::PCWSTR, pphotoacquireprogresscb: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Acquire(::core::mem::transmute(&pphotoacquiresource), ::core::mem::transmute_copy(&fshowprogress), ::core::mem::transmute_copy(&hwndparent), ::core::mem::transmute(&pszapplicationname), ::core::mem::transmute(&pphotoacquireprogresscb)).into()
         }
         unsafe extern "system" fn EnumResults<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPhotoAcquire_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenumfilepaths: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.EnumResults() {
                 ::core::result::Result::Ok(ok__) => {
@@ -59,17 +59,17 @@ impl ::windows::core::RuntimeName for IPhotoAcquireDeviceSelectionDialog {}
 impl IPhotoAcquireDeviceSelectionDialog_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPhotoAcquireDeviceSelectionDialog_Impl, const OFFSET: isize>() -> IPhotoAcquireDeviceSelectionDialog_Vtbl {
         unsafe extern "system" fn SetTitle<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPhotoAcquireDeviceSelectionDialog_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psztitle: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetTitle(::core::mem::transmute(&psztitle)).into()
         }
         unsafe extern "system" fn SetSubmitButtonText<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPhotoAcquireDeviceSelectionDialog_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszsubmitbuttontext: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetSubmitButtonText(::core::mem::transmute(&pszsubmitbuttontext)).into()
         }
         unsafe extern "system" fn DoModal<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPhotoAcquireDeviceSelectionDialog_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hwndparent: super::super::Foundation::HWND, dwdeviceflags: u32, pbstrdeviceid: *mut super::super::Foundation::BSTR, pndevicetype: *mut DEVICE_SELECTION_DEVICE_TYPE) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.DoModal(::core::mem::transmute_copy(&hwndparent), ::core::mem::transmute_copy(&dwdeviceflags), ::core::mem::transmute_copy(&pbstrdeviceid), ::core::mem::transmute_copy(&pndevicetype)).into()
         }
@@ -102,7 +102,7 @@ impl ::windows::core::RuntimeName for IPhotoAcquireItem {}
 impl IPhotoAcquireItem_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPhotoAcquireItem_Impl, const OFFSET: isize>() -> IPhotoAcquireItem_Vtbl {
         unsafe extern "system" fn GetItemName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPhotoAcquireItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstritemname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetItemName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -113,7 +113,7 @@ impl IPhotoAcquireItem_Vtbl {
             }
         }
         unsafe extern "system" fn GetThumbnail<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPhotoAcquireItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sizethumbnail: super::super::Foundation::SIZE, phbmpthumbnail: *mut super::super::Graphics::Gdi::HBITMAP) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetThumbnail(::core::mem::transmute(&sizethumbnail)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -124,7 +124,7 @@ impl IPhotoAcquireItem_Vtbl {
             }
         }
         unsafe extern "system" fn GetProperty<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPhotoAcquireItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pv: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetProperty(::core::mem::transmute_copy(&key)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -135,12 +135,12 @@ impl IPhotoAcquireItem_Vtbl {
             }
         }
         unsafe extern "system" fn SetProperty<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPhotoAcquireItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pv: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetProperty(::core::mem::transmute_copy(&key), ::core::mem::transmute_copy(&pv)).into()
         }
         unsafe extern "system" fn GetStream<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPhotoAcquireItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppstream: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetStream() {
                 ::core::result::Result::Ok(ok__) => {
@@ -151,7 +151,7 @@ impl IPhotoAcquireItem_Vtbl {
             }
         }
         unsafe extern "system" fn CanDelete<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPhotoAcquireItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfcandelete: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CanDelete() {
                 ::core::result::Result::Ok(ok__) => {
@@ -162,12 +162,12 @@ impl IPhotoAcquireItem_Vtbl {
             }
         }
         unsafe extern "system" fn Delete<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPhotoAcquireItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Delete().into()
         }
         unsafe extern "system" fn GetSubItemCount<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPhotoAcquireItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pncount: *mut u32) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetSubItemCount() {
                 ::core::result::Result::Ok(ok__) => {
@@ -178,7 +178,7 @@ impl IPhotoAcquireItem_Vtbl {
             }
         }
         unsafe extern "system" fn GetSubItemAt<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPhotoAcquireItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nitemindex: u32, ppphotoacquireitem: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetSubItemAt(::core::mem::transmute_copy(&nitemindex)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -219,12 +219,12 @@ impl ::windows::core::RuntimeName for IPhotoAcquireOptionsDialog {}
 impl IPhotoAcquireOptionsDialog_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPhotoAcquireOptionsDialog_Impl, const OFFSET: isize>() -> IPhotoAcquireOptionsDialog_Vtbl {
         unsafe extern "system" fn Initialize<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPhotoAcquireOptionsDialog_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszregistryroot: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Initialize(::core::mem::transmute(&pszregistryroot)).into()
         }
         unsafe extern "system" fn Create<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPhotoAcquireOptionsDialog_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hwndparent: super::super::Foundation::HWND, phwnddialog: *mut super::super::Foundation::HWND) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Create(::core::mem::transmute_copy(&hwndparent)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -235,17 +235,17 @@ impl IPhotoAcquireOptionsDialog_Vtbl {
             }
         }
         unsafe extern "system" fn Destroy<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPhotoAcquireOptionsDialog_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Destroy().into()
         }
         unsafe extern "system" fn DoModal<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPhotoAcquireOptionsDialog_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hwndparent: super::super::Foundation::HWND, ppnreturncode: *mut isize) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.DoModal(::core::mem::transmute_copy(&hwndparent), ::core::mem::transmute_copy(&ppnreturncode)).into()
         }
         unsafe extern "system" fn SaveData<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPhotoAcquireOptionsDialog_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SaveData().into()
         }
@@ -275,22 +275,22 @@ impl ::windows::core::RuntimeName for IPhotoAcquirePlugin {}
 impl IPhotoAcquirePlugin_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPhotoAcquirePlugin_Impl, const OFFSET: isize>() -> IPhotoAcquirePlugin_Vtbl {
         unsafe extern "system" fn Initialize<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPhotoAcquirePlugin_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pphotoacquiresource: ::windows::core::RawPtr, pphotoacquireprogresscb: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Initialize(::core::mem::transmute(&pphotoacquiresource), ::core::mem::transmute(&pphotoacquireprogresscb)).into()
         }
         unsafe extern "system" fn ProcessItem<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPhotoAcquirePlugin_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwacquirestage: u32, pphotoacquireitem: ::windows::core::RawPtr, poriginalitemstream: ::windows::core::RawPtr, pszfinalfilename: ::windows::core::PCWSTR, ppropertystore: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.ProcessItem(::core::mem::transmute_copy(&dwacquirestage), ::core::mem::transmute(&pphotoacquireitem), ::core::mem::transmute(&poriginalitemstream), ::core::mem::transmute(&pszfinalfilename), ::core::mem::transmute(&ppropertystore)).into()
         }
         unsafe extern "system" fn TransferComplete<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPhotoAcquirePlugin_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hr: ::windows::core::HRESULT) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.TransferComplete(::core::mem::transmute_copy(&hr)).into()
         }
         unsafe extern "system" fn DisplayConfigureDialog<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPhotoAcquirePlugin_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hwndparent: super::super::Foundation::HWND) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.DisplayConfigureDialog(::core::mem::transmute_copy(&hwndparent)).into()
         }
@@ -334,7 +334,7 @@ impl ::windows::core::RuntimeName for IPhotoAcquireProgressCB {}
 impl IPhotoAcquireProgressCB_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPhotoAcquireProgressCB_Impl, const OFFSET: isize>() -> IPhotoAcquireProgressCB_Vtbl {
         unsafe extern "system" fn Cancelled<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPhotoAcquireProgressCB_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfcancelled: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Cancelled() {
                 ::core::result::Result::Ok(ok__) => {
@@ -345,82 +345,82 @@ impl IPhotoAcquireProgressCB_Vtbl {
             }
         }
         unsafe extern "system" fn StartEnumeration<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPhotoAcquireProgressCB_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pphotoacquiresource: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.StartEnumeration(::core::mem::transmute(&pphotoacquiresource)).into()
         }
         unsafe extern "system" fn FoundItem<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPhotoAcquireProgressCB_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pphotoacquireitem: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.FoundItem(::core::mem::transmute(&pphotoacquireitem)).into()
         }
         unsafe extern "system" fn EndEnumeration<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPhotoAcquireProgressCB_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hr: ::windows::core::HRESULT) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.EndEnumeration(::core::mem::transmute_copy(&hr)).into()
         }
         unsafe extern "system" fn StartTransfer<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPhotoAcquireProgressCB_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pphotoacquiresource: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.StartTransfer(::core::mem::transmute(&pphotoacquiresource)).into()
         }
         unsafe extern "system" fn StartItemTransfer<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPhotoAcquireProgressCB_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nitemindex: u32, pphotoacquireitem: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.StartItemTransfer(::core::mem::transmute_copy(&nitemindex), ::core::mem::transmute(&pphotoacquireitem)).into()
         }
         unsafe extern "system" fn DirectoryCreated<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPhotoAcquireProgressCB_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszdirectory: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.DirectoryCreated(::core::mem::transmute(&pszdirectory)).into()
         }
         unsafe extern "system" fn UpdateTransferPercent<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPhotoAcquireProgressCB_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, foverall: super::super::Foundation::BOOL, npercent: u32) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.UpdateTransferPercent(::core::mem::transmute_copy(&foverall), ::core::mem::transmute_copy(&npercent)).into()
         }
         unsafe extern "system" fn EndItemTransfer<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPhotoAcquireProgressCB_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nitemindex: u32, pphotoacquireitem: ::windows::core::RawPtr, hr: ::windows::core::HRESULT) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.EndItemTransfer(::core::mem::transmute_copy(&nitemindex), ::core::mem::transmute(&pphotoacquireitem), ::core::mem::transmute_copy(&hr)).into()
         }
         unsafe extern "system" fn EndTransfer<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPhotoAcquireProgressCB_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hr: ::windows::core::HRESULT) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.EndTransfer(::core::mem::transmute_copy(&hr)).into()
         }
         unsafe extern "system" fn StartDelete<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPhotoAcquireProgressCB_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pphotoacquiresource: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.StartDelete(::core::mem::transmute(&pphotoacquiresource)).into()
         }
         unsafe extern "system" fn StartItemDelete<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPhotoAcquireProgressCB_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nitemindex: u32, pphotoacquireitem: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.StartItemDelete(::core::mem::transmute_copy(&nitemindex), ::core::mem::transmute(&pphotoacquireitem)).into()
         }
         unsafe extern "system" fn UpdateDeletePercent<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPhotoAcquireProgressCB_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, npercent: u32) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.UpdateDeletePercent(::core::mem::transmute_copy(&npercent)).into()
         }
         unsafe extern "system" fn EndItemDelete<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPhotoAcquireProgressCB_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nitemindex: u32, pphotoacquireitem: ::windows::core::RawPtr, hr: ::windows::core::HRESULT) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.EndItemDelete(::core::mem::transmute_copy(&nitemindex), ::core::mem::transmute(&pphotoacquireitem), ::core::mem::transmute_copy(&hr)).into()
         }
         unsafe extern "system" fn EndDelete<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPhotoAcquireProgressCB_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hr: ::windows::core::HRESULT) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.EndDelete(::core::mem::transmute_copy(&hr)).into()
         }
         unsafe extern "system" fn EndSession<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPhotoAcquireProgressCB_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hr: ::windows::core::HRESULT) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.EndSession(::core::mem::transmute_copy(&hr)).into()
         }
         unsafe extern "system" fn GetDeleteAfterAcquire<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPhotoAcquireProgressCB_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfdeleteafteracquire: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetDeleteAfterAcquire() {
                 ::core::result::Result::Ok(ok__) => {
@@ -431,7 +431,7 @@ impl IPhotoAcquireProgressCB_Vtbl {
             }
         }
         unsafe extern "system" fn ErrorAdvise<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPhotoAcquireProgressCB_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hr: ::windows::core::HRESULT, pszerrormessage: ::windows::core::PCWSTR, nmessagetype: ERROR_ADVISE_MESSAGE_TYPE, pnerroradviseresult: *mut ERROR_ADVISE_RESULT) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.ErrorAdvise(::core::mem::transmute_copy(&hr), ::core::mem::transmute(&pszerrormessage), ::core::mem::transmute_copy(&nmessagetype)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -442,7 +442,7 @@ impl IPhotoAcquireProgressCB_Vtbl {
             }
         }
         unsafe extern "system" fn GetUserInput<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPhotoAcquireProgressCB_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riidtype: *const ::windows::core::GUID, punknown: *mut ::core::ffi::c_void, ppropvarresult: *mut super::super::System::Com::StructuredStorage::PROPVARIANT, ppropvardefault: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetUserInput(::core::mem::transmute_copy(&riidtype), ::core::mem::transmute(&punknown), ::core::mem::transmute_copy(&ppropvarresult), ::core::mem::transmute_copy(&ppropvardefault)).into()
         }
@@ -495,42 +495,42 @@ impl ::windows::core::RuntimeName for IPhotoAcquireSettings {}
 impl IPhotoAcquireSettings_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPhotoAcquireSettings_Impl, const OFFSET: isize>() -> IPhotoAcquireSettings_Vtbl {
         unsafe extern "system" fn InitializeFromRegistry<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPhotoAcquireSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszregistrykey: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.InitializeFromRegistry(::core::mem::transmute(&pszregistrykey)).into()
         }
         unsafe extern "system" fn SetFlags<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPhotoAcquireSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwphotoacquireflags: u32) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetFlags(::core::mem::transmute_copy(&dwphotoacquireflags)).into()
         }
         unsafe extern "system" fn SetOutputFilenameTemplate<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPhotoAcquireSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psztemplate: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetOutputFilenameTemplate(::core::mem::transmute(&psztemplate)).into()
         }
         unsafe extern "system" fn SetSequencePaddingWidth<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPhotoAcquireSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwwidth: u32) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetSequencePaddingWidth(::core::mem::transmute_copy(&dwwidth)).into()
         }
         unsafe extern "system" fn SetSequenceZeroPadding<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPhotoAcquireSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fzeropad: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetSequenceZeroPadding(::core::mem::transmute_copy(&fzeropad)).into()
         }
         unsafe extern "system" fn SetGroupTag<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPhotoAcquireSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszgrouptag: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetGroupTag(::core::mem::transmute(&pszgrouptag)).into()
         }
         unsafe extern "system" fn SetAcquisitionTime<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPhotoAcquireSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pftacquisitiontime: *const super::super::Foundation::FILETIME) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetAcquisitionTime(::core::mem::transmute_copy(&pftacquisitiontime)).into()
         }
         unsafe extern "system" fn GetFlags<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPhotoAcquireSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwphotoacquireflags: *mut u32) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetFlags() {
                 ::core::result::Result::Ok(ok__) => {
@@ -541,7 +541,7 @@ impl IPhotoAcquireSettings_Vtbl {
             }
         }
         unsafe extern "system" fn GetOutputFilenameTemplate<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPhotoAcquireSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrtemplate: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetOutputFilenameTemplate() {
                 ::core::result::Result::Ok(ok__) => {
@@ -552,7 +552,7 @@ impl IPhotoAcquireSettings_Vtbl {
             }
         }
         unsafe extern "system" fn GetSequencePaddingWidth<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPhotoAcquireSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwwidth: *mut u32) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetSequencePaddingWidth() {
                 ::core::result::Result::Ok(ok__) => {
@@ -563,7 +563,7 @@ impl IPhotoAcquireSettings_Vtbl {
             }
         }
         unsafe extern "system" fn GetSequenceZeroPadding<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPhotoAcquireSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfzeropad: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetSequenceZeroPadding() {
                 ::core::result::Result::Ok(ok__) => {
@@ -574,7 +574,7 @@ impl IPhotoAcquireSettings_Vtbl {
             }
         }
         unsafe extern "system" fn GetGroupTag<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPhotoAcquireSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrgrouptag: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetGroupTag() {
                 ::core::result::Result::Ok(ok__) => {
@@ -585,7 +585,7 @@ impl IPhotoAcquireSettings_Vtbl {
             }
         }
         unsafe extern "system" fn GetAcquisitionTime<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPhotoAcquireSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pftacquisitiontime: *mut super::super::Foundation::FILETIME) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetAcquisitionTime() {
                 ::core::result::Result::Ok(ok__) => {
@@ -633,7 +633,7 @@ impl ::windows::core::RuntimeName for IPhotoAcquireSource {}
 impl IPhotoAcquireSource_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPhotoAcquireSource_Impl, const OFFSET: isize>() -> IPhotoAcquireSource_Vtbl {
         unsafe extern "system" fn GetFriendlyName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPhotoAcquireSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrfriendlyname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetFriendlyName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -644,17 +644,17 @@ impl IPhotoAcquireSource_Vtbl {
             }
         }
         unsafe extern "system" fn GetDeviceIcons<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPhotoAcquireSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nsize: u32, phlargeicon: *mut super::super::UI::WindowsAndMessaging::HICON, phsmallicon: *mut super::super::UI::WindowsAndMessaging::HICON) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetDeviceIcons(::core::mem::transmute_copy(&nsize), ::core::mem::transmute_copy(&phlargeicon), ::core::mem::transmute_copy(&phsmallicon)).into()
         }
         unsafe extern "system" fn InitializeItemList<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPhotoAcquireSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fforceenumeration: super::super::Foundation::BOOL, pphotoacquireprogresscb: ::windows::core::RawPtr, pnitemcount: *mut u32) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.InitializeItemList(::core::mem::transmute_copy(&fforceenumeration), ::core::mem::transmute(&pphotoacquireprogresscb), ::core::mem::transmute_copy(&pnitemcount)).into()
         }
         unsafe extern "system" fn GetItemCount<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPhotoAcquireSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pnitemcount: *mut u32) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetItemCount() {
                 ::core::result::Result::Ok(ok__) => {
@@ -665,7 +665,7 @@ impl IPhotoAcquireSource_Vtbl {
             }
         }
         unsafe extern "system" fn GetItemAt<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPhotoAcquireSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nindex: u32, ppphotoacquireitem: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetItemAt(::core::mem::transmute_copy(&nindex)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -676,7 +676,7 @@ impl IPhotoAcquireSource_Vtbl {
             }
         }
         unsafe extern "system" fn GetPhotoAcquireSettings<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPhotoAcquireSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppphotoacquiresettings: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetPhotoAcquireSettings() {
                 ::core::result::Result::Ok(ok__) => {
@@ -687,7 +687,7 @@ impl IPhotoAcquireSource_Vtbl {
             }
         }
         unsafe extern "system" fn GetDeviceId<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPhotoAcquireSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrdeviceid: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetDeviceId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -698,7 +698,7 @@ impl IPhotoAcquireSource_Vtbl {
             }
         }
         unsafe extern "system" fn BindToObject<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPhotoAcquireSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.BindToObject(::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppv)).into()
         }
@@ -728,7 +728,7 @@ impl ::windows::core::RuntimeName for IPhotoProgressActionCB {}
 impl IPhotoProgressActionCB_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPhotoProgressActionCB_Impl, const OFFSET: isize>() -> IPhotoProgressActionCB_Vtbl {
         unsafe extern "system" fn DoAction<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPhotoProgressActionCB_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hwndparent: super::super::Foundation::HWND) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.DoAction(::core::mem::transmute_copy(&hwndparent)).into()
         }
@@ -765,12 +765,12 @@ impl ::windows::core::RuntimeName for IPhotoProgressDialog {}
 impl IPhotoProgressDialog_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPhotoProgressDialog_Impl, const OFFSET: isize>() -> IPhotoProgressDialog_Vtbl {
         unsafe extern "system" fn Create<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPhotoProgressDialog_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hwndparent: super::super::Foundation::HWND) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Create(::core::mem::transmute_copy(&hwndparent)).into()
         }
         unsafe extern "system" fn GetWindow<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPhotoProgressDialog_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, phwndprogressdialog: *mut super::super::Foundation::HWND) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetWindow() {
                 ::core::result::Result::Ok(ok__) => {
@@ -781,37 +781,37 @@ impl IPhotoProgressDialog_Vtbl {
             }
         }
         unsafe extern "system" fn Destroy<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPhotoProgressDialog_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Destroy().into()
         }
         unsafe extern "system" fn SetTitle<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPhotoProgressDialog_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psztitle: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetTitle(::core::mem::transmute(&psztitle)).into()
         }
         unsafe extern "system" fn ShowCheckbox<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPhotoProgressDialog_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ncheckboxid: PROGRESS_DIALOG_CHECKBOX_ID, fshow: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.ShowCheckbox(::core::mem::transmute_copy(&ncheckboxid), ::core::mem::transmute_copy(&fshow)).into()
         }
         unsafe extern "system" fn SetCheckboxText<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPhotoProgressDialog_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ncheckboxid: PROGRESS_DIALOG_CHECKBOX_ID, pszcheckboxtext: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetCheckboxText(::core::mem::transmute_copy(&ncheckboxid), ::core::mem::transmute(&pszcheckboxtext)).into()
         }
         unsafe extern "system" fn SetCheckboxCheck<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPhotoProgressDialog_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ncheckboxid: PROGRESS_DIALOG_CHECKBOX_ID, fchecked: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetCheckboxCheck(::core::mem::transmute_copy(&ncheckboxid), ::core::mem::transmute_copy(&fchecked)).into()
         }
         unsafe extern "system" fn SetCheckboxTooltip<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPhotoProgressDialog_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ncheckboxid: PROGRESS_DIALOG_CHECKBOX_ID, pszcheckboxtooltiptext: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetCheckboxTooltip(::core::mem::transmute_copy(&ncheckboxid), ::core::mem::transmute(&pszcheckboxtooltiptext)).into()
         }
         unsafe extern "system" fn IsCheckboxChecked<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPhotoProgressDialog_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ncheckboxid: PROGRESS_DIALOG_CHECKBOX_ID, pfchecked: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.IsCheckboxChecked(::core::mem::transmute_copy(&ncheckboxid)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -822,42 +822,42 @@ impl IPhotoProgressDialog_Vtbl {
             }
         }
         unsafe extern "system" fn SetCaption<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPhotoProgressDialog_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psztitle: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetCaption(::core::mem::transmute(&psztitle)).into()
         }
         unsafe extern "system" fn SetImage<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPhotoProgressDialog_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nimagetype: PROGRESS_DIALOG_IMAGE_TYPE, hicon: super::super::UI::WindowsAndMessaging::HICON, hbitmap: super::super::Graphics::Gdi::HBITMAP) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetImage(::core::mem::transmute_copy(&nimagetype), ::core::mem::transmute_copy(&hicon), ::core::mem::transmute_copy(&hbitmap)).into()
         }
         unsafe extern "system" fn SetPercentComplete<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPhotoProgressDialog_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, npercent: i32) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetPercentComplete(::core::mem::transmute_copy(&npercent)).into()
         }
         unsafe extern "system" fn SetProgressText<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPhotoProgressDialog_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszprogresstext: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetProgressText(::core::mem::transmute(&pszprogresstext)).into()
         }
         unsafe extern "system" fn SetActionLinkCallback<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPhotoProgressDialog_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pphotoprogressactioncb: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetActionLinkCallback(::core::mem::transmute(&pphotoprogressactioncb)).into()
         }
         unsafe extern "system" fn SetActionLinkText<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPhotoProgressDialog_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszcaption: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetActionLinkText(::core::mem::transmute(&pszcaption)).into()
         }
         unsafe extern "system" fn ShowActionLink<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPhotoProgressDialog_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fshow: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.ShowActionLink(::core::mem::transmute_copy(&fshow)).into()
         }
         unsafe extern "system" fn IsCancelled<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPhotoProgressDialog_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfcancelled: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.IsCancelled() {
                 ::core::result::Result::Ok(ok__) => {
@@ -868,7 +868,7 @@ impl IPhotoProgressDialog_Vtbl {
             }
         }
         unsafe extern "system" fn GetUserInput<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPhotoProgressDialog_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riidtype: *const ::windows::core::GUID, punknown: *mut ::core::ffi::c_void, ppropvarresult: *mut super::super::System::Com::StructuredStorage::PROPVARIANT, ppropvardefault: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetUserInput(::core::mem::transmute_copy(&riidtype), ::core::mem::transmute(&punknown), ::core::mem::transmute_copy(&ppropvarresult), ::core::mem::transmute_copy(&ppropvardefault)).into()
         }
@@ -917,7 +917,7 @@ impl ::windows::core::RuntimeName for IUserInputString {}
 impl IUserInputString_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IUserInputString_Impl, const OFFSET: isize>() -> IUserInputString_Vtbl {
         unsafe extern "system" fn GetSubmitButtonText<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IUserInputString_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrsubmitbuttontext: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetSubmitButtonText() {
                 ::core::result::Result::Ok(ok__) => {
@@ -928,7 +928,7 @@ impl IUserInputString_Vtbl {
             }
         }
         unsafe extern "system" fn GetPrompt<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IUserInputString_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrprompttitle: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetPrompt() {
                 ::core::result::Result::Ok(ok__) => {
@@ -939,7 +939,7 @@ impl IUserInputString_Vtbl {
             }
         }
         unsafe extern "system" fn GetStringId<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IUserInputString_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrstringid: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetStringId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -950,7 +950,7 @@ impl IUserInputString_Vtbl {
             }
         }
         unsafe extern "system" fn GetStringType<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IUserInputString_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pnstringtype: *mut USER_INPUT_STRING_TYPE) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetStringType() {
                 ::core::result::Result::Ok(ok__) => {
@@ -961,7 +961,7 @@ impl IUserInputString_Vtbl {
             }
         }
         unsafe extern "system" fn GetTooltipText<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IUserInputString_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrtooltiptext: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetTooltipText() {
                 ::core::result::Result::Ok(ok__) => {
@@ -972,7 +972,7 @@ impl IUserInputString_Vtbl {
             }
         }
         unsafe extern "system" fn GetMaxLength<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IUserInputString_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcchmaxlength: *mut u32) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetMaxLength() {
                 ::core::result::Result::Ok(ok__) => {
@@ -983,7 +983,7 @@ impl IUserInputString_Vtbl {
             }
         }
         unsafe extern "system" fn GetDefault<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IUserInputString_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrdefault: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetDefault() {
                 ::core::result::Result::Ok(ok__) => {
@@ -994,7 +994,7 @@ impl IUserInputString_Vtbl {
             }
         }
         unsafe extern "system" fn GetMruCount<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IUserInputString_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pnmrucount: *mut u32) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetMruCount() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1005,7 +1005,7 @@ impl IUserInputString_Vtbl {
             }
         }
         unsafe extern "system" fn GetMruEntryAt<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IUserInputString_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nindex: u32, pbstrmruentry: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetMruEntryAt(::core::mem::transmute_copy(&nindex)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1016,7 +1016,7 @@ impl IUserInputString_Vtbl {
             }
         }
         unsafe extern "system" fn GetImage<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IUserInputString_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nsize: u32, phbitmap: *mut super::super::Graphics::Gdi::HBITMAP, phicon: *mut super::super::UI::WindowsAndMessaging::HICON) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetImage(::core::mem::transmute_copy(&nsize), ::core::mem::transmute_copy(&phbitmap), ::core::mem::transmute_copy(&phicon)).into()
         }

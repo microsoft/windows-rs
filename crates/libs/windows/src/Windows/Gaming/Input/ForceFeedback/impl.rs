@@ -11,7 +11,7 @@ impl ::windows::core::RuntimeName for IForceFeedbackEffect {
 impl IForceFeedbackEffect_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IForceFeedbackEffect_Impl, const OFFSET: isize>() -> IForceFeedbackEffect_Vtbl {
         unsafe extern "system" fn Gain<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IForceFeedbackEffect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Gain() {
                 ::core::result::Result::Ok(ok__) => {
@@ -23,12 +23,12 @@ impl IForceFeedbackEffect_Vtbl {
             }
         }
         unsafe extern "system" fn SetGain<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IForceFeedbackEffect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetGain(value).into()
         }
         unsafe extern "system" fn State<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IForceFeedbackEffect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ForceFeedbackEffectState) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.State() {
                 ::core::result::Result::Ok(ok__) => {
@@ -40,12 +40,12 @@ impl IForceFeedbackEffect_Vtbl {
             }
         }
         unsafe extern "system" fn Start<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IForceFeedbackEffect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Start().into()
         }
         unsafe extern "system" fn Stop<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IForceFeedbackEffect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Stop().into()
         }

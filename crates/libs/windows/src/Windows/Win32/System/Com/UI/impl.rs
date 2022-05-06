@@ -8,7 +8,7 @@ impl ::windows::core::RuntimeName for IDummyHICONIncluder {}
 impl IDummyHICONIncluder_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDummyHICONIncluder_Impl, const OFFSET: isize>() -> IDummyHICONIncluder_Vtbl {
         unsafe extern "system" fn Dummy<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDummyHICONIncluder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, h1: super::super::super::UI::WindowsAndMessaging::HICON, h2: super::super::super::Graphics::Gdi::HDC) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Dummy(::core::mem::transmute_copy(&h1), ::core::mem::transmute_copy(&h2)).into()
         }
@@ -29,12 +29,12 @@ impl ::windows::core::RuntimeName for IThumbnailExtractor {}
 impl IThumbnailExtractor_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IThumbnailExtractor_Impl, const OFFSET: isize>() -> IThumbnailExtractor_Vtbl {
         unsafe extern "system" fn ExtractThumbnail<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IThumbnailExtractor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pstg: ::windows::core::RawPtr, ullength: u32, ulheight: u32, puloutputlength: *mut u32, puloutputheight: *mut u32, phoutputbitmap: *mut super::super::super::Graphics::Gdi::HBITMAP) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.ExtractThumbnail(::core::mem::transmute(&pstg), ::core::mem::transmute_copy(&ullength), ::core::mem::transmute_copy(&ulheight), ::core::mem::transmute_copy(&puloutputlength), ::core::mem::transmute_copy(&puloutputheight), ::core::mem::transmute_copy(&phoutputbitmap)).into()
         }
         unsafe extern "system" fn OnFileUpdated<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IThumbnailExtractor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pstg: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.OnFileUpdated(::core::mem::transmute(&pstg)).into()
         }

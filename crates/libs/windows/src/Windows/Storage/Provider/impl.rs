@@ -7,7 +7,7 @@ impl ::windows::core::RuntimeName for IStorageProviderHandlerFactory {
 impl IStorageProviderHandlerFactory_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStorageProviderHandlerFactory_Impl, const OFFSET: isize>() -> IStorageProviderHandlerFactory_Vtbl {
         unsafe extern "system" fn GetStatusSource<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStorageProviderHandlerFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, syncrootid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetStatusSource(::core::mem::transmute(&syncrootid)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -39,7 +39,7 @@ impl ::windows::core::RuntimeName for IStorageProviderItemPropertySource {
 impl IStorageProviderItemPropertySource_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStorageProviderItemPropertySource_Impl, const OFFSET: isize>() -> IStorageProviderItemPropertySource_Vtbl {
         unsafe extern "system" fn GetItemProperties<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStorageProviderItemPropertySource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, itempath: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetItemProperties(::core::mem::transmute(&itempath)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -68,7 +68,7 @@ impl ::windows::core::RuntimeName for IStorageProviderPropertyCapabilities {
 impl IStorageProviderPropertyCapabilities_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStorageProviderPropertyCapabilities_Impl, const OFFSET: isize>() -> IStorageProviderPropertyCapabilities_Vtbl {
         unsafe extern "system" fn IsPropertySupported<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStorageProviderPropertyCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertycanonicalname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut bool) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.IsPropertySupported(::core::mem::transmute(&propertycanonicalname)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -102,7 +102,7 @@ impl ::windows::core::RuntimeName for IStorageProviderStatusSource {
 impl IStorageProviderStatusSource_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStorageProviderStatusSource_Impl, const OFFSET: isize>() -> IStorageProviderStatusSource_Vtbl {
         unsafe extern "system" fn GetStatus<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStorageProviderStatusSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetStatus() {
                 ::core::result::Result::Ok(ok__) => {
@@ -114,7 +114,7 @@ impl IStorageProviderStatusSource_Vtbl {
             }
         }
         unsafe extern "system" fn Changed<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStorageProviderStatusSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Changed(::core::mem::transmute(&handler)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -126,7 +126,7 @@ impl IStorageProviderStatusSource_Vtbl {
             }
         }
         unsafe extern "system" fn RemoveChanged<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStorageProviderStatusSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.RemoveChanged(::core::mem::transmute(&token)).into()
         }
@@ -151,12 +151,12 @@ impl ::windows::core::RuntimeName for IStorageProviderUriSource {
 impl IStorageProviderUriSource_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStorageProviderUriSource_Impl, const OFFSET: isize>() -> IStorageProviderUriSource_Vtbl {
         unsafe extern "system" fn GetPathForContentUri<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStorageProviderUriSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, contenturi: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetPathForContentUri(::core::mem::transmute(&contenturi), ::core::mem::transmute(&result)).into()
         }
         unsafe extern "system" fn GetContentInfoForPath<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStorageProviderUriSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, path: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetContentInfoForPath(::core::mem::transmute(&path), ::core::mem::transmute(&result)).into()
         }

@@ -11,7 +11,7 @@ impl ::windows::core::RuntimeName for IReferenceClock {}
 impl IReferenceClock_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IReferenceClock_Impl, const OFFSET: isize>() -> IReferenceClock_Vtbl {
         unsafe extern "system" fn GetTime<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IReferenceClock_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptime: *mut i64) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetTime() {
                 ::core::result::Result::Ok(ok__) => {
@@ -22,7 +22,7 @@ impl IReferenceClock_Vtbl {
             }
         }
         unsafe extern "system" fn AdviseTime<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IReferenceClock_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, basetime: i64, streamtime: i64, hevent: super::Foundation::HANDLE, pdwadvisecookie: *mut usize) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.AdviseTime(::core::mem::transmute_copy(&basetime), ::core::mem::transmute_copy(&streamtime), ::core::mem::transmute_copy(&hevent)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -33,7 +33,7 @@ impl IReferenceClock_Vtbl {
             }
         }
         unsafe extern "system" fn AdvisePeriodic<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IReferenceClock_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, starttime: i64, periodtime: i64, hsemaphore: super::Foundation::HANDLE, pdwadvisecookie: *mut usize) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.AdvisePeriodic(::core::mem::transmute_copy(&starttime), ::core::mem::transmute_copy(&periodtime), ::core::mem::transmute_copy(&hsemaphore)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -44,7 +44,7 @@ impl IReferenceClock_Vtbl {
             }
         }
         unsafe extern "system" fn Unadvise<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IReferenceClock_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwadvisecookie: usize) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Unadvise(::core::mem::transmute_copy(&dwadvisecookie)).into()
         }
@@ -81,12 +81,12 @@ impl ::windows::core::RuntimeName for IReferenceClockTimerControl {}
 impl IReferenceClockTimerControl_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IReferenceClockTimerControl_Impl, const OFFSET: isize>() -> IReferenceClockTimerControl_Vtbl {
         unsafe extern "system" fn SetDefaultTimerResolution<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IReferenceClockTimerControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, timerresolution: i64) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetDefaultTimerResolution(::core::mem::transmute_copy(&timerresolution)).into()
         }
         unsafe extern "system" fn GetDefaultTimerResolution<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IReferenceClockTimerControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptimerresolution: *mut i64) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetDefaultTimerResolution() {
                 ::core::result::Result::Ok(ok__) => {

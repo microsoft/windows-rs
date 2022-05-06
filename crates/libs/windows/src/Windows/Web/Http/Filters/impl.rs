@@ -10,7 +10,7 @@ impl ::windows::core::RuntimeName for IHttpFilter {
 impl IHttpFilter_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IHttpFilter_Impl, const OFFSET: isize>() -> IHttpFilter_Vtbl {
         unsafe extern "system" fn SendRequestAsync<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IHttpFilter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, request: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.SendRequestAsync(::core::mem::transmute(&request)) {
                 ::core::result::Result::Ok(ok__) => {

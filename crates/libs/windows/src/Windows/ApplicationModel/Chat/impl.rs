@@ -7,7 +7,7 @@ impl ::windows::core::RuntimeName for IChatItem {
 impl IChatItem_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IChatItem_Impl, const OFFSET: isize>() -> IChatItem_Vtbl {
         unsafe extern "system" fn ItemKind<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IChatItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ChatItemKind) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.ItemKind() {
                 ::core::result::Result::Ok(ok__) => {

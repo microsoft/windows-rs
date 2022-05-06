@@ -14,7 +14,7 @@ impl ::windows::core::RuntimeName for IGameListEntry {
 impl IGameListEntry_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IGameListEntry_Impl, const OFFSET: isize>() -> IGameListEntry_Vtbl {
         unsafe extern "system" fn DisplayInfo<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IGameListEntry_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.DisplayInfo() {
                 ::core::result::Result::Ok(ok__) => {
@@ -26,7 +26,7 @@ impl IGameListEntry_Vtbl {
             }
         }
         unsafe extern "system" fn LaunchAsync<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IGameListEntry_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.LaunchAsync() {
                 ::core::result::Result::Ok(ok__) => {
@@ -38,7 +38,7 @@ impl IGameListEntry_Vtbl {
             }
         }
         unsafe extern "system" fn Category<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IGameListEntry_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut GameListCategory) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Category() {
                 ::core::result::Result::Ok(ok__) => {
@@ -50,7 +50,7 @@ impl IGameListEntry_Vtbl {
             }
         }
         unsafe extern "system" fn Properties<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IGameListEntry_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Properties() {
                 ::core::result::Result::Ok(ok__) => {
@@ -62,7 +62,7 @@ impl IGameListEntry_Vtbl {
             }
         }
         unsafe extern "system" fn SetCategoryAsync<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IGameListEntry_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: GameListCategory, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.SetCategoryAsync(value) {
                 ::core::result::Result::Ok(ok__) => {

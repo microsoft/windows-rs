@@ -12,7 +12,7 @@ impl ::windows::core::RuntimeName for II2cDeviceStatics {
 impl II2cDeviceStatics_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: II2cDeviceStatics_Impl, const OFFSET: isize>() -> II2cDeviceStatics_Vtbl {
         unsafe extern "system" fn GetDeviceSelector<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: II2cDeviceStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetDeviceSelector() {
                 ::core::result::Result::Ok(ok__) => {
@@ -24,7 +24,7 @@ impl II2cDeviceStatics_Vtbl {
             }
         }
         unsafe extern "system" fn GetDeviceSelectorFromFriendlyName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: II2cDeviceStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, friendlyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetDeviceSelectorFromFriendlyName(::core::mem::transmute(&friendlyname)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -36,7 +36,7 @@ impl II2cDeviceStatics_Vtbl {
             }
         }
         unsafe extern "system" fn FromIdAsync<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: II2cDeviceStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, settings: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.FromIdAsync(::core::mem::transmute(&deviceid), ::core::mem::transmute(&settings)) {
                 ::core::result::Result::Ok(ok__) => {

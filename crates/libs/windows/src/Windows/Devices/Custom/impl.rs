@@ -11,7 +11,7 @@ impl ::windows::core::RuntimeName for IIOControlCode {
 impl IIOControlCode_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IIOControlCode_Impl, const OFFSET: isize>() -> IIOControlCode_Vtbl {
         unsafe extern "system" fn AccessMode<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IIOControlCode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut IOControlAccessMode) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.AccessMode() {
                 ::core::result::Result::Ok(ok__) => {
@@ -23,7 +23,7 @@ impl IIOControlCode_Vtbl {
             }
         }
         unsafe extern "system" fn BufferingMethod<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IIOControlCode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut IOControlBufferingMethod) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.BufferingMethod() {
                 ::core::result::Result::Ok(ok__) => {
@@ -35,7 +35,7 @@ impl IIOControlCode_Vtbl {
             }
         }
         unsafe extern "system" fn Function<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IIOControlCode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Function() {
                 ::core::result::Result::Ok(ok__) => {
@@ -47,7 +47,7 @@ impl IIOControlCode_Vtbl {
             }
         }
         unsafe extern "system" fn DeviceType<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IIOControlCode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.DeviceType() {
                 ::core::result::Result::Ok(ok__) => {
@@ -59,7 +59,7 @@ impl IIOControlCode_Vtbl {
             }
         }
         unsafe extern "system" fn ControlCode<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IIOControlCode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
-            let this = this.offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.ControlCode() {
                 ::core::result::Result::Ok(ok__) => {
