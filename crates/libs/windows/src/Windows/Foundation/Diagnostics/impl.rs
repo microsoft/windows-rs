@@ -6,16 +6,16 @@ impl ::windows::core::RuntimeName for IErrorReportingSettings {
     const NAME: &'static str = "Windows.Foundation.Diagnostics.IErrorReportingSettings";
 }
 impl IErrorReportingSettings_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IErrorReportingSettings_Impl, const OFFSET: isize>() -> IErrorReportingSettings_Vtbl {
-        unsafe extern "system" fn SetErrorOptions<Identity: ::windows::core::IUnknownImpl, Impl: IErrorReportingSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ErrorOptions) -> ::windows::core::HRESULT {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IErrorReportingSettings_Impl, const OFFSET: isize>() -> IErrorReportingSettings_Vtbl {
+        unsafe extern "system" fn SetErrorOptions<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IErrorReportingSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ErrorOptions) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            (*this).SetErrorOptions(value).into()
+            let this = (*this).get_impl();
+            this.SetErrorOptions(value).into()
         }
-        unsafe extern "system" fn GetErrorOptions<Identity: ::windows::core::IUnknownImpl, Impl: IErrorReportingSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ErrorOptions) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetErrorOptions<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IErrorReportingSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ErrorOptions) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetErrorOptions() {
+            let this = (*this).get_impl();
+            match this.GetErrorOptions() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
                     ::core::mem::forget(ok__);
@@ -50,11 +50,11 @@ impl ::windows::core::RuntimeName for IFileLoggingSession {
 }
 #[cfg(feature = "Storage")]
 impl IFileLoggingSession_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFileLoggingSession_Impl, const OFFSET: isize>() -> IFileLoggingSession_Vtbl {
-        unsafe extern "system" fn Name<Identity: ::windows::core::IUnknownImpl, Impl: IFileLoggingSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFileLoggingSession_Impl, const OFFSET: isize>() -> IFileLoggingSession_Vtbl {
+        unsafe extern "system" fn Name<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFileLoggingSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).Name() {
+            let this = (*this).get_impl();
+            match this.Name() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
                     ::core::mem::forget(ok__);
@@ -63,25 +63,25 @@ impl IFileLoggingSession_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AddLoggingChannel<Identity: ::windows::core::IUnknownImpl, Impl: IFileLoggingSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, loggingchannel: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddLoggingChannel<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFileLoggingSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, loggingchannel: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            (*this).AddLoggingChannel(::core::mem::transmute(&loggingchannel)).into()
+            let this = (*this).get_impl();
+            this.AddLoggingChannel(::core::mem::transmute(&loggingchannel)).into()
         }
-        unsafe extern "system" fn AddLoggingChannelWithLevel<Identity: ::windows::core::IUnknownImpl, Impl: IFileLoggingSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, loggingchannel: ::windows::core::RawPtr, maxlevel: LoggingLevel) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddLoggingChannelWithLevel<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFileLoggingSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, loggingchannel: ::windows::core::RawPtr, maxlevel: LoggingLevel) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            (*this).AddLoggingChannelWithLevel(::core::mem::transmute(&loggingchannel), maxlevel).into()
+            let this = (*this).get_impl();
+            this.AddLoggingChannelWithLevel(::core::mem::transmute(&loggingchannel), maxlevel).into()
         }
-        unsafe extern "system" fn RemoveLoggingChannel<Identity: ::windows::core::IUnknownImpl, Impl: IFileLoggingSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, loggingchannel: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveLoggingChannel<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFileLoggingSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, loggingchannel: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            (*this).RemoveLoggingChannel(::core::mem::transmute(&loggingchannel)).into()
+            let this = (*this).get_impl();
+            this.RemoveLoggingChannel(::core::mem::transmute(&loggingchannel)).into()
         }
-        unsafe extern "system" fn CloseAndSaveToFileAsync<Identity: ::windows::core::IUnknownImpl, Impl: IFileLoggingSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CloseAndSaveToFileAsync<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFileLoggingSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).CloseAndSaveToFileAsync() {
+            let this = (*this).get_impl();
+            match this.CloseAndSaveToFileAsync() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
                     ::core::mem::forget(ok__);
@@ -90,10 +90,10 @@ impl IFileLoggingSession_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn LogFileGenerated<Identity: ::windows::core::IUnknownImpl, Impl: IFileLoggingSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn LogFileGenerated<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFileLoggingSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).LogFileGenerated(::core::mem::transmute(&handler)) {
+            let this = (*this).get_impl();
+            match this.LogFileGenerated(::core::mem::transmute(&handler)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
                     ::core::mem::forget(ok__);
@@ -102,10 +102,10 @@ impl IFileLoggingSession_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveLogFileGenerated<Identity: ::windows::core::IUnknownImpl, Impl: IFileLoggingSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveLogFileGenerated<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFileLoggingSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            (*this).RemoveLogFileGenerated(::core::mem::transmute(&token)).into()
+            let this = (*this).get_impl();
+            this.RemoveLogFileGenerated(::core::mem::transmute(&token)).into()
         }
         Self {
             base__: ::windows::core::IInspectableVtbl::new::<Identity, IFileLoggingSession, OFFSET>(),
@@ -137,11 +137,11 @@ impl ::windows::core::RuntimeName for ILoggingChannel {
     const NAME: &'static str = "Windows.Foundation.Diagnostics.ILoggingChannel";
 }
 impl ILoggingChannel_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILoggingChannel_Impl, const OFFSET: isize>() -> ILoggingChannel_Vtbl {
-        unsafe extern "system" fn Name<Identity: ::windows::core::IUnknownImpl, Impl: ILoggingChannel_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ILoggingChannel_Impl, const OFFSET: isize>() -> ILoggingChannel_Vtbl {
+        unsafe extern "system" fn Name<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ILoggingChannel_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).Name() {
+            let this = (*this).get_impl();
+            match this.Name() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
                     ::core::mem::forget(ok__);
@@ -150,10 +150,10 @@ impl ILoggingChannel_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Enabled<Identity: ::windows::core::IUnknownImpl, Impl: ILoggingChannel_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Enabled<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ILoggingChannel_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).Enabled() {
+            let this = (*this).get_impl();
+            match this.Enabled() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
                     ::core::mem::forget(ok__);
@@ -162,10 +162,10 @@ impl ILoggingChannel_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Level<Identity: ::windows::core::IUnknownImpl, Impl: ILoggingChannel_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut LoggingLevel) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Level<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ILoggingChannel_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut LoggingLevel) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).Level() {
+            let this = (*this).get_impl();
+            match this.Level() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
                     ::core::mem::forget(ok__);
@@ -174,30 +174,30 @@ impl ILoggingChannel_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn LogMessage<Identity: ::windows::core::IUnknownImpl, Impl: ILoggingChannel_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventstring: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn LogMessage<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ILoggingChannel_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventstring: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            (*this).LogMessage(::core::mem::transmute(&eventstring)).into()
+            let this = (*this).get_impl();
+            this.LogMessage(::core::mem::transmute(&eventstring)).into()
         }
-        unsafe extern "system" fn LogMessageWithLevel<Identity: ::windows::core::IUnknownImpl, Impl: ILoggingChannel_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventstring: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, level: LoggingLevel) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn LogMessageWithLevel<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ILoggingChannel_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventstring: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, level: LoggingLevel) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            (*this).LogMessageWithLevel(::core::mem::transmute(&eventstring), level).into()
+            let this = (*this).get_impl();
+            this.LogMessageWithLevel(::core::mem::transmute(&eventstring), level).into()
         }
-        unsafe extern "system" fn LogValuePair<Identity: ::windows::core::IUnknownImpl, Impl: ILoggingChannel_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value1: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value2: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn LogValuePair<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ILoggingChannel_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value1: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value2: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            (*this).LogValuePair(::core::mem::transmute(&value1), value2).into()
+            let this = (*this).get_impl();
+            this.LogValuePair(::core::mem::transmute(&value1), value2).into()
         }
-        unsafe extern "system" fn LogValuePairWithLevel<Identity: ::windows::core::IUnknownImpl, Impl: ILoggingChannel_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value1: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value2: i32, level: LoggingLevel) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn LogValuePairWithLevel<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ILoggingChannel_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value1: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value2: i32, level: LoggingLevel) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            (*this).LogValuePairWithLevel(::core::mem::transmute(&value1), value2, level).into()
+            let this = (*this).get_impl();
+            this.LogValuePairWithLevel(::core::mem::transmute(&value1), value2, level).into()
         }
-        unsafe extern "system" fn LoggingEnabled<Identity: ::windows::core::IUnknownImpl, Impl: ILoggingChannel_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn LoggingEnabled<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ILoggingChannel_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).LoggingEnabled(::core::mem::transmute(&handler)) {
+            let this = (*this).get_impl();
+            match this.LoggingEnabled(::core::mem::transmute(&handler)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
                     ::core::mem::forget(ok__);
@@ -206,10 +206,10 @@ impl ILoggingChannel_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveLoggingEnabled<Identity: ::windows::core::IUnknownImpl, Impl: ILoggingChannel_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveLoggingEnabled<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ILoggingChannel_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: super::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            (*this).RemoveLoggingEnabled(::core::mem::transmute(&token)).into()
+            let this = (*this).get_impl();
+            this.RemoveLoggingEnabled(::core::mem::transmute(&token)).into()
         }
         Self {
             base__: ::windows::core::IInspectableVtbl::new::<Identity, ILoggingChannel, OFFSET>(),
@@ -242,11 +242,11 @@ impl ::windows::core::RuntimeName for ILoggingSession {
 }
 #[cfg(feature = "Storage")]
 impl ILoggingSession_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILoggingSession_Impl, const OFFSET: isize>() -> ILoggingSession_Vtbl {
-        unsafe extern "system" fn Name<Identity: ::windows::core::IUnknownImpl, Impl: ILoggingSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ILoggingSession_Impl, const OFFSET: isize>() -> ILoggingSession_Vtbl {
+        unsafe extern "system" fn Name<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ILoggingSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).Name() {
+            let this = (*this).get_impl();
+            match this.Name() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
                     ::core::mem::forget(ok__);
@@ -255,10 +255,10 @@ impl ILoggingSession_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SaveToFileAsync<Identity: ::windows::core::IUnknownImpl, Impl: ILoggingSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, folder: ::windows::core::RawPtr, filename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SaveToFileAsync<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ILoggingSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, folder: ::windows::core::RawPtr, filename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).SaveToFileAsync(::core::mem::transmute(&folder), ::core::mem::transmute(&filename)) {
+            let this = (*this).get_impl();
+            match this.SaveToFileAsync(::core::mem::transmute(&folder), ::core::mem::transmute(&filename)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
                     ::core::mem::forget(ok__);
@@ -267,20 +267,20 @@ impl ILoggingSession_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AddLoggingChannel<Identity: ::windows::core::IUnknownImpl, Impl: ILoggingSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, loggingchannel: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddLoggingChannel<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ILoggingSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, loggingchannel: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            (*this).AddLoggingChannel(::core::mem::transmute(&loggingchannel)).into()
+            let this = (*this).get_impl();
+            this.AddLoggingChannel(::core::mem::transmute(&loggingchannel)).into()
         }
-        unsafe extern "system" fn AddLoggingChannelWithLevel<Identity: ::windows::core::IUnknownImpl, Impl: ILoggingSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, loggingchannel: ::windows::core::RawPtr, maxlevel: LoggingLevel) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddLoggingChannelWithLevel<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ILoggingSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, loggingchannel: ::windows::core::RawPtr, maxlevel: LoggingLevel) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            (*this).AddLoggingChannelWithLevel(::core::mem::transmute(&loggingchannel), maxlevel).into()
+            let this = (*this).get_impl();
+            this.AddLoggingChannelWithLevel(::core::mem::transmute(&loggingchannel), maxlevel).into()
         }
-        unsafe extern "system" fn RemoveLoggingChannel<Identity: ::windows::core::IUnknownImpl, Impl: ILoggingSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, loggingchannel: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveLoggingChannel<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ILoggingSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, loggingchannel: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            (*this).RemoveLoggingChannel(::core::mem::transmute(&loggingchannel)).into()
+            let this = (*this).get_impl();
+            this.RemoveLoggingChannel(::core::mem::transmute(&loggingchannel)).into()
         }
         Self {
             base__: ::windows::core::IInspectableVtbl::new::<Identity, ILoggingSession, OFFSET>(),
@@ -312,11 +312,11 @@ impl ::windows::core::RuntimeName for ILoggingTarget {
     const NAME: &'static str = "Windows.Foundation.Diagnostics.ILoggingTarget";
 }
 impl ILoggingTarget_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILoggingTarget_Impl, const OFFSET: isize>() -> ILoggingTarget_Vtbl {
-        unsafe extern "system" fn IsEnabled<Identity: ::windows::core::IUnknownImpl, Impl: ILoggingTarget_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ILoggingTarget_Impl, const OFFSET: isize>() -> ILoggingTarget_Vtbl {
+        unsafe extern "system" fn IsEnabled<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ILoggingTarget_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).IsEnabled() {
+            let this = (*this).get_impl();
+            match this.IsEnabled() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
                     ::core::mem::forget(ok__);
@@ -325,10 +325,10 @@ impl ILoggingTarget_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsEnabledWithLevel<Identity: ::windows::core::IUnknownImpl, Impl: ILoggingTarget_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, level: LoggingLevel, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsEnabledWithLevel<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ILoggingTarget_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, level: LoggingLevel, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).IsEnabledWithLevel(level) {
+            let this = (*this).get_impl();
+            match this.IsEnabledWithLevel(level) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
                     ::core::mem::forget(ok__);
@@ -337,10 +337,10 @@ impl ILoggingTarget_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsEnabledWithLevelAndKeywords<Identity: ::windows::core::IUnknownImpl, Impl: ILoggingTarget_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, level: LoggingLevel, keywords: i64, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsEnabledWithLevelAndKeywords<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ILoggingTarget_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, level: LoggingLevel, keywords: i64, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).IsEnabledWithLevelAndKeywords(level, keywords) {
+            let this = (*this).get_impl();
+            match this.IsEnabledWithLevelAndKeywords(level, keywords) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
                     ::core::mem::forget(ok__);
@@ -349,30 +349,30 @@ impl ILoggingTarget_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn LogEvent<Identity: ::windows::core::IUnknownImpl, Impl: ILoggingTarget_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn LogEvent<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ILoggingTarget_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            (*this).LogEvent(::core::mem::transmute(&eventname)).into()
+            let this = (*this).get_impl();
+            this.LogEvent(::core::mem::transmute(&eventname)).into()
         }
-        unsafe extern "system" fn LogEventWithFields<Identity: ::windows::core::IUnknownImpl, Impl: ILoggingTarget_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, fields: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn LogEventWithFields<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ILoggingTarget_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, fields: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            (*this).LogEventWithFields(::core::mem::transmute(&eventname), ::core::mem::transmute(&fields)).into()
+            let this = (*this).get_impl();
+            this.LogEventWithFields(::core::mem::transmute(&eventname), ::core::mem::transmute(&fields)).into()
         }
-        unsafe extern "system" fn LogEventWithFieldsAndLevel<Identity: ::windows::core::IUnknownImpl, Impl: ILoggingTarget_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, fields: ::windows::core::RawPtr, level: LoggingLevel) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn LogEventWithFieldsAndLevel<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ILoggingTarget_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, fields: ::windows::core::RawPtr, level: LoggingLevel) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            (*this).LogEventWithFieldsAndLevel(::core::mem::transmute(&eventname), ::core::mem::transmute(&fields), level).into()
+            let this = (*this).get_impl();
+            this.LogEventWithFieldsAndLevel(::core::mem::transmute(&eventname), ::core::mem::transmute(&fields), level).into()
         }
-        unsafe extern "system" fn LogEventWithFieldsAndOptions<Identity: ::windows::core::IUnknownImpl, Impl: ILoggingTarget_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, fields: ::windows::core::RawPtr, level: LoggingLevel, options: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn LogEventWithFieldsAndOptions<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ILoggingTarget_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, fields: ::windows::core::RawPtr, level: LoggingLevel, options: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            (*this).LogEventWithFieldsAndOptions(::core::mem::transmute(&eventname), ::core::mem::transmute(&fields), level, ::core::mem::transmute(&options)).into()
+            let this = (*this).get_impl();
+            this.LogEventWithFieldsAndOptions(::core::mem::transmute(&eventname), ::core::mem::transmute(&fields), level, ::core::mem::transmute(&options)).into()
         }
-        unsafe extern "system" fn StartActivity<Identity: ::windows::core::IUnknownImpl, Impl: ILoggingTarget_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, starteventname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StartActivity<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ILoggingTarget_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, starteventname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).StartActivity(::core::mem::transmute(&starteventname)) {
+            let this = (*this).get_impl();
+            match this.StartActivity(::core::mem::transmute(&starteventname)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
                     ::core::mem::forget(ok__);
@@ -381,10 +381,10 @@ impl ILoggingTarget_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn StartActivityWithFields<Identity: ::windows::core::IUnknownImpl, Impl: ILoggingTarget_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, starteventname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, fields: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StartActivityWithFields<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ILoggingTarget_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, starteventname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, fields: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).StartActivityWithFields(::core::mem::transmute(&starteventname), ::core::mem::transmute(&fields)) {
+            let this = (*this).get_impl();
+            match this.StartActivityWithFields(::core::mem::transmute(&starteventname), ::core::mem::transmute(&fields)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
                     ::core::mem::forget(ok__);
@@ -393,10 +393,10 @@ impl ILoggingTarget_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn StartActivityWithFieldsAndLevel<Identity: ::windows::core::IUnknownImpl, Impl: ILoggingTarget_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, starteventname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, fields: ::windows::core::RawPtr, level: LoggingLevel, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StartActivityWithFieldsAndLevel<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ILoggingTarget_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, starteventname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, fields: ::windows::core::RawPtr, level: LoggingLevel, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).StartActivityWithFieldsAndLevel(::core::mem::transmute(&starteventname), ::core::mem::transmute(&fields), level) {
+            let this = (*this).get_impl();
+            match this.StartActivityWithFieldsAndLevel(::core::mem::transmute(&starteventname), ::core::mem::transmute(&fields), level) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
                     ::core::mem::forget(ok__);
@@ -405,10 +405,10 @@ impl ILoggingTarget_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn StartActivityWithFieldsAndOptions<Identity: ::windows::core::IUnknownImpl, Impl: ILoggingTarget_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, starteventname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, fields: ::windows::core::RawPtr, level: LoggingLevel, options: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StartActivityWithFieldsAndOptions<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ILoggingTarget_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, starteventname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, fields: ::windows::core::RawPtr, level: LoggingLevel, options: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).StartActivityWithFieldsAndOptions(::core::mem::transmute(&starteventname), ::core::mem::transmute(&fields), level, ::core::mem::transmute(&options)) {
+            let this = (*this).get_impl();
+            match this.StartActivityWithFieldsAndOptions(::core::mem::transmute(&starteventname), ::core::mem::transmute(&fields), level, ::core::mem::transmute(&options)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
                     ::core::mem::forget(ok__);

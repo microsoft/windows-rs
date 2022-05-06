@@ -11,11 +11,11 @@ impl ::windows::core::RuntimeName for ISpeechRecognitionConstraint {
     const NAME: &'static str = "Windows.Media.SpeechRecognition.ISpeechRecognitionConstraint";
 }
 impl ISpeechRecognitionConstraint_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpeechRecognitionConstraint_Impl, const OFFSET: isize>() -> ISpeechRecognitionConstraint_Vtbl {
-        unsafe extern "system" fn IsEnabled<Identity: ::windows::core::IUnknownImpl, Impl: ISpeechRecognitionConstraint_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISpeechRecognitionConstraint_Impl, const OFFSET: isize>() -> ISpeechRecognitionConstraint_Vtbl {
+        unsafe extern "system" fn IsEnabled<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISpeechRecognitionConstraint_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).IsEnabled() {
+            let this = (*this).get_impl();
+            match this.IsEnabled() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
                     ::core::mem::forget(ok__);
@@ -24,15 +24,15 @@ impl ISpeechRecognitionConstraint_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetIsEnabled<Identity: ::windows::core::IUnknownImpl, Impl: ISpeechRecognitionConstraint_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetIsEnabled<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISpeechRecognitionConstraint_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            (*this).SetIsEnabled(value).into()
+            let this = (*this).get_impl();
+            this.SetIsEnabled(value).into()
         }
-        unsafe extern "system" fn Tag<Identity: ::windows::core::IUnknownImpl, Impl: ISpeechRecognitionConstraint_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Tag<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISpeechRecognitionConstraint_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).Tag() {
+            let this = (*this).get_impl();
+            match this.Tag() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
                     ::core::mem::forget(ok__);
@@ -41,15 +41,15 @@ impl ISpeechRecognitionConstraint_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetTag<Identity: ::windows::core::IUnknownImpl, Impl: ISpeechRecognitionConstraint_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetTag<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISpeechRecognitionConstraint_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            (*this).SetTag(::core::mem::transmute(&value)).into()
+            let this = (*this).get_impl();
+            this.SetTag(::core::mem::transmute(&value)).into()
         }
-        unsafe extern "system" fn Type<Identity: ::windows::core::IUnknownImpl, Impl: ISpeechRecognitionConstraint_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SpeechRecognitionConstraintType) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Type<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISpeechRecognitionConstraint_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SpeechRecognitionConstraintType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).Type() {
+            let this = (*this).get_impl();
+            match this.Type() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
                     ::core::mem::forget(ok__);
@@ -58,10 +58,10 @@ impl ISpeechRecognitionConstraint_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Probability<Identity: ::windows::core::IUnknownImpl, Impl: ISpeechRecognitionConstraint_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SpeechRecognitionConstraintProbability) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Probability<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISpeechRecognitionConstraint_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SpeechRecognitionConstraintProbability) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).Probability() {
+            let this = (*this).get_impl();
+            match this.Probability() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
                     ::core::mem::forget(ok__);
@@ -70,10 +70,10 @@ impl ISpeechRecognitionConstraint_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetProbability<Identity: ::windows::core::IUnknownImpl, Impl: ISpeechRecognitionConstraint_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: SpeechRecognitionConstraintProbability) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetProbability<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISpeechRecognitionConstraint_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: SpeechRecognitionConstraintProbability) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            (*this).SetProbability(value).into()
+            let this = (*this).get_impl();
+            this.SetProbability(value).into()
         }
         Self {
             base__: ::windows::core::IInspectableVtbl::new::<Identity, ISpeechRecognitionConstraint, OFFSET>(),

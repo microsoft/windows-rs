@@ -8,11 +8,11 @@ impl ::windows::core::RuntimeName for INavigationTransitionInfoOverrides {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.INavigationTransitionInfoOverrides";
 }
 impl INavigationTransitionInfoOverrides_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INavigationTransitionInfoOverrides_Impl, const OFFSET: isize>() -> INavigationTransitionInfoOverrides_Vtbl {
-        unsafe extern "system" fn GetNavigationStateCore<Identity: ::windows::core::IUnknownImpl, Impl: INavigationTransitionInfoOverrides_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INavigationTransitionInfoOverrides_Impl, const OFFSET: isize>() -> INavigationTransitionInfoOverrides_Vtbl {
+        unsafe extern "system" fn GetNavigationStateCore<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INavigationTransitionInfoOverrides_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetNavigationStateCore() {
+            let this = (*this).get_impl();
+            match this.GetNavigationStateCore() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
                     ::core::mem::forget(ok__);
@@ -21,10 +21,10 @@ impl INavigationTransitionInfoOverrides_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetNavigationStateCore<Identity: ::windows::core::IUnknownImpl, Impl: INavigationTransitionInfoOverrides_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, navigationstate: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetNavigationStateCore<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INavigationTransitionInfoOverrides_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, navigationstate: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            (*this).SetNavigationStateCore(::core::mem::transmute(&navigationstate)).into()
+            let this = (*this).get_impl();
+            this.SetNavigationStateCore(::core::mem::transmute(&navigationstate)).into()
         }
         Self {
             base__: ::windows::core::IInspectableVtbl::new::<Identity, INavigationTransitionInfoOverrides, OFFSET>(),

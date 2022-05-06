@@ -11,11 +11,11 @@ impl ::windows::core::RuntimeName for ISmsBinaryMessage {
 }
 #[cfg(feature = "deprecated")]
 impl ISmsBinaryMessage_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmsBinaryMessage_Impl, const OFFSET: isize>() -> ISmsBinaryMessage_Vtbl {
-        unsafe extern "system" fn Format<Identity: ::windows::core::IUnknownImpl, Impl: ISmsBinaryMessage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SmsDataFormat) -> ::windows::core::HRESULT {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISmsBinaryMessage_Impl, const OFFSET: isize>() -> ISmsBinaryMessage_Vtbl {
+        unsafe extern "system" fn Format<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISmsBinaryMessage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SmsDataFormat) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).Format() {
+            let this = (*this).get_impl();
+            match this.Format() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
                     ::core::mem::forget(ok__);
@@ -24,15 +24,15 @@ impl ISmsBinaryMessage_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetFormat<Identity: ::windows::core::IUnknownImpl, Impl: ISmsBinaryMessage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: SmsDataFormat) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetFormat<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISmsBinaryMessage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: SmsDataFormat) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            (*this).SetFormat(value).into()
+            let this = (*this).get_impl();
+            this.SetFormat(value).into()
         }
-        unsafe extern "system" fn GetData<Identity: ::windows::core::IUnknownImpl, Impl: ISmsBinaryMessage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result_size__: *mut u32, result__: *mut *mut u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetData<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISmsBinaryMessage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result_size__: *mut u32, result__: *mut *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetData() {
+            let this = (*this).get_impl();
+            match this.GetData() {
                 ::core::result::Result::Ok(ok__) => {
                     let (ok_data__, ok_data_len__) = ok__.into_abi();
                     *result__ = ok_data__;
@@ -42,10 +42,10 @@ impl ISmsBinaryMessage_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetData<Identity: ::windows::core::IUnknownImpl, Impl: ISmsBinaryMessage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value_array_size: u32, value: *const u8) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetData<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISmsBinaryMessage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value_array_size: u32, value: *const u8) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            (*this).SetData(::core::slice::from_raw_parts(::core::mem::transmute_copy(&value), value_array_size as _)).into()
+            let this = (*this).get_impl();
+            this.SetData(::core::slice::from_raw_parts(::core::mem::transmute_copy(&value), value_array_size as _)).into()
         }
         Self {
             base__: ::windows::core::IInspectableVtbl::new::<Identity, ISmsBinaryMessage, OFFSET>(),
@@ -78,11 +78,11 @@ impl ::windows::core::RuntimeName for ISmsDevice {
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
 impl ISmsDevice_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmsDevice_Impl, const OFFSET: isize>() -> ISmsDevice_Vtbl {
-        unsafe extern "system" fn SendMessageAsync<Identity: ::windows::core::IUnknownImpl, Impl: ISmsDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, message: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISmsDevice_Impl, const OFFSET: isize>() -> ISmsDevice_Vtbl {
+        unsafe extern "system" fn SendMessageAsync<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISmsDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, message: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).SendMessageAsync(::core::mem::transmute(&message)) {
+            let this = (*this).get_impl();
+            match this.SendMessageAsync(::core::mem::transmute(&message)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
                     ::core::mem::forget(ok__);
@@ -91,10 +91,10 @@ impl ISmsDevice_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CalculateLength<Identity: ::windows::core::IUnknownImpl, Impl: ISmsDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, message: ::windows::core::RawPtr, result__: *mut SmsEncodedLength) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CalculateLength<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISmsDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, message: ::windows::core::RawPtr, result__: *mut SmsEncodedLength) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).CalculateLength(::core::mem::transmute(&message)) {
+            let this = (*this).get_impl();
+            match this.CalculateLength(::core::mem::transmute(&message)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
                     ::core::mem::forget(ok__);
@@ -103,10 +103,10 @@ impl ISmsDevice_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AccountPhoneNumber<Identity: ::windows::core::IUnknownImpl, Impl: ISmsDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AccountPhoneNumber<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISmsDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).AccountPhoneNumber() {
+            let this = (*this).get_impl();
+            match this.AccountPhoneNumber() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
                     ::core::mem::forget(ok__);
@@ -115,10 +115,10 @@ impl ISmsDevice_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CellularClass<Identity: ::windows::core::IUnknownImpl, Impl: ISmsDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut CellularClass) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CellularClass<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISmsDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut CellularClass) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).CellularClass() {
+            let this = (*this).get_impl();
+            match this.CellularClass() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
                     ::core::mem::forget(ok__);
@@ -127,10 +127,10 @@ impl ISmsDevice_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MessageStore<Identity: ::windows::core::IUnknownImpl, Impl: ISmsDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MessageStore<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISmsDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).MessageStore() {
+            let this = (*this).get_impl();
+            match this.MessageStore() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
                     ::core::mem::forget(ok__);
@@ -139,10 +139,10 @@ impl ISmsDevice_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DeviceStatus<Identity: ::windows::core::IUnknownImpl, Impl: ISmsDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SmsDeviceStatus) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DeviceStatus<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISmsDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SmsDeviceStatus) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).DeviceStatus() {
+            let this = (*this).get_impl();
+            match this.DeviceStatus() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
                     ::core::mem::forget(ok__);
@@ -151,10 +151,10 @@ impl ISmsDevice_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SmsMessageReceived<Identity: ::windows::core::IUnknownImpl, Impl: ISmsDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventhandler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SmsMessageReceived<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISmsDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventhandler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).SmsMessageReceived(::core::mem::transmute(&eventhandler)) {
+            let this = (*this).get_impl();
+            match this.SmsMessageReceived(::core::mem::transmute(&eventhandler)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
                     ::core::mem::forget(ok__);
@@ -163,15 +163,15 @@ impl ISmsDevice_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveSmsMessageReceived<Identity: ::windows::core::IUnknownImpl, Impl: ISmsDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventcookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveSmsMessageReceived<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISmsDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventcookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            (*this).RemoveSmsMessageReceived(::core::mem::transmute(&eventcookie)).into()
+            let this = (*this).get_impl();
+            this.RemoveSmsMessageReceived(::core::mem::transmute(&eventcookie)).into()
         }
-        unsafe extern "system" fn SmsDeviceStatusChanged<Identity: ::windows::core::IUnknownImpl, Impl: ISmsDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventhandler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SmsDeviceStatusChanged<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISmsDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventhandler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).SmsDeviceStatusChanged(::core::mem::transmute(&eventhandler)) {
+            let this = (*this).get_impl();
+            match this.SmsDeviceStatusChanged(::core::mem::transmute(&eventhandler)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
                     ::core::mem::forget(ok__);
@@ -180,10 +180,10 @@ impl ISmsDevice_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveSmsDeviceStatusChanged<Identity: ::windows::core::IUnknownImpl, Impl: ISmsDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventcookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveSmsDeviceStatusChanged<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISmsDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventcookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            (*this).RemoveSmsDeviceStatusChanged(::core::mem::transmute(&eventcookie)).into()
+            let this = (*this).get_impl();
+            this.RemoveSmsDeviceStatusChanged(::core::mem::transmute(&eventcookie)).into()
         }
         Self {
             base__: ::windows::core::IInspectableVtbl::new::<Identity, ISmsDevice, OFFSET>(),
@@ -211,11 +211,11 @@ impl ::windows::core::RuntimeName for ISmsMessage {
     const NAME: &'static str = "Windows.Devices.Sms.ISmsMessage";
 }
 impl ISmsMessage_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmsMessage_Impl, const OFFSET: isize>() -> ISmsMessage_Vtbl {
-        unsafe extern "system" fn Id<Identity: ::windows::core::IUnknownImpl, Impl: ISmsMessage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISmsMessage_Impl, const OFFSET: isize>() -> ISmsMessage_Vtbl {
+        unsafe extern "system" fn Id<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISmsMessage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).Id() {
+            let this = (*this).get_impl();
+            match this.Id() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
                     ::core::mem::forget(ok__);
@@ -224,10 +224,10 @@ impl ISmsMessage_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MessageClass<Identity: ::windows::core::IUnknownImpl, Impl: ISmsMessage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SmsMessageClass) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MessageClass<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISmsMessage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SmsMessageClass) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).MessageClass() {
+            let this = (*this).get_impl();
+            match this.MessageClass() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
                     ::core::mem::forget(ok__);
@@ -257,11 +257,11 @@ impl ::windows::core::RuntimeName for ISmsMessageBase {
     const NAME: &'static str = "Windows.Devices.Sms.ISmsMessageBase";
 }
 impl ISmsMessageBase_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmsMessageBase_Impl, const OFFSET: isize>() -> ISmsMessageBase_Vtbl {
-        unsafe extern "system" fn MessageType<Identity: ::windows::core::IUnknownImpl, Impl: ISmsMessageBase_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SmsMessageType) -> ::windows::core::HRESULT {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISmsMessageBase_Impl, const OFFSET: isize>() -> ISmsMessageBase_Vtbl {
+        unsafe extern "system" fn MessageType<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISmsMessageBase_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SmsMessageType) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).MessageType() {
+            let this = (*this).get_impl();
+            match this.MessageType() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
                     ::core::mem::forget(ok__);
@@ -270,10 +270,10 @@ impl ISmsMessageBase_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DeviceId<Identity: ::windows::core::IUnknownImpl, Impl: ISmsMessageBase_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DeviceId<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISmsMessageBase_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).DeviceId() {
+            let this = (*this).get_impl();
+            match this.DeviceId() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
                     ::core::mem::forget(ok__);
@@ -282,10 +282,10 @@ impl ISmsMessageBase_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CellularClass<Identity: ::windows::core::IUnknownImpl, Impl: ISmsMessageBase_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut CellularClass) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CellularClass<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISmsMessageBase_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut CellularClass) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).CellularClass() {
+            let this = (*this).get_impl();
+            match this.CellularClass() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
                     ::core::mem::forget(ok__);
@@ -294,10 +294,10 @@ impl ISmsMessageBase_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MessageClass<Identity: ::windows::core::IUnknownImpl, Impl: ISmsMessageBase_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SmsMessageClass) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MessageClass<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISmsMessageBase_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SmsMessageClass) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).MessageClass() {
+            let this = (*this).get_impl();
+            match this.MessageClass() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
                     ::core::mem::forget(ok__);
@@ -306,10 +306,10 @@ impl ISmsMessageBase_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SimIccId<Identity: ::windows::core::IUnknownImpl, Impl: ISmsMessageBase_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SimIccId<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISmsMessageBase_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).SimIccId() {
+            let this = (*this).get_impl();
+            match this.SimIccId() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
                     ::core::mem::forget(ok__);
@@ -353,11 +353,11 @@ impl ::windows::core::RuntimeName for ISmsTextMessage {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
 impl ISmsTextMessage_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISmsTextMessage_Impl, const OFFSET: isize>() -> ISmsTextMessage_Vtbl {
-        unsafe extern "system" fn Timestamp<Identity: ::windows::core::IUnknownImpl, Impl: ISmsTextMessage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::DateTime) -> ::windows::core::HRESULT {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISmsTextMessage_Impl, const OFFSET: isize>() -> ISmsTextMessage_Vtbl {
+        unsafe extern "system" fn Timestamp<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISmsTextMessage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::DateTime) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).Timestamp() {
+            let this = (*this).get_impl();
+            match this.Timestamp() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
                     ::core::mem::forget(ok__);
@@ -366,10 +366,10 @@ impl ISmsTextMessage_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PartReferenceId<Identity: ::windows::core::IUnknownImpl, Impl: ISmsTextMessage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PartReferenceId<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISmsTextMessage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).PartReferenceId() {
+            let this = (*this).get_impl();
+            match this.PartReferenceId() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
                     ::core::mem::forget(ok__);
@@ -378,10 +378,10 @@ impl ISmsTextMessage_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PartNumber<Identity: ::windows::core::IUnknownImpl, Impl: ISmsTextMessage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PartNumber<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISmsTextMessage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).PartNumber() {
+            let this = (*this).get_impl();
+            match this.PartNumber() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
                     ::core::mem::forget(ok__);
@@ -390,10 +390,10 @@ impl ISmsTextMessage_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PartCount<Identity: ::windows::core::IUnknownImpl, Impl: ISmsTextMessage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PartCount<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISmsTextMessage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).PartCount() {
+            let this = (*this).get_impl();
+            match this.PartCount() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
                     ::core::mem::forget(ok__);
@@ -402,10 +402,10 @@ impl ISmsTextMessage_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn To<Identity: ::windows::core::IUnknownImpl, Impl: ISmsTextMessage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn To<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISmsTextMessage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).To() {
+            let this = (*this).get_impl();
+            match this.To() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
                     ::core::mem::forget(ok__);
@@ -414,15 +414,15 @@ impl ISmsTextMessage_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetTo<Identity: ::windows::core::IUnknownImpl, Impl: ISmsTextMessage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetTo<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISmsTextMessage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            (*this).SetTo(::core::mem::transmute(&value)).into()
+            let this = (*this).get_impl();
+            this.SetTo(::core::mem::transmute(&value)).into()
         }
-        unsafe extern "system" fn From<Identity: ::windows::core::IUnknownImpl, Impl: ISmsTextMessage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn From<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISmsTextMessage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).From() {
+            let this = (*this).get_impl();
+            match this.From() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
                     ::core::mem::forget(ok__);
@@ -431,15 +431,15 @@ impl ISmsTextMessage_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetFrom<Identity: ::windows::core::IUnknownImpl, Impl: ISmsTextMessage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetFrom<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISmsTextMessage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            (*this).SetFrom(::core::mem::transmute(&value)).into()
+            let this = (*this).get_impl();
+            this.SetFrom(::core::mem::transmute(&value)).into()
         }
-        unsafe extern "system" fn Body<Identity: ::windows::core::IUnknownImpl, Impl: ISmsTextMessage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Body<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISmsTextMessage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).Body() {
+            let this = (*this).get_impl();
+            match this.Body() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
                     ::core::mem::forget(ok__);
@@ -448,15 +448,15 @@ impl ISmsTextMessage_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetBody<Identity: ::windows::core::IUnknownImpl, Impl: ISmsTextMessage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetBody<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISmsTextMessage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            (*this).SetBody(::core::mem::transmute(&value)).into()
+            let this = (*this).get_impl();
+            this.SetBody(::core::mem::transmute(&value)).into()
         }
-        unsafe extern "system" fn Encoding<Identity: ::windows::core::IUnknownImpl, Impl: ISmsTextMessage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SmsEncoding) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Encoding<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISmsTextMessage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut SmsEncoding) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).Encoding() {
+            let this = (*this).get_impl();
+            match this.Encoding() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
                     ::core::mem::forget(ok__);
@@ -465,15 +465,15 @@ impl ISmsTextMessage_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetEncoding<Identity: ::windows::core::IUnknownImpl, Impl: ISmsTextMessage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: SmsEncoding) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetEncoding<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISmsTextMessage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: SmsEncoding) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            (*this).SetEncoding(value).into()
+            let this = (*this).get_impl();
+            this.SetEncoding(value).into()
         }
-        unsafe extern "system" fn ToBinaryMessages<Identity: ::windows::core::IUnknownImpl, Impl: ISmsTextMessage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, format: SmsDataFormat, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ToBinaryMessages<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISmsTextMessage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, format: SmsDataFormat, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).ToBinaryMessages(format) {
+            let this = (*this).get_impl();
+            match this.ToBinaryMessages(format) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
                     ::core::mem::forget(ok__);

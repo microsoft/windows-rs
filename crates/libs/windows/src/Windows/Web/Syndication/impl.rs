@@ -19,11 +19,11 @@ impl ::windows::core::RuntimeName for ISyndicationClient {
 }
 #[cfg(all(feature = "Foundation", feature = "Security_Credentials"))]
 impl ISyndicationClient_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISyndicationClient_Impl, const OFFSET: isize>() -> ISyndicationClient_Vtbl {
-        unsafe extern "system" fn ServerCredential<Identity: ::windows::core::IUnknownImpl, Impl: ISyndicationClient_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISyndicationClient_Impl, const OFFSET: isize>() -> ISyndicationClient_Vtbl {
+        unsafe extern "system" fn ServerCredential<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISyndicationClient_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).ServerCredential() {
+            let this = (*this).get_impl();
+            match this.ServerCredential() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
                     ::core::mem::forget(ok__);
@@ -32,15 +32,15 @@ impl ISyndicationClient_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetServerCredential<Identity: ::windows::core::IUnknownImpl, Impl: ISyndicationClient_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetServerCredential<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISyndicationClient_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            (*this).SetServerCredential(::core::mem::transmute(&value)).into()
+            let this = (*this).get_impl();
+            this.SetServerCredential(::core::mem::transmute(&value)).into()
         }
-        unsafe extern "system" fn ProxyCredential<Identity: ::windows::core::IUnknownImpl, Impl: ISyndicationClient_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ProxyCredential<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISyndicationClient_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).ProxyCredential() {
+            let this = (*this).get_impl();
+            match this.ProxyCredential() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
                     ::core::mem::forget(ok__);
@@ -49,15 +49,15 @@ impl ISyndicationClient_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetProxyCredential<Identity: ::windows::core::IUnknownImpl, Impl: ISyndicationClient_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetProxyCredential<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISyndicationClient_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            (*this).SetProxyCredential(::core::mem::transmute(&value)).into()
+            let this = (*this).get_impl();
+            this.SetProxyCredential(::core::mem::transmute(&value)).into()
         }
-        unsafe extern "system" fn MaxResponseBufferSize<Identity: ::windows::core::IUnknownImpl, Impl: ISyndicationClient_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MaxResponseBufferSize<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISyndicationClient_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).MaxResponseBufferSize() {
+            let this = (*this).get_impl();
+            match this.MaxResponseBufferSize() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
                     ::core::mem::forget(ok__);
@@ -66,15 +66,15 @@ impl ISyndicationClient_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetMaxResponseBufferSize<Identity: ::windows::core::IUnknownImpl, Impl: ISyndicationClient_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetMaxResponseBufferSize<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISyndicationClient_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            (*this).SetMaxResponseBufferSize(value).into()
+            let this = (*this).get_impl();
+            this.SetMaxResponseBufferSize(value).into()
         }
-        unsafe extern "system" fn Timeout<Identity: ::windows::core::IUnknownImpl, Impl: ISyndicationClient_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Timeout<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISyndicationClient_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).Timeout() {
+            let this = (*this).get_impl();
+            match this.Timeout() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
                     ::core::mem::forget(ok__);
@@ -83,15 +83,15 @@ impl ISyndicationClient_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetTimeout<Identity: ::windows::core::IUnknownImpl, Impl: ISyndicationClient_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetTimeout<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISyndicationClient_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            (*this).SetTimeout(value).into()
+            let this = (*this).get_impl();
+            this.SetTimeout(value).into()
         }
-        unsafe extern "system" fn BypassCacheOnRetrieve<Identity: ::windows::core::IUnknownImpl, Impl: ISyndicationClient_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BypassCacheOnRetrieve<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISyndicationClient_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).BypassCacheOnRetrieve() {
+            let this = (*this).get_impl();
+            match this.BypassCacheOnRetrieve() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
                     ::core::mem::forget(ok__);
@@ -100,20 +100,20 @@ impl ISyndicationClient_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetBypassCacheOnRetrieve<Identity: ::windows::core::IUnknownImpl, Impl: ISyndicationClient_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetBypassCacheOnRetrieve<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISyndicationClient_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            (*this).SetBypassCacheOnRetrieve(value).into()
+            let this = (*this).get_impl();
+            this.SetBypassCacheOnRetrieve(value).into()
         }
-        unsafe extern "system" fn SetRequestHeader<Identity: ::windows::core::IUnknownImpl, Impl: ISyndicationClient_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetRequestHeader<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISyndicationClient_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            (*this).SetRequestHeader(::core::mem::transmute(&name), ::core::mem::transmute(&value)).into()
+            let this = (*this).get_impl();
+            this.SetRequestHeader(::core::mem::transmute(&name), ::core::mem::transmute(&value)).into()
         }
-        unsafe extern "system" fn RetrieveFeedAsync<Identity: ::windows::core::IUnknownImpl, Impl: ISyndicationClient_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uri: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RetrieveFeedAsync<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISyndicationClient_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uri: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).RetrieveFeedAsync(::core::mem::transmute(&uri)) {
+            let this = (*this).get_impl();
+            match this.RetrieveFeedAsync(::core::mem::transmute(&uri)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
                     ::core::mem::forget(ok__);
@@ -164,11 +164,11 @@ impl ::windows::core::RuntimeName for ISyndicationNode {
 }
 #[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation_Collections"))]
 impl ISyndicationNode_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISyndicationNode_Impl, const OFFSET: isize>() -> ISyndicationNode_Vtbl {
-        unsafe extern "system" fn NodeName<Identity: ::windows::core::IUnknownImpl, Impl: ISyndicationNode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISyndicationNode_Impl, const OFFSET: isize>() -> ISyndicationNode_Vtbl {
+        unsafe extern "system" fn NodeName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISyndicationNode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).NodeName() {
+            let this = (*this).get_impl();
+            match this.NodeName() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
                     ::core::mem::forget(ok__);
@@ -177,15 +177,15 @@ impl ISyndicationNode_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetNodeName<Identity: ::windows::core::IUnknownImpl, Impl: ISyndicationNode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetNodeName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISyndicationNode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            (*this).SetNodeName(::core::mem::transmute(&value)).into()
+            let this = (*this).get_impl();
+            this.SetNodeName(::core::mem::transmute(&value)).into()
         }
-        unsafe extern "system" fn NodeNamespace<Identity: ::windows::core::IUnknownImpl, Impl: ISyndicationNode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn NodeNamespace<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISyndicationNode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).NodeNamespace() {
+            let this = (*this).get_impl();
+            match this.NodeNamespace() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
                     ::core::mem::forget(ok__);
@@ -194,15 +194,15 @@ impl ISyndicationNode_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetNodeNamespace<Identity: ::windows::core::IUnknownImpl, Impl: ISyndicationNode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetNodeNamespace<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISyndicationNode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            (*this).SetNodeNamespace(::core::mem::transmute(&value)).into()
+            let this = (*this).get_impl();
+            this.SetNodeNamespace(::core::mem::transmute(&value)).into()
         }
-        unsafe extern "system" fn NodeValue<Identity: ::windows::core::IUnknownImpl, Impl: ISyndicationNode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn NodeValue<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISyndicationNode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).NodeValue() {
+            let this = (*this).get_impl();
+            match this.NodeValue() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
                     ::core::mem::forget(ok__);
@@ -211,15 +211,15 @@ impl ISyndicationNode_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetNodeValue<Identity: ::windows::core::IUnknownImpl, Impl: ISyndicationNode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetNodeValue<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISyndicationNode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            (*this).SetNodeValue(::core::mem::transmute(&value)).into()
+            let this = (*this).get_impl();
+            this.SetNodeValue(::core::mem::transmute(&value)).into()
         }
-        unsafe extern "system" fn Language<Identity: ::windows::core::IUnknownImpl, Impl: ISyndicationNode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Language<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISyndicationNode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).Language() {
+            let this = (*this).get_impl();
+            match this.Language() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
                     ::core::mem::forget(ok__);
@@ -228,15 +228,15 @@ impl ISyndicationNode_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetLanguage<Identity: ::windows::core::IUnknownImpl, Impl: ISyndicationNode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetLanguage<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISyndicationNode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            (*this).SetLanguage(::core::mem::transmute(&value)).into()
+            let this = (*this).get_impl();
+            this.SetLanguage(::core::mem::transmute(&value)).into()
         }
-        unsafe extern "system" fn BaseUri<Identity: ::windows::core::IUnknownImpl, Impl: ISyndicationNode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BaseUri<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISyndicationNode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).BaseUri() {
+            let this = (*this).get_impl();
+            match this.BaseUri() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
                     ::core::mem::forget(ok__);
@@ -245,15 +245,15 @@ impl ISyndicationNode_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetBaseUri<Identity: ::windows::core::IUnknownImpl, Impl: ISyndicationNode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetBaseUri<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISyndicationNode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            (*this).SetBaseUri(::core::mem::transmute(&value)).into()
+            let this = (*this).get_impl();
+            this.SetBaseUri(::core::mem::transmute(&value)).into()
         }
-        unsafe extern "system" fn AttributeExtensions<Identity: ::windows::core::IUnknownImpl, Impl: ISyndicationNode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AttributeExtensions<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISyndicationNode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).AttributeExtensions() {
+            let this = (*this).get_impl();
+            match this.AttributeExtensions() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
                     ::core::mem::forget(ok__);
@@ -262,10 +262,10 @@ impl ISyndicationNode_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ElementExtensions<Identity: ::windows::core::IUnknownImpl, Impl: ISyndicationNode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ElementExtensions<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISyndicationNode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).ElementExtensions() {
+            let this = (*this).get_impl();
+            match this.ElementExtensions() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
                     ::core::mem::forget(ok__);
@@ -274,10 +274,10 @@ impl ISyndicationNode_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetXmlDocument<Identity: ::windows::core::IUnknownImpl, Impl: ISyndicationNode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, format: SyndicationFormat, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetXmlDocument<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISyndicationNode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, format: SyndicationFormat, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetXmlDocument(format) {
+            let this = (*this).get_impl();
+            match this.GetXmlDocument(format) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
                     ::core::mem::forget(ok__);
@@ -322,11 +322,11 @@ impl ::windows::core::RuntimeName for ISyndicationText {
 }
 #[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation_Collections"))]
 impl ISyndicationText_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISyndicationText_Impl, const OFFSET: isize>() -> ISyndicationText_Vtbl {
-        unsafe extern "system" fn Text<Identity: ::windows::core::IUnknownImpl, Impl: ISyndicationText_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISyndicationText_Impl, const OFFSET: isize>() -> ISyndicationText_Vtbl {
+        unsafe extern "system" fn Text<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISyndicationText_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).Text() {
+            let this = (*this).get_impl();
+            match this.Text() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
                     ::core::mem::forget(ok__);
@@ -335,15 +335,15 @@ impl ISyndicationText_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetText<Identity: ::windows::core::IUnknownImpl, Impl: ISyndicationText_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetText<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISyndicationText_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            (*this).SetText(::core::mem::transmute(&value)).into()
+            let this = (*this).get_impl();
+            this.SetText(::core::mem::transmute(&value)).into()
         }
-        unsafe extern "system" fn Type<Identity: ::windows::core::IUnknownImpl, Impl: ISyndicationText_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Type<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISyndicationText_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).Type() {
+            let this = (*this).get_impl();
+            match this.Type() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
                     ::core::mem::forget(ok__);
@@ -352,15 +352,15 @@ impl ISyndicationText_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetType<Identity: ::windows::core::IUnknownImpl, Impl: ISyndicationText_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetType<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISyndicationText_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            (*this).SetType(::core::mem::transmute(&value)).into()
+            let this = (*this).get_impl();
+            this.SetType(::core::mem::transmute(&value)).into()
         }
-        unsafe extern "system" fn Xml<Identity: ::windows::core::IUnknownImpl, Impl: ISyndicationText_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Xml<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISyndicationText_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).Xml() {
+            let this = (*this).get_impl();
+            match this.Xml() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
                     ::core::mem::forget(ok__);
@@ -369,10 +369,10 @@ impl ISyndicationText_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetXml<Identity: ::windows::core::IUnknownImpl, Impl: ISyndicationText_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetXml<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISyndicationText_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            (*this).SetXml(::core::mem::transmute(&value)).into()
+            let this = (*this).get_impl();
+            this.SetXml(::core::mem::transmute(&value)).into()
         }
         Self {
             base__: ::windows::core::IInspectableVtbl::new::<Identity, ISyndicationText, OFFSET>(),

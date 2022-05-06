@@ -9,11 +9,11 @@ impl ::windows::core::RuntimeName for ILauncherViewOptions {
 }
 #[cfg(feature = "UI_ViewManagement")]
 impl ILauncherViewOptions_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILauncherViewOptions_Impl, const OFFSET: isize>() -> ILauncherViewOptions_Vtbl {
-        unsafe extern "system" fn DesiredRemainingView<Identity: ::windows::core::IUnknownImpl, Impl: ILauncherViewOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::UI::ViewManagement::ViewSizePreference) -> ::windows::core::HRESULT {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ILauncherViewOptions_Impl, const OFFSET: isize>() -> ILauncherViewOptions_Vtbl {
+        unsafe extern "system" fn DesiredRemainingView<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ILauncherViewOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::UI::ViewManagement::ViewSizePreference) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).DesiredRemainingView() {
+            let this = (*this).get_impl();
+            match this.DesiredRemainingView() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
                     ::core::mem::forget(ok__);
@@ -22,10 +22,10 @@ impl ILauncherViewOptions_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDesiredRemainingView<Identity: ::windows::core::IUnknownImpl, Impl: ILauncherViewOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::UI::ViewManagement::ViewSizePreference) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetDesiredRemainingView<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ILauncherViewOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::UI::ViewManagement::ViewSizePreference) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            (*this).SetDesiredRemainingView(value).into()
+            let this = (*this).get_impl();
+            this.SetDesiredRemainingView(value).into()
         }
         Self {
             base__: ::windows::core::IInspectableVtbl::new::<Identity, ILauncherViewOptions, OFFSET>(),

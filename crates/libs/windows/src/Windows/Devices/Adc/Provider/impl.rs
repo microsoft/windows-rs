@@ -14,11 +14,11 @@ impl ::windows::core::RuntimeName for IAdcControllerProvider {
     const NAME: &'static str = "Windows.Devices.Adc.Provider.IAdcControllerProvider";
 }
 impl IAdcControllerProvider_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAdcControllerProvider_Impl, const OFFSET: isize>() -> IAdcControllerProvider_Vtbl {
-        unsafe extern "system" fn ChannelCount<Identity: ::windows::core::IUnknownImpl, Impl: IAdcControllerProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAdcControllerProvider_Impl, const OFFSET: isize>() -> IAdcControllerProvider_Vtbl {
+        unsafe extern "system" fn ChannelCount<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAdcControllerProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).ChannelCount() {
+            let this = (*this).get_impl();
+            match this.ChannelCount() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
                     ::core::mem::forget(ok__);
@@ -27,10 +27,10 @@ impl IAdcControllerProvider_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ResolutionInBits<Identity: ::windows::core::IUnknownImpl, Impl: IAdcControllerProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ResolutionInBits<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAdcControllerProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).ResolutionInBits() {
+            let this = (*this).get_impl();
+            match this.ResolutionInBits() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
                     ::core::mem::forget(ok__);
@@ -39,10 +39,10 @@ impl IAdcControllerProvider_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MinValue<Identity: ::windows::core::IUnknownImpl, Impl: IAdcControllerProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MinValue<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAdcControllerProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).MinValue() {
+            let this = (*this).get_impl();
+            match this.MinValue() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
                     ::core::mem::forget(ok__);
@@ -51,10 +51,10 @@ impl IAdcControllerProvider_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MaxValue<Identity: ::windows::core::IUnknownImpl, Impl: IAdcControllerProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MaxValue<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAdcControllerProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).MaxValue() {
+            let this = (*this).get_impl();
+            match this.MaxValue() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
                     ::core::mem::forget(ok__);
@@ -63,10 +63,10 @@ impl IAdcControllerProvider_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ChannelMode<Identity: ::windows::core::IUnknownImpl, Impl: IAdcControllerProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ProviderAdcChannelMode) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ChannelMode<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAdcControllerProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ProviderAdcChannelMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).ChannelMode() {
+            let this = (*this).get_impl();
+            match this.ChannelMode() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
                     ::core::mem::forget(ok__);
@@ -75,15 +75,15 @@ impl IAdcControllerProvider_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetChannelMode<Identity: ::windows::core::IUnknownImpl, Impl: IAdcControllerProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ProviderAdcChannelMode) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetChannelMode<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAdcControllerProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ProviderAdcChannelMode) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            (*this).SetChannelMode(value).into()
+            let this = (*this).get_impl();
+            this.SetChannelMode(value).into()
         }
-        unsafe extern "system" fn IsChannelModeSupported<Identity: ::windows::core::IUnknownImpl, Impl: IAdcControllerProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, channelmode: ProviderAdcChannelMode, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsChannelModeSupported<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAdcControllerProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, channelmode: ProviderAdcChannelMode, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).IsChannelModeSupported(channelmode) {
+            let this = (*this).get_impl();
+            match this.IsChannelModeSupported(channelmode) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
                     ::core::mem::forget(ok__);
@@ -92,20 +92,20 @@ impl IAdcControllerProvider_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AcquireChannel<Identity: ::windows::core::IUnknownImpl, Impl: IAdcControllerProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, channel: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AcquireChannel<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAdcControllerProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, channel: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            (*this).AcquireChannel(channel).into()
+            let this = (*this).get_impl();
+            this.AcquireChannel(channel).into()
         }
-        unsafe extern "system" fn ReleaseChannel<Identity: ::windows::core::IUnknownImpl, Impl: IAdcControllerProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, channel: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ReleaseChannel<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAdcControllerProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, channel: i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            (*this).ReleaseChannel(channel).into()
+            let this = (*this).get_impl();
+            this.ReleaseChannel(channel).into()
         }
-        unsafe extern "system" fn ReadValue<Identity: ::windows::core::IUnknownImpl, Impl: IAdcControllerProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, channelnumber: i32, result__: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ReadValue<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAdcControllerProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, channelnumber: i32, result__: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).ReadValue(channelnumber) {
+            let this = (*this).get_impl();
+            match this.ReadValue(channelnumber) {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
                     ::core::mem::forget(ok__);
@@ -142,11 +142,11 @@ impl ::windows::core::RuntimeName for IAdcProvider {
 }
 #[cfg(feature = "Foundation_Collections")]
 impl IAdcProvider_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAdcProvider_Impl, const OFFSET: isize>() -> IAdcProvider_Vtbl {
-        unsafe extern "system" fn GetControllers<Identity: ::windows::core::IUnknownImpl, Impl: IAdcProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAdcProvider_Impl, const OFFSET: isize>() -> IAdcProvider_Vtbl {
+        unsafe extern "system" fn GetControllers<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAdcProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetControllers() {
+            let this = (*this).get_impl();
+            match this.GetControllers() {
                 ::core::result::Result::Ok(ok__) => {
                     *result__ = ::core::mem::transmute_copy(&ok__);
                     ::core::mem::forget(ok__);

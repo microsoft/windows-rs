@@ -9,41 +9,41 @@ pub trait ID2D1SimplifiedGeometrySink_Impl: Sized {
 }
 impl ::windows::core::RuntimeName for ID2D1SimplifiedGeometrySink {}
 impl ID2D1SimplifiedGeometrySink_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID2D1SimplifiedGeometrySink_Impl, const OFFSET: isize>() -> ID2D1SimplifiedGeometrySink_Vtbl {
-        unsafe extern "system" fn SetFillMode<Identity: ::windows::core::IUnknownImpl, Impl: ID2D1SimplifiedGeometrySink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fillmode: D2D1_FILL_MODE) {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID2D1SimplifiedGeometrySink_Impl, const OFFSET: isize>() -> ID2D1SimplifiedGeometrySink_Vtbl {
+        unsafe extern "system" fn SetFillMode<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID2D1SimplifiedGeometrySink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fillmode: D2D1_FILL_MODE) {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            (*this).SetFillMode(::core::mem::transmute_copy(&fillmode))
+            let this = (*this).get_impl();
+            this.SetFillMode(::core::mem::transmute_copy(&fillmode))
         }
-        unsafe extern "system" fn SetSegmentFlags<Identity: ::windows::core::IUnknownImpl, Impl: ID2D1SimplifiedGeometrySink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vertexflags: D2D1_PATH_SEGMENT) {
+        unsafe extern "system" fn SetSegmentFlags<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID2D1SimplifiedGeometrySink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vertexflags: D2D1_PATH_SEGMENT) {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            (*this).SetSegmentFlags(::core::mem::transmute_copy(&vertexflags))
+            let this = (*this).get_impl();
+            this.SetSegmentFlags(::core::mem::transmute_copy(&vertexflags))
         }
-        unsafe extern "system" fn BeginFigure<Identity: ::windows::core::IUnknownImpl, Impl: ID2D1SimplifiedGeometrySink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, startpoint: D2D_POINT_2F, figurebegin: D2D1_FIGURE_BEGIN) {
+        unsafe extern "system" fn BeginFigure<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID2D1SimplifiedGeometrySink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, startpoint: D2D_POINT_2F, figurebegin: D2D1_FIGURE_BEGIN) {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            (*this).BeginFigure(::core::mem::transmute(&startpoint), ::core::mem::transmute_copy(&figurebegin))
+            let this = (*this).get_impl();
+            this.BeginFigure(::core::mem::transmute(&startpoint), ::core::mem::transmute_copy(&figurebegin))
         }
-        unsafe extern "system" fn AddLines<Identity: ::windows::core::IUnknownImpl, Impl: ID2D1SimplifiedGeometrySink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, points: *const D2D_POINT_2F, pointscount: u32) {
+        unsafe extern "system" fn AddLines<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID2D1SimplifiedGeometrySink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, points: *const D2D_POINT_2F, pointscount: u32) {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            (*this).AddLines(::core::mem::transmute_copy(&points), ::core::mem::transmute_copy(&pointscount))
+            let this = (*this).get_impl();
+            this.AddLines(::core::mem::transmute_copy(&points), ::core::mem::transmute_copy(&pointscount))
         }
-        unsafe extern "system" fn AddBeziers<Identity: ::windows::core::IUnknownImpl, Impl: ID2D1SimplifiedGeometrySink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, beziers: *const D2D1_BEZIER_SEGMENT, bezierscount: u32) {
+        unsafe extern "system" fn AddBeziers<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID2D1SimplifiedGeometrySink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, beziers: *const D2D1_BEZIER_SEGMENT, bezierscount: u32) {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            (*this).AddBeziers(::core::mem::transmute_copy(&beziers), ::core::mem::transmute_copy(&bezierscount))
+            let this = (*this).get_impl();
+            this.AddBeziers(::core::mem::transmute_copy(&beziers), ::core::mem::transmute_copy(&bezierscount))
         }
-        unsafe extern "system" fn EndFigure<Identity: ::windows::core::IUnknownImpl, Impl: ID2D1SimplifiedGeometrySink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, figureend: D2D1_FIGURE_END) {
+        unsafe extern "system" fn EndFigure<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID2D1SimplifiedGeometrySink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, figureend: D2D1_FIGURE_END) {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            (*this).EndFigure(::core::mem::transmute_copy(&figureend))
+            let this = (*this).get_impl();
+            this.EndFigure(::core::mem::transmute_copy(&figureend))
         }
-        unsafe extern "system" fn Close<Identity: ::windows::core::IUnknownImpl, Impl: ID2D1SimplifiedGeometrySink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Close<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID2D1SimplifiedGeometrySink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            (*this).Close().into()
+            let this = (*this).get_impl();
+            this.Close().into()
         }
         Self {
             base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),

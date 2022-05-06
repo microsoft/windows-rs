@@ -3,11 +3,11 @@ pub trait IDirect3DDxgiInterfaceAccess_Impl: Sized {
 }
 impl ::windows::core::RuntimeName for IDirect3DDxgiInterfaceAccess {}
 impl IDirect3DDxgiInterfaceAccess_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirect3DDxgiInterfaceAccess_Impl, const OFFSET: isize>() -> IDirect3DDxgiInterfaceAccess_Vtbl {
-        unsafe extern "system" fn GetInterface<Identity: ::windows::core::IUnknownImpl, Impl: IDirect3DDxgiInterfaceAccess_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, iid: *const ::windows::core::GUID, p: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirect3DDxgiInterfaceAccess_Impl, const OFFSET: isize>() -> IDirect3DDxgiInterfaceAccess_Vtbl {
+        unsafe extern "system" fn GetInterface<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirect3DDxgiInterfaceAccess_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, iid: *const ::windows::core::GUID, p: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            (*this).GetInterface(::core::mem::transmute_copy(&iid), ::core::mem::transmute_copy(&p)).into()
+            let this = (*this).get_impl();
+            this.GetInterface(::core::mem::transmute_copy(&iid), ::core::mem::transmute_copy(&p)).into()
         }
         Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetInterface: GetInterface::<Identity, Impl, OFFSET> }
     }

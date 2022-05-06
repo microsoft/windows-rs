@@ -9,26 +9,26 @@ pub trait IOpcCertificateEnumerator_Impl: Sized {
 impl ::windows::core::RuntimeName for IOpcCertificateEnumerator {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl IOpcCertificateEnumerator_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IOpcCertificateEnumerator_Impl, const OFFSET: isize>() -> IOpcCertificateEnumerator_Vtbl {
-        unsafe extern "system" fn MoveNext<Identity: ::windows::core::IUnknownImpl, Impl: IOpcCertificateEnumerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hasnext: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcCertificateEnumerator_Impl, const OFFSET: isize>() -> IOpcCertificateEnumerator_Vtbl {
+        unsafe extern "system" fn MoveNext<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcCertificateEnumerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hasnext: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            (*this).MoveNext(::core::mem::transmute_copy(&hasnext)).into()
+            let this = (*this).get_impl();
+            this.MoveNext(::core::mem::transmute_copy(&hasnext)).into()
         }
-        unsafe extern "system" fn MovePrevious<Identity: ::windows::core::IUnknownImpl, Impl: IOpcCertificateEnumerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hasprevious: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MovePrevious<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcCertificateEnumerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hasprevious: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            (*this).MovePrevious(::core::mem::transmute_copy(&hasprevious)).into()
+            let this = (*this).get_impl();
+            this.MovePrevious(::core::mem::transmute_copy(&hasprevious)).into()
         }
-        unsafe extern "system" fn GetCurrent<Identity: ::windows::core::IUnknownImpl, Impl: IOpcCertificateEnumerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, certificate: *const *const super::super::super::Security::Cryptography::CERT_CONTEXT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetCurrent<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcCertificateEnumerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, certificate: *const *const super::super::super::Security::Cryptography::CERT_CONTEXT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            (*this).GetCurrent(::core::mem::transmute_copy(&certificate)).into()
+            let this = (*this).get_impl();
+            this.GetCurrent(::core::mem::transmute_copy(&certificate)).into()
         }
-        unsafe extern "system" fn Clone<Identity: ::windows::core::IUnknownImpl, Impl: IOpcCertificateEnumerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, copy: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Clone<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcCertificateEnumerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, copy: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).Clone() {
+            let this = (*this).get_impl();
+            match this.Clone() {
                 ::core::result::Result::Ok(ok__) => {
                     *copy = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -58,21 +58,21 @@ pub trait IOpcCertificateSet_Impl: Sized {
 impl ::windows::core::RuntimeName for IOpcCertificateSet {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl IOpcCertificateSet_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IOpcCertificateSet_Impl, const OFFSET: isize>() -> IOpcCertificateSet_Vtbl {
-        unsafe extern "system" fn Add<Identity: ::windows::core::IUnknownImpl, Impl: IOpcCertificateSet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, certificate: *const super::super::super::Security::Cryptography::CERT_CONTEXT) -> ::windows::core::HRESULT {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcCertificateSet_Impl, const OFFSET: isize>() -> IOpcCertificateSet_Vtbl {
+        unsafe extern "system" fn Add<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcCertificateSet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, certificate: *const super::super::super::Security::Cryptography::CERT_CONTEXT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            (*this).Add(::core::mem::transmute_copy(&certificate)).into()
+            let this = (*this).get_impl();
+            this.Add(::core::mem::transmute_copy(&certificate)).into()
         }
-        unsafe extern "system" fn Remove<Identity: ::windows::core::IUnknownImpl, Impl: IOpcCertificateSet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, certificate: *const super::super::super::Security::Cryptography::CERT_CONTEXT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Remove<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcCertificateSet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, certificate: *const super::super::super::Security::Cryptography::CERT_CONTEXT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            (*this).Remove(::core::mem::transmute_copy(&certificate)).into()
+            let this = (*this).get_impl();
+            this.Remove(::core::mem::transmute_copy(&certificate)).into()
         }
-        unsafe extern "system" fn GetEnumerator<Identity: ::windows::core::IUnknownImpl, Impl: IOpcCertificateSet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, certificateenumerator: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetEnumerator<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcCertificateSet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, certificateenumerator: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetEnumerator() {
+            let this = (*this).get_impl();
+            match this.GetEnumerator() {
                 ::core::result::Result::Ok(ok__) => {
                     *certificateenumerator = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -113,16 +113,16 @@ pub trait IOpcDigitalSignature_Impl: Sized {
 impl ::windows::core::RuntimeName for IOpcDigitalSignature {}
 #[cfg(feature = "Win32_System_Com")]
 impl IOpcDigitalSignature_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IOpcDigitalSignature_Impl, const OFFSET: isize>() -> IOpcDigitalSignature_Vtbl {
-        unsafe extern "system" fn GetNamespaces<Identity: ::windows::core::IUnknownImpl, Impl: IOpcDigitalSignature_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, prefixes: *mut *mut ::windows::core::PWSTR, namespaces: *mut *mut ::windows::core::PWSTR, count: *mut u32) -> ::windows::core::HRESULT {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcDigitalSignature_Impl, const OFFSET: isize>() -> IOpcDigitalSignature_Vtbl {
+        unsafe extern "system" fn GetNamespaces<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcDigitalSignature_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, prefixes: *mut *mut ::windows::core::PWSTR, namespaces: *mut *mut ::windows::core::PWSTR, count: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            (*this).GetNamespaces(::core::mem::transmute_copy(&prefixes), ::core::mem::transmute_copy(&namespaces), ::core::mem::transmute_copy(&count)).into()
+            let this = (*this).get_impl();
+            this.GetNamespaces(::core::mem::transmute_copy(&prefixes), ::core::mem::transmute_copy(&namespaces), ::core::mem::transmute_copy(&count)).into()
         }
-        unsafe extern "system" fn GetSignatureId<Identity: ::windows::core::IUnknownImpl, Impl: IOpcDigitalSignature_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, signatureid: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetSignatureId<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcDigitalSignature_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, signatureid: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetSignatureId() {
+            let this = (*this).get_impl();
+            match this.GetSignatureId() {
                 ::core::result::Result::Ok(ok__) => {
                     *signatureid = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -130,10 +130,10 @@ impl IOpcDigitalSignature_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetSignaturePartName<Identity: ::windows::core::IUnknownImpl, Impl: IOpcDigitalSignature_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, signaturepartname: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetSignaturePartName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcDigitalSignature_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, signaturepartname: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetSignaturePartName() {
+            let this = (*this).get_impl();
+            match this.GetSignaturePartName() {
                 ::core::result::Result::Ok(ok__) => {
                     *signaturepartname = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -141,10 +141,10 @@ impl IOpcDigitalSignature_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetSignatureMethod<Identity: ::windows::core::IUnknownImpl, Impl: IOpcDigitalSignature_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, signaturemethod: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetSignatureMethod<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcDigitalSignature_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, signaturemethod: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetSignatureMethod() {
+            let this = (*this).get_impl();
+            match this.GetSignatureMethod() {
                 ::core::result::Result::Ok(ok__) => {
                     *signaturemethod = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -152,20 +152,20 @@ impl IOpcDigitalSignature_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetCanonicalizationMethod<Identity: ::windows::core::IUnknownImpl, Impl: IOpcDigitalSignature_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, canonicalizationmethod: *mut OPC_CANONICALIZATION_METHOD) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetCanonicalizationMethod<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcDigitalSignature_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, canonicalizationmethod: *mut OPC_CANONICALIZATION_METHOD) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            (*this).GetCanonicalizationMethod(::core::mem::transmute_copy(&canonicalizationmethod)).into()
+            let this = (*this).get_impl();
+            this.GetCanonicalizationMethod(::core::mem::transmute_copy(&canonicalizationmethod)).into()
         }
-        unsafe extern "system" fn GetSignatureValue<Identity: ::windows::core::IUnknownImpl, Impl: IOpcDigitalSignature_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, signaturevalue: *mut *mut u8, count: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetSignatureValue<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcDigitalSignature_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, signaturevalue: *mut *mut u8, count: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            (*this).GetSignatureValue(::core::mem::transmute_copy(&signaturevalue), ::core::mem::transmute_copy(&count)).into()
+            let this = (*this).get_impl();
+            this.GetSignatureValue(::core::mem::transmute_copy(&signaturevalue), ::core::mem::transmute_copy(&count)).into()
         }
-        unsafe extern "system" fn GetSignaturePartReferenceEnumerator<Identity: ::windows::core::IUnknownImpl, Impl: IOpcDigitalSignature_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, partreferenceenumerator: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetSignaturePartReferenceEnumerator<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcDigitalSignature_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, partreferenceenumerator: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetSignaturePartReferenceEnumerator() {
+            let this = (*this).get_impl();
+            match this.GetSignaturePartReferenceEnumerator() {
                 ::core::result::Result::Ok(ok__) => {
                     *partreferenceenumerator = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -173,10 +173,10 @@ impl IOpcDigitalSignature_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetSignatureRelationshipReferenceEnumerator<Identity: ::windows::core::IUnknownImpl, Impl: IOpcDigitalSignature_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, relationshipreferenceenumerator: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetSignatureRelationshipReferenceEnumerator<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcDigitalSignature_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, relationshipreferenceenumerator: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetSignatureRelationshipReferenceEnumerator() {
+            let this = (*this).get_impl();
+            match this.GetSignatureRelationshipReferenceEnumerator() {
                 ::core::result::Result::Ok(ok__) => {
                     *relationshipreferenceenumerator = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -184,10 +184,10 @@ impl IOpcDigitalSignature_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetSigningTime<Identity: ::windows::core::IUnknownImpl, Impl: IOpcDigitalSignature_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, signingtime: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetSigningTime<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcDigitalSignature_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, signingtime: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetSigningTime() {
+            let this = (*this).get_impl();
+            match this.GetSigningTime() {
                 ::core::result::Result::Ok(ok__) => {
                     *signingtime = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -195,15 +195,15 @@ impl IOpcDigitalSignature_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetTimeFormat<Identity: ::windows::core::IUnknownImpl, Impl: IOpcDigitalSignature_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, timeformat: *mut OPC_SIGNATURE_TIME_FORMAT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetTimeFormat<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcDigitalSignature_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, timeformat: *mut OPC_SIGNATURE_TIME_FORMAT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            (*this).GetTimeFormat(::core::mem::transmute_copy(&timeformat)).into()
+            let this = (*this).get_impl();
+            this.GetTimeFormat(::core::mem::transmute_copy(&timeformat)).into()
         }
-        unsafe extern "system" fn GetPackageObjectReference<Identity: ::windows::core::IUnknownImpl, Impl: IOpcDigitalSignature_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, packageobjectreference: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetPackageObjectReference<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcDigitalSignature_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, packageobjectreference: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetPackageObjectReference() {
+            let this = (*this).get_impl();
+            match this.GetPackageObjectReference() {
                 ::core::result::Result::Ok(ok__) => {
                     *packageobjectreference = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -211,10 +211,10 @@ impl IOpcDigitalSignature_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetCertificateEnumerator<Identity: ::windows::core::IUnknownImpl, Impl: IOpcDigitalSignature_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, certificateenumerator: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetCertificateEnumerator<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcDigitalSignature_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, certificateenumerator: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetCertificateEnumerator() {
+            let this = (*this).get_impl();
+            match this.GetCertificateEnumerator() {
                 ::core::result::Result::Ok(ok__) => {
                     *certificateenumerator = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -222,10 +222,10 @@ impl IOpcDigitalSignature_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetCustomReferenceEnumerator<Identity: ::windows::core::IUnknownImpl, Impl: IOpcDigitalSignature_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, customreferenceenumerator: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetCustomReferenceEnumerator<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcDigitalSignature_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, customreferenceenumerator: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetCustomReferenceEnumerator() {
+            let this = (*this).get_impl();
+            match this.GetCustomReferenceEnumerator() {
                 ::core::result::Result::Ok(ok__) => {
                     *customreferenceenumerator = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -233,10 +233,10 @@ impl IOpcDigitalSignature_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetCustomObjectEnumerator<Identity: ::windows::core::IUnknownImpl, Impl: IOpcDigitalSignature_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, customobjectenumerator: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetCustomObjectEnumerator<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcDigitalSignature_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, customobjectenumerator: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetCustomObjectEnumerator() {
+            let this = (*this).get_impl();
+            match this.GetCustomObjectEnumerator() {
                 ::core::result::Result::Ok(ok__) => {
                     *customobjectenumerator = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -244,10 +244,10 @@ impl IOpcDigitalSignature_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetSignatureXml<Identity: ::windows::core::IUnknownImpl, Impl: IOpcDigitalSignature_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, signaturexml: *mut *mut u8, count: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetSignatureXml<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcDigitalSignature_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, signaturexml: *mut *mut u8, count: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            (*this).GetSignatureXml(::core::mem::transmute_copy(&signaturexml), ::core::mem::transmute_copy(&count)).into()
+            let this = (*this).get_impl();
+            this.GetSignatureXml(::core::mem::transmute_copy(&signaturexml), ::core::mem::transmute_copy(&count)).into()
         }
         Self {
             base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
@@ -283,11 +283,11 @@ pub trait IOpcDigitalSignatureEnumerator_Impl: Sized {
 impl ::windows::core::RuntimeName for IOpcDigitalSignatureEnumerator {}
 #[cfg(feature = "Win32_Foundation")]
 impl IOpcDigitalSignatureEnumerator_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IOpcDigitalSignatureEnumerator_Impl, const OFFSET: isize>() -> IOpcDigitalSignatureEnumerator_Vtbl {
-        unsafe extern "system" fn MoveNext<Identity: ::windows::core::IUnknownImpl, Impl: IOpcDigitalSignatureEnumerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hasnext: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcDigitalSignatureEnumerator_Impl, const OFFSET: isize>() -> IOpcDigitalSignatureEnumerator_Vtbl {
+        unsafe extern "system" fn MoveNext<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcDigitalSignatureEnumerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hasnext: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).MoveNext() {
+            let this = (*this).get_impl();
+            match this.MoveNext() {
                 ::core::result::Result::Ok(ok__) => {
                     *hasnext = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -295,10 +295,10 @@ impl IOpcDigitalSignatureEnumerator_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MovePrevious<Identity: ::windows::core::IUnknownImpl, Impl: IOpcDigitalSignatureEnumerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hasprevious: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MovePrevious<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcDigitalSignatureEnumerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hasprevious: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).MovePrevious() {
+            let this = (*this).get_impl();
+            match this.MovePrevious() {
                 ::core::result::Result::Ok(ok__) => {
                     *hasprevious = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -306,10 +306,10 @@ impl IOpcDigitalSignatureEnumerator_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetCurrent<Identity: ::windows::core::IUnknownImpl, Impl: IOpcDigitalSignatureEnumerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, digitalsignature: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetCurrent<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcDigitalSignatureEnumerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, digitalsignature: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetCurrent() {
+            let this = (*this).get_impl();
+            match this.GetCurrent() {
                 ::core::result::Result::Ok(ok__) => {
                     *digitalsignature = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -317,10 +317,10 @@ impl IOpcDigitalSignatureEnumerator_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Clone<Identity: ::windows::core::IUnknownImpl, Impl: IOpcDigitalSignatureEnumerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, copy: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Clone<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcDigitalSignatureEnumerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, copy: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).Clone() {
+            let this = (*this).get_impl();
+            match this.Clone() {
                 ::core::result::Result::Ok(ok__) => {
                     *copy = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -355,11 +355,11 @@ pub trait IOpcDigitalSignatureManager_Impl: Sized {
 impl ::windows::core::RuntimeName for IOpcDigitalSignatureManager {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_System_Com"))]
 impl IOpcDigitalSignatureManager_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IOpcDigitalSignatureManager_Impl, const OFFSET: isize>() -> IOpcDigitalSignatureManager_Vtbl {
-        unsafe extern "system" fn GetSignatureOriginPartName<Identity: ::windows::core::IUnknownImpl, Impl: IOpcDigitalSignatureManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, signatureoriginpartname: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcDigitalSignatureManager_Impl, const OFFSET: isize>() -> IOpcDigitalSignatureManager_Vtbl {
+        unsafe extern "system" fn GetSignatureOriginPartName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcDigitalSignatureManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, signatureoriginpartname: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetSignatureOriginPartName() {
+            let this = (*this).get_impl();
+            match this.GetSignatureOriginPartName() {
                 ::core::result::Result::Ok(ok__) => {
                     *signatureoriginpartname = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -367,15 +367,15 @@ impl IOpcDigitalSignatureManager_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSignatureOriginPartName<Identity: ::windows::core::IUnknownImpl, Impl: IOpcDigitalSignatureManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, signatureoriginpartname: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetSignatureOriginPartName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcDigitalSignatureManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, signatureoriginpartname: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            (*this).SetSignatureOriginPartName(::core::mem::transmute(&signatureoriginpartname)).into()
+            let this = (*this).get_impl();
+            this.SetSignatureOriginPartName(::core::mem::transmute(&signatureoriginpartname)).into()
         }
-        unsafe extern "system" fn GetSignatureEnumerator<Identity: ::windows::core::IUnknownImpl, Impl: IOpcDigitalSignatureManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, signatureenumerator: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetSignatureEnumerator<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcDigitalSignatureManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, signatureenumerator: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetSignatureEnumerator() {
+            let this = (*this).get_impl();
+            match this.GetSignatureEnumerator() {
                 ::core::result::Result::Ok(ok__) => {
                     *signatureenumerator = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -383,15 +383,15 @@ impl IOpcDigitalSignatureManager_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveSignature<Identity: ::windows::core::IUnknownImpl, Impl: IOpcDigitalSignatureManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, signaturepartname: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RemoveSignature<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcDigitalSignatureManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, signaturepartname: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            (*this).RemoveSignature(::core::mem::transmute(&signaturepartname)).into()
+            let this = (*this).get_impl();
+            this.RemoveSignature(::core::mem::transmute(&signaturepartname)).into()
         }
-        unsafe extern "system" fn CreateSigningOptions<Identity: ::windows::core::IUnknownImpl, Impl: IOpcDigitalSignatureManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, signingoptions: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateSigningOptions<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcDigitalSignatureManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, signingoptions: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).CreateSigningOptions() {
+            let this = (*this).get_impl();
+            match this.CreateSigningOptions() {
                 ::core::result::Result::Ok(ok__) => {
                     *signingoptions = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -399,15 +399,15 @@ impl IOpcDigitalSignatureManager_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Validate<Identity: ::windows::core::IUnknownImpl, Impl: IOpcDigitalSignatureManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, signature: ::windows::core::RawPtr, certificate: *const super::super::super::Security::Cryptography::CERT_CONTEXT, validationresult: *mut OPC_SIGNATURE_VALIDATION_RESULT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Validate<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcDigitalSignatureManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, signature: ::windows::core::RawPtr, certificate: *const super::super::super::Security::Cryptography::CERT_CONTEXT, validationresult: *mut OPC_SIGNATURE_VALIDATION_RESULT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            (*this).Validate(::core::mem::transmute(&signature), ::core::mem::transmute_copy(&certificate), ::core::mem::transmute_copy(&validationresult)).into()
+            let this = (*this).get_impl();
+            this.Validate(::core::mem::transmute(&signature), ::core::mem::transmute_copy(&certificate), ::core::mem::transmute_copy(&validationresult)).into()
         }
-        unsafe extern "system" fn Sign<Identity: ::windows::core::IUnknownImpl, Impl: IOpcDigitalSignatureManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, certificate: *const super::super::super::Security::Cryptography::CERT_CONTEXT, signingoptions: ::windows::core::RawPtr, digitalsignature: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Sign<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcDigitalSignatureManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, certificate: *const super::super::super::Security::Cryptography::CERT_CONTEXT, signingoptions: ::windows::core::RawPtr, digitalsignature: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).Sign(::core::mem::transmute_copy(&certificate), ::core::mem::transmute(&signingoptions)) {
+            let this = (*this).get_impl();
+            match this.Sign(::core::mem::transmute_copy(&certificate), ::core::mem::transmute(&signingoptions)) {
                 ::core::result::Result::Ok(ok__) => {
                     *digitalsignature = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -415,10 +415,10 @@ impl IOpcDigitalSignatureManager_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReplaceSignatureXml<Identity: ::windows::core::IUnknownImpl, Impl: IOpcDigitalSignatureManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, signaturepartname: ::windows::core::RawPtr, newsignaturexml: *const u8, count: u32, digitalsignature: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ReplaceSignatureXml<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcDigitalSignatureManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, signaturepartname: ::windows::core::RawPtr, newsignaturexml: *const u8, count: u32, digitalsignature: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).ReplaceSignatureXml(::core::mem::transmute(&signaturepartname), ::core::mem::transmute_copy(&newsignaturexml), ::core::mem::transmute_copy(&count)) {
+            let this = (*this).get_impl();
+            match this.ReplaceSignatureXml(::core::mem::transmute(&signaturepartname), ::core::mem::transmute_copy(&newsignaturexml), ::core::mem::transmute_copy(&count)) {
                 ::core::result::Result::Ok(ok__) => {
                     *digitalsignature = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -456,11 +456,11 @@ pub trait IOpcFactory_Impl: Sized {
 impl ::windows::core::RuntimeName for IOpcFactory {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_Com"))]
 impl IOpcFactory_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IOpcFactory_Impl, const OFFSET: isize>() -> IOpcFactory_Vtbl {
-        unsafe extern "system" fn CreatePackageRootUri<Identity: ::windows::core::IUnknownImpl, Impl: IOpcFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rooturi: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcFactory_Impl, const OFFSET: isize>() -> IOpcFactory_Vtbl {
+        unsafe extern "system" fn CreatePackageRootUri<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rooturi: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).CreatePackageRootUri() {
+            let this = (*this).get_impl();
+            match this.CreatePackageRootUri() {
                 ::core::result::Result::Ok(ok__) => {
                     *rooturi = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -468,10 +468,10 @@ impl IOpcFactory_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreatePartUri<Identity: ::windows::core::IUnknownImpl, Impl: IOpcFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwzuri: ::windows::core::PCWSTR, parturi: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreatePartUri<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwzuri: ::windows::core::PCWSTR, parturi: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).CreatePartUri(::core::mem::transmute(&pwzuri)) {
+            let this = (*this).get_impl();
+            match this.CreatePartUri(::core::mem::transmute(&pwzuri)) {
                 ::core::result::Result::Ok(ok__) => {
                     *parturi = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -479,10 +479,10 @@ impl IOpcFactory_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateStreamOnFile<Identity: ::windows::core::IUnknownImpl, Impl: IOpcFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, filename: ::windows::core::PCWSTR, iomode: OPC_STREAM_IO_MODE, securityattributes: *const super::super::super::Security::SECURITY_ATTRIBUTES, dwflagsandattributes: u32, stream: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateStreamOnFile<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, filename: ::windows::core::PCWSTR, iomode: OPC_STREAM_IO_MODE, securityattributes: *const super::super::super::Security::SECURITY_ATTRIBUTES, dwflagsandattributes: u32, stream: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).CreateStreamOnFile(::core::mem::transmute(&filename), ::core::mem::transmute_copy(&iomode), ::core::mem::transmute_copy(&securityattributes), ::core::mem::transmute_copy(&dwflagsandattributes)) {
+            let this = (*this).get_impl();
+            match this.CreateStreamOnFile(::core::mem::transmute(&filename), ::core::mem::transmute_copy(&iomode), ::core::mem::transmute_copy(&securityattributes), ::core::mem::transmute_copy(&dwflagsandattributes)) {
                 ::core::result::Result::Ok(ok__) => {
                     *stream = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -490,10 +490,10 @@ impl IOpcFactory_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreatePackage<Identity: ::windows::core::IUnknownImpl, Impl: IOpcFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, package: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreatePackage<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, package: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).CreatePackage() {
+            let this = (*this).get_impl();
+            match this.CreatePackage() {
                 ::core::result::Result::Ok(ok__) => {
                     *package = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -501,10 +501,10 @@ impl IOpcFactory_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReadPackageFromStream<Identity: ::windows::core::IUnknownImpl, Impl: IOpcFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, stream: ::windows::core::RawPtr, flags: OPC_READ_FLAGS, package: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ReadPackageFromStream<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, stream: ::windows::core::RawPtr, flags: OPC_READ_FLAGS, package: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).ReadPackageFromStream(::core::mem::transmute(&stream), ::core::mem::transmute_copy(&flags)) {
+            let this = (*this).get_impl();
+            match this.ReadPackageFromStream(::core::mem::transmute(&stream), ::core::mem::transmute_copy(&flags)) {
                 ::core::result::Result::Ok(ok__) => {
                     *package = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -512,15 +512,15 @@ impl IOpcFactory_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn WritePackageToStream<Identity: ::windows::core::IUnknownImpl, Impl: IOpcFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, package: ::windows::core::RawPtr, flags: OPC_WRITE_FLAGS, stream: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn WritePackageToStream<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, package: ::windows::core::RawPtr, flags: OPC_WRITE_FLAGS, stream: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            (*this).WritePackageToStream(::core::mem::transmute(&package), ::core::mem::transmute_copy(&flags), ::core::mem::transmute(&stream)).into()
+            let this = (*this).get_impl();
+            this.WritePackageToStream(::core::mem::transmute(&package), ::core::mem::transmute_copy(&flags), ::core::mem::transmute(&stream)).into()
         }
-        unsafe extern "system" fn CreateDigitalSignatureManager<Identity: ::windows::core::IUnknownImpl, Impl: IOpcFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, package: ::windows::core::RawPtr, signaturemanager: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateDigitalSignatureManager<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, package: ::windows::core::RawPtr, signaturemanager: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).CreateDigitalSignatureManager(::core::mem::transmute(&package)) {
+            let this = (*this).get_impl();
+            match this.CreateDigitalSignatureManager(::core::mem::transmute(&package)) {
                 ::core::result::Result::Ok(ok__) => {
                     *signaturemanager = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -549,11 +549,11 @@ pub trait IOpcPackage_Impl: Sized {
 }
 impl ::windows::core::RuntimeName for IOpcPackage {}
 impl IOpcPackage_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IOpcPackage_Impl, const OFFSET: isize>() -> IOpcPackage_Vtbl {
-        unsafe extern "system" fn GetPartSet<Identity: ::windows::core::IUnknownImpl, Impl: IOpcPackage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, partset: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcPackage_Impl, const OFFSET: isize>() -> IOpcPackage_Vtbl {
+        unsafe extern "system" fn GetPartSet<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcPackage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, partset: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetPartSet() {
+            let this = (*this).get_impl();
+            match this.GetPartSet() {
                 ::core::result::Result::Ok(ok__) => {
                     *partset = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -561,10 +561,10 @@ impl IOpcPackage_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetRelationshipSet<Identity: ::windows::core::IUnknownImpl, Impl: IOpcPackage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, relationshipset: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetRelationshipSet<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcPackage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, relationshipset: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetRelationshipSet() {
+            let this = (*this).get_impl();
+            match this.GetRelationshipSet() {
                 ::core::result::Result::Ok(ok__) => {
                     *relationshipset = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -594,11 +594,11 @@ pub trait IOpcPart_Impl: Sized {
 impl ::windows::core::RuntimeName for IOpcPart {}
 #[cfg(feature = "Win32_System_Com")]
 impl IOpcPart_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IOpcPart_Impl, const OFFSET: isize>() -> IOpcPart_Vtbl {
-        unsafe extern "system" fn GetRelationshipSet<Identity: ::windows::core::IUnknownImpl, Impl: IOpcPart_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, relationshipset: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcPart_Impl, const OFFSET: isize>() -> IOpcPart_Vtbl {
+        unsafe extern "system" fn GetRelationshipSet<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcPart_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, relationshipset: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetRelationshipSet() {
+            let this = (*this).get_impl();
+            match this.GetRelationshipSet() {
                 ::core::result::Result::Ok(ok__) => {
                     *relationshipset = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -606,10 +606,10 @@ impl IOpcPart_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetContentStream<Identity: ::windows::core::IUnknownImpl, Impl: IOpcPart_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, stream: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetContentStream<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcPart_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, stream: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetContentStream() {
+            let this = (*this).get_impl();
+            match this.GetContentStream() {
                 ::core::result::Result::Ok(ok__) => {
                     *stream = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -617,10 +617,10 @@ impl IOpcPart_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetName<Identity: ::windows::core::IUnknownImpl, Impl: IOpcPart_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcPart_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetName() {
+            let this = (*this).get_impl();
+            match this.GetName() {
                 ::core::result::Result::Ok(ok__) => {
                     *name = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -628,10 +628,10 @@ impl IOpcPart_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetContentType<Identity: ::windows::core::IUnknownImpl, Impl: IOpcPart_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, contenttype: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetContentType<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcPart_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, contenttype: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetContentType() {
+            let this = (*this).get_impl();
+            match this.GetContentType() {
                 ::core::result::Result::Ok(ok__) => {
                     *contenttype = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -639,10 +639,10 @@ impl IOpcPart_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetCompressionOptions<Identity: ::windows::core::IUnknownImpl, Impl: IOpcPart_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, compressionoptions: *mut OPC_COMPRESSION_OPTIONS) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetCompressionOptions<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcPart_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, compressionoptions: *mut OPC_COMPRESSION_OPTIONS) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetCompressionOptions() {
+            let this = (*this).get_impl();
+            match this.GetCompressionOptions() {
                 ::core::result::Result::Ok(ok__) => {
                     *compressionoptions = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -674,11 +674,11 @@ pub trait IOpcPartEnumerator_Impl: Sized {
 impl ::windows::core::RuntimeName for IOpcPartEnumerator {}
 #[cfg(feature = "Win32_Foundation")]
 impl IOpcPartEnumerator_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IOpcPartEnumerator_Impl, const OFFSET: isize>() -> IOpcPartEnumerator_Vtbl {
-        unsafe extern "system" fn MoveNext<Identity: ::windows::core::IUnknownImpl, Impl: IOpcPartEnumerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hasnext: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcPartEnumerator_Impl, const OFFSET: isize>() -> IOpcPartEnumerator_Vtbl {
+        unsafe extern "system" fn MoveNext<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcPartEnumerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hasnext: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).MoveNext() {
+            let this = (*this).get_impl();
+            match this.MoveNext() {
                 ::core::result::Result::Ok(ok__) => {
                     *hasnext = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -686,10 +686,10 @@ impl IOpcPartEnumerator_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MovePrevious<Identity: ::windows::core::IUnknownImpl, Impl: IOpcPartEnumerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hasprevious: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MovePrevious<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcPartEnumerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hasprevious: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).MovePrevious() {
+            let this = (*this).get_impl();
+            match this.MovePrevious() {
                 ::core::result::Result::Ok(ok__) => {
                     *hasprevious = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -697,10 +697,10 @@ impl IOpcPartEnumerator_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetCurrent<Identity: ::windows::core::IUnknownImpl, Impl: IOpcPartEnumerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, part: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetCurrent<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcPartEnumerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, part: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetCurrent() {
+            let this = (*this).get_impl();
+            match this.GetCurrent() {
                 ::core::result::Result::Ok(ok__) => {
                     *part = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -708,10 +708,10 @@ impl IOpcPartEnumerator_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Clone<Identity: ::windows::core::IUnknownImpl, Impl: IOpcPartEnumerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, copy: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Clone<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcPartEnumerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, copy: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).Clone() {
+            let this = (*this).get_impl();
+            match this.Clone() {
                 ::core::result::Result::Ok(ok__) => {
                     *copy = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -743,11 +743,11 @@ pub trait IOpcPartSet_Impl: Sized {
 impl ::windows::core::RuntimeName for IOpcPartSet {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IOpcPartSet_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IOpcPartSet_Impl, const OFFSET: isize>() -> IOpcPartSet_Vtbl {
-        unsafe extern "system" fn GetPart<Identity: ::windows::core::IUnknownImpl, Impl: IOpcPartSet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::windows::core::RawPtr, part: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcPartSet_Impl, const OFFSET: isize>() -> IOpcPartSet_Vtbl {
+        unsafe extern "system" fn GetPart<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcPartSet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::windows::core::RawPtr, part: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetPart(::core::mem::transmute(&name)) {
+            let this = (*this).get_impl();
+            match this.GetPart(::core::mem::transmute(&name)) {
                 ::core::result::Result::Ok(ok__) => {
                     *part = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -755,10 +755,10 @@ impl IOpcPartSet_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreatePart<Identity: ::windows::core::IUnknownImpl, Impl: IOpcPartSet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::windows::core::RawPtr, contenttype: ::windows::core::PCWSTR, compressionoptions: OPC_COMPRESSION_OPTIONS, part: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreatePart<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcPartSet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::windows::core::RawPtr, contenttype: ::windows::core::PCWSTR, compressionoptions: OPC_COMPRESSION_OPTIONS, part: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).CreatePart(::core::mem::transmute(&name), ::core::mem::transmute(&contenttype), ::core::mem::transmute_copy(&compressionoptions)) {
+            let this = (*this).get_impl();
+            match this.CreatePart(::core::mem::transmute(&name), ::core::mem::transmute(&contenttype), ::core::mem::transmute_copy(&compressionoptions)) {
                 ::core::result::Result::Ok(ok__) => {
                     *part = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -766,15 +766,15 @@ impl IOpcPartSet_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DeletePart<Identity: ::windows::core::IUnknownImpl, Impl: IOpcPartSet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DeletePart<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcPartSet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            (*this).DeletePart(::core::mem::transmute(&name)).into()
+            let this = (*this).get_impl();
+            this.DeletePart(::core::mem::transmute(&name)).into()
         }
-        unsafe extern "system" fn PartExists<Identity: ::windows::core::IUnknownImpl, Impl: IOpcPartSet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::windows::core::RawPtr, partexists: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PartExists<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcPartSet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::windows::core::RawPtr, partexists: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).PartExists(::core::mem::transmute(&name)) {
+            let this = (*this).get_impl();
+            match this.PartExists(::core::mem::transmute(&name)) {
                 ::core::result::Result::Ok(ok__) => {
                     *partexists = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -782,10 +782,10 @@ impl IOpcPartSet_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetEnumerator<Identity: ::windows::core::IUnknownImpl, Impl: IOpcPartSet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, partenumerator: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetEnumerator<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcPartSet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, partenumerator: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetEnumerator() {
+            let this = (*this).get_impl();
+            match this.GetEnumerator() {
                 ::core::result::Result::Ok(ok__) => {
                     *partenumerator = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -816,11 +816,11 @@ pub trait IOpcPartUri_Impl: Sized + super::super::super::System::Com::IUri_Impl 
 impl ::windows::core::RuntimeName for IOpcPartUri {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IOpcPartUri_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IOpcPartUri_Impl, const OFFSET: isize>() -> IOpcPartUri_Vtbl {
-        unsafe extern "system" fn ComparePartUri<Identity: ::windows::core::IUnknownImpl, Impl: IOpcPartUri_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, parturi: ::windows::core::RawPtr, comparisonresult: *mut i32) -> ::windows::core::HRESULT {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcPartUri_Impl, const OFFSET: isize>() -> IOpcPartUri_Vtbl {
+        unsafe extern "system" fn ComparePartUri<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcPartUri_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, parturi: ::windows::core::RawPtr, comparisonresult: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).ComparePartUri(::core::mem::transmute(&parturi)) {
+            let this = (*this).get_impl();
+            match this.ComparePartUri(::core::mem::transmute(&parturi)) {
                 ::core::result::Result::Ok(ok__) => {
                     *comparisonresult = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -828,10 +828,10 @@ impl IOpcPartUri_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetSourceUri<Identity: ::windows::core::IUnknownImpl, Impl: IOpcPartUri_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sourceuri: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetSourceUri<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcPartUri_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sourceuri: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetSourceUri() {
+            let this = (*this).get_impl();
+            match this.GetSourceUri() {
                 ::core::result::Result::Ok(ok__) => {
                     *sourceuri = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -839,10 +839,10 @@ impl IOpcPartUri_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsRelationshipsPartUri<Identity: ::windows::core::IUnknownImpl, Impl: IOpcPartUri_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, isrelationshipuri: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsRelationshipsPartUri<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcPartUri_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, isrelationshipuri: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).IsRelationshipsPartUri() {
+            let this = (*this).get_impl();
+            match this.IsRelationshipsPartUri() {
                 ::core::result::Result::Ok(ok__) => {
                     *isrelationshipuri = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -873,11 +873,11 @@ pub trait IOpcRelationship_Impl: Sized {
 impl ::windows::core::RuntimeName for IOpcRelationship {}
 #[cfg(feature = "Win32_System_Com")]
 impl IOpcRelationship_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IOpcRelationship_Impl, const OFFSET: isize>() -> IOpcRelationship_Vtbl {
-        unsafe extern "system" fn GetId<Identity: ::windows::core::IUnknownImpl, Impl: IOpcRelationship_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, relationshipidentifier: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcRelationship_Impl, const OFFSET: isize>() -> IOpcRelationship_Vtbl {
+        unsafe extern "system" fn GetId<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcRelationship_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, relationshipidentifier: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetId() {
+            let this = (*this).get_impl();
+            match this.GetId() {
                 ::core::result::Result::Ok(ok__) => {
                     *relationshipidentifier = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -885,10 +885,10 @@ impl IOpcRelationship_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetRelationshipType<Identity: ::windows::core::IUnknownImpl, Impl: IOpcRelationship_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, relationshiptype: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetRelationshipType<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcRelationship_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, relationshiptype: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetRelationshipType() {
+            let this = (*this).get_impl();
+            match this.GetRelationshipType() {
                 ::core::result::Result::Ok(ok__) => {
                     *relationshiptype = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -896,10 +896,10 @@ impl IOpcRelationship_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetSourceUri<Identity: ::windows::core::IUnknownImpl, Impl: IOpcRelationship_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sourceuri: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetSourceUri<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcRelationship_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sourceuri: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetSourceUri() {
+            let this = (*this).get_impl();
+            match this.GetSourceUri() {
                 ::core::result::Result::Ok(ok__) => {
                     *sourceuri = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -907,10 +907,10 @@ impl IOpcRelationship_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetTargetUri<Identity: ::windows::core::IUnknownImpl, Impl: IOpcRelationship_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, targeturi: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetTargetUri<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcRelationship_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, targeturi: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetTargetUri() {
+            let this = (*this).get_impl();
+            match this.GetTargetUri() {
                 ::core::result::Result::Ok(ok__) => {
                     *targeturi = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -918,10 +918,10 @@ impl IOpcRelationship_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetTargetMode<Identity: ::windows::core::IUnknownImpl, Impl: IOpcRelationship_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, targetmode: *mut OPC_URI_TARGET_MODE) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetTargetMode<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcRelationship_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, targetmode: *mut OPC_URI_TARGET_MODE) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetTargetMode() {
+            let this = (*this).get_impl();
+            match this.GetTargetMode() {
                 ::core::result::Result::Ok(ok__) => {
                     *targetmode = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -953,11 +953,11 @@ pub trait IOpcRelationshipEnumerator_Impl: Sized {
 impl ::windows::core::RuntimeName for IOpcRelationshipEnumerator {}
 #[cfg(feature = "Win32_Foundation")]
 impl IOpcRelationshipEnumerator_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IOpcRelationshipEnumerator_Impl, const OFFSET: isize>() -> IOpcRelationshipEnumerator_Vtbl {
-        unsafe extern "system" fn MoveNext<Identity: ::windows::core::IUnknownImpl, Impl: IOpcRelationshipEnumerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hasnext: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcRelationshipEnumerator_Impl, const OFFSET: isize>() -> IOpcRelationshipEnumerator_Vtbl {
+        unsafe extern "system" fn MoveNext<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcRelationshipEnumerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hasnext: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).MoveNext() {
+            let this = (*this).get_impl();
+            match this.MoveNext() {
                 ::core::result::Result::Ok(ok__) => {
                     *hasnext = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -965,10 +965,10 @@ impl IOpcRelationshipEnumerator_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MovePrevious<Identity: ::windows::core::IUnknownImpl, Impl: IOpcRelationshipEnumerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hasprevious: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MovePrevious<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcRelationshipEnumerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hasprevious: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).MovePrevious() {
+            let this = (*this).get_impl();
+            match this.MovePrevious() {
                 ::core::result::Result::Ok(ok__) => {
                     *hasprevious = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -976,10 +976,10 @@ impl IOpcRelationshipEnumerator_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetCurrent<Identity: ::windows::core::IUnknownImpl, Impl: IOpcRelationshipEnumerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, relationship: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetCurrent<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcRelationshipEnumerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, relationship: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetCurrent() {
+            let this = (*this).get_impl();
+            match this.GetCurrent() {
                 ::core::result::Result::Ok(ok__) => {
                     *relationship = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -987,10 +987,10 @@ impl IOpcRelationshipEnumerator_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Clone<Identity: ::windows::core::IUnknownImpl, Impl: IOpcRelationshipEnumerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, copy: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Clone<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcRelationshipEnumerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, copy: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).Clone() {
+            let this = (*this).get_impl();
+            match this.Clone() {
                 ::core::result::Result::Ok(ok__) => {
                     *copy = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1016,11 +1016,11 @@ pub trait IOpcRelationshipSelector_Impl: Sized {
 }
 impl ::windows::core::RuntimeName for IOpcRelationshipSelector {}
 impl IOpcRelationshipSelector_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IOpcRelationshipSelector_Impl, const OFFSET: isize>() -> IOpcRelationshipSelector_Vtbl {
-        unsafe extern "system" fn GetSelectorType<Identity: ::windows::core::IUnknownImpl, Impl: IOpcRelationshipSelector_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, selector: *mut OPC_RELATIONSHIP_SELECTOR) -> ::windows::core::HRESULT {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcRelationshipSelector_Impl, const OFFSET: isize>() -> IOpcRelationshipSelector_Vtbl {
+        unsafe extern "system" fn GetSelectorType<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcRelationshipSelector_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, selector: *mut OPC_RELATIONSHIP_SELECTOR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetSelectorType() {
+            let this = (*this).get_impl();
+            match this.GetSelectorType() {
                 ::core::result::Result::Ok(ok__) => {
                     *selector = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1028,10 +1028,10 @@ impl IOpcRelationshipSelector_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetSelectionCriterion<Identity: ::windows::core::IUnknownImpl, Impl: IOpcRelationshipSelector_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, selectioncriterion: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetSelectionCriterion<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcRelationshipSelector_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, selectioncriterion: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetSelectionCriterion() {
+            let this = (*this).get_impl();
+            match this.GetSelectionCriterion() {
                 ::core::result::Result::Ok(ok__) => {
                     *selectioncriterion = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1060,11 +1060,11 @@ pub trait IOpcRelationshipSelectorEnumerator_Impl: Sized {
 impl ::windows::core::RuntimeName for IOpcRelationshipSelectorEnumerator {}
 #[cfg(feature = "Win32_Foundation")]
 impl IOpcRelationshipSelectorEnumerator_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IOpcRelationshipSelectorEnumerator_Impl, const OFFSET: isize>() -> IOpcRelationshipSelectorEnumerator_Vtbl {
-        unsafe extern "system" fn MoveNext<Identity: ::windows::core::IUnknownImpl, Impl: IOpcRelationshipSelectorEnumerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hasnext: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcRelationshipSelectorEnumerator_Impl, const OFFSET: isize>() -> IOpcRelationshipSelectorEnumerator_Vtbl {
+        unsafe extern "system" fn MoveNext<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcRelationshipSelectorEnumerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hasnext: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).MoveNext() {
+            let this = (*this).get_impl();
+            match this.MoveNext() {
                 ::core::result::Result::Ok(ok__) => {
                     *hasnext = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1072,10 +1072,10 @@ impl IOpcRelationshipSelectorEnumerator_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MovePrevious<Identity: ::windows::core::IUnknownImpl, Impl: IOpcRelationshipSelectorEnumerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hasprevious: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MovePrevious<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcRelationshipSelectorEnumerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hasprevious: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).MovePrevious() {
+            let this = (*this).get_impl();
+            match this.MovePrevious() {
                 ::core::result::Result::Ok(ok__) => {
                     *hasprevious = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1083,10 +1083,10 @@ impl IOpcRelationshipSelectorEnumerator_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetCurrent<Identity: ::windows::core::IUnknownImpl, Impl: IOpcRelationshipSelectorEnumerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, relationshipselector: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetCurrent<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcRelationshipSelectorEnumerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, relationshipselector: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetCurrent() {
+            let this = (*this).get_impl();
+            match this.GetCurrent() {
                 ::core::result::Result::Ok(ok__) => {
                     *relationshipselector = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1094,10 +1094,10 @@ impl IOpcRelationshipSelectorEnumerator_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Clone<Identity: ::windows::core::IUnknownImpl, Impl: IOpcRelationshipSelectorEnumerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, copy: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Clone<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcRelationshipSelectorEnumerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, copy: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).Clone() {
+            let this = (*this).get_impl();
+            match this.Clone() {
                 ::core::result::Result::Ok(ok__) => {
                     *copy = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1124,11 +1124,11 @@ pub trait IOpcRelationshipSelectorSet_Impl: Sized {
 }
 impl ::windows::core::RuntimeName for IOpcRelationshipSelectorSet {}
 impl IOpcRelationshipSelectorSet_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IOpcRelationshipSelectorSet_Impl, const OFFSET: isize>() -> IOpcRelationshipSelectorSet_Vtbl {
-        unsafe extern "system" fn Create<Identity: ::windows::core::IUnknownImpl, Impl: IOpcRelationshipSelectorSet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, selector: OPC_RELATIONSHIP_SELECTOR, selectioncriterion: ::windows::core::PCWSTR, relationshipselector: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcRelationshipSelectorSet_Impl, const OFFSET: isize>() -> IOpcRelationshipSelectorSet_Vtbl {
+        unsafe extern "system" fn Create<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcRelationshipSelectorSet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, selector: OPC_RELATIONSHIP_SELECTOR, selectioncriterion: ::windows::core::PCWSTR, relationshipselector: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).Create(::core::mem::transmute_copy(&selector), ::core::mem::transmute(&selectioncriterion)) {
+            let this = (*this).get_impl();
+            match this.Create(::core::mem::transmute_copy(&selector), ::core::mem::transmute(&selectioncriterion)) {
                 ::core::result::Result::Ok(ok__) => {
                     *relationshipselector = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1136,15 +1136,15 @@ impl IOpcRelationshipSelectorSet_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Delete<Identity: ::windows::core::IUnknownImpl, Impl: IOpcRelationshipSelectorSet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, relationshipselector: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Delete<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcRelationshipSelectorSet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, relationshipselector: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            (*this).Delete(::core::mem::transmute(&relationshipselector)).into()
+            let this = (*this).get_impl();
+            this.Delete(::core::mem::transmute(&relationshipselector)).into()
         }
-        unsafe extern "system" fn GetEnumerator<Identity: ::windows::core::IUnknownImpl, Impl: IOpcRelationshipSelectorSet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, relationshipselectorenumerator: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetEnumerator<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcRelationshipSelectorSet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, relationshipselectorenumerator: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetEnumerator() {
+            let this = (*this).get_impl();
+            match this.GetEnumerator() {
                 ::core::result::Result::Ok(ok__) => {
                     *relationshipselectorenumerator = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1177,11 +1177,11 @@ pub trait IOpcRelationshipSet_Impl: Sized {
 impl ::windows::core::RuntimeName for IOpcRelationshipSet {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IOpcRelationshipSet_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IOpcRelationshipSet_Impl, const OFFSET: isize>() -> IOpcRelationshipSet_Vtbl {
-        unsafe extern "system" fn GetRelationship<Identity: ::windows::core::IUnknownImpl, Impl: IOpcRelationshipSet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, relationshipidentifier: ::windows::core::PCWSTR, relationship: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcRelationshipSet_Impl, const OFFSET: isize>() -> IOpcRelationshipSet_Vtbl {
+        unsafe extern "system" fn GetRelationship<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcRelationshipSet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, relationshipidentifier: ::windows::core::PCWSTR, relationship: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetRelationship(::core::mem::transmute(&relationshipidentifier)) {
+            let this = (*this).get_impl();
+            match this.GetRelationship(::core::mem::transmute(&relationshipidentifier)) {
                 ::core::result::Result::Ok(ok__) => {
                     *relationship = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1189,10 +1189,10 @@ impl IOpcRelationshipSet_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateRelationship<Identity: ::windows::core::IUnknownImpl, Impl: IOpcRelationshipSet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, relationshipidentifier: ::windows::core::PCWSTR, relationshiptype: ::windows::core::PCWSTR, targeturi: ::windows::core::RawPtr, targetmode: OPC_URI_TARGET_MODE, relationship: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateRelationship<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcRelationshipSet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, relationshipidentifier: ::windows::core::PCWSTR, relationshiptype: ::windows::core::PCWSTR, targeturi: ::windows::core::RawPtr, targetmode: OPC_URI_TARGET_MODE, relationship: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).CreateRelationship(::core::mem::transmute(&relationshipidentifier), ::core::mem::transmute(&relationshiptype), ::core::mem::transmute(&targeturi), ::core::mem::transmute_copy(&targetmode)) {
+            let this = (*this).get_impl();
+            match this.CreateRelationship(::core::mem::transmute(&relationshipidentifier), ::core::mem::transmute(&relationshiptype), ::core::mem::transmute(&targeturi), ::core::mem::transmute_copy(&targetmode)) {
                 ::core::result::Result::Ok(ok__) => {
                     *relationship = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1200,15 +1200,15 @@ impl IOpcRelationshipSet_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DeleteRelationship<Identity: ::windows::core::IUnknownImpl, Impl: IOpcRelationshipSet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, relationshipidentifier: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DeleteRelationship<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcRelationshipSet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, relationshipidentifier: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            (*this).DeleteRelationship(::core::mem::transmute(&relationshipidentifier)).into()
+            let this = (*this).get_impl();
+            this.DeleteRelationship(::core::mem::transmute(&relationshipidentifier)).into()
         }
-        unsafe extern "system" fn RelationshipExists<Identity: ::windows::core::IUnknownImpl, Impl: IOpcRelationshipSet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, relationshipidentifier: ::windows::core::PCWSTR, relationshipexists: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RelationshipExists<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcRelationshipSet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, relationshipidentifier: ::windows::core::PCWSTR, relationshipexists: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).RelationshipExists(::core::mem::transmute(&relationshipidentifier)) {
+            let this = (*this).get_impl();
+            match this.RelationshipExists(::core::mem::transmute(&relationshipidentifier)) {
                 ::core::result::Result::Ok(ok__) => {
                     *relationshipexists = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1216,10 +1216,10 @@ impl IOpcRelationshipSet_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetEnumerator<Identity: ::windows::core::IUnknownImpl, Impl: IOpcRelationshipSet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, relationshipenumerator: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetEnumerator<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcRelationshipSet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, relationshipenumerator: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetEnumerator() {
+            let this = (*this).get_impl();
+            match this.GetEnumerator() {
                 ::core::result::Result::Ok(ok__) => {
                     *relationshipenumerator = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1227,10 +1227,10 @@ impl IOpcRelationshipSet_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetEnumeratorForType<Identity: ::windows::core::IUnknownImpl, Impl: IOpcRelationshipSet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, relationshiptype: ::windows::core::PCWSTR, relationshipenumerator: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetEnumeratorForType<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcRelationshipSet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, relationshiptype: ::windows::core::PCWSTR, relationshipenumerator: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetEnumeratorForType(::core::mem::transmute(&relationshiptype)) {
+            let this = (*this).get_impl();
+            match this.GetEnumeratorForType(::core::mem::transmute(&relationshiptype)) {
                 ::core::result::Result::Ok(ok__) => {
                     *relationshipenumerator = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1238,10 +1238,10 @@ impl IOpcRelationshipSet_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetRelationshipsContentStream<Identity: ::windows::core::IUnknownImpl, Impl: IOpcRelationshipSet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, contents: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetRelationshipsContentStream<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcRelationshipSet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, contents: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetRelationshipsContentStream() {
+            let this = (*this).get_impl();
+            match this.GetRelationshipsContentStream() {
                 ::core::result::Result::Ok(ok__) => {
                     *contents = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1269,11 +1269,11 @@ pub trait IOpcSignatureCustomObject_Impl: Sized {
 }
 impl ::windows::core::RuntimeName for IOpcSignatureCustomObject {}
 impl IOpcSignatureCustomObject_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IOpcSignatureCustomObject_Impl, const OFFSET: isize>() -> IOpcSignatureCustomObject_Vtbl {
-        unsafe extern "system" fn GetXml<Identity: ::windows::core::IUnknownImpl, Impl: IOpcSignatureCustomObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xmlmarkup: *mut *mut u8, count: *mut u32) -> ::windows::core::HRESULT {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcSignatureCustomObject_Impl, const OFFSET: isize>() -> IOpcSignatureCustomObject_Vtbl {
+        unsafe extern "system" fn GetXml<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcSignatureCustomObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xmlmarkup: *mut *mut u8, count: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            (*this).GetXml(::core::mem::transmute_copy(&xmlmarkup), ::core::mem::transmute_copy(&count)).into()
+            let this = (*this).get_impl();
+            this.GetXml(::core::mem::transmute_copy(&xmlmarkup), ::core::mem::transmute_copy(&count)).into()
         }
         Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), GetXml: GetXml::<Identity, Impl, OFFSET> }
     }
@@ -1292,11 +1292,11 @@ pub trait IOpcSignatureCustomObjectEnumerator_Impl: Sized {
 impl ::windows::core::RuntimeName for IOpcSignatureCustomObjectEnumerator {}
 #[cfg(feature = "Win32_Foundation")]
 impl IOpcSignatureCustomObjectEnumerator_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IOpcSignatureCustomObjectEnumerator_Impl, const OFFSET: isize>() -> IOpcSignatureCustomObjectEnumerator_Vtbl {
-        unsafe extern "system" fn MoveNext<Identity: ::windows::core::IUnknownImpl, Impl: IOpcSignatureCustomObjectEnumerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hasnext: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcSignatureCustomObjectEnumerator_Impl, const OFFSET: isize>() -> IOpcSignatureCustomObjectEnumerator_Vtbl {
+        unsafe extern "system" fn MoveNext<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcSignatureCustomObjectEnumerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hasnext: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).MoveNext() {
+            let this = (*this).get_impl();
+            match this.MoveNext() {
                 ::core::result::Result::Ok(ok__) => {
                     *hasnext = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1304,10 +1304,10 @@ impl IOpcSignatureCustomObjectEnumerator_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MovePrevious<Identity: ::windows::core::IUnknownImpl, Impl: IOpcSignatureCustomObjectEnumerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hasprevious: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MovePrevious<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcSignatureCustomObjectEnumerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hasprevious: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).MovePrevious() {
+            let this = (*this).get_impl();
+            match this.MovePrevious() {
                 ::core::result::Result::Ok(ok__) => {
                     *hasprevious = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1315,10 +1315,10 @@ impl IOpcSignatureCustomObjectEnumerator_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetCurrent<Identity: ::windows::core::IUnknownImpl, Impl: IOpcSignatureCustomObjectEnumerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, customobject: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetCurrent<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcSignatureCustomObjectEnumerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, customobject: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetCurrent() {
+            let this = (*this).get_impl();
+            match this.GetCurrent() {
                 ::core::result::Result::Ok(ok__) => {
                     *customobject = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1326,10 +1326,10 @@ impl IOpcSignatureCustomObjectEnumerator_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Clone<Identity: ::windows::core::IUnknownImpl, Impl: IOpcSignatureCustomObjectEnumerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, copy: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Clone<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcSignatureCustomObjectEnumerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, copy: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).Clone() {
+            let this = (*this).get_impl();
+            match this.Clone() {
                 ::core::result::Result::Ok(ok__) => {
                     *copy = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1356,11 +1356,11 @@ pub trait IOpcSignatureCustomObjectSet_Impl: Sized {
 }
 impl ::windows::core::RuntimeName for IOpcSignatureCustomObjectSet {}
 impl IOpcSignatureCustomObjectSet_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IOpcSignatureCustomObjectSet_Impl, const OFFSET: isize>() -> IOpcSignatureCustomObjectSet_Vtbl {
-        unsafe extern "system" fn Create<Identity: ::windows::core::IUnknownImpl, Impl: IOpcSignatureCustomObjectSet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xmlmarkup: *const u8, count: u32, customobject: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcSignatureCustomObjectSet_Impl, const OFFSET: isize>() -> IOpcSignatureCustomObjectSet_Vtbl {
+        unsafe extern "system" fn Create<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcSignatureCustomObjectSet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xmlmarkup: *const u8, count: u32, customobject: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).Create(::core::mem::transmute_copy(&xmlmarkup), ::core::mem::transmute_copy(&count)) {
+            let this = (*this).get_impl();
+            match this.Create(::core::mem::transmute_copy(&xmlmarkup), ::core::mem::transmute_copy(&count)) {
                 ::core::result::Result::Ok(ok__) => {
                     *customobject = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1368,15 +1368,15 @@ impl IOpcSignatureCustomObjectSet_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Delete<Identity: ::windows::core::IUnknownImpl, Impl: IOpcSignatureCustomObjectSet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, customobject: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Delete<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcSignatureCustomObjectSet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, customobject: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            (*this).Delete(::core::mem::transmute(&customobject)).into()
+            let this = (*this).get_impl();
+            this.Delete(::core::mem::transmute(&customobject)).into()
         }
-        unsafe extern "system" fn GetEnumerator<Identity: ::windows::core::IUnknownImpl, Impl: IOpcSignatureCustomObjectSet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, customobjectenumerator: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetEnumerator<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcSignatureCustomObjectSet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, customobjectenumerator: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetEnumerator() {
+            let this = (*this).get_impl();
+            match this.GetEnumerator() {
                 ::core::result::Result::Ok(ok__) => {
                     *customobjectenumerator = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1407,11 +1407,11 @@ pub trait IOpcSignaturePartReference_Impl: Sized {
 impl ::windows::core::RuntimeName for IOpcSignaturePartReference {}
 #[cfg(feature = "Win32_System_Com")]
 impl IOpcSignaturePartReference_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IOpcSignaturePartReference_Impl, const OFFSET: isize>() -> IOpcSignaturePartReference_Vtbl {
-        unsafe extern "system" fn GetPartName<Identity: ::windows::core::IUnknownImpl, Impl: IOpcSignaturePartReference_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, partname: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcSignaturePartReference_Impl, const OFFSET: isize>() -> IOpcSignaturePartReference_Vtbl {
+        unsafe extern "system" fn GetPartName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcSignaturePartReference_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, partname: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetPartName() {
+            let this = (*this).get_impl();
+            match this.GetPartName() {
                 ::core::result::Result::Ok(ok__) => {
                     *partname = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1419,10 +1419,10 @@ impl IOpcSignaturePartReference_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetContentType<Identity: ::windows::core::IUnknownImpl, Impl: IOpcSignaturePartReference_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, contenttype: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetContentType<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcSignaturePartReference_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, contenttype: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetContentType() {
+            let this = (*this).get_impl();
+            match this.GetContentType() {
                 ::core::result::Result::Ok(ok__) => {
                     *contenttype = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1430,10 +1430,10 @@ impl IOpcSignaturePartReference_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetDigestMethod<Identity: ::windows::core::IUnknownImpl, Impl: IOpcSignaturePartReference_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, digestmethod: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDigestMethod<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcSignaturePartReference_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, digestmethod: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetDigestMethod() {
+            let this = (*this).get_impl();
+            match this.GetDigestMethod() {
                 ::core::result::Result::Ok(ok__) => {
                     *digestmethod = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1441,15 +1441,15 @@ impl IOpcSignaturePartReference_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetDigestValue<Identity: ::windows::core::IUnknownImpl, Impl: IOpcSignaturePartReference_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, digestvalue: *mut *mut u8, count: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDigestValue<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcSignaturePartReference_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, digestvalue: *mut *mut u8, count: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            (*this).GetDigestValue(::core::mem::transmute_copy(&digestvalue), ::core::mem::transmute_copy(&count)).into()
+            let this = (*this).get_impl();
+            this.GetDigestValue(::core::mem::transmute_copy(&digestvalue), ::core::mem::transmute_copy(&count)).into()
         }
-        unsafe extern "system" fn GetTransformMethod<Identity: ::windows::core::IUnknownImpl, Impl: IOpcSignaturePartReference_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, transformmethod: *mut OPC_CANONICALIZATION_METHOD) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetTransformMethod<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcSignaturePartReference_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, transformmethod: *mut OPC_CANONICALIZATION_METHOD) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetTransformMethod() {
+            let this = (*this).get_impl();
+            match this.GetTransformMethod() {
                 ::core::result::Result::Ok(ok__) => {
                     *transformmethod = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1481,11 +1481,11 @@ pub trait IOpcSignaturePartReferenceEnumerator_Impl: Sized {
 impl ::windows::core::RuntimeName for IOpcSignaturePartReferenceEnumerator {}
 #[cfg(feature = "Win32_Foundation")]
 impl IOpcSignaturePartReferenceEnumerator_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IOpcSignaturePartReferenceEnumerator_Impl, const OFFSET: isize>() -> IOpcSignaturePartReferenceEnumerator_Vtbl {
-        unsafe extern "system" fn MoveNext<Identity: ::windows::core::IUnknownImpl, Impl: IOpcSignaturePartReferenceEnumerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hasnext: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcSignaturePartReferenceEnumerator_Impl, const OFFSET: isize>() -> IOpcSignaturePartReferenceEnumerator_Vtbl {
+        unsafe extern "system" fn MoveNext<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcSignaturePartReferenceEnumerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hasnext: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).MoveNext() {
+            let this = (*this).get_impl();
+            match this.MoveNext() {
                 ::core::result::Result::Ok(ok__) => {
                     *hasnext = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1493,10 +1493,10 @@ impl IOpcSignaturePartReferenceEnumerator_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MovePrevious<Identity: ::windows::core::IUnknownImpl, Impl: IOpcSignaturePartReferenceEnumerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hasprevious: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MovePrevious<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcSignaturePartReferenceEnumerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hasprevious: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).MovePrevious() {
+            let this = (*this).get_impl();
+            match this.MovePrevious() {
                 ::core::result::Result::Ok(ok__) => {
                     *hasprevious = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1504,10 +1504,10 @@ impl IOpcSignaturePartReferenceEnumerator_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetCurrent<Identity: ::windows::core::IUnknownImpl, Impl: IOpcSignaturePartReferenceEnumerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, partreference: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetCurrent<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcSignaturePartReferenceEnumerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, partreference: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetCurrent() {
+            let this = (*this).get_impl();
+            match this.GetCurrent() {
                 ::core::result::Result::Ok(ok__) => {
                     *partreference = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1515,10 +1515,10 @@ impl IOpcSignaturePartReferenceEnumerator_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Clone<Identity: ::windows::core::IUnknownImpl, Impl: IOpcSignaturePartReferenceEnumerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, copy: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Clone<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcSignaturePartReferenceEnumerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, copy: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).Clone() {
+            let this = (*this).get_impl();
+            match this.Clone() {
                 ::core::result::Result::Ok(ok__) => {
                     *copy = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1548,11 +1548,11 @@ pub trait IOpcSignaturePartReferenceSet_Impl: Sized {
 impl ::windows::core::RuntimeName for IOpcSignaturePartReferenceSet {}
 #[cfg(feature = "Win32_System_Com")]
 impl IOpcSignaturePartReferenceSet_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IOpcSignaturePartReferenceSet_Impl, const OFFSET: isize>() -> IOpcSignaturePartReferenceSet_Vtbl {
-        unsafe extern "system" fn Create<Identity: ::windows::core::IUnknownImpl, Impl: IOpcSignaturePartReferenceSet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, parturi: ::windows::core::RawPtr, digestmethod: ::windows::core::PCWSTR, transformmethod: OPC_CANONICALIZATION_METHOD, partreference: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcSignaturePartReferenceSet_Impl, const OFFSET: isize>() -> IOpcSignaturePartReferenceSet_Vtbl {
+        unsafe extern "system" fn Create<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcSignaturePartReferenceSet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, parturi: ::windows::core::RawPtr, digestmethod: ::windows::core::PCWSTR, transformmethod: OPC_CANONICALIZATION_METHOD, partreference: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).Create(::core::mem::transmute(&parturi), ::core::mem::transmute(&digestmethod), ::core::mem::transmute_copy(&transformmethod)) {
+            let this = (*this).get_impl();
+            match this.Create(::core::mem::transmute(&parturi), ::core::mem::transmute(&digestmethod), ::core::mem::transmute_copy(&transformmethod)) {
                 ::core::result::Result::Ok(ok__) => {
                     *partreference = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1560,15 +1560,15 @@ impl IOpcSignaturePartReferenceSet_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Delete<Identity: ::windows::core::IUnknownImpl, Impl: IOpcSignaturePartReferenceSet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, partreference: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Delete<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcSignaturePartReferenceSet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, partreference: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            (*this).Delete(::core::mem::transmute(&partreference)).into()
+            let this = (*this).get_impl();
+            this.Delete(::core::mem::transmute(&partreference)).into()
         }
-        unsafe extern "system" fn GetEnumerator<Identity: ::windows::core::IUnknownImpl, Impl: IOpcSignaturePartReferenceSet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, partreferenceenumerator: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetEnumerator<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcSignaturePartReferenceSet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, partreferenceenumerator: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetEnumerator() {
+            let this = (*this).get_impl();
+            match this.GetEnumerator() {
                 ::core::result::Result::Ok(ok__) => {
                     *partreferenceenumerator = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1600,11 +1600,11 @@ pub trait IOpcSignatureReference_Impl: Sized {
 impl ::windows::core::RuntimeName for IOpcSignatureReference {}
 #[cfg(feature = "Win32_System_Com")]
 impl IOpcSignatureReference_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IOpcSignatureReference_Impl, const OFFSET: isize>() -> IOpcSignatureReference_Vtbl {
-        unsafe extern "system" fn GetId<Identity: ::windows::core::IUnknownImpl, Impl: IOpcSignatureReference_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, referenceid: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcSignatureReference_Impl, const OFFSET: isize>() -> IOpcSignatureReference_Vtbl {
+        unsafe extern "system" fn GetId<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcSignatureReference_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, referenceid: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetId() {
+            let this = (*this).get_impl();
+            match this.GetId() {
                 ::core::result::Result::Ok(ok__) => {
                     *referenceid = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1612,10 +1612,10 @@ impl IOpcSignatureReference_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetUri<Identity: ::windows::core::IUnknownImpl, Impl: IOpcSignatureReference_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, referenceuri: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetUri<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcSignatureReference_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, referenceuri: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetUri() {
+            let this = (*this).get_impl();
+            match this.GetUri() {
                 ::core::result::Result::Ok(ok__) => {
                     *referenceuri = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1623,10 +1623,10 @@ impl IOpcSignatureReference_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetType<Identity: ::windows::core::IUnknownImpl, Impl: IOpcSignatureReference_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, r#type: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetType<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcSignatureReference_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, r#type: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetType() {
+            let this = (*this).get_impl();
+            match this.GetType() {
                 ::core::result::Result::Ok(ok__) => {
                     *r#type = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1634,10 +1634,10 @@ impl IOpcSignatureReference_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetTransformMethod<Identity: ::windows::core::IUnknownImpl, Impl: IOpcSignatureReference_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, transformmethod: *mut OPC_CANONICALIZATION_METHOD) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetTransformMethod<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcSignatureReference_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, transformmethod: *mut OPC_CANONICALIZATION_METHOD) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetTransformMethod() {
+            let this = (*this).get_impl();
+            match this.GetTransformMethod() {
                 ::core::result::Result::Ok(ok__) => {
                     *transformmethod = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1645,10 +1645,10 @@ impl IOpcSignatureReference_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetDigestMethod<Identity: ::windows::core::IUnknownImpl, Impl: IOpcSignatureReference_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, digestmethod: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDigestMethod<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcSignatureReference_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, digestmethod: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetDigestMethod() {
+            let this = (*this).get_impl();
+            match this.GetDigestMethod() {
                 ::core::result::Result::Ok(ok__) => {
                     *digestmethod = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1656,10 +1656,10 @@ impl IOpcSignatureReference_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetDigestValue<Identity: ::windows::core::IUnknownImpl, Impl: IOpcSignatureReference_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, digestvalue: *mut *mut u8, count: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDigestValue<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcSignatureReference_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, digestvalue: *mut *mut u8, count: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            (*this).GetDigestValue(::core::mem::transmute_copy(&digestvalue), ::core::mem::transmute_copy(&count)).into()
+            let this = (*this).get_impl();
+            this.GetDigestValue(::core::mem::transmute_copy(&digestvalue), ::core::mem::transmute_copy(&count)).into()
         }
         Self {
             base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
@@ -1686,11 +1686,11 @@ pub trait IOpcSignatureReferenceEnumerator_Impl: Sized {
 impl ::windows::core::RuntimeName for IOpcSignatureReferenceEnumerator {}
 #[cfg(feature = "Win32_Foundation")]
 impl IOpcSignatureReferenceEnumerator_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IOpcSignatureReferenceEnumerator_Impl, const OFFSET: isize>() -> IOpcSignatureReferenceEnumerator_Vtbl {
-        unsafe extern "system" fn MoveNext<Identity: ::windows::core::IUnknownImpl, Impl: IOpcSignatureReferenceEnumerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hasnext: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcSignatureReferenceEnumerator_Impl, const OFFSET: isize>() -> IOpcSignatureReferenceEnumerator_Vtbl {
+        unsafe extern "system" fn MoveNext<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcSignatureReferenceEnumerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hasnext: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).MoveNext() {
+            let this = (*this).get_impl();
+            match this.MoveNext() {
                 ::core::result::Result::Ok(ok__) => {
                     *hasnext = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1698,10 +1698,10 @@ impl IOpcSignatureReferenceEnumerator_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MovePrevious<Identity: ::windows::core::IUnknownImpl, Impl: IOpcSignatureReferenceEnumerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hasprevious: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MovePrevious<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcSignatureReferenceEnumerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hasprevious: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).MovePrevious() {
+            let this = (*this).get_impl();
+            match this.MovePrevious() {
                 ::core::result::Result::Ok(ok__) => {
                     *hasprevious = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1709,10 +1709,10 @@ impl IOpcSignatureReferenceEnumerator_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetCurrent<Identity: ::windows::core::IUnknownImpl, Impl: IOpcSignatureReferenceEnumerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, reference: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetCurrent<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcSignatureReferenceEnumerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, reference: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetCurrent() {
+            let this = (*this).get_impl();
+            match this.GetCurrent() {
                 ::core::result::Result::Ok(ok__) => {
                     *reference = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1720,10 +1720,10 @@ impl IOpcSignatureReferenceEnumerator_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Clone<Identity: ::windows::core::IUnknownImpl, Impl: IOpcSignatureReferenceEnumerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, copy: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Clone<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcSignatureReferenceEnumerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, copy: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).Clone() {
+            let this = (*this).get_impl();
+            match this.Clone() {
                 ::core::result::Result::Ok(ok__) => {
                     *copy = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1753,11 +1753,11 @@ pub trait IOpcSignatureReferenceSet_Impl: Sized {
 impl ::windows::core::RuntimeName for IOpcSignatureReferenceSet {}
 #[cfg(feature = "Win32_System_Com")]
 impl IOpcSignatureReferenceSet_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IOpcSignatureReferenceSet_Impl, const OFFSET: isize>() -> IOpcSignatureReferenceSet_Vtbl {
-        unsafe extern "system" fn Create<Identity: ::windows::core::IUnknownImpl, Impl: IOpcSignatureReferenceSet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, referenceuri: ::windows::core::RawPtr, referenceid: ::windows::core::PCWSTR, r#type: ::windows::core::PCWSTR, digestmethod: ::windows::core::PCWSTR, transformmethod: OPC_CANONICALIZATION_METHOD, reference: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcSignatureReferenceSet_Impl, const OFFSET: isize>() -> IOpcSignatureReferenceSet_Vtbl {
+        unsafe extern "system" fn Create<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcSignatureReferenceSet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, referenceuri: ::windows::core::RawPtr, referenceid: ::windows::core::PCWSTR, r#type: ::windows::core::PCWSTR, digestmethod: ::windows::core::PCWSTR, transformmethod: OPC_CANONICALIZATION_METHOD, reference: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).Create(::core::mem::transmute(&referenceuri), ::core::mem::transmute(&referenceid), ::core::mem::transmute(&r#type), ::core::mem::transmute(&digestmethod), ::core::mem::transmute_copy(&transformmethod)) {
+            let this = (*this).get_impl();
+            match this.Create(::core::mem::transmute(&referenceuri), ::core::mem::transmute(&referenceid), ::core::mem::transmute(&r#type), ::core::mem::transmute(&digestmethod), ::core::mem::transmute_copy(&transformmethod)) {
                 ::core::result::Result::Ok(ok__) => {
                     *reference = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1765,15 +1765,15 @@ impl IOpcSignatureReferenceSet_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Delete<Identity: ::windows::core::IUnknownImpl, Impl: IOpcSignatureReferenceSet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, reference: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Delete<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcSignatureReferenceSet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, reference: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            (*this).Delete(::core::mem::transmute(&reference)).into()
+            let this = (*this).get_impl();
+            this.Delete(::core::mem::transmute(&reference)).into()
         }
-        unsafe extern "system" fn GetEnumerator<Identity: ::windows::core::IUnknownImpl, Impl: IOpcSignatureReferenceSet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, referenceenumerator: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetEnumerator<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcSignatureReferenceSet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, referenceenumerator: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetEnumerator() {
+            let this = (*this).get_impl();
+            match this.GetEnumerator() {
                 ::core::result::Result::Ok(ok__) => {
                     *referenceenumerator = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1805,11 +1805,11 @@ pub trait IOpcSignatureRelationshipReference_Impl: Sized {
 impl ::windows::core::RuntimeName for IOpcSignatureRelationshipReference {}
 #[cfg(feature = "Win32_System_Com")]
 impl IOpcSignatureRelationshipReference_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IOpcSignatureRelationshipReference_Impl, const OFFSET: isize>() -> IOpcSignatureRelationshipReference_Vtbl {
-        unsafe extern "system" fn GetSourceUri<Identity: ::windows::core::IUnknownImpl, Impl: IOpcSignatureRelationshipReference_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sourceuri: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcSignatureRelationshipReference_Impl, const OFFSET: isize>() -> IOpcSignatureRelationshipReference_Vtbl {
+        unsafe extern "system" fn GetSourceUri<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcSignatureRelationshipReference_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sourceuri: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetSourceUri() {
+            let this = (*this).get_impl();
+            match this.GetSourceUri() {
                 ::core::result::Result::Ok(ok__) => {
                     *sourceuri = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1817,10 +1817,10 @@ impl IOpcSignatureRelationshipReference_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetDigestMethod<Identity: ::windows::core::IUnknownImpl, Impl: IOpcSignatureRelationshipReference_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, digestmethod: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDigestMethod<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcSignatureRelationshipReference_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, digestmethod: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetDigestMethod() {
+            let this = (*this).get_impl();
+            match this.GetDigestMethod() {
                 ::core::result::Result::Ok(ok__) => {
                     *digestmethod = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1828,15 +1828,15 @@ impl IOpcSignatureRelationshipReference_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetDigestValue<Identity: ::windows::core::IUnknownImpl, Impl: IOpcSignatureRelationshipReference_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, digestvalue: *mut *mut u8, count: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDigestValue<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcSignatureRelationshipReference_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, digestvalue: *mut *mut u8, count: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            (*this).GetDigestValue(::core::mem::transmute_copy(&digestvalue), ::core::mem::transmute_copy(&count)).into()
+            let this = (*this).get_impl();
+            this.GetDigestValue(::core::mem::transmute_copy(&digestvalue), ::core::mem::transmute_copy(&count)).into()
         }
-        unsafe extern "system" fn GetTransformMethod<Identity: ::windows::core::IUnknownImpl, Impl: IOpcSignatureRelationshipReference_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, transformmethod: *mut OPC_CANONICALIZATION_METHOD) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetTransformMethod<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcSignatureRelationshipReference_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, transformmethod: *mut OPC_CANONICALIZATION_METHOD) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetTransformMethod() {
+            let this = (*this).get_impl();
+            match this.GetTransformMethod() {
                 ::core::result::Result::Ok(ok__) => {
                     *transformmethod = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1844,10 +1844,10 @@ impl IOpcSignatureRelationshipReference_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetRelationshipSigningOption<Identity: ::windows::core::IUnknownImpl, Impl: IOpcSignatureRelationshipReference_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, relationshipsigningoption: *mut OPC_RELATIONSHIPS_SIGNING_OPTION) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetRelationshipSigningOption<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcSignatureRelationshipReference_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, relationshipsigningoption: *mut OPC_RELATIONSHIPS_SIGNING_OPTION) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetRelationshipSigningOption() {
+            let this = (*this).get_impl();
+            match this.GetRelationshipSigningOption() {
                 ::core::result::Result::Ok(ok__) => {
                     *relationshipsigningoption = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1855,10 +1855,10 @@ impl IOpcSignatureRelationshipReference_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetRelationshipSelectorEnumerator<Identity: ::windows::core::IUnknownImpl, Impl: IOpcSignatureRelationshipReference_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, selectorenumerator: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetRelationshipSelectorEnumerator<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcSignatureRelationshipReference_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, selectorenumerator: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetRelationshipSelectorEnumerator() {
+            let this = (*this).get_impl();
+            match this.GetRelationshipSelectorEnumerator() {
                 ::core::result::Result::Ok(ok__) => {
                     *selectorenumerator = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1891,11 +1891,11 @@ pub trait IOpcSignatureRelationshipReferenceEnumerator_Impl: Sized {
 impl ::windows::core::RuntimeName for IOpcSignatureRelationshipReferenceEnumerator {}
 #[cfg(feature = "Win32_Foundation")]
 impl IOpcSignatureRelationshipReferenceEnumerator_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IOpcSignatureRelationshipReferenceEnumerator_Impl, const OFFSET: isize>() -> IOpcSignatureRelationshipReferenceEnumerator_Vtbl {
-        unsafe extern "system" fn MoveNext<Identity: ::windows::core::IUnknownImpl, Impl: IOpcSignatureRelationshipReferenceEnumerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hasnext: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcSignatureRelationshipReferenceEnumerator_Impl, const OFFSET: isize>() -> IOpcSignatureRelationshipReferenceEnumerator_Vtbl {
+        unsafe extern "system" fn MoveNext<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcSignatureRelationshipReferenceEnumerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hasnext: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).MoveNext() {
+            let this = (*this).get_impl();
+            match this.MoveNext() {
                 ::core::result::Result::Ok(ok__) => {
                     *hasnext = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1903,10 +1903,10 @@ impl IOpcSignatureRelationshipReferenceEnumerator_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MovePrevious<Identity: ::windows::core::IUnknownImpl, Impl: IOpcSignatureRelationshipReferenceEnumerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hasprevious: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MovePrevious<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcSignatureRelationshipReferenceEnumerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hasprevious: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).MovePrevious() {
+            let this = (*this).get_impl();
+            match this.MovePrevious() {
                 ::core::result::Result::Ok(ok__) => {
                     *hasprevious = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1914,10 +1914,10 @@ impl IOpcSignatureRelationshipReferenceEnumerator_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetCurrent<Identity: ::windows::core::IUnknownImpl, Impl: IOpcSignatureRelationshipReferenceEnumerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, relationshipreference: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetCurrent<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcSignatureRelationshipReferenceEnumerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, relationshipreference: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetCurrent() {
+            let this = (*this).get_impl();
+            match this.GetCurrent() {
                 ::core::result::Result::Ok(ok__) => {
                     *relationshipreference = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1925,10 +1925,10 @@ impl IOpcSignatureRelationshipReferenceEnumerator_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Clone<Identity: ::windows::core::IUnknownImpl, Impl: IOpcSignatureRelationshipReferenceEnumerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, copy: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Clone<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcSignatureRelationshipReferenceEnumerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, copy: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).Clone() {
+            let this = (*this).get_impl();
+            match this.Clone() {
                 ::core::result::Result::Ok(ok__) => {
                     *copy = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1959,11 +1959,11 @@ pub trait IOpcSignatureRelationshipReferenceSet_Impl: Sized {
 impl ::windows::core::RuntimeName for IOpcSignatureRelationshipReferenceSet {}
 #[cfg(feature = "Win32_System_Com")]
 impl IOpcSignatureRelationshipReferenceSet_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IOpcSignatureRelationshipReferenceSet_Impl, const OFFSET: isize>() -> IOpcSignatureRelationshipReferenceSet_Vtbl {
-        unsafe extern "system" fn Create<Identity: ::windows::core::IUnknownImpl, Impl: IOpcSignatureRelationshipReferenceSet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sourceuri: ::windows::core::RawPtr, digestmethod: ::windows::core::PCWSTR, relationshipsigningoption: OPC_RELATIONSHIPS_SIGNING_OPTION, selectorset: ::windows::core::RawPtr, transformmethod: OPC_CANONICALIZATION_METHOD, relationshipreference: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcSignatureRelationshipReferenceSet_Impl, const OFFSET: isize>() -> IOpcSignatureRelationshipReferenceSet_Vtbl {
+        unsafe extern "system" fn Create<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcSignatureRelationshipReferenceSet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sourceuri: ::windows::core::RawPtr, digestmethod: ::windows::core::PCWSTR, relationshipsigningoption: OPC_RELATIONSHIPS_SIGNING_OPTION, selectorset: ::windows::core::RawPtr, transformmethod: OPC_CANONICALIZATION_METHOD, relationshipreference: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).Create(::core::mem::transmute(&sourceuri), ::core::mem::transmute(&digestmethod), ::core::mem::transmute_copy(&relationshipsigningoption), ::core::mem::transmute(&selectorset), ::core::mem::transmute_copy(&transformmethod)) {
+            let this = (*this).get_impl();
+            match this.Create(::core::mem::transmute(&sourceuri), ::core::mem::transmute(&digestmethod), ::core::mem::transmute_copy(&relationshipsigningoption), ::core::mem::transmute(&selectorset), ::core::mem::transmute_copy(&transformmethod)) {
                 ::core::result::Result::Ok(ok__) => {
                     *relationshipreference = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1971,10 +1971,10 @@ impl IOpcSignatureRelationshipReferenceSet_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateRelationshipSelectorSet<Identity: ::windows::core::IUnknownImpl, Impl: IOpcSignatureRelationshipReferenceSet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, selectorset: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateRelationshipSelectorSet<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcSignatureRelationshipReferenceSet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, selectorset: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).CreateRelationshipSelectorSet() {
+            let this = (*this).get_impl();
+            match this.CreateRelationshipSelectorSet() {
                 ::core::result::Result::Ok(ok__) => {
                     *selectorset = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -1982,15 +1982,15 @@ impl IOpcSignatureRelationshipReferenceSet_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Delete<Identity: ::windows::core::IUnknownImpl, Impl: IOpcSignatureRelationshipReferenceSet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, relationshipreference: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Delete<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcSignatureRelationshipReferenceSet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, relationshipreference: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            (*this).Delete(::core::mem::transmute(&relationshipreference)).into()
+            let this = (*this).get_impl();
+            this.Delete(::core::mem::transmute(&relationshipreference)).into()
         }
-        unsafe extern "system" fn GetEnumerator<Identity: ::windows::core::IUnknownImpl, Impl: IOpcSignatureRelationshipReferenceSet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, relationshipreferenceenumerator: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetEnumerator<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcSignatureRelationshipReferenceSet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, relationshipreferenceenumerator: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetEnumerator() {
+            let this = (*this).get_impl();
+            match this.GetEnumerator() {
                 ::core::result::Result::Ok(ok__) => {
                     *relationshipreferenceenumerator = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -2034,11 +2034,11 @@ pub trait IOpcSigningOptions_Impl: Sized {
 impl ::windows::core::RuntimeName for IOpcSigningOptions {}
 #[cfg(feature = "Win32_System_Com")]
 impl IOpcSigningOptions_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IOpcSigningOptions_Impl, const OFFSET: isize>() -> IOpcSigningOptions_Vtbl {
-        unsafe extern "system" fn GetSignatureId<Identity: ::windows::core::IUnknownImpl, Impl: IOpcSigningOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, signatureid: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcSigningOptions_Impl, const OFFSET: isize>() -> IOpcSigningOptions_Vtbl {
+        unsafe extern "system" fn GetSignatureId<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcSigningOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, signatureid: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetSignatureId() {
+            let this = (*this).get_impl();
+            match this.GetSignatureId() {
                 ::core::result::Result::Ok(ok__) => {
                     *signatureid = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -2046,15 +2046,15 @@ impl IOpcSigningOptions_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSignatureId<Identity: ::windows::core::IUnknownImpl, Impl: IOpcSigningOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, signatureid: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetSignatureId<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcSigningOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, signatureid: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            (*this).SetSignatureId(::core::mem::transmute(&signatureid)).into()
+            let this = (*this).get_impl();
+            this.SetSignatureId(::core::mem::transmute(&signatureid)).into()
         }
-        unsafe extern "system" fn GetSignatureMethod<Identity: ::windows::core::IUnknownImpl, Impl: IOpcSigningOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, signaturemethod: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetSignatureMethod<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcSigningOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, signaturemethod: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetSignatureMethod() {
+            let this = (*this).get_impl();
+            match this.GetSignatureMethod() {
                 ::core::result::Result::Ok(ok__) => {
                     *signaturemethod = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -2062,15 +2062,15 @@ impl IOpcSigningOptions_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSignatureMethod<Identity: ::windows::core::IUnknownImpl, Impl: IOpcSigningOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, signaturemethod: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetSignatureMethod<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcSigningOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, signaturemethod: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            (*this).SetSignatureMethod(::core::mem::transmute(&signaturemethod)).into()
+            let this = (*this).get_impl();
+            this.SetSignatureMethod(::core::mem::transmute(&signaturemethod)).into()
         }
-        unsafe extern "system" fn GetDefaultDigestMethod<Identity: ::windows::core::IUnknownImpl, Impl: IOpcSigningOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, digestmethod: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDefaultDigestMethod<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcSigningOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, digestmethod: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetDefaultDigestMethod() {
+            let this = (*this).get_impl();
+            match this.GetDefaultDigestMethod() {
                 ::core::result::Result::Ok(ok__) => {
                     *digestmethod = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -2078,15 +2078,15 @@ impl IOpcSigningOptions_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDefaultDigestMethod<Identity: ::windows::core::IUnknownImpl, Impl: IOpcSigningOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, digestmethod: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetDefaultDigestMethod<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcSigningOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, digestmethod: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            (*this).SetDefaultDigestMethod(::core::mem::transmute(&digestmethod)).into()
+            let this = (*this).get_impl();
+            this.SetDefaultDigestMethod(::core::mem::transmute(&digestmethod)).into()
         }
-        unsafe extern "system" fn GetCertificateEmbeddingOption<Identity: ::windows::core::IUnknownImpl, Impl: IOpcSigningOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, embeddingoption: *mut OPC_CERTIFICATE_EMBEDDING_OPTION) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetCertificateEmbeddingOption<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcSigningOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, embeddingoption: *mut OPC_CERTIFICATE_EMBEDDING_OPTION) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetCertificateEmbeddingOption() {
+            let this = (*this).get_impl();
+            match this.GetCertificateEmbeddingOption() {
                 ::core::result::Result::Ok(ok__) => {
                     *embeddingoption = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -2094,15 +2094,15 @@ impl IOpcSigningOptions_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetCertificateEmbeddingOption<Identity: ::windows::core::IUnknownImpl, Impl: IOpcSigningOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, embeddingoption: OPC_CERTIFICATE_EMBEDDING_OPTION) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetCertificateEmbeddingOption<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcSigningOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, embeddingoption: OPC_CERTIFICATE_EMBEDDING_OPTION) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            (*this).SetCertificateEmbeddingOption(::core::mem::transmute_copy(&embeddingoption)).into()
+            let this = (*this).get_impl();
+            this.SetCertificateEmbeddingOption(::core::mem::transmute_copy(&embeddingoption)).into()
         }
-        unsafe extern "system" fn GetTimeFormat<Identity: ::windows::core::IUnknownImpl, Impl: IOpcSigningOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, timeformat: *mut OPC_SIGNATURE_TIME_FORMAT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetTimeFormat<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcSigningOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, timeformat: *mut OPC_SIGNATURE_TIME_FORMAT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetTimeFormat() {
+            let this = (*this).get_impl();
+            match this.GetTimeFormat() {
                 ::core::result::Result::Ok(ok__) => {
                     *timeformat = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -2110,15 +2110,15 @@ impl IOpcSigningOptions_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetTimeFormat<Identity: ::windows::core::IUnknownImpl, Impl: IOpcSigningOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, timeformat: OPC_SIGNATURE_TIME_FORMAT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetTimeFormat<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcSigningOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, timeformat: OPC_SIGNATURE_TIME_FORMAT) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            (*this).SetTimeFormat(::core::mem::transmute_copy(&timeformat)).into()
+            let this = (*this).get_impl();
+            this.SetTimeFormat(::core::mem::transmute_copy(&timeformat)).into()
         }
-        unsafe extern "system" fn GetSignaturePartReferenceSet<Identity: ::windows::core::IUnknownImpl, Impl: IOpcSigningOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, partreferenceset: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetSignaturePartReferenceSet<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcSigningOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, partreferenceset: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetSignaturePartReferenceSet() {
+            let this = (*this).get_impl();
+            match this.GetSignaturePartReferenceSet() {
                 ::core::result::Result::Ok(ok__) => {
                     *partreferenceset = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -2126,10 +2126,10 @@ impl IOpcSigningOptions_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetSignatureRelationshipReferenceSet<Identity: ::windows::core::IUnknownImpl, Impl: IOpcSigningOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, relationshipreferenceset: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetSignatureRelationshipReferenceSet<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcSigningOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, relationshipreferenceset: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetSignatureRelationshipReferenceSet() {
+            let this = (*this).get_impl();
+            match this.GetSignatureRelationshipReferenceSet() {
                 ::core::result::Result::Ok(ok__) => {
                     *relationshipreferenceset = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -2137,10 +2137,10 @@ impl IOpcSigningOptions_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetCustomObjectSet<Identity: ::windows::core::IUnknownImpl, Impl: IOpcSigningOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, customobjectset: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetCustomObjectSet<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcSigningOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, customobjectset: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetCustomObjectSet() {
+            let this = (*this).get_impl();
+            match this.GetCustomObjectSet() {
                 ::core::result::Result::Ok(ok__) => {
                     *customobjectset = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -2148,10 +2148,10 @@ impl IOpcSigningOptions_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetCustomReferenceSet<Identity: ::windows::core::IUnknownImpl, Impl: IOpcSigningOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, customreferenceset: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetCustomReferenceSet<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcSigningOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, customreferenceset: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetCustomReferenceSet() {
+            let this = (*this).get_impl();
+            match this.GetCustomReferenceSet() {
                 ::core::result::Result::Ok(ok__) => {
                     *customreferenceset = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -2159,10 +2159,10 @@ impl IOpcSigningOptions_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetCertificateSet<Identity: ::windows::core::IUnknownImpl, Impl: IOpcSigningOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, certificateset: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetCertificateSet<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcSigningOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, certificateset: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetCertificateSet() {
+            let this = (*this).get_impl();
+            match this.GetCertificateSet() {
                 ::core::result::Result::Ok(ok__) => {
                     *certificateset = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -2170,10 +2170,10 @@ impl IOpcSigningOptions_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetSignaturePartName<Identity: ::windows::core::IUnknownImpl, Impl: IOpcSigningOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, signaturepartname: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetSignaturePartName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcSigningOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, signaturepartname: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetSignaturePartName() {
+            let this = (*this).get_impl();
+            match this.GetSignaturePartName() {
                 ::core::result::Result::Ok(ok__) => {
                     *signaturepartname = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -2181,10 +2181,10 @@ impl IOpcSigningOptions_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSignaturePartName<Identity: ::windows::core::IUnknownImpl, Impl: IOpcSigningOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, signaturepartname: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetSignaturePartName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcSigningOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, signaturepartname: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            (*this).SetSignaturePartName(::core::mem::transmute(&signaturepartname)).into()
+            let this = (*this).get_impl();
+            this.SetSignaturePartName(::core::mem::transmute(&signaturepartname)).into()
         }
         Self {
             base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
@@ -2221,11 +2221,11 @@ pub trait IOpcUri_Impl: Sized + super::super::super::System::Com::IUri_Impl {
 impl ::windows::core::RuntimeName for IOpcUri {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IOpcUri_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IOpcUri_Impl, const OFFSET: isize>() -> IOpcUri_Vtbl {
-        unsafe extern "system" fn GetRelationshipsPartUri<Identity: ::windows::core::IUnknownImpl, Impl: IOpcUri_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, relationshipparturi: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcUri_Impl, const OFFSET: isize>() -> IOpcUri_Vtbl {
+        unsafe extern "system" fn GetRelationshipsPartUri<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcUri_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, relationshipparturi: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetRelationshipsPartUri() {
+            let this = (*this).get_impl();
+            match this.GetRelationshipsPartUri() {
                 ::core::result::Result::Ok(ok__) => {
                     *relationshipparturi = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -2233,10 +2233,10 @@ impl IOpcUri_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetRelativeUri<Identity: ::windows::core::IUnknownImpl, Impl: IOpcUri_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, targetparturi: ::windows::core::RawPtr, relativeuri: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetRelativeUri<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcUri_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, targetparturi: ::windows::core::RawPtr, relativeuri: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetRelativeUri(::core::mem::transmute(&targetparturi)) {
+            let this = (*this).get_impl();
+            match this.GetRelativeUri(::core::mem::transmute(&targetparturi)) {
                 ::core::result::Result::Ok(ok__) => {
                     *relativeuri = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -2244,10 +2244,10 @@ impl IOpcUri_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CombinePartUri<Identity: ::windows::core::IUnknownImpl, Impl: IOpcUri_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, relativeuri: ::windows::core::RawPtr, combineduri: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CombinePartUri<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOpcUri_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, relativeuri: ::windows::core::RawPtr, combineduri: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).CombinePartUri(::core::mem::transmute(&relativeuri)) {
+            let this = (*this).get_impl();
+            match this.CombinePartUri(::core::mem::transmute(&relativeuri)) {
                 ::core::result::Result::Ok(ok__) => {
                     *combineduri = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)

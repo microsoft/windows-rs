@@ -6,11 +6,11 @@ pub trait ILearningModelDeviceFactoryNative_Impl: Sized {
 impl ::windows::core::RuntimeName for ILearningModelDeviceFactoryNative {}
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ILearningModelDeviceFactoryNative_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILearningModelDeviceFactoryNative_Impl, const OFFSET: isize>() -> ILearningModelDeviceFactoryNative_Vtbl {
-        unsafe extern "system" fn CreateFromD3D12CommandQueue<Identity: ::windows::core::IUnknownImpl, Impl: ILearningModelDeviceFactoryNative_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ILearningModelDeviceFactoryNative_Impl, const OFFSET: isize>() -> ILearningModelDeviceFactoryNative_Vtbl {
+        unsafe extern "system" fn CreateFromD3D12CommandQueue<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ILearningModelDeviceFactoryNative_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).CreateFromD3D12CommandQueue(::core::mem::transmute(&value)) {
+            let this = (*this).get_impl();
+            match this.CreateFromD3D12CommandQueue(::core::mem::transmute(&value)) {
                 ::core::result::Result::Ok(ok__) => {
                     *result = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -35,11 +35,11 @@ pub trait ILearningModelOperatorProviderNative_Impl: Sized {
 impl ::windows::core::RuntimeName for ILearningModelOperatorProviderNative {}
 #[cfg(feature = "Win32_AI_MachineLearning_WinML")]
 impl ILearningModelOperatorProviderNative_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILearningModelOperatorProviderNative_Impl, const OFFSET: isize>() -> ILearningModelOperatorProviderNative_Vtbl {
-        unsafe extern "system" fn GetRegistry<Identity: ::windows::core::IUnknownImpl, Impl: ILearningModelOperatorProviderNative_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppoperatorregistry: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ILearningModelOperatorProviderNative_Impl, const OFFSET: isize>() -> ILearningModelOperatorProviderNative_Vtbl {
+        unsafe extern "system" fn GetRegistry<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ILearningModelOperatorProviderNative_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppoperatorregistry: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetRegistry() {
+            let this = (*this).get_impl();
+            match this.GetRegistry() {
                 ::core::result::Result::Ok(ok__) => {
                     *ppoperatorregistry = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -58,11 +58,11 @@ pub trait ILearningModelSessionOptionsNative_Impl: Sized {
 }
 impl ::windows::core::RuntimeName for ILearningModelSessionOptionsNative {}
 impl ILearningModelSessionOptionsNative_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILearningModelSessionOptionsNative_Impl, const OFFSET: isize>() -> ILearningModelSessionOptionsNative_Vtbl {
-        unsafe extern "system" fn SetIntraOpNumThreadsOverride<Identity: ::windows::core::IUnknownImpl, Impl: ILearningModelSessionOptionsNative_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, intraopnumthreads: u32) -> ::windows::core::HRESULT {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ILearningModelSessionOptionsNative_Impl, const OFFSET: isize>() -> ILearningModelSessionOptionsNative_Vtbl {
+        unsafe extern "system" fn SetIntraOpNumThreadsOverride<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ILearningModelSessionOptionsNative_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, intraopnumthreads: u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            (*this).SetIntraOpNumThreadsOverride(::core::mem::transmute_copy(&intraopnumthreads)).into()
+            let this = (*this).get_impl();
+            this.SetIntraOpNumThreadsOverride(::core::mem::transmute_copy(&intraopnumthreads)).into()
         }
         Self {
             base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
@@ -82,16 +82,16 @@ pub trait ITensorNative_Impl: Sized {
 impl ::windows::core::RuntimeName for ITensorNative {}
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ITensorNative_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITensorNative_Impl, const OFFSET: isize>() -> ITensorNative_Vtbl {
-        unsafe extern "system" fn GetBuffer<Identity: ::windows::core::IUnknownImpl, Impl: ITensorNative_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut *mut u8, capacity: *mut u32) -> ::windows::core::HRESULT {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITensorNative_Impl, const OFFSET: isize>() -> ITensorNative_Vtbl {
+        unsafe extern "system" fn GetBuffer<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITensorNative_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut *mut u8, capacity: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            (*this).GetBuffer(::core::mem::transmute_copy(&value), ::core::mem::transmute_copy(&capacity)).into()
+            let this = (*this).get_impl();
+            this.GetBuffer(::core::mem::transmute_copy(&value), ::core::mem::transmute_copy(&capacity)).into()
         }
-        unsafe extern "system" fn GetD3D12Resource<Identity: ::windows::core::IUnknownImpl, Impl: ITensorNative_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetD3D12Resource<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITensorNative_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            match (*this).GetD3D12Resource() {
+            let this = (*this).get_impl();
+            match this.GetD3D12Resource() {
                 ::core::result::Result::Ok(ok__) => {
                     *result = ::core::mem::transmute(ok__);
                     ::windows::core::HRESULT(0)
@@ -117,11 +117,11 @@ pub trait ITensorStaticsNative_Impl: Sized {
 impl ::windows::core::RuntimeName for ITensorStaticsNative {}
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ITensorStaticsNative_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITensorStaticsNative_Impl, const OFFSET: isize>() -> ITensorStaticsNative_Vtbl {
-        unsafe extern "system" fn CreateFromD3D12Resource<Identity: ::windows::core::IUnknownImpl, Impl: ITensorStaticsNative_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, shape: *mut i64, shapecount: i32, result: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITensorStaticsNative_Impl, const OFFSET: isize>() -> ITensorStaticsNative_Vtbl {
+        unsafe extern "system" fn CreateFromD3D12Resource<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITensorStaticsNative_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, shape: *mut i64, shapecount: i32, result: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
-            let this = (*this).get_impl() as *mut Impl;
-            (*this).CreateFromD3D12Resource(::core::mem::transmute(&value), ::core::mem::transmute_copy(&shape), ::core::mem::transmute_copy(&shapecount), ::core::mem::transmute_copy(&result)).into()
+            let this = (*this).get_impl();
+            this.CreateFromD3D12Resource(::core::mem::transmute(&value), ::core::mem::transmute_copy(&shape), ::core::mem::transmute_copy(&shapecount), ::core::mem::transmute_copy(&result)).into()
         }
         Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), CreateFromD3D12Resource: CreateFromD3D12Resource::<Identity, Impl, OFFSET> }
     }
