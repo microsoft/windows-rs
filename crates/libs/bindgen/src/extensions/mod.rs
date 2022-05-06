@@ -16,6 +16,7 @@ pub fn gen(def: &TypeDef) -> TokenStream {
         TypeName::Matrix3x2 => matrix3x2::gen(),
         TypeName::Matrix4x4 => matrix4x4::gen(),
         TypeName::WIN32_ERROR => win32_error::gen(),
+        TypeName::IN_ADDR => in_addr::gen(),
         _ => quote! {},
     }
 }
