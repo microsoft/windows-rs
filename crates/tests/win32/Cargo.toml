@@ -16,6 +16,7 @@ features = [
     "Win32_Graphics_Dxgi_Common",
     "Win32_Graphics_Hlsl",
     "Win32_Networking_Ldap",
+    "Win32_Networking_WinSock",
     "Win32_Security_Authorization",
     "Win32_System_Com_StructuredStorage",
     "Win32_System_Diagnostics_Debug",

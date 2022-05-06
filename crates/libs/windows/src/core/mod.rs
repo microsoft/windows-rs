@@ -29,6 +29,7 @@ mod unknown;
 mod waiter;
 mod weak;
 mod weak_ref_count;
+mod winsock;
 
 #[doc(hidden)]
 pub use abi::*;
@@ -73,6 +74,7 @@ pub use waiter::*;
 pub use weak::*;
 #[doc(hidden)]
 pub use weak_ref_count::*;
+pub use winsock::*;
 
 /// A specialized [`Result`] type that provides Windows error information.
 pub type Result<T> = core::result::Result<T, Error>;
